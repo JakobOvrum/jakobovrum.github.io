@@ -7,5 +7,5 @@ FAVICON = favicon.ico
 LOGOSRC = dlogo-small.png
 LOGOALT = The D Programming Language
 LOGOLINK = $(REFERENCETOP)
-COPYRIGHT = Your Name Here
-STARTYEAR = 2012
+COPYRIGHT =
+COPYRIGHTFOOTER = &copy; $(COPYRIGHT)
