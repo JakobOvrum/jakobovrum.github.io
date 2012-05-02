@@ -1,6 +1,6 @@
 [submodule "bootdoc-phobos/bootDoc"]
 	path = bootdoc-phobos/bootDoc
-	url = git@github.com:JakobOvrum/bootDoc.git
+	url = git://github.com/JakobOvrum/bootDoc.git
 [submodule "bootdoc-phobos/phobos"]
 	path = bootdoc-phobos/phobos
 	url = git://github.com/D-Programming-Language/phobos.git
