@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.system" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.system" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,10 +193,12 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a> and Jonathan M Davis
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/system.d">std/system.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/system.d">std/system.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="OS" href="#OS">OS</a>;
 </h3></div>
@@ -205,14 +207,15 @@
 <div class="declaration-content"><dl><p>Operating system.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 This is for cases where you need a value representing the <a class="symbol symbol-anchor" name="OS" href="#OS">OS</a> at
             runtime. If you're doing something which should compile differently
             on different OSes, then please use <span class="inlinecode">version(Windows)</span>,
             <span class="inlinecode">version(linux)</span>, etc.
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd><a href="../version.html#PredefinedVersions">Predefined Versions</a></dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="win32" href="#win32">win32</a></h3></div>
 
@@ -290,15 +293,16 @@ This is for cases where you need a value representing the <a class="symbol symbo
 <div class="declaration-content"><dl><p>Byte order endianness.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 This is intended for cases where you need to deal with endianness at
             runtime. If you're doing something which should compile differently
             depending on whether you're compiling on a big endian or little
             endian machine, then please use <span class="inlinecode">version(BigEndian)</span> and
             <span class="inlinecode">version(LittleEndian)</span>.
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd><a href="../version.html#PredefinedVersions">Predefined Versions</a></dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="bigEndian" href="#bigEndian">bigEndian</a></h3></div>
 

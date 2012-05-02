@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.md5" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.md5" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -198,20 +198,21 @@
 <dt>Known Bugs</dt><dd>MD5 digests have been demonstrated to not be unique.
 
 </dd>
-<b>Author:</b><br>
+
+<dt>Author:</dt><dd>
 The routines and algorithms are derived from the
  <i>RSA Data Security, Inc. MD5 Message-Digest Algorithm</i>.
 
-<br><br>
-<b>References:</b><br>
+</dd>
+<dt>References:</dt><dd>
 <a href="http://en.wikipedia.org/wiki/Md5">Wikipedia on MD5</a>
 
-<br><br>
-<b>Source:</b><br>
+</dd>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/md5.d">std/md5.d</a>
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// This code is derived from the
 </span>
 <span class="d_comment">// RSA Data Security, Inc. MD5 Message-Digest Algorithm.
@@ -240,7 +241,7 @@ The routines and algorithms are derived from the
     writefln(<span class="d_string">"MD5 (%s) = %s"</span>, filename, digestToString(digest));
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="sum" href="#sum">sum</a>(ref ubyte[16u] <i>digest</i>, in void[][] <i>data</i>...);
 </h3></div>
@@ -267,12 +268,12 @@ The routines and algorithms are derived from the
 <div class="declaration-content"><dl><p>Gets the digest of all <span class="inlinecode"><i>data</i></span> items passed in.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string a = <span class="d_string">"Mary has "</span>, b = <span class="d_string">"a little lamb"</span>;
 <span class="d_keyword">int</span>[] c = [ 1, 2, 3, 4, 5 ];
 string d = <u>getDigestString</u>(a, b, c);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.net.isemail" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.net.isemail" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,26 +193,31 @@
 
 <dt>Authors</dt><dd>Dominic Sayers <dominic@sayers.cc>, Jacob Carlborg
 </dd>
+
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License 1.0</a>
 </dd>
+
 <dt>Version</dt><dd>3.0.13 - Version 3.0 of the original PHP implementation: <a href="http://www.dominicsayers.com/isemail">http://www.dominicsayers.com/isemail</a>
 
 </dd>
+
+
 
 <dt>Standards</dt><dd><ul>            <li>RFC 5321</li>
              <li>RFC 5322</li>
           </ul>
 
 </dd>
-<b>References:</b><br>
+
+<dt>References:</dt><dd>
 <ul>            <li><a href="http://www.dominicsayers.com/isemail">http://www.dominicsayers.com/isemail</a></li>
              <li><a href="http://tools.ietf.org/html/rfc5321">http://tools.ietf.org/html/rfc5321</a></li>
              <li><a href="http://tools.ietf.org/html/rfc5322">http://tools.ietf.org/html/rfc5322</a></li>
           </ul>
 
-<br><br>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/net/isemail.d">std/net/isemail.d</a><br><br>
+</dd>
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/net/isemail.d">std/net/isemail.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>EmailStatus <a class="symbol symbol-anchor" name="isEmail" href="#isEmail">isEmail</a>(Char)(const(Char)[] <i>email</i>, CheckDns <i>checkDNS</i> = CheckDns.no, EmailStatusCode <i>errorLevel</i> = EmailStatusCode.none);
 </h3></div>
@@ -227,10 +232,10 @@
  is more restrictive (comments, white space and obsolete forms are not allowed).
 
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 The DNS check is currently not implemented.
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">email</td>
 <td>The email address to check</td>
 </tr>
@@ -253,7 +258,9 @@ The DNS check is currently not implemented.
                   EmailStatusCode.valid or EmailStatusCode.error.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>an EmailStatus, indicating the status of the email address.</dd>
+
 </dl>
 </div>
 

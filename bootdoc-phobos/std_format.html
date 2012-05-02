@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.format" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.format" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -196,11 +196,13 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>, <a href="http://erdani.com">   Andrei Alexandrescu</a>, and Kenji Hara
 
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/format.d">std/format.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/format.d">std/format.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FormatException" href="#FormatException">FormatException</a>: object.Exception;
 </h3></div>
@@ -264,10 +266,12 @@
 <td>Variadic argument list.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>Mismatched arguments and formats result in a <span class="inlinecode">  FormatException</span> being thrown.
 
 </dd>
-<b>Format String:</b><br>
+
+<dt>Format String:</dt><dd>
 <a name="format-string"><i>Format strings</i></a>
    consist of characters interspersed with <i>format
    specifications</i>. Characters are simply copied to the output (such
@@ -467,7 +471,7 @@
     <i>FormatChar</i> is lower case, or <b>INF</b> or <b>INFINITY</b> if upper.
     </dl>
 
-<br><br>
+</dd>
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">import</span> std.c.stdio;
 <span class="d_keyword">import</span> std.format;
 
@@ -558,6 +562,7 @@ My array is -1-, -2-, -3-.
  [4 5 6]
  [7 8 9]]
 </pre></dd>
+
 </dl>
 </div>
 
@@ -569,7 +574,7 @@ My array is -1-, -2-, -3-.
    to <span class="inlinecode">fmt</span>, and writes them to <span class="inlinecode">args</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string s = <span class="d_string">"hello!124:34.5"</span>;
 string a;
 <span class="d_keyword">int</span> b;
@@ -577,7 +582,7 @@ string a;
 <u>formattedRead</u>(s, <span class="d_string">"%s!%s:%s"</span>, &amp;a, &amp;b, &amp;c);
 <span class="d_keyword">assert</span>(a == <span class="d_string">"hello"</span> &amp;&amp; b == 124 &amp;&amp; c == 34.5);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -817,9 +822,9 @@ string a;
 <div class="declaration-content"><dl><p>Dynamic arrays are formatted as input ranges.
 </p>
 
-<b>Specializations:</b><br>
+<dt>Specializations:</dt><dd>
 <ul><li><span class="inlinecode">void[]</span> is formatted like <span class="inlinecode">ubyte[]</span>.</li>
-          <li>Const array is converted to input range by removing its qualifier.</li></ul><br><br>
+          <li>Const array is converted to input range by removing its qualifier.</li></ul></dd>
 </dl>
 </div>
 

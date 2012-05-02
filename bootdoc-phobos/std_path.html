@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.path" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.path" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -226,11 +226,13 @@
         Thomas Kühne,
         <a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
+
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>
 </dd>
-<b>Source:</b><br>
+
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/path.d">std/path.d</a>
-<br><br>
+</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="dirSeparator" href="#dirSeparator">dirSeparator</a>;
 </h3></div>
@@ -333,7 +335,8 @@
 </pre>
 
 </dd>
-<b>Note:</b><br>
+
+<dt>Note:</dt><dd>
 This function only strips away the specified suffix.  If you want
     to remove the extension from a path, regardless of what the extension
     is, use <a href="#stripExtension"><span class="inlinecode">stripExtension</span></a>.
@@ -342,10 +345,11 @@ This function only strips away the specified suffix.  If you want
 <pre class="d_code">    <span class="d_keyword">assert</span> (<u>baseName</u>(stripExtension(<span class="d_string">"dir/file.ext"</span>)) == <span class="d_string">"file"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>This function complies with
     <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/basename.html">    the POSIX requirements for the 'basename' shell utility</a>
     (with suitable adaptations for Windows paths).</dd>
+
 </dl>
 </div>
 
@@ -372,9 +376,11 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
+
 <dt>Standards</dt><dd>This function complies with
     <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/dirname.html">    the POSIX requirements for the 'dirname' shell utility</a>
     (with suitable adaptations for Windows paths).</dd>
+
 </dl>
 </div>
 
@@ -397,6 +403,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -420,6 +427,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -430,14 +438,14 @@ This function only strips away the specified suffix.  If you want
 <div class="declaration-content"><dl><p>Strip the drive from a Windows path.  On POSIX, this is a noop.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">    <span class="d_keyword">version</span> (Windows)
     {
         <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`d:\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
         <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`\\server\share\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
     }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -459,6 +467,7 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".ext"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -478,6 +487,7 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"dir/file.ext"</span>)   == <span class="d_string">"dir/file"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -504,6 +514,7 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.new"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -529,6 +540,7 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.old"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -561,6 +573,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -598,6 +611,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -622,6 +636,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -693,6 +708,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -728,7 +744,9 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
+
 </dl>
 </div>
 
@@ -787,7 +805,9 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
+
 </dl>
 </div>
 
@@ -830,6 +850,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -873,6 +894,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -916,9 +938,11 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">true</span></span> if pattern matches path, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia: glob (programming)</a>
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>));
     <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*.*"</span>));
     <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">`foo/foo\bar`</span>, <span class="d_string">"f*b*r"</span>));
@@ -944,6 +968,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1049,6 +1074,7 @@ This function only strips away the specified suffix.  If you want
     For Windows, <span class="inlinecode"><a class="symbol symbol-anchor" name="expandTilde" href="#expandTilde">expandTilde</a></span> merely returns its argument <span class="inlinecode"><i>inputPath</i></span>.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">void</span> processFile(string path)
     {
         <span class="d_comment">// Allow calling this function with paths such as ~/foo
@@ -1058,6 +1084,7 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1076,6 +1103,7 @@ This function only strips away the specified suffix.  If you want
       <tr> <td> = 0   <td> filename1 == filename2
       <tr> <td> &gt; 0        <td> filename1 &gt; filename2
       </table></dd>
+
 </dl>
 </div>
 
@@ -1101,9 +1129,11 @@ This function only strips away the specified suffix.  If you want
  contain any dots or path separators, returns <span class="d_keyword">null</span>.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>getExt</u>(<span class="d_string">r"d:\path\foo.bat"</span>) <span class="d_comment">// "bat"
@@ -1122,6 +1152,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1147,9 +1178,11 @@ This function only strips away the specified suffix.  If you want
  contain any dots or path separators, returns <span class="d_keyword">null</span>.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>getName</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:\path\foo"</span>
@@ -1163,6 +1196,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1191,9 +1225,11 @@ This function only strips away the specified suffix.  If you want
  part and the extension part, if any, have been removed.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>basename</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"foo.bat"</span>
@@ -1206,6 +1242,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1235,9 +1272,11 @@ This function only strips away the specified suffix.  If you want
  if and only if it represents the root.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">r"d:\path\foo.bat"</span>) == <span class="d_string">r"d:\path"</span>);
@@ -1253,6 +1292,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1277,12 +1317,15 @@ This function only strips away the specified suffix.  If you want
  Under Linux, this function always returns <span class="d_keyword">null</span> immediately.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <u>getDrive</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:"</span>
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1307,14 +1350,17 @@ This function only strips away the specified suffix.  If you want
  + ext.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <u>defaultExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.txt"</span>
  <u>defaultExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>defaultExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1341,14 +1387,17 @@ This function only strips away the specified suffix.  If you want
  result.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <u>addExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>addExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>addExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1368,9 +1417,11 @@ This function only strips away the specified suffix.  If you want
  zero otherwise.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>isabs</u>(<span class="d_string">r"relative\path"</span>) =&gt; 0
@@ -1384,6 +1435,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1418,9 +1470,11 @@ This function only strips away the specified suffix.  If you want
  will be returned.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>join</u>(<span class="d_string">r"c:\foo"</span>, <span class="d_string">"bar"</span>) =&gt; <span class="d_string">r"c:\foo\bar"</span>
@@ -1433,6 +1487,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1454,9 +1509,11 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd>non zero if c1 matches c2, zero otherwise.
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>fncharmatch</u>('a', 'b') =&gt; 0
@@ -1469,6 +1526,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1506,12 +1564,15 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd>non zero if pattern matches filename, zero otherwise.
 
 </dd>
+
 <dt>See Also</dt><dd>fncharmatch().
 
 </dd>
+
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>fnmatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>) =&gt; 1
@@ -1528,6 +1589,7 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 

@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in etc.c.curl" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in etc.c.curl" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -1606,12 +1606,12 @@
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="operation_timedout" href="#operation_timedout">operation_timedout</a></h3></div>
 
 
-<div class="declaration-content"><dl><b>Note:</b><br>
+<div class="declaration-content"><dl><dt>Note:</dt><dd>
 CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
              instead of a memory allocation error if CURL_DOES_CONVERSIONS
              is defined
     
- 28 - the timeout time was reached <br><br>
+ 28 - the timeout time was reached </dd>
 </dl>
 </div>
 
@@ -3276,11 +3276,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
  Custom request, for customizing the get command like
 </p>
 
-<b>HTTP:</b><br>
+<dt>HTTP:</dt><dd>
 DELETE, TRACE and others
-<br><br>
-<b>FTP:</b><br>
-to use a different list command<br><br>
+</dd>
+<dt>FTP:</dt><dd>
+to use a different list command</dd>
 </dl>
 </div>
 
@@ -4409,8 +4409,8 @@ to use a different list command<br><br>
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ftp_use_pret" href="#ftp_use_pret">ftp_use_pret</a></h3></div>
 
 
-<div class="declaration-content"><dl><b>FTP:</b><br>
-send PRET before PASV <br><br>
+<div class="declaration-content"><dl><dt>FTP:</dt><dd>
+send PRET before PASV </dd>
 </dl>
 </div>
 
@@ -5028,6 +5028,7 @@ send PRET before PASV <br><br>
  CURL_FORMADD_MEMORY         if a curl_httppost struct cannot be allocated
  CURL_FORMADD_MEMORY         if some allocation for string copying failed.
  CURL_FORMADD_ILLEGAL_ARRAY  if an illegal option is used in an array</dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ok" href="#ok">ok</a></h3></div>
 
@@ -5102,14 +5103,14 @@ send PRET before PASV <br><br>
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_formadd" href="#curl_formadd">curl_formadd</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Pretty advanced function for building multi-part formposts. Each invoke
  adds one part that together construct a full post. Then use
- CURLOPT_HTTPPOST to send it off to libcurl.<br><br>
+ CURLOPT_HTTPPOST to send it off to libcurl.</dd>
 </dl>
 </div>
 
@@ -5131,15 +5132,15 @@ Pretty advanced function for building multi-part formposts. Each invoke
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_formget" href="#curl_formget">curl_formget</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Serialize a curl_httppost struct built with curl_formadd().
  Accepts a void pointer as second argument which will be passed to
  the curl_formget_callback function.
- Returns 0 on success.<br><br>
+ Returns 0 on success.</dd>
 </dl>
 </div>
 
@@ -5147,12 +5148,12 @@ Serialize a curl_httppost struct built with curl_formadd().
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_formfree" href="#curl_formfree">curl_formfree</a>()
 
-<br><br>
-<b>Description:</b><br>
-Free a multipart formpost previously built with curl_formadd().<br><br>
+</dd>
+<dt>Description:</dt><dd>
+Free a multipart formpost previously built with curl_formadd().</dd>
 </dl>
 </div>
 
@@ -5160,13 +5161,13 @@ Free a multipart formpost previously built with curl_formadd().<br><br>
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_getenv" href="#curl_getenv">curl_getenv</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Returns a malloc()'ed string that MUST be curl_free()ed after usage is
- complete. DEPRECATED - see lib/README.curlx<br><br>
+ complete. DEPRECATED - see lib/README.curlx</dd>
 </dl>
 </div>
 
@@ -5174,12 +5175,12 @@ Returns a malloc()'ed string that MUST be curl_free()ed after usage is
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_version" href="#curl_version">curl_version</a>()
 
-<br><br>
-<b>Description:</b><br>
-Returns a static ascii string of the libcurl version.<br><br>
+</dd>
+<dt>Description:</dt><dd>
+Returns a static ascii string of the libcurl version.</dd>
 </dl>
 </div>
 
@@ -5187,14 +5188,14 @@ Returns a static ascii string of the libcurl version.<br><br>
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_escape" href="#curl_easy_escape">curl_easy_escape</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Escapes URL strings (converts all letters consider illegal in URLs to their
  %XX versions). This function returns a new allocated <i>string</i> or NULL if an
- error occurred.<br><br>
+ error occurred.</dd>
 </dl>
 </div>
 
@@ -5211,16 +5212,16 @@ Escapes URL strings (converts all letters consider illegal in URLs to their
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_unescape" href="#curl_easy_unescape">curl_easy_unescape</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Unescapes URL encoding in strings (converts all %XX codes to their 8bit
  versions). This function returns a new allocated <i>string</i> or NULL if an error
  occurred.
  Conversion Note: On non-ASCII platforms the ASCII %XX codes are
- converted into the host encoding.<br><br>
+ converted into the host encoding.</dd>
 </dl>
 </div>
 
@@ -5237,13 +5238,13 @@ Unescapes URL encoding in strings (converts all %XX codes to their 8bit
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_free" href="#curl_free">curl_free</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Provided for de-allocation in the same translation unit that did the
- allocation. Added in libcurl 7.10<br><br>
+ allocation. Added in libcurl 7.10</dd>
 </dl>
 </div>
 
@@ -5251,16 +5252,16 @@ Provided for de-allocation in the same translation unit that did the
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_global_init" href="#curl_global_init">curl_global_init</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_global_init" href="#curl_global_init">curl_global_init</a>() should be invoked exactly once for each application that
  uses libcurl and before any call of other libcurl functions.
 <br><br>
 
- This function is not thread-safe!<br><br>
+ This function is not thread-safe!</dd>
 </dl>
 </div>
 
@@ -5268,18 +5269,18 @@ Provided for de-allocation in the same translation unit that did the
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_global_init_mem" href="#curl_global_init_mem">curl_global_init_mem</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 curl_global_init() or <a class="symbol symbol-anchor" name="curl_global_init_mem" href="#curl_global_init_mem">curl_global_init_mem</a>() should be invoked exactly once
  for each application that uses libcurl.  This function can be used to
  initialize libcurl and set user defined memory management callback
  functions.  Users can implement memory management routines to check for
  memory leaks, check for mis-use of the curl library etc.  User registered
  callback routines with be invoked by this library instead of the system
- memory management routines like malloc, free etc.<br><br>
+ memory management routines like malloc, free etc.</dd>
 </dl>
 </div>
 
@@ -5287,13 +5288,13 @@ curl_global_init() or <a class="symbol symbol-anchor" name="curl_global_init_mem
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_global_cleanup" href="#curl_global_cleanup">curl_global_cleanup</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_global_cleanup" href="#curl_global_cleanup">curl_global_cleanup</a>() should be invoked exactly once for each application
- that uses libcurl<br><br>
+ that uses libcurl</dd>
 </dl>
 </div>
 
@@ -5310,15 +5311,15 @@ curl_global_init() or <a class="symbol symbol-anchor" name="curl_global_init_mem
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_slist_append" href="#curl_slist_append">curl_slist_append</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Appends a string to a linked list. If no list exists, it will be created
  first. Returns the new list, after appending.
  
- linked-list structure for the CURLOPT_QUOTE option (and other) <br><br>
+ linked-list structure for the CURLOPT_QUOTE option (and other) </dd>
 </dl>
 </div>
 
@@ -5326,14 +5327,14 @@ Appends a string to a linked list. If no list exists, it will be created
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_slist_free_all" href="#curl_slist_free_all">curl_slist_free_all</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 free a previously built curl_slist.
  
- linked-list structure for the CURLOPT_QUOTE option (and other) <br><br>
+ linked-list structure for the CURLOPT_QUOTE option (and other) </dd>
 </dl>
 </div>
 
@@ -5341,16 +5342,16 @@ free a previously built curl_slist.
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_getdate" href="#curl_getdate">curl_getdate</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Returns the time, in seconds since 1 Jan 1970 of the time string given in
  the first argument. The time argument in the second parameter is <i>unused</i>
  and should be set to NULL.
  
- linked-list structure for the CURLOPT_QUOTE option (and other) <br><br>
+ linked-list structure for the CURLOPT_QUOTE option (and other) </dd>
 </dl>
 </div>
 
@@ -6444,13 +6445,13 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_version_info" href="#curl_version_info">curl_version_info</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 This function returns a pointer to a static copy of the version info
- struct. See above.<br><br>
+ struct. See above.</dd>
 </dl>
 </div>
 
@@ -6458,14 +6459,14 @@ This function returns a pointer to a static copy of the version info
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_strerror" href="#curl_easy_strerror">curl_easy_strerror</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 The <a class="symbol symbol-anchor" name="curl_easy_strerror" href="#curl_easy_strerror">curl_easy_strerror</a> function may be used to turn a CURLcode value
  into the equivalent human readable error string.  This is useful
- for printing meaningful error messages.<br><br>
+ for printing meaningful error messages.</dd>
 </dl>
 </div>
 
@@ -6473,14 +6474,14 @@ The <a class="symbol symbol-anchor" name="curl_easy_strerror" href="#curl_easy_s
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_share_strerror" href="#curl_share_strerror">curl_share_strerror</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 The <a class="symbol symbol-anchor" name="curl_share_strerror" href="#curl_share_strerror">curl_share_strerror</a> function may be used to turn a CURLSHcode value
  into the equivalent human readable error string.  This is useful
- for printing meaningful error messages.<br><br>
+ for printing meaningful error messages.</dd>
 </dl>
 </div>
 
@@ -6488,13 +6489,13 @@ The <a class="symbol symbol-anchor" name="curl_share_strerror" href="#curl_share
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_pause" href="#curl_easy_pause">curl_easy_pause</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 The <a class="symbol symbol-anchor" name="curl_easy_pause" href="#curl_easy_pause">curl_easy_pause</a> function pauses or unpauses transfers. Select the new
- state by setting the <i>bitmask</i>, use the convenience defines below.<br><br>
+ state by setting the <i>bitmask</i>, use the convenience defines below.</dd>
 </dl>
 </div>
 
@@ -6575,18 +6576,18 @@ The <a class="symbol symbol-anchor" name="curl_easy_pause" href="#curl_easy_paus
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_getinfo" href="#curl_easy_getinfo">curl_easy_getinfo</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Request internal information from the <i>curl</i> session with this function.  The
  third argument MUST be a pointer to a long, a pointer to a char * or a
  pointer to a double (as the documentation describes elsewhere).  The data
  pointed to will be filled in accordingly and can be relied upon only if the
  function returns CURLE_OK.  This function is intended to get used *AFTER* a
  performed transfer, all results from this function are undefined until the
- transfer is completed.<br><br>
+ transfer is completed.</dd>
 </dl>
 </div>
 
@@ -6594,17 +6595,17 @@ Request internal information from the <i>curl</i> session with this function.  T
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_duphandle" href="#curl_easy_duphandle">curl_easy_duphandle</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Creates a new <i>curl</i> session handle with the same options set for the handle
  passed in. Duplicating a handle could only be a matter of cloning data and
  options, internal state info and things like persistant connections cannot
  be transfered. It is useful in multithreaded applications when you can run
  <a class="symbol symbol-anchor" name="curl_easy_duphandle" href="#curl_easy_duphandle">curl_easy_duphandle</a>() for each new thread to avoid a series of identical
- curl_easy_setopt() invokes in every thread.<br><br>
+ curl_easy_setopt() invokes in every thread.</dd>
 </dl>
 </div>
 
@@ -6612,17 +6613,17 @@ Creates a new <i>curl</i> session handle with the same options set for the handl
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_reset" href="#curl_easy_reset">curl_easy_reset</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Re-initializes a CURL handle to the default values. This puts back the
  handle to the same state as it was in when it was just created.
 <br><br>
 
  It does keep: live connections, the Session ID cache, the DNS cache and the
- cookies.<br><br>
+ cookies.</dd>
 </dl>
 </div>
 
@@ -6630,13 +6631,13 @@ Re-initializes a CURL handle to the default values. This puts back the
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_recv" href="#curl_easy_recv">curl_easy_recv</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Receives data from the connected socket. Use after successful
- curl_easy_perform() with CURLOPT_CONNECT_ONLY option.<br><br>
+ curl_easy_perform() with CURLOPT_CONNECT_ONLY option.</dd>
 </dl>
 </div>
 
@@ -6644,13 +6645,13 @@ Receives data from the connected socket. Use after successful
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_easy_send" href="#curl_easy_send">curl_easy_send</a>()
 
-<br><br>
-<b>Description:</b><br>
+</dd>
+<dt>Description:</dt><dd>
 Sends data over the connected socket. Use after successful
- curl_easy_perform() with CURLOPT_CONNECT_ONLY option.<br><br>
+ curl_easy_perform() with CURLOPT_CONNECT_ONLY option.</dd>
 </dl>
 </div>
 
@@ -6858,15 +6859,16 @@ Sends data over the connected socket. Use after successful
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_init" href="#curl_multi_init">curl_multi_init</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 inititalize multi-style curl usage
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>a new CURLM handle to use in all 'curl_multi' functions.</dd>
+
 </dl>
 </div>
 
@@ -6874,15 +6876,16 @@ inititalize multi-style curl usage
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_add_handle" href="#curl_multi_add_handle">curl_multi_add_handle</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 add a standard curl handle to the multi stack
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
+
 </dl>
 </div>
 
@@ -6890,15 +6893,16 @@ add a standard curl handle to the multi stack
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_remove_handle" href="#curl_multi_remove_handle">curl_multi_remove_handle</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 removes a curl handle from the multi stack again
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
+
 </dl>
 </div>
 
@@ -6906,19 +6910,20 @@ removes a curl handle from the multi stack again
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 curl_multi_fdset()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Ask curl for its <a class="symbol symbol-anchor" name="fd_set" href="#fd_set">fd_set</a> sets. The app can use these to select() or
           poll() on. We want curl_multi_perform() called as soon as one of
           them are ready.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.
   
  tmp decl </dd>
+
 </dl>
 </div>
 
@@ -6933,11 +6938,11 @@ Ask curl for its <a class="symbol symbol-anchor" name="fd_set" href="#fd_set">fd
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_perform" href="#curl_multi_perform">curl_multi_perform</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 When the app thinks there's data available for curl it calls this
           function to read/write whatever there is right now. This returns
           as soon as the reads and writes are done. This function does not
@@ -6946,11 +6951,12 @@ When the app thinks there's data available for curl it calls this
           the number of handles that still transfer data in the second
           argument's integer-pointer.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLMcode type, general multi error code. *NOTE* that this only
           returns errors etc regarding the whole multi stack. There might
           still have occurred problems on invidual transfers even when this
           returns OK.</dd>
+
 </dl>
 </div>
 
@@ -6958,18 +6964,19 @@ When the app thinks there's data available for curl it calls this
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_cleanup" href="#curl_multi_cleanup">curl_multi_cleanup</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Cleans up and removes a whole multi stack. It does not free or
           touch any individual easy handles in any way. We need to define
           in what state those handles will be if this function is called
           in the middle of a transfer.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
+
 </dl>
 </div>
 
@@ -6977,11 +6984,11 @@ Cleans up and removes a whole multi stack. It does not free or
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_info_read" href="#curl_multi_info_read">curl_multi_info_read</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Ask the multi handle if there's any messages/informationals from
           the individual transfers. Messages include informationals such as
           error code from the transfer or just the fact that a transfer is
@@ -7005,11 +7012,12 @@ Ask the multi handle if there's any messages/informationals from
           must never expose complex structs to applications, as then we'll
           undoubtably get backwards compatibility problems in the future.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A pointer to a filled-in struct, or NULL if it failed or ran out
           of structs. It also writes the number of messages left in the
           queue (after this read) in the integer the second argument points
           to.</dd>
+
 </dl>
 </div>
 
@@ -7017,17 +7025,18 @@ Ask the multi handle if there's any messages/informationals from
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_strerror" href="#curl_multi_strerror">curl_multi_strerror</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 The <a class="symbol symbol-anchor" name="curl_multi_strerror" href="#curl_multi_strerror">curl_multi_strerror</a> function may be used to turn a CURLMcode
           value into the equivalent human readable error string.  This is
           useful for printing meaningful error messages.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A pointer to a zero-terminated error message.</dd>
+
 </dl>
 </div>
 
@@ -7035,16 +7044,16 @@ The <a class="symbol symbol-anchor" name="curl_multi_strerror" href="#curl_multi
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 curl_multi_socket() and
           curl_multi_socket_all()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 An alternative version of curl_multi_perform() that allows the
           application to pass in one of the file descriptors that have been
           detected to have "action" on them and let libcurl perform.
-          See man page for details.<br><br>
+          See man page for details.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none_" href="#none_">none_</a></h3></div>
 
@@ -7134,20 +7143,21 @@ An alternative version of curl_multi_perform() that allows the
 <div class="declaration-content"><dl><p>private callback pointer 
 </p>
 
-<b>Name:</b><br>
+<dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_timer_callback" href="#curl_multi_timer_callback">curl_multi_timer_callback</a>
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Called by libcurl whenever the library detects a change in the
           maximum number of milliseconds the app is allowed to wait before
           curl_multi_socket() or curl_multi_perform() must be called
           (to allow libcurl's timed events to take place).
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>The callback should return zero.
  
  private callback pointer </dd>
+
 </dl>
 </div>
 
@@ -7158,20 +7168,21 @@ Called by libcurl whenever the library detects a change in the
 <div class="declaration-content"><dl><p>ditto
 </p>
 
-<b>Name:</b><br>
+<dt>Name:</dt><dd>
 curl_multi_timer_callback
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Called by libcurl whenever the library detects a change in the
           maximum number of milliseconds the app is allowed to wait before
           <a class="symbol symbol-anchor" name="curl_multi_socket" href="#curl_multi_socket">curl_multi_socket</a>() or curl_multi_perform() must be called
           (to allow libcurl'<i>s</i> timed events to take place).
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>The callback should return zero.
  
  private callback pointer </dd>
+
 </dl>
 </div>
 
@@ -7182,20 +7193,21 @@ Called by libcurl whenever the library detects a change in the
 <div class="declaration-content"><dl><p>ditto
 </p>
 
-<b>Name:</b><br>
+<dt>Name:</dt><dd>
 curl_multi_timer_callback
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Called by libcurl whenever the library detects a change in the
           maximum number of milliseconds the app is allowed to wait before
           curl_multi_socket() or curl_multi_perform() must be called
           (to allow libcurl'<i>s</i> timed events to take place).
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>The callback should return zero.
  
  private callback pointer </dd>
+
 </dl>
 </div>
 
@@ -7206,20 +7218,21 @@ Called by libcurl whenever the library detects a change in the
 <div class="declaration-content"><dl><p>ditto
 </p>
 
-<b>Name:</b><br>
+<dt>Name:</dt><dd>
 curl_multi_timer_callback
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Called by libcurl whenever the library detects a change in the
           maximum number of milliseconds the app is allowed to wait before
           curl_multi_socket() or curl_multi_perform() must be called
           (to allow libcurl's timed events to take place).
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>The callback should return zero.
  
  private callback pointer </dd>
+
 </dl>
 </div>
 
@@ -7231,17 +7244,18 @@ Called by libcurl whenever the library detects a change in the
    the new curl_multi_socket_action() instead of the old curl_multi_socket()
 </p>
 
-<b>Name:</b><br>
+<dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_timeout" href="#curl_multi_timeout">curl_multi_timeout</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Returns the maximum number of <i>milliseconds</i> the app is allowed to
           wait before curl_multi_socket() or curl_multi_perform() must be
           called (to allow libcurl's timed events to take place).
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLM error code.</dd>
+
 </dl>
 </div>
 
@@ -7319,15 +7333,16 @@ Returns the maximum number of <i>milliseconds</i> the app is allowed to
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_setopt" href="#curl_multi_setopt">curl_multi_setopt</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 Sets options for the multi handle.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLM error code.</dd>
+
 </dl>
 </div>
 
@@ -7335,17 +7350,18 @@ Sets options for the multi handle.
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Name:</b><br>
+<div class="declaration-content"><dl><dt>Name:</dt><dd>
 <a class="symbol symbol-anchor" name="curl_multi_assign" href="#curl_multi_assign">curl_multi_assign</a>()
 
-<br><br>
-<b>Desc:</b><br>
+</dd>
+<dt>Desc:</dt><dd>
 This function sets an association in the multi handle between the
           given socket and a private pointer of the application. This is
           (only) useful for curl_multi_socket uses.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>CURLM error code.</dd>
+
 </dl>
 </div>
 

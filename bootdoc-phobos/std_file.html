@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.file" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.file" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -196,12 +196,14 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a>,
            Jonathan M Davis
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/file.d">std/file.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/file.d">std/file.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FileException" href="#FileException">FileException</a>: object.Exception;
 </h3></div>
@@ -239,6 +241,7 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 <td>The <i>line</i> where the error occurred.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -263,6 +266,7 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 <td>The <i>line</i> where the error occurred.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -278,7 +282,7 @@ array. If the file size is larger than <span class="inlinecode"><i>upTo</i></spa
 bytes are <a class="symbol symbol-anchor" name="read" href="#read">read</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.file, std.stdio;
 <span class="d_keyword">void</span> main()
 {
@@ -288,11 +292,13 @@ bytes are <a class="symbol symbol-anchor" name="read" href="#read">read</a>.
 }
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>Untyped array of bytes read.
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -310,16 +316,18 @@ validation will fail.
 <dt>Returns</dt><dd>Array of characters read.
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on file error, <span class="inlinecode">UTFException</span> on UTF
 decoding error.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code">enforce(system(<span class="d_string">"echo abc&gt;deleteme"</span>) == 0);
 <span class="d_keyword">scope</span>(exit) remove(<span class="d_string">"deleteme"</span>);
 enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <span class="d_string">"abc"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -333,7 +341,8 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.file;
 <span class="d_keyword">void</span> main()
 {
@@ -342,7 +351,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
    <span class="d_keyword">assert</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>[]) read(<span class="d_string">"filename"</span>) == a);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -356,7 +365,8 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.file;
 <span class="d_keyword">void</span> main()
 {
@@ -367,7 +377,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
    <span class="d_keyword">assert</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>[]) read(<span class="d_string">"filename"</span>) == a ~ b);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -379,6 +389,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -390,6 +401,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -401,6 +413,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error (e.g., file not found).</dd>
+
 </dl>
 </div>
 
@@ -421,7 +434,9 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -452,7 +467,9 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -464,6 +481,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
+
 </dl>
 </div>
 
@@ -491,6 +509,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The time to return if the given file does not exist.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">if</span>(<u>timeLastModified</u>(source) &gt;= <u>timeLastModified</u>(target, SysTime.min))
 {
     <span class="d_comment">// must (re)build
@@ -503,6 +522,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -537,6 +557,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file to get the attributes of.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -559,7 +580,9 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file to get the symbolic link attributes of.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -574,13 +597,16 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The path to the file.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(!<span class="d_string">"/etc/fonts/fonts.conf"</span>.<u>isDir</u>);
 <span class="d_keyword">assert</span>(<span class="d_string">"/usr/share/include"</span>.<u>isDir</u>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -599,6 +625,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -613,10 +640,12 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(!<u>attrIsDir</u>(getAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
 <span class="d_keyword">assert</span>(!<u>attrIsDir</u>(getLinkAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -645,13 +674,16 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The path to the file.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<span class="d_string">"/etc/fonts/fonts.conf"</span>.<u>isFile</u>);
 <span class="d_keyword">assert</span>(!<span class="d_string">"/usr/share/include"</span>.<u>isFile</u>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -682,6 +714,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -709,10 +742,12 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>attrIsFile</u>(getAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
 <span class="d_keyword">assert</span>(<u>attrIsFile</u>(getLinkAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -731,7 +766,9 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The path to the file.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
+
 </dl>
 </div>
 
@@ -754,6 +791,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -772,12 +810,14 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code">core.sys.posix.unistd.symlink(<span class="d_string">"/etc/fonts/fonts.conf"</span>, <span class="d_string">"/tmp/alink"</span>);
 
 <span class="d_keyword">assert</span>(!getAttributes(<span class="d_string">"/tmp/alink"</span>).isSymlink);
 <span class="d_keyword">assert</span>(getLinkAttributes(<span class="d_string">"/tmp/alink"</span>).isSymlink);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -789,6 +829,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -800,6 +841,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -820,6 +862,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -831,6 +874,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -852,7 +896,8 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
                         continue, <span class="d_keyword">false</span> to stop.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 This program lists all the files in its
         path argument and all subdirectories thereof.
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
@@ -873,7 +918,7 @@ This program lists all the files in its
     <u>listdir</u>(args[1], &amp;callback);
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -900,7 +945,9 @@ This program lists all the files in its
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
 </dl>
 </div>
 
@@ -914,6 +961,7 @@ This program lists all the files in its
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if there is an error (including if the given
         file is not a directory).</dd>
+
 </dl>
 </div>
 
@@ -927,6 +975,7 @@ This program lists all the files in its
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if there is an error (including if the given
         file is not a directory).</dd>
+
 </dl>
 </div>
 
@@ -994,6 +1043,7 @@ This program lists all the files in its
                          iterated over.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate a directory in depth
 </span>
 <span class="d_keyword">foreach</span> (string name; <u>dirEntries</u>(<span class="d_string">"destroy/me"</span>, SpanMode.depth))
@@ -1028,6 +1078,7 @@ This program lists all the files in its
 }
 </pre>
 //</dd>
+
 </dl>
 </div>
 
@@ -1057,6 +1108,7 @@ This program lists all the files in its
                          iterated over.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate over all D source files in current directory and all its
 </span>
 <span class="d_comment">// subdirectories
@@ -1066,6 +1118,7 @@ This program lists all the files in its
     writeln(d.name);
 </pre>
 //</dd>
+
 </dl>
 </div>
 
@@ -1080,7 +1133,9 @@ This program lists all the files in its
 <td>The file (or directory) to get a DirEntry for.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the file does not exist.</dd>
+
 </dl>
 </div>
 
@@ -1091,14 +1146,14 @@ This program lists all the files in its
 <div class="declaration-content"><dl><p>Reads an entire file into an array.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Load file; each line is an int followed by comma, whitespace and a
 </span>
 <span class="d_comment">// double.
 </span>
 <span class="d_keyword">auto</span> a = <u>slurp</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>)(<span class="d_string">"filename"</span>, <span class="d_string">"%s, %s"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1119,6 +1174,7 @@ This program lists all the files in its
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
 
 </dd>
+
 <dt>Examples</dt><dd>This program lists all the files and subdirectories in its
     path argument.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
@@ -1133,6 +1189,7 @@ This program lists all the files in its
 }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1165,6 +1222,7 @@ This program lists all the files in its
                          iterated over. Ignored on Windows.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd>This program lists all the files with a "d" extension in
     the path passed as the first argument.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
@@ -1194,6 +1252,7 @@ This program lists all the files in its
 }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1215,7 +1274,8 @@ This program lists all the files in its
                         continue, <span class="d_keyword">false</span> to stop.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 This program lists all the files in its
         path argument, including the path.
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
@@ -1240,7 +1300,7 @@ This program lists all the files in its
       writefln(<span class="d_string">"%s"</span>, name);
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

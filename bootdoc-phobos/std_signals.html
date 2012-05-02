@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.signals" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.signals" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -199,7 +199,7 @@
  longer necessary to instrument the slots.
 
 </p>
-<b>References:</b><br>
+<dt>References:</dt><dd>
 <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=A Deeper Look at Signals and Slots">A Deeper Look at Signals and Slots</a><br>
       <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer pattern</a><br>
       <a href="http://en.wikipedia.org/wiki/Signals_and_slots">Wikipedia</a><br>
@@ -227,7 +227,7 @@
       <a href="http://www.digitalmars.com/d/archives/16583.html">The importance of component programming (properties, <a class="symbol symbol-anchor" name="signals" href="#signals">signals</a> and slots, etc)</a><br>
       <a href="http://www.digitalmars.com/d/archives/16368.html"><a class="symbol symbol-anchor" name="signals" href="#signals">signals</a> and slots</a><br>
 
-<br><br>
+</dd>
 <dt>Known Bugs</dt><dd>Slots can only be delegates formed from class objects or
       interfaces to class objects. If a delegate to something else
       is passed to connect(), such as a struct member function,
@@ -238,12 +238,15 @@
       Not safe for multiple threads operating on the same <a class="symbol symbol-anchor" name="signals" href="#signals">signals</a>
       or slots.
 </dd>
+
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/signals.d">std/signals.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/signals.d">std/signals.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Signal" href="#Signal">Signal</a>(T1...)</h3></div>
 
@@ -254,7 +257,7 @@
 <p>Different signals can be added to a class by naming the mixins.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.signals;
 <span class="d_keyword">import</span> std.stdio;
 
@@ -319,7 +322,7 @@
  <pre>
  Observed msg 'setting new value' and value 4
  Observed msg 'setting new value' and value 6
- </pre><br><br>
+ </pre></dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="slot_t" href="#slot_t">slot_t</a>;
 </h3></div>

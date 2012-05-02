@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.base64" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.base64" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,7 +194,7 @@
 <p>Implemented according to <a href="http://tools.ietf.org/html/rfc4648"> RFC 4648 - The Base16</a>.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">ubyte</span>[] data = [0x14, 0xfb, 0x9c, 0x03, 0xd9, 0x7e];
  Base64.encode(data);        <span class="d_comment">//-&gt; "FPucA9l+"
 </span>
@@ -204,8 +204,8 @@
 
  Support Range interface using Encoder / Decoder.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_comment">// Create MIME Base64 with CRLF, per line 76.
 </span>
  <span class="d_keyword">foreach</span> (encoded; Base64.encoder(f.byChunk(57))) {
@@ -214,13 +214,15 @@
  }
 </pre>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Masahiro Nakagawa, Daniel Murphy (Single value Encoder and Decoder)
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/base64.d">std/base64.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/base64.d">std/base64.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Base64" href="#Base64">Base64</a>;
 </h3></div>
@@ -246,16 +248,16 @@
 <div class="declaration-content"><dl><p>Core implementation for Base64 format.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> <u>Base64Impl</u>!('+', '/')                   Base64;    <span class="d_comment">// The Base64 format(Already defined).
 </span>
  <span class="d_keyword">alias</span> <u>Base64Impl</u>!('!', '=', Base64.NoPadding) Base64Re;  <span class="d_comment">// non-standard Base64 format for Regular expression
 </span>
 </pre>
 
-<br><br>
-<b>NOTE:</b><br>
-encoded-string doesn't have padding character if set Padding parameter to NoPadding.<br><br>
+</dd>
+<dt>NOTE:</dt><dd>
+encoded-string doesn't have padding character if set Padding parameter to NoPadding.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="encodeLength" href="#encodeLength">encodeLength</a>(in size_t <i>sourceLength</i>);
 </h3></div>
@@ -268,7 +270,9 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>the length of source array.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the calculated length using <b><i>sourceLength</i></b>.</dd>
+
 </dl>
 </div>
 
@@ -287,7 +291,9 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>a buffer to store encoded result.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the encoded string that slices buffer.</dd>
+
 </dl>
 </div>
 
@@ -306,7 +312,9 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>an <span class="inlinecode">OutputRange</span> to put encoded result.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the number of calling put.</dd>
+
 </dl>
 </div>
 
@@ -337,6 +345,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if there are no more elements to be iterated.</dd>
+
 </dl>
 </div>
 
@@ -348,6 +357,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>the encoded string.</dd>
+
 </dl>
 </div>
 
@@ -359,6 +369,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Throws</dt><dd>an Exception when you try to call <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> on empty range.</dd>
+
 </dl>
 </div>
 
@@ -370,6 +381,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>a copy of <span class="inlinecode">this</span>.</dd>
+
 </dl>
 </div>
 
@@ -391,6 +403,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if there are no more elements to be iterated.</dd>
+
 </dl>
 </div>
 
@@ -402,6 +415,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>the encoded character.</dd>
+
 </dl>
 </div>
 
@@ -413,6 +427,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Throws</dt><dd>an Exception when you try to call <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> on empty range.</dd>
+
 </dl>
 </div>
 
@@ -424,6 +439,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>a copy of <span class="inlinecode">this</span>.</dd>
+
 </dl>
 </div>
 
@@ -440,7 +456,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <p>Default <span class="inlinecode">Encoder</span> encodes chunk data.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">foreach</span> (encoded; Base64.<u>encoder</u>(f.byLine())) {
      ... use encoded line ...
  }
@@ -449,8 +465,8 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
  In addition, You can use <span class="inlinecode">Encoder</span> that returns encoded single character.
  This <span class="inlinecode">Encoder</span> performs Range-based and lazy encoding.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_comment">// The ElementType of data is not aggregation type
 </span>
  <span class="d_keyword">foreach</span> (encoded; Base64.<u>encoder</u>(data)) {
@@ -458,12 +474,14 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
  }
 </pre>
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>a <span class="inlinecode">Encoder</span> object instantiated and initialized according to the arguments.</dd>
+
 </dl>
 </div>
 
@@ -478,7 +496,9 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>the length of source array.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>calculated length using <b><i>sourceLength</i></b>.</dd>
+
 </dl>
 </div>
 
@@ -497,10 +517,13 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>a buffer to store decoded result.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the decoded string that slices buffer.
 
 </dd>
+
 <dt>Throws</dt><dd>an Exception if <b>source</b> has character outside base-alphabet.</dd>
+
 </dl>
 </div>
 
@@ -519,10 +542,13 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <td>an <span class="inlinecode">OutputRange</span> to put decoded result</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the number of calling put.
 
 </dd>
+
 <dt>Throws</dt><dd>an Exception if <b>source</b> has character outside base-alphabet.</dd>
+
 </dl>
 </div>
 
@@ -553,6 +579,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if there are no more elements to be iterated.</dd>
+
 </dl>
 </div>
 
@@ -564,6 +591,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>the decoded result.</dd>
+
 </dl>
 </div>
 
@@ -575,6 +603,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Throws</dt><dd>an Exception when you try to call <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> on empty range.</dd>
+
 </dl>
 </div>
 
@@ -586,6 +615,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>a copy of <span class="inlinecode">this</span>.</dd>
+
 </dl>
 </div>
 
@@ -607,6 +637,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if there are no more elements to be iterated.</dd>
+
 </dl>
 </div>
 
@@ -618,6 +649,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>the decoded result.</dd>
+
 </dl>
 </div>
 
@@ -629,6 +661,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Throws</dt><dd>an Exception when you try to call <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> on empty range.</dd>
+
 </dl>
 </div>
 
@@ -640,6 +673,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </p>
 
 <dt>Returns</dt><dd>a copy of <span class="inlinecode">this</span>.</dd>
+
 </dl>
 </div>
 
@@ -656,7 +690,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <p>Default <span class="inlinecode">Decoder</span> decodes chunk data.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">foreach</span> (decoded; Base64.<u>decoder</u>(f.byLine())) {
      ... use decoded line ...
  }
@@ -665,25 +699,27 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
  In addition, You can use <span class="inlinecode">Decoder</span> that returns decoded single character.
  This <span class="inlinecode">Decoder</span> performs Range-based and lazy decoding.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> encoded = Base64.encoder(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>[])<span class="d_string">"0123456789"</span>);
  <span class="d_keyword">foreach</span> (n; map!<span class="d_string">q{a - '0'}</span>(Base64.<u>decoder</u>(encoded))) {
      ... <span class="d_keyword">do</span> something <span class="d_keyword">with</span> n ...
  }
 </pre>
 
-<br><br>
-<b>NOTE:</b><br>
+</dd>
+<dt>NOTE:</dt><dd>
 If you use <span class="inlinecode">ByChunk</span>, chunk-size should be the multiple of 4.
   <span class="inlinecode">Decoder</span> can't judge a encode-boundary.
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>a <span class="inlinecode">Decoder</span> object instantiated and initialized according to the arguments.</dd>
+
 </dl>
 </div>
 

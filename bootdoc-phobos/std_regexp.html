@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.regexp" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.regexp" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -261,15 +261,17 @@
  Any other $ are left as is.
 
 </p>
-<b>References:</b><br>
+<dt>References:</dt><dd>
 <a href="http://en.wikipedia.org/wiki/Regular_expressions">Wikipedia</a>
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/regexp.d">std/regexp.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/regexp.d">std/regexp.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>deprecated string <a class="symbol symbol-anchor" name="email" href="#email">email</a>;
 </h3></div>
@@ -278,9 +280,9 @@
 <div class="declaration-content"><dl><p>Regular expression to extract an email address.
 </p>
 
-<b>References:</b><br>
+<dt>References:</dt><dd>
 <a href="http://www.regular-expressions.info/email.html">How to Find or Validate an Email Address</a><br>
-  <a href="http://tools.ietf.org/html/rfc2822#section-3.4.1">RFC 2822 Internet Message Format</a><br><br>
+  <a href="http://tools.ietf.org/html/rfc2822#section-3.4.1">RFC 2822 Internet Message Format</a></dd>
 </dl>
 </div>
 
@@ -324,9 +326,11 @@
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the resulting string
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Replace the letters 'a' with the letters 'ZZ'.
 <pre class="d_code"> <b>s</b> = <span class="d_string">"Strap a rocket engine on a chicken."</span>
  <u>sub</u>(<b>s</b>, <span class="d_string">"a"</span>, <span class="d_string">"ZZ"</span>)        <span class="d_comment">// result: StrZZp a rocket engine on a chicken.
@@ -339,7 +343,7 @@ Replace the letters 'a' with the letters 'ZZ'.
 <pre class="d_code"> <u>sub</u>(<b>s</b>, <span class="d_string">"[ar]"</span>, <span class="d_string">"[$&amp;]"</span>, <span class="d_string">"g"</span>) <span class="d_comment">// result: St[r][a]p [a] [r]ocket engine on [a] chi
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -366,9 +370,11 @@ Replace the letters 'a' with the letters 'ZZ'.
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the resulting string.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Capitalize the letters 'a' and 'r':
 <pre class="d_code"> <b>s</b> = <span class="d_string">"Strap a rocket engine on a chicken."</span>;
  <u>sub</u>(<b>s</b>, <span class="d_string">"[ar]"</span>,
@@ -379,7 +385,7 @@ Capitalize the letters 'a' and 'r':
     <span class="d_string">"g"</span>);    <span class="d_comment">// result: StRAp A Rocket engine on A chicken.
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -397,16 +403,18 @@ Capitalize the letters 'a' and 'r':
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>index into <i>s</i>[] of match if found, -1 if no match.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> <b>s</b> = <span class="d_string">"abcabcabab"</span>;
  <u>find</u>(<b>s</b>, RegExp(<span class="d_string">"b"</span>));    <span class="d_comment">// match, returns 1
 </span>
  <u>find</u>(<b>s</b>, RegExp(<span class="d_string">"f"</span>));    <span class="d_comment">// no match, returns -1
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -417,10 +425,11 @@ Capitalize the letters 'a' and 'r':
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-<b>WARNING:</b><br>
+
+<dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
    ambiguity with the homonym function in std.string. Instead of
-   <b>std.regexp.<a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, p, a)</b>, you may want to use <b>  <a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, RegExp(p, a))</b>.<br><br>
+   <b>std.regexp.<a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, p, a)</b>, you may want to use <b>  <a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
 
@@ -438,16 +447,18 @@ This function is scheduled for deprecation due to unnecessary
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>index into <i>s</i>[] of match if found, -1 if no match.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> <b>s</b> = <span class="d_string">"abcabcabab"</span>;
  <u>rfind</u>(<b>s</b>, RegExp(<span class="d_string">"b"</span>));    <span class="d_comment">// match, returns 9
 </span>
  <u>rfind</u>(<b>s</b>, RegExp(<span class="d_string">"f"</span>));    <span class="d_comment">// no match, returns -1
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -458,10 +469,11 @@ This function is scheduled for deprecation due to unnecessary
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-<b>WARNING:</b><br>
+
+<dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
 ambiguity with the homonym function in std.string. Instead of
-<b>std.regexp.<a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, RegExp(p, a))</b>.<br><br>
+<b>std.regexp.<a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
 
@@ -480,9 +492,11 @@ ambiguity with the homonym function in std.string. Instead of
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>array of slices into <i>s</i>[]
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">foreach</span> (<b>s</b>; <u>split</u>(<span class="d_string">"abcabcabab"</span>, RegExp(<span class="d_string">"C."</span>, <span class="d_string">"i"</span>)))
  {
      writefln(<span class="d_string">"s = '%s'"</span>, <b>s</b>);
@@ -496,7 +510,7 @@ ambiguity with the homonym function in std.string. Instead of
  <span class="d_comment">// s = 'bab'
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -507,10 +521,11 @@ ambiguity with the homonym function in std.string. Instead of
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-<b>WARNING:</b><br>
+
+<dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
 ambiguity with the homonym function in std.string. Instead of
-<b>std.regexp.<a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, RegExp(p, a))</b>.<br><br>
+<b>std.regexp.<a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
 
@@ -531,9 +546,11 @@ ambiguity with the homonym function in std.string. Instead of
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>corresponding RegExp if found, <span class="d_keyword">null</span> if not.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.regexp;
 
@@ -549,7 +566,7 @@ ambiguity with the homonym function in std.string. Instead of
  <span class="d_comment">// ab[c]def
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -579,14 +596,16 @@ ambiguity with the homonym function in std.string. Instead of
 <td>attributes</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>RegExpException if there are any compilation errors.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Declare two variables and assign to them a RegExp object:
 <pre class="d_code"> <span class="d_keyword">auto</span> r = <span class="d_keyword">new</span> RegExp(<span class="d_string">"pattern"</span>);
  <span class="d_keyword">auto</span> s = <span class="d_keyword">new</span> RegExp(<span class="d_string">r"p[1-5]\s*"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -604,14 +623,16 @@ Declare two variables and assign to them a RegExp object:
 <td>attributes</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>RegExpException if there are any compilation errors.
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Declare two variables and assign to them a RegExp object:
 <pre class="d_code"> <span class="d_keyword">auto</span> r = RegExp(<span class="d_string">"pattern"</span>);
  <span class="d_keyword">auto</span> s = RegExp(<span class="d_string">r"p[1-5]\s*"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -625,7 +646,8 @@ Declare two variables and assign to them a RegExp object:
 
 <dt>Returns</dt><dd><a class="symbol symbol-anchor" name="search" href="#search">search</a>() returns instance of RegExp set up to search <i>string</i>[].
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.regexp;
 
@@ -647,7 +669,7 @@ Declare two variables and assign to them a RegExp object:
  <span class="d_comment">// abcabcab[ab]
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -672,10 +694,10 @@ Declare two variables and assign to them a RegExp object:
 <div class="declaration-content"><dl><p>Same as <b>opIndex(<i>n</i>)</b>.
 </p>
 
-<b>WARNING:</b><br>
+<dt>WARNING:</dt><dd>
 Scheduled for deprecation due to confusion with overloaded
        <b><a class="symbol symbol-anchor" name="match" href="#match">match</a>(string)</b>. Instead of <b>regex.<a class="symbol symbol-anchor" name="match" href="#match">match</a>(<i>n</i>)</b>
-       you may want to use <b>regex[<i>n</i>]</b>.<br><br>
+       you may want to use <b>regex[<i>n</i>]</b>.</dd>
 </dl>
 </div>
 
@@ -706,6 +728,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>array of slices into <i>s</i>[]</dd>
+
 </dl>
 </div>
 
@@ -717,6 +740,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>index of match if successful, -1 if not found</dd>
+
 </dl>
 </div>
 
@@ -729,6 +753,7 @@ Scheduled for deprecation due to confusion with overloaded
 
 <dt>Returns</dt><dd>If global attribute, return same value as exec(<i>s</i>).
   If not global attribute, return array of all matches.</dd>
+
 </dl>
 </div>
 
@@ -743,6 +768,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>the new string</dd>
+
 </dl>
 </div>
 
@@ -754,6 +780,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>array of slices into string[] representing matches</dd>
+
 </dl>
 </div>
 
@@ -766,6 +793,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>array of slices into string[] representing matches</dd>
+
 </dl>
 </div>
 
@@ -778,7 +806,8 @@ Scheduled for deprecation due to confusion with overloaded
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 <span class="d_keyword">import</span> std.regexp;
 <span class="d_keyword">import</span> std.string;
@@ -800,7 +829,7 @@ Scheduled for deprecation due to confusion with overloaded
   writefln(x);
 }
 </pre>
- which prints: 1<br><br>
+ which prints: 1</dd>
 </dl>
 </div>
 
@@ -812,6 +841,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match</dd>
+
 </dl>
 </div>
 
@@ -823,6 +853,7 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match</dd>
+
 </dl>
 </div>
 

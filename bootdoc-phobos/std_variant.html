@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.variant" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.variant" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -198,7 +198,7 @@
  languages, and comfortable exploratory programming.
 </p>
 
-<b>Synopsis:</b><br>
+<dt>Synopsis:</dt><dd>
 <pre class="d_code"> Variant a; <span class="d_comment">// Must assign before use, otherwise exception ensues
 </span>
  <span class="d_comment">// Initialize with an integer; make the type int
@@ -241,20 +241,22 @@
 </span>
 </pre>
 
-<br><br>
-<b>Credits:</b><br>
+</dd>
+<dt>Credits:</dt><dd>
 Reviewed by Brad Roberts. Daniel Keep provided a detailed code
  review prompting the following improvements: (1) better support for
  arrays; (2) support for associative arrays; (3) friendlier behavior
  towards the garbage collector.
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/variant.d">std/variant.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/variant.d">std/variant.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="VariantN" href="#VariantN">VariantN</a>(size_t maxDataSize,AllowedTypesX...);
 </h3></div>
@@ -323,7 +325,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
  from, a valid value).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> Variant a;
  <span class="d_keyword">assert</span>(!a.<u>hasValue</u>);
  Variant b;
@@ -333,7 +335,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
  a = 5;
  <span class="d_keyword">assert</span>(a.<u>hasValue</u>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -347,14 +349,14 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
  where <b>T</b> is statically disallowed, <b><a class="symbol symbol-anchor" name="peek" href="#peek">peek</a></b> will not compile.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> Variant a = 5;
  <span class="d_keyword">auto</span> b = a.<u>peek</u>!(<span class="d_keyword">int</span>);
  <span class="d_keyword">assert</span>(b !<span class="d_keyword">is</span> <span class="d_keyword">null</span>);
  *b = 6;
  <span class="d_keyword">assert</span>(a == 6);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -495,7 +497,7 @@ ditto</p>
  into. Otherwise, an exception is thrown.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> a = Variant(<span class="d_keyword">new</span> <span class="d_keyword">int</span>[10]);
  a[5] = 42;
  <span class="d_keyword">assert</span>(a[5] == 42);
@@ -504,8 +506,8 @@ ditto</p>
  <span class="d_keyword">assert</span>(a[42] == 24);
 </pre>
 
-<br><br>
-<b>Caveat:</b><br>
+</dd>
+<dt>Caveat:</dt><dd>
 Due to limitations in current language, read-modify-write
  operations <b>op=</b> will not work properly:
 <br><br>
@@ -516,7 +518,7 @@ Due to limitations in current language, read-modify-write
  <span class="d_keyword">assert</span>(a[5] == 50); <span class="d_comment">// fails, a[5] is still 42
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -565,7 +567,8 @@ Due to limitations in current language, read-modify-write
  implementation.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> v = <u>Algebraic</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, string)(5);
  <span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">int</span>));
  v = 3.14;
@@ -575,7 +578,7 @@ Due to limitations in current language, read-modify-write
  <span class="d_comment">// v = '1'; // won't compile, type char not allowed
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -600,7 +603,7 @@ storing larger types, or for saving memory.</p>
 <div class="declaration-content"><dl><p>Returns an array of variants constructed from <b>args</b>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> a = <u>variantArray</u>(1, 3.14, <span class="d_string">"Hi!"</span>);
  <span class="d_keyword">assert</span>(a[1] == 3.14);
  <span class="d_keyword">auto</span> b = Variant(a); <span class="d_comment">// variant array as variant
@@ -630,7 +633,7 @@ storing larger types, or for saving memory.</p>
 
  This is by design. During construction the <b>Variant</b> needs
  static type information about the type being held, so as to store a
- pointer to function for fast retrieval.<br><br>
+ pointer to function for fast retrieval.</dd>
 </dl>
 </div>
 

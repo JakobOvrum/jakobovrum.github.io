@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.array" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.array" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,11 +194,13 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a> and Jonathan M Davis
 
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/array.d">std/array.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/array.d">std/array.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>ForeachType!(Range)[] <a class="symbol symbol-anchor" name="array" href="#array">array</a>(Range)(Range <i>r</i>);
 </h3></div>
@@ -210,11 +212,11 @@ input range, static <a class="symbol symbol-anchor" name="array" href="#array">a
 a special case in an overload.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = <u>array</u>([1, 2, 3, 4, 5][]);
 <span class="d_keyword">assert</span>(a == [ 1, 2, 3, 4, 5 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -249,6 +251,7 @@ to the number in <span class="inlinecode">T</span>.
 <span class="d_keyword">assert</span>(matrix[0].length == 31);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -273,12 +276,12 @@ the first argument using the dot notation, <span class="inlinecode">array.<a cla
 equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>(array)</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = [ 1, 2, 3 ];
 <span class="d_keyword">assert</span>(!a.<u>empty</u>);
 <span class="d_keyword">assert</span>(a[3 .. $].<u>empty</u>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -293,12 +296,12 @@ equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="sav
 content of the array, it simply returns its argument.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = [ 1, 2, 3 ];
 <span class="d_keyword">auto</span> b = a.<u>save</u>;
 <span class="d_keyword">assert</span>(b <span class="d_keyword">is</span> a);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -315,12 +318,12 @@ point">code
 point</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
 a.<u>popFront</u>();
 <span class="d_keyword">assert</span>(a == [ 2, 3 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -334,12 +337,12 @@ the first argument using the dot notation, <span class="inlinecode">array.<a cla
 equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>(array)</span>. For <a href="../glossary.html#narrow strings">narrow strings</a>, <span class="inlinecode">popFront</span> automaticaly eliminates the last <a href="../glossary.html#code point">code point</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
 a.<u>popBack</u>();
 <span class="d_keyword">assert</span>(a == [ 1, 2 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -353,11 +356,11 @@ the first argument using the dot notation, <span class="inlinecode">array.<a cla
 equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="front" href="#front">front</a>(array)</span>. For <a href="../glossary.html#narrow strings">narrow strings</a>, <span class="inlinecode"><a class="symbol symbol-anchor" name="front" href="#front">front</a></span> automaticaly returns the first <a href="../glossary.html#code point">code point</a> as a <span class="inlinecode">dchar</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
 <span class="d_keyword">assert</span>(a.<u>front</u> == 1);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -371,11 +374,11 @@ the first argument using the dot notation, <span class="inlinecode">array.<a cla
 equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="back" href="#back">back</a>(array)</span>. For <a href="../glossary.html#narrow strings">narrow strings</a>, <span class="inlinecode"><a class="symbol symbol-anchor" name="back" href="#back">back</a></span> automaticaly returns the last <a href="../glossary.html#code point">code point</a> as a <span class="inlinecode">dchar</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
 <span class="d_keyword">assert</span>(a.<u>back</u> == 3);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -389,14 +392,14 @@ equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="bac
     implicitly convertible items) in <span class="inlinecode">array</span> at position <span class="inlinecode">pos</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4 ];
 a.<u>insertInPlace</u>(2, [ 1, 2 ]);
 <span class="d_keyword">assert</span>(a == [ 1, 2, 1, 2, 3, 4 ]);
 a.<u>insertInPlace</u>(3, 10u, 11);
 <span class="d_keyword">assert</span>(a == [ 1, 2, 1, 10, 11, 2, 3, 4]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -452,11 +455,11 @@ delimiter. Runs of whitespace are merged together (no empty words are produced).
 <div class="declaration-content"><dl><p>Splits a string by whitespace.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = <span class="d_string">" a     bcd   ef gh "</span>;
 <span class="d_keyword">assert</span>(equal(<u>splitter</u>(a), [<span class="d_string">""</span>, <span class="d_string">"a"</span>, <span class="d_string">"bcd"</span>, <span class="d_string">"ef"</span>, <span class="d_string">"gh"</span>][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -485,6 +488,7 @@ delimiter. Runs of whitespace are merged together (no empty words are produced).
 <span class="d_keyword">assert</span>(<u>join</u>([[1, 2, 3], [4, 5]]) == [1, 2, 3, 4, 5]);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -508,12 +512,12 @@ delimiter. Runs of whitespace are merged together (no empty words are produced).
     shrinks the array as needed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4 ];
 a.<u>replaceInPlace</u>(1, 3, [ 9, 9, 9 ]);
 <span class="d_keyword">assert</span>(a == [ 1, 9, 9, 9, 4 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -559,7 +563,7 @@ recommended over <span class="inlinecode">a ~= data</span> when appending many e
 efficient.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> app = appender!string();
 string b = <span class="d_string">"abcdefg"</span>;
 <span class="d_keyword">foreach</span> (<span class="d_keyword">char</span> c; b) app.put(c);
@@ -571,7 +575,7 @@ app2.put(3);
 app2.put([ 4, 5, 6 ]);
 <span class="d_keyword">assert</span>(app2.data == [ 1, 2, 3, 4, 5, 6 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(T[] <i>arr</i>);
 </h3></div>

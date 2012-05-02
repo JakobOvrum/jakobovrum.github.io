@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.typetuple" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.typetuple" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -197,17 +197,19 @@
  list that is a slice of the old one.
 
 </p>
-<b>References:</b><br>
+<dt>References:</dt><dd>
 Based on ideas in Table 3.1 from
   <a href="http://amazon.com/exec/obidos/ASIN/0201704315/ref=ase_classicempire/102-2957199-2585768">      Modern C++ Design</a>,
    Andrei Alexandrescu (Addison-Wesley Professional, 2001)
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typetuple.d">std/typetuple.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typetuple.d">std/typetuple.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="TypeTuple" href="#TypeTuple">TypeTuple</a>(TList...)</h3></div>
 
@@ -215,7 +217,7 @@ Based on ideas in Table 3.1 from
 <div class="declaration-content"><dl><p>Creates a typetuple out of a sequence of zero or more types.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.typetuple;
  <span class="d_keyword">alias</span> <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>) TL;
 
@@ -226,14 +228,14 @@ Based on ideas in Table 3.1 from
  }
 </pre>
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <u>TypeTuple</u>!(TL, <span class="d_keyword">char</span>)
  <span class="d_comment">// is equivalent to:
 </span>
  <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -245,7 +247,7 @@ Based on ideas in Table 3.1 from
  If not found, -1 is returned.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.typetuple;
  <span class="d_keyword">import</span> std.stdio;
 
@@ -257,7 +259,7 @@ Based on ideas in Table 3.1 from
 </span>
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -277,13 +279,13 @@ Based on ideas in Table 3.1 from
  if any, of T removed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <u>Erase</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
  <span class="d_comment">// is the same as:
 </span>
  TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -294,7 +296,7 @@ Based on ideas in Table 3.1 from
  if any, of T removed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>) TL;
 
  <u>EraseAll</u>!(<span class="d_keyword">long</span>, TL)
@@ -302,7 +304,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -313,7 +315,7 @@ Based on ideas in Table 3.1 from
  types removed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
 
  <u>NoDuplicates</u>!(TL)
@@ -321,7 +323,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">float</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -332,7 +334,7 @@ Based on ideas in Table 3.1 from
  of type T, if found, replaced with type U.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
 
  <u>Replace</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, TL)
@@ -340,7 +342,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -351,7 +353,7 @@ Based on ideas in Table 3.1 from
  of type T, if found, replaced with type U.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
 
  <u>ReplaceAll</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, TL)
@@ -359,7 +361,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">char</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -369,7 +371,7 @@ Based on ideas in Table 3.1 from
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the order reversed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
 
  <u>Reverse</u>!(TL)
@@ -377,7 +379,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(<span class="d_keyword">float</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -388,7 +390,7 @@ Based on ideas in Table 3.1 from
  If none are found, T is returned.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">class</span> A { }
  <span class="d_keyword">class</span> B : A { }
  <span class="d_keyword">class</span> C : B { }
@@ -397,7 +399,7 @@ Based on ideas in Table 3.1 from
  <u>MostDerived</u>!(Object, TL) x;  <span class="d_comment">// x is declared as type C
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -408,7 +410,7 @@ Based on ideas in Table 3.1 from
  derived types come first.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">class</span> A { }
  <span class="d_keyword">class</span> B : A { }
  <span class="d_keyword">class</span> C : B { }
@@ -419,7 +421,7 @@ Based on ideas in Table 3.1 from
 </span>
  TypeTuple!(C, B, A)
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -429,11 +431,11 @@ Based on ideas in Table 3.1 from
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">TypeTuple!(F!(T[0]), F!(T[1]), ..., F!(T[$ - 1]))</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>staticMap</u>!(Unqual, <span class="d_keyword">int</span>, <span class="d_keyword">const</span> <span class="d_keyword">int</span>, <span class="d_keyword">immutable</span> <span class="d_keyword">int</span>) T;
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(T == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>, <span class="d_keyword">int</span>)));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -443,11 +445,11 @@ Based on ideas in Table 3.1 from
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) &amp;&amp; F!(T[1]) &amp;&amp; ... &amp;&amp; F!(T[$ - 1])</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -457,11 +459,11 @@ Based on ideas in Table 3.1 from
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) || F!(T[1]) || ... || F!(T[$ - 1])</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>anySatisfy</u>!(isIntegral, string, <span class="d_keyword">double</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>anySatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

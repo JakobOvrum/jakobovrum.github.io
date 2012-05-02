@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.metastrings" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.metastrings" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,11 +193,13 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            Don Clugston
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/metastrings.d">std/metastrings.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/metastrings.d">std/metastrings.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Format" href="#Format">Format</a>(A...)</h3></div>
 
@@ -205,16 +207,16 @@
 <div class="declaration-content"><dl><p>Formats constants into a string at compile time.  Analogous to <a href="std_string.html#format"><span class="inlinecode">std.string.format</span></a>.
 </p>
 
-<b>Parameters:</b><br>
+<dt>Parameters:</dt><dd>
 A = tuple of constants, which can be strings, characters, or integral
     values.
 
-<br><br>
-<b>Formats:</b><br>
+</dd>
+<dt>Formats:</dt><dd>
 The formats supported are %s for strings, and %%
     for the % character.
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.metastrings;
 <span class="d_keyword">import</span> std.stdio;
 
@@ -225,7 +227,7 @@ The formats supported are %s for strings, and %%
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -246,9 +248,10 @@ The formats supported are %s for strings, and %%
 <dt>Returns</dt><dd>.value = the integer literal as a string,
     .rest = the string following the integer literal
 </dd>
-<b>Otherwise:</b><br>
+
+<dt>Otherwise:</dt><dd>
 .value = <span class="d_keyword">null</span>,
-    .rest = s<br><br>
+    .rest = s</dd>
 </dl>
 </div>
 
@@ -263,9 +266,10 @@ of string <span class="inlinecode">s</span>.
    .rest = the string following the integer literal
 
 </dd>
-<b>Otherwise:</b><br>
+
+<dt>Otherwise:</dt><dd>
 .value = <span class="d_keyword">null</span>,
-   .rest = s<br><br>
+   .rest = s</dd>
 </dl>
 </div>
 

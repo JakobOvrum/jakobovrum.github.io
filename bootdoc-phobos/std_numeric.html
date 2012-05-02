@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.numeric" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.numeric" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,11 +194,13 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>,
                    Don Clugston, Robert Jacques
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/numeric.d">std/numeric.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/numeric.d">std/numeric.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CustomFloatFlags" href="#CustomFloatFlags">CustomFloatFlags</a>;
 </h3></div>
@@ -308,7 +310,7 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
  result can be stored in a custom floating-point value via assignment.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_comment">// Define a 16-bit floating point values
 </span>
  <u>CustomFloat</u>!16                                x;     <span class="d_comment">// Using the number of bits
@@ -341,7 +343,7 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
  <span class="d_keyword">alias</span> <u>CustomFloat</u>!(4, 4, CustomFloatFlags.ieee^CustomFloatFlags.probability^CustomFloatFlags.signed ) Probability;
  <span class="d_keyword">auto</span> p = Probability(0.5);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -354,7 +356,7 @@ calculation intended to ultimately yield a result of type <span class="inlinecod
 intermediate results as <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>!F</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Average numbers in an array
 </span>
 <span class="d_keyword">double</span> avg(<span class="d_keyword">in</span> <span class="d_keyword">double</span>[] a)
@@ -381,7 +383,7 @@ calculations, as that is always <span class="inlinecode">real</span>.
 
 Finally, there is no guarantee that using <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>!F</span> will
 always be fastest, as the speed of floating-point calculations depends
-on very many factors.<br><br>
+on very many factors.</dd>
 </dl>
 </div>
 
@@ -394,14 +396,14 @@ root of the function <span class="inlinecode">fun</span> starting from points <s
 or <span class="inlinecode">real</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">float</span> f(<span class="d_keyword">float</span> x) {
     <span class="d_keyword">return</span> cos(x) - x*x*x;
 }
 <span class="d_keyword">auto</span> x = <u>secantMethod</u>!(f)(0f, 1f);
 <span class="d_keyword">assert</span>(approxEqual(x, 0.865474));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -430,10 +432,10 @@ or <span class="inlinecode">real</span>.
  approximately twice the number of bits.
 
 </p>
-<b>References:</b><br>
+<dt>References:</dt><dd>
 "On Enclosing Simple Roots of Nonlinear Equations",
  G. Alefeld, F.A. Potra, Yixun Shi, Mathematics of Computation 61,
- pp733-744 (1993).  Fortran code available from <a href="http://www.netlib.org">www.netlib.org</a> as algorithm TOMS478.<br><br>
+ pp733-744 (1993).  Fortran code available from <a href="http://www.netlib.org">www.netlib.org</a> as algorithm TOMS478.</dd>
 </dl>
 </div>
 
@@ -471,11 +473,13 @@ or <span class="inlinecode">real</span>.
              full machine precision will be achieved.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A tuple consisting of two ranges. The first two elements are the
  range (in <span class="inlinecode">x</span>) of the root, while the second pair of elements
  are the corresponding function values at those points. If an exact
  root was found, both of the first two elements will contain the
  root, and the second pair of elements will be 0.</dd>
+
 </dl>
 </div>
 
@@ -528,6 +532,7 @@ positive. <span class="inlinecode"><a class="symbol symbol-anchor" name="normali
 
 <dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">true</span></span> if normalization completed normally, <span class="inlinecode"><span class="d_keyword">false</span></span> if
 all elements in <span class="inlinecode">range</span> were zero or if <span class="inlinecode">range</span> is empty.</dd>
+
 </dl>
 </div>
 
@@ -675,7 +680,7 @@ only for ranges that don't match in any position, and <span class="inlinecode">1
 identical ranges.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
 string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
 <span class="d_keyword">assert</span>(gapWeightedSimilarity(s, s, 1) == 15);
@@ -687,7 +692,7 @@ string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new
 The optional parameters <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span> are meant for
 avoiding duplicate computation. Many applications may have already
 computed <span class="inlinecode">gapWeightedSimilarity(s, s, lambda)</span> and/or <span class="inlinecode">gapWeightedSimilarity(t, t, lambda)</span>. In that case, they can be passed
-as <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span>, respectively.<br><br>
+as <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span>, respectively.</dd>
 </dl>
 </div>
 
@@ -799,8 +804,8 @@ Euler's algorithm.</p>
  one-off FFT.
 </p>
 
-<b>References:</b><br>
-<a href="http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm</a><br><br>
+<dt>References:</dt><dd>
+<a href="http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm</a></dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>size</i>);
 </h3></div>
@@ -825,13 +830,14 @@ Euler's algorithm.</p>
  properties or members <span class="inlinecode">.re</span> and <span class="inlinecode">.im</span> that can be read.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 Pure real FFTs are automatically detected and the relevant
         optimizations are performed.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>An array of complex numbers representing the transformed data in
            the frequency domain.</dd>
+
 </dl>
 </div>
 
@@ -860,6 +866,7 @@ Pure real FFTs are automatically detected and the relevant
 </p>
 
 <dt>Returns</dt><dd>The time-domain signal.</dd>
+
 </dl>
 </div>
 
@@ -888,11 +895,11 @@ Pure real FFTs are automatically detected and the relevant
  FFT and return the result.  Useful for one-off FFTs.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 In addition to convenience, these functions are slightly more
         efficient than manually creating an Fft object for a single use,
         as the Fft object is deterministically destroyed before these
-        functions return.<br><br>
+        functions return.</dd>
 </dl>
 </div>
 

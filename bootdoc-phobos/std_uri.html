@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.uri" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.uri" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -199,12 +199,15 @@
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a><br>
   <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">Wikipedia</a>
 </dd>
+
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/uri.d">std/uri.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/uri.d">std/uri.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(string <i>encodedURI</i>);
 </h3></div>
@@ -256,6 +259,7 @@
 
 <dt>Returns</dt><dd>-1    it does not
   len  it does, and <i>s</i>[0..len] is the slice of <i>s</i>[] that is that URL</dd>
+
 </dl>
 </div>
 
@@ -269,8 +273,9 @@
 <dt>Returns</dt><dd>-1    it does not
   len   it does, and <i>s</i>[0..i] is the slice of <i>s</i>[] that is that email address
 </dd>
-<b>References:</b><br>
-RFC2822<br><br>
+
+<dt>References:</dt><dd>
+RFC2822</dd>
 </dl>
 </div>
 

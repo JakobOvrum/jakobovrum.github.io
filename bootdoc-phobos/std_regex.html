@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.regex" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.regex" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -195,7 +195,7 @@
   in text processing utilities.
 </p>
 
-<b>Synposis:</b><br>
+<dt>Synposis:</dt><dd>
 <pre class="d_code">  <span class="d_keyword">import</span> std.<u>regex</u>;
   <span class="d_keyword">import</span> std.stdio;
   <span class="d_keyword">void</span> main()
@@ -405,10 +405,11 @@
   are slices of the original input, with the notable exception of the <span class="inlinecode">replace</span>
   family of functions which generate a new string from the input.
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd>Dmitry Olshansky,
 <br><br>
 
@@ -416,6 +417,7 @@
   by Walter Bright and Andrei Alexandrescu.
 
 </dd>
+
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Regex" href="#Regex">Regex</a>(Char);
 </h3></div>
@@ -434,14 +436,14 @@
 <div class="declaration-content"><dl><p>Test if this object doesn't contain any compiled pattern.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">        Regex!<span class="d_keyword">char</span> r;
         <span class="d_keyword">assert</span>(r.<u>empty</u>);
         r = regex(<span class="d_string">""</span>);<span class="d_comment">//note: "" is a valid regex pattern
 </span>
         <span class="d_keyword">assert</span>(!r.<u>empty</u>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -670,6 +672,7 @@
     the same character width as <span class="inlinecode">pattern</span>.
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pattern</td>
 <td>Regular expression</td>
 </tr>
@@ -677,7 +680,9 @@
 <td>The attributes (g, i, m and x accepted)</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegexException</span> if there were any errors during compilation.</dd>
+
 </dl>
 </div>
 
@@ -694,6 +699,7 @@
 <dt>Returns</dt><dd>StaticRegex object for faster matching.
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pattern</td>
 <td>Regular expression</td>
 </tr>
@@ -701,6 +707,7 @@
 <td>The attributes (g, i, m and x accepted)</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -725,6 +732,7 @@
     </ul>
 </p>
 <dt>Returns</dt><dd>a <span class="inlinecode">RegexMatch</span> object holding engine state after first <a class="symbol symbol-anchor" name="match" href="#match">match</a>.</dd>
+
 </dl>
 </div>
 
@@ -748,6 +756,7 @@
 </p>
 <dt>Returns</dt><dd>a <span class="inlinecode">RegexMatch</span> object holding engine
     state after first match.</dd>
+
 </dl>
 </div>
 
@@ -773,7 +782,8 @@
 <td>format string to generate replacements from</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code">    <span class="d_comment">//Comify a number
 </span>
     <span class="d_keyword">auto</span> com = regex(<span class="d_string">r"(?&lt;=\d)(?=(\d\d\d)+\b)"</span>,<span class="d_string">"g"</span>);
@@ -792,7 +802,7 @@
      </table>
 <pre class="d_code">    <span class="d_keyword">assert</span>(<u>replace</u>(<span class="d_string">"noon"</span>, regex(<span class="d_string">"^n"</span>), <span class="d_string">"[$&amp;]"</span>) == <span class="d_string">"[n]oon"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -811,6 +821,7 @@
 <dt>Returns</dt><dd>new string with all matches replaced by return values of <span class="inlinecode">fun</span>.
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>string to search</td>
 </tr>
@@ -821,7 +832,8 @@
 <td>delegate to use</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Capitalize the letters 'a' and 'r':
 <pre class="d_code">    string baz(Captures!(string) m)
     {
@@ -831,7 +843,7 @@ Capitalize the letters 'a' and 'r':
             regex(<span class="d_string">"[ar]"</span>, <span class="d_string">"g"</span>));
     <span class="d_keyword">assert</span>(s == <span class="d_string">"StRAp A Rocket engine on A chicken."</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -843,12 +855,12 @@ Capitalize the letters 'a' and 'r':
 separator.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> s1 = <span class="d_string">", abc, de,  fg, hi, "</span>;
 <span class="d_keyword">assert</span>(equal(splitter(s1, regex(<span class="d_string">", *"</span>)),
     [<span class="d_string">""</span>, <span class="d_string">"abc"</span>, <span class="d_string">"de"</span>, <span class="d_string">"fg"</span>, <span class="d_string">"hi"</span>, <span class="d_string">""</span>]));
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();

@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.typecons" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.typecons" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -192,11 +192,11 @@
 that allow construction of new, useful general-purpose types.
 </p>
 
-<b>Source:</b><br>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typecons.d">std/typecons.d</a>
 
-<br><br>
-<b>Synopsis:</b><br>
+</dd>
+<dt>Synopsis:</dt><dd>
 <pre class="d_code"><span class="d_comment">// value tuples
 </span>
 <span class="d_keyword">alias</span> Tuple!(<span class="d_keyword">float</span>, <span class="d_string">"x"</span>, <span class="d_keyword">float</span>, <span class="d_string">"y"</span>, <span class="d_keyword">float</span>, <span class="d_string">"z"</span>) Coord;
@@ -226,13 +226,15 @@ c.z = 1;        <span class="d_comment">// access by given name
 }
 </pre>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>,
            <a href="http://bartoszmilewski.wordpress.com">Bartosz Milewski</a>,
            Don Clugston,
            Shin Fujishiro</dd>
+
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a>(T);
 </h3></div>
@@ -245,8 +247,8 @@ returning <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a
 class object, in which case <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a> behaves polymorphically too.
 </p>
 
-<b>Example:</b><br>
-<br><br>
+<dt>Example:</dt><dd>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RefT <i>p</i>);
 </h3></div>
@@ -313,7 +315,7 @@ loop constructs (e.g. type tuple iteration), all of which use
 zero-based indexing.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) point;
 <span class="d_comment">// assign coordinates
 </span>
@@ -328,8 +330,8 @@ point[1] = 6;
 <a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a> members can be named. It is legal to mix named and unnamed
 members. The method above is still applicable to all fields.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_string">"index"</span>, string, <span class="d_string">"value"</span>) Entry;
 Entry e;
 e.index = 4;
@@ -343,14 +345,14 @@ fields, i.e. each naming imparts a separate type for the tuple. Two
 tuple differing in naming only are still distinct, even though they
 might have the same structure.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_string">"x"</span>, <span class="d_keyword">int</span>, <span class="d_string">"y"</span>) point1;
 <u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) point2;
 <span class="d_keyword">assert</span>(!<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(point1) == <span class="d_keyword">typeof</span>(point2))); <span class="d_comment">// passes
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Types" href="#Types">Types</a>;
 </h3></div>
@@ -417,7 +419,7 @@ might have the same structure.
 <div class="declaration-content"><dl><p>Takes a <a class="symbol symbol-anchor" name="slice" href="#slice">slice</a> of the tuple.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Tuple!(<span class="d_keyword">int</span>, string, <span class="d_keyword">float</span>, <span class="d_keyword">double</span>) a;
 a[1] = <span class="d_string">"abc"</span>;
 a[2] = 4.5;
@@ -425,7 +427,7 @@ a[2] = 4.5;
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(s) == Tuple!(string, <span class="d_keyword">float</span>)));
 <span class="d_keyword">assert</span>(s[0] == <span class="d_string">"abc"</span> &amp;&amp; s[1] == 4.5);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -449,13 +451,13 @@ a[2] = 4.5;
 the arguments.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> value = <u>tuple</u>(5, 6.7, <span class="d_string">"hello"</span>);
 <span class="d_keyword">assert</span>(value[0] == 5);
 <span class="d_keyword">assert</span>(value[1] == 6.7);
 <span class="d_keyword">assert</span>(value[2] == <span class="d_string">"hello"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -475,7 +477,7 @@ the arguments.
 primitives.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">mixin</span>(<u>defineEnum</u>!(<span class="d_string">"Abc"</span>, <span class="d_string">"A"</span>, <span class="d_string">"B"</span>, 5, <span class="d_string">"C"</span>));
 </pre>
 
@@ -499,7 +501,7 @@ A base type can be specified for the enumeration like this:
 </pre>
 
 In this case the generated <span class="inlinecode">enum</span> will have a <span class="inlinecode">ubyte</span>
-representation.  <br><br>
+representation.  </dd>
 </dl>
 </div>
 
@@ -576,14 +578,14 @@ in generic programming cases when a given object may be either a regular
   Returns a declaration to be mixed in.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> Banner {
   <span class="d_keyword">mixin</span>(<u>alignForSize</u>!(<span class="d_keyword">byte</span>[6], <span class="d_keyword">double</span>)([<span class="d_string">"name"</span>, <span class="d_string">"height"</span>]));
 }
 </pre>
 
   Alignment is not always optimal for 80-bit reals, nor for structs declared
-  as align(1).<br><br>
+  as align(1).</dd>
 </dl>
 </div>
 
@@ -596,7 +598,7 @@ the absence of a value. If default constructed, a <span class="inlinecode"><a cl
 non-<span class="d_keyword">null</span>. Calling <span class="inlinecode">nullify</span> can nullify it again.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><u>Nullable</u>!<span class="d_keyword">int</span> a;
 <span class="d_keyword">assert</span>(a.isNull);
 a = 5;
@@ -604,7 +606,7 @@ a = 5;
 <span class="d_keyword">assert</span>(a == 5);
 </pre>
 
-Practically <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span> stores a <span class="inlinecode">T</span> and a <span class="inlinecode">bool</span>.<br><br>
+Practically <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span> stores a <span class="inlinecode">T</span> and a <span class="inlinecode">bool</span>.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this()(T <i>value</i>);
 </h3></div>
@@ -798,7 +800,7 @@ without doing anything.
 Perl module by Sean M. Burke.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">abstract</span> <span class="d_keyword">class</span> C
 {
     <span class="d_keyword">int</span> m_value;
@@ -824,8 +826,9 @@ Perl module by Sean M. Burke.
 }
 </pre>
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd>AutoImplement, generateEmptyFunction</dd>
+
 </dl>
 </div>
 
@@ -843,7 +846,7 @@ trapping use of not-yet-implemented functions.
 Perl module by Michael G Schwern.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">class</span> C
 {
     <span class="d_keyword">abstract</span> <span class="d_keyword">void</span> notYetImplemented();
@@ -857,12 +860,14 @@ Perl module by Michael G Schwern.
 }
 </pre>
 
-<br><br>
+</dd>
 <dt>Known Bugs</dt><dd>Nothrow functions cause program to abort in release mode because the trap is
   implemented with <span class="inlinecode">assert(0)</span> for nothrow functions.
 
 </dd>
+
 <dt>See Also</dt><dd>AutoImplement, generateAssertTrap</dd>
+
 </dl>
 </div>
 
@@ -939,7 +944,8 @@ string generateLogger(C, <span class="d_keyword">alias</span> fun)() @property
 </td>
 </tr>
 </table></dd>
-<b>Note:</b><br>
+
+<dt>Note:</dt><dd>
 Generated code is inserted in the scope of <span class="inlinecode">std.typecons</span> module.  Thus,
 any useful functions outside <span class="inlinecode">std.typecons</span> cannot be used in the generated
 code.  To workaround this problem, you may <span class="inlinecode">import</span> necessary things in a
@@ -948,7 +954,7 @@ example.
 <br><br>
 
 
-<br><br>
+</dd>
 <dt>Known Bugs</dt><dd><ul><li>Variadic arguments to constructors are not forwarded to super.</li>
  <li>Deep interface inheritance causes compile error with messages like
       "Error: function std.typecons.AutoImplement!(Foo).AutoImplement.bar
@@ -959,6 +965,7 @@ example.
      strange compile error.  Use template tuple parameter instead to workaround
      this problem.  [<a href="http://d.puremagic.com/issues/show_bug.cgi?id=4217">Bugzilla 4217</a>] </li>
 </ul></dd>
+
 </dl>
 </div>
 
@@ -1022,7 +1029,7 @@ before attempting to access the payload. Not doing so results in <span class="d_
 pointer dereference.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// A pair of an <span class="inlinecode">int</span> and a <span class="inlinecode">size_t</span> - the latter being the
 </span>
 <span class="d_comment">// reference count - will be dynamically allocated
@@ -1039,7 +1046,7 @@ rc2 = 42;
 <span class="d_comment">// the pair will be freed when rc1 and rc2 go out of scope
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(A...)(A <i>args</i>);
 </h3></div>
@@ -1048,8 +1055,8 @@ rc2 = 42;
 <div class="declaration-content"><dl><p>Constructor that initializes the payload.
 </p>
 
-<b>Postcondition:</b><br>
-<span class="inlinecode">refCountedIsInitialized</span><br><br>
+<dt>Postcondition:</dt><dd>
+<span class="inlinecode">refCountedIsInitialized</span></dd>
 </dl>
 </div>
 
@@ -1084,7 +1091,7 @@ object as a <span class="inlinecode">T</span>.</p>
 <div class="declaration-content"><dl><p>Make proxy for <span class="inlinecode">a</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> MyInt
 {
     <span class="d_keyword">private</span> <span class="d_keyword">int</span> value;
@@ -1110,7 +1117,7 @@ MyInt n = 10;
 <span class="d_comment">//func(n);
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1133,7 +1140,7 @@ it is the responsibility of the user to not escape a reference to the
 object outside the scope.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">unittest</span>
 {
     <span class="d_keyword">class</span> A { <span class="d_keyword">int</span> x; }
@@ -1144,7 +1151,7 @@ object outside the scope.
     <span class="d_keyword">assert</span>(a1.x == 42);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1157,7 +1164,7 @@ enumerated type separately. Using <span class="inlinecode"><a class="symbol symb
 its own type, which makes confusions and mix-ups impossible.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Before
 </span>
 string getLine(<span class="d_keyword">bool</span> keepTerminator)
@@ -1205,7 +1212,7 @@ simple structuring method for passing yes/no flags to APIs.
 
 As a perk, the flag's name may be any string and as such can include
 characters not normally allowed in identifiers, such as
-spaces and dashes.<br><br>
+spaces and dashes.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Flag" href="#Flag">Flag</a>;
 </h3></div>

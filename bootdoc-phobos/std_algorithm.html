@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.algorithm" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.algorithm" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -234,7 +234,7 @@ comparison predicates is <span class="inlinecode">"a == b"</span> for unordered 
 <span class="inlinecode">"a &lt; b"</span> for ordered operations.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = ...;
 <span class="d_keyword">static</span> <span class="d_keyword">bool</span> greater(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b)
 {
@@ -462,15 +462,17 @@ ranges.</td>
 </tr>
 </table>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.com">Andrei Alexandrescu</a>
 
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/algorithm.d">std/algorithm.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/algorithm.d">std/algorithm.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="map" href="#map">map</a>(fun...) if (fun.length &gt;= 1)</h3></div>
 
@@ -484,7 +486,7 @@ caches the last value such that evaluating <span class="inlinecode">front</span>
 does not result in multiple calls to <span class="inlinecode">fun</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr1 = [ 1, 2, 3, 4 ];
 <span class="d_keyword">int</span>[] arr2 = [ 5, 6 ];
 <span class="d_keyword">auto</span> squares = <u>map</u>!(<span class="d_string">"a * a"</span>)(chain(arr1, arr2));
@@ -495,8 +497,8 @@ Multiple functions can be passed to <span class="inlinecode"><a class="symbol sy
 element type of <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> is a tuple containing one element for each
 function.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> arr1 = [ 1, 2, 3, 4 ];
 <span class="d_keyword">foreach</span> (e; <u>map</u>!(<span class="d_string">"a + a"</span>, <span class="d_string">"a * a"</span>)(arr1))
 {
@@ -511,7 +513,7 @@ it separately:
 <pre class="d_code"><span class="d_keyword">alias</span> <u>map</u>!(to!string) stringize;
 <span class="d_keyword">assert</span>(equal(stringize([ 1, 2, 3, 4 ]), [ <span class="d_string">"1"</span>, <span class="d_string">"2"</span>, <span class="d_string">"3"</span>, <span class="d_string">"4"</span> ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -531,7 +533,7 @@ quickly and easily. The example below illustrates <span class="inlinecode"><a cl
 remarkable power and flexibility.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 3, 4, 5 ];
 <span class="d_comment">// Sum all elements
 </span>
@@ -567,7 +569,7 @@ remarkable power and flexibility.
 <span class="d_keyword">assert</span>(r1 == 112.5);
 </pre>
 
-<b>Multiple functions:</b><br> Sometimes it is very useful to
+<dt>Multiple functions:</dt><dd> Sometimes it is very useful to
 compute multiple aggregates in one pass. One advantage is that the
 computation is faster because the looping overhead is shared. That's
 why <span class="inlinecode"><a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a></span> accepts multiple functions. If two or more functions
@@ -575,8 +577,8 @@ are passed, <span class="inlinecode"><a class="symbol symbol-anchor" name="reduc
 one member per passed-in function. The number of seeds must be
 correspondingly increased.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">double</span>[] a = [ 3.0, 4, 7, 11, 3, 2, 5 ];
 <span class="d_comment">// Compute minimum and maximum in one pass
 </span>
@@ -600,7 +602,7 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 <span class="d_keyword">auto</span> avg = r[0] / a.length;
 <span class="d_keyword">auto</span> stdev = sqrt(r[1] / a.length - avg * avg);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -611,12 +613,12 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 <div class="declaration-content"><dl><p>Fills a range with a value.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4 ];
 <u>fill</u>(a, 5);
 <span class="d_keyword">assert</span>(a == [ 5, 5, 5, 5 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -628,13 +630,13 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 <span class="inlinecode">range</span> does not have to be a multiple of the length of <span class="inlinecode">filler</span>. If <span class="inlinecode">filler</span> is empty, an exception is thrown.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
 <span class="d_keyword">int</span>[] b = [ 8, 9 ];
 <u>fill</u>(a, b);
 <span class="d_keyword">assert</span>(a == [ 8, 9, 8, 9, 8 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -648,13 +650,13 @@ define copy constructors (for all other types, fill and
 <a class="symbol symbol-anchor" name="uninitializedFill" href="#uninitializedFill">uninitializedFill</a> are equivalent).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> S { ... }
 S[] s = (<span class="d_keyword">cast</span>(S*) malloc(5 * S.sizeof))[0 .. 5];
 <u>uninitializedFill</u>(s, 42);
 <span class="d_keyword">assert</span>(s == [ 42, 42, 42, 42, 42 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -667,13 +669,13 @@ value. Assumes that the range does not currently contain meaningful
 content.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> S { ... }
 S[] s = (<span class="d_keyword">cast</span>(S*) malloc(5 * S.sizeof))[0 .. 5];
 <u>initializeAll</u>(s);
 <span class="d_keyword">assert</span>(s == [ 0, 0, 0, 0, 0 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -686,7 +688,7 @@ returns a new range only containing elements <span class="inlinecode">x</span> i
 which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 3, 4, 5 ];
 <span class="d_comment">// Sum all elements
 </span>
@@ -704,7 +706,7 @@ which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><
 <span class="d_keyword">auto</span> r1 = <u>filter</u>!(<span class="d_string">"cast(int) a != a"</span>)(chain(c, a, b));
 <span class="d_keyword">assert</span>(equal(r1, [ 2.5 ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -719,7 +721,7 @@ which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><
  <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a> can be applied against the filtered range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 3, 4, 5 ];
 <span class="d_keyword">auto</span> small = <u>filterBidirectional</u>!(<span class="d_string">"a &lt; 3"</span>)(arr);
 <span class="d_keyword">assert</span>(small.back == 2);
@@ -732,7 +734,7 @@ which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><
 <span class="d_keyword">auto</span> r = <u>filterBidirectional</u>!(<span class="d_string">"a &gt; 0"</span>)(chain(a, b));
 <span class="d_keyword">assert</span>(r.back == 102);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -749,8 +751,8 @@ evaluated.</li>  <li>Otherwise, <span class="inlinecode">target = source</span> 
 also <a href="std_exception.html#pointsTo"><span class="inlinecode">std.exception.pointsTo</span></a>.
 </p>
 
-<b>Preconditions:</b><br>
-<span class="inlinecode">&source == &target || !pointsTo(source, source)</span><br><br>
+<dt>Preconditions:</dt><dd>
+<span class="inlinecode">&source == &target || !pointsTo(source, source)</span></dd>
 </dl>
 </div>
 
@@ -763,8 +765,8 @@ the leftover portion of <span class="inlinecode">tgt</span>. Throws an exeption 
 enough room in <span class="inlinecode">tgt</span> to acommodate all of <span class="inlinecode">src</span>.
 </p>
 
-<b>Preconditions:</b><br>
-<span class="inlinecode">walkLength(src) &lt;= walkLength(tgt)</span><br><br>
+<dt>Preconditions:</dt><dd>
+<span class="inlinecode">walkLength(src) &lt;= walkLength(tgt)</span></dd>
 </dl>
 </div>
 
@@ -786,9 +788,9 @@ leftover portions of the two ranges.</p>
 <div class="declaration-content"><dl><p>Swaps <span class="inlinecode">lhs</span> and <span class="inlinecode">rhs</span>. See also <a href="std_exception.html#pointsTo"><span class="inlinecode">std.exception.pointsTo</span></a>.
 </p>
 
-<b>Preconditions:</b><br>
+<dt>Preconditions:</dt><dd>
 <span class="inlinecode">!pointsTo(lhs, lhs) &amp;&amp; !pointsTo(lhs, rhs) &amp;&amp; !pointsTo(rhs, lhs)
-&amp;&amp; !pointsTo(rhs, rhs)</span><br><br>
+&amp;&amp; !pointsTo(rhs, rhs)</span></dd>
 </dl>
 </div>
 
@@ -809,7 +811,7 @@ element. If a range with one separator is given, the result is a range
 with two empty elements.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(equal(<u>splitter</u>(<span class="d_string">"hello  world"</span>, ' '), [ <span class="d_string">"hello"</span>, <span class="d_string">""</span>, <span class="d_string">"world"</span> ]));
 <span class="d_keyword">int</span>[] a = [ 1, 2, 0, 0, 3, 0, 4, 5, 0 ];
 <span class="d_keyword">int</span>[][] w = [ [1, 2], [], [3], [4, 5] ];
@@ -821,7 +823,7 @@ a = [ 0 ];
 a = [ 0, 1 ];
 <span class="d_keyword">assert</span>(equal(<u>splitter</u>(a, 0), [ [], [1] ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -843,7 +845,7 @@ with any range type, but is most popular with string types.</p>
 is a range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(equal(<u>joiner</u>([<span class="d_string">""</span>], <span class="d_string">"xyz"</span>), <span class="d_string">""</span>));
 <span class="d_keyword">assert</span>(equal(<u>joiner</u>([<span class="d_string">""</span>, <span class="d_string">""</span>], <span class="d_string">"xyz"</span>), <span class="d_string">"xyz"</span>));
 <span class="d_keyword">assert</span>(equal(<u>joiner</u>([<span class="d_string">""</span>, <span class="d_string">"abc"</span>], <span class="d_string">"xyz"</span>), <span class="d_string">"xyzabc"</span>));
@@ -852,7 +854,7 @@ is a range.
 <span class="d_keyword">assert</span>(equal(<u>joiner</u>([<span class="d_string">"Mary"</span>, <span class="d_string">"has"</span>, <span class="d_string">"a"</span>, <span class="d_string">"little"</span>, <span class="d_string">"lamb"</span>], <span class="d_string">"..."</span>),
   <span class="d_string">"Mary...has...a...little...lamb"</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -867,11 +869,11 @@ utility). Equivalence of elements is assessed by using the predicate
 bidirectional, <span class="inlinecode"><a class="symbol symbol-anchor" name="uniq" href="#uniq">uniq</a></span> also yields a bidirectional range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 2, 2, 2, 3, 4, 4, 4, 5 ];
 <span class="d_keyword">assert</span>(equal(<u>uniq</u>(arr), [ 1, 2, 3, 4, 5 ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -890,12 +892,12 @@ the predicate <span class="inlinecode">pred</span>, by default <span class="inli
 forward range in all other cases.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 2, 2, 2, 3, 4, 4, 4, 5 ];
 <span class="d_keyword">assert</span>(equal(group(arr), [ tuple(1, 1u), tuple(2, 4u), tuple(3, 1u),
     tuple(4, 3u), tuple(5, 1u) ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -916,16 +918,18 @@ forward range in all other cases.
 <td>The element searched for.</td>
 </tr>
 </table></dd>
-<b>Constraints:</b><br>
+
+<dt>Constraints:</dt><dd>
 <span class="inlinecode">isInputRange!R &amp;&amp; is(typeof(binaryFun!pred(haystack.front, needle)
 : bool))</span>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd><span class="inlinecode">haystack</span> advanced such that <span class="inlinecode">binaryFun!pred(haystack.front,
 needle)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span> (if no such position exists, returns <span class="inlinecode">haystack</span> after exhaustion).
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>find</u>(<span class="d_string">"hello, world"</span>, ',') == <span class="d_string">", world"</span>);
 <span class="d_keyword">assert</span>(<u>find</u>([1, 2, 3, 5], 4) == []);
 <span class="d_keyword">assert</span>(<u>find</u>(SList!<span class="d_keyword">int</span>(1, 2, 3, 4, 5)[], 4) == SList!<span class="d_keyword">int</span>(4, 5)[]);
@@ -942,7 +946,7 @@ needle)</span> is <span class="inlinecode"><span class="d_keyword">true</span></
 string[] s = [ <span class="d_string">"Hello"</span>, <span class="d_string">"world"</span>, <span class="d_string">"!"</span> ];
 <span class="d_keyword">assert</span>(!<u>find</u>!(<span class="d_string">"toLower(a) == b"</span>)(s, <span class="d_string">"hello"</span>).empty);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -964,11 +968,12 @@ depending on the statistics of the two ranges' content.
 <td>The range searched for.</td>
 </tr>
 </table></dd>
-<b>Constraints:</b><br>
+
+<dt>Constraints:</dt><dd>
 <span class="inlinecode">isForwardRange!R1 &amp;&amp; isForwardRange!R2 &amp;&amp;
 is(typeof(binaryFun!pred(haystack.front, needle.front) : bool))</span>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd><span class="inlinecode">haystack</span> advanced such that <span class="inlinecode">needle</span> is a prefix of it (if no
 such position exists, returns <span class="inlinecode">haystack</span> advanced to termination).
 <br><br>
@@ -978,6 +983,7 @@ such position exists, returns <span class="inlinecode">haystack</span> advanced 
 <span class="d_keyword">assert</span>(<u>find</u>([1, 2, 3, 4], SList!(2, 3)[]) == [2, 3, 4]);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1004,6 +1010,7 @@ be either comparable to one element in <span class="inlinecode">haystack</span>,
 <span class="inlinecode">haystack</span>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A tuple containing <span class="inlinecode">haystack</span> positioned to match one of the
 needles and also the 1-based index of the matching element in <span class="inlinecode">needles</span> (0 if none of <span class="inlinecode">needles</span> matched, 1 if <span class="inlinecode">needles[0]</span>
 matched, 2 if <span class="inlinecode">needles[1]</span> matched...). The first needle to be found
@@ -1022,7 +1029,8 @@ or a <span class="inlinecode">double[]</span>. This makes for efficient searches
 to coerce one side of the comparison into the other's side type.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 4, 2, 3 ];
 <span class="d_keyword">assert</span>(<u>find</u>(a, 4) == [ 4, 2, 3 ]);
 <span class="d_keyword">assert</span>(<u>find</u>(a, [ 1, 4 ]) == [ 1, 4, 2, 3 ]);
@@ -1036,7 +1044,7 @@ The complexity of the search is <b><i>&Omicron;</i>(</b><span class="inlinecode"
 max(needles.length)</span><b><i>)</i></b>. (For needles that are individual items, length
 is considered to be 1.) The strategy used in searching several
 subranges at once maximizes cache usage by moving in <span class="inlinecode">haystack</span> as
-few times as possible.<br><br>
+few times as possible.</dd>
 </dl>
 </div>
 
@@ -1052,7 +1060,7 @@ until either <span class="inlinecode">pred(haystack.front)</span>, or <span clas
 <span class="inlinecode">pred</span>, call <span class="inlinecode"><a class="symbol symbol-anchor" name="find" href="#find">find</a>!(pred)(retro(haystack))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> arr = [ 1, 2, 3, 4, 1 ];
 <span class="d_keyword">assert</span>(<u>find</u>!(<span class="d_string">"a &gt; 2"</span>)(arr) == [ 3, 4, 1 ]);
 
@@ -1061,7 +1069,7 @@ until either <span class="inlinecode">pred(haystack.front)</span>, or <span clas
 <span class="d_keyword">bool</span> pred(<span class="d_keyword">int</span> x) { <span class="d_keyword">return</span> x + 1 &gt; 1.5; }
 <span class="d_keyword">assert</span>(<u>find</u>!(pred)(arr) == arr);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1073,14 +1081,14 @@ until either <span class="inlinecode">pred(haystack.front)</span>, or <span clas
  right after the first occurrence of <span class="inlinecode">needle</span> and returns <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leaves <span class="inlinecode">haystack</span> as is and returns <span class="inlinecode"><span class="d_keyword">false</span></span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string s = <span class="d_string">"abcdef"</span>;
 <span class="d_keyword">assert</span>(<u>findSkip</u>(s, <span class="d_string">"cd"</span>) &amp;&amp; s == <span class="d_string">"ef"</span>);
 s = <span class="d_string">"abcdef"</span>;
 <span class="d_keyword">assert</span>(!<u>findSkip</u>(s, <span class="d_string">"cxd"</span>) &amp;&amp; s == <span class="d_string">"abcdef"</span>);
 <span class="d_keyword">assert</span>(<u>findSkip</u>(s, <span class="d_string">"def"</span>) &amp;&amp; s.empty);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1123,7 +1131,7 @@ tuple have the same type as <span class="inlinecode">haystack</span>. Otherwise,
 must be a forward range and the type of <span class="inlinecode">result[0]</span> and <span class="inlinecode">result[1]</span> is the same as <a href="std_range.html#takeExactly"><span class="inlinecode">std.range.takeExactly</span></a>.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
 <span class="d_keyword">auto</span> r = <u>findSplit</u>(a, [9, 1]);
 <span class="d_keyword">assert</span>(r[0] == a);
@@ -1140,7 +1148,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 <span class="d_keyword">assert</span>(r1[0] == a);
 <span class="d_keyword">assert</span>(r1[1].empty);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1166,6 +1174,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 <span class="d_keyword">assert</span>(<u>countUntil</u>!<span class="d_string">"a &gt; b"</span>([0, 7, 12, 22, 9], 20) == 3);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1182,6 +1191,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 <span class="d_keyword">assert</span>(<u>countUntil</u>!<span class="d_string">"a &gt; 20"</span>([0, 7, 12, 22, 9]) == 3);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1236,12 +1246,12 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 which point it stops.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 7, 7, 2, 4, 7, 3, 5];
 <span class="d_keyword">assert</span>(equal(a.until(7), [1, 2, 4][]));
 <span class="d_keyword">assert</span>(equal(a.until(7, OpenRight.no), [1, 2, 4, 7][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1259,7 +1269,7 @@ length (e.g. <span class="inlinecode">"a"</span> and <span class="inlinecode">'a
 list matches).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>startsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">""</span>));
 <span class="d_keyword">assert</span>(<u>startsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"a"</span>));
 <span class="d_keyword">assert</span>(!<u>startsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"b"</span>));
@@ -1272,7 +1282,7 @@ list matches).
 <span class="d_keyword">assert</span>(<u>startsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"x"</span>, <span class="d_string">"aaa"</span>, <span class="d_string">"sab"</span>) == 0);
 <span class="d_keyword">assert</span>(<u>startsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"x"</span>, <span class="d_string">"aaa"</span>, <span class="d_string">"a"</span>, <span class="d_string">"sab"</span>) == 3);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1306,7 +1316,7 @@ unchanged and return <span class="inlinecode"><span class="d_keyword">false</spa
 <div class="declaration-content"><dl><p>The reciprocal of <span class="inlinecode">startsWith</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>endsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">""</span>));
 <span class="d_keyword">assert</span>(!<u>endsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"b"</span>));
 <span class="d_keyword">assert</span>(<u>endsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"a"</span>, 'c') == 2);
@@ -1318,7 +1328,7 @@ unchanged and return <span class="inlinecode"><span class="d_keyword">false</spa
 <span class="d_keyword">assert</span>(<u>endsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"x"</span>, <span class="d_string">"aaa"</span>, <span class="d_string">"sab"</span>) == 0);
 <span class="d_keyword">assert</span>(<u>endsWith</u>(<span class="d_string">"abc"</span>, <span class="d_string">"x"</span>, <span class="d_string">"aaa"</span>, 'c', <span class="d_string">"sab"</span>) == 3);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1346,14 +1356,14 @@ The type of the result is the same as <span class="inlinecode">takeExactly(r1, n
 evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sgi.com/tech/stl/adjacent_find.html">STL's adjacent_find</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 11, 10, 10, 9, 8, 8, 7, 8, 9 ];
 <span class="d_keyword">auto</span> r = <u>findAdjacent</u>(a);
 <span class="d_keyword">assert</span>(r == [ 10, 10, 9, 8, 8, 7, 8, 9 ]);
 p = <u>findAdjacent</u>!(<span class="d_string">"a &lt; b"</span>)(a);
 <span class="d_keyword">assert</span>(p == [ 7, 8, 9 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1367,12 +1377,12 @@ empty. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">seq.length * ch
 find_first_of</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ -1, 0, 1, 2, 3, 4, 5 ];
 <span class="d_keyword">int</span>[] b = [ 3, 1, 2 ];
 <span class="d_keyword">assert</span>(<u>findAmong</u>(a, b) == a[2 .. $]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1397,7 +1407,7 @@ are not considered, for example <span class="inlinecode"><a class="symbol symbol
 The third version counts the elements for which <span class="inlinecode">pred(x)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// count elements in range
 </span>
 <span class="d_keyword">int</span>[] a = [ 1, 2, 4, 3, 2, 5, 3, 2, 4 ];
@@ -1412,7 +1422,7 @@ The third version counts the elements for which <span class="inlinecode">pred(x)
 </span>
 <span class="d_keyword">assert</span>(<u>count</u>!(<span class="d_string">"a &gt; 1"</span>)(a) == 8);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1427,7 +1437,7 @@ most common uses are the default or <span class="inlinecode">0</span>. In the la
 nesting is allowed.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> s = <span class="d_string">"1 + (2 * (3 + 1 / 2)"</span>;
 <span class="d_keyword">assert</span>(!<u>balancedParens</u>(s, '(', ')'));
 s = <span class="d_string">"1 + (2 * (3 + 1) / 2)"</span>;
@@ -1437,7 +1447,7 @@ s = <span class="d_string">"1 + (2 * (3 + 1) / 2)"</span>;
 s = <span class="d_string">"1 + (2 * 3 + 1) / (2 - 5)"</span>;
 <span class="d_keyword">assert</span>(<u>balancedParens</u>(s, '(', ')', 1));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1453,7 +1463,7 @@ have different element types, as long as <span class="inlinecode">pred(a, b)</sp
 <a href="http://sgi.com/tech/stl/equal.html">STL's equal</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 3 ];
 <span class="d_keyword">assert</span>(!<u>equal</u>(a, a[1..$]));
 <span class="d_keyword">assert</span>(<u>equal</u>(a, a));
@@ -1469,7 +1479,7 @@ have different element types, as long as <span class="inlinecode">pred(a, b)</sp
 <span class="d_keyword">double</span>[] c = [ 1.005, 2, 4, 3];
 <span class="d_keyword">assert</span>(<u>equal</u>!(approxEqual)(b, c));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1512,7 +1522,7 @@ computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">
 computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">std.traits.CommonType</span></a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span> a = 5;
 <span class="d_keyword">short</span> b = 6;
 <span class="d_keyword">double</span> c = 2;
@@ -1523,7 +1533,7 @@ computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">
 <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(e) == <span class="d_keyword">double</span>));
 <span class="d_keyword">assert</span>(e == 2);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1537,7 +1547,7 @@ maximum or any other ordering predicate (that's why <span class="inlinecode">max
 not provided).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 2, 3, 4, 1, 2, 4, 1, 1, 2 ];
 <span class="d_comment">// Minimum is 1 and occurs 3 times
 </span>
@@ -1546,7 +1556,7 @@ not provided).
 </span>
 <span class="d_keyword">assert</span>(<u>minCount</u>!(<span class="d_string">"a &gt; b"</span>)(a) == tuple(4, 2));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1560,7 +1570,7 @@ can actually be used for counting the maximum or any other ordering
 predicate (that's why <span class="inlinecode">maxPos</span> is not provided).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 2, 3, 4, 1, 2, 4, 1, 1, 2 ];
 <span class="d_comment">// Minimum is 1 and first occurs in position 3
 </span>
@@ -1569,7 +1579,7 @@ predicate (that's why <span class="inlinecode">maxPos</span> is not provided).
 </span>
 <span class="d_keyword">assert</span>(<u>minPos</u>!(<span class="d_string">"a &gt; b"</span>)(a) == [ 4, 1, 2, 4, 1, 1, 2 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1584,14 +1594,14 @@ two mismatched values. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode"
 evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sgi.com/tech/stl/mismatch.html">STL's mismatch</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[]    x = [ 1,  5, 2, 7,   4, 3 ];
 <span class="d_keyword">double</span>[] y = [ 1., 5, 2, 7.3, 4, 8 ];
 <span class="d_keyword">auto</span> m = <u>mismatch</u>(x, y);
 <span class="d_keyword">assert</span>(m[0] == x[3 .. $]);
 <span class="d_keyword">assert</span>(m[1] == y[3 .. $]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1657,7 +1667,7 @@ the minimal amount of edit operations necessary to transform <span class="inline
 into <span class="inlinecode">t</span>.  Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length * t.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">equals</span> and occupies <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length * t.length</span><b><i>)</i></b> storage.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>levenshteinDistance</u>(<span class="d_string">"cat"</span>, <span class="d_string">"rat"</span>) == 1);
 <span class="d_keyword">assert</span>(<u>levenshteinDistance</u>(<span class="d_string">"parks"</span>, <span class="d_string">"spark"</span>) == 2);
 <span class="d_keyword">assert</span>(<u>levenshteinDistance</u>(<span class="d_string">"kitten"</span>, <span class="d_string">"sitting"</span>) == 3);
@@ -1666,7 +1676,7 @@ into <span class="inlinecode">t</span>.  Performs <b><i>&Omicron;</i>(</b><span 
 <span class="d_keyword">assert</span>(<u>levenshteinDistance</u>!(<span class="d_string">"std.uni.toUpper(a) == std.uni.toUpper(b)"</span>)
     (<span class="d_string">"parks"</span>, <span class="d_string">"SPARK"</span>) == 2);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1678,13 +1688,13 @@ into <span class="inlinecode">t</span>.  Performs <b><i>&Omicron;</i>(</b><span 
 <span class="inlinecode">t</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string a = <span class="d_string">"Saturday"</span>, b = <span class="d_string">"Sunday"</span>;
 <span class="d_keyword">auto</span> p = <u>levenshteinDistanceAndPath</u>(a, b);
 <span class="d_keyword">assert</span>(p[0] == 3);
 <span class="d_keyword">assert</span>(equal(p[1], <span class="d_string">"nrrnsnnn"</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1698,7 +1708,7 @@ remaining (unfilled) part of <span class="inlinecode">target</span>. See also <a
 needed, use <span class="inlinecode"><a class="symbol symbol-anchor" name="copy" href="#copy">copy</a>(retro(source), retro(target))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 5 ];
 <span class="d_keyword">int</span>[] b = [ 9, 8 ];
 <span class="d_keyword">int</span>[] c = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[a.length + b.length + 10];
@@ -1710,8 +1720,8 @@ needed, use <span class="inlinecode"><a class="symbol symbol-anchor" name="copy"
 As long as the target range elements support assignment from source
 range elements, different types of ranges are accepted.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">float</span>[] a = [ 1.0f, 5 ];
 <span class="d_keyword">double</span>[] b = <span class="d_keyword">new</span> <span class="d_keyword">double</span>[a.length];
 <span class="d_keyword">auto</span> d = <u>copy</u>(a, b);
@@ -1722,14 +1732,14 @@ may want to use <span class="inlinecode"><a class="symbol symbol-anchor" name="c
 range <span class="inlinecode">a</span> that satisfy predicate <span class="inlinecode">pred</span> to range <span class="inlinecode">b</span>, you may
 want to use <span class="inlinecode"><a class="symbol symbol-anchor" name="copy" href="#copy">copy</a>(filter!(pred)(a), b)</span>.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 5, 8, 9, 10, 1, 2, 0 ];
 <span class="d_keyword">auto</span> b = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[a.length];
 <span class="d_keyword">auto</span> c = <u>copy</u>(filter!(<span class="d_string">"(a &amp; 1) == 1"</span>)(a), b);
 <span class="d_keyword">assert</span>(b[0 .. $ - c.length] == [ 1, 5, 9, 1 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1743,7 +1753,7 @@ be of different types but must have the same element type and support
 swapping.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 100, 101, 102, 103 ];
 <span class="d_keyword">int</span>[] b = [ 0, 1, 2, 3 ];
 <span class="d_keyword">auto</span> c = <u>swapRanges</u>(a[1 .. 3], b[2 .. 4]);
@@ -1751,7 +1761,7 @@ swapping.
 <span class="d_keyword">assert</span>(a == [ 100, 2, 3, 103 ]);
 <span class="d_keyword">assert</span>(b == [ 0, 1, 101, 102 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1762,12 +1772,12 @@ swapping.
 <div class="declaration-content"><dl><p>Reverses <span class="inlinecode">r</span> in-place.  Performs <span class="inlinecode">r.length / 2</span> evaluations of <span class="inlinecode">swap</span>. See also <a href="http://sgi.com/tech/stl/reverse.html">STL's reverse</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [ 1, 2, 3 ];
 <u>reverse</u>(arr);
 <span class="d_keyword">assert</span>(arr == [ 3, 2, 1 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1780,12 +1790,12 @@ elements of type <span class="inlinecode">char</span> or <span class="inlinecode
 multiple code units are preserved properly.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">char</span>[] arr = <span class="d_string">"hello\U00010143\u0100\U00010143"</span>.dup;
 <u>reverse</u>(arr);
 <span class="d_keyword">assert</span>(arr == <span class="d_string">"\U00010143\u0100\U00010143olleh"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1843,12 +1853,13 @@ Elements can be swapped across ranges of different types:
 Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">max(front.length, back.length)</span><b><i>)</i></b> evaluations of <span class="inlinecode">swap</span>. See also <a href="http://sgi.com/tech/stl/rotate.html">STL's rotate</a>.
 
 </p>
-<b>Preconditions:</b><br>
+<dt>Preconditions:</dt><dd>
 Either <span class="inlinecode">front</span> and <span class="inlinecode">back</span> are disjoint, or <span class="inlinecode">back</span> is
 reachable from <span class="inlinecode">front</span> and <span class="inlinecode">front</span> is not reachable from <span class="inlinecode">back</span>.
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>The number of elements brought to the front, i.e., the length of <span class="inlinecode">back</span>.</dd>
+
 </dl>
 </div>
 
@@ -2008,11 +2019,11 @@ elements are moved progressively to front such that their relative
 order is preserved. Returns the filtered range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 2, 3, 4, 5, 2, 5, 6 ];
 <span class="d_keyword">assert</span>(<u>remove</u>!(<span class="d_string">"a == 2"</span>)(a) == [ 1, 3, 3, 4, 5, 5, 6 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2044,7 +2055,8 @@ relative ordering of all elements <span class="inlinecode">a</span>, <span class
 <span class="inlinecode">pred(a) == pred(b)</span>. If <span class="inlinecode">ss == SwapStrategy.semistable</span>, <span class="inlinecode"><a class="symbol symbol-anchor" name="partition" href="#partition">partition</a></span> preserves the relative ordering of all elements <span class="inlinecode">a</span>, <span class="inlinecode">b</span> in the left part of <span class="inlinecode">r</span> for which <span class="inlinecode">pred(a) == pred(b)</span>.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> Arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 <span class="d_keyword">auto</span> arr = Arr.dup;
 <span class="d_keyword">static</span> <span class="d_keyword">bool</span> even(<span class="d_keyword">int</span> a) { <span class="d_keyword">return</span> (a &amp; 1) == 0; }
@@ -2087,7 +2099,7 @@ r = <u>partition</u>!(fun, SwapStrategy.semistable)(arr);
 </span>
 <span class="d_keyword">assert</span>(arr == [4, 5, 6, 7, 8, 9, 10, 2, 3, 1] &amp;&amp; r == arr[7 .. $]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2098,11 +2110,11 @@ r = <u>partition</u>!(fun, SwapStrategy.semistable)(arr);
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">r</span> is partitioned according to predicate <span class="inlinecode">pred</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] r = [ 1, 3, 5, 7, 8, 2, 4, ];
 <span class="d_keyword">assert</span>(<u>isPartitioned</u>!(<span class="d_string">"a &amp; 1"</span>)(r));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2119,7 +2131,7 @@ than <span class="inlinecode">pivot</span>. The less-than test is defined by the
 <span class="inlinecode">less</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = [ 8, 3, 4, 1, 4, 7, 4 ];
 <span class="d_keyword">auto</span> pieces = <u>partition3</u>(a, 4);
 <span class="d_keyword">assert</span>(a == [ 1, 3, 4, 4, 4, 7, 8 ];
@@ -2128,8 +2140,9 @@ than <span class="inlinecode">pivot</span>. The less-than test is defined by the
 <span class="d_keyword">assert</span>(pieces[2] == [ 7, 8 ]);
 </pre>
 
-<br><br>
+</dd>
 <dt>Known Bugs</dt><dd>stable <span class="inlinecode"><a class="symbol symbol-anchor" name="partition3" href="#partition3">partition3</a></span> has not been implemented yet.</dd>
+
 </dl>
 </div>
 
@@ -2147,7 +2160,7 @@ and all elements <span class="inlinecode">e2</span> from <span class="inlinecode
 stable) evaluations of <span class="inlinecode">less</span> and <span class="inlinecode">swap</span>. See also <a href="http://sgi.com/tech/stl/nth_element.html">STL's nth_element</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] v = [ 25, 7, 9, 2, 0, 5, 21 ];
 <span class="d_keyword">auto</span> n = 4;
 <u>topN</u>!(less)(v, n);
@@ -2158,8 +2171,9 @@ stable) evaluations of <span class="inlinecode">less</span> and <span class="inl
 <span class="d_keyword">assert</span>(v[n] == 9);
 </pre>
 
-<br><br>
+</dd>
 <dt>Known Bugs</dt><dd>Stable <a class="symbol symbol-anchor" name="topN" href="#topN">topN</a> has not been implemented yet.</dd>
+
 </dl>
 </div>
 
@@ -2183,7 +2197,7 @@ and <span class="inlinecode">swap</span>. See also STL's <a href="http://sgi.com
 and <a href="http://sgi.com/tech/stl/stable_sort.html">stable_sort</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] array = [ 1, 2, 3, 4 ];
 <span class="d_comment">// sort in descending order
 </span>
@@ -2204,7 +2218,7 @@ string[] words = [ <span class="d_string">"aBc"</span>, <span class="d_string">"
 <u>sort</u>!(<span class="d_string">"toUpper(a) &lt; toUpper(b)"</span>, SwapStrategy.stable)(words);
 <span class="d_keyword">assert</span>(words == [ <span class="d_string">"a"</span>, <span class="d_string">"aBc"</span>, <span class="d_string">"abc"</span>, <span class="d_string">"ABC"</span>, <span class="d_string">"b"</span>, <span class="d_string">"c"</span> ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2219,14 +2233,14 @@ descending. Such a call is equivalent to <span class="inlinecode">sort!"a.id != 
 does fewer comparisons (in addition to being more convenient).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">struct</span> Point { <span class="d_keyword">int</span> x, y; }
 <span class="d_keyword">auto</span> pts1 = [ Point(0, 0), Point(5, 5), Point(0, 1), Point(0, 2) ];
 <span class="d_keyword">auto</span> pts2 = [ Point(0, 0), Point(0, 1), Point(0, 2), Point(5, 5) ];
 <u>multiSort</u>!(<span class="d_string">"a.x &lt; b.x"</span>, <span class="d_string">"a.y &lt; b.y"</span>, SwapStrategy.unstable)(pts1);
 <span class="d_keyword">assert</span>(pts1 == pts2);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2243,7 +2257,7 @@ corresponding <span class="inlinecode">sort</span>, but <span class="inlinecode"
 regular sorting). The usage can be best illustrated with an example.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">uint</span> hashFun(string) { ... expensive computation ... }
 string[] array = ...;
 <span class="d_comment">// Sort strings by hash, slow
@@ -2263,7 +2277,7 @@ created.
 
 To check whether an array was sorted and benefit of the speedup of
 Schwartz sorting, a function <span class="inlinecode">schwartzIsSorted</span> is not provided
-because the effect can be achieved by calling <span class="inlinecode">isSorted!less(map!transform(r))</span>.<br><br>
+because the effect can be achieved by calling <span class="inlinecode">isSorted!less(map!transform(r))</span>.</dd>
 </dl>
 </div>
 
@@ -2278,12 +2292,12 @@ the range <span class="inlinecode">r[mid .. r.length]</span> in no particular or
 implementation simply calls <span class="inlinecode">topN!(less, ss)(r, n)</span> and then <span class="inlinecode">sort!(less, ss)(r[0 .. n])</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ];
 <u>partialSort</u>(a, 5);
 <span class="d_keyword">assert</span>(a[0 .. 5] == [ 0, 1, 2, 3, 4 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2300,14 +2314,14 @@ exact strategy chosen depends on the relative sizes of <span class="inlinecode">
 rhs.length)</span><b><i>)</i></b> (worst-case) evaluations of <span class="inlinecode">swap</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
 <span class="d_keyword">int</span>[] b = [ 4, 0, 6, 5 ];
 <u>completeSort</u>(assumeSorted(a), b);
 <span class="d_keyword">assert</span>(a == [ 0, 1, 2 ]);
 <span class="d_keyword">assert</span>(b == [ 3, 4, 5, 6 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2319,7 +2333,7 @@ rhs.length)</span><b><i>)</i></b> (worst-case) evaluations of <span class="inlin
 operation <span class="inlinecode">less</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">less</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr = [4, 3, 2, 1];
 <span class="d_keyword">assert</span>(!<u>isSorted</u>(arr));
 sort(arr);
@@ -2327,7 +2341,7 @@ sort(arr);
 sort!(<span class="d_string">"a &gt; b"</span>)(arr);
 <span class="d_keyword">assert</span>(<u>isSorted</u>!(<span class="d_string">"a &gt; b"</span>)(arr));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2360,7 +2374,7 @@ first overload requires <span class="inlinecode">Range</span> to be a forward ra
 latter requires it to be a random-access range.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">immutable</span>(<span class="d_keyword">int</span>[]) arr = [ 2, 3, 1, 5, 0 ];
 <span class="d_comment">// index using pointers
 </span>
@@ -2375,7 +2389,7 @@ latter requires it to be a random-access range.
     ((size_t a, size_t b){ <span class="d_keyword">return</span> arr[a] &lt; arr[b];})
     (index2));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2449,6 +2463,7 @@ predicate <span class="inlinecode">pred</span>.  Performs <b><i>&Omicron;</i>(</
 <span class="d_keyword">assert</span>(!<u>all</u>!<span class="d_string">"a &amp; 1"</span>([1, 2, 3, 5, 7, 9]));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -2462,13 +2477,13 @@ target.length</span>. Elements of <span class="inlinecode">source</span> are not
 respects the <a href="http://en.wikipedia.org/wiki/Binary_heap">heap property</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 10, 16, 2, 3, 1, 5, 0 ];
 <span class="d_keyword">int</span>[] b = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[3];
 <u>topNCopy</u>(a, b, <span class="d_keyword">true</span>);
 <span class="d_keyword">assert</span>(b == [ 0, 1, 2 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2484,7 +2499,7 @@ inputs. (The <span class="inlinecode">length</span> member is offered if all ran
 length.) The element types of all ranges must have a common type.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 5, 7, 9 ];
 <span class="d_keyword">int</span>[] b = [ 0, 1, 2, 4, 7, 8 ];
 <span class="d_keyword">int</span>[] c = [ 10 ];
@@ -2493,7 +2508,7 @@ length.) The element types of all ranges must have a common type.
 <span class="d_keyword">assert</span>(equal(setUnion(a, c, b),
     [0, 1, 1, 2, 2, 4, 4, 5, 7, 7, 8, 9, 10][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2506,7 +2521,7 @@ length.) The element types of all ranges must have a common type.
 types of all ranges must have a common type.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 5, 7, 9 ];
 <span class="d_keyword">int</span>[] b = [ 0, 1, 2, 4, 7, 8 ];
 <span class="d_keyword">int</span>[] c = [ 0, 1, 4, 5, 7, 8 ];
@@ -2514,7 +2529,7 @@ types of all ranges must have a common type.
 <span class="d_keyword">assert</span>(equal(setIntersection(a, b), [1, 2, 4, 7][]));
 <span class="d_keyword">assert</span>(equal(setIntersection(a, b, c), [1, 4, 7][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2528,12 +2543,12 @@ are assumed to be sorted by <span class="inlinecode">less</span>. The element ty
 ranges must have a common type.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 5, 7, 9 ];
 <span class="d_keyword">int</span>[] b = [ 0, 1, 2, 4, 7, 8 ];
 <span class="d_keyword">assert</span>(equal(setDifference(a, b), [5, 9][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2548,12 +2563,12 @@ output is also sorted by <span class="inlinecode">less</span>. The element types
 ranges must have a common type.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 4, 5, 7, 9 ];
 <span class="d_keyword">int</span>[] b = [ 0, 1, 2, 4, 7, 8 ];
 <span class="d_keyword">assert</span>(equal(setSymmetricDifference(a, b), [0, 5, 8, 9][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2571,7 +2586,7 @@ contained within <span class="inlinecode">ror</span>. If all ranges have the sam
 turn. The output comes sorted (unstably) by <span class="inlinecode">less</span>.
 </p>
 
-<b>Warning:</b><br>
+<dt>Warning:</dt><dd>
 Because <span class="inlinecode"><a class="symbol symbol-anchor" name="NWayUnion" href="#NWayUnion">NWayUnion</a></span> does not allocate extra memory, it
 will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><a class="symbol symbol-anchor" name="NWayUnion" href="#NWayUnion">NWayUnion</a></span> assumes ownership
 of <span class="inlinecode">ror</span> and discretionarily swaps and advances elements of it. If
@@ -2579,8 +2594,8 @@ you want <span class="inlinecode">ror</span> to preserve its contents after the 
 want to pass a duplicate to <span class="inlinecode"><a class="symbol symbol-anchor" name="NWayUnion" href="#NWayUnion">NWayUnion</a></span> (and perhaps cache the
 duplicate in between calls).
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">double</span>[][] a =
 [
     [ 1, 4, 7, 8 ],
@@ -2594,7 +2609,7 @@ duplicate in between calls).
 ];
 <span class="d_keyword">assert</span>(equal(nWayUnion(a), witness[]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2607,7 +2622,7 @@ the elements that are common to most ranges, along with their number
 of occurrences. All ranges in <span class="inlinecode">ror</span> are assumed to be sorted by <span class="inlinecode">less</span>. Only the most frequent <span class="inlinecode">tgt.length</span> elements are returned.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Figure which number can be found in most arrays of the set of
 </span>
 <span class="d_comment">// arrays below.
@@ -2644,13 +2659,13 @@ array of the occurrences and then selecting its top items, and also
 requires less memory (<span class="inlinecode"><a class="symbol symbol-anchor" name="largestPartialIntersection" href="#largestPartialIntersection">largestPartialIntersection</a></span> builds its
 result directly in <span class="inlinecode">tgt</span> and requires no extra memory).
 
-<br><br>
-<b>Warning:</b><br>
+</dd>
+<dt>Warning:</dt><dd>
 Because <span class="inlinecode"><a class="symbol symbol-anchor" name="largestPartialIntersection" href="#largestPartialIntersection">largestPartialIntersection</a></span> does not allocate
 extra memory, it will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><a class="symbol symbol-anchor" name="largestPartialIntersection" href="#largestPartialIntersection">largestPartialIntersection</a></span> assumes ownership of <span class="inlinecode">ror</span> and
 discretionarily swaps and advances elements of it. If you want <span class="inlinecode">ror</span> to preserve its contents after the call, you may want to pass a
 duplicate to <span class="inlinecode"><a class="symbol symbol-anchor" name="largestPartialIntersection" href="#largestPartialIntersection">largestPartialIntersection</a></span> (and perhaps cache the
-duplicate in between calls).<br><br>
+duplicate in between calls).</dd>
 </dl>
 </div>
 
@@ -2662,7 +2677,7 @@ duplicate in between calls).<br><br>
 with each distinct element in the intersection.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Figure which number can be found in most arrays of the set of
 </span>
 <span class="d_comment">// arrays below, with specific per-element weights
@@ -2686,7 +2701,7 @@ with each distinct element in the intersection.
 The correct answer in this case is <span class="inlinecode">4.0</span>, which, although only
 appears two times, has a total weight <span class="inlinecode">4.6</span> (three times its weight
 <span class="inlinecode">2.3</span>). The value <span class="inlinecode">7</span> is weighted with <span class="inlinecode">1.1</span> and occurs four
-times for a total weight <span class="inlinecode">4.4</span>.<br><br>
+times for a total weight <span class="inlinecode">4.4</span>.</dd>
 </dl>
 </div>
 

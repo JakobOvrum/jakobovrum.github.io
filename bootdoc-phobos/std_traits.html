@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.traits" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.traits" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,14 +194,16 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
             Tomasz Stachowiak (<span class="inlinecode">isExpressionTuple</span>),
             <a href="http://erdani.org">Andrei Alexandrescu</a>,
             Shin Fujishiro,
             <a href="http://octarineparrot.com">Robert Clipsham</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/traits.d">std/traits.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/traits.d">std/traits.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Demangle" href="#Demangle">Demangle</a>(T);
 </h3></div>
@@ -222,11 +224,11 @@
 <div class="declaration-content"><dl><p>Get the full package name for the given symbol.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits;
  <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>packageName</u>!(<u>packageName</u>) == <span class="d_string">"std"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -236,11 +238,11 @@
 <div class="declaration-content"><dl><p>Get the module name (including package) for the given symbol.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits;
  <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>moduleName</u>!(<u>moduleName</u>) == <span class="d_string">"std.traits"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -250,11 +252,11 @@
 <div class="declaration-content"><dl><p>Get the fully qualified name of a symbol.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits;
  <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>fullyQualifiedName</u>!(<u>fullyQualifiedName</u>) == <span class="d_string">"std.traits.fullyQualifiedName"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -267,13 +269,13 @@
  or a class with an opCall.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits;
  <span class="d_keyword">int</span> foo();
  <u>ReturnType</u>!(foo) x;   <span class="d_comment">// x is declared as int
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -285,7 +287,7 @@ to function, a delegate, a struct with an <span class="inlinecode">opCall</span>
 struct with an <span class="inlinecode">opCall</span>, or a class with an <span class="inlinecode">opCall</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.traits;
 <span class="d_keyword">int</span> foo(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>);
 <span class="d_keyword">void</span> bar(<u>ParameterTypeTuple</u>!(foo));      <span class="d_comment">// declares void bar(int, long);
@@ -293,7 +295,7 @@ struct with an <span class="inlinecode">opCall</span>, or a class with an <span 
 <span class="d_keyword">void</span> abc(<u>ParameterTypeTuple</u>!(foo)[1]);   <span class="d_comment">// declares void abc(long);
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -305,7 +307,7 @@ struct with an <span class="inlinecode">opCall</span>, or a class with an <span 
 function <span class="inlinecode">func</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>ParameterStorageClass</u> STC; <span class="d_comment">// shorten the enum name
 </span>
 
@@ -319,7 +321,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(pstc[1] == STC.out_);
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(pstc[2] == STC.none);
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a><br><a class="symbol symbol-anchor" name="scope_" href="#scope_">scope_</a><br><a class="symbol symbol-anchor" name="out_" href="#out_">out_</a><br><a class="symbol symbol-anchor" name="ref_" href="#ref_">ref_</a><br><a class="symbol symbol-anchor" name="lazy_" href="#lazy_">lazy_</a></h3></div>
 
@@ -343,7 +345,7 @@ function <span class="inlinecode">func</span>.
 <div class="declaration-content"><dl><p>Returns the attributes attached to a function <span class="inlinecode">func</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>FunctionAttribute</u> FA; <span class="d_comment">// shorten the enum name
 </span>
 
@@ -356,7 +358,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!(functionAttributes!(func) &amp; FA.trusted)); <span class="d_comment">// not @trusted
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a><br><a class="symbol symbol-anchor" name="pure_" href="#pure_">pure_</a><br><a class="symbol symbol-anchor" name="nothrow_" href="#nothrow_">nothrow_</a><br><a class="symbol symbol-anchor" name="ref_" href="#ref_">ref_</a><br><a class="symbol symbol-anchor" name="property" href="#property">property</a><br><a class="symbol symbol-anchor" name="trusted" href="#trusted">trusted</a><br><a class="symbol symbol-anchor" name="safe" href="#safe">safe</a></h3></div>
 
@@ -378,7 +380,7 @@ function <span class="inlinecode">func</span>.
 <div class="declaration-content"><dl><p>Checks the func that is @safe or @trusted
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">@system <span class="d_keyword">int</span> add(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a+b;}
 @safe <span class="d_keyword">int</span> sub(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a-b;}
 @trusted <span class="d_keyword">int</span> mul(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a*b;}
@@ -387,7 +389,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isSafe</u>!(sub));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isSafe</u>!(mul));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -397,7 +399,7 @@ function <span class="inlinecode">func</span>.
 <div class="declaration-content"><dl><p>Checks the all functions are @safe or @trusted
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">@system <span class="d_keyword">int</span> add(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a+b;}
 @safe <span class="d_keyword">int</span> sub(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a-b;}
 @trusted <span class="d_keyword">int</span> mul(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a*b;}
@@ -405,7 +407,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>areAllSafe</u>!(add, sub));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>areAllSafe</u>!(sub, mul));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -415,7 +417,7 @@ function <span class="inlinecode">func</span>.
 <div class="declaration-content"><dl><p>Checks the func that is @system
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">@system <span class="d_keyword">int</span> add(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a+b;}
 @safe <span class="d_keyword">int</span> sub(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a-b;}
 @trusted <span class="d_keyword">int</span> mul(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) {<span class="d_keyword">return</span> a*b;}
@@ -424,7 +426,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isUnsafe</u>!(sub));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isUnsafe</u>!(mul));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -434,7 +436,7 @@ function <span class="inlinecode">func</span>.
 <div class="declaration-content"><dl><p>Returns the calling convention of function as a string.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string a = <u>functionLinkage</u>!(writeln!(string, <span class="d_keyword">int</span>));
 <span class="d_keyword">assert</span>(a == <span class="d_string">"D"</span>); <span class="d_comment">// extern(D)
 </span>
@@ -444,7 +446,7 @@ string b = <u>functionLinkage</u>!(fp);
 <span class="d_keyword">assert</span>(b == <span class="d_string">"C"</span>); <span class="d_comment">// extern(C)
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -455,14 +457,14 @@ string b = <u>functionLinkage</u>!(fp);
 <div class="declaration-content"><dl><p>Determines what kind of variadic parameters function has.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> func() {}
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!(func) == <u>Variadic</u>.no);
 
 <span class="d_keyword">extern</span>(C) <span class="d_keyword">int</span> printf(<span class="d_keyword">in</span> <span class="d_keyword">char</span>*, ...);
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!(printf) == <u>Variadic</u>.c);
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
 
@@ -519,9 +521,9 @@ property value, not of the property function itself.  Still,
 </pre>
 
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 Do not confuse function types with function pointer types; function types are
-usually used for compile-time reflection purposes.<br><br>
+usually used for compile-time reflection purposes.</dd>
 </dl>
 </div>
 
@@ -543,7 +545,7 @@ usually used for compile-time reflection purposes.<br><br>
 topological order.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> S1 { <span class="d_keyword">int</span> a; <span class="d_keyword">float</span> b; }
 <span class="d_keyword">struct</span> S2 { <span class="d_keyword">char</span>[] a; <span class="d_keyword">union</span> { S1 b; S1 * c; } }
 <span class="d_keyword">alias</span> <u>RepresentationTypeTuple</u>!(S2) R;
@@ -551,7 +553,7 @@ topological order.
     &amp;&amp; <span class="d_keyword">is</span>(R[0] == <span class="d_keyword">char</span>[]) &amp;&amp; <span class="d_keyword">is</span>(R[1] == <span class="d_keyword">int</span>)
     &amp;&amp; <span class="d_keyword">is</span>(R[2] == <span class="d_keyword">float</span>) &amp;&amp; <span class="d_keyword">is</span>(R[3] == S1*));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -644,11 +646,13 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 <td>An enumerated type. <span class="inlinecode">E</span> may have duplicated values.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>Static tuple composed of the members of the enumerated type <span class="inlinecode">E</span>.
  The members are arranged in the same order as declared in <span class="inlinecode">E</span>.
 
 </dd>
-<b>Note:</b><br>
+
+<dt>Note:</dt><dd>
 Returned values are strictly typed with <span class="inlinecode">E</span>. Thus, the following code
  does not work without the explicit cast:
 <pre class="d_code"><span class="d_keyword">enum</span> E : <span class="d_keyword">int</span> { a, b, c }
@@ -657,7 +661,7 @@ Returned values are strictly typed with <span class="inlinecode">E</span>. Thus,
  Cast is not necessary if the type of the variable is inferred. See the
  example below.
 
-<br><br>
+</dd>
 <dt>Examples</dt><dd>Creating an array of enumerated values:
 <pre class="d_code"><span class="d_keyword">enum</span> Sqrts : <span class="d_keyword">real</span>
 {
@@ -695,6 +699,7 @@ size_t rank(E)(E e)
 <span class="d_keyword">assert</span>(rank(Mode.map  ) == 2);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -706,7 +711,7 @@ size_t rank(E)(E e)
  the empty type tuple.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
  <span class="d_keyword">interface</span> I { }
  <span class="d_keyword">class</span> A { }
@@ -719,7 +724,7 @@ size_t rank(E)(E e)
 </span>
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -730,7 +735,7 @@ size_t rank(E)(E e)
  in decreasing order. Interfaces are not included. <b><a class="symbol symbol-anchor" name="BaseClassesTuple" href="#BaseClassesTuple">BaseClassesTuple</a>!(Object)</b> yields the empty type tuple.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
  <span class="d_keyword">interface</span> I { }
  <span class="d_keyword">class</span> A { }
@@ -744,7 +749,7 @@ size_t rank(E)(E e)
 </span>
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -757,7 +762,7 @@ size_t rank(E)(E e)
  yields the empty type tuple.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
  <span class="d_keyword">interface</span> I1 { }
  <span class="d_keyword">interface</span> I2 { }
@@ -772,7 +777,7 @@ size_t rank(E)(E e)
 </span>
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -784,7 +789,7 @@ size_t rank(E)(E e)
  empty type tuple.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
  <span class="d_keyword">interface</span> I { }
  <span class="d_keyword">class</span> A { }
@@ -798,7 +803,7 @@ size_t rank(E)(E e)
 </span>
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -810,7 +815,7 @@ class or interface <span class="inlinecode">C</span>.  Covariant duplicates are 
 derived one.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">interface</span> I { I foo(); }
 <span class="d_keyword">class</span> B
 {
@@ -826,7 +831,7 @@ derived one.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">__traits</span>(isSame, foos[0], C.foo));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">__traits</span>(isSame, foos[1], B.foo));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -839,13 +844,13 @@ values. Returns <b>void</b> if passed an empty list, or if the
 types have no common type.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>CommonType</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">short</span>) X;
 <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(X == <span class="d_keyword">long</span>));
 <span class="d_keyword">alias</span> <u>CommonType</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>[], <span class="d_keyword">short</span>) Y;
 <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(Y == <span class="d_keyword">void</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -887,6 +892,7 @@ type <span class="inlinecode">Lhs</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(string, <span class="d_keyword">char</span>[]));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -897,7 +903,7 @@ type <span class="inlinecode">Lhs</span>.
 functions of the type <span class="inlinecode">F</span> can override ones of the type <span class="inlinecode">G</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">interface</span> I { I clone(); }
 <span class="d_keyword">interface</span> J { J clone(); }
 <span class="d_keyword">class</span> C : I
@@ -919,7 +925,7 @@ functions of the type <span class="inlinecode">F</span> can override ones of the
 </span>
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>isCovariantWith</u>!(<span class="d_keyword">typeof</span>(C.clone), <span class="d_keyword">typeof</span>(J.clone)));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1113,14 +1119,14 @@ function call operator <span class="inlinecode">(...)</span>.</p>
 <div class="declaration-content"><dl><p>Removes all qualifiers, if any, from type <span class="inlinecode">T</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">const</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">immutable</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">shared</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">shared</span>(<span class="d_keyword">const</span> <span class="d_keyword">int</span>)) == <span class="d_keyword">int</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1142,13 +1148,13 @@ has both opApply and a range interface.</p>
 <div class="declaration-content"><dl><p>Strips off all <span class="inlinecode">typedef</span>s (including <span class="inlinecode">enum</span> ones) from type <span class="inlinecode">T</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">enum</span> E : <span class="d_keyword">int</span> { a }
 <span class="d_keyword">typedef</span> E F;
 <span class="d_keyword">typedef</span> <span class="d_keyword">const</span> F G;
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>OriginalType</u>!G == <span class="d_keyword">const</span> <span class="d_keyword">int</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1231,10 +1237,10 @@ the correct names of property functions are obtained.
 and to <span class="inlinecode">F</span> otherwise.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>Select</u>!(size_t.sizeof == 4, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>) Int;
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

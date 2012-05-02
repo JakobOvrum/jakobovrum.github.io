@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.getopt" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.getopt" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -201,21 +201,23 @@ enabled by default.
 </p>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-<b>Credits:</b><br>
+
+<dt>Credits:</dt><dd>
 This module and its documentation are inspired by Perl's <a href="http://                  perldoc.perl.org/Getopt/Long.html">Getopt::Long</a> module. The syntax of
                    D's <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> is simpler than its Perl counterpart because <span class="inlinecode">                  <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> infers the expected parameter types from the static types of
                    the passed-in pointers.
-<br><br>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/getopt.d">std/getopt.d</a><br><br>
+</dd>
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/getopt.d">std/getopt.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>(T...)(ref string[] <i>args</i>, T <i>opts</i>);
 </h3></div>
 
 
-<div class="declaration-content"><dl><b>Synopsis:</b><br>
+<div class="declaration-content"><dl><dt>Synopsis:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.<u>getopt</u>;
 
 string data = <span class="d_string">"file.dat"</span>;
@@ -529,7 +531,7 @@ A lonesome double-dash terminates <span class="inlinecode"><a class="symbol symb
 separate program options from other parameters (e.g. options to be passed
 to another program). Invoking the example above with <span class="inlinecode">"--foo -- --bar"</span>
 parses foo but leaves "--bar" in <span class="inlinecode">args</span>. The double-dash itself is
-removed from the argument array.<br><br>
+removed from the argument array.</dd>
 </dl>
 </div>
 

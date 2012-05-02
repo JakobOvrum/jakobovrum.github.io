@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.conv" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.conv" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,6 +194,7 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a>,
            Shin Fujishiro,
@@ -201,8 +202,9 @@
            Kenji Hara
 
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ConvException" href="#ConvException">ConvException</a>: object.Exception;
 <br>deprecated alias <a class="symbol symbol-anchor" name="ConvError" href="#ConvError">ConvError</a>;
@@ -256,7 +258,7 @@
 object.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">class</span> Date
 {
     T to(T)() <span class="d_keyword">if</span>(<span class="d_keyword">is</span>(T == <span class="d_keyword">long</span>))
@@ -274,7 +276,7 @@ object.
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -410,7 +412,7 @@ and each value in turn.</p>
 <div class="declaration-content"><dl><p>Rounded conversion from floating point to integral.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>roundTo</u>!<span class="d_keyword">int</span>(3.14) == 3);
 <span class="d_keyword">assert</span>(<u>roundTo</u>!<span class="d_keyword">int</span>(3.49) == 3);
 <span class="d_keyword">assert</span>(<u>roundTo</u>!<span class="d_keyword">int</span>(3.5) == 4);
@@ -420,7 +422,7 @@ and each value in turn.</p>
 <span class="d_keyword">assert</span>(<u>roundTo</u>!<span class="d_keyword">int</span>(-3.5) == -4);
 <span class="d_keyword">assert</span>(<u>roundTo</u>!<span class="d_keyword">int</span>(-3.999) == -4);
 </pre>
-Rounded conversions do not work with non-integral target types.<br><br>
+Rounded conversions do not work with non-integral target types.</dd>
 </dl>
 </div>
 
@@ -438,7 +440,7 @@ Rounded conversions do not work with non-integral target types.<br><br>
  was meaningfully converted.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string test = <span class="d_string">"123 \t  76.14"</span>;
 <span class="d_keyword">auto</span> a = <u>parse</u>!<span class="d_keyword">uint</span>(test);
 <span class="d_keyword">assert</span>(a == 123);
@@ -451,7 +453,7 @@ munch(test, <span class="d_string">" \t\n\r"</span>); <span class="d_comment">//
 <span class="d_keyword">assert</span>(b == 76.14);
 <span class="d_keyword">assert</span>(test == <span class="d_string">""</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -495,12 +497,12 @@ string up one position.</p>
    arguments into text (the three character widths).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(<u>text</u>(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"</span>);
 <span class="d_keyword">assert</span>(wtext(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"w</span>);
 <span class="d_keyword">assert</span>(dtext(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"d</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -525,7 +527,7 @@ give the <span class="inlinecode">long</span>. Give an unsigned iff it is asked 
 of the passed-in integral.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// same as 0177
 </span>
 <span class="d_keyword">auto</span> x = <u>octal</u>!177;
@@ -536,7 +538,7 @@ of the passed-in integral.
 </span>
 <span class="d_keyword">auto</span> z = <u>octal</u>!<span class="d_string">"1_000_000u"</span>;
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -556,6 +558,7 @@ address.
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object (which is the same
 as <span class="inlinecode">chunk</span>).</dd>
+
 </dl>
 </div>
 
@@ -574,6 +577,7 @@ that address from arguments <span class="inlinecode">args</span>.
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object (which is the same
 as <span class="inlinecode">chunk</span>).</dd>
+
 </dl>
 </div>
 
@@ -593,6 +597,7 @@ of a <span class="inlinecode">class</span> instance is obtained by using <span c
 
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
+
 </dl>
 </div>
 
@@ -611,6 +616,7 @@ alignment.
 
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
+
 </dl>
 </div>
 

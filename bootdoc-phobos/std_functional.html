@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.functional" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.functional" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,10 +193,12 @@
 
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/functional.d">std/functional.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/functional.d">std/functional.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="unaryFun" href="#unaryFun">unaryFun</a>(alias fun,bool byRef = false,string parmName = "a")</h3></div>
 
@@ -205,11 +207,11 @@
 function. The string must use symbol name <span class="inlinecode">a</span> as the parameter.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>unaryFun</u>!(<span class="d_string">"(a &amp; 1) == 0"</span>) isEven;
 <span class="d_keyword">assert</span>(isEven(2) &amp;&amp; !isEven(1));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -221,13 +223,13 @@ predicate. The string must use symbol names <span class="inlinecode">a</span> an
 compared elements.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">alias</span> <u>binaryFun</u>!(<span class="d_string">"a &lt; b"</span>) less;
 <span class="d_keyword">assert</span>(less(1, 2) &amp;&amp; !less(2, 1));
 <span class="d_keyword">alias</span> <u>binaryFun</u>!(<span class="d_string">"a &gt; b"</span>) greater;
 <span class="d_keyword">assert</span>(!greater(<span class="d_string">"1"</span>, <span class="d_string">"2"</span>) &amp;&amp; greater(<span class="d_string">"2"</span>, <span class="d_string">"1"</span>));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -237,11 +239,11 @@ compared elements.
 <div class="declaration-content"><dl><p>Negates predicate <span class="inlinecode">pred</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string a = <span class="d_string">"   Hello, world!"</span>;
 <span class="d_keyword">assert</span>(find!(<u>not</u>!isWhite)(a) == <span class="d_string">"Hello, world!"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -251,7 +253,7 @@ compared elements.
 <div class="declaration-content"><dl><p>Curries <span class="inlinecode">fun</span> by tying its first argument to a particular value.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span> fun(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) { <span class="d_keyword">return</span> a + b; }
 <span class="d_keyword">alias</span> <u>curry</u>!(fun, 5) fun5;
 <span class="d_keyword">assert</span>(fun5(6) == 11);
@@ -259,7 +261,7 @@ compared elements.
 
 Note that in most cases you'd use an alias instead of a value
 assignment. Using an alias allows you to <a class="symbol symbol-anchor" name="curry" href="#curry">curry</a> template functions
-without committing to a particular type of the function.<br><br>
+without committing to a particular type of the function.</dd>
 </dl>
 </div>
 
@@ -272,14 +274,14 @@ invocation, the returned tuple is the adjoined results of all
 functions.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">bool</span> f1(<span class="d_keyword">int</span> a) { <span class="d_keyword">return</span> a != 0; }
 <span class="d_keyword">static</span> <span class="d_keyword">int</span> f2(<span class="d_keyword">int</span> a) { <span class="d_keyword">return</span> a / 2; }
 <span class="d_keyword">auto</span> x = <u>adjoin</u>!(f1, f2)(5);
 <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(x) == Tuple!(<span class="d_keyword">bool</span>, <span class="d_keyword">int</span>)));
 <span class="d_keyword">assert</span>(x[0] == <span class="d_keyword">true</span> &amp;&amp; x[1] == 2);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -291,14 +293,14 @@ functions.
    functions, a delegate, or a string.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// First split a string in whitespace-separated tokens and then
 </span>
 <span class="d_comment">// convert each token into an integer
 </span>
 <span class="d_keyword">assert</span>(<u>compose</u>!(map!(to!(<span class="d_keyword">int</span>)), split)(<span class="d_string">"1 2 3"</span>) == [1, 2, 3]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -310,7 +312,7 @@ functions.
    execution is the same as lexical order.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Read an entire text file, split the resulting string in
 </span>
 <span class="d_comment">// whitespace-separated tokens, and then convert each token into an
@@ -319,7 +321,7 @@ functions.
 </span>
 <span class="d_keyword">int</span>[] a = <u>pipe</u>!(readText, split, map!(to!(<span class="d_keyword">int</span>)))(<span class="d_string">"file.txt"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -334,7 +336,7 @@ functions.
  expensive than a hash table lookup. For more information on memoization, refer to <a href="http://docs.google.com/viewer?url=http%3A%2F%2Fhop.perl.plover.com%2Fbook%2Fpdf%2F03CachingAndMemoization.pdf">this book chapter</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">double</span> transmogrify(<span class="d_keyword">int</span> a, string b)
 {
    ... expensive computation ...
@@ -357,8 +359,8 @@ is useful to <a class="symbol symbol-anchor" name="memoize" href="#memoize">memo
 To memoize a recursive function, simply insert the memoized call in lieu of the plain recursive call.
 For example, to transform the exponential-time Fibonacci implementation into a linear-time computation:
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">ulong</span> fib(<span class="d_keyword">ulong</span> n)
 {
     <span class="d_keyword">alias</span> <u>memoize</u>!fib mfib;
@@ -370,8 +372,8 @@ For example, to transform the exponential-time Fibonacci implementation into a l
 
 To improve the speed of the factorial function,
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">ulong</span> fact(<span class="d_keyword">ulong</span> n)
 {
     <span class="d_keyword">alias</span> <u>memoize</u>!fact mfact;
@@ -384,8 +386,8 @@ To improve the speed of the factorial function,
 This memoizes all values of <span class="inlinecode">fact</span> up to the largest argument. To only cache the final
 result, move <span class="inlinecode"><a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a></span> outside the function as shown below.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">ulong</span> factImpl(<span class="d_keyword">ulong</span> n)
 {
     <span class="d_keyword">return</span> n &lt; 2 ? 1 : n * mfact(n - 1);
@@ -398,13 +400,13 @@ result, move <span class="inlinecode"><a class="symbol symbol-anchor" name="memo
 The <span class="inlinecode">maxSize</span> parameter is a cutoff for the cache size. If upon a miss the length of the hash
 table is found to be <span class="inlinecode">maxSize</span>, the table is simply cleared.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Memoize no more than 128 values of transmogrify
 </span>
 <span class="d_keyword">alias</span> <u>memoize</u>!(transmogrify, 128) fastTransmogrify;
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -430,9 +432,11 @@ table is found to be <span class="inlinecode">maxSize</span>, the table is simpl
 </pre>
 
 </dd>
+
 <dt>Known Bugs</dt><dd><ul>  <li>Does not work with <span class="inlinecode">@safe</span> functions.</li>
    <li>Ignores C-style / D-style variadic arguments.</li>
  </ul></dd>
+
 </dl>
 </div>
 

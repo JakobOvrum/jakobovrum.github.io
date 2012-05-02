@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.string" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.string" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -198,12 +198,14 @@ making code more robust.
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
          <a href="http://erdani.org">Andrei Alexandrescu</a>,
          and Jonathan M Davis
 
 </dd>
-<b>Source:</b><br>
+
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/string.d">std/string.d</a>
 <br><br>
 
@@ -248,7 +250,7 @@ generalized to accept a custom predicate.</td></tr>
 <br><br>
 
 <tr><td valign=top><span class="inlinecode">split</span></td> <td valign=top>Use <a href="std_array.html#split"><span class="inlinecode">std.array.split</span></a> instead.</td></tr>
-</table><br><br>
+</table></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="StringException" href="#StringException">StringException</a>: object.Exception;
 </h3></div>
@@ -274,6 +276,7 @@ generalized to accept a custom predicate.</td></tr>
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -515,11 +518,11 @@ generalized to accept a custom predicate.</td></tr>
  <span class="inlinecode">ushort</span>, or <span class="inlinecode">uint</span> depending on the character width.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string s = <span class="d_string">"hello"</span>;
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<u>representation</u>(s)) == <span class="d_keyword">immutable</span>(<span class="d_keyword">ubyte</span>)[]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -878,6 +881,7 @@ generalized to accept a custom predicate.</td></tr>
 <td>Tab columns are <span class="inlinecode">tabSize</span> spaces apart.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -898,6 +902,7 @@ generalized to accept a custom predicate.</td></tr>
         <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
 <td>The original string.</td>
 </tr>
@@ -909,6 +914,7 @@ generalized to accept a custom predicate.</td></tr>
 <td>The characters to remove from the string.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
 <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
 
@@ -919,6 +925,7 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
 <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable3) == <span class="d_string">"h5llorange worangerld"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -932,6 +939,7 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
 <p>Construct translation table for translate().
 </p>
 <dt>Known Bugs</dt><dd>only works with ASCII</dd>
+
 </dl>
 </div>
 
@@ -947,6 +955,7 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
  Delete chars in delchars[].
 </p>
 <dt>Known Bugs</dt><dd>only works with ASCII</dd>
+
 </dl>
 </div>
 
@@ -968,6 +977,7 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
 </p>
 
 <dt>Returns</dt><dd><i>s</i></dd>
+
 </dl>
 </div>
 
@@ -978,7 +988,7 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
 <div class="declaration-content"><dl><p>See if character c is in the pattern.
 </p>
 
-<b>Patterns:</b><br>
+<dt>Patterns:</dt><dd>
 A <i>pattern</i> is an array of characters much like a <i>character
   class</i> in regular expressions. A sequence of characters
   can be given, such as "abcde". The '-' can represent a range
@@ -990,10 +1000,10 @@ A <i>pattern</i> is an array of characters much like a <i>character
   and <b>squeeze</b>
   use patterns.
 
-<br><br>
-<b>Note:</b><br>
+</dd>
+<dt>Note:</dt><dd>
 In the future, the pattern syntax may be improved
-  to be more like regular expression character classes.<br><br>
+  to be more like regular expression character classes.</dd>
 </dl>
 </div>
 
@@ -1045,7 +1055,7 @@ In the future, the pattern syntax may be improved
  (before update) string up to, and excluding, <b>pos</b>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">string s = <span class="d_string">"123abc"</span>;
 string t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
 <span class="d_keyword">assert</span>(t == <span class="d_string">"123"</span> &amp;&amp; s == <span class="d_string">"abc"</span>);
@@ -1055,7 +1065,7 @@ t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
 
 The <b><a class="symbol symbol-anchor" name="munch" href="#munch">munch</a></b> function is mostly convenient for skipping
 certain category of characters (e.g. whitespace) when parsing
-strings. (In such cases, the return value is not used.)<br><br>
+strings. (In such cases, the return value is not used.)</dd>
 </dl>
 </div>
 
@@ -1097,7 +1107,8 @@ strings. (In such cases, the return value is not used.)<br><br>
 <td>String containing modifiers.</td>
 </tr>
 </table></dd>
-<b>Modifiers:</b><br>
+
+<dt>Modifiers:</dt><dd>
 <table cellspacing=0 cellpadding=5 class="table"><caption></caption>        <tr><td valign=top>Modifier</td> <td valign=top>Description</td></tr>
         <tr><td valign=top><span class="inlinecode">'c'</span></td> <td valign=top>Complement the list of characters in <span class="inlinecode">from</span></td></tr>
         <tr><td valign=top><span class="inlinecode">'d'</span></td> <td valign=top>Removes matching characters with no corresponding
@@ -1123,7 +1134,7 @@ strings. (In such cases, the return value is not used.)<br><br>
     Both <span class="inlinecode">from</span> and <span class="inlinecode">to</span> may contain ranges using the <span class="inlinecode">'-'</span> character
     (e.g. <span class="inlinecode">"a-d"</span> is synonymous with <span class="inlinecode">"abcd</span>.) Neither accept a leading
     <span class="inlinecode">'^'</span> as meaning the complement of the string (use the <span class="inlinecode">'c'</span> modifier
-    for that).<br><br>
+    for that).</dd>
 </dl>
 </div>
 
@@ -1148,6 +1159,7 @@ strings. (In such cases, the return value is not used.)<br><br>
       or [nan|nani|inf|-inf]
 
 </dd>
+
 <dt>Examples</dt><dd>+123., -123.01, 123.3e-10f, 123.3e-10fi, 123.3e-10L
 <br><br>
 
@@ -1157,6 +1169,7 @@ strings. (In such cases, the return value is not used.)<br><br>
       or [nan|nani|nan+nani|inf|-inf]
 
 </dd>
+
 <dt>Examples</dt><dd>nan, -123e-1+456.9e-10Li, +123e+10+456i, 123+456
 <br><br>
 
@@ -1172,6 +1185,7 @@ strings. (In such cases, the return value is not used.)<br><br>
  anywhere whether it'<i>s</i> a leading, trailing, or embedded space(<i>s</i>),
  thus they too must be stripped from the string before using this
  function, or any of the conversion functions.</dd>
+
 </dl>
 </div>
 
@@ -1220,17 +1234,21 @@ strings. (In such cases, the return value is not used.)<br><br>
       <i>buffer</i> will be allocated on the heap.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The four character array with the Soundex result in it.
   Returns <span class="d_keyword">null</span> if there is no Soundex representation for the <i>string</i>.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Soundex">Wikipedia</a>,
   <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=The Soundex Indexing System">The Soundex Indexing System</a>
 
 </dd>
+
 <dt>Known Bugs</dt><dd>Only works well with English names.
   There are other arguably better Soundex algorithms,
   but this one is the standard one.</dd>
+
 </dl>
 </div>
 
@@ -1247,7 +1265,7 @@ strings. (In such cases, the return value is not used.)<br><br>
  autocomplete the string once sufficient characters have been
  entered that uniquely identify it.
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.string;
 
@@ -1269,7 +1287,7 @@ strings. (In such cases, the return value is not used.)<br><br>
  food =&gt; food
  foxy =&gt; foxy
  foo =&gt; food
- </pre><br><br>
+ </pre></dd>
 </dl>
 </div>
 
@@ -1312,7 +1330,9 @@ strings. (In such cases, the return value is not used.)<br><br>
 <td>column spacing of tabs</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The resulting paragraph.</dd>
+
 </dl>
 </div>
 
@@ -1335,7 +1355,7 @@ strings. (In such cases, the return value is not used.)<br><br>
  Works at compile-time.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> writeln(<span class="d_string">q{
      import std.stdio;
      void main() {
@@ -1344,8 +1364,8 @@ strings. (In such cases, the return value is not used.)<br><br>
  }</span>.<u>outdent</u>());
 </pre>
 
-<br><br>
-<b>Output:</b><br>
+</dd>
+<dt>Output:</dt><dd>
 <pre class="d_code">
  <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">void</span> main() {
@@ -1353,7 +1373,7 @@ strings. (In such cases, the return value is not used.)<br><br>
  }
 
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

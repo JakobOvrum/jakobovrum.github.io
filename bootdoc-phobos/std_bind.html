@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.bind" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.bind" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -194,15 +194,17 @@
 <p>Bind function arguments to functions.
 
 </p>
-<b>References:</b><br>
+<dt>References:</dt><dd>
 <a href="http://www.boost.org/libs/bind/bind.html">boost <a class="symbol symbol-anchor" name="bind" href="#bind">bind</a></a>
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Tomasz Stachowiak
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bind.d">std/bind.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bind.d">std/bind.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>deprecated const DynArg!(0) <a class="symbol symbol-anchor" name="_0" href="#_0">_0</a>;
 <br>deprecated const DynArg!(1) <a class="symbol symbol-anchor" name="_1" href="#_1">_1</a>;
@@ -386,7 +388,7 @@
         using std.typetuple.DerivedToFront, so in case of an int and a long, long will be selected. Generally, <a class="symbol symbol-anchor" name="bind" href="#bind">bind</a> will try to find
         a type that can be implicitly converted to all the other types a given dynamic parameter uses.
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 in case of numeric types, an explicit, but transparent (to the user) cast will be performed
 <br><br>
 
@@ -419,7 +421,7 @@ Tuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) b
 </span>
 <u>bind</u>(&amp;foo, tuple(23, 45))
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -449,9 +451,9 @@ Tuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) b
 </pre>
 
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 there is no bind-time check for reference nullness, there is however a call-time check on all references which can be disabled
-        by using version=BindNoNullCheck or compiling in release mode.<br><br>
+        by using version=BindNoNullCheck or compiling in release mode.</dd>
 </dl>
 </div>
 

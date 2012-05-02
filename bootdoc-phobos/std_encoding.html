@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.encoding" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.encoding" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -228,10 +228,12 @@ This library provides a mechanism whereby other modules may add <span class="inl
 </p>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Janice Caron
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/encoding.d">std/encoding.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/encoding.d">std/encoding.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="INVALID_SEQUENCE" href="#INVALID_SEQUENCE">INVALID_SEQUENCE</a>;
 </h3></div>
@@ -300,17 +302,19 @@ This library provides a mechanism whereby other modules may add <span class="inl
  characters).
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</span>.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dchar <i>c</i></td>
 <td>the code point to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -328,9 +332,11 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>encodingName</u>!(Latin1Char) == <span class="d_string">"ISO-8859-1"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -349,9 +355,11 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>canEncode</u>!(Latin1Char)('A'));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -367,10 +375,12 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code unit to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -381,19 +391,21 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the string is encoded correctly
 </p>
 
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.validate(), however note that this
  function returns a bool indicating whether the input was valid or not,
  wheras the older funtion would throw an exception.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -408,10 +420,12 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -434,10 +448,12 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sanitized</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -455,10 +471,12 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -476,10 +494,12 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -494,17 +514,19 @@ This is enforced by the function's in-contract.
  This is enforced by the function's in-contract.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.toUTFindex().
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be counted</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -523,18 +545,20 @@ This function supercedes std.utf.toUTFindex().
  This is enforced by the function's in-contract.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(), however, note that the
  function codePoints() supercedes it more conveniently.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -556,10 +580,12 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -582,10 +608,12 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -607,10 +635,12 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -633,18 +663,20 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
  explicitly specify the encoding as a template parameter.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(), however, note that the
  function codeUnits() supercedes it more conveniently.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -668,19 +700,22 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
  explicitly specify the encoding as a template parameter.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(), however, note that the
  function codeUnits() supercedes it more conveniently.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the number of code units written to the array</dd>
+
 </dl>
 </div>
 
@@ -703,18 +738,20 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
  explicitly specify the encoding as a template parameter.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(), however, note that the
  function codeUnits() supercedes it more conveniently.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -736,17 +773,19 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
  begins.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.decode().
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be decoded</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> string s = <span class="d_string">"hello world"</span>;
  <span class="d_keyword">foreach</span>(c;<u>codePoints</u>(s))
  {
@@ -757,6 +796,7 @@ This function supercedes std.utf.decode().
 
  Note that, currently, foreach(c:<a class="symbol symbol-anchor" name="codePoints" href="#codePoints">codePoints</a>(s)) is superior to foreach(c;s)
  in that the latter will fall over on encountering U+FFFF.</dd>
+
 </dl>
 </div>
 
@@ -776,17 +816,19 @@ This function supercedes std.utf.decode().
  explicitly specify the encoding type in the template parameter.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.encode().
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">d</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">dchar</span> d = '\u20AC';
  <span class="d_keyword">foreach</span>(c;<u>codeUnits</u>!(<span class="d_keyword">char</span>)(d))
  {
@@ -802,6 +844,7 @@ This function supercedes std.utf.encode().
 </span>
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -826,15 +869,16 @@ output range <span class="inlinecode">R</span>. Returns the number of <span clas
  This is enforced by the function's in-contract.
 
 </p>
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  std.utf.toUTF32()
  (but note that to!() supercedes it more conveniently).
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the source string</td>
 </tr>
@@ -842,6 +886,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the destination string</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"> wstring ws;
  <u>transcode</u>(<span class="d_string">"hello world"</span>,ws);
      <span class="d_comment">// transcode from UTF-8 to UTF-16
@@ -853,6 +898,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </span>
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -892,6 +938,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -910,6 +957,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> scheme = EncodingScheme.<u>create</u>(<span class="d_string">"Amiga-1251"</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -955,7 +1003,9 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the number of ubytes required.</dd>
+
 </dl>
 </div>
 
@@ -979,7 +1029,9 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>the number of ubytes written.</dd>
+
 </dl>
 </div>
 
@@ -1001,6 +1053,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array whose first code point is to be decoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1024,6 +1077,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array whose first code point is to be decoded</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1051,6 +1105,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1066,6 +1121,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be tested</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1087,6 +1143,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be sanitized</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1105,6 +1162,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be sliced</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1123,6 +1181,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be counted</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1141,6 +1200,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be counted</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 

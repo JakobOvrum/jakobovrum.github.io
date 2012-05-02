@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.zip" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.zip" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -203,12 +203,15 @@
       </ul>
 
 </dd>
+
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/zip.d">std/zip.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/zip.d">std/zip.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ZipException" href="#ZipException">ZipException</a>: object.Exception;
 </h3></div>
@@ -444,7 +447,7 @@
 <div class="declaration-content"><dl><p>Read Only: array indexed by the name of each member of the archive.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 All the members of the archive can be accessed with a foreach loop:
 <pre class="d_code"> ZipArchive archive = <span class="d_keyword">new</span> ZipArchive(data);
  <span class="d_keyword">foreach</span> (ArchiveMember am; archive.<u>directory</u>)
@@ -452,7 +455,7 @@ All the members of the archive can be accessed with a foreach loop:
      writefln(<span class="d_string">"member name is '%s'"</span>, am.name);
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -497,6 +500,7 @@ All the members of the archive can be accessed with a foreach loop:
 
 </p>
 <dt>Returns</dt><dd>array representing the entire archive.</dd>
+
 </dl>
 </div>
 
@@ -520,6 +524,7 @@ All the members of the archive can be accessed with a foreach loop:
 <td>the entire contents of the archive.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 

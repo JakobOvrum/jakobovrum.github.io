@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.demangle" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.demangle" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,11 +193,13 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
                         Thomas Kuehne, Frits van Bommel
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/demangle.d">std/demangle.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/demangle.d">std/demangle.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="demangle" href="#demangle">demangle</a>(string <i>name</i>);
 </h3></div>
@@ -208,7 +210,7 @@
 
 <p>If it is not a D mangled <i>name</i>, it returns its argument <i>name</i>.
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 This program reads standard in and writes it to standard out,
         pretty-printing any found D mangled names.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
@@ -247,7 +249,7 @@ This program reads standard in and writes it to standard out,
     <span class="d_keyword">return</span> 0;
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

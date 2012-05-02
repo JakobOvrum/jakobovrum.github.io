@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.net.curl" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.net.curl" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -265,7 +265,7 @@ dlang.org web page asynchronously.</td>
 
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.net.<u>curl</u>, std.stdio;
 
 <span class="d_comment">// Return a string containing the content specified by an URL
@@ -295,8 +295,8 @@ client.proxy = <span class="d_string">"1.2.3.4"</span>;
 
 For more control than the high level functions provide, use the low level API:
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.net.<u>curl</u>, std.stdio;
 
 <span class="d_comment">// GET with custom data receivers
@@ -318,19 +318,21 @@ the onReceive callback. See <a href="#onReceiveHeader"><span class="inlinecode">
 information. Finally the HTTP request is effected by calling perform(), which is
 synchronous.
 
-<br><br>
-<b>Source:</b><br>
+</dd>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/net/curl.d">std/net/curl.d</a>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Jonas Drewsen. Some of the SMTP code contributed by Jimmy Cao.
 
 </dd>
-<b>Credits:</b><br>
+
+<dt>Credits:</dt><dd>
 The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
-         LibCurl is licensed under an MIT/X derivate license.<br><br>
+         LibCurl is licensed under an MIT/X derivate license.</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="AutoProtocol" href="#AutoProtocol">AutoProtocol</a>;
 </h3></div>
@@ -349,7 +351,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  2, HTTP connection otherwise.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <span class="d_comment">// Two requests below will do the same.
 </span>
@@ -369,7 +371,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </span>
  connect = get!FTP(<span class="d_string">"ftp://foo.com/file"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -391,12 +393,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>download</u>(<span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>, <span class="d_string">"/tmp/downloaded-ftp-file"</span>);
  <u>download</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, <span class="d_string">"/tmp/downloaded-http-file"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -418,12 +421,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>upload</u>(<span class="d_string">"/tmp/downloaded-ftp-file"</span>, <span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>);
  <u>upload</u>(<span class="d_string">"/tmp/downloaded-http-file"</span>, <span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -446,16 +450,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>get</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -483,16 +490,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>post</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, [1,2,3,4]);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -520,17 +530,20 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>put</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>,
                       <span class="d_string">"Putting this data"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -549,13 +562,15 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>del</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -585,18 +600,21 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  for this reason the example below does not send optionsData to the server.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <span class="d_keyword">auto</span> http = HTTP();
  <u>options</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, <span class="d_keyword">null</span>, http);
  writeln(<span class="d_string">"Allow set to "</span> ~ http.responseHeaders[<span class="d_string">"Allow"</span>]);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="options" href="#options">options</a> of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -619,16 +637,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>trace</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> info of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -651,16 +672,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>connect</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> info of the resource pointed to by the URL.
 
 </dd>
+
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
 </dl>
 </div>
 
@@ -709,13 +733,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  with a HTTP/FTP instance that has these properties set.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_keyword">foreach</span> (line; <u>byLine</u>(<span class="d_string">"dlang.org"</span>))
      writeln(line);
 </pre>
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
 <td>The url to receive content from</td>
 </tr>
@@ -733,7 +757,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the URL</dd>
+
 </dl>
 </div>
 
@@ -749,14 +775,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  with a HTTP/FTP instance that has these properties set.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_keyword">foreach</span> (chunk; <u>byChunk</u>(<span class="d_string">"dlang.org"</span>, 100))
      writeln(chunk); <span class="d_comment">// chunk is ubyte[100]
 </span>
 </pre>
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
 <td>The url to receive content from</td>
 </tr>
@@ -767,7 +793,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by the URL</dd>
+
 </dl>
 </div>
 
@@ -801,7 +829,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  specified duration and return <span class="d_keyword">true</span> if data is available.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_comment">// Get some pages in the background
 </span>
@@ -828,7 +856,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
      writeln(<span class="d_string">"No line received after 2 seconds!"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
 <td>The url to receive content from</td>
 </tr>
@@ -849,8 +877,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the
  URL.</dd>
+
 </dl>
 </div>
 
@@ -884,7 +914,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  duration and return <span class="d_keyword">true</span> if data is available.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_comment">// Get some pages in the background
 </span>
@@ -912,7 +942,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
      writeln(<span class="d_string">"No chunk received after 2 seconds!"</span>);
 </pre>
 
-<br><br>
+</dd>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
 <td>The url to receive content from</td>
 </tr>
@@ -932,8 +962,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by
  the URL.</dd>
+
 </dl>
 </div>
 
@@ -944,7 +976,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a> client functionality.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
 
  <span class="d_comment">// Get with custom data receivers
@@ -985,8 +1017,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  http.perform();
 </pre>
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC2616</a></dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="AuthMethod" href="#AuthMethod">AuthMethod</a>;
 </h3></div>
@@ -1059,13 +1092,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  and set the needed headers instead.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <span class="d_keyword">auto</span> client = HTTP();
  client.<u>addRequestHeader</u>(<span class="d_string">"X-Custom-ABC"</span>, <span class="d_string">"This is the custom value"</span>);
  string content = get(<span class="d_string">"dlang.org"</span>, client);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1152,6 +1185,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">RFC2616 Section 14.25</a></td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1167,14 +1201,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  method.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"http://www.mydomain.com"</span>);
  http.onReceive = (<span class="d_keyword">ubyte</span>[] <b>data</b>) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(<b>data</b>)); <span class="d_keyword">return</span> <b>data</b>.length; };
  http.<u>postData</u> = [1,2,3,4,5];
  http.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1189,14 +1223,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  text/plain.  Data is not converted or encoded by this method.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"http://www.mydomain.com"</span>);
  http.onReceive = (<span class="d_keyword">ubyte</span>[] <b>data</b>) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(<b>data</b>)); <span class="d_keyword">return</span> <b>data</b>.length; };
  http.<u>postData</u> = <span class="d_string">"The quick...."</span>;
  http.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1211,14 +1245,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  <span class="inlinecode">const(char)[]</span> arrays are not valid after the delegate has returned.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"dlang.org"</span>);
  http.onReceive = (<span class="d_keyword">ubyte</span>[] data) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(data)); <span class="d_keyword">return</span> data.length; };
  http.<u>onReceiveHeader</u> = (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] key, <span class="d_keyword">in</span> <span class="d_keyword">char</span>[] value) { writeln(key, <span class="d_string">" = "</span>, value); };
  http.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1234,6 +1268,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </p>
 <dt>See Also</dt><dd><a href="#StatusLine"><span class="inlinecode">StatusLine</span></a></dd>
+
 </dl>
 </div>
 
@@ -1403,6 +1438,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </p>
 
 <dt>See Also</dt><dd><a href="http://tools.ietf.org/html/rfc959">RFC959</a></dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(const(char)[] <i>url</i>);
 </h3></div>
@@ -1454,14 +1490,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  set the needed commands instead.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <span class="d_keyword">auto</span> client = FTP();
  client.<u>addCommand</u>(<span class="d_string">"RNFR my_file.txt"</span>);
  client.<u>addCommand</u>(<span class="d_string">"RNTO my_renamed_file.txt"</span>);
  upload(<span class="d_string">"my_file.txt"</span>, <span class="d_string">"ftp.digitalmars.com"</span>, client);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1484,7 +1520,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>Basic <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a> protocol support.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
 
  <span class="d_comment">// Send an email with SMTPS
@@ -1497,8 +1533,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  smtp.perform();
 </pre>
 
-<br><br>
+</dd>
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2821.txt">RFC2821</a></dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>url</i>);
 </h3></div>
@@ -1581,6 +1618,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1611,6 +1649,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1665,8 +1704,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>Stop and invalidate this curl instance.
 </p>
 
-<b>Warning:</b><br>
-Do not call this from inside a callback handler e.g. <span class="inlinecode">onReceive</span>.<br><br>
+<dt>Warning:</dt><dd>
+Do not call this from inside a callback handler e.g. <span class="inlinecode">onReceive</span>.</dd>
 </dl>
 </div>
 
@@ -1693,6 +1732,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The string</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1710,6 +1750,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The long</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1727,6 +1768,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The pointer</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1741,6 +1783,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -1767,13 +1810,15 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  a slice.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The <i>callback</i> returns the incoming bytes read. If not the entire array is
  the request will abort.
  The special value HTTP.pauseRequest can be returned in order to pause the
  current request.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  Curl curl;
  curl.initialize();
@@ -1781,7 +1826,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  curl.<u>onReceive</u> = (<span class="d_keyword">ubyte</span>[] data) { writeln(<span class="d_string">"Got data"</span>, to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(data)); <span class="d_keyword">return</span> data.length;};
  curl.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1800,7 +1845,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  the backend and may very likely change.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  Curl curl;
  curl.initialize();
@@ -1808,7 +1854,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  curl.<u>onReceiveHeader</u> = (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] header) { writeln(header); };
  curl.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1823,6 +1869,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>the <i>callback</i> that has a <span class="inlinecode">void[]</span> buffer to be filled</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The <i>callback</i> returns the number of elements in the buffer that have been
  filled and are ready to send.
  The special value <span class="inlinecode">Curl.abortRequest</span> can be returned in
@@ -1831,7 +1878,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  pause the current request.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
  curl.initialize();
@@ -1849,7 +1897,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  };
  curl.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1866,11 +1914,13 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
             <a href="etc_c_curl.html#CurlSeekPos"><span class="inlinecode">etc.c.curl.CurlSeekPos</span></a></td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The <i>callback</i> returns the success state of the seeking
  <a href="etc_c_curl.html#CurlSeek"><span class="inlinecode">etc.c.curl.CurlSeek</span></a>
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
  curl.initialize();
@@ -1881,7 +1931,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  };
  curl.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1899,11 +1949,13 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  <a href="etc_c_curl.html#CurlSockType"><span class="inlinecode">etc.c.curl.CurlSockType</span></a></td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return 1 to signal error
  and make curl close the socket
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
  curl.initialize();
@@ -1912,7 +1964,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  };
  curl.perform();
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1929,11 +1981,13 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  bytes).</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return non-zero to abort
  transfer
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
  curl.initialize();
@@ -1945,7 +1999,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
      curl.perform();
  };
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

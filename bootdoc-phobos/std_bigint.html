@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.bigint" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.bigint" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -208,10 +208,12 @@
 </p>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Don Clugston
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bigint.d">std/bigint.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bigint.d">std/bigint.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="BigInt" href="#BigInt">BigInt</a>;
 </h3></div>
@@ -230,7 +232,7 @@
  inevitable anyway).
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">        <u>BigInt</u> a = <span class="d_string">"9588669891916142"</span>;
         <u>BigInt</u> b = <span class="d_string">"7452469135154800"</span>;
         <span class="d_keyword">auto</span> c = a * b;
@@ -257,7 +259,7 @@
         <u>BigInt</u> j = <span class="d_string">"-0x9A56_57f4_7B83_AB78"</span>;
         j ^^= 11;
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(T : string)(T <i>s</i>);
 </h3></div>
@@ -269,8 +271,8 @@
  Underscores are permitted.
 </p>
 
-<b>BUG:</b><br>
-Should throw a IllegalArgumentException/ConvError if invalid character found<br><br>
+<dt>BUG:</dt><dd>
+Should throw a IllegalArgumentException/ConvError if invalid character found</dd>
 </dl>
 </div>
 

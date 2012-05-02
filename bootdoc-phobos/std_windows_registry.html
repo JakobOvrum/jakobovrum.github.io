@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.windows.registry" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.windows.registry" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -192,17 +192,18 @@
 </p>
 
 <dt>License</dt><dd></dd>
-<b>Author:</b><br>
+
+<dt>Author:</dt><dd>
 Matthew Wilson, Kenji Hara
 
-<br><br>
-<b>Histry:</b><br>
+</dd>
+<dt>Histry:</dt><dd>
 Created      15th March 2003,
         Updated      25th April 2004,
 
-<br><br>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/windows/registry.d">std/windows/registry.d</a><br><br>
+</dd>
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/windows/registry.d">std/windows/registry.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Win32Exception" href="#Win32Exception">Win32Exception</a>: object.Exception;
 </h3></div>
@@ -229,6 +230,7 @@ Created      15th March 2003,
 <td>The <i>message</i> associated with the exception.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -246,6 +248,7 @@ Created      15th March 2003,
 <td>The Win32 <i>error</i> number associated with the exception.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -569,9 +572,12 @@ Created      15th March 2003,
 <td>The <i>name</i> of the subkey to create. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The created key.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> is thrown if the key cannot be created.</dd>
+
 </dl>
 </div>
 
@@ -590,10 +596,13 @@ Created      15th March 2003,
 <td>The desired <i>access</i>; one of the <span class="inlinecode">REGSAM</span> enumeration.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The aquired key.
 </dd>
+
 <dt>Throws</dt><dd>This function never returns <span class="inlinecode"><span class="d_keyword">null</span></span>. If a key corresponding to
             the requested <i>name</i> is not found, <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -608,6 +617,7 @@ Created      15th March 2003,
 <td>The <i>name</i> of the key to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -621,6 +631,7 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>This function never returns <span class="inlinecode"><span class="d_keyword">null</span></span>. If a value corresponding
             to the requested <i>name</i> is not found, <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -639,8 +650,10 @@ Created      15th March 2003,
 <td>The 32-bit unsigned <i>value</i> to set.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -663,8 +676,10 @@ Created      15th March 2003,
 <td>Can be <span class="inlinecode">Endian.BigEndian</span> or <span class="inlinecode">Endian.LittleEndian</span>.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -683,8 +698,10 @@ Created      15th March 2003,
 <td>The 64-bit unsigned <i>value</i> to set.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -703,8 +720,10 @@ Created      15th March 2003,
 <td>The string <i>value</i> to set.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -727,8 +746,10 @@ Created      15th March 2003,
                           expandable environment string, otherwise as a normal string.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -747,8 +768,10 @@ Created      15th March 2003,
 <td>The multiple-strings <i>value</i> to set.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -767,8 +790,10 @@ Created      15th March 2003,
 <td>The binary <i>value</i> to set.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a <i>value</i> corresponding to the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -783,8 +808,10 @@ Created      15th March 2003,
 <td>The <i>name</i> of the value to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd>If a value of the requested <i>name</i> is not found,
             <span class="inlinecode">RegistryException</span> is thrown.</dd>
+
 </dl>
 </div>
 
@@ -838,8 +865,10 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>The contents of the value.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if the type of the value is not REG_SZ,
             REG_EXPAND_SZ, REG_DWORD, or REG_QWORD.</dd>
+
 </dl>
 </div>
 
@@ -853,6 +882,7 @@ Created      15th March 2003,
 </p>
 
 <dt>Returns</dt><dd>The contents of the value.</dd>
+
 </dl>
 </div>
 
@@ -865,7 +895,9 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>The contents of the value.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if the type of the value is not REG_MULTI_SZ.</dd>
+
 </dl>
 </div>
 
@@ -879,8 +911,10 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>The contents of the value.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> is thrown for all types other than
             REG_DWORD, REG_DWORD_LITTLE_ENDIAN and REG_DWORD_BIG_ENDIAN.</dd>
+
 </dl>
 </div>
 
@@ -894,7 +928,9 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>The contents of the value.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if the type of the value is not REG_QWORD.</dd>
+
 </dl>
 </div>
 
@@ -907,7 +943,9 @@ Created      15th March 2003,
 
 <dt>Returns</dt><dd>The contents of the value.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if the type of the value is not REG_BINARY.</dd>
+
 </dl>
 </div>
 
@@ -994,7 +1032,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>An enumerable sequence representing the names of the sub-keys of a registry Key.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Key key = ...
 <span class="d_keyword">foreach</span> (string subkeyName; key.keyNames)
 {
@@ -1002,7 +1040,7 @@ Created      15th March 2003,
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
 </h3></div>
@@ -1024,9 +1062,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The name of the key corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd>RegistryException if no corresponding key is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1041,9 +1082,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The name of the key corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1064,7 +1108,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>An enumerable sequence representing the sub-keys of a registry Key.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Key key = ...
 <span class="d_keyword">foreach</span> (Key subkey; key.keys)
 {
@@ -1072,7 +1116,7 @@ Created      15th March 2003,
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
 </h3></div>
@@ -1094,9 +1138,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The key corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1111,9 +1158,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The key corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1134,7 +1184,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>An enumerable sequence representing the names of the values of a registry Key.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Key key = ...
 <span class="d_keyword">foreach</span> (string valueName; key.valueNames)
 {
@@ -1142,7 +1192,7 @@ Created      15th March 2003,
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
 </h3></div>
@@ -1164,9 +1214,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The name of the value corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1181,9 +1234,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The name of the value corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</dd>
+
 </dl>
 </div>
 
@@ -1204,7 +1260,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>An enumerable sequence representing the values of a registry Key.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Key key = ...
 <span class="d_keyword">foreach</span> (Value value; key.values)
 {
@@ -1212,7 +1268,7 @@ Created      15th March 2003,
 </span>
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
 </h3></div>
@@ -1234,9 +1290,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the value to retrieve</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The value corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding value is retrieved</dd>
+
 </dl>
 </div>
 
@@ -1251,9 +1310,12 @@ Created      15th March 2003,
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The value corresponding to the given <i>index</i>.
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</dd>
+
 </dl>
 </div>
 

@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.exception" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.exception" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -225,10 +225,12 @@
 </p>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a> and Jonathan M Davis
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/exception.d">std/exception.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/exception.d">std/exception.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assertNotThrown" href="#assertNotThrown">assertNotThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
@@ -250,9 +252,11 @@
 <td>Optional message to output on test failure.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is thrown.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><u>assertNotThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
 
 <span class="d_comment">//Exception is the default.
@@ -264,6 +268,7 @@
        <span class="d_string">`assertNotThrown failed: StringException was thrown.`</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -287,9 +292,11 @@
 <td>Optional message to output on test failure.</td>
 </tr>
 </table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is not thrown.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><u>assertThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
 
 <span class="d_comment">//Exception is the default.
@@ -301,6 +308,7 @@
        <span class="d_string">`assertThrown failed: No StringException was thrown.`</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -312,7 +320,7 @@
     <span class="inlinecode">new Exception(msg)</span> is thrown.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 <span class="inlinecode"><a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a></span> is used to throw exceptions and is therefore intended to
         aid in error handling. It is <i>not</i> intended for verifying the logic
         of your program. That is what <span class="inlinecode">assert</span> is for. Also, do not use
@@ -320,13 +328,13 @@
         blocks and <span class="inlinecode">invariant</span>s), because they will be compiled out when
         compiling with <i>-release</i>. Use <span class="inlinecode">assert</span> in contracts.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> f = <u>enforce</u>(fopen(<span class="d_string">"data.txt"</span>));
 <span class="d_keyword">auto</span> line = readln(f);
 <u>enforce</u>(line.length, <span class="d_string">"Expected a non-empty line."</span>);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -349,13 +357,13 @@
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, <span class="inlinecode">ex</span> is thrown.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> f = <u>enforce</u>(fopen(<span class="d_string">"data.txt"</span>));
 <span class="d_keyword">auto</span> line = readln(f);
 <u>enforce</u>(line.length, <span class="d_keyword">new</span> IOException); <span class="d_comment">// expect a non-empty line
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -368,13 +376,13 @@
     last operation set <span class="inlinecode">errno</span> to an error code.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> f = <u>errnoEnforce</u>(fopen(<span class="d_string">"data.txt"</span>));
 <span class="d_keyword">auto</span> line = readln(f);
 enforce(line.length); <span class="d_comment">// expect a non-empty line
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -385,12 +393,12 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
     <span class="inlinecode">new E(msg, file, line)</span> is thrown.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> f = <u>enforceEx</u>!FileMissingException(fopen(<span class="d_string">"data.txt"</span>));
  <span class="d_keyword">auto</span> line = readln(f);
  <u>enforceEx</u>!DataCorruptionException(line.length);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -434,12 +442,13 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The result of the expression if no exception is thrown.</td>
 </tr>
 </table></dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[3];
 <span class="d_keyword">int</span> b;
 <span class="d_keyword">assert</span>(<u>collectException</u>(a[4], b));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -467,6 +476,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -498,6 +508,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">void</span> throwFunc() {<span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">"My Message."</span>);}
 <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwFunc()) == <span class="d_string">"My Message."</span>);
 
@@ -508,6 +519,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwEmptyFunc()) == emptyExceptionMsg);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -540,7 +552,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  functions that have allocated and built them.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> string letters()
  {
    <span class="d_keyword">char</span>[] result = <span class="d_keyword">new</span> <span class="d_keyword">char</span>['z' - 'a' + 1];
@@ -557,8 +569,8 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  after the function returns. The following example shows an
  incorrect use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span>.
 
-<br><br>
-<b>Bad:</b><br>
+</dd>
+<dt>Bad:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">private</span> <span class="d_keyword">char</span>[] buffer;
  string letters(<span class="d_keyword">char</span> first, <span class="d_keyword">char</span> last)
  {
@@ -592,7 +604,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  language), but complicates the language considerably. The downside
  of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span>'s convention-based usage is that at this
  time there is no formal checking of the correctness of the
- assumption; on the upside, the idiomatic use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.<br><br>
+ assumption; on the upside, the idiomatic use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.</dd>
 </dl>
 </div>
 

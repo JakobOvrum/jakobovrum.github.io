@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.stdio" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.stdio" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -192,13 +192,15 @@
 is <b>public</b>ally imported when importing <b>std.<a class="symbol symbol-anchor" name="stdio" href="#stdio">stdio</a></b>.
 </p>
 
-<b>Source:</b><br>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/stdio.d">std/stdio.d</a>
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a></dd>
+
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="File" href="#File">File</a>;
 </h3></div>
@@ -217,7 +219,7 @@ given <span class="inlinecode">FILE*</span> goes out of scope, the underlying <s
 automatically closed.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// test.d
 </span>
 <span class="d_keyword">void</span> main(string args[])
@@ -247,7 +249,7 @@ automatically closed.
 % cat test.txt
 Hello, Jimmy!
 % _
-</pre><br><br>
+</pre></dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>name</i>, const(char[]) <i>stdioOpenmode</i> = "rb");
 </h3></div>
@@ -387,6 +389,7 @@ could be filled.
 <br><br>
 
 <span class="inlinecode"><a class="symbol symbol-anchor" name="rawRead" href="#rawRead">rawRead</a></span> always reads in binary mode on Windows.</dd>
+
 </dl>
 </div>
 
@@ -517,14 +520,17 @@ previous contents of it has to be copied if needed.
 resized as necessary.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>0 for end of file, otherwise number of characters read
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on I/O error, or <span class="inlinecode">UnicodeException</span> on Unicode
 conversion error.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
 </span>
 <span class="d_keyword">import</span> std.stdio;
@@ -541,7 +547,7 @@ conversion error.
 This method is more efficient than the one in the previous example
 because <span class="inlinecode">stdin.<a class="symbol symbol-anchor" name="readln" href="#readln">readln</a>(buf)</span> reuses (if possible) memory allocated
 by <span class="inlinecode">buf</span>, whereas <span class="inlinecode">buf = stdin.<a class="symbol symbol-anchor" name="readln" href="#readln">readln</a>()</span> makes a new memory allocation
-with every line.  <br><br>
+with every line.  </dd>
 </dl>
 </div>
 
@@ -640,7 +646,7 @@ to this file. </p>
 <div class="declaration-content"><dl><p>Iterates through a file a chunk at a time by using <span class="inlinecode">foreach</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> main()
 {
   <span class="d_keyword">foreach</span> (<span class="d_keyword">ubyte</span>[] buffer; stdin.<u>byChunk</u>(4096))
@@ -656,7 +662,7 @@ last one, in which case <span class="inlinecode">buffer.length</span> may be les
 always greater than zero).
 <br><br>
 
-In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.<br><br>
+In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.</dd>
 </dl>
 </div>
 
@@ -712,6 +718,7 @@ compile.
 </p>
 
 <dt>Throws</dt><dd>In case of an I/O error, throws an <span class="inlinecode">StdioException</span>.</dd>
+
 </dl>
 </div>
 
@@ -737,7 +744,7 @@ compile.
  equivalent to <span class="inlinecode"><a class="symbol symbol-anchor" name="writef" href="#writef">writef</a>(stdout, args)</span>.
 </p>
 
-<b>IMPORTANT:</b><br>
+<dt>IMPORTANT:</dt><dd>
 New behavior starting with D 2.006: unlike previous versions,
 <span class="inlinecode"><a class="symbol symbol-anchor" name="writef" href="#writef">writef</a></span> (and also <span class="inlinecode">writefln</span>) only scans its first
 string argument for format specifiers, but not subsequent string
@@ -750,8 +757,8 @@ Also new starting with 2.006 is support for positional
 parameters with
 <a href="http://opengroup.org/onlinepubs/009695399/functions/printf.html">POSIX</a> syntax.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><u>writef</u>(<span class="d_string">"Date: %2$s %1$s"</span>, <span class="d_string">"October"</span>, 5); <span class="d_comment">// "Date: 5 October"
 </span>
 </pre>
@@ -766,7 +773,7 @@ New starting with 2.008: raw format specifiers. Using the "%r"
 specifier makes <span class="inlinecode"><a class="symbol symbol-anchor" name="writef" href="#writef">writef</a></span> simply write the binary
 representation of the argument. Use "%-r" to write numbers in little
 endian format, "%+r" to write numbers in big endian format, and "%r"
-to write numbers in platform-native format.<br><br>
+to write numbers in platform-native format.</dd>
 </dl>
 </div>
 
@@ -801,10 +808,13 @@ to write numbers in platform-native format.<br><br>
 <dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">null</span></span> for end of file,
         <span class="inlinecode">char[]</span> for line read from <span class="inlinecode">fp</span>, including terminating character
 </dd>
+
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"></table></dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on error
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 
@@ -816,7 +826,7 @@ Reads <span class="inlinecode">stdin</span> and writes it to <span class="inline
     <span class="d_keyword">return</span> 0;
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -827,7 +837,7 @@ Reads <span class="inlinecode">stdin</span> and writes it to <span class="inline
 <div class="declaration-content"><dl><p>Iterates through the <a class="symbol symbol-anchor" name="lines" href="#lines">lines</a> of a file by using <span class="inlinecode">foreach</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> main()
 {
   <span class="d_keyword">foreach</span> (string line; <u>lines</u>(stdin))
@@ -854,15 +864,15 @@ input.</li></ol>
 In all cases, a two-symbols versions is also accepted, in which case
 the first symbol (of integral type, e.g. <span class="inlinecode">ulong</span> or <span class="inlinecode">uint</span>) tracks the zero-based number of the current line.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code">  <span class="d_keyword">foreach</span> (<span class="d_keyword">ulong</span> i, string line; <u>lines</u>(stdin))
   {
     ... use line ...
   }
 </pre>
 
- In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.<br><br>
+ In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.</dd>
 </dl>
 </div>
 
@@ -873,7 +883,7 @@ the first symbol (of integral type, e.g. <span class="inlinecode">ulong</span> o
 <div class="declaration-content"><dl><p>Iterates through a file a chunk at a time by using <span class="inlinecode">foreach</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> main()
 {
   <span class="d_keyword">foreach</span> (<span class="d_keyword">ubyte</span>[] buffer; <u>chunks</u>(stdin, 4096))
@@ -889,7 +899,7 @@ The content of <span class="inlinecode">buffer</span> is reused across calls. In
  be less than 4096 (but always greater than zero).
 <br><br>
 
- In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.<br><br>
+ In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.</dd>
 </dl>
 </div>
 

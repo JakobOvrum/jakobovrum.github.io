@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.bitmanip" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.bitmanip" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -193,11 +193,13 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bitmanip.d">std/bitmanip.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bitmanip.d">std/bitmanip.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a>(T...)</h3></div>
 
@@ -205,7 +207,7 @@
 <div class="declaration-content"><dl><p>Allows creating bit fields inside <b>struct</b>s and <b>class</b>es.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> A
 {
     <span class="d_keyword">int</span> a;
@@ -230,8 +232,8 @@ The sum of all bit lengths in one <b>bitfield</b> instantiation
 must be exactly 8, 16, 32, or 64. If padding is needed, just allocate
 one bitfield with an empty name.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> A
 {
     <span class="d_keyword">mixin</span>(<u>bitfields</u>!(
@@ -242,7 +244,7 @@ one bitfield with an empty name.
 </pre>
 
 The type of a bit field can be any integral type or enumerated
-type. The most efficient type to store in <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.<br><br>
+type. The most efficient type to store in <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.</dd>
 </dl>
 </div>
 
@@ -588,6 +590,7 @@ type. The most efficient type to store in <a class="symbol symbol-anchor" name="
 <span class="d_keyword">assert</span>(d == bigEndianToNative!<span class="d_keyword">double</span>(swappedD));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -617,6 +620,7 @@ type. The most efficient type to store in <a class="symbol symbol-anchor" name="
 <span class="d_keyword">assert</span>(c == <u>bigEndianToNative</u>!<span class="d_keyword">dchar</span>(swappedC));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -643,6 +647,7 @@ type. The most efficient type to store in <a class="symbol symbol-anchor" name="
 <span class="d_keyword">assert</span>(d == littleEndianToNative!<span class="d_keyword">double</span>(swappedD));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -677,6 +682,7 @@ type. The most efficient type to store in <a class="symbol symbol-anchor" name="
 <span class="d_keyword">assert</span>(c == <u>littleEndianToNative</u>!<span class="d_keyword">dchar</span>(swappedC));
 </pre>
 </dd>
+
 </dl>
 </div>
 

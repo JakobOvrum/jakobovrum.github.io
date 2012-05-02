@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.range" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.range" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -545,15 +545,17 @@ manipulating ranges:
 </table>
 
 </p>
-<b>Source:</b><br>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/range.d">std/range.d</a>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.com">Andrei Alexandrescu</a>, David Simcha. Credit
 for some of the ideas in building this module goes to <a href="http://fantascienza.net/leonardo/so/">Leonardo Maffi</a>.</dd>
+
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isInputRange" href="#isInputRange">isInputRange</a>(R)</h3></div>
 
@@ -900,13 +902,13 @@ accessed by using the <span class="inlinecode">source</span> property. Applying 
 the same range yields the original range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
 <span class="d_keyword">assert</span>(equal(<u>retro</u>(a), [ 5, 4, 3, 2, 1 ][]));
 <span class="d_keyword">assert</span>(<u>retro</u>(a).source <span class="d_keyword">is</span> a);
 <span class="d_keyword">assert</span>(<u>retro</u>(<u>retro</u>(a)) <span class="d_keyword">is</span> a);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -924,12 +926,13 @@ product of the two applications.
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if <span class="inlinecode">n == 0</span>.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 <span class="d_keyword">assert</span>(equal(<u>stride</u>(a, 3), [ 1, 4, 7, 10 ][]));
 <span class="d_keyword">assert</span>(<u>stride</u>(<u>stride</u>(a, 2), 3) == <u>stride</u>(a, 6));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -947,7 +950,7 @@ result is a range that offers the <span class="inlinecode">front</span>, <span c
 range's type.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr1 = [ 1, 2, 3, 4 ];
 <span class="d_keyword">int</span>[] arr2 = [ 5, 6 ];
 <span class="d_keyword">int</span>[] arr3 = [ 7 ];
@@ -956,7 +959,7 @@ range's type.
 <span class="d_keyword">assert</span>(s[5] == 6);
 <span class="d_keyword">assert</span>(equal(s, [1, 2, 3, 4, 5, 6, 7][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -972,12 +975,12 @@ stops after it has consumed all ranges (skipping over the ones that
 finish early).
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4];
 <span class="d_keyword">int</span>[] b = [ 10, 20 ];
 <span class="d_keyword">assert</span>(equal(<u>roundRobin</u>(a, b), [1, 10, 2, 20, 3, 4]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -992,13 +995,13 @@ point is given, iteration starts from the middle of the
 range. Iteration spans the entire range.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
 <span class="d_keyword">assert</span>(equal(<u>radial</u>(a), [ 3, 4, 2, 5, 1 ]));
 a = [ 1, 2, 3, 4 ];
 <span class="d_keyword">assert</span>(equal(<u>radial</u>(a), [ 2, 3, 1, 4 ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1012,14 +1015,14 @@ particularly useful when using with infinite ranges. If the range
 offers random access and <span class="inlinecode">length</span>, <span class="inlinecode"><a class="symbol symbol-anchor" name="Take" href="#Take">Take</a></span> offers them as well.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] arr1 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 <span class="d_keyword">auto</span> s = take(arr1, 5);
 <span class="d_keyword">assert</span>(s.length == 5);
 <span class="d_keyword">assert</span>(s[4] == 5);
 <span class="d_keyword">assert</span>(equal(s, [ 1, 2, 3, 4, 5 ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1094,6 +1097,7 @@ that distinguishes <span class="inlinecode"><a class="symbol symbol-anchor" name
 <span class="d_keyword">assert</span>(equal(<u>drop</u>(take(<span class="d_string">"hello world"</span>, 6), 3), <span class="d_string">"lo "</span>));
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1107,12 +1111,12 @@ affected. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span>
 slicing, and in <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b> time for all other ranges.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
 a.<u>popFrontN</u>(2);
 <span class="d_keyword">assert</span>(a == [ 3, 4, 5 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1130,12 +1134,12 @@ a.<u>popFrontN</u>(2);
 <p>Returns the actual number of elements popped.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
    a.<u>popBackN</u>(2);
    <span class="d_keyword">assert</span>(a == [ 1, 2, 3 ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1147,10 +1151,10 @@ a.<u>popFrontN</u>(2);
 <div class="declaration-content"><dl><p>Repeats one value forever.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">enforce(equal(take(repeat(5), 4), [ 5, 5, 5, 5 ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>T <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
@@ -1206,13 +1210,13 @@ random access and also offers a constructor taking an initial position
 mostly for performance reasons.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">assert</span>(equal(take(cycle([1, 2][]), 5), [ 1, 2, 1, 2, 1 ][]));
 </pre>
 
-<br><br>
-<b>Tip:</b><br>
-This is a great way to implement simple circular buffers.<br><br>
+</dd>
+<dt>Tip:</dt><dd>
+This is a great way to implement simple circular buffers.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>(ElementType!(R) <i>val</i>);
@@ -1242,7 +1246,7 @@ This is a great way to implement simple circular buffers.<br><br>
    using <span class="inlinecode">e[n]</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
    string[] b = [ <span class="d_string">"a"</span>, <span class="d_string">"b"</span>, <span class="d_string">"c"</span> ];
    <span class="d_comment">// prints 1:a 2:b 3:c
@@ -1266,7 +1270,7 @@ This is a great way to implement simple circular buffers.<br><br>
    <span class="d_keyword">assert</span>(a == [ 3, 2, 1 ]);
    <span class="d_keyword">assert</span>(b == [ <span class="d_string">"c"</span>, <span class="d_string">"b"</span>, <span class="d_string">"a"</span> ]);
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>rs</i>, StoppingPolicy <i>s</i> = StoppingPolicy.shortest);
 </h3></div>
@@ -1481,6 +1485,7 @@ This is a great way to implement simple circular buffers.<br><br>
    to the variable will not be propagated to the underlying range.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code">   <span class="d_keyword">auto</span> arr1 = [1,2,3,4,5];
    <span class="d_keyword">auto</span> arr2 = [6,7,8,9,10];
 
@@ -1498,6 +1503,7 @@ This is a great way to implement simple circular buffers.<br><br>
    }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1530,7 +1536,7 @@ to <span class="inlinecode">recurrence</span>. The <span class="inlinecode"><a c
 managing the recurrence's state and shifting it appropriately.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// a[0] = 1, a[1] = 1, and compute a[n+1] = a[n-1] + a[n]
 </span>
 <span class="d_keyword">auto</span> fib = recurrence!(<span class="d_string">"a[n-1] + a[n-2]"</span>)(1, 1);
@@ -1541,7 +1547,7 @@ managing the recurrence's state and shifting it appropriately.
 </span>
 <span class="d_keyword">foreach</span> (e; take(recurrence!(<span class="d_string">"a[n-1] * n"</span>)(1), 10)) { writeln(e); }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1562,12 +1568,12 @@ managing the recurrence's state and shifting it appropriately.
    heterogeneous.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_comment">// a[0] = 1, a[1] = 2, a[n] = a[0] + n * a[1]
 </span>
    <span class="d_keyword">auto</span> odds = sequence!(<span class="d_string">"a[0] + n * a[1]"</span>)(1, 2);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1586,7 +1592,8 @@ managing the recurrence's state and shifting it appropriately.
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if <span class="inlinecode">step == 0</span>
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> r = <u>iota</u>(0, 10, 1);
    <span class="d_keyword">assert</span>(equal(r, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9][]));
    r = <u>iota</u>(0, 11, 3);
@@ -1595,7 +1602,7 @@ managing the recurrence's state and shifting it appropriately.
    <span class="d_keyword">auto</span> rf = <u>iota</u>(0.0, 0.5, 0.1);
    <span class="d_keyword">assert</span>(approxEqual(rf, [0.0, 0.1, 0.2, 0.3, 0.4]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -1650,14 +1657,14 @@ managing the recurrence's state and shifting it appropriately.
    elements of each of the enclosed ranges.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">int</span>[][] x = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[][2];
    x[0] = [1, 2];
    x[1] = [3, 4];
    <span class="d_keyword">auto</span> ror = frontTransversal(x);
    <span class="d_keyword">assert</span>(equal(ror, [ 1, 3 ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>);
 </h3></div>
@@ -1727,14 +1734,14 @@ managing the recurrence's state and shifting it appropriately.
    enclosing range must offer random access.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">int</span>[][] x = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[][2];
    x[0] = [1, 2];
    x[1] = [3, 4];
    <span class="d_keyword">auto</span> ror = transversal(x, 1);
    <span class="d_keyword">assert</span>(equal(ror, [ 2, 4 ][]));
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>, size_t <i>n</i>);
 </h3></div>
@@ -1829,6 +1836,7 @@ ind[0]++;
 <span class="d_keyword">assert</span>(ind[5] == 6);
 </pre>
 </dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
@@ -1883,6 +1891,7 @@ ind[0]++;
         <span class="d_keyword">assert</span>(ind.<u>physicalIndex</u>(0) == 1);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1910,6 +1919,7 @@ element of this range will contain fewer than <span class="inlinecode">chunkSize
 <span class="d_keyword">assert</span>(chunks.length == 3);
 </pre>
 </dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Source <i>source</i>, size_t <i>chunkSize</i>);
 </h3></div>
@@ -2004,14 +2014,15 @@ element of this range will contain fewer than <span class="inlinecode">chunkSize
 </pre>
 
 </dd>
-<b>Limitations:</b><br>
+
+<dt>Limitations:</dt><dd>
 These interfaces are not capable of forwarding <span class="inlinecode">ref</span> access to elements.
 <br><br>
 
  Infiniteness of the wrapped range is not propagated.
 <br><br>
 
- Length is not propagated in the case of non-random access ranges.<br><br>
+ Length is not propagated in the case of non-random access ranges.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
@@ -2344,6 +2355,7 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
  <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(appWrapped) : OutputRange!(<span class="d_keyword">uint</span>)));
 </pre>
 </dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>OutputRangeObject!(R,E) <a class="symbol symbol-anchor" name="outputRangeObject" href="#outputRangeObject">outputRangeObject</a>(R)(R <i>range</i>);
 </h3></div>
@@ -2452,7 +2464,7 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    <a href="#assumeSorted"><span class="inlinecode">assumeSorted</span></a> described below.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 42, 52, 64 ];
    <span class="d_keyword">auto</span> r = assumeSorted(a);
    <span class="d_keyword">assert</span>(r.contains(3));
@@ -2472,8 +2484,8 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    changed concurrently with its corresponding <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> in ways
    that break its sortedness, <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> will work erratically.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 42, 52, 64 ];
    <span class="d_keyword">auto</span> r = assumeSorted(a);
    <span class="d_keyword">assert</span>(r.contains(42));
@@ -2482,7 +2494,7 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    <span class="d_keyword">assert</span>(!r.contains(42));                <span class="d_comment">// passes although it shouldn't
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 <br>@property auto <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
@@ -2523,12 +2535,12 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    <a href="http://sgi.com/tech/stl/lower_bound.html">lower_bound</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> a = assumeSorted([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
    <span class="d_keyword">auto</span> p = a.<u>lowerBound</u>(4);
    <span class="d_keyword">assert</span>(equal(p, [ 0, 1, 2, 3 ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2544,12 +2556,12 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    <a href="http://sgi.com/tech/stl/lower_bound.html">upper_bound</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> a = assumeSorted([ 1, 2, 3, 3, 3, 4, 4, 5, 6 ]);
    <span class="d_keyword">auto</span> p = a.<u>upperBound</u>(3);
    <span class="d_keyword">assert</span>(equal(p, [4, 4, 5, 6]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2569,12 +2581,12 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
    STL's <a href="http://sgi.com/tech/stl/equal_range.html">equal_range</a>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 3, 3, 4, 4, 5, 6 ];
    <span class="d_keyword">auto</span> r = <u>equalRange</u>(a, 3);
    <span class="d_keyword">assert</span>(equal(r, [ 3, 3, 3 ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -2587,14 +2599,14 @@ of <span class="inlinecode">lowerBound(value)</span>, <span class="inlinecode">r
 separately. Uses a search schedule similar to <span class="inlinecode">equalRange</span>. Completes the entire search in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b> time.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> a = [ 1, 2, 3, 3, 3, 4, 4, 5, 6 ];
 <span class="d_keyword">auto</span> r = assumeSorted(a).<u>trisect</u>(3);
 <span class="d_keyword">assert</span>(equal(r[0], [ 1, 2 ]));
 <span class="d_keyword">assert</span>(equal(r[1], [ 3, 3, 3 ]));
 <span class="d_keyword">assert</span>(equal(r[2], [ 4, 4, 5, 6 ]));
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.utf" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.utf" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -199,12 +199,15 @@
         <a href="http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8">http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8</a><br>
         <a href="http://anubis.dkuug.dk/JTC1/SC2/WG2/docs/n1335">http://anubis.dkuug.dk/JTC1/SC2/WG2/docs/n1335</a>
 </dd>
+
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a> and Jonathan M Davis
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/utf.d">std/utf.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/utf.d">std/utf.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UTFException" href="#UTFException">UTFException</a>: object.Exception;
 </h3></div>
@@ -249,8 +252,10 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF-8
         sequence.</dd>
+
 </dl>
 </div>
 
@@ -265,8 +270,10 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
         UTF-8 sequence.</dd>
+
 </dl>
 </div>
 
@@ -279,6 +286,7 @@
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.</dd>
+
 </dl>
 </div>
 
@@ -293,8 +301,10 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
         UTF-16 sequence.</dd>
+
 </dl>
 </div>
 
@@ -307,6 +317,7 @@
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
+
 </dl>
 </div>
 
@@ -319,6 +330,7 @@
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
+
 </dl>
 </div>
 
@@ -346,6 +358,7 @@
 <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -373,6 +386,7 @@
 <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -390,6 +404,7 @@
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF
         sequence.</dd>
+
 </dl>
 </div>
 
@@ -405,6 +420,7 @@
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
+
 </dl>
 </div>
 
@@ -418,6 +434,7 @@
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
+
 </dl>
 </div>
 
@@ -438,6 +455,7 @@
 <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('\U0010FFFF') == 1);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -449,6 +467,7 @@
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str</span> is not well-formed.</dd>
+
 </dl>
 </div>
 
@@ -537,6 +556,7 @@
 <span class="d_keyword">auto</span> p6 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">dchar</span>)*)(<span class="d_string">"hello world"w</span>);
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -560,14 +580,16 @@
 <div class="declaration-content"><dl><p>Returns the total number of code points encoded in <span class="inlinecode">str</span>.
 </p>
 
-<b>Supercedes:</b><br>
+<dt>Supercedes:</dt><dd>
 This function supercedes <a href="#toUCSindex"><span class="inlinecode">toUCSindex</span></a>.
 
-<br><br>
+</dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
+
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str</span> is not well-formed.</dd>
+
 </dl>
 </div>
 

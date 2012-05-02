@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.concurrency" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.concurrency" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -203,7 +203,7 @@
  additional features specific to in-process messaging.
 
 </p>
-<b>Synposis:</b><br>
+<dt>Synposis:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.<u>concurrency</u>;
 
@@ -240,13 +240,15 @@
  }
 </pre>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd>Sean Kelly
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/concurrency.d">std/concurrency.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/concurrency.d">std/concurrency.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="MessageMismatch" href="#MessageMismatch">MessageMismatch</a>: object.Exception;
 </h3></div>
@@ -344,17 +346,19 @@
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A Tid representing the new context.
 
 </dd>
-<b>Notes:</b><br>
+
+<dt>Notes:</dt><dd>
 <span class="inlinecode">args</span> must not have unshared aliasing.  In other words, all arguments
   to <span class="inlinecode">fn</span> must either be <span class="inlinecode">shared</span> or <span class="inlinecode">immutable</span> or have no
   pointer indirection.  This is necessary for enforcing isolation among
   threads.
 
-<br><br>
-<b>Example:</b><br>
+</dd>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
 
  <span class="d_keyword">void</span> f1(string str)
@@ -380,7 +384,7 @@
      <span class="d_keyword">auto</span> tid2 = <u>spawn</u>(&amp;f2, str.dup);
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -404,7 +408,9 @@
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>A Tid representing the new context.</dd>
+
 </dl>
 </div>
 
@@ -445,7 +451,7 @@
  sent.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.variant;
 
@@ -458,7 +464,7 @@
      );
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -473,11 +479,13 @@
           is received.
 
 </dd>
+
 <dt>Returns</dt><dd>The received message.  If <span class="inlinecode">T.length</span> is greater than one,
           the message will be packed into a <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a>.
 
 </dd>
-<b>Example:</b><br>
+
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.concurrency;
 
  <span class="d_keyword">void</span> spawnedFunc()
@@ -493,7 +501,7 @@
      send(tid, 42, <span class="d_string">"42"</span>);
  }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -575,6 +583,7 @@
              mailbox.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -598,6 +607,7 @@
                      mailbox.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 
@@ -617,8 +627,10 @@
 <td>The <i>tid</i> <a class="symbol symbol-anchor" name="register" href="#register">register</a> by <i>name</i>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if the <i>name</i> is available and <i>tid</i> is not known to represent a
   defunct thread.</dd>
+
 </dl>
 </div>
 
@@ -633,7 +645,9 @@
 <td>The <i>name</i> to <a class="symbol symbol-anchor" name="unregister" href="#unregister">unregister</a>.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if the <i>name</i> is registered, <span class="d_keyword">false</span> if not.</dd>
+
 </dl>
 </div>
 
@@ -648,7 +662,9 @@
 <td>The <i>name</i> to <a class="symbol symbol-anchor" name="locate" href="#locate">locate</a> within the registry.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>The associated Tid or Tid.init if <i>name</i> is not registered.</dd>
+
 </dl>
 </div>
 

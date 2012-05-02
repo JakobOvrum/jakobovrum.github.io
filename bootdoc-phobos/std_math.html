@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.math" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.math" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -206,20 +206,22 @@
  these functions are pure nothrow.
 
 </p>
-<b>Status:</b><br>
+<dt>Status:</dt><dd>
 The semantics and names of feqrel and approxEqual will be revised.
 
-<br><br>
-<b>Source:</b><br>
+</dd>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/math.d">std/math.d</a>
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
                         Don Clugston
 </dd>
-<b>Source:</b><br>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/math.d">std/math.d</a><br><br>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/math.d">std/math.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>real <a class="symbol symbol-anchor" name="E" href="#E">E</a>;
 </h3></div>
@@ -400,6 +402,7 @@ The semantics and names of feqrel and approxEqual will be revised.
       </table>
 </p>
 <dt>Known Bugs</dt><dd>Results are undefined if |<i>x</i>| &gt;= 2<sup>64</sup>.</dd>
+
 </dl>
 </div>
 
@@ -419,6 +422,7 @@ The semantics and names of feqrel and approxEqual will be revised.
       </table>
 </p>
 <dt>Known Bugs</dt><dd>Results are undefined if |<i>x</i>| &gt;= 2<sup>64</sup>.</dd>
+
 </dl>
 </div>
 
@@ -823,6 +827,7 @@ The semantics and names of feqrel and approxEqual will be revised.
       <tr><td valign=top>-&infin;</td>       <td valign=top>-&infin;</td>       <td valign=top>int.min</td></tr>
       <tr><td valign=top>&plusmn;<font color=red>NAN</font></td> <td valign=top>&plusmn;<font color=red>NAN</font></td> <td valign=top>int.min</td></tr>
       </table></dd>
+
 </dl>
 </div>
 
@@ -854,8 +859,8 @@ The semantics and names of feqrel and approxEqual will be revised.
 <div class="declaration-content"><dl><p>Compute <i>n</i> * 2<span style="vertical-align:super;font-size:smaller"><i>exp</i></span>
 </p>
 
-<b>References:</b><br>
-frexp<br><br>
+<dt>References:</dt><dd>
+frexp</dd>
 </dl>
 </div>
 
@@ -975,6 +980,7 @@ frexp<br><br>
   <tr><td valign=top>anything</td>       <td valign=top>&plusmn;0.0</td>  <td valign=top><font color=red>NAN</font></td>       <td valign=top>yes</td></tr>
   <tr><td valign=top>!=&plusmn;&infin;</td> <td valign=top>&plusmn;&infin;</td>  <td valign=top><i>x</i></td>            <td valign=top>no</td></tr>
  </table></dd>
+
 </dl>
 </div>
 
@@ -994,6 +1000,7 @@ frexp<br><br>
                <tr><th><i>x</i></th>              <th><i>i</i> (on input)</th>  <th><a class="symbol symbol-anchor" name="modf" href="#modf">modf</a>(<i>x</i>, <i>i</i>)</th>   <th><i>i</i> (on return)</th></tr>
   <tr><td valign=top>&plusmn;&infin;</td>   <td valign=top>anything</td>      <td valign=top>&plusmn;0.0</td> <td valign=top>&plusmn;&infin;</td></tr>
  </table></dd>
+
 </dl>
 </div>
 
@@ -1203,8 +1210,8 @@ frexp<br><br>
  </table>
 
 </p>
-<b>Note:</b><br>
-remquo not supported on windows<br><br>
+<dt>Note:</dt><dd>
+remquo not supported on windows</dd>
 </dl>
 </div>
 
@@ -1222,7 +1229,7 @@ remquo not supported on windows<br><br>
  instead of setting these flags.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">    <span class="d_keyword">real</span> a=3.5;
     <span class="d_comment">// Set all the flags to zero
 </span>
@@ -1248,7 +1255,7 @@ remquo not supported on windows<br><br>
     <span class="d_keyword">assert</span>(ieeeFlags == f);
 
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="inexact" href="#inexact">inexact</a>();
 </h3></div>
@@ -1342,7 +1349,7 @@ remquo not supported on windows<br><br>
 
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">  {
     <span class="d_comment">// Enable hardware exceptions for division by zero, overflow to infinity,
 </span>
@@ -1365,7 +1372,7 @@ remquo not supported on windows<br><br>
   }
 
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="severeExceptions" href="#severeExceptions">severeExceptions</a></h3></div>
 
@@ -1537,6 +1544,7 @@ remquo not supported on windows<br><br>
  For floats, the largest possible payload is 0x3F_FFFF.
  For doubles, it is 0x3_FFFF_FFFF_FFFF.
  For 80-bit or 128-bit reals, it is 0x3FFF_FFFF_FFFF_FFFF.</dd>
+
 </dl>
 </div>
 
@@ -1602,7 +1610,7 @@ remquo not supported on windows<br><br>
  If x == y, the result is y.
 
 </p>
-<b>Remarks:</b><br>
+<dt>Remarks:</dt><dd>
 This function is not generally very useful; it's almost always better to use
  the faster functions nextUp() or nextDown() instead.
 <br><br>
@@ -1610,7 +1618,7 @@ This function is not generally very useful; it's almost always better to use
  The FE_INEXACT and FE_OVERFLOW exceptions will be raised if x is finite and
  the function result is infinite. The FE_INEXACT and FE_UNDERFLOW
  exceptions will be raised if the function value is subnormal, and x is
- not equal to y.<br><br>
+ not equal to y.</dd>
 </dl>
 </div>
 
@@ -1627,6 +1635,7 @@ This function is not generally very useful; it's almost always better to use
       <tr><td valign=top><i>x</i> &gt; <i>y</i></td>  <td valign=top><i>x</i> - <i>y</i></td></tr>
       <tr><td valign=top><i>x</i> &lt;= <i>y</i></td> <td valign=top>+0.0</td></tr>
       </table></dd>
+
 </dl>
 </div>
 
@@ -1657,6 +1666,7 @@ This function is not generally very useful; it's almost always better to use
 </p>
 
 <dt>Known Bugs</dt><dd>Not currently implemented - rounds twice.</dd>
+
 </dl>
 </div>
 
@@ -1761,6 +1771,7 @@ This function is not generally very useful; it's almost always better to use
       <tr><td valign=top><font color=red>NAN</font></td> <td valign=top>any</td>        <td valign=top>0</td></tr>
       <tr><td valign=top>any</td>    <td valign=top><font color=red>NAN</font></td>     <td valign=top>0</td></tr>
       </table></dd>
+
 </dl>
 </div>
 
@@ -1779,6 +1790,7 @@ This function is not generally very useful; it's almost always better to use
 <td>array of coefficients a<sub>0</sub>, a<sub>1</sub>, etc.</td>
 </tr>
 </table></dd>
+
 </dl>
 </div>
 

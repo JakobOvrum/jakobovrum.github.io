@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.parallelism" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.parallelism" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -221,13 +221,13 @@ by a worker thread has begun, the <span class="inlinecode">Task</span> can be re
 and executed immediately in the thread where the result is needed.
 
 </p>
-<b>Warning:</b><br>
+<dt>Warning:</dt><dd>
 Unless marked as <span class="inlinecode">@trusted</span> or <span class="inlinecode">@safe</span>, artifacts in
           this module allow implicit data sharing between threads and cannot
           guarantee that client code is free from low level data races.
 
-<br><br>
-<b>Synopsis:</b><br>
+</dd>
+<dt>Synopsis:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.algorithm, std.<u>parallelism</u>, std.range;
 
 <span class="d_keyword">void</span> main() {
@@ -265,11 +265,12 @@ Unless marked as <span class="inlinecode">@trusted</span> or <span class="inline
 }
 </pre>
 
-<br><br>
-<b>Author:</b><br>
+</dd>
+<dt>Author:</dt><dd>
 David Simcha
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a></dd>
+
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Task" href="#Task">Task</a>(alias fun,Args...);
 </h3></div>
@@ -305,6 +306,7 @@ pointer.
 </p>
 <dt>Known Bugs</dt><dd>Changes to <span class="inlinecode">ref</span> and <span class="inlinecode">out</span> arguments are not propagated to the
        call site, only to <span class="inlinecode">args</span> in this struct.</dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="args" href="#args">args</a>;
 </h3></div>
@@ -381,6 +383,7 @@ pointer.
 
 <dt>Throws</dt><dd>Rethrows any exception thrown during the execution of the
              <span class="inlinecode">Task</span>.</dd>
+
 </dl>
 </div>
 
@@ -415,6 +418,7 @@ via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to 
 <dt>Returns</dt><dd>A pointer to the <span class="inlinecode">Task</span>.
 
 </dd>
+
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Read two files into memory at the same time.
 </span>
 <span class="d_keyword">import</span> std.file;
@@ -485,6 +489,7 @@ via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to 
 }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -520,11 +525,12 @@ class/struct with overloaded opCall.
 </pre>
 
 </dd>
-<b>Notes:</b><br>
+
+<dt>Notes:</dt><dd>
 This function takes a non-scope delegate, meaning it can be
        used with closures.  If you can't allocate a closure due to objects
        on the stack that have scoped destruction, see <span class="inlinecode">scopedTask</span>, which
-       takes a scope delegate.<br><br>
+       takes a scope delegate.</dd>
 </dl>
 </div>
 
@@ -585,10 +591,10 @@ cannot exceed the lifetime of the scope it was created in.
 Usage is otherwise identical to <span class="inlinecode">task</span>.
 
 </p>
-<b>Notes:</b><br>
+<dt>Notes:</dt><dd>
 <span class="inlinecode">Task</span> objects created using <span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span> will automatically
 call <span class="inlinecode">Task.yieldForce</span> in their destructor if necessary to ensure
-the <span class="inlinecode">Task</span> is complete before the stack frame they reside on is destroyed.<br><br>
+the <span class="inlinecode">Task</span> is complete before the stack frame they reside on is destroyed.</dd>
 </dl>
 </div>
 
@@ -636,9 +642,9 @@ Occasionally it is useful to explicitly instantiate a <span class="inlinecode"><
 main thread will also be available to do work.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 On single-core machines, the primitives provided by <span class="inlinecode">TaskPool</span>
-       operate transparently in single-threaded mode.<br><br>
+       operate transparently in single-threaded mode.</dd>
 </dl>
 </div>
 
@@ -710,7 +716,8 @@ On single-core machines, the primitives provided by <span class="inlinecode">Tas
 </pre>
 
 </dd>
-<b>Notes:</b><br>
+
+<dt>Notes:</dt><dd>
 The memory usage of this implementation is guaranteed to be constant
     in <span class="inlinecode">range.length</span>.
 <br><br>
@@ -740,7 +747,7 @@ The memory usage of this implementation is guaranteed to be constant
     possible, in a non-deterministic manner.  All executing or
     enqueued work units are allowed to complete.  Then, all exceptions that
     were thrown by any work unit are chained using <span class="inlinecode">Throwable.next</span> and
-    rethrown.  The order of the exception chaining is non-deterministic.<br><br>
+    rethrown.  The order of the exception chaining is non-deterministic.</dd>
 </dl>
 </div>
 
@@ -814,13 +821,13 @@ The memory usage of this implementation is guaranteed to be constant
 </pre>
 
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 A memory barrier is guaranteed to be executed after all results are written
     but before returning so that results produced by all threads are visible
     in the calling thread.
 
-<br><br>
-<b>Tips:</b><br>
+</dd>
+<dt>Tips:</dt><dd>
 To perform the mapping operation in place, provide the same range for the
     input and output range.
 <br><br>
@@ -838,7 +845,7 @@ To perform the mapping operation in place, provide the same range for the
     possible, in a non-deterministic manner.  All currently executing or
     enqueued work units are allowed to complete.  Then, all exceptions that
     were thrown from any work unit are chained using <span class="inlinecode">Throwable.next</span> and
-    rethrown.  The order of the exception chaining is non-deterministic.<br><br>
+    rethrown.  The order of the exception chaining is non-deterministic.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="amap" href="#amap">amap</a>(Args...)(Args <i>args</i>);
 </h3></div>
@@ -885,11 +892,13 @@ To perform the mapping operation in place, provide the same range for the
     the pool-wide default.</td>
 </tr>
 </table></dd>
+
 <dt>Returns</dt><dd>An input range representing the results of the <a class="symbol symbol-anchor" name="map" href="#map">map</a>.  This range
               has a length iff <span class="inlinecode">source</span> has a length.
 
 </dd>
-<b>Notes:</b><br>
+
+<dt>Notes:</dt><dd>
 If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> or <span class="inlinecode">asyncBuf</span> is used as an input to
     <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span>, then as an optimization the copying from the output buffer
     of the first range to the input buffer of the second range is elided, even
@@ -898,7 +907,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     current call to <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> will be ignored and the size of the buffer
     will be the buffer size of <span class="inlinecode">source</span>.
 
-<br><br>
+</dd>
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_comment">// Pipeline reading a file, converting each line to a number, taking the
 </span>
     <span class="d_comment">// logarithms of the numbers, and performing the additions necessary to
@@ -926,6 +935,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     if thrown during construction, are simply allowed to propagate to the
     caller.  In the case of exceptions thrown while computing the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function,
     the exceptions are chained as in <span class="inlinecode">TaskPool.amap</span>.</dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="map" href="#map">map</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100, size_t <i>workUnitSize</i> = size_t.max);
 </h3></div>
@@ -989,6 +999,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     Any exceptions thrown while iterating over <span class="inlinecode">source</span> are re-thrown on a
     call to <span class="inlinecode">popFront</span> or, if thrown during construction, simply
     allowed to propagate to the caller.</dd>
+
 </dl>
 </div>
 
@@ -1025,6 +1036,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
 <td>The number of buffers to cycle through when calling <span class="inlinecode">next</span>.</td>
 </tr>
 </table></dd>
+
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_comment">// Fetch lines of a file in a background thread while processing prevously
 </span>
     <span class="d_comment">// fetched lines, without duplicating any lines.
@@ -1057,11 +1069,12 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     call to <span class="inlinecode">popFront</span>.
 
 </dd>
-<b>Warning:</b><br>
+
+<dt>Warning:</dt><dd>
 Using the range returned by this function in a parallel foreach loop
     will not work because buffers may be overwritten while the task that
     processes them is in queue.  This is checked for at compile time
-    and will result in a static assertion failure.<br><br>
+    and will result in a static assertion failure.</dd>
 </dl>
 </div>
 
@@ -1214,6 +1227,7 @@ Using the range returned by this function in a parallel foreach loop
     }
 </pre>
 </dd>
+
 </dl>
 </div>
 
@@ -1271,6 +1285,7 @@ Using the range returned by this function in a parallel foreach loop
     }
 </pre>
 </dd>
+
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property T <a class="symbol symbol-anchor" name="get" href="#get">get</a>();
 </h3></div>
@@ -1395,7 +1410,7 @@ Using the range returned by this function in a parallel foreach loop
     object may be passed by pointer or reference.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">    <span class="d_keyword">import</span> std.file;
 
     <span class="d_comment">// Create a task.
@@ -1407,8 +1422,8 @@ Using the range returned by this function in a parallel foreach loop
     taskPool.<u>put</u>(t);
 </pre>
 
-<br><br>
-<b>Notes:</b><br>
+</dd>
+<dt>Notes:</dt><dd>
 @trusted overloads of this function are called for <span class="inlinecode">Task</span>s if
     <a href="std_traits.html#hasUnsharedAliasing"><span class="inlinecode">std.traits.hasUnsharedAliasing</span></a> is <span class="d_keyword">false</span> for the <span class="inlinecode">Task</span>'s
     return type or the function the <span class="inlinecode">Task</span> executes is <span class="inlinecode">pure</span>.
@@ -1423,7 +1438,7 @@ Using the range returned by this function in a parallel foreach loop
     <span class="inlinecode">Task</span> includes a destructor that waits for the task to complete
     before destroying the stack frame it is allocated on.  Therefore,
     it is impossible for the stack frame to be destroyed before the task is
-    complete and no longer referenced by a <span class="inlinecode">TaskPool</span>.<br><br>
+    complete and no longer referenced by a <span class="inlinecode">TaskPool</span>.</dd>
 </dl>
 </div>
 
@@ -1447,9 +1462,9 @@ Using the range returned by this function in a parallel foreach loop
     manually instantiated task pools are non-daemon by default.
 
 </p>
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 For a size zero pool, the getter arbitrarily returns <span class="d_keyword">true</span> and the
-           setter has no effect.<br><br>
+           setter has no effect.</dd>
 </dl>
 </div>
 
@@ -1464,9 +1479,9 @@ For a size zero pool, the getter arbitrarily returns <span class="d_keyword">tru
     same thing as an identical <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> value in <span class="inlinecode">core.thread</span>.
 </p>
 
-<b>Note:</b><br>
+<dt>Note:</dt><dd>
 For a size zero pool, the getter arbitrarily returns
-           <span class="inlinecode">core.thread.Thread.PRIORITY_MIN</span> and the setter has no effect.<br><br>
+           <span class="inlinecode">core.thread.Thread.PRIORITY_MIN</span> and the setter has no effect.</dd>
 </dl>
 </div>
 
@@ -1509,7 +1524,7 @@ purpose of these is to make <a class="symbol symbol-anchor" name="parallel" href
 readable.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Find the logarithm of every number from 1 to 1_000_000 in parallel,
 </span>
 <span class="d_comment">// using the default TaskPool instance.
@@ -1520,7 +1535,7 @@ readable.
     elem = log(i + 1.0);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 

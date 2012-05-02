@@ -154,7 +154,7 @@
 					</ul>
 					
 					<form id="gotosymbol" class="navbar-search pull-left hidden">
-						<input type="text" class="search-query" placeholder="Goto symbol in std.random" data-provide="typeahead" data-items="4">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.random" data-provide="typeahead" data-items="4">
 					</form>
 					
 					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
@@ -207,7 +207,7 @@ whichever generator it considers the most fit for the target
 environment.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// Generate a uniformly-distributed integer in the range [0, 14]
 </span>
 <span class="d_keyword">auto</span> i = uniform(0, 15);
@@ -224,21 +224,23 @@ distributions, which skew a generator's output statistical
 distribution in various ways. So far the uniform distribution for
 integers and real numbers have been implemented.
 
-<br><br>
-<b>Source:</b><br>
+</dd>
+<dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/random.d">std/random.d</a>
 
-<br><br>
+</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
+
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
            Masahiro Nakagawa (Xorshift randome generator)
 </dd>
-<b>Credits:</b><br>
+
+<dt>Credits:</dt><dd>
 The entire <a class="symbol symbol-anchor" name="random" href="#random">random</a> number library architecture is derived from the
            excellent <a href="http://open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2461.pdf">C++0X</a>
            <a class="symbol symbol-anchor" name="random" href="#random">random</a> number facility proposed by Jens Maurer and contributed to by
-           researchers at the Fermi laboratory(excluding Xorshift).<br><br>
+           researchers at the Fermi laboratory(excluding Xorshift).</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng,ElementType)<br>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng)</h3></div>
 
@@ -401,7 +403,7 @@ implements a variant that has slightly better spectral behavior by
 using the multiplier 48271. Both generators are rather simplistic.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// seed with a constant
 </span>
 <span class="d_keyword">auto</span> rnd0 = <u>MinstdRand0</u>(1);
@@ -413,7 +415,7 @@ rnd0.seed(unpredictableSeed);
 n = rnd0.front; <span class="d_comment">// different across runs
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -534,7 +536,7 @@ period of 2 to the power of 19937. Recommended for random number
 generation unless memory is severely restricted, in which case a <span class="inlinecode">LinearCongruentialEngine</span> would be the generator of choice.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// seed with a constant
 </span>
 <u>Mt19937</u> gen;
@@ -546,7 +548,7 @@ gen.seed(unpredictableSeed);
 n = gen.front; <span class="d_comment">// different across runs
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -667,7 +669,7 @@ n = gen.front; <span class="d_comment">// different across runs
  <span class="inlinecode">Xorshift</span> is a Xorshift128's alias because 128bits implementation is mostly used.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_comment">// Seed with a constant
 </span>
  <span class="d_keyword">auto</span> rnd = Xorshift(1);
@@ -680,7 +682,7 @@ n = gen.front; <span class="d_comment">// different across runs
  num = rnd.front; <span class="d_comment">// different across runs
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -693,12 +695,12 @@ with <b><a class="symbol symbol-anchor" name="unpredictableSeed" href="#unpredic
 random number sequences every run.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> rnd = Random(<u>unpredictableSeed</u>);
 <span class="d_keyword">auto</span> n = rnd.front;
 ...
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -738,7 +740,7 @@ is closed to the left and open to the right. The version that does not
 take <span class="inlinecode">urng</span> uses the default generator <span class="inlinecode">rndGen</span>.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code">Random gen(unpredictableSeed);
 <span class="d_comment">// Generate an integer in [0, 1023]
 </span>
@@ -747,7 +749,7 @@ take <span class="inlinecode">urng</span> uses the default generator <span class
 </span>
 <span class="d_keyword">auto</span> a = <u>uniform</u>(0.0f, 1.0f, gen);
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -794,7 +796,7 @@ a random-access range with length.</p>
 <div class="declaration-content"><dl><p>Rolls a <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a> with relative probabilities stored in <span class="inlinecode">proportions</span>. Returns the index in <span class="inlinecode">proportions</span> that was chosen.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">auto</span> x = <u>dice</u>(0.5, 0.5);   <span class="d_comment">// x is 0 or 1 in equal proportions
 </span>
 <span class="d_keyword">auto</span> y = <u>dice</u>(50, 50);     <span class="d_comment">// y is 0 or 1 in equal proportions
@@ -804,7 +806,7 @@ a random-access range with length.</p>
                            <span class="d_comment">// and 2 10% of the time
 </span>
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -818,7 +820,7 @@ element of <span class="inlinecode">r</span> once and only once, just in a rando
 must be a random-access range with length.
 </p>
 
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
 <span class="d_keyword">auto</span> rnd = Random(unpredictableSeed);
 <span class="d_keyword">foreach</span> (e; randomCover(a, rnd))
@@ -826,7 +828,7 @@ must be a random-access range with length.
     writeln(e);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 </div>
 
@@ -849,7 +851,7 @@ essential to computing the probability of selecting elements in the
 range.
 
 </p>
-<b>Example:</b><br>
+<dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 <span class="d_comment">// Print 5 random elements picked off from a
 </span>
@@ -858,7 +860,7 @@ range.
     writeln(e);
 }
 </pre>
-<br><br>
+</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>input</i>, size_t <i>howMany</i>);
 </h3></div>
