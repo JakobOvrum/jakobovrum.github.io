@@ -1,0 +1,3 @@
+[submodule "bootdoc-phobos/bootDoc"]
+	path = bootdoc-phobos/bootDoc
+	url = git@github.com:JakobOvrum/bootDoc.git
