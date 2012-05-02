@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.getopt -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.getopt';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.getopt" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.getopt</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.getopt</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\getopt.d -->
+<p>Processing of command line options.
+</p>
+
+<p>The <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a> module implements a <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> function, which adheres to
+the POSIX syntax for command line options. GNU extensions are
+supported in the form of long options introduced by a double dash
+("--"). Support for bundling of command line options, as was the case
+with the more traditional single-letter approach, is provided but not
+enabled by default.
+
+</p>
+<div><b>License</b>: <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://erdani.org">Andrei Alexandrescu</a>
+</div>
+<b>Credits:</b><br>
+This module and its documentation are inspired by Perl's <a href="http://                  perldoc.perl.org/Getopt/Long.html">Getopt::Long</a> module. The syntax of
+                   D's <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> is simpler than its Perl counterpart because <span class="inlinecode">                  <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> infers the expected parameter types from the static types of
+                   the passed-in pointers.
+<br><br>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/getopt.d">std/getopt.d</a><br><br>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>(T...)(ref string[] <i>args</i>, T <i>opts</i>);
+</h3></div>
+
+<div class="declaration-content"><b>Synopsis:</b><br>
+<pre class="d_code"><span class="d_keyword">import</span> std.<u>getopt</u>;
+
+string data = <span class="d_string">"file.dat"</span>;
+<span class="d_keyword">int</span> length = 24;
+<span class="d_keyword">bool</span> verbose;
+<span class="d_keyword">enum</span> Color { no, yes };
+Color color;
+
+<span class="d_keyword">void</span> main(string[] args)
+{
+  <u>getopt</u>(
+    args,
+    <span class="d_string">"length"</span>,  &amp;length,    <span class="d_comment">// numeric
+</span>
+    <span class="d_string">"file"</span>,    &amp;data,      <span class="d_comment">// string
+</span>
+    <span class="d_string">"verbose"</span>, &amp;verbose,   <span class="d_comment">// flag
+</span>
+    <span class="d_string">"color"</span>,   &amp;color);    <span class="d_comment">// enum
+</span>
+  ...
+}
+</pre>
+
+ The <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> function takes a reference to the command line
+ (as received by <span class="inlinecode">main</span>) as its first argument, and an
+ unbounded number of pairs of strings and pointers. Each string is an
+ option meant to "fill" the value pointed-to by the pointer to its
+ right (the "bound" pointer). The option string in the call to
+ <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> should not start with a dash.
+<br><br>
+
+ In all cases, the command-line options that were parsed and used by
+ <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> are removed from <span class="inlinecode">args</span>. Whatever in the
+ arguments did not look like an option is left in <span class="inlinecode">args</span> for
+ further processing by the program. Values that were unaffected by the
+ options are not touched, so a common idiom is to initialize options
+ to their defaults and then invoke <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>. If a
+ command-line argument is recognized as an option with a parameter and
+ the parameter cannot be parsed properly (e.g. a number is expected
+ but not present), a <span class="inlinecode">ConvException</span> exception is thrown.
+<br><br>
+
+ Depending on the type of the pointer being bound, <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>
+ recognizes the following kinds of options:
+<br><br>
+
+ <ol><li><i>Boolean options</i>. These are the simplest options; all
+ they do is set a Boolean to <span class="inlinecode"><span class="d_keyword">true</span></span>:
+<br><br>
+
+<pre class="d_code">  <span class="d_keyword">bool</span> verbose, debugging;
+  <u>getopt</u>(args, <span class="d_string">"verbose"</span>, &amp;verbose, <span class="d_string">"debug"</span>, &amp;debugging);
+</pre>
+
+ </li><li><i>Numeric options.</i> If an option is bound to a numeric type, a
+ number is expected as the next option, or right within the option
+ separated with an "=" sign:
+<br><br>
+
+<pre class="d_code">  <span class="d_keyword">uint</span> timeout;
+  <u>getopt</u>(args, <span class="d_string">"timeout"</span>, &amp;timeout);
+</pre>
+
+To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</span>, invoke the program with either <span class="inlinecode">--timeout=5</span> or <span class="inlinecode">--timeout 5</span>.
+<br><br>
+
+ <ul><li><i>Incremental options.</i> If an option name has a "+" suffix and
+ is bound to a numeric type, then the option's value tracks the number
+ of times the option occurred on the command line:
+<br><br>
+
+<pre class="d_code">  <span class="d_keyword">uint</span> paranoid;
+  <u>getopt</u>(args, <span class="d_string">"paranoid+"</span>, &amp;paranoid);
+</pre>
+
+ Invoking the program with "--paranoid --paranoid --paranoid" will set
+ <span class="inlinecode">paranoid</span> to 3. Note that an incremental option never
+ expects a parameter, e.g. in the command line "--paranoid 42
+ --paranoid", the "42" does not set <span class="inlinecode">paranoid</span> to 42;
+ instead, <span class="inlinecode">paranoid</span> is set to 2 and "42" is not considered
+ as part of the normal program arguments.</li></ul></li>
+<br><br>
+
+ <li><i>Enum options.</i> If an option is bound to an enum, an enum symbol as a
+ string is expected as the next option, or right within the option separated
+ with an "=" sign:
+<br><br>
+
+<pre class="d_code">  <span class="d_keyword">enum</span> Color { no, yes };
+  Color color; <span class="d_comment">// default initialized to Color.no
+</span>
+  <u>getopt</u>(args, <span class="d_string">"color"</span>, &amp;color);
+</pre>
+
+To set <span class="inlinecode">color</span> to <span class="inlinecode">Color.yes</span>, invoke the program with either <span class="inlinecode">--color=yes</span> or <span class="inlinecode">--color yes</span>.</li>
+<br><br>
+
+ <li><i>String options.</i> If an option is bound to a string, a string
+ is expected as the next option, or right within the option separated
+ with an "=" sign:
+<br><br>
+
+<pre class="d_code">string outputFile;
+<u>getopt</u>(args, <span class="d_string">"output"</span>, &amp;outputFile);
+</pre>
+
+ Invoking the program with "--output=myfile.txt" or "--output
+ myfile.txt" will set <span class="inlinecode">outputFile</span> to "myfile.txt". If you want to
+ pass a string containing spaces, you need to use the quoting that is
+ appropriate to your shell, e.g. --output='my file.txt'.</li>
+<br><br>
+
+ <li><i>Array options.</i> If an option is bound to an array, a new
+ element is appended to the array each time the option occurs:
+<br><br>
+
+<pre class="d_code">string[] outputFiles;
+<u>getopt</u>(args, <span class="d_string">"output"</span>, &amp;outputFiles);
+</pre>
+
+ Invoking the program with "--output=myfile.txt --output=yourfile.txt"
+ or "--output myfile.txt --output yourfile.txt" will set <span class="inlinecode">outputFiles</span> to [ "myfile.txt", "yourfile.txt" ] .</li>
+<br><br>
+
+ <li><i>Hash options.</i> If an option is bound to an associative
+ array, a string of the form "name=value" is expected as the next
+ option, or right within the option separated with an "=" sign:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">double</span>[string] tuningParms;
+<u>getopt</u>(args, <span class="d_string">"tune"</span>, &amp;tuningParms);
+</pre>
+
+Invoking the program with e.g. "--tune=alpha=0.5 --tune beta=0.6" will
+set <span class="inlinecode">tuningParms</span> to [ "alpha" : 0.5, "beta" : 0.6 ]. In general,
+keys and values can be of any parsable types.</li>
+<br><br>
+
+<li><i>Delegate options.</i> An option can be bound to a delegate with
+the signature <span class="inlinecode">void delegate()</span>, <span class="inlinecode">void delegate(string option)</span>
+or <span class="inlinecode">void delegate(string option, string value)</span>.
+<br><br>
+
+<ul><li>In the <span class="inlinecode">void delegate()</span> case, the delegate is invoked
+whenever the option is seen.</li> <li>In the <span class="inlinecode">void delegate(string
+option)</span> case, the option string (without the leading dash(es)) is
+passed to the delegate. After that, the option string is considered
+handled and removed from the options array.
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">void</span> main(string[] args)
+{
+  <span class="d_keyword">uint</span> verbosityLevel = 1;
+  <span class="d_keyword">void</span> myHandler(string option)
+  {
+    <span class="d_keyword">if</span> (option == <span class="d_string">"quiet"</span>)
+    {
+      verbosityLevel = 0;
+    }
+    <span class="d_keyword">else</span>
+    {
+      <span class="d_keyword">assert</span>(option == <span class="d_string">"verbose"</span>);
+      verbosityLevel = 2;
+    }
+  }
+  <u>getopt</u>(args, <span class="d_string">"verbose"</span>, &amp;myHandler, <span class="d_string">"quiet"</span>, &amp;myHandler);
+}
+</pre>
+
+</li><li>In the <span class="inlinecode">void delegate(string option, string value)</span> case, the
+option string is handled as an option with one argument, and parsed
+accordingly. The option and its value are passed to the
+delegate. After that, whatever was passed to the delegate is
+considered handled and removed from the list.
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">void</span> main(string[] args)
+{
+  <span class="d_keyword">uint</span> verbosityLevel = 1;
+  <span class="d_keyword">void</span> myHandler(string option, string value)
+  {
+    <span class="d_keyword">switch</span> (value)
+    {
+      <span class="d_keyword">case</span> <span class="d_string">"quiet"</span>: verbosityLevel = 0; <span class="d_keyword">break</span>;
+      <span class="d_keyword">case</span> <span class="d_string">"verbose"</span>: verbosityLevel = 2; <span class="d_keyword">break</span>;
+      <span class="d_keyword">case</span> <span class="d_string">"shouting"</span>: verbosityLevel = verbosityLevel.max; <span class="d_keyword">break</span>;
+      <span class="d_keyword">default</span> :
+        stderr.writeln(<span class="d_string">"Dunno how verbose you want me to be by saying "</span>,
+          value);
+        exit(1);
+    }
+  }
+  <u>getopt</u>(args, <span class="d_string">"verbosity"</span>, &amp;myHandler);
+}
+</pre>
+</li></ul></li></ol>
+<br><br>
+
+<b>Options with multiple names</b>
+<br><br>
+
+Sometimes option synonyms are desirable, e.g. "--verbose",
+"--loquacious", and "--garrulous" should have the same effect. Such
+alternate option names can be included in the option specification,
+using "|" as a separator:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">bool</span> verbose;
+<u>getopt</u>(args, <span class="d_string">"verbose|loquacious|garrulous"</span>, &amp;verbose);
+</pre>
+
+<b>Case</b>
+<br><br>
+
+By default options are case-insensitive. You can change that behavior
+by passing <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> the <span class="inlinecode">caseSensitive</span> directive like this:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
+<u>getopt</u>(args,
+    std.<u>getopt</u>.config.caseSensitive,
+    <span class="d_string">"foo"</span>, &amp;foo,
+    <span class="d_string">"bar"</span>, &amp;bar);
+</pre>
+
+In the example above, "--foo", "--bar", "--FOo", "--bAr" etc. are recognized.
+The directive is active til the end of <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>, or until the
+converse directive <span class="inlinecode">caseInsensitive</span> is encountered:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
+<u>getopt</u>(args,
+    std.<u>getopt</u>.config.caseSensitive,
+    <span class="d_string">"foo"</span>, &amp;foo,
+    std.<u>getopt</u>.config.caseInsensitive,
+    <span class="d_string">"bar"</span>, &amp;bar);
+</pre>
+
+The option "--Foo" is rejected due to <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.caseSensitive</span>, but not "--Bar", "--bAr"
+etc. because the directive <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.caseInsensitive</span> turned sensitivity off before
+option "bar" was parsed.
+<br><br>
+
+<b>"Short" versus "long" options</b>
+<br><br>
+
+Traditionally, programs accepted single-letter options preceded by
+only one dash (e.g. <span class="inlinecode">-t</span>). <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> accepts such parameters
+seamlessly. When used with a double-dash (e.g. <span class="inlinecode">--t</span>), a
+single-letter option behaves the same as a multi-letter option. When
+used with a single dash, a single-letter option is accepted. If the
+option has a parameter, that must be "stuck" to the option without
+any intervening space or "=":
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">uint</span> timeout;
+<u>getopt</u>(args, <span class="d_string">"timeout|t"</span>, &amp;timeout);
+</pre>
+
+To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</span>, use either of the following: <span class="inlinecode">--timeout=5</span>,
+<span class="inlinecode">--timeout 5</span>, <span class="inlinecode">--t=5</span>, <span class="inlinecode">--t 5</span>, or <span class="inlinecode">-t5</span>. Forms such as <span class="inlinecode">-t 5</span>
+and <span class="inlinecode">-timeout=5</span> will be not accepted.
+<br><br>
+
+For more details about short options, refer also to the next section.
+<br><br>
+
+<b>Bundling</b>
+<br><br>
+
+Single-letter options can be bundled together, i.e. "-abc" is the same as
+<span class="inlinecode">"-a -b -c"</span>. By default, this confusing option is turned off. You can
+turn it on with the <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.bundling</span> directive:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
+<u>getopt</u>(args,
+    std.<u>getopt</u>.config.bundling,
+    <span class="d_string">"foo|f"</span>, &amp;foo,
+    <span class="d_string">"bar|b"</span>, &amp;bar);
+</pre>
+
+In case you want to only enable bundling for some of the parameters,
+bundling can be turned off with <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.noBundling</span>.
+<br><br>
+
+<b>Passing unrecognized options through</b>
+<br><br>
+
+If an application needs to do its own processing of whichever arguments
+<span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> did not understand, it can pass the
+<span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.passThrough</span> directive to <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
+<u>getopt</u>(args,
+    std.<u>getopt</u>.config.passThrough,
+    <span class="d_string">"foo"</span>, &amp;foo,
+    <span class="d_string">"bar"</span>, &amp;bar);
+</pre>
+
+An unrecognized option such as "--baz" will be found untouched in
+<span class="inlinecode">args</span> after <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> returns.
+<br><br>
+
+<b>Options Terminator</b>
+<br><br>
+
+A lonesome double-dash terminates <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> gathering. It is used to
+separate program options from other parameters (e.g. options to be passed
+to another program). Invoking the example above with <span class="inlinecode">"--foo -- --bar"</span>
+parses foo but leaves "--bar" in <span class="inlinecode">args</span>. The double-dash itself is
+removed from the argument array.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="config" href="#config">config</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Configuration options for <span class="inlinecode">getopt</span>. You can pass them to <span class="inlinecode">getopt</span> in any position, except in between an option string and its
+ bound pointer.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="caseSensitive" href="#caseSensitive">caseSensitive</a></h3></div>
+
+<div class="declaration-content"><p>Turns case sensitivity on</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="caseInsensitive" href="#caseInsensitive">caseInsensitive</a></h3></div>
+
+<div class="declaration-content"><p>Turns case sensitivity off</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="bundling" href="#bundling">bundling</a></h3></div>
+
+<div class="declaration-content"><p>Turns <a class="symbol symbol-anchor" name="bundling" href="#bundling">bundling</a> on</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="noBundling" href="#noBundling">noBundling</a></h3></div>
+
+<div class="declaration-content"><p>Turns bundling off</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="passThrough" href="#passThrough">passThrough</a></h3></div>
+
+<div class="declaration-content"><p>Pass unrecognized arguments through</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="noPassThrough" href="#noPassThrough">noPassThrough</a></h3></div>
+
+<div class="declaration-content"><p>Signal unrecognized arguments as errors</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="stopOnFirstNonOption" href="#stopOnFirstNonOption">stopOnFirstNonOption</a></h3></div>
+
+<div class="declaration-content"><p>Stop at first argument that does not look like an option</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="optionChar" href="#optionChar">optionChar</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The option character. Defaults to '-' but it can be assigned to
+   prior to calling <span class="inlinecode">getopt</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="endOfOptions" href="#endOfOptions">endOfOptions</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The string that conventionally marks the end of all
+   options. Defaults to "--" but can be assigned to prior to calling
+   <span class="inlinecode">getopt</span>. Assigning an empty string to <span class="inlinecode"><a class="symbol symbol-anchor" name="endOfOptions" href="#endOfOptions">endOfOptions</a></span>
+   effectively disables it.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="assignChar" href="#assignChar">assignChar</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The assignment character used in options with parameters. Defaults
+   to '=' but can be assigned to prior to calling <span class="inlinecode">getopt</span>.</p>
+
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright Andrei Alexandrescu 2008 - 2009.
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

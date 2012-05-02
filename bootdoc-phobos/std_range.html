@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.range -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.range';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.range" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.range</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.range</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\range.d -->
+<p>This module defines the notion of a <a class="symbol symbol-anchor" name="range" href="#range">range</a>. Ranges generalize the concept of
+arrays, lists, or anything that involves sequential access. This abstraction
+enables the same set of algorithms (see <a href="std_algorithm.html">std.algorithm</a>) to be used with a vast variety of different concrete types. For
+example, a linear search algorithm such as <a href="std_algorithm.html#find">std.algorithm.find</a> works not just for arrays, but for linked-lists, input
+files, incoming network data, etc.
+</p>
+
+<p>For more detailed information about the conceptual aspect of ranges and the
+motivation behind them, see Andrei Alexandrescu's article
+<a href="http://www.informit.com/articles/printerfriendly.aspx?p=1407357&rll=1"><i>On Iteration</i></a>.
+<br><br>
+
+This module defines several templates for testing whether a given object is a
+range, and what kind of range it is:
+<table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isInputRange"><span class="inlinecode">isInputRange</span></a></span></td>
+<td valign=top>Tests if something is an <i>input range</i>, defined to be something from
+which one can sequentially read data using the primitives <span class="inlinecode">front</span>, <span class="inlinecode">popFront</span>, and <span class="inlinecode">empty</span>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isOutputRange"><span class="inlinecode">isOutputRange</span></a></span></td>
+<td valign=top>Tests if something is an <i>output range</i>, defined to be something to
+which one can sequentially write data using the <span class="inlinecode"><a href="#put"><span class="inlinecode">put</span></a></span> primitive.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isForwardRange"><span class="inlinecode">isForwardRange</span></a></span></td>
+<td valign=top>Tests if something is a <i>forward range</i>, defined to be an input range
+with the additional capability that one can save one's current position with
+the <span class="inlinecode">save</span> primitive, thus allowing one to iterate over the same range
+multiple times.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isBidirectionalRange"><span class="inlinecode">isBidirectionalRange</span></a></span></td>
+<td valign=top>Tests if something is a <i>bidirectional range</i>, that is, an input
+range that allows reverse traversal using the primitives <span class="inlinecode">back</span> and <span class="inlinecode">popBack</span>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isRandomAccessRange"><span class="inlinecode">isRandomAccessRange</span></a></span></td>
+<td valign=top>Tests if something is a <i>random access range</i>, which is a
+bidirectional range that also supports the array subscripting operation via
+the primitive <span class="inlinecode">opIndex</span>.
+</td></tr>
+<br><br>
+
+</table>
+<br><br>
+
+A number of templates are provided that test for various range capabilities:
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasMobileElements"><span class="inlinecode">hasMobileElements</span></a></span></td>
+<td valign=top>Tests if a given range's elements can be moved around using the
+primitives <span class="inlinecode">moveFront</span>, <span class="inlinecode">moveBack</span>, or <span class="inlinecode">moveAt</span>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#ElementType"><span class="inlinecode">ElementType</span></a></span></td>
+<td valign=top>Returns the element type of a given range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#ElementEncodingType"><span class="inlinecode">ElementEncodingType</span></a></span></td>
+<td valign=top>Returns the encoding element type of a given range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasSwappableElements"><span class="inlinecode">hasSwappableElements</span></a></span></td>
+<td valign=top>Tests if a range is a forward range with swappable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasAssignableElements"><span class="inlinecode">hasAssignableElements</span></a></span></td>
+<td valign=top>Tests if a range is a forward range with mutable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasLvalueElements"><span class="inlinecode">hasLvalueElements</span></a></span></td>
+<td valign=top>Tests if a range is a forward range with elements that can be passed by
+reference and have their address taken.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasLength"><span class="inlinecode">hasLength</span></a></span></td>
+<td valign=top>Tests if a given range has the <span class="inlinecode">length</span> attribute.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#isInfinite"><span class="inlinecode">isInfinite</span></a></span></td>
+<td valign=top>Tests if a given range is an <i>infinite range</i>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#hasSlicing"><span class="inlinecode">hasSlicing</span></a></span></td>
+<td valign=top>Tests if a given range supports the array slicing operation <span class="inlinecode">R[x..y]</span>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#walkLength"><span class="inlinecode">walkLength</span></a></span></td>
+<td valign=top>Computes the length of any range in O(n) time.
+</td></tr>
+<br><br>
+
+</table>
+<br><br>
+
+A rich set of range creation and composition templates are provided that let
+you construct new ranges out of existing ranges:
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#retro"><span class="inlinecode">retro</span></a></span></td>
+<td valign=top>Iterates a bidirectional range backwards.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#stride"><span class="inlinecode">stride</span></a></span></td>
+<td valign=top>Iterates a range with stride <i>n</i>.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#chain"><span class="inlinecode">chain</span></a></span></td>
+<td valign=top>Concatenates several ranges into a single range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#roundRobin"><span class="inlinecode">roundRobin</span></a></span></td>
+<td valign=top>Given <i>n</i> ranges, creates a new range that return the <i>n</i> first
+elements of each range, in turn, then the second element of each range, and
+so on, in a round-robin fashion.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#radial"><span class="inlinecode">radial</span></a></span></td>
+<td valign=top>Given a random-access range and a starting point, creates a range that
+alternately returns the next left and next right element to the starting point.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#take"><span class="inlinecode">take</span></a></span></td>
+<td valign=top>Creates a sub-range consisting of only up to the first <i>n</i> elements of
+the given range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#takeExactly"><span class="inlinecode">takeExactly</span></a></span></td>
+<td valign=top>Like <span class="inlinecode">take</span>, but assumes the given range actually has <i>n</i> elements,
+and therefore also defines the <span class="inlinecode">length</span> property.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#takeOne"><span class="inlinecode">takeOne</span></a></span></td>
+<td valign=top>Creates a random-access range consisting of exactly the first element of
+the given range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#takeNone"><span class="inlinecode">takeNone</span></a></span></td>
+<td valign=top>Creates a random-access range consisting of zero elements of the given
+range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#drop"><span class="inlinecode">drop</span></a></span></td>
+<td valign=top>Creates the range that results from discarding the first <i>n</i> elements
+from the given range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#repeat"><span class="inlinecode">repeat</span></a></span></td>
+<td valign=top>Creates a range that consists of a single element repeated <i>n</i> times,
+or an infinite range repeating that element indefinitely.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#cycle"><span class="inlinecode">cycle</span></a></span></td>
+<td valign=top>Creates an infinite range that repeats the given forward range
+indefinitely. Good for implementing circular buffers.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#zip"><span class="inlinecode">zip</span></a></span></td>
+<td valign=top>Given <i>n</i> ranges, creates a range that successively returns a tuple
+of all the first elements, a tuple of all the second elements, etc.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#lockstep"><span class="inlinecode">lockstep</span></a></span></td>
+<td valign=top>Iterates <i>n</i> ranges in lockstep, for use in a <span class="inlinecode">foreach</span> loop.
+Similar to <span class="inlinecode">zip</span>, except that <span class="inlinecode">lockstep</span> is designed especially for <span class="inlinecode">foreach</span> loops.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#recurrence"><span class="inlinecode">recurrence</span></a></span></td>
+<td valign=top>Creates a forward range whose values are defined by a mathematical
+recurrence relation.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#sequence"><span class="inlinecode">sequence</span></a></span></td>
+<td valign=top>Similar to <span class="inlinecode">recurrence</span>, except that a random-access range is created.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#iota"><span class="inlinecode">iota</span></a></span></td>
+<td valign=top>Creates a range consisting of numbers between a starting point and ending
+point, spaced apart by a given interval.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#frontTransversal"><span class="inlinecode">frontTransversal</span></a></span></td>
+<td valign=top>Creates a range that iterates over the first elements of the given
+ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#transversal"><span class="inlinecode">transversal</span></a></span></td>
+<td valign=top>Creates a range that iterates over the <i>n</i>'th elements of the given
+random-access ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#indexed"><span class="inlinecode">indexed</span></a></span></td>
+<td valign=top>Creates a range that offers a view of a given range as though its
+elements were reordered according to a given range of indices.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#chunks"><span class="inlinecode">chunks</span></a></span></td>
+<td valign=top>Creates a range that returns fixed-size chunks of the original range.
+</td></tr>
+<br><br>
+
+</table>
+<br><br>
+
+These range-construction tools are implemented using templates; but sometimes
+an object-based interface for ranges is needed. For this purpose, this module
+provides a number of object and <span class="inlinecode">interface</span> definitions that can be used to
+wrap around range objects created by the above templates:
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#InputRange"><span class="inlinecode">InputRange</span></a></span></td>
+<td valign=top>Wrapper for input ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#InputAssignable"><span class="inlinecode">InputAssignable</span></a></span></td>
+<td valign=top>Wrapper for input ranges with assignable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#ForwardRange"><span class="inlinecode">ForwardRange</span></a></span></td>
+<td valign=top>Wrapper for forward ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#ForwardAssignable"><span class="inlinecode">ForwardAssignable</span></a></span></td>
+<td valign=top>Wrapper for forward ranges with assignable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#BidirectionalRange"><span class="inlinecode">BidirectionalRange</span></a></span></td>
+<td valign=top>Wrapper for bidirectional ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#BidirectionalAssignable"><span class="inlinecode">BidirectionalAssignable</span></a></span></td>
+<td valign=top>Wrapper for bidirectional ranges with assignable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#RandomAccessFinite"><span class="inlinecode">RandomAccessFinite</span></a></span></td>
+<td valign=top>Wrapper for finite random-access ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#RandomAccessAssignable"><span class="inlinecode">RandomAccessAssignable</span></a></span></td>
+<td valign=top>Wrapper for finite random-access ranges with assignable elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#RandomAccessInfinite"><span class="inlinecode">RandomAccessInfinite</span></a></span></td>
+<td valign=top>Wrapper for infinite random-access ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#OutputRange"><span class="inlinecode">OutputRange</span></a></span></td>
+<td valign=top>Wrapper for output ranges.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#OutputRangeObject"><span class="inlinecode">OutputRangeObject</span></a></span></td>
+<td valign=top>Class that implements the <span class="inlinecode">OutputRange</span> interface and wraps the
+<span class="inlinecode">put</span> methods in virtual functions.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#InputRangeObject"><span class="inlinecode">InputRangeObject</span></a></span></td>
+<td valign=top>Class that implements the <span class="inlinecode">InputRange</span> interface and wraps the input
+range methods in virtual functions.
+</td></tr>
+<br><br>
+
+</table>
+<br><br>
+
+Ranges whose elements are sorted afford better efficiency with certain
+operations. For this, the <span class="inlinecode"><a href="#assumeSorted"><span class="inlinecode">assumeSorted</span></a></span> function can be used to
+construct a <span class="inlinecode"><a href="#SortedRange"><span class="inlinecode">SortedRange</span></a></span> from a pre-sorted range. The <span class="inlinecode"><a href="std_algorithm.html#sort">std.algorithm.sort</a></span> function also conveniently
+returns a <span class="inlinecode">SortedRange</span>. <span class="inlinecode">SortedRange</span> objects provide some additional
+range operations that take advantage of the fact that the range is sorted.
+<br><br>
+
+Finally, this module also defines some convenience functions for
+manipulating ranges:
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#popFrontN"><span class="inlinecode">popFrontN</span></a></span></td>
+<td valign=top>Advances a given range by <i>n</i> elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#popBackN"><span class="inlinecode">popBackN</span></a></span></td>
+<td valign=top>Advances a given bidirectional range from the right by <i>n</i> elements.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#moveFront"><span class="inlinecode">moveFront</span></a></span></td>
+<td valign=top>Removes the front element of a range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#moveBack"><span class="inlinecode">moveBack</span></a></span></td>
+<td valign=top>Removes the back element of a bidirectional range.
+</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode"><a href="#moveAt"><span class="inlinecode">moveAt</span></a></span></td>
+<td valign=top>Removes the <i>i</i>'th element of a random-access range.
+</td></tr>
+<br><br>
+
+</table>
+
+</p>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/range.d">std/range.d</a>
+
+<br><br>
+<div><b>License</b>: <a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://erdani.com">Andrei Alexandrescu</a>, David Simcha. Credit
+for some of the ideas in building this module goes to <a href="http://fantascienza.net/leonardo/so/">Leonardo Maffi</a>.</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isInputRange" href="#isInputRange">isInputRange</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an input range. An input range must
+define the primitives <span class="inlinecode">empty</span>, <span class="inlinecode">popFront</span>, and <span class="inlinecode">front</span>. The
+following code should compile for any input range.
+</p>
+
+<p><pre class="d_code">R r;              <span class="d_comment">// can define a range object
+</span>
+<span class="d_keyword">if</span> (r.empty) {}   <span class="d_comment">// can test for empty
+</span>
+r.popFront();     <span class="d_comment">// can invoke popFront()
+</span>
+<span class="d_keyword">auto</span> h = r.front; <span class="d_comment">// can get the front of the range of non-void type
+</span>
+</pre>
+
+The semantics of an input range (not checkable during compilation) are
+assumed to be the following (<span class="inlinecode">r</span> is an object of type <span class="inlinecode">R</span>):
+<br><br>
+
+<ul><li><span class="inlinecode">r.empty</span> returns <span class="inlinecode"><span class="d_keyword">false</span></span> iff there is more data
+available in the range.</li>  <li><span class="inlinecode">r.front</span> returns the current
+element in the range. It may return by value or by reference. Calling
+<span class="inlinecode">r.front</span> is allowed only if calling <span class="inlinecode">r.empty</span> has, or would
+have, returned <span class="inlinecode"><span class="d_keyword">false</span></span>.</li> <li><span class="inlinecode">r.popFront</span> advances to the next
+element in the range. Calling <span class="inlinecode">r.popFront</span> is allowed only if
+calling <span class="inlinecode">r.empty</span> has, or would have, returned <span class="inlinecode"><span class="d_keyword">false</span></span>.</li></ul></p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(R, E)(ref R <i>r</i>, E <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Outputs <span class="inlinecode">e</span> to <span class="inlinecode">r</span>. The exact effect is dependent upon the two
+types. Several cases are accepted, as described below. The code snippets
+are attempted in order, and the first to compile "wins" and gets
+evaluated.
+</p>
+
+<p><table cellspacing=0 cellpadding=5 class=book><caption></caption><br><br>
+
+<tr><th>Code Snippet</th> <th>Scenario</th></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">r.<a class="symbol symbol-anchor" name="put" href="#put">put</a>(e);</span></td> <td valign=top><span class="inlinecode">R</span> specifically defines a method
+<span class="inlinecode"><a class="symbol symbol-anchor" name="put" href="#put">put</a></span> accepting an <span class="inlinecode">E</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">r.<a class="symbol symbol-anchor" name="put" href="#put">put</a>([ e ]);</span></td> <td valign=top><span class="inlinecode">R</span> specifically defines a
+method <span class="inlinecode"><a class="symbol symbol-anchor" name="put" href="#put">put</a></span> accepting an <span class="inlinecode">E[]</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">r.front = e; r.popFront();</span></td> <td valign=top><span class="inlinecode">R</span> is an input
+range and <span class="inlinecode">e</span> is assignable to <span class="inlinecode">r.front</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">for (; !e.empty; e.popFront()) <a class="symbol symbol-anchor" name="put" href="#put">put</a>(r, e.front);</span></td> <td valign=top>Copying range <span class="inlinecode">E</span> to range <span class="inlinecode">R</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">r(e);</span></td> <td valign=top><span class="inlinecode">R</span> is e.g. a delegate accepting an <span class="inlinecode">E</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">r([ e ]);</span></td> <td valign=top><span class="inlinecode">R</span> is e.g. a <span class="inlinecode">delegate</span>
+accepting an <span class="inlinecode">E[]</span>.</td></tr>
+<br><br>
+
+</table></p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isOutputRange" href="#isOutputRange">isOutputRange</a>(R,E)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an output range for elements of type
+<span class="inlinecode">E</span>. An output range is defined functionally as a range that
+supports the operation <span class="inlinecode">put(r, e)</span> as defined above.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isForwardRange" href="#isForwardRange">isForwardRange</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range. A forward range is an
+input range <span class="inlinecode">r</span> that can save "checkpoints" by saving <span class="inlinecode">r.save</span>
+to another value of type <span class="inlinecode">R</span>. Notable examples of input ranges that
+are <i>not</i> forward ranges are file/socket ranges; copying such a
+range will not save the position in the stream, and they most likely
+reuse an internal buffer as the entire stream does not sit in
+memory. Subsequently, advancing either the original or the copy will
+advance the stream, so the copies are not independent.
+</p>
+
+<p>The following code should compile for any forward range.
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isInputRange!R);
+R r1;
+R r2 = r1.save; <span class="d_comment">// can save the current position into another range
+</span>
+</pre>
+
+Saving a range is not duplicating it; in the example above, <span class="inlinecode">r1</span>
+and <span class="inlinecode">r2</span> still refer to the same underlying data. They just
+navigate that data independently.
+<br><br>
+
+The semantics of a forward range (not checkable during compilation)
+are the same as for an input range, with the additional requirement
+that backtracking must be possible by saving a copy of the range
+object with <span class="inlinecode">save</span> and using it later.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isBidirectionalRange" href="#isBidirectionalRange">isBidirectionalRange</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a bidirectional range. A bidirectional
+range is a forward range that also offers the primitives <span class="inlinecode">back</span> and
+<span class="inlinecode">popBack</span>. The following code should compile for any bidirectional
+range.
+</p>
+
+<p><pre class="d_code">R r;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isForwardRange!R);           <span class="d_comment">// is forward range
+</span>
+r.popBack();                               <span class="d_comment">// can invoke popBack
+</span>
+<span class="d_keyword">auto</span> t = r.back;                           <span class="d_comment">// can get the back of the range
+</span>
+<span class="d_keyword">auto</span> w = r.front;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(t) == <span class="d_keyword">typeof</span>(w))); <span class="d_comment">// same type for front and back
+</span>
+</pre>
+
+The semantics of a bidirectional range (not checkable during
+compilation) are assumed to be the following (<span class="inlinecode">r</span> is an object of
+type <span class="inlinecode">R</span>):
+<br><br>
+
+<ul><li><span class="inlinecode">r.back</span> returns (possibly a reference to) the last
+element in the range. Calling <span class="inlinecode">r.back</span> is allowed only if calling
+<span class="inlinecode">r.empty</span> has, or would have, returned <span class="inlinecode"><span class="d_keyword">false</span></span>.</li></ul></p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isRandomAccessRange" href="#isRandomAccessRange">isRandomAccessRange</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a random-access range. A random-access
+range is a bidirectional range that also offers the primitive <span class="inlinecode">opIndex</span>, OR an infinite forward range that offers <span class="inlinecode">opIndex</span>. In
+either case, the range must either offer <span class="inlinecode">length</span> or be
+infinite. The following code should compile for any random-access
+range.
+</p>
+
+<p><pre class="d_code">R r;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isForwardRange!R);  <span class="d_comment">// range is forward
+</span>
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isBidirectionalRange!R || isInfinite!R);
+                                  <span class="d_comment">// range is bidirectional or infinite
+</span>
+<span class="d_keyword">auto</span> e = r[1];                    <span class="d_comment">// can index
+</span>
+</pre>
+
+The semantics of a random-access range (not checkable during
+compilation) are assumed to be the following (<span class="inlinecode">r</span> is an object of
+type <span class="inlinecode">R</span>): <ul><li><span class="inlinecode">r.opIndex(n)</span> returns a reference to the
+<span class="inlinecode">n</span>th element in the range.</li></ul>
+<br><br>
+
+Although <span class="inlinecode">char[]</span> and <span class="inlinecode">wchar[]</span> (as well as their qualified
+versions including <span class="inlinecode">string</span> and <span class="inlinecode">wstring</span>) are arrays, <span class="inlinecode"><a class="symbol symbol-anchor" name="isRandomAccessRange" href="#isRandomAccessRange">isRandomAccessRange</a></span> yields <span class="inlinecode"><span class="d_keyword">false</span></span> for them because they use
+variable-length encodings (UTF-8 and UTF-16 respectively). These types
+are bidirectional ranges only.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasMobileElements" href="#hasMobileElements">hasMobileElements</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> iff the range supports the <span class="inlinecode">moveFront</span> primitive,
+as well as <span class="inlinecode">moveBack</span> and <span class="inlinecode">moveAt</span> if it's a bidirectional or
+random access range.  These may be explicitly implemented, or may work
+via the default behavior of the module level functions <span class="inlinecode">moveFront</span>
+and friends.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ElementType" href="#ElementType">ElementType</a>(R)</h3></div>
+
+<div class="declaration-content"><p>The element type of <span class="inlinecode">R</span>. <span class="inlinecode">R</span> does not have to be a range. The
+element type is determined as the type yielded by <span class="inlinecode">r.front</span> for an
+object <span class="inlinecode">r</span> or type <span class="inlinecode">R</span>. For example, <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementType" href="#ElementType">ElementType</a>!(T[])</span> is
+<span class="inlinecode">T</span>. If <span class="inlinecode">R</span> is not a range, <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementType" href="#ElementType">ElementType</a>!R</span> is <span class="inlinecode">void</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ElementEncodingType" href="#ElementEncodingType">ElementEncodingType</a>(R)</h3></div>
+
+<div class="declaration-content"><p>The encoding element type of <span class="inlinecode">R</span>. For narrow strings (<span class="inlinecode">char[]</span>,
+<span class="inlinecode">wchar[]</span> and their qualified variants including <span class="inlinecode">string</span> and
+<span class="inlinecode">wstring</span>), <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementEncodingType" href="#ElementEncodingType">ElementEncodingType</a></span> is the character type of the
+string. For all other ranges, <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementEncodingType" href="#ElementEncodingType">ElementEncodingType</a></span> is the same as
+<span class="inlinecode">ElementType</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasSwappableElements" href="#hasSwappableElements">hasSwappableElements</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range and has swappable
+elements. The following code should compile for any random-access
+range.
+</p>
+
+<p><pre class="d_code">R r;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isForwardRange!(R));   <span class="d_comment">// range is forward
+</span>
+swap(r.front, r.front);              <span class="d_comment">// can swap elements of the range
+</span>
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasAssignableElements" href="#hasAssignableElements">hasAssignableElements</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range and has mutable
+elements. The following code should compile for any random-access
+range.
+</p>
+
+<p><pre class="d_code">R r;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isForwardRange!R);  <span class="d_comment">// range is forward
+</span>
+<span class="d_keyword">auto</span> e = r.front;
+r.front = e;                      <span class="d_comment">// can assign elements of the range
+</span>
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasLvalueElements" href="#hasLvalueElements">hasLvalueElements</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Tests whether <span class="inlinecode">R</span> has lvalue elements.  These are defined as elements that
+can be passed by reference and have their address taken.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasLength" href="#hasLength">hasLength</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> has a <span class="inlinecode">length</span> member that returns an
+integral type. <span class="inlinecode">R</span> does not have to be a range. Note that <span class="inlinecode">length</span> is an optional primitive as no range must implement it. Some
+ranges do not store their length explicitly, some cannot compute it
+without actually exhausting the range (e.g. socket streams), and some
+other ranges may be infinite.
+</p>
+
+<p>Although narrow string types (<span class="inlinecode">char[]</span>, <span class="inlinecode">wchar[]</span>, and their
+qualified derivatives) do define a <span class="inlinecode">length</span> property, <span class="inlinecode"><a class="symbol symbol-anchor" name="hasLength" href="#hasLength">hasLength</a></span> yields <span class="inlinecode"><span class="d_keyword">false</span></span> for them. This is because a narrow
+string's length does not reflect the number of characters, but instead
+the number of encoding units, and as such is not useful with
+range-oriented algorithms.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isInfinite" href="#isInfinite">isInfinite</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an infinite input range. An
+infinite input range is an input range that has a statically-defined
+enumerated member called <span class="inlinecode">empty</span> that is always <span class="inlinecode"><span class="d_keyword">false</span></span>,
+for example:
+</p>
+
+<p><pre class="d_code"><span class="d_keyword">struct</span> MyInfiniteRange
+{
+    <span class="d_keyword">enum</span> <span class="d_keyword">bool</span> empty = <span class="d_keyword">false</span>;
+    ...
+}
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasSlicing" href="#hasSlicing">hasSlicing</a>(R)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> offers a slicing operator with
+integral boundaries, that in turn returns an input range type. The
+following code should compile for <span class="inlinecode"><a class="symbol symbol-anchor" name="hasSlicing" href="#hasSlicing">hasSlicing</a></span> to be <span class="inlinecode"><span class="d_keyword">true</span></span>:
+</p>
+
+<p><pre class="d_code">R r;
+<span class="d_keyword">auto</span> s = r[1 .. 2];
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isInputRange!(<span class="d_keyword">typeof</span>(s)));
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="walkLength" href="#walkLength">walkLength</a>(Range)(Range <i>range</i>, const size_t <i>upTo</i> = size_t.max);
+</h3></div>
+
+<div class="declaration-content"><p>This is a best-effort implementation of <span class="inlinecode">length</span> for any kind of
+range.
+</p>
+
+<p>If <span class="inlinecode">hasLength!(Range)</span>, simply returns <span class="inlinecode">range.length</span> without
+checking <span class="inlinecode">upTo</span>.
+<br><br>
+
+Otherwise, walks the range through its length and returns the number
+of elements seen. Performes <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b> evaluations of <span class="inlinecode">range.empty</span>
+and <span class="inlinecode">range.popFront()</span>, where <span class="inlinecode">n</span> is the effective length of <span class="inlinecode">range</span>. The <span class="inlinecode">upTo</span> parameter is useful to "cut the losses" in case
+the interest is in seeing whether the range has at least some number
+of elements. If the parameter <span class="inlinecode">upTo</span> is specified, stops if <span class="inlinecode">upTo</span> steps have been taken and returns <span class="inlinecode">upTo</span>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="retro" href="#retro">retro</a>(Range)(Range <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Iterates a bidirectional range backwards. The original range can be
+accessed by using the <span class="inlinecode">source</span> property. Applying <a class="symbol symbol-anchor" name="retro" href="#retro">retro</a> twice to
+the same range yields the original range.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
+<span class="d_keyword">assert</span>(equal(<u>retro</u>(a), [ 5, 4, 3, 2, 1 ][]));
+<span class="d_keyword">assert</span>(<u>retro</u>(a).source <span class="d_keyword">is</span> a);
+<span class="d_keyword">assert</span>(<u>retro</u>(<u>retro</u>(a)) <span class="d_keyword">is</span> a);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a>(Range)(Range <i>r</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Iterates range <span class="inlinecode">r</span> with <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a> <span class="inlinecode">n</span>. If the range is a
+random-access range, moves by indexing into the range; otehrwise,
+moves by successive calls to <span class="inlinecode">popFront</span>. Applying <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a> twice to
+the same range results in a <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a> that with a step that is the
+product of the two applications.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">Exception</span> if <span class="inlinecode">n == 0</span>.
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
+<span class="d_keyword">assert</span>(equal(<u>stride</u>(a, 3), [ 1, 4, 7, 10 ][]));
+<span class="d_keyword">assert</span>(<u>stride</u>(<u>stride</u>(a, 2), 3) == <u>stride</u>(a, 6));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="chain" href="#chain">chain</a>(Ranges...)(Ranges <i>rs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Spans multiple ranges in sequence. The function <span class="inlinecode"><a class="symbol symbol-anchor" name="chain" href="#chain">chain</a></span> takes any
+number of ranges and returns a <span class="inlinecode">Chain!(R1, R2,...)</span> object. The
+ranges may be different, but they must have the same element type. The
+result is a range that offers the <span class="inlinecode">front</span>, <span class="inlinecode">popFront</span>, and <span class="inlinecode">empty</span> primitives. If all input ranges offer random access and <span class="inlinecode">length</span>, <span class="inlinecode">Chain</span> offers them as well.
+</p>
+
+<p>If only one range is offered to <span class="inlinecode">Chain</span> or <span class="inlinecode"><a class="symbol symbol-anchor" name="chain" href="#chain">chain</a></span>, the <span class="inlinecode">Chain</span> type exits the picture by aliasing itself directly to that
+range's type.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] arr1 = [ 1, 2, 3, 4 ];
+<span class="d_keyword">int</span>[] arr2 = [ 5, 6 ];
+<span class="d_keyword">int</span>[] arr3 = [ 7 ];
+<span class="d_keyword">auto</span> s = <u>chain</u>(arr1, arr2, arr3);
+<span class="d_keyword">assert</span>(s.length == 7);
+<span class="d_keyword">assert</span>(s[5] == 6);
+<span class="d_keyword">assert</span>(equal(s, [1, 2, 3, 4, 5, 6, 7][]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="roundRobin" href="#roundRobin">roundRobin</a>(Rs...)(Rs <i>rs</i>);
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="roundRobin" href="#roundRobin">roundRobin</a>(r1, r2, r3)</span> yields <span class="inlinecode">r1.front</span>, then <span class="inlinecode">r2.front</span>,
+then <span class="inlinecode">r3.front</span>, after which it pops off one element from each and
+continues again from <span class="inlinecode">r1</span>. For example, if two ranges are involved,
+it alternately yields elements off the two ranges. <span class="inlinecode"><a class="symbol symbol-anchor" name="roundRobin" href="#roundRobin">roundRobin</a></span>
+stops after it has consumed all ranges (skipping over the ones that
+finish early).
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4];
+<span class="d_keyword">int</span>[] b = [ 10, 20 ];
+<span class="d_keyword">assert</span>(equal(<u>roundRobin</u>(a, b), [1, 10, 2, 20, 3, 4]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="radial" href="#radial">radial</a>(Range, I)(Range <i>r</i>, I <i>startingIndex</i>);
+<br>auto <a class="symbol symbol-anchor" name="radial" href="#radial">radial</a>(R)(R <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Iterates a random-access range starting from a given point and
+progressively extending left and right from that point. If no initial
+point is given, iteration starts from the middle of the
+range. Iteration spans the entire range.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
+<span class="d_keyword">assert</span>(equal(<u>radial</u>(a), [ 3, 4, 2, 5, 1 ]));
+a = [ 1, 2, 3, 4 ];
+<span class="d_keyword">assert</span>(equal(<u>radial</u>(a), [ 2, 3, 1, 4 ]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Take" href="#Take">Take</a>(Range) if (isInputRange!(Unqual!(Range)) &amp;&amp; !(hasSlicing!(Unqual!(Range)) || is(Range T == <a class="symbol symbol-anchor" name="Take" href="#Take">Take</a>!(T))));
+<br>Take!(R) <a class="symbol symbol-anchor" name="take" href="#take">take</a>(R)(R <i>input</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Lazily takes only up to <span class="inlinecode">n</span> elements of a range. This is
+particularly useful when using with infinite ranges. If the range
+offers random access and <span class="inlinecode">length</span>, <span class="inlinecode"><a class="symbol symbol-anchor" name="Take" href="#Take">Take</a></span> offers them as well.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] arr1 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+<span class="d_keyword">auto</span> s = take(arr1, 5);
+<span class="d_keyword">assert</span>(s.length == 5);
+<span class="d_keyword">assert</span>(s[4] == 5);
+<span class="d_keyword">assert</span>(equal(s, [ 1, 2, 3, 4, 5 ][]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="takeExactly" href="#takeExactly">takeExactly</a>(R)(R <i>range</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Similar to <a href="#take"><span class="inlinecode">take</span></a>, but assumes that <span class="inlinecode">range</span> has at least <span class="inlinecode">n</span> elements. Consequently, the result of <span class="inlinecode"><a class="symbol symbol-anchor" name="takeExactly" href="#takeExactly">takeExactly</a>(range, n)</span>
+always defines the <span class="inlinecode">length</span> property (and initializes it to <span class="inlinecode">n</span>)
+even when <span class="inlinecode">range</span> itself does not define <span class="inlinecode">length</span>.
+</p>
+
+<p>If <span class="inlinecode">R</span> has slicing, <span class="inlinecode"><a class="symbol symbol-anchor" name="takeExactly" href="#takeExactly">takeExactly</a></span> simply returns a slice of <span class="inlinecode">range</span>. Otherwise if <span class="inlinecode">R</span> is an input range, the type of the result
+is an input range with length. Finally, if <span class="inlinecode">R</span> is a forward range
+(including bidirectional), the type of the result is a forward range
+with length.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a>(R)(R <i>source</i>);
+<br>auto <a class="symbol symbol-anchor" name="takeNone" href="#takeNone">takeNone</a>(R)();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a range with at most one element; for example, <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a>([42, 43, 44])</span> returns a range consisting of the integer <span class="inlinecode">42</span>. Calling <span class="inlinecode">popFront()</span> off that range renders it empty.
+</p>
+
+<p>Sometimes an empty range with the same signature is needed. For such
+ranges use <span class="inlinecode">takeNone!R()</span>. For example:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">auto</span> s = <u>takeOne</u>([42, 43, 44]);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(isRandomAccessRange!(<span class="d_keyword">typeof</span>(s)));
+<span class="d_keyword">assert</span>(s.length == 1);
+<span class="d_keyword">assert</span>(!s.empty);
+<span class="d_keyword">assert</span>(s.front == 42);
+s.front() = 43;
+<span class="d_keyword">assert</span>(s.front == 43);
+<span class="d_keyword">assert</span>(s.back == 43);
+<span class="d_keyword">assert</span>(s[0] == 43);
+s.popFront();
+<span class="d_keyword">assert</span>(s.length == 0);
+<span class="d_keyword">assert</span>(s.empty);
+s = takeNone!(<span class="d_keyword">int</span>[])();
+<span class="d_keyword">assert</span>(s.length == 0);
+<span class="d_keyword">assert</span>(s.empty);
+</pre>
+
+In effect <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a>(r)</span> is somewhat equivalent to <span class="inlinecode">take(r, 1)</span> and
+<span class="inlinecode">takeNone(r)</span> is equivalent to <span class="inlinecode">take(r, 0)</span>, but in certain
+interfaces it is important to know statically that the range may only
+have at most one element.
+<br><br>
+
+The type returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a></span> and <span class="inlinecode">takeNone</span> is a random-access
+range with length regardless of <span class="inlinecode">R</span>'s capability (another feature
+that distinguishes <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a></span>/<span class="inlinecode">takeNone</span> from <span class="inlinecode">take</span>).</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="drop" href="#drop">drop</a>(R)(R <i>range</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Convenience function which calls <span class="inlinecode"><a href="#popFrontN"><span class="inlinecode">popFrontN</span></a>(range, n)</span> and
+    returns <span class="inlinecode">range</span>.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">assert</span>(<u>drop</u>([0, 2, 1, 5, 0, 3], 3) == [5, 0, 3]);
+<span class="d_keyword">assert</span>(<u>drop</u>(<span class="d_string">"hello world"</span>, 6) == <span class="d_string">"world"</span>);
+<span class="d_keyword">assert</span>(<u>drop</u>(<span class="d_string">"hello world"</span>, 50).empty);
+<span class="d_keyword">assert</span>(equal(<u>drop</u>(take(<span class="d_string">"hello world"</span>, 6), 3), <span class="d_string">"lo "</span>));
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="popFrontN" href="#popFrontN">popFrontN</a>(Range)(ref Range <i>r</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Eagerly advances <span class="inlinecode">r</span> itself (not a copy) <span class="inlinecode">n</span> times (by calling
+<span class="inlinecode">r.popFront</span> at most <span class="inlinecode">n</span> times). The pass of <span class="inlinecode">r</span> into <span class="inlinecode"><a class="symbol symbol-anchor" name="popFrontN" href="#popFrontN">popFrontN</a></span> is by reference, so the original range is
+affected. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> steps for ranges that support
+slicing, and in <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b> time for all other ranges.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
+a.<u>popFrontN</u>(2);
+<span class="d_keyword">assert</span>(a == [ 3, 4, 5 ]);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="popBackN" href="#popBackN">popBackN</a>(Range)(ref Range <i>r</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Eagerly reduces <span class="inlinecode">r</span> itself (not a copy) <span class="inlinecode">n</span> times from its right
+   side (by calling <span class="inlinecode">r.popBack</span> <span class="inlinecode">n</span> times). The pass of <span class="inlinecode">r</span> into
+   <span class="inlinecode"><a class="symbol symbol-anchor" name="popBackN" href="#popBackN">popBackN</a></span> is by reference, so the original range is
+   affected. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> steps for ranges that support
+   slicing, and in <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b> time for all other ranges.
+</p>
+
+<p>Returns the actual number of elements popped.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5 ];
+   a.<u>popBackN</u>(2);
+   <span class="d_keyword">assert</span>(a == [ 1, 2, 3 ]);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Repeat" href="#Repeat">Repeat</a>(T);
+<br>Repeat!(T) <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(T)(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Repeats one value forever.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">enforce(equal(take(repeat(5), 4), [ 5, 5, 5, 5 ][]));
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>T <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>Repeat!(T) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>T <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
+</h3></div>
+
+<div class="declaration-content"><p>Range primitive implementations.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Take!(Repeat!(T)) <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(T)(T <i>value</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Repeats <span class="inlinecode">value</span> exactly <span class="inlinecode">n</span> times. Equivalent to <span class="inlinecode">  take(<a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(value), n)</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Take!(Repeat!(T)) <a class="symbol symbol-anchor" name="replicate" href="#replicate">replicate</a>(T)(T <i>value</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Equivalent to <span class="inlinecode">repeat(value, n)</span>. Scheduled for deprecation.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(Range) if (isForwardRange!(Unqual!(Range)) &amp;&amp; !isInfinite!(Unqual!(Range)));
+<br>template <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(R) if (isInfinite!(R))<br>struct <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(R) if (isStaticArray!(R));
+<br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(R <i>input</i>);
+<br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(R <i>input</i>, size_t <i>index</i>);
+<br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(R <i>input</i>);
+<br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(ref R <i>input</i>, size_t <i>index</i> = 0);
+</h3></div>
+
+<div class="declaration-content"><p>Repeats the given forward range ad infinitum. If the original range is
+infinite (fact that would make <span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> the identity application),
+<span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> detects that and aliases itself to the range type
+itself. If the original range has random access, <span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> offers
+random access and also offers a constructor taking an initial position
+<span class="inlinecode">index</span>. <span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> is specialized for statically-sized arrays,
+mostly for performance reasons.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">assert</span>(equal(take(cycle([1, 2][]), 5), [ 1, 2, 1, 2, 1 ][]));
+</pre>
+
+<br><br>
+<b>Tip:</b><br>
+This is a great way to implement simple circular buffers.<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>(ElementType!(R) <i>val</i>);
+<br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>auto <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType!(R) <i>val</i>, size_t <i>n</i>);
+<br>Cycle!(R) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Range primitive implementations.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Zip" href="#Zip">Zip</a>(Ranges...) if (Ranges.length &amp;&amp; allSatisfy!(isInputRange,staticMap!(Unqual,Ranges)));
+<br>auto <a class="symbol symbol-anchor" name="zip" href="#zip">zip</a>(R...)(R <i>ranges</i>);
+<br>auto <a class="symbol symbol-anchor" name="zip" href="#zip">zip</a>(R...)(StoppingPolicy <i>sp</i>, R <i>ranges</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Iterate several ranges in lockstep. The element type is a proxy tuple
+   that allows accessing the current element in the <span class="inlinecode">n</span>th range by
+   using <span class="inlinecode">e[n]</span>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
+   string[] b = [ <span class="d_string">"a"</span>, <span class="d_string">"b"</span>, <span class="d_string">"c"</span> ];
+   <span class="d_comment">// prints 1:a 2:b 3:c
+</span>
+   <span class="d_keyword">foreach</span> (e; zip(a, b))
+   {
+   write(e[0], ':', e[1], ' ');
+   }
+</pre>
+
+   <span class="inlinecode"><a class="symbol symbol-anchor" name="Zip" href="#Zip">Zip</a></span> offers the lowest range facilities of all components, e.g. it
+   offers random access iff all ranges offer random access, and also
+   offers mutation and swapping if all ranges offer it. Due to this, <span class="inlinecode">  <a class="symbol symbol-anchor" name="Zip" href="#Zip">Zip</a></span> is extremely powerful because it allows manipulating several
+   ranges in lockstep. For example, the following code sorts two arrays
+   in parallel:
+<br><br>
+
+<pre class="d_code">   <span class="d_keyword">int</span>[] a = [ 1, 2, 3 ];
+   string[] b = [ <span class="d_string">"a"</span>, <span class="d_string">"b"</span>, <span class="d_string">"c"</span> ];
+   sort!(<span class="d_string">"a[0] &gt; b[0]"</span>)(zip(a, b));
+   <span class="d_keyword">assert</span>(a == [ 3, 2, 1 ]);
+   <span class="d_keyword">assert</span>(b == [ <span class="d_string">"c"</span>, <span class="d_string">"b"</span>, <span class="d_string">"a"</span> ]);
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>rs</i>, StoppingPolicy <i>s</i> = StoppingPolicy.shortest);
+</h3></div>
+
+<div class="declaration-content"><p>Builds an object. Usually this is invoked indirectly by using the
+   <a href="#zip"><span class="inlinecode">zip</span></a> function.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the range is at end. The test depends on the
+   stopping policy.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the current iterated element.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(ElementType <i>v</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the <a class="symbol symbol-anchor" name="front" href="#front">front</a> of all iterated ranges.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Moves out the front.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the rightmost element.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Moves out the back.
+</p>
+
+<p>Returns the rightmost element.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(ElementType <i>v</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the current iterated element.
+</p>
+
+<p>Returns the rightmost element.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Advances to the next element in all controlled ranges.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Calls <span class="inlinecode"><a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a></span> for all controlled ranges.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the <a class="symbol symbol-anchor" name="length" href="#length">length</a> of this range. Defined only if all ranges define
+   <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Returns the length of this range. Defined only if all ranges define
+   <span class="inlinecode">length</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Zip <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>from</i>, size_t <i>to</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a slice of the range. Defined only if all range define
+   slicing.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the <span class="inlinecode"><i>n</i></span>th element in the composite range. Defined if all
+   ranges offer random access.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType <i>v</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assigns to the <span class="inlinecode"><i>n</i></span>th element in the composite range. Defined if
+   all ranges offer random access.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Destructively reads the <span class="inlinecode"><i>n</i></span>th element in the composite
+   range. Defined if all ranges offer random access.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="StoppingPolicy" href="#StoppingPolicy">StoppingPolicy</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Dictates how iteration in a <span class="inlinecode">Zip</span> should stop. By default stop at
+   the end of the shortest of all ranges.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="shortest" href="#shortest">shortest</a></h3></div>
+
+<div class="declaration-content"><p>Stop when the <a class="symbol symbol-anchor" name="shortest" href="#shortest">shortest</a> range is exhausted</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="longest" href="#longest">longest</a></h3></div>
+
+<div class="declaration-content"><p>Stop when the <a class="symbol symbol-anchor" name="longest" href="#longest">longest</a> range is exhausted</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="requireSameLength" href="#requireSameLength">requireSameLength</a></h3></div>
+
+<div class="declaration-content"><p>Require that all ranges are equal</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Lockstep" href="#Lockstep">Lockstep</a>(Ranges...) if (Ranges.length &gt; 1 &amp;&amp; allSatisfy!(isInputRange,staticMap!(Unqual,Ranges)));
+</h3></div>
+
+<div class="declaration-content"><p>Iterate multiple ranges in lockstep using a <span class="inlinecode">foreach</span> loop.  If only a single
+   range is passed in, the <span class="inlinecode"><a class="symbol symbol-anchor" name="Lockstep" href="#Lockstep">Lockstep</a></span> aliases itself away.  If the
+   ranges are of different lengths and <span class="inlinecode">s</span> == <span class="inlinecode">StoppingPolicy.shortest</span>
+   stop after the shortest range is empty.  If the ranges are of different
+   lengths and <span class="inlinecode">s</span> == <span class="inlinecode">StoppingPolicy.requireSameLength</span>, throw an
+   exception.  <span class="inlinecode">s</span> may not be <span class="inlinecode">StoppingPolicy.longest</span>, and passing this
+   will throw an exception.
+</p>
+
+<div><b>Known bugs</b>:<br/> &nbsp; &nbsp; &nbsp; If a range does not offer lvalue access, but <span class="inlinecode">ref</span> is used in the
+   <span class="inlinecode">foreach</span> loop, it will be silently accepted but any modifications
+   to the variable will not be propagated to the underlying range.
+
+</div>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code">   <span class="d_keyword">auto</span> arr1 = [1,2,3,4,5];
+   <span class="d_keyword">auto</span> arr2 = [6,7,8,9,10];
+
+   <span class="d_keyword">foreach</span>(<span class="d_keyword">ref</span> a, <span class="d_keyword">ref</span> b; lockstep(arr1, arr2))
+   {
+       a += b;
+   }
+
+   <span class="d_keyword">assert</span>(arr1 == [7,9,11,13,15]);
+
+   <span class="d_comment">// Lockstep also supports iterating with an index variable:
+</span>
+   <span class="d_keyword">foreach</span>(index, a, b; lockstep(arr1, arr2)) {
+       writefln(<span class="d_string">"Index %s:  a = %s, b = %s"</span>, index, a, b);
+   }
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Recurrence" href="#Recurrence">Recurrence</a>(alias fun,StateType,size_t stateSize);
+<br>Recurrence!(fun,CommonType!(State),State.length) <a class="symbol symbol-anchor" name="recurrence" href="#recurrence">recurrence</a>(alias fun, State...)(State <i>initial</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Creates a mathematical sequence given the initial values and a
+recurrence function that computes the next value from the existing
+values. The sequence comes in the form of an infinite forward
+range. The type <span class="inlinecode"><a class="symbol symbol-anchor" name="Recurrence" href="#Recurrence">Recurrence</a></span> itself is seldom used directly; most
+often, recurrences are obtained by calling the function <span class="inlinecode">recurrence</span>.
+</p>
+
+<p>When calling <span class="inlinecode">recurrence</span>, the function that computes the next
+value is specified as a template argument, and the initial values in
+the recurrence are passed as regular arguments. For example, in a
+Fibonacci sequence, there are two initial values (and therefore a
+state size of 2) because computing the next Fibonacci value needs the
+past two values.
+<br><br>
+
+If the function is passed in string form, the state has name <span class="inlinecode">"a"</span>
+and the zero-based index in the recurrence has name <span class="inlinecode">"n"</span>. The
+given string must return the desired value for <span class="inlinecode">a[n]</span> given <span class="inlinecode">a[n
+- 1]</span>, <span class="inlinecode">a[n - 2]</span>, <span class="inlinecode">a[n - 3]</span>,..., <span class="inlinecode">a[n - stateSize]</span>. The
+state size is dictated by the number of arguments passed to the call
+to <span class="inlinecode">recurrence</span>. The <span class="inlinecode"><a class="symbol symbol-anchor" name="Recurrence" href="#Recurrence">Recurrence</a></span> struct itself takes care of
+managing the recurrence's state and shifting it appropriately.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// a[0] = 1, a[1] = 1, and compute a[n+1] = a[n-1] + a[n]
+</span>
+<span class="d_keyword">auto</span> fib = recurrence!(<span class="d_string">"a[n-1] + a[n-2]"</span>)(1, 1);
+<span class="d_comment">// print the first 10 Fibonacci numbers
+</span>
+<span class="d_keyword">foreach</span> (e; take(fib, 10)) { writeln(e); }
+<span class="d_comment">// print the first 10 factorials
+</span>
+<span class="d_keyword">foreach</span> (e; take(recurrence!(<span class="d_string">"a[n-1] * n"</span>)(1), 10)) { writeln(e); }
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Sequence" href="#Sequence">Sequence</a>(alias fun,State);
+<br>Sequence!(fun,Tuple!(State)) <a class="symbol symbol-anchor" name="sequence" href="#sequence">sequence</a>(alias fun, State...)(State <i>args</i>);
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Sequence" href="#Sequence">Sequence</a></span> is similar to <span class="inlinecode">Recurrence</span> except that iteration is
+   presented in the so-called <a href="http://en.wikipedia.org/wiki/Closed_form">   closed form</a>. This means that the <span class="inlinecode">n</span>th element in the series is
+   computable directly from the initial values and <span class="inlinecode">n</span> itself. This
+   implies that the interface offered by <span class="inlinecode"><a class="symbol symbol-anchor" name="Sequence" href="#Sequence">Sequence</a></span> is a random-access
+   range, as opposed to the regular <span class="inlinecode">Recurrence</span>, which only offers
+   forward iteration.
+</p>
+
+<p>The state of the sequence is stored as a <span class="inlinecode">Tuple</span> so it can be
+   heterogeneous.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_comment">// a[0] = 1, a[1] = 2, a[n] = a[0] + n * a[1]
+</span>
+   <span class="d_keyword">auto</span> odds = sequence!(<span class="d_string">"a[0] + n * a[1]"</span>)(1, 2);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E, S)(B <i>begin</i>, E <i>end</i>, S <i>step</i>);
+<br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E)(B <i>begin</i>, E <i>end</i>);
+<br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E)(B <i>begin</i>, E <i>end</i>);
+<br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(E)(E <i>end</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a range that goes through the numbers <span class="inlinecode">begin</span>, <span class="inlinecode">begin +
+   step</span>, <span class="inlinecode">begin + 2 * step</span>, <span class="inlinecode">...</span>, up to and excluding <span class="inlinecode">  end</span>. The range offered is a random access range. The two-arguments
+   version has <span class="inlinecode">step = 1</span>. If <span class="inlinecode">begin &lt; end &amp;&amp; step &lt;= 0</span> or <span class="inlinecode">  begin &gt; end &amp;&amp; step &gt;= 0</span>, then an empty range is returned. If <span class="inlinecode">  begin != end</span> and <span class="inlinecode">step == 0</span>, an exception is thrown.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">Exception</span> if <span class="inlinecode">step == 0</span>
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> r = <u>iota</u>(0, 10, 1);
+   <span class="d_keyword">assert</span>(equal(r, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9][]));
+   r = <u>iota</u>(0, 11, 3);
+   <span class="d_keyword">assert</span>(equal(r, [0, 3, 6, 9][]));
+   <span class="d_keyword">assert</span>(r[2] == 6);
+   <span class="d_keyword">auto</span> rf = <u>iota</u>(0.0, 0.5, 0.1);
+   <span class="d_keyword">assert</span>(approxEqual(rf, [0.0, 0.1, 0.2, 0.3, 0.4]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="TransverseOptions" href="#TransverseOptions">TransverseOptions</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Options for the <a href="#FrontTransversal"><span class="inlinecode">FrontTransversal</span></a> and <a href="#Transversal"><span class="inlinecode">Transversal</span></a> ranges
+   (below).</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="assumeJagged" href="#assumeJagged">assumeJagged</a></h3></div>
+
+<div class="declaration-content"><p>When transversed, the elements of a range of ranges are assumed to
+   have different lengths (e.g. a jagged array).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="enforceNotJagged" href="#enforceNotJagged">enforceNotJagged</a></h3></div>
+
+<div class="declaration-content"><p>The transversal enforces that the elements of a range of ranges have
+       all the same length (e.g. an array of arrays, all having the same
+       length). Checking is done once upon construction of the transversal
+       range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="assumeNotJagged" href="#assumeNotJagged">assumeNotJagged</a></h3></div>
+
+<div class="declaration-content"><p>The transversal assumes, without verifying, that the elements of a
+       range of ranges have all the same length. This option is useful if
+       checking was already done from the outside of the range.</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FrontTransversal" href="#FrontTransversal">FrontTransversal</a>(Ror,TransverseOptions opt = TransverseOptions.assumeJagged);
+<br>FrontTransversal!(RangeOfRanges,opt) <a class="symbol symbol-anchor" name="frontTransversal" href="#frontTransversal">frontTransversal</a>(TransverseOptions opt = TransverseOptions.assumeJagged, RangeOfRanges)(RangeOfRanges <i>rr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Given a range of ranges, iterate transversally through the first
+   elements of each of the enclosed ranges.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">int</span>[][] x = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[][2];
+   x[0] = [1, 2];
+   x[1] = [3, 4];
+   <span class="d_keyword">auto</span> ror = frontTransversal(x);
+   <span class="d_keyword">assert</span>(equal(ror, [ 1, 3 ][]));
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construction from an <i>input</i>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+<br>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>ElementType <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forward range primitives.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>ElementType <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Bidirectional primitives. They are offered if <span class="inlinecode">  isBidirectionalRange!RangeOfRanges</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ref auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
+<br>ElementType <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType <i>val</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Random-access primitive. It is offered if <span class="inlinecode">  isRandomAccessRange!RangeOfRanges &amp;&amp; (opt ==
+   TransverseOptions.assumeNotJagged || opt ==
+   TransverseOptions.enforceNotJagged)</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>lower</i>, size_t <i>upper</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Slicing if offered if <span class="inlinecode">RangeOfRanges</span> supports slicing and all the
+   conditions for supporting indexing are met.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Transversal" href="#Transversal">Transversal</a>(Ror,TransverseOptions opt = TransverseOptions.assumeJagged);
+<br>Transversal!(RangeOfRanges,opt) <a class="symbol symbol-anchor" name="transversal" href="#transversal">transversal</a>(TransverseOptions opt = TransverseOptions.assumeJagged, RangeOfRanges)(RangeOfRanges <i>rr</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Given a range of ranges, iterate transversally through the the <span class="inlinecode">  n</span>th element of each of the enclosed ranges. All elements of the
+   enclosing range must offer random access.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">int</span>[][] x = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[][2];
+   x[0] = [1, 2];
+   x[1] = [3, 4];
+   <span class="d_keyword">auto</span> ror = transversal(x, 1);
+   <span class="d_keyword">assert</span>(equal(ror, [ 2, 4 ][]));
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>, size_t <i>n</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construction from an <i>input</i> and an index.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+<br>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>E <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>(E <i>val</i>);
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forward range primitives.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>E <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>(E <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Bidirectional primitives. They are offered if <span class="inlinecode">  isBidirectionalRange!RangeOfRanges</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ref auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
+<br>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(E <i>val</i>, size_t <i>n</i>);
+<br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+<br>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Random-access primitive. It is offered if <span class="inlinecode">  isRandomAccessRange!RangeOfRanges &amp;&amp; (opt ==
+   TransverseOptions.assumeNotJagged || opt ==
+   TransverseOptions.enforceNotJagged)</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>lower</i>, size_t <i>upper</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Slicing if offered if <span class="inlinecode">RangeOfRanges</span> supports slicing and all the
+   conditions for supporting indexing are met.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Indexed" href="#Indexed">Indexed</a>(Source,Indices) if (isRandomAccessRange!(Source) &amp;&amp; isInputRange!(Indices) &amp;&amp; is(typeof(Source.init[ElementType!(Indices).init])));
+<br>Indexed!(Source,Indices) <a class="symbol symbol-anchor" name="indexed" href="#indexed">indexed</a>(Source, Indices)(Source <i>source</i>, Indices <i>indices</i>);
+</h3></div>
+
+<div class="declaration-content"><p>This struct takes two ranges, <span class="inlinecode">source</span> and <span class="inlinecode">indices</span>, and creates a view
+of <span class="inlinecode">source</span> as if its elements were reordered according to <span class="inlinecode">indices</span>.
+<span class="inlinecode">indices</span> may include only a subset of the elements of <span class="inlinecode">source</span> and
+may also repeat elements.
+</p>
+
+<p><span class="inlinecode">Source</span> must be a random access range.  The returned range will be
+bidirectional or random-access if <span class="inlinecode">Indices</span> is bidirectional or
+random-access, respectively.
+
+</p>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">auto</span> source = [1, 2, 3, 4, 5];
+<span class="d_keyword">auto</span> indices = [4, 3, 1, 2, 0, 4];
+<span class="d_keyword">auto</span> ind = indexed(source, indices);
+<span class="d_keyword">assert</span>(equal(ind, [5, 4, 2, 3, 1, 5]));
+
+<span class="d_comment">// When elements of indices are duplicated and Source has lvalue elements,
+</span>
+<span class="d_comment">// these are aliased in ind.
+</span>
+ind[0]++;
+<span class="d_keyword">assert</span>(ind[0] == 6);
+<span class="d_keyword">assert</span>(ind[5] == 6);
+</pre>
+</div>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>(ElementType!(Source) <i>newVal</i>);
+<br>auto <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+<br>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>(ElementType!(Source) <i>newVal</i>);
+<br>auto <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+<br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+<br>ref auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+<br>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>a</i>, size_t <i>b</i>);
+<br>auto <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType!(Source) <i>newVal</i>, size_t <i>index</i>);
+<br>auto <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Range primitives</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Source <a class="symbol symbol-anchor" name="source" href="#source">source</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the <a class="symbol symbol-anchor" name="source" href="#source">source</a> range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Indices <a class="symbol symbol-anchor" name="indices" href="#indices">indices</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the <a class="symbol symbol-anchor" name="indices" href="#indices">indices</a> range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="physicalIndex" href="#physicalIndex">physicalIndex</a>(size_t <i>logicalIndex</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the physical index into the source range corresponding to a
+        given logical index.  This is useful, for example, when indexing
+        an <span class="inlinecode">Indexed</span> without adding another layer of indirection.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code">        <span class="d_keyword">auto</span> ind = indexed([1, 2, 3, 4, 5], [1, 3, 4]);
+        <span class="d_keyword">assert</span>(ind.<u>physicalIndex</u>(0) == 1);
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Chunks" href="#Chunks">Chunks</a>(Source) if (hasSlicing!(Source) &amp;&amp; hasLength!(Source));
+<br>Chunks!(Source) <a class="symbol symbol-anchor" name="chunks" href="#chunks">chunks</a>(Source)(Source <i>source</i>, size_t <i>chunkSize</i>);
+</h3></div>
+
+<div class="declaration-content"><p>This range iterates over fixed-sized chunks of size <span class="inlinecode">chunkSize</span> of a
+<span class="inlinecode">source</span> range.  <span class="inlinecode">Source</span> must be an input range with slicing and length.
+If <span class="inlinecode">source.length</span> is not evenly divisible by <span class="inlinecode">chunkSize</span>, the back
+element of this range will contain fewer than <span class="inlinecode">chunkSize</span> elements.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">auto</span> source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+<span class="d_keyword">auto</span> chunks = chunks(source, 4);
+<span class="d_keyword">assert</span>(chunks[0] == [1, 2, 3, 4]);
+<span class="d_keyword">assert</span>(chunks[1] == [5, 6, 7, 8]);
+<span class="d_keyword">assert</span>(chunks[2] == [9, 10]);
+<span class="d_keyword">assert</span>(chunks.back == chunks[2]);
+<span class="d_keyword">assert</span>(chunks.front == chunks[0]);
+<span class="d_keyword">assert</span>(chunks.length == 3);
+</pre>
+</div>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Source <i>source</i>, size_t <i>chunkSize</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+<br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+<br>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>lower</i>, size_t <i>upper</i>);
+<br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Range primitives.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>(R)(R <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Moves the front of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">r.front</span> in a
+   destroyable state that does not allocate any resources (usually equal
+   to its <span class="inlinecode">.init</span> value).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>(R)(R <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Moves the back of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">r.back</span> in a
+   destroyable state that does not allocate any resources (usually equal
+   to its <span class="inlinecode">.init</span> value).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(R, I)(R <i>r</i>, I <i>i</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Moves element at index <span class="inlinecode">i</span> of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">  r.front</span> in a destroyable state that does not allocate any resources
+   (usually equal to its <span class="inlinecode">.init</span> value).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="InputRange" href="#InputRange">InputRange</a>(E);
+</h3></div>
+
+<div class="declaration-content"><p>These interfaces are intended to provide virtual function-based wrappers
+ around input ranges with element type E.  This is useful where a well-defined
+ binary interface is required, such as when a DLL function or virtual function
+ needs to accept a generic range as a parameter.  Note that
+ <span class="inlinecode">isInputRange</span> and friends check for conformance to structural
+ interfaces, not for implementation of these <span class="inlinecode">interface</span> types.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"> <span class="d_keyword">class</span> UsesRanges {
+     <span class="d_keyword">void</span> useRange(<u>InputRange</u> range) {
+         <span class="d_comment">// Function body.
+</span>
+     }
+ }
+
+ <span class="d_comment">// Create a range type.
+</span>
+ <span class="d_keyword">auto</span> squares = map!<span class="d_string">"a * a"</span>(iota(10));
+
+ <span class="d_comment">// Wrap it in an interface.
+</span>
+ <span class="d_keyword">auto</span> squaresWrapped = inputRangeObject(squares);
+
+ <span class="d_comment">// Use it.
+</span>
+ <span class="d_keyword">auto</span> usesRanges = <span class="d_keyword">new</span> UsesRanges;
+ usesRanges.useRange(squaresWrapped);
+</pre>
+
+</div>
+<b>Limitations:</b><br>
+These interfaces are not capable of forwarding <span class="inlinecode">ref</span> access to elements.
+<br><br>
+
+ Infiniteness of the wrapped range is not propagated.
+<br><br>
+
+ Length is not propagated in the case of non-random access ranges.<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(int delegate(E));
+<br>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(int delegate(size_t, E));
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode">foreach</span> iteration uses <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>, since one delegate call per loop
+ iteration is faster than three virtual function calls.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="ForwardRange" href="#ForwardRange">ForwardRange</a>(E): InputRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Interface for a forward range of type <span class="inlinecode">E</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ForwardRange!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="BidirectionalRange" href="#BidirectionalRange">BidirectionalRange</a>(E): ForwardRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Interface for a bidirectional range of type <span class="inlinecode">E</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>BidirectionalRange!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomAccessFinite" href="#RandomAccessFinite">RandomAccessFinite</a>(E): BidirectionalRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Interface for a finite random access range of type <span class="inlinecode">E</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>RandomAccessFinite!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>RandomAccessFinite!(E) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t, size_t);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomAccessInfinite" href="#RandomAccessInfinite">RandomAccessInfinite</a>(E): ForwardRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Interface for an infinite random access range of type <span class="inlinecode">E</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>RandomAccessInfinite!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="InputAssignable" href="#InputAssignable">InputAssignable</a>(E): InputRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Adds assignable elements to InputRange.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(E <i>newVal</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="ForwardAssignable" href="#ForwardAssignable">ForwardAssignable</a>(E): InputAssignable!(E), ForwardRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Adds assignable elements to ForwardRange.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ForwardAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="BidirectionalAssignable" href="#BidirectionalAssignable">BidirectionalAssignable</a>(E): ForwardAssignable!(E), BidirectionalRange!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Adds assignable elements to BidirectionalRange.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>BidirectionalAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(E <i>newVal</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomFiniteAssignable" href="#RandomFiniteAssignable">RandomFiniteAssignable</a>(E): RandomAccessFinite!(E), BidirectionalAssignable!(E);
+</h3></div>
+
+<div class="declaration-content"><p>Adds assignable elements to RandomAccessFinite.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>RandomFiniteAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(E <i>val</i>, size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="OutputRange" href="#OutputRange">OutputRange</a>(E);
+</h3></div>
+
+<div class="declaration-content"><p>Interface for an output range of type <span class="inlinecode">E</span>.  Usage is similar to the
+ <span class="inlinecode">InputRange</span> interface and descendants.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(E);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="OutputRangeObject" href="#OutputRangeObject">OutputRangeObject</a>(R,E...): staticMap!(OutputRange,E);
+</h3></div>
+
+<div class="declaration-content"><p>Implements the <span class="inlinecode">OutputRange</span> interface for all types E and wraps the
+ <span class="inlinecode">put</span> method for each type <span class="inlinecode">E</span> in a virtual function.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="MostDerivedInputRange" href="#MostDerivedInputRange">MostDerivedInputRange</a>(R) if (isInputRange!(Unqual!(R)))</h3></div>
+
+<div class="declaration-content"><p>Returns the interface type that best matches <span class="inlinecode">R</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="InputRangeObject" href="#InputRangeObject">InputRangeObject</a>(R) if (isInputRange!(Unqual!(R)))</h3></div>
+
+<div class="declaration-content"><p>Implements the most derived interface that <span class="inlinecode">R</span> works with and wraps
+ all relevant range primitives in virtual functions.  If <span class="inlinecode">R</span> is already
+ derived from the <span class="inlinecode">InputRange</span> interface, aliases itself away.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>InputRangeObject!(R) <a class="symbol symbol-anchor" name="inputRangeObject" href="#inputRangeObject">inputRangeObject</a>(R)(R <i>range</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Convenience function for creating a <span class="inlinecode">InputRangeObject</span> of the proper type.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="outputRangeObject" href="#outputRangeObject">outputRangeObject</a>(E...)</h3></div>
+
+<div class="declaration-content"><p>Convenience function for creating a <span class="inlinecode">OutputRangeObject</span> with a base range
+ of type <span class="inlinecode">R</span> that accepts types <span class="inlinecode">E</span>.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"> <span class="d_keyword">uint</span>[] outputArray;
+ <span class="d_keyword">auto</span> app = appender(&amp;outputArray);
+ <span class="d_keyword">auto</span> appWrapped = <u>outputRangeObject</u>!(<span class="d_keyword">uint</span>, <span class="d_keyword">uint</span>[])(app);
+ <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(appWrapped) : OutputRange!(<span class="d_keyword">uint</span>[])));
+ <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(appWrapped) : OutputRange!(<span class="d_keyword">uint</span>)));
+</pre>
+</div>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>OutputRangeObject!(R,E) <a class="symbol symbol-anchor" name="outputRangeObject" href="#outputRangeObject">outputRangeObject</a>(R)(R <i>range</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isTwoWayCompatible" href="#isTwoWayCompatible">isTwoWayCompatible</a>(alias fn,T1,T2)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="d_keyword">true</span> if <span class="inlinecode">fn</span> accepts variables of type T1 and T2 in any order.
+  The following code should compile:
+<pre class="d_code">  T1 t1;
+  T2 t2;
+  fn(t1, t2);
+  fn(t2, t1);
+</pre>
+</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SearchPolicy" href="#SearchPolicy">SearchPolicy</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Policy used with the searching primitives <span class="inlinecode">lowerBound</span>, <span class="inlinecode">  upperBound</span>, and <span class="inlinecode">equalRange</span> of <a href="#SortedRange"><span class="inlinecode">SortedRange</span></a> below.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trot" href="#trot">trot</a></h3></div>
+
+<div class="declaration-content"><p>Searches with a step that is grows linearly (1, 2, 3,...)
+       leading to a quadratic search schedule (indexes tried are 0, 1,
+       3, 6, 10, 15, 21, 28,...) Once the search overshoots its target,
+       the remaining interval is searched using binary search. The
+       search is completed in <b><i>&Omicron;</i>(</b><span class="inlinecode">sqrt(n)</span><b><i>)</i></b> time. Use it when you
+       are reasonably confident that the value is around the beginning
+       of the range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="gallop" href="#gallop">gallop</a></h3></div>
+
+<div class="declaration-content"><p>Performs a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=galloping search algorithm">galloping search algorithm</a>, i.e. searches
+       with a step that doubles every time, (1, 2, 4, 8, ...)  leading
+       to an exponential search schedule (indexes tried are 0, 1, 3,
+       7, 15, 31, 63,...) Once the search overshoots its target, the
+       remaining interval is searched using binary search. A value is
+       found in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b> time.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="binarySearch" href="#binarySearch">binarySearch</a></h3></div>
+
+<div class="declaration-content"><p>Searches using a classic interval halving policy. The search
+       starts in the middle of the range, and each search step cuts
+       the range in half. This policy finds a value in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>
+       time but is less cache friendly than <span class="inlinecode">gallop</span> for large
+       ranges. The <span class="inlinecode"><a class="symbol symbol-anchor" name="binarySearch" href="#binarySearch">binarySearch</a></span> policy is used as the last step
+       of <span class="inlinecode">trot</span>, <span class="inlinecode">gallop</span>, <span class="inlinecode">trotBackwards</span>, and <span class="inlinecode">      gallopBackwards</span> strategies.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trotBackwards" href="#trotBackwards">trotBackwards</a></h3></div>
+
+<div class="declaration-content"><p>Similar to <span class="inlinecode">trot</span> but starts backwards. Use it when
+       confident that the value is around the end of the range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="gallopBackwards" href="#gallopBackwards">gallopBackwards</a></h3></div>
+
+<div class="declaration-content"><p>Similar to <span class="inlinecode">gallop</span> but starts backwards. Use it when
+       confident that the value is around the end of the range.</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a>(Range,alias pred = "a &lt; b") if (isRandomAccessRange!(Range));
+</h3></div>
+
+<div class="declaration-content"><p>Represents a sorted random-access range. In addition to the regular
+   range primitives, supports fast operations using binary search. To
+   obtain a <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> from an unsorted range <span class="inlinecode">r</span>, use
+   <a href="std_algorithm.html#sort"><span class="inlinecode">std.algorithm.sort</span></a> which sorts <span class="inlinecode">r</span> in place and returns the
+   corresponding <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span>. To construct a <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span>
+   from a range <span class="inlinecode">r</span> that is known to be already sorted, use
+   <a href="#assumeSorted"><span class="inlinecode">assumeSorted</span></a> described below.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 42, 52, 64 ];
+   <span class="d_keyword">auto</span> r = assumeSorted(a);
+   <span class="d_keyword">assert</span>(r.contains(3));
+   <span class="d_keyword">assert</span>(!r.contains(32));
+   <span class="d_keyword">auto</span> r1 = sort!<span class="d_string">"a &gt; b"</span>(a);
+   <span class="d_keyword">assert</span>(r1.contains(3));
+   <span class="d_keyword">assert</span>(!r1.contains(32));
+   <span class="d_keyword">assert</span>(r1.release() == [ 64, 52, 42, 3, 2, 1 ]);
+</pre>
+
+   <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> could accept ranges weaker than random-access, but it
+   is unable to provide interesting functionality for them. Therefore,
+   <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> is currently restricted to random-access ranges.
+<br><br>
+
+   No copy of the original range is ever made. If the underlying range is
+   changed concurrently with its corresponding <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> in ways
+   that break its sortedness, <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> will work erratically.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 42, 52, 64 ];
+   <span class="d_keyword">auto</span> r = assumeSorted(a);
+   <span class="d_keyword">assert</span>(r.contains(42));
+   swap(a[3], a[5]);                      <span class="d_comment">// illegal to break sortedness of original range
+</span>
+   <span class="d_keyword">assert</span>(!r.contains(42));                <span class="d_comment">// passes although it shouldn't
+</span>
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>@property auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+<br>auto <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>a</i>, size_t <i>b</i>);
+<br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Range primitives.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="release" href="#release">release</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Releases the controlled range and returns it.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="lowerBound" href="#lowerBound">lowerBound</a>(SearchPolicy sp = SearchPolicy.binarySearch, V)(V <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>This function uses binary search with policy <span class="inlinecode">sp</span> to find the
+   largest left subrange on which <span class="inlinecode">pred(x, value)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span> for
+   all <span class="inlinecode">x</span> (e.g., if <span class="inlinecode">pred</span> is "less than", returns the portion of
+   the range with elements strictly smaller than <span class="inlinecode">value</span>). The search
+   schedule and its complexity are documented in
+   <a href="#SearchPolicy"><span class="inlinecode">SearchPolicy</span></a>.  See also STL's
+   <a href="http://sgi.com/tech/stl/lower_bound.html">lower_bound</a>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> a = assumeSorted([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
+   <span class="d_keyword">auto</span> p = a.<u>lowerBound</u>(4);
+   <span class="d_keyword">assert</span>(equal(p, [ 0, 1, 2, 3 ]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="upperBound" href="#upperBound">upperBound</a>(SearchPolicy sp = SearchPolicy.binarySearch, V)(V <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>This function uses binary search with policy <span class="inlinecode">sp</span> to find the
+   largest right subrange on which <span class="inlinecode">pred(value, x)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>
+   for all <span class="inlinecode">x</span> (e.g., if <span class="inlinecode">pred</span> is "less than", returns the
+   portion of the range with elements strictly greater than <span class="inlinecode">  value</span>). The search schedule and its complexity are documented in
+   <a href="#SearchPolicy"><span class="inlinecode">SearchPolicy</span></a>.  See also STL's
+   <a href="http://sgi.com/tech/stl/lower_bound.html">upper_bound</a>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> a = assumeSorted([ 1, 2, 3, 3, 3, 4, 4, 5, 6 ]);
+   <span class="d_keyword">auto</span> p = a.<u>upperBound</u>(3);
+   <span class="d_keyword">assert</span>(equal(p, [4, 4, 5, 6]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="equalRange" href="#equalRange">equalRange</a>(V)(V <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the subrange containing all elements <span class="inlinecode">e</span> for which both <span class="inlinecode">  pred(e, value)</span> and <span class="inlinecode">pred(value, e)</span> evaluate to <span class="inlinecode"><span class="d_keyword">false</span></span> (e.g.,
+   if <span class="inlinecode">pred</span> is "less than", returns the portion of the range with
+   elements equal to <span class="inlinecode">value</span>). Uses a classic binary search with
+   interval halving until it finds a value that satisfies the condition,
+   then uses <span class="inlinecode">SearchPolicy.gallopBackwards</span> to find the left boundary
+   and <span class="inlinecode">SearchPolicy.gallop</span> to find the right boundary. These
+   policies are justified by the fact that the two boundaries are likely
+   to be near the first found value (i.e., equal ranges are relatively
+   small). Completes the entire search in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b> time. See also
+   STL's <a href="http://sgi.com/tech/stl/equal_range.html">equal_range</a>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">   <span class="d_keyword">auto</span> a = [ 1, 2, 3, 3, 3, 4, 4, 5, 6 ];
+   <span class="d_keyword">auto</span> r = <u>equalRange</u>(a, 3);
+   <span class="d_keyword">assert</span>(equal(r, [ 3, 3, 3 ]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="trisect" href="#trisect">trisect</a>(V)(V <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a tuple <span class="inlinecode">r</span> such that <span class="inlinecode">r[0]</span> is the same as the result
+of <span class="inlinecode">lowerBound(value)</span>, <span class="inlinecode">r[1]</span> is the same as the result of <span class="inlinecode">equalRange(value)</span>, and <span class="inlinecode">r[2]</span> is the same as the result of <span class="inlinecode">upperBound(value)</span>. The call is faster than computing all three
+separately. Uses a search schedule similar to <span class="inlinecode">equalRange</span>. Completes the entire search in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b> time.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">auto</span> a = [ 1, 2, 3, 3, 3, 4, 4, 5, 6 ];
+<span class="d_keyword">auto</span> r = assumeSorted(a).<u>trisect</u>(3);
+<span class="d_keyword">assert</span>(equal(r[0], [ 1, 2 ]));
+<span class="d_keyword">assert</span>(equal(r[1], [ 3, 3, 3 ]));
+<span class="d_keyword">assert</span>(equal(r[2], [ 4, 4, 5, 6 ]));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="contains" href="#contains">contains</a>(V)(V <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">value</span> can be found in <span class="inlinecode">range</span>, which is assumed to be sorted. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">log(r.length)</span><b><i>)</i></b>
+evaluations of <span class="inlinecode">pred</span>. See also STL's <a href="http://sgi.com/tech/stl/binary_search.html">binary_search</a>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="canFind" href="#canFind">canFind</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Deprecated alias for <span class="inlinecode">contains</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="assumeSorted" href="#assumeSorted">assumeSorted</a>(alias pred = "a &lt; b", R)(R <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assumes <span class="inlinecode">r</span> is sorted by predicate <span class="inlinecode">pred</span> and returns the
+corresponding <span class="inlinecode">SortedRange!(pred, R)</span> having <span class="inlinecode">r</span> as support. To
+keep the checking costs low, the cost is <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> in release mode
+(no checks for sortedness are performed). In debug mode, a few random
+elements of <span class="inlinecode">r</span> are checked for sortedness. The size of the sample
+is proportional <b><i>&Omicron;</i>(</b><span class="inlinecode">log(r.length)</span><b><i>)</i></b>. That way, checking has no
+effect on the complexity of subsequent operations specific to sorted
+ranges (such as binary search). The probability of an arbitrary
+unsorted range failing the test is very high (however, an
+almost-sorted range is likely to pass it). To check for sortedness at
+cost <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>, use <a href="std_algorithm.html#isSorted"><span class="inlinecode">std.algorithm.isSorted</span></a>.</p>
+
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright by authors 2008-.
+
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.typecons -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.typecons';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.typecons" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.typecons</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.typecons</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\typecons.d -->
+<p>This module implements a variety of type constructors, i.e., templates
+that allow construction of new, useful general-purpose types.
+</p>
+
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typecons.d">std/typecons.d</a>
+
+<br><br>
+<b>Synopsis:</b><br>
+<pre class="d_code"><span class="d_comment">// value tuples
+</span>
+<span class="d_keyword">alias</span> Tuple!(<span class="d_keyword">float</span>, <span class="d_string">"x"</span>, <span class="d_keyword">float</span>, <span class="d_string">"y"</span>, <span class="d_keyword">float</span>, <span class="d_string">"z"</span>) Coord;
+Coord c;
+c[1] = 1;       <span class="d_comment">// access by index
+</span>
+c.z = 1;        <span class="d_comment">// access by given name
+</span>
+<span class="d_keyword">alias</span> Tuple!(string, string) DicEntry; <span class="d_comment">// names can be omitted
+</span>
+
+<span class="d_comment">// Rebindable references to const and immutable objects
+</span>
+<span class="d_keyword">void</span> bar()
+{
+    <span class="d_keyword">const</span> w1 = <span class="d_keyword">new</span> Widget, w2 = <span class="d_keyword">new</span> Widget;
+    w1.foo();
+    <span class="d_comment">// w1 = w2 would not work; can't rebind const object
+</span>
+    <span class="d_keyword">auto</span> r = Rebindable!(<span class="d_keyword">const</span> Widget)(w1);
+    <span class="d_comment">// invoke method as if r were a Widget object
+</span>
+    r.foo();
+    <span class="d_comment">// rebind r to refer to another object
+</span>
+    r = w2;
+}
+</pre>
+
+<br><br>
+<div><b>License</b>: <a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://erdani.org">Andrei Alexandrescu</a>,
+           <a href="http://bartoszmilewski.wordpress.com">Bartosz Milewski</a>,
+           Don Clugston,
+           Shin Fujishiro</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a>(T);
+</h3></div>
+
+<div class="declaration-content"><p>Encapsulates unique ownership of a resource.  Resource of type T is
+deleted at the end of the scope, unless it is transferred.  The
+transfer can be explicit, by calling <span class="inlinecode">release</span>, or implicit, when
+returning <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a> from a function. The resource can be a polymorphic
+class object, in which case <a class="symbol symbol-anchor" name="Unique" href="#Unique">Unique</a> behaves polymorphically too.
+</p>
+
+<b>Example:</b><br>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RefT <i>p</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor that takes an rvalue.
+    It will ensure uniqueness, as long as the rvalue
+    isn't just a view on an lvalue (e.g., a cast)
+    Typical usage:
+<pre class="d_code">    Unique!(Foo) f = <span class="d_keyword">new</span> Foo;
+</pre>
+</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(ref RefT <i>p</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor that takes an lvalue. It nulls its source.
+    The nulling will ensure uniqueness as long as there
+    are no previous aliases to the source.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Unique <a class="symbol symbol-anchor" name="release" href="#release">release</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a unique rvalue. Nullifies the current contents </p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>RefT <a class="symbol symbol-anchor" name="opDot" href="#opDot">opDot</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forwards member access to contents </p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a>(Specs...);
+</h3></div>
+
+<div class="declaration-content"><p><a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a> of values, for example <span class="inlinecode"><a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a>!(int, string)</span> is a record that
+stores an <span class="inlinecode">int</span> and a <span class="inlinecode">string</span>. <span class="inlinecode"><a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a></span> can be used to bundle
+values together, notably when returning multiple values from a
+function. If <span class="inlinecode">obj</span> is a tuple, the individual members are
+accessible with the syntax <span class="inlinecode">obj[0]</span> for the first field, <span class="inlinecode">obj[1]</span>
+for the second, and so on.
+</p>
+
+<p>The choice of zero-based indexing instead of one-base indexing was
+motivated by the ability to use value tuples with various compile-time
+loop constructs (e.g. type tuple iteration), all of which use
+zero-based indexing.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) point;
+<span class="d_comment">// assign coordinates
+</span>
+point[0] = 5;
+point[1] = 6;
+<span class="d_comment">// read coordinates
+</span>
+<span class="d_keyword">auto</span> x = point[0];
+<span class="d_keyword">auto</span> y = point[1];
+</pre>
+
+<a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a> members can be named. It is legal to mix named and unnamed
+members. The method above is still applicable to all fields.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">alias</span> <u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_string">"index"</span>, string, <span class="d_string">"value"</span>) Entry;
+Entry e;
+e.index = 4;
+e.value = <span class="d_string">"Hello"</span>;
+<span class="d_keyword">assert</span>(e[1] == <span class="d_string">"Hello"</span>);
+<span class="d_keyword">assert</span>(e[0] == 4);
+</pre>
+
+Tuples with named fields are distinct types from tuples with unnamed
+fields, i.e. each naming imparts a separate type for the tuple. Two
+tuple differing in naming only are still distinct, even though they
+might have the same structure.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_string">"x"</span>, <span class="d_keyword">int</span>, <span class="d_string">"y"</span>) point1;
+<u>Tuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) point2;
+<span class="d_keyword">assert</span>(!<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(point1) == <span class="d_keyword">typeof</span>(point2))); <span class="d_comment">// passes
+</span>
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Types" href="#Types">Types</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The type of the tuple's components.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(U...)(U <i>values</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor taking one value for each field. Each argument must be
+   implicitly assignable to the respective element of the target.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(U)(U <i>another</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor taking a compatible tuple. Each element of the source
+   must be implicitly assignable to the respective element of the
+   target.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(R)(R <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Comparison for equality.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opCmp" href="#opCmp">opCmp</a>(R)(R <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Comparison for ordering.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(R)(R <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assignment from another tuple. Each element of the source must be
+   implicitly assignable to the respective element of the target.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Tuple!(sliceSpecs!(from,to)) <a class="symbol symbol-anchor" name="slice" href="#slice">slice</a>(uint from, uint to)();
+</h3></div>
+
+<div class="declaration-content"><p>Takes a <a class="symbol symbol-anchor" name="slice" href="#slice">slice</a> of the tuple.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">Tuple!(<span class="d_keyword">int</span>, string, <span class="d_keyword">float</span>, <span class="d_keyword">double</span>) a;
+a[1] = <span class="d_string">"abc"</span>;
+a[2] = 4.5;
+<span class="d_keyword">auto</span> s = a.<u>slice</u>!(1, 3);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(s) == Tuple!(string, <span class="d_keyword">float</span>)));
+<span class="d_keyword">assert</span>(s[0] == <span class="d_string">"abc"</span> &amp;&amp; s[1] == 4.5);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Converts to string.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Tuple!(T) <a class="symbol symbol-anchor" name="tuple" href="#tuple">tuple</a>(T...)(T <i>args</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a <span class="inlinecode">Tuple</span> object instantiated and initialized according to
+the arguments.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">auto</span> value = <u>tuple</u>(5, 6.7, <span class="d_string">"hello"</span>);
+<span class="d_keyword">assert</span>(value[0] == 5);
+<span class="d_keyword">assert</span>(value[1] == 6.7);
+<span class="d_keyword">assert</span>(value[2] == <span class="d_string">"hello"</span>);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isTuple" href="#isTuple">isTuple</a>(T)</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span> is an instance of the
+<span class="inlinecode">Tuple</span> struct template.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="defineEnum" href="#defineEnum">defineEnum</a>(string name,T...)</h3></div>
+
+<div class="declaration-content"><p>Defines truly named enumerated values with parsing and stringizing
+primitives.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">mixin</span>(<u>defineEnum</u>!(<span class="d_string">"Abc"</span>, <span class="d_string">"A"</span>, <span class="d_string">"B"</span>, 5, <span class="d_string">"C"</span>));
+</pre>
+
+is equivalent to the following code:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">enum</span> Abc { A, B = 5, C }
+string enumToString(Abc v) { ... }
+Abc enumFromString(string s) { ... }
+</pre>
+
+The <span class="inlinecode">enumToString</span> function generates the unqualified names
+of the enumerated values, i.e. "A", "B", and "C". The <span class="inlinecode">enumFromString</span> function expects one of "A", "B", and "C", and throws
+an exception in any other case.
+<br><br>
+
+A base type can be specified for the enumeration like this:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">mixin</span>(<u>defineEnum</u>!(<span class="d_string">"Abc"</span>, <span class="d_keyword">ubyte</span>, <span class="d_string">"A"</span>, <span class="d_string">"B"</span>, <span class="d_string">"C"</span>, 255));
+</pre>
+
+In this case the generated <span class="inlinecode">enum</span> will have a <span class="inlinecode">ubyte</span>
+representation.  <br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a>(T) if (is(T == class) || is(T == interface) || isArray!(T))</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a>!(T)</span> is a simple, efficient wrapper that behaves just
+like an object of type <span class="inlinecode">T</span>, except that you can reassign it to
+refer to another object. For completeness, <span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a>!(T)</span> aliases
+itself away to <span class="inlinecode">T</span> if <span class="inlinecode">T</span> is a non-const object type. However,
+<span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a>!(T)</span> does not compile if <span class="inlinecode">T</span> is a non-class type.
+</p>
+
+<p>Regular <span class="inlinecode">const</span> object references cannot be reassigned:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">class</span> Widget { <span class="d_keyword">int</span> x; <span class="d_keyword">int</span> y() <span class="d_keyword">const</span> { <span class="d_keyword">return</span> a; } }
+<span class="d_keyword">const</span> a = <span class="d_keyword">new</span> Widget;
+a.y();          <span class="d_comment">// fine
+</span>
+a.x = 5;        <span class="d_comment">// error! can't modify const a
+</span>
+a = <span class="d_keyword">new</span> Widget; <span class="d_comment">// error! can't modify const a
+</span>
+</pre>
+
+However, <span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a>!(Widget)</span> does allow reassignment, while
+otherwise behaving exactly like a <span class="inlinecode">const Widget</span>:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">auto</span> a = <u>Rebindable</u>!(<span class="d_keyword">const</span> Widget)(<span class="d_keyword">new</span> Widget);
+a.y();          <span class="d_comment">// fine
+</span>
+a.x = 5;        <span class="d_comment">// error! can't modify const a
+</span>
+a = <span class="d_keyword">new</span> Widget; <span class="d_comment">// fine
+</span>
+</pre>
+
+You may want to use <span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a></span> when you want to have mutable
+storage referring to <span class="inlinecode">const</span> objects, for example an array of
+references that must be sorted in place. <span class="inlinecode"><a class="symbol symbol-anchor" name="Rebindable" href="#Rebindable">Rebindable</a></span> does not
+break the soundness of D's type system and does not incur any of the
+risks usually associated with <span class="inlinecode">cast</span>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Rebindable!(T) <a class="symbol symbol-anchor" name="rebindable" href="#rebindable">rebindable</a>(T)(T <i>obj</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Convenience function for creating a <span class="inlinecode">Rebindable</span> using automatic type
+inference.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Rebindable!(T) <a class="symbol symbol-anchor" name="rebindable" href="#rebindable">rebindable</a>(T)(Rebindable!(T) <i>obj</i>);
+</h3></div>
+
+<div class="declaration-content"><p>This function simply returns the <span class="inlinecode">Rebindable</span> object passed in.  It's useful
+in generic programming cases when a given object may be either a regular
+<span class="inlinecode">class</span> or a <span class="inlinecode">Rebindable</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="alignForSize" href="#alignForSize">alignForSize</a>(E...)(string[] <i>names</i>...);
+</h3></div>
+
+<div class="declaration-content"><p>Order the provided members to minimize size while preserving alignment.
+  Returns a declaration to be mixed in.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">struct</span> Banner {
+  <span class="d_keyword">mixin</span>(<u>alignForSize</u>!(<span class="d_keyword">byte</span>[6], <span class="d_keyword">double</span>)([<span class="d_string">"name"</span>, <span class="d_string">"height"</span>]));
+}
+</pre>
+
+  Alignment is not always optimal for 80-bit reals, nor for structs declared
+  as align(1).<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>(T);
+</h3></div>
+
+<div class="declaration-content"><p>Defines a value paired with a distinctive "<span class="d_keyword">null</span>" state that denotes
+the absence of a value. If default constructed, a <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span> object starts in the <span class="d_keyword">null</span> state. Assigning it renders it
+non-<span class="d_keyword">null</span>. Calling <span class="inlinecode">nullify</span> can nullify it again.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><u>Nullable</u>!<span class="d_keyword">int</span> a;
+<span class="d_keyword">assert</span>(a.isNull);
+a = 5;
+<span class="d_keyword">assert</span>(!a.isNull);
+<span class="d_keyword">assert</span>(a == 5);
+</pre>
+
+Practically <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span> stores a <span class="inlinecode">T</span> and a <span class="inlinecode">bool</span>.<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this()(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor initializing <span class="inlinecode">this</span> with <span class="inlinecode">value</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNull" href="#isNull">isNull</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="nullify" href="#nullify">nullify</a>()();
+</h3></div>
+
+<div class="declaration-content"><p>Forces <span class="inlinecode">this</span> to the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>()(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assigns <span class="inlinecode">value</span> to the internally-held state. If the assignment
+succeeds, <span class="inlinecode">this</span> becomes non-<span class="d_keyword">null</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>inout pure @safe inout(T) <a class="symbol symbol-anchor" name="get" href="#get">get</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Gets the value. Throws an exception if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span>
+state. This function is also called for the implicit conversion to <span class="inlinecode">T</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>(T,T nullValue);
+</h3></div>
+
+<div class="declaration-content"><p>Just like <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span>, except that the <span class="d_keyword">null</span> state is defined as a
+particular value. For example, <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!(uint, uint.max)</span> is an
+<span class="inlinecode">uint</span> that sets aside the value <span class="inlinecode">uint.max</span> to denote a <span class="d_keyword">null</span>
+state. <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!(T, nullValue)</span> is more storage-efficient than <span class="inlinecode"><a class="symbol symbol-anchor" name="Nullable" href="#Nullable">Nullable</a>!T</span> because it does not need to store an extra <span class="inlinecode">bool</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this()(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor initializing <span class="inlinecode">this</span> with <span class="inlinecode">value</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="isNull" href="#isNull">isNull</a>()();
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="nullify" href="#nullify">nullify</a>()();
+</h3></div>
+
+<div class="declaration-content"><p>Forces <span class="inlinecode">this</span> to the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>()(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assigns <span class="inlinecode">value</span> to the internally-held state. No <span class="d_keyword">null</span> checks are
+made.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>inout inout(T) <a class="symbol symbol-anchor" name="get" href="#get">get</a>()();
+</h3></div>
+
+<div class="declaration-content"><p>Gets the value. Throws an exception if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span>
+state. This function is also called for the implicit conversion to <span class="inlinecode">T</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="NullableRef" href="#NullableRef">NullableRef</a>(T);
+</h3></div>
+
+<div class="declaration-content"><p>Just like <span class="inlinecode">Nullable!T</span>, except that the object refers to a value
+sitting elsewhere in memory. This makes assignments overwrite the
+initially assigned value. Internally <span class="inlinecode"><a class="symbol symbol-anchor" name="NullableRef" href="#NullableRef">NullableRef</a>!T</span> only stores a
+pointer to <span class="inlinecode">T</span> (i.e., <span class="inlinecode">Nullable!T.sizeof == (T*).sizeof</span>).</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow @safe  this(T* <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor binding <span class="inlinecode">this</span> with <span class="inlinecode"><i>value</i></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe void <a class="symbol symbol-anchor" name="bind" href="#bind">bind</a>(T* <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Binds the internal state to <span class="inlinecode"><i>value</i></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNull" href="#isNull">isNull</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe void <a class="symbol symbol-anchor" name="nullify" href="#nullify">nullify</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forces <span class="inlinecode">this</span> to the <span class="d_keyword">null</span> state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>()(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assigns <span class="inlinecode">value</span> to the internally-held state.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>inout inout(T) <a class="symbol symbol-anchor" name="get" href="#get">get</a>()();
+</h3></div>
+
+<div class="declaration-content"><p>Gets the value. Throws an exception if <span class="inlinecode">this</span> is in the <span class="d_keyword">null</span>
+state. This function is also called for the implicit conversion to <span class="inlinecode">T</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="BlackHole" href="#BlackHole">BlackHole</a>(Base)</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="BlackHole" href="#BlackHole">BlackHole</a>!Base</span> is a subclass of <span class="inlinecode">Base</span> which automatically implements
+all abstract member functions in <span class="inlinecode">Base</span> as do-nothing functions.  Each
+auto-implemented function just returns the default value of the return type
+without doing anything.
+</p>
+
+<p>The name came from
+<a href="http://search.cpan.org/~sburke/Class-BlackHole-0.04/lib/Class/BlackHole.pm">Class::BlackHole</a>
+Perl module by Sean M. Burke.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">abstract</span> <span class="d_keyword">class</span> C
+{
+    <span class="d_keyword">int</span> m_value;
+    <span class="d_keyword">this</span>(<span class="d_keyword">int</span> v) { m_value = v; }
+    <span class="d_keyword">int</span> value() @property { <span class="d_keyword">return</span> m_value; }
+
+    <span class="d_keyword">abstract</span> <span class="d_keyword">real</span> realValue() @property;
+    <span class="d_keyword">abstract</span> <span class="d_keyword">void</span> doSomething();
+}
+
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> c = <span class="d_keyword">new</span> <u>BlackHole</u>!C(42);
+    writeln(c.value);     <span class="d_comment">// prints "42"
+</span>
+
+    <span class="d_comment">// Abstract functions are implemented as do-nothing:
+</span>
+    writeln(c.realValue); <span class="d_comment">// prints "NaN"
+</span>
+    c.doSomething();      <span class="d_comment">// does nothing
+</span>
+}
+</pre>
+
+<br><br>
+<div><b>See also</b>:<br/> &nbsp; &nbsp; &nbsp; AutoImplement, generateEmptyFunction</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="WhiteHole" href="#WhiteHole">WhiteHole</a>(Base)</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="WhiteHole" href="#WhiteHole">WhiteHole</a>!Base</span> is a subclass of <span class="inlinecode">Base</span> which automatically implements
+all abstract member functions as throw-always functions.  Each auto-implemented
+function fails with throwing an <span class="inlinecode">Error</span> and does never return.  Useful for
+trapping use of not-yet-implemented functions.
+</p>
+
+<p>The name came from
+<a href="http://search.cpan.org/~mschwern/Class-WhiteHole-0.04/lib/Class/WhiteHole.pm">Class::WhiteHole</a>
+Perl module by Michael G Schwern.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">class</span> C
+{
+    <span class="d_keyword">abstract</span> <span class="d_keyword">void</span> notYetImplemented();
+}
+
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> c = <span class="d_keyword">new</span> <u>WhiteHole</u>!C;
+    c.notYetImplemented(); <span class="d_comment">// throws an Error
+</span>
+}
+</pre>
+
+<br><br>
+<div><b>Known bugs</b>:<br/> &nbsp; &nbsp; &nbsp; Nothrow functions cause program to abort in release mode because the trap is
+  implemented with <span class="inlinecode">assert(0)</span> for nothrow functions.
+
+</div>
+<div><b>See also</b>:<br/> &nbsp; &nbsp; &nbsp; AutoImplement, generateAssertTrap</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="AutoImplement" href="#AutoImplement">AutoImplement</a>(Base,alias how,alias what = isAbstractFunction): Base;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="AutoImplement" href="#AutoImplement">AutoImplement</a></span> automatically implements (by default) all abstract member
+functions in the class or interface <span class="inlinecode">Base</span> in specified way.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">how</td>
+<td>template which specifies how functions will be implemented/overridden.
+<br><br>
+
+         Two arguments are passed to <span class="inlinecode">how</span>: the type <span class="inlinecode">Base</span> and an alias
+         to an implemented function.  Then <span class="inlinecode">how</span> must return an implemented
+         function body as a string.
+<br><br>
+
+         The generated function body can use these keywords:
+         <ul>           <li><span class="inlinecode">a0</span>, <span class="inlinecode">a1</span>, &hellip;: arguments passed to the function;</li>
+            <li><span class="inlinecode">args</span>: a tuple of the arguments;</li>
+            <li><span class="inlinecode">self</span>: an alias to the function itself;</li>
+            <li><span class="inlinecode">parent</span>: an alias to the overridden function (if any).</li>
+         </ul>
+<br><br>
+
+        You may want to use templated property functions (instead of Implicit
+        Template Properties) to generate complex functions:
+<pre class="d_code"><span class="d_comment">// Prints log messages for each call to overridden functions.
+</span>
+string generateLogger(C, <span class="d_keyword">alias</span> fun)() @property
+{
+    <span class="d_keyword">enum</span> qname = C.stringof ~ <span class="d_string">"."</span> ~ <span class="d_keyword">__traits</span>(identifier, fun);
+    string stmt;
+
+    stmt ~= <span class="d_string">q{ struct Importer { import std.stdio; } }</span>;
+    stmt ~= <span class="d_string">`Importer.writeln("Log: `</span> ~ qname ~ <span class="d_string">`(", args, ")");`</span>;
+    <span class="d_keyword">static</span> <span class="d_keyword">if</span> (!<span class="d_keyword">__traits</span>(isAbstractFunction, fun))
+    {
+        <span class="d_keyword">static</span> <span class="d_keyword">if</span> (<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<span class="d_keyword">return</span>) == <span class="d_keyword">void</span>))
+            stmt ~= <span class="d_string">q{ parent(args); }</span>;
+        <span class="d_keyword">else</span>
+            stmt ~= <span class="d_string">q{
+                auto r = parent(args);
+                Importer.writeln("--&gt; ", r);
+                return r;
+            }</span>;
+    }
+    <span class="d_keyword">return</span> stmt;
+}
+</pre>
+</td>
+</tr>
+<tr><td class="span2">what</td>
+<td>template which determines what functions should be
+         implemented/overridden.
+<br><br>
+
+         An argument is passed to <span class="inlinecode">what</span>: an alias to a non-final member
+         function in <span class="inlinecode">Base</span>.  Then <span class="inlinecode">what</span> must return a boolean value.
+         Return <span class="inlinecode"><span class="d_keyword">true</span></span> to indicate that the passed function should be
+         implemented/overridden.
+<br><br>
+
+<pre class="d_code"><span class="d_comment">// Sees if fun returns something.
+</span>
+<span class="d_keyword">template</span> hasValue(<span class="d_keyword">alias</span> fun)
+{
+    <span class="d_keyword">enum</span> <span class="d_keyword">bool</span> hasValue = !<span class="d_keyword">is</span>(ReturnType!(fun) == <span class="d_keyword">void</span>);
+}
+</pre>
+</td>
+</tr>
+</table></div>
+<b>Note:</b><br>
+Generated code is inserted in the scope of <span class="inlinecode">std.typecons</span> module.  Thus,
+any useful functions outside <span class="inlinecode">std.typecons</span> cannot be used in the generated
+code.  To workaround this problem, you may <span class="inlinecode">import</span> necessary things in a
+local struct, as done in the <span class="inlinecode">generateLogger()</span> template in the above
+example.
+<br><br>
+
+
+<br><br>
+<div><b>Known bugs</b>:<br/> &nbsp; &nbsp; &nbsp; <ul><li>Variadic arguments to constructors are not forwarded to super.</li>
+ <li>Deep interface inheritance causes compile error with messages like
+      "Error: function std.typecons.AutoImplement!(Foo).AutoImplement.bar
+      does not override any function".  [<a href="http://d.puremagic.com/issues/show_bug.cgi?id=2525">Bugzilla 2525</a>, <a href="http://d.puremagic.com/issues/show_bug.cgi?id=3525">Bugzilla 3525</a>] </li>
+ <li>The <span class="inlinecode">parent</span> keyword is actually a delegate to the super class'
+      corresponding member function.  [<a href="http://d.puremagic.com/issues/show_bug.cgi?id=2540">Bugzilla 2540</a>] </li>
+ <li>Using alias template parameter in <span class="inlinecode">how</span> and/or <span class="inlinecode">what</span> may cause
+     strange compile error.  Use template tuple parameter instead to workaround
+     this problem.  [<a href="http://d.puremagic.com/issues/show_bug.cgi?id=4217">Bugzilla 4217</a>] </li>
+</ul></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="generateEmptyFunction" href="#generateEmptyFunction">generateEmptyFunction</a>(C,func...)<br>template <a class="symbol symbol-anchor" name="generateAssertTrap" href="#generateAssertTrap">generateAssertTrap</a>(C,func...)</h3></div>
+
+<div class="declaration-content"><p>Predefined how-policies for <span class="inlinecode">AutoImplement</span>.  These templates are used by
+<span class="inlinecode">BlackHole</span> and <span class="inlinecode">WhiteHole</span>, respectively.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="RefCountedAutoInitialize" href="#RefCountedAutoInitialize">RefCountedAutoInitialize</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Options regarding auto-initialization of a <span class="inlinecode">RefCounted</span> object (see
+the definition of <span class="inlinecode">RefCounted</span> below).</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
+
+<div class="declaration-content"><p>Do not auto-initialize the object</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></h3></div>
+
+<div class="declaration-content"><p>Auto-initialize the object</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RefCounted" href="#RefCounted">RefCounted</a>(T,RefCountedAutoInitialize autoInit = RefCountedAutoInitialize.yes) if (!is(T == class));
+</h3></div>
+
+<div class="declaration-content"><p>Defines a reference-counted object containing a <span class="inlinecode">T</span> value as
+payload. <span class="inlinecode"><a class="symbol symbol-anchor" name="RefCounted" href="#RefCounted">RefCounted</a></span> keeps track of all references of an object,
+and when the reference count goes down to zero, frees the underlying
+store. <span class="inlinecode"><a class="symbol symbol-anchor" name="RefCounted" href="#RefCounted">RefCounted</a></span> uses <span class="inlinecode">malloc</span> and <span class="inlinecode">free</span> for operation.
+</p>
+
+<p><span class="inlinecode"><a class="symbol symbol-anchor" name="RefCounted" href="#RefCounted">RefCounted</a></span> is unsafe and should be used with care. No references
+to the payload should be escaped outside the <span class="inlinecode"><a class="symbol symbol-anchor" name="RefCounted" href="#RefCounted">RefCounted</a></span> object.
+<br><br>
+
+The <span class="inlinecode">autoInit</span> option makes the object ensure the store is
+automatically initialized. Leaving <span class="inlinecode">autoInit ==
+RefCountedAutoInitialize.yes</span> (the default option) is convenient but
+has the cost of a test whenever the payload is accessed. If <span class="inlinecode">autoInit == RefCountedAutoInitialize.no</span>, user code must call either
+<span class="inlinecode">refCountedIsInitialized</span> or <span class="inlinecode">refCountedEnsureInitialized</span>
+before attempting to access the payload. Not doing so results in <span class="d_keyword">null</span>
+pointer dereference.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// A pair of an <span class="inlinecode">int</span> and a <span class="inlinecode">size_t</span> - the latter being the
+</span>
+<span class="d_comment">// reference count - will be dynamically allocated
+</span>
+<span class="d_keyword">auto</span> rc1 = <u>RefCounted</u>!<span class="d_keyword">int</span>(5);
+<span class="d_keyword">assert</span>(rc1 == 5);
+<span class="d_comment">// No more allocation, add just one extra reference count
+</span>
+<span class="d_keyword">auto</span> rc2 = rc1;
+<span class="d_comment">// Reference semantics
+</span>
+rc2 = 42;
+<span class="d_keyword">assert</span>(rc1 == 42);
+<span class="d_comment">// the pair will be freed when rc1 and rc2 go out of scope
+</span>
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(A...)(A <i>args</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor that initializes the payload.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">refCountedIsInitialized</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(typeof(this) <i>rhs</i>);
+<br>void <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(T <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Assignment operators</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="refCountedPayload" href="#refCountedPayload">refCountedPayload</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a reference to the payload. If (autoInit ==
+RefCountedAutoInitialize.yes), calls <span class="inlinecode">refCountedEnsureInitialized</span>. Otherwise, just issues <span class="inlinecode">assert(refCountedIsInitialized)</span>. Used with <span class="inlinecode">alias
+<a class="symbol symbol-anchor" name="refCountedPayload" href="#refCountedPayload">refCountedPayload</a> this;</span>, so callers can just use the <span class="inlinecode">RefCounted</span>
+object as a <span class="inlinecode">T</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Proxy" href="#Proxy">Proxy</a>(alias a)</h3></div>
+
+<div class="declaration-content"><p>Make proxy for <span class="inlinecode">a</span>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">struct</span> MyInt
+{
+    <span class="d_keyword">private</span> <span class="d_keyword">int</span> value;
+    <span class="d_keyword">mixin</span> <u>Proxy</u>!value;
+
+    <span class="d_keyword">this</span>(<span class="d_keyword">int</span> n){ value = n; }
+}
+
+MyInt n = 10;
+
+<span class="d_comment">// Enable operations that original type has.
+</span>
+++n;
+<span class="d_keyword">assert</span>(n == 11);
+<span class="d_keyword">assert</span>(n * 2 == 22);
+
+<span class="d_keyword">void</span> func(<span class="d_keyword">int</span> n) { }
+
+<span class="d_comment">// Disable implicit conversions to original type.
+</span>
+<span class="d_comment">//int x = n;
+</span>
+<span class="d_comment">//func(n);
+</span>
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Typedef" href="#Typedef">Typedef</a>(T)<br>struct <a class="symbol symbol-anchor" name="Typedef" href="#Typedef">Typedef</a>(T,T init,string cookie = null);
+</h3></div>
+
+<div class="declaration-content"><p>Library typedef.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Scoped!(T) <a class="symbol symbol-anchor" name="scoped" href="#scoped">scoped</a>(T, Args...)(Args <i>args</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Allocates a <span class="inlinecode">class</span> object right inside the current scope,
+therefore avoiding the overhead of <span class="inlinecode">new</span>. This facility is unsafe;
+it is the responsibility of the user to not escape a reference to the
+object outside the scope.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">unittest</span>
+{
+    <span class="d_keyword">class</span> A { <span class="d_keyword">int</span> x; }
+    <span class="d_keyword">auto</span> a1 = <u>scoped</u>!A();
+    <span class="d_keyword">auto</span> a2 = <u>scoped</u>!A();
+    a1.x = 42;
+    a2.x = 53;
+    <span class="d_keyword">assert</span>(a1.x == 42);
+}
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Flag" href="#Flag">Flag</a>(string name)</h3></div>
+
+<div class="declaration-content"><p>Defines a simple, self-documenting yes/no flag. This makes it easy for
+APIs to define functions accepting flags without resorting to <span class="inlinecode">bool</span>, which is opaque in calls, and without needing to define an
+enumerated type separately. Using <span class="inlinecode"><a class="symbol symbol-anchor" name="Flag" href="#Flag">Flag</a>!"Name"</span> instead of <span class="inlinecode">bool</span> makes the flag's meaning visible in calls. Each yes/no flag has
+its own type, which makes confusions and mix-ups impossible.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// Before
+</span>
+string getLine(<span class="d_keyword">bool</span> keepTerminator)
+{
+    ...
+    <span class="d_keyword">if</span> (keepTerminator) ...
+    ...
+}
+...
+<span class="d_comment">// Code calling getLine (usually far away from its definition) can't
+</span>
+<span class="d_comment">// be understood without looking at the documentation, even by users
+</span>
+<span class="d_comment">// familiar with the API. Assuming the reverse meaning
+</span>
+<span class="d_comment">// (i.e. "ignoreTerminator") and inserting the wrong code compiles and
+</span>
+<span class="d_comment">// runs with erroneous results.
+</span>
+<span class="d_keyword">auto</span> line = getLine(<span class="d_keyword">false</span>);
+
+<span class="d_comment">// After
+</span>
+string getLine(<u>Flag</u>!<span class="d_string">"KeepTerminator"</span> keepTerminator)
+{
+    ...
+    <span class="d_keyword">if</span> (keepTerminator) ...
+    ...
+}
+...
+<span class="d_comment">// Code calling getLine can be easily read and understood even by
+</span>
+<span class="d_comment">// people not fluent with the API.
+</span>
+<span class="d_keyword">auto</span> line = getLine(<u>Flag</u>!<span class="d_string">"KeepTerminator"</span>.yes);
+</pre>
+
+Passing categorical data by means of unstructured <span class="inlinecode">bool</span>
+parameters is classified under "simple-data coupling" by Steve
+McConnell in the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Code Complete">Code Complete</a> book, along with three other
+kinds of coupling. The author argues citing several studies that
+coupling has a negative effect on code quality. <span class="inlinecode"><a class="symbol symbol-anchor" name="Flag" href="#Flag">Flag</a></span> offers a
+simple structuring method for passing yes/no flags to APIs.
+<br><br>
+
+As a perk, the flag's name may be any string and as such can include
+characters not normally allowed in identifiers, such as
+spaces and dashes.<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Flag" href="#Flag">Flag</a>;
+</h3></div>
+
+<div class="declaration-content"><br><br>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
+
+<div class="declaration-content"><p>When creating a value of type <span class="inlinecode">Flag!"Name"</span>, use <span class="inlinecode">        Flag!"Name".<a class="symbol symbol-anchor" name="no" href="#no">no</a></span> for the negative option. When using a value
+         of type <span class="inlinecode">Flag!"Name"</span>, compare it against <span class="inlinecode">        Flag!"Name".<a class="symbol symbol-anchor" name="no" href="#no">no</a></span> or just <span class="inlinecode"><span class="d_keyword">false</span></span> or <span class="inlinecode">0</span>.  </p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></h3></div>
+
+<div class="declaration-content"><p>When creating a value of type <span class="inlinecode">Flag!"Name"</span>, use <span class="inlinecode">        Flag!"Name".<a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></span> for the affirmative option. When using a
+         value of type <span class="inlinecode">Flag!"Name"</span>, compare it against <span class="inlinecode">        Flag!"Name".<a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></span>.</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Yes" href="#Yes">Yes</a>;
+<br>struct <a class="symbol symbol-anchor" name="<a class="symbol symbol-anchor" name="No" href="#No">No</a>" href="#<a class="symbol symbol-anchor" name="No" href="#No">No</a>"><a class="symbol symbol-anchor" name="No" href="#No">No</a></a>;
+</h3></div>
+
+<div class="declaration-content"><p>Convenience names that allow using e.g. <span class="inlinecode">yes!"encryption"</span> instead of
+<span class="inlinecode">Flag!"encryption".yes</span> and <span class="inlinecode">no!"encryption"</span> instead of <span class="inlinecode">Flag!"encryption".no</span>.</p>
+
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright the respective authors, 2008-
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

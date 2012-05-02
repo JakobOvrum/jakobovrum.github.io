@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.container -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.container';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.container" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.container</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.container</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\container.d -->
+<p>Defines generic containers.
+</p>
+
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/container.d">std/container.d</a>
+<br><br>
+<div><b>License</b>: Distributed under the Boost Software License, Version 1.0.
+(See accompanying file LICENSE_1_0.txt or copy at <a href="http://boost.org/LICENSE_1_0.txt">boost.org/LICENSE_1_0.txt</a>).
+
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; Steven Schveighoffer, <a href="http://erdani.com">Andrei Alexandrescu</a>
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class=book><caption>Container primitives. Below, <span class="inlinecode">C</span> means
+a container type, <span class="inlinecode">c</span> is a value of container type, <span class="inlinecode">n<sub>x</sub>
+</span> represents the effective length of value <span class="inlinecode">x</span>, which could be a
+single element (in which case <span class="inlinecode">n<sub>x</sub>
+</span> is <span class="inlinecode">1</span>), a container,
+or a range.</caption><br><br>
+
+<tr><th>Syntax</th> <th><b><i>&Omicron;</i>(</b><span class="inlinecode">&middot;</span><b><i>)</i></b></th> <th>Description</th></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">C(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
+</span></td> <td valign=top>Creates a
+container of type <span class="inlinecode">C</span> from either another container or a range.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.dup</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td> <td valign=top>Returns a
+duplicate of the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~ x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+ + n<sub>x</sub>
+</span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">c</span> and <span class="inlinecode">r</span>. <span class="inlinecode">x</span> may be a single
+element or an input range.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">x ~ c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+ + n<sub>x</sub>
+</span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">x</span> and <span class="inlinecode">c</span>.  <span class="inlinecode">x</span> may be a
+single element or an input range type.</td></tr>
+<br><br>
+
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Iteration</em></b></td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c.Range</span></td> <td valign=top></td> <td valign=top>The primary range
+type associated with the container.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c[]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns a range
+iterating over the entire container, in a container-defined order.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[a, b]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Fetches a
+portion of the container from key <span class="inlinecode">a</span> to key <span class="inlinecode">b</span>.</td></tr>
+<br><br>
+
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Capacity</em></b></td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c.empty</span></td> <td valign=top><span class="inlinecode">1</span></td> <td valign=top>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the
+container has no elements, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c.length</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns the
+number of elements in the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.length = n</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+ + n</span></td> <td valign=top>Forces
+the number of elements in the container to <span class="inlinecode">n</span>. If the container
+ends up growing, the added elements are initialized in a
+container-dependent manner (usually with <span class="inlinecode">T.init</span>).</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c.capacity</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns the
+maximum number of elements that can be stored in the container
+without triggering a reallocation.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">c.reserve(x)</span></td> <td valign=top><span class="inlinecode">n<sub>c</sub>
+</span></td> <td valign=top>Forces <span class="inlinecode">capacity</span> to at least <span class="inlinecode">x</span> without reducing it.</td></tr>
+<br><br>
+
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Access</em></b></td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns the
+first element of the container, in a container-defined order.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveFront</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Destructively reads and returns the first element of the
+container. The slot is not removed from the container; it is left
+initalized with <span class="inlinecode">T.init</span>. This routine need not be defined if <span class="inlinecode">front</span> returns a <span class="inlinecode">ref</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Assigns
+<span class="inlinecode">v</span> to the first element of the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns the
+last element of the container, in a container-defined order.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveBack</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Destructively reads and returns the first element of the
+<a class="symbol symbol-anchor" name="container" href="#container">container</a>. The slot is not removed from the container; it is left
+initalized with <span class="inlinecode">T.init</span>. This routine need not be defined if <span class="inlinecode">front</span> returns a <span class="inlinecode">ref</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Assigns
+<span class="inlinecode">v</span> to the last element of the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Provides
+indexed access into the container. The index type is
+container-defined. A <a class="symbol symbol-anchor" name="container" href="#container">container</a> may define several index types (and
+consequently overloaded indexing).</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveAt(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Destructively reads and returns the value at position <span class="inlinecode">x</span>. The slot
+is not removed from the container; it is left initialized with <span class="inlinecode">T.init</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Sets
+element at specified index into the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] <i>op</i>= v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Performs read-modify-write operation at specified index into the
+container.</td></tr>
+<br><br>
+
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Operations</em></b></td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">e in c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns nonzero if e is found in <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.lowerBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns a range of all elements strictly less than <span class="inlinecode">v</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.upperBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns a range of all elements strictly greater than <span class="inlinecode">v</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.equalRange(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td> <td valign=top>Returns a range of all elements in <span class="inlinecode">c</span> that are equal to <span class="inlinecode">v</span>.</td></tr>
+<br><br>
+
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Modifiers</em></b></td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~= x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+ + n<sub>x</sub>
+</span></td>
+<td valign=top>Appends <span class="inlinecode">x</span> to <span class="inlinecode">c</span>. <span class="inlinecode">x</span> may be a single element or an
+input range type.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.clear()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td> <td valign=top>Removes all
+elements in <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insert(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
+ * log n<sub>c</sub>
+</span></td>
+<td valign=top>Inserts <span class="inlinecode">x</span> in <span class="inlinecode">c</span> at a position (or positions) chosen by <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsert(x)</span></td>
+<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
+ * log n<sub>c</sub>
+</span></td> <td valign=top>Same as <span class="inlinecode">c.insert(x)</span>,
+but is guaranteed to not invalidate any ranges.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td> <td valign=top>Same
+as <span class="inlinecode">c.insert(v)</span> but relaxes complexity to linear.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.stableInsert(v)</span> but relaxes complexity to linear.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Removes some element from <span class="inlinecode">c</span> and returns it.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.removeAny()</span>, but is guaranteed to not invalidate any
+iterators.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Inserts <span class="inlinecode">v</span> at the front of <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.insertFront(v)</span>, but guarantees no ranges will be
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Inserts <span class="inlinecode">v</span> at the back of <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.insertBack(v)</span>, but guarantees no ranges will be
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Removes the element at the front of <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.removeFront()</span>, but guarantees no ranges will be
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Removes the value at the back of <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.removeBack()</span>, but guarantees no ranges will be
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.remove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub>
+ * log n<sub>c</sub>
+</span></td>
+<td valign=top>Removes range <span class="inlinecode">r</span> from <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemove(r)</span></td>
+<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub>
+ * log n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.remove(r)</span>, but guarantees iterators are not
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td>
+<td valign=top>Removes range <span class="inlinecode">r</span> from <span class="inlinecode">c</span>.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
+</span></td>
+<td valign=top>Same as <span class="inlinecode">c.linearRemove(r)</span>, but guarantees iterators are not
+invalidated.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeKey(k)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
+</span></td>
+<td valign=top>Removes an element from <span class="inlinecode">c</span> by using its key <span class="inlinecode">k</span>.
+The key's type is defined by the container.</td></tr>
+<br><br>
+
+<tr><td valign=top class="donthyphenate"><span class="inlinecode"></span></td> <td valign=top class="donthyphenate"><span class="inlinecode"></span></td> <td valign=top></td></tr>
+<br><br>
+
+</table></div>
+
+<hr><div class="row-fluid declaration"><h3>Container <a class="symbol symbol-anchor" name="make" href="#make">make</a>(Container, T...)(T <i>arguments</i>);
+<br>Container <a class="symbol symbol-anchor" name="make" href="#make">make</a>(Container, T...)(T <i>arguments</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns an initialized container. This function is mainly for
+eliminating construction differences between <span class="inlinecode">class</span> containers and
+<span class="inlinecode">struct</span> containers.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SList" href="#SList">SList</a>(T);
+</h3></div>
+
+<div class="declaration-content"><p>Implements a simple and fast singly-linked list.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(U)(U[] <i>values</i>...);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor taking a number of nodes</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor taking an input range</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(const SList <i>rhs</i>);
+<br>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const SList <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Comparison for equality.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">min(n, n1)</span><b><i>)</i></b> where <span class="inlinecode">n1</span> is the number of
+elements in <span class="inlinecode"><i>rhs</i></span>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Defines the container's primary range, which embodies a forward range.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+<br>Range <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forward range primitives.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has no
+elements.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>SList <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Duplicates the container. The elements themselves are not transitively
+duplicated.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a range that iterates over all elements of the container, in
+forward order.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a>(<i>value</i>)</span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>SList <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a new <span class="inlinecode">SList</span> that's the concatenation of <span class="inlinecode">this</span> and its
+argument. <span class="inlinecode">opBinaryRight</span> is only defined if <span class="inlinecode">Stuff</span> does not
+define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes all contents from the <span class="inlinecode">SList</span>.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertFront" href="#insertFront">insertFront</a>(Stuff)(Stuff <i>stuff</i>);
+<br>size_t <a class="symbol symbol-anchor" name="insertFront" href="#insertFront">insertFront</a>(Stuff)(Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
+<br>alias <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>;
+<br>alias <a class="symbol symbol-anchor" name="stableInsertFront" href="#stableInsertFront">stableInsertFront</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">stuff</span> to the front of the container. <span class="inlinecode">stuff</span> can be a
+value convertible to <span class="inlinecode">T</span> or a range of objects convertible to <span class="inlinecode">T</span>. The stable version behaves the same, but guarantees that ranges
+iterating over the container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements inserted
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Picks one value from the front of the container, removes it from the
+container, and returns it.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The element removed.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveFront" href="#stableRemoveFront">stableRemoveFront</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes the value at the front of the container. The stable version
+behaves the same, but guarantees that ranges iterating over the
+container are never invalidated.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>(size_t <i>howMany</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveFront" href="#stableRemoveFront">stableRemoveFront</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
+container. Unlike the unparameterized versions above, these functions
+do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span> elements. Instead,
+if <span class="inlinecode"><i>howMany</i> &gt; n</span>, all elements are removed. The returned value is
+the effective number of elements removed. The stable version behaves
+the same, but guarantees that ranges iterating over the container are
+never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements removed
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i> * log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">stuff</span> after range <span class="inlinecode">r</span>, which must be a range
+previously extracted from this container. Given that all ranges for a
+list end at the end of the list, this function essentially appends to
+the list and uses <span class="inlinecode">r</span> as a potentially fast way to reach the last
+node in the list. (Ideally <span class="inlinecode">r</span> is positioned near or at the last
+element of the list.)
+</p>
+
+<p><span class="inlinecode">stuff</span> can be a value convertible to <span class="inlinecode">T</span> or a range of objects
+convertible to <span class="inlinecode">T</span>. The stable version behaves the same, but
+guarantees that ranges iterating over the container are never
+invalidated.
+
+</p>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of values inserted.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">k + m</span><b><i>)</i></b>, where <span class="inlinecode">k</span> is the number of elements in
+<span class="inlinecode">r</span> and <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Take!(Range) <i>r</i>, Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableInsertAfter" href="#stableInsertAfter">stableInsertAfter</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Similar to <span class="inlinecode"><a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a></span> above, but accepts a range bounded in
+count. This is important for ensuring fast insertions in the middle of
+the list.  For fast insertions after a specified position <span class="inlinecode">r</span>, use
+<span class="inlinecode"><a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(take(r, 1), stuff)</span>. The complexity of that operation
+only depends on the number of elements in <span class="inlinecode">stuff</span>.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">r.original.empty || r.maxLength &gt; 0</span>
+
+<br><br>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of values inserted.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">k + m</span><b><i>)</i></b>, where <span class="inlinecode">k</span> is the number of elements in
+<span class="inlinecode">r</span> and <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Removes a range from the list in linear time.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; An empty range.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Take!(Range) <i>r</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes a <span class="inlinecode">Take!Range</span> from the list in linear time.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; A range comprehending the elements after the removed range.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Array" href="#Array">Array</a>(T) if (!is(T : const(bool)));
+</h3></div>
+
+<div class="declaration-content"><p><a class="symbol symbol-anchor" name="Array" href="#Array">Array</a> type with deterministic control of memory. The memory allocated
+for the array is reclaimed as soon as possible; there is no reliance
+on the garbage collector. <span class="inlinecode"><a class="symbol symbol-anchor" name="Array" href="#Array">Array</a></span> uses <span class="inlinecode">malloc</span> and <span class="inlinecode">free</span>
+for managing its own memory.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(const Array <i>rhs</i>);
+<br>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const Array <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Comparison for equality.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Defines the container's primary range, which is a random-access range.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has no
+elements.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Array <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Duplicates the container. The elements themselves are not transitively
+duplicated.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the number of elements in the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the maximum number of elements the container can store without
+   (a) allocating memory, (b) invalidating iterators upon insertion.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(size_t <i>elements</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Ensures sufficient capacity to accommodate <span class="inlinecode">e</span> <i>elements</i>.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">capacity &gt;= e</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a range that iterates over elements of the container, in
+forward order.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>a</i>, size_t <i>b</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns <i>a</i> range that iterates over elements of the container from
+index <span class="inlinecode"><i>a</i></span> up to (excluding) index <span class="inlinecode"><i>b</i></span>.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode"><i>a</i> &lt;= <i>b</i> &amp;&amp; <i>b</i> &lt;= length</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const size_t <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>();
+</h3></div>
+
+<div class="declaration-content"><p>@@@BUG@@@ This doesn't work yet</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
+<br>T <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(T <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span> and <span class="inlinecode">opSlice().back</span>, respectively.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(T <i>value</i>, size_t <i>i</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexOpAssign" href="#opIndexOpAssign">opIndexOpAssign</a>(string op)(T <i>value</i>, size_t <i>i</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Indexing operators yield or modify the value at a specified index.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode"><i>i</i> &lt; length</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Array <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a new container that's the concatenation of <span class="inlinecode">this</span> and its
+argument. <span class="inlinecode">opBinaryRight</span> is only defined if <span class="inlinecode">Stuff</span> does not
+define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a></span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where m is the number of elements in <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opOpAssign" href="#opOpAssign">opOpAssign</a>(string op, Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Forwards to <span class="inlinecode">insertBack(stuff)</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes all contents from the container. The container decides how <span class="inlinecode">capacity</span> is affected.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="length" href="#length">length</a>(size_t <i>newLength</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the number of elements in the container to <span class="inlinecode">newSize</span>. If <span class="inlinecode">newSize</span> is greater than <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>, the added elements are added to
+unspecified positions in the container and initialized with <span class="inlinecode">T.init</span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">abs(n - <i>newLength</i>)</span><b><i>)</i></b>
+
+<br><br>
+<b>Postcondition:</b><br>
+<span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a> == <i>newLength</i></span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Picks one value in an unspecified position in the container, removes
+it from the container, and returns it. Implementations should pick the
+value that's the most advantageous for the container, but document the
+exact behavior. The stable version behaves the same, but guarantees
+that ranges iterating over the container are never invalidated.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The element removed.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">value</span> to the front or back of the container. <span class="inlinecode">stuff</span>
+can be a value convertible to <span class="inlinecode">T</span> or a range of objects convertible
+to <span class="inlinecode">T</span>. The stable version behaves the same, but guarantees that
+ranges iterating over the container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements inserted
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of
+elements in <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes the value at the back of the container. The stable version
+behaves the same, but guarantees that ranges iterating over the
+container are never invalidated.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>(size_t <i>howMany</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
+container. Unlike the unparameterized versions above, these functions
+do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span> elements. Instead,
+if <span class="inlinecode"><i>howMany</i> &gt; n</span>, all elements are removed. The returned value is
+the effective number of elements removed. The stable version behaves
+the same, but guarantees that ranges iterating over the container are
+never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements removed
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i></span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>size_t <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">stuff</span> before, after, or instead range <span class="inlinecode">r</span>, which must
+be a valid range previously extracted from this container. <span class="inlinecode">stuff</span>
+can be a value convertible to <span class="inlinecode">T</span> or a range of objects convertible
+to <span class="inlinecode">T</span>. The stable version behaves the same, but guarantees that
+ranges iterating over the container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of values inserted.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes all elements belonging to <span class="inlinecode"><i>r</i></span>, which must be a range
+obtained originally from this container. The stable version behaves
+the same, but guarantees that ranges iterating over the container are
+never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; A range spanning the remaining elements in the container that
+initially were right after <span class="inlinecode"><i>r</i></span>.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n - m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of elements in
+<span class="inlinecode"><i>r</i></span><br><br>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a>(Store,alias less = "a &lt; b") if (isRandomAccessRange!(Store) || isRandomAccessRange!(typeof(Store.init[])));
+</h3></div>
+
+<div class="declaration-content"><p>Implements a <a href="http://en.wikipedia.org/wiki/Binary_heap">binary heap</a>
+container on top of a given random-access range type (usually <span class="inlinecode">T[]</span>) or a random-access container type (usually <span class="inlinecode">Array!T</span>). The
+documentation of <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> will refer to the underlying range or
+container as the <i>store</i> of the heap.
+</p>
+
+<p>The binary heap induces structure over the underlying store such that
+accessing the largest element (by using the <span class="inlinecode">front</span> property) is a
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> operation and extracting it (by using the <span class="inlinecode">removeFront()</span> method) is done fast in <b><i>&Omicron;</i>(</b><span class="inlinecode">log n</span><b><i>)</i></b> time.
+<br><br>
+
+If <span class="inlinecode">less</span> is the less-than operator, which is the default option,
+then <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> defines a so-called max-heap that optimizes
+extraction of the <i>largest</i> elements. To define a min-heap,
+instantiate <a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a> with <span class="inlinecode">"a &gt; b"</span> as its predicate.
+<br><br>
+
+Simply extracting elements from a <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> container is
+tantamount to lazily fetching elements of <span class="inlinecode">Store</span> in descending
+order. Extracting elements from the <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> to completion
+leaves the underlying store sorted in ascending order but, again,
+yields elements in descending order.
+<br><br>
+
+If <span class="inlinecode">Store</span> is a range, the <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> cannot grow beyond the
+size of that range. If <span class="inlinecode">Store</span> is a container that supports <span class="inlinecode">insertBack</span>, the <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> may grow by adding elements to the
+container.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// Example from "Introduction to Algorithms" Cormen et al, p 146
+</span>
+<span class="d_keyword">int</span>[] a = [ 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 ];
+<span class="d_keyword">auto</span> h = heapify(a);
+<span class="d_comment">// largest element
+</span>
+<span class="d_keyword">assert</span>(h.front == 16);
+<span class="d_comment">// a has the heap property
+</span>
+<span class="d_keyword">assert</span>(equal(a, [ 16, 14, 10, 9, 8, 7, 4, 3, 2, 1 ]));
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
+</h3></div>
+
+<div class="declaration-content"><p>Converts the store <span class="inlinecode"><i>s</i></span> into a heap. If <span class="inlinecode"><i>initialSize</i></span> is
+       specified, only the first <span class="inlinecode"><i>initialSize</i></span> elements in <span class="inlinecode"><i>s</i></span>
+       are transformed into a heap, after which the heap can grow up
+       to <span class="inlinecode">r.length</span> (if <span class="inlinecode">Store</span> is a range) or indefinitely (if
+       <span class="inlinecode">Store</span> is a container with <span class="inlinecode">insertBack</span>). Performs
+       <b><i>&Omicron;</i>(</b><span class="inlinecode">min(r.length, <i>initialSize</i>)</span><b><i>)</i></b> evaluations of <span class="inlinecode">less</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="acquire" href="#acquire">acquire</a>(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
+</h3></div>
+
+<div class="declaration-content"><p>Takes ownership of a store. After this, manipulating <span class="inlinecode"><i>s</i></span> may make
+the heap work incorrectly.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assume" href="#assume">assume</a>(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
+</h3></div>
+
+<div class="declaration-content"><p>Takes ownership of a store assuming it already was organized as a
+heap.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="release" href="#release">release</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Clears the heap. Returns the portion of the store from <span class="inlinecode">0</span> up to
+<span class="inlinecode">length</span>, which satisfies the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=heap property">heap property</a>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the heap is empty, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BinaryHeap <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a duplicate of the heap. The underlying store must also
+support a <span class="inlinecode"><a class="symbol symbol-anchor" name="dup" href="#dup">dup</a></span> method.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the length of the heap.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the capacity of the heap, which is the length of the
+underlying store (if the store is a range) or the capacity of the
+underlying store (if the store is a container).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(Store) <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a copy of the front of the heap, which is the largest element
+according to <span class="inlinecode">less</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Clears the heap by detaching it from the underlying store.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>(ElementType!(Store) <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode"><i>value</i></span> into the store. If the underlying store is a range
+and <span class="inlinecode">length == capacity</span>, throws an exception.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes the largest element from the heap.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(Store) <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes the largest element from the heap and returns a copy of
+it. The element still resides in the heap's store. For performance
+reasons you may want to use <span class="inlinecode">removeFront</span> with heaps of objects
+that are expensive to copy.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="replaceFront" href="#replaceFront">replaceFront</a>(ElementType!(Store) <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Replaces the largest element in the store with <span class="inlinecode"><i>value</i></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="conditionalInsert" href="#conditionalInsert">conditionalInsert</a>(ElementType!(Store) <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>If the heap has room to grow, inserts <span class="inlinecode"><i>value</i></span> into the store and
+returns <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, if <span class="inlinecode">less(<i>value</i>, front)</span>, calls <span class="inlinecode">replaceFront(<i>value</i>)</span> and returns again <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leaves
+the heap unaffected and returns <span class="inlinecode"><span class="d_keyword">false</span></span>. This method is useful in
+scenarios where the smallest <span class="inlinecode">k</span> elements of a set of candidates
+must be collected.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BinaryHeap!(Store) <a class="symbol symbol-anchor" name="heapify" href="#heapify">heapify</a>(Store)(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
+</h3></div>
+
+<div class="declaration-content"><p>Convenience function that returns a <span class="inlinecode">BinaryHeap!Store</span> object
+initialized with <span class="inlinecode">s</span> and <span class="inlinecode">initialSize</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Array" href="#Array">Array</a>(T) if (is(T == bool));
+</h3></div>
+
+<div class="declaration-content"><p>Array specialized for <span class="inlinecode">bool</span>. Packs together values efficiently by
+allocating one bit per element.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Defines the container's primary range.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+<br>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(bool <i>value</i>);
+<br>T <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>T <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>T <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
+<br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+<br>T <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(T <i>value</i>, size_t <i>i</i>);
+<br>T <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>i</i>);
+<br>const ulong <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Range primitives</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has
+       no elements.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a duplicate of the container. The elements themselves
+       are not transitively duplicated.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the number of elements in the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the maximum number of elements the container can store
+       without (a) allocating memory, (b) invalidating iterators upon
+       insertion.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(ulong <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Ensures sufficient capacity to accommodate <span class="inlinecode">n</span> elements.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">capacity &gt;= n</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(<i>e</i> - capacity)</span><b><i>)</i></b> if <span class="inlinecode"><i>e</i> &gt; capacity</span>,
+       otherwise <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a range that iterates over all elements of the
+       container, in a container-defined order. The container should
+       choose the most convenient and fast method of iteration for <span class="inlinecode">      <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>()</span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(ulong <i>a</i>, ulong <i>b</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns <i>a</i> range that iterates the container between two
+       specified positions.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+<br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(bool <i>value</i>);
+<br>bool <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+<br>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(bool <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Equivalent to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span> and <span class="inlinecode">opSlice().back</span>,
+       respectively.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(ulong <i>i</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(bool <i>value</i>, ulong <i>i</i>);
+<br>void <a class="symbol symbol-anchor" name="opIndexOpAssign" href="#opIndexOpAssign">opIndexOpAssign</a>(string op)(bool <i>value</i>, ulong <i>i</i>);
+<br>T <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(ulong <i>i</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Indexing operators yield or modify the value at a specified index.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>rhs</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns a new container that's the concatenation of <span class="inlinecode">this</span>
+       and its argument.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where m is the number of elements
+       in <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="opOpAssign" href="#opOpAssign">opOpAssign</a>(string op, Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Forwards to <span class="inlinecode">insertAfter(this[], stuff)</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes all contents from the container. The container decides
+       how <span class="inlinecode">capacity</span> is affected.
+</p>
+
+<b>Postcondition:</b><br>
+<span class="inlinecode">empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="length" href="#length">length</a>(ulong <i>newLength</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the number of elements in the container to <span class="inlinecode">      newSize</span>. If <span class="inlinecode">newSize</span> is greater than <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>, the
+       added elements are added to the container and initialized with
+       <span class="inlinecode">ElementType.init</span>.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">abs(n - <i>newLength</i>)</span><b><i>)</i></b>
+
+<br><br>
+<b>Postcondition:</b><br>
+<span class="inlinecode">length == <i>newLength</i></span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
+<br>alias <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">stuff</span> in the container. <span class="inlinecode">stuff</span> can be a value
+       convertible to <span class="inlinecode">ElementType</span> or a range of objects
+       convertible to <span class="inlinecode">ElementType</span>.
+</p>
+
+<p>The <span class="inlinecode">stable</span> version guarantees that ranges iterating over
+       the container are never invalidated. Client code that counts on
+       non-invalidating insertion should use <span class="inlinecode">stableInsert</span>.
+
+</p>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements added.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of
+       elements in <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="linearInsert" href="#linearInsert">linearInsert</a>;
+<br>alias <a class="symbol symbol-anchor" name="stableLinearInsert" href="#stableLinearInsert">stableLinearInsert</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Same as <span class="inlinecode">insert(stuff)</span> and <span class="inlinecode">stableInsert(stuff)</span>
+       respectively, but relax the complexity constraint to linear.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Picks one value in the container, removes it from the
+       container, and returns it. The stable version behaves the same,
+       but guarantees that ranges iterating over the container are
+       never invalidated.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The element removed.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
+<br>ulong <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableInsertBack" href="#stableInsertBack">stableInsertBack</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">value</span> to the back of the container. <span class="inlinecode">stuff</span> can
+       be a value convertible to <span class="inlinecode">ElementType</span> or a range of
+       objects convertible to <span class="inlinecode">ElementType</span>. The stable version
+       behaves the same, but guarantees that ranges iterating over the
+       container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements inserted
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
+<br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes the value at the front or back of the container. The
+       stable version behaves the same, but guarantees that ranges
+       iterating over the container are never invalidated. The
+       optional parameter <span class="inlinecode">howMany</span> instructs removal of that many
+       elements. If <span class="inlinecode">howMany &gt; n</span>, all elements are removed and no
+       exception is thrown.
+</p>
+
+<b>Precondition:</b><br>
+<span class="inlinecode">!empty</span>
+
+<br><br>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>(ulong <i>howMany</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
+       container. Unlike the unparameterized versions above, these
+       functions do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span>
+       elements. Instead, if <span class="inlinecode"><i>howMany</i> &gt; n</span>, all elements are
+       removed. The returned value is the effective number of elements
+       removed. The stable version behaves the same, but guarantees
+       that ranges iterating over the container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements removed
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i> * log(n)</span><b><i>)</i></b>.
+     
+ ditto<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableInsertBefore" href="#stableInsertBefore">stableInsertBefore</a>;
+<br>ulong <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableInsertAfter" href="#stableInsertAfter">stableInsertAfter</a>;
+<br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableReplace" href="#stableReplace">stableReplace</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Inserts <span class="inlinecode">stuff</span> before, after, or instead range <span class="inlinecode">r</span>,
+       which must be a valid range previously extracted from this
+       container. <span class="inlinecode">stuff</span> can be a value convertible to <span class="inlinecode">      ElementType</span> or a range of objects convertible to <span class="inlinecode">      ElementType</span>. The stable version behaves the same, but
+       guarantees that ranges iterating over the container are never
+       invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of values inserted.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
+<br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Removes all elements belonging to <span class="inlinecode"><i>r</i></span>, which must be a range
+       obtained originally from this container. The stable version
+       behaves the same, but guarantees that ranges iterating over the
+       container are never invalidated.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; A range spanning the remaining elements in the container that
+       initially were right after <span class="inlinecode"><i>r</i></span>.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RedBlackTree" href="#RedBlackTree">RedBlackTree</a>(T,alias less = "a &lt; b",bool allowDuplicates = false) if (is(typeof(binaryFun!(less)(T.init,T.init))));
+</h3></div>
+
+<div class="declaration-content"><p>Implementation of a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=red-black tree">red-black tree</a> container.
+</p>
+
+<p>All inserts, removes, searches, and any function in general has complexity
+ of <b><i>&Omicron;</i>(</b><span class="inlinecode">lg(n)</span><b><i>)</i></b>.
+<br><br>
+
+ To use a different comparison than <span class="inlinecode">"a &lt; b"</span>, pass a different operator string
+ that can be used by <a href="std_functional.html#binaryFun"><span class="inlinecode">std.functional.binaryFun</span></a>, or pass in a
+ function, delegate, functor, or any type where <span class="inlinecode">less(a, b)</span> results in a <span class="inlinecode">bool</span>
+ value.
+<br><br>
+
+ Note that less should produce a strict ordering.  That is, for two unequal
+ elements <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, <span class="inlinecode">less(a, b) == !less(b, a)</span>. <span class="inlinecode">less(a, a)</span> should
+ always equal <span class="inlinecode"><span class="d_keyword">false</span></span>.
+<br><br>
+
+ If <span class="inlinecode">allowDuplicates</span> is set to <span class="inlinecode"><span class="d_keyword">true</span></span>, then inserting the same element more than
+ once continues to add more elements.  If it is <span class="inlinecode"><span class="d_keyword">false</span></span>, duplicate elements are
+ ignored on insertion.  If duplicates are allowed, then new elements are
+ inserted after all existing duplicate elements.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Elem" href="#Elem">Elem</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Element type for the tree</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The range type for <span class="inlinecode">RedBlackTree</span></p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the range is empty</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the first element in the range</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the last element in the range</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>pop the front element from the range
+</p>
+
+<b>complexity:</b><br>
+amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>pop the back element from the range
+</p>
+
+<b>complexity:</b><br>
+amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Trivial save implementation, needed for <span class="inlinecode">isForwardRange</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Check if any elements exist in the container.  Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if at least
+ one element exists.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the number of elements in the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>RedBlackTree <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Duplicate this container.  The resulting container contains a shallow
+ copy of the elements.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Fetch a range that spans all the elements in the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The <a class="symbol symbol-anchor" name="front" href="#front">front</a> element in the container
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The last element in the container
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opBinaryRight" href="#opBinaryRight">opBinaryRight</a>(string op)(Elem <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode">in</span> operator. Check to see if the given element exists in the
+        container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Removes all elements from the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>(Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Insert a single element in the container.  Note that this does not
+ invalidate any ranges currently iterating the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>(Stuff)(Stuff <i>stuff</i>);
+<br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Insert a range of elements in the container.  Note that this does not
+ invalidate any ranges currently iterating the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Remove an element from the container and return its value.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Remove the front element from the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Remove the back element from the container.
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(Range <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Removes the given range from the container.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; A range containing all of the elements that were after the
+                 given range.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b> (where m is the number of elements in
+                    the range)<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(Take!(Range) <i>r</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Removes the given <span class="inlinecode">Take!Range</span> from the container
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; A range containing all of the elements that were after the
+                 given range.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b> (where m is the number of elements in
+                    the range)<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(U...)(U <i>elems</i>);
+<br>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(U)(U[] <i>elems</i>);
+<br>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(Stuff)(Stuff <i>stuff</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Removes elements from the container that are equal to the given values
+       according to the less comparator. One element is removed for each value
+       given which is in the container. If <span class="inlinecode">allowDuplicates</span> is <span class="d_keyword">true</span>,
+       duplicates are removed only if duplicate values are given.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of elements removed.
+
+</div>
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">m log(n)</span><b><i>)</i></b> (where m is the number of elements to remove)
+
+<br><br>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">auto</span> rbt = redBlackTree!<span class="d_keyword">true</span>(0, 1, 1, 1, 4, 5, 7);
+rbt.<u>removeKey</u>(1, 4, 7);
+<span class="d_keyword">assert</span>(std.algorithm.equal(rbt[], [0, 1, 1, 5]));
+rbt.<u>removeKey</u>(1, 1, 0);
+<span class="d_keyword">assert</span>(std.algorithm.equal(rbt[], [5]));
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="upperBound" href="#upperBound">upperBound</a>(Elem <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get a range from the container with all elements that are &gt; <i>e</i> according
+ to the less comparator
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="lowerBound" href="#lowerBound">lowerBound</a>(Elem <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get a range from the container with all elements that are &lt; <i>e</i> according
+ to the less comparator
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="equalRange" href="#equalRange">equalRange</a>(Elem <i>e</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get a range from the container with all elements that are == <i>e</i> according
+ to the less comparator
+</p>
+
+<b>Complexity:</b><br>
+<b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b><br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this();
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(Elem[] <i>elems</i>...);
+</h3></div>
+
+<div class="declaration-content"><p>Constructor.  Pass in an array of elements, or individual elements to
+       initialize the tree with.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(E)(E[] <i>elems</i>...);
+<br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(bool allowDuplicates, E)(E[] <i>elems</i>...);
+<br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(alias less, E)(E[] <i>elems</i>...);
+<br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(alias less, bool allowDuplicates, E)(E[] <i>elems</i>...);
+</h3></div>
+
+<div class="declaration-content"><p>Convenience function for creating a <span class="inlinecode">RedBlackTree!E</span> from a list of
+    values.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">auto</span> rbt1 = <u>redBlackTree</u>(0, 1, 5, 7);
+<span class="d_keyword">auto</span> rbt2 = <u>redBlackTree</u>!string(<span class="d_string">"hello"</span>, <span class="d_string">"world"</span>);
+<span class="d_keyword">auto</span> rbt3 = <u>redBlackTree</u>!<span class="d_keyword">true</span>(0, 1, 5, 7, 5);
+<span class="d_keyword">auto</span> rbt4 = <u>redBlackTree</u>!<span class="d_string">"a &gt; b"</span>(0, 1, 5, 7);
+<span class="d_keyword">auto</span> rbt5 = <u>redBlackTree</u>!(<span class="d_string">"a &gt; b"</span>, <span class="d_keyword">true</span>)(0.1, 1.3, 5.9, 7.2, 5.9);
+</pre>
+</div>
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Red-black tree code copyright (C) 2008- by Steven Schveighoffer. Other code
+copyright 2010- Andrei Alexandrescu. All rights reserved by the respective holders.
+
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

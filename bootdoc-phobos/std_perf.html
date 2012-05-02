@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.perf -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.perf';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.perf" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.perf</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.perf</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\perf.d -->
+<p>Platform-independent performance measurement and timing classes.
+</p>
+
+<p><b>PerformanceCounter</b> is the main platform-independent timer class provided,
+ covering the most typical use case, measuring elapsed wall-clock time.
+<br><br>
+
+ The module also provides several Windows-specific timers that can
+ be useful in specialized situations.
+
+</p>
+<b>Synopsis:</b><br>
+<pre class="d_code"><span class="d_keyword">alias</span> PerformanceCounter.interval_t interval_t;
+<span class="d_keyword">auto</span> timer = <span class="d_keyword">new</span> PerformanceCounter;
+timer.start();
+<span class="d_comment">// do computation
+</span>
+timer.stop();
+interval_t elapsedMsec = timer.milliseconds;
+writefln(<span class="d_string">"Time elapsed: %s msec"</span>, elapsedMsec);
+</pre>
+ In particular note that <b>stop()</b> must be called
+ before querying the elapsed time.
+<br><br>
+
+ These classes were ported to D from the
+ <a href="http://stlsoft.org/">STLSoft C++ libraries</a>,
+ which were documented in the article
+ "<a href="http://www.windevnet.com/documents/win0305a/"> Win32 Performance Measurement Options</a>",
+ May 2003 issue of Windows Develper Network.
+
+<br><br>
+<b>Author:</b><br>
+Matthew Wilson
+
+<br><br>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/perf.d">std/perf.d</a>
+
+<br><br>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="PerformanceCounter" href="#PerformanceCounter">PerformanceCounter</a>;
+</h3></div>
+
+<div class="declaration-content"><p>A performance counter that uses the most accurate measurement APIs available on the host machine
+</p>
+
+<p>On Linux, the implementation uses <b>gettimeofday()</b>.
+        For Windows, <b>QueryPerformanceCounter()</b> is used if available,
+        <b>GetTickCount()</b> otherwise.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The type of the interval measurement (generally a 64-bit signed integer)</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Starts measurement
+</p>
+
+<p>Begins a measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Ends measurement
+</p>
+
+<p>Marks the end of a measurement period.
+            This must be called before querying the elapsed time with
+            <b>period_count</b>, <b>seconds</b>,
+            <b>milliseconds</b>, or <b>microseconds</b>.
+<br><br>
+
+            The <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b> method may be called multiple times without an intervening <b>start()</b>.
+            Elapsed time is always measured from most recent <b>start()</b> to the most recent
+            <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TickCounter" href="#TickCounter">TickCounter</a>;
+</h3></div>
+
+<div class="declaration-content"><p>A low-cost, low-resolution performance counter
+</p>
+
+<p>This class provides low-resolution, but low-latency, performance monitoring.
+<br><br>
+
+        This class is available only on Windows, but
+        is guaranteed to be meaningful on all Windows operating systems.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The interval type
+</p>
+
+<p>The type of the interval measurement (generally a 64-bit signed integer)</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Starts measurement
+</p>
+
+<p>Begins a measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Ends measurement
+</p>
+
+<p>Marks the end of a measurement period.
+            This must be called before querying the elapsed time with
+            <b>period_count</b>, <b>seconds</b>,
+            <b>milliseconds</b>, or <b>microseconds</b>.
+<br><br>
+
+            The <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b> method may be called multiple times without an intervening <b>start()</b>.
+            Elapsed time is always measured from most recent <b>start()</b> to the most recent
+            <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ThreadTimesCounter" href="#ThreadTimesCounter">ThreadTimesCounter</a>;
+</h3></div>
+
+<div class="declaration-content"><p>A performance counter that provides thread-specific performance timings
+</p>
+
+<p>This class uses the operating system's performance monitoring facilities to provide timing
+        information pertaining to the calling thread only, irrespective of the activities of other
+        threads on the system. This class does not provide meaningful timing information on operating
+        systems that do not provide thread-specific monitoring.
+<br><br>
+
+        This class is available only on Windows.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The interval type
+</p>
+
+<p>The type of the interval measurement (generally a 64-bit signed integer)</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this();
+</h3></div>
+
+<div class="declaration-content"><p>Constructor
+</p>
+
+<p>Creates an instance of the class, and caches the thread token so that measurements will
+            be taken with respect to the thread in which the class was created.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Starts measurement
+</p>
+
+<p>Begins a measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Ends measurement
+</p>
+
+<p>Marks the end of a measurement period.
+            This must be called before querying the elapsed time with
+            <b>period_count</b>, <b>seconds</b>,
+            <b>milliseconds</b>, or <b>microseconds</b>.
+<br><br>
+
+            The <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b> method may be called multiple times without an intervening <b>start()</b>.
+            Elapsed time is always measured from most recent <b>start()</b> to the most recent
+            <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelPeriodCount" href="#kernelPeriodCount">kernelPeriodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelSeconds" href="#kernelSeconds">kernelSeconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole seconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole seconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMilliseconds" href="#kernelMilliseconds">kernelMilliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole milliseconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole milliseconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMicroseconds" href="#kernelMicroseconds">kernelMicroseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole microseconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole microseconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userPeriodCount" href="#userPeriodCount">userPeriodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userSeconds" href="#userSeconds">userSeconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole seconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole seconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMilliseconds" href="#userMilliseconds">userMilliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole milliseconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole milliseconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMicroseconds" href="#userMicroseconds">userMicroseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole microseconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole microseconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ProcessTimesCounter" href="#ProcessTimesCounter">ProcessTimesCounter</a>;
+</h3></div>
+
+<div class="declaration-content"><p>A performance counter that provides process-specific performance timings
+</p>
+
+<p>This class uses the operating system's performance monitoring facilities to provide timing
+        information pertaining to the calling process only, irrespective of the activities of other
+        processes on the system. This class does not provide meaningful timing information on operating
+        systems that do not provide process-specific monitoring.
+<br><br>
+
+        This class is available only on Windows.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The interval type
+</p>
+
+<p>The type of the interval measurement (generally a 64-bit signed integer)</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Starts measurement
+</p>
+
+<p>Begins a measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Ends measurement
+</p>
+
+<p>Marks the end of a measurement period.
+            This must be called before querying the elapsed time with
+            <b>period_count</b>, <b>seconds</b>,
+            <b>milliseconds</b>, or <b>microseconds</b>.
+<br><br>
+
+            The <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b> method may be called multiple times without an intervening <b>start()</b>.
+            Elapsed time is always measured from most recent <b>start()</b> to the most recent
+            <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelPeriodCount" href="#kernelPeriodCount">kernelPeriodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelSeconds" href="#kernelSeconds">kernelSeconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole seconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole seconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMilliseconds" href="#kernelMilliseconds">kernelMilliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole milliseconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole milliseconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMicroseconds" href="#kernelMicroseconds">kernelMicroseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole microseconds in the measurement period for kernel mode activity
+</p>
+
+<p>This represents the extent, in whole microseconds, of the measurement period for kernel mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userPeriodCount" href="#userPeriodCount">userPeriodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userSeconds" href="#userSeconds">userSeconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole seconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole seconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMilliseconds" href="#userMilliseconds">userMilliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole milliseconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole milliseconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMicroseconds" href="#userMicroseconds">userMicroseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole microseconds in the measurement period for user mode activity
+</p>
+
+<p>This represents the extent, in whole microseconds, of the measurement period for user mode activity</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The elapsed count in the measurement period
+</p>
+
+<p>This represents the extent, in machine-specific increments, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
+</p>
+
+<p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
+
+</div>
+
+</div>
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Your Name Here 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

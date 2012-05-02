@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.functional -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.functional';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.functional" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.functional</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.functional</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\functional.d -->
+<p>Functions that manipulate other functions.
+</p>
+
+<div><b>License</b>: <a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://erdani.org">Andrei Alexandrescu</a>
+</div>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/functional.d">std/functional.d</a><br><br>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="unaryFun" href="#unaryFun">unaryFun</a>(alias fun,bool byRef = false,string parmName = "a")</h3></div>
+
+<div class="declaration-content"><p>Transforms a string representing an expression into a unary
+function. The string must use symbol name <span class="inlinecode">a</span> as the parameter.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">alias</span> <u>unaryFun</u>!(<span class="d_string">"(a &amp; 1) == 0"</span>) isEven;
+<span class="d_keyword">assert</span>(isEven(2) &amp;&amp; !isEven(1));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="binaryFun" href="#binaryFun">binaryFun</a>(alias fun,string parm1Name = "a",string parm2Name = "b")</h3></div>
+
+<div class="declaration-content"><p>Transforms a string representing an expression into a Boolean binary
+predicate. The string must use symbol names <span class="inlinecode">a</span> and <span class="inlinecode">b</span> as the
+compared elements.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">alias</span> <u>binaryFun</u>!(<span class="d_string">"a &lt; b"</span>) less;
+<span class="d_keyword">assert</span>(less(1, 2) &amp;&amp; !less(2, 1));
+<span class="d_keyword">alias</span> <u>binaryFun</u>!(<span class="d_string">"a &gt; b"</span>) greater;
+<span class="d_keyword">assert</span>(!greater(<span class="d_string">"1"</span>, <span class="d_string">"2"</span>) &amp;&amp; greater(<span class="d_string">"2"</span>, <span class="d_string">"1"</span>));
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="not" href="#not">not</a>(alias pred)</h3></div>
+
+<div class="declaration-content"><p>Negates predicate <span class="inlinecode">pred</span>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">string a = <span class="d_string">"   Hello, world!"</span>;
+<span class="d_keyword">assert</span>(find!(<u>not</u>!isWhite)(a) == <span class="d_string">"Hello, world!"</span>);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="curry" href="#curry">curry</a>(alias fun,alias arg)</h3></div>
+
+<div class="declaration-content"><p>Curries <span class="inlinecode">fun</span> by tying its first argument to a particular value.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">int</span> fun(<span class="d_keyword">int</span> a, <span class="d_keyword">int</span> b) { <span class="d_keyword">return</span> a + b; }
+<span class="d_keyword">alias</span> <u>curry</u>!(fun, 5) fun5;
+<span class="d_keyword">assert</span>(fun5(6) == 11);
+</pre>
+
+Note that in most cases you'd use an alias instead of a value
+assignment. Using an alias allows you to <a class="symbol symbol-anchor" name="curry" href="#curry">curry</a> template functions
+without committing to a particular type of the function.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="adjoin" href="#adjoin">adjoin</a>(F...) if (F.length)</h3></div>
+
+<div class="declaration-content"><p>Takes multiple functions and adjoins them together. The result is a
+<a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> with one element per passed-in function. Upon
+invocation, the returned tuple is the adjoined results of all
+functions.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">bool</span> f1(<span class="d_keyword">int</span> a) { <span class="d_keyword">return</span> a != 0; }
+<span class="d_keyword">static</span> <span class="d_keyword">int</span> f2(<span class="d_keyword">int</span> a) { <span class="d_keyword">return</span> a / 2; }
+<span class="d_keyword">auto</span> x = <u>adjoin</u>!(f1, f2)(5);
+<span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(x) == Tuple!(<span class="d_keyword">bool</span>, <span class="d_keyword">int</span>)));
+<span class="d_keyword">assert</span>(x[0] == <span class="d_keyword">true</span> &amp;&amp; x[1] == 2);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="compose" href="#compose">compose</a>(fun...)</h3></div>
+
+<div class="declaration-content"><p>Composes passed-in functions <span class="inlinecode">fun[0], fun[1], ...</span> returning a
+   function <span class="inlinecode">f(x)</span> that in turn returns <span class="inlinecode">  fun[0](fun[1](...(x)))...</span>. Each function can be a regular
+   functions, a delegate, or a string.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// First split a string in whitespace-separated tokens and then
+</span>
+<span class="d_comment">// convert each token into an integer
+</span>
+<span class="d_keyword">assert</span>(<u>compose</u>!(map!(to!(<span class="d_keyword">int</span>)), split)(<span class="d_string">"1 2 3"</span>) == [1, 2, 3]);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="pipe" href="#pipe">pipe</a>(fun...)</h3></div>
+
+<div class="declaration-content"><p>Pipes functions in sequence. Offers the same functionality as <span class="inlinecode">  compose</span>, but with functions specified in reverse order. This may
+   lead to more readable code in some situation because the order of
+   execution is the same as lexical order.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// Read an entire text file, split the resulting string in
+</span>
+<span class="d_comment">// whitespace-separated tokens, and then convert each token into an
+</span>
+<span class="d_comment">// integer
+</span>
+<span class="d_keyword">int</span>[] a = <u>pipe</u>!(readText, split, map!(to!(<span class="d_keyword">int</span>)))(<span class="d_string">"file.txt"</span>);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ReturnType!(fun) <a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a>(alias fun, uint maxSize = (uint).max)(ParameterTypeTuple!(fun) <i>args</i>);
+</h3></div>
+
+<div class="declaration-content"><p><a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Memoizes">Memoizes</a> a function so as to avoid repeated
+ computation. The memoization structure is a hash table keyed by a
+ tuple of the function's arguments. There is a speed gain if the
+ function is repeatedly called with the same arguments and is more
+ expensive than a hash table lookup. For more information on memoization, refer to <a href="http://docs.google.com/viewer?url=http%3A%2F%2Fhop.perl.plover.com%2Fbook%2Fpdf%2F03CachingAndMemoization.pdf">this book chapter</a>.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">double</span> transmogrify(<span class="d_keyword">int</span> a, string b)
+{
+   ... expensive computation ...
+}
+<span class="d_keyword">alias</span> <u>memoize</u>!transmogrify fastTransmogrify;
+<span class="d_keyword">unittest</span>
+{
+    <span class="d_keyword">auto</span> slow = transmogrify(2, <span class="d_string">"hello"</span>);
+    <span class="d_keyword">auto</span> fast = fastTransmogrify(2, <span class="d_string">"hello"</span>);
+    <span class="d_keyword">assert</span>(slow == fast);
+}
+</pre>
+
+Technically the memoized function should be pure because <span class="inlinecode"><a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a></span> assumes it will
+always return the same result for a given tuple of arguments. However, <span class="inlinecode"><a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a></span> does not
+enforce that because sometimes it
+is useful to <a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a> an impure function, too.
+<br><br>
+
+To memoize a recursive function, simply insert the memoized call in lieu of the plain recursive call.
+For example, to transform the exponential-time Fibonacci implementation into a linear-time computation:
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">ulong</span> fib(<span class="d_keyword">ulong</span> n)
+{
+    <span class="d_keyword">alias</span> <u>memoize</u>!fib mfib;
+    <span class="d_keyword">return</span> n &lt; 2 ? 1 : mfib(n - 2) + mfib(n - 1);
+}
+...
+<span class="d_keyword">assert</span>(fib(10) == 89);
+</pre>
+
+To improve the speed of the factorial function,
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">ulong</span> fact(<span class="d_keyword">ulong</span> n)
+{
+    <span class="d_keyword">alias</span> <u>memoize</u>!fact mfact;
+    <span class="d_keyword">return</span> n &lt; 2 ? 1 : n * mfact(n - 1);
+}
+...
+<span class="d_keyword">assert</span>(fact(10) == 3628800);
+</pre>
+
+This memoizes all values of <span class="inlinecode">fact</span> up to the largest argument. To only cache the final
+result, move <span class="inlinecode"><a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a></span> outside the function as shown below.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">ulong</span> factImpl(<span class="d_keyword">ulong</span> n)
+{
+    <span class="d_keyword">return</span> n &lt; 2 ? 1 : n * mfact(n - 1);
+}
+<span class="d_keyword">alias</span> <u>memoize</u>!factImpl fact;
+...
+<span class="d_keyword">assert</span>(fact(10) == 3628800);
+</pre>
+
+The <span class="inlinecode">maxSize</span> parameter is a cutoff for the cache size. If upon a miss the length of the hash
+table is found to be <span class="inlinecode">maxSize</span>, the table is simply cleared.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_comment">// Memoize no more than 128 values of transmogrify
+</span>
+<span class="d_keyword">alias</span> <u>memoize</u>!(transmogrify, 128) fastTransmogrify;
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="toDelegate" href="#toDelegate">toDelegate</a>(F)(auto ref F <i>fp</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Convert a callable to a delegate with the same parameter list and
+ return type, avoiding heap allocations and use of auxiliary storage.
+</p>
+
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"> <span class="d_keyword">void</span> doStuff() {
+     writeln(<span class="d_string">"Hello, world."</span>);
+ }
+
+ <span class="d_keyword">void</span> runDelegate(<span class="d_keyword">void</span> <span class="d_keyword">delegate</span>() myDelegate) {
+     myDelegate();
+ }
+
+ <span class="d_keyword">auto</span> delegateToPass = <u>toDelegate</u>(&amp;doStuff);
+ runDelegate(delegateToPass);  <span class="d_comment">// Calls doStuff, prints "Hello, world."
+</span>
+</pre>
+
+</div>
+<div><b>Known bugs</b>:<br/> &nbsp; &nbsp; &nbsp; <ul>  <li>Does not work with <span class="inlinecode">@safe</span> functions.</li>
+   <li>Ignores C-style / D-style variadic arguments.</li>
+ </ul></div>
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright Andrei Alexandrescu 2008 - 2009.
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

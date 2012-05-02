@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.uni -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.uni';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.uni" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.uni</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.uni</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\uni.d -->
+<p>Functions which operate on Unicode characters.
+</p>
+
+<p>For functions which operate on ASCII characters and ignore Unicode
+    characters, see <a href="std_ascii.html">std.ascii</a>.
+
+</p>
+<b>References:</b><br>
+<a href="http://www.digitalmars.com/d/ascii-table.html">ASCII Table</a>,
+        <a href="http://en.wikipedia.org/wiki/Unicode">Wikipedia</a>,
+        <a href="http://www.unicode.org">The Unicode Consortium</a>
+
+<br><br>
+<b>Trademarks:</b><br>
+Unicode(tm) is a trademark of Unicode, Inc.
+
+<br><br>
+<div><b>License</b>: <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://digitalmars.com">Walter Bright</a>, Jonathan M Davis, and Kenji Hara
+</div>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/uni.d">std/uni.d</a><br><br>
+
+<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="lineSep" href="#lineSep">lineSep</a>;
+</h3></div>
+
+<div class="declaration-content"><p>UTF line separator</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="paraSep" href="#paraSep">paraSep</a>;
+</h3></div>
+
+<div class="declaration-content"><p>UTF paragraph separator</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isWhite" href="#isWhite">isWhite</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Whether or not <span class="inlinecode"><i>c</i></span> is a Unicode whitespace character.
+    (general Unicode category: Part of C0(tab, vertical tab, form feed,
+    carriage return, and linefeed characters), Zs, Zl, Zp, and NEL(U+0085))</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniLower" href="#isUniLower">isUniLower</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Deprecated. It will be removed in August 2012. Please use
+   <span class="inlinecode">isLower</span> instead.</font>
+</p>
+
+<p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isLower" href="#isLower">isLower</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniUpper" href="#isUniUpper">isUniUpper</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Deprecated. It will be removed in August 2012. Please use
+   <span class="inlinecode">isUpper</span> instead.</font>
+</p>
+
+<p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUpper" href="#isUpper">isUpper</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUniLower" href="#toUniLower">toUniLower</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Deprecated. It will be removed in August 2012. Please use
+   <span class="inlinecode">toLower</span> instead.</font>
+</p>
+
+<p>If <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character, then its lowercase equivalent
+    is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toLower" href="#toLower">toLower</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>If <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character, then its lowercase equivalent
+    is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUniUpper" href="#toUniUpper">toUniUpper</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Deprecated. It will be removed in August 2012. Please use
+   <span class="inlinecode">toUpper</span> instead.</font>
+</p>
+
+<p>If <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character, then its uppercase equivalent
+    is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUpper" href="#toUpper">toUpper</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>If <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character, then its uppercase equivalent
+    is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniAlpha" href="#isUniAlpha">isUniAlpha</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Deprecated. It will be removed in August 2012. Please use
+   <span class="inlinecode">isAlpha</span> instead.</font>
+</p>
+
+<p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode alpha character
+    (general Unicode category: Lu, Ll, Lt, Lm, and Lo).
+
+</p>
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 5.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isAlpha" href="#isAlpha">isAlpha</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode alpha character
+    (general Unicode category: Lu, Ll, Lt, Lm, and Lo).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 5.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isMark" href="#isMark">isMark</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode mark
+    (general Unicode category: Mn, Me, Mc).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNumber" href="#isNumber">isNumber</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode numerical character
+    (general Unicode category: Nd, Nl, No).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isPunctuation" href="#isPunctuation">isPunctuation</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode punctuation character
+    (general Unicode category: Pd, Ps, Pe, Pc, Po, Pi, Pf).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSymbol" href="#isSymbol">isSymbol</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode symbol character
+    (general Unicode category: Sm, Sc, Sk, So)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSpace" href="#isSpace">isSpace</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode whitespace character
+    (general Unicode category: Zs)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isGraphical" href="#isGraphical">isGraphical</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode graphical character
+    (general Unicode category: L, M, N, P, S, Zs).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isControl" href="#isControl">isControl</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode control character
+    (general Unicode category: Cc)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isFormat" href="#isFormat">isFormat</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode formatting character
+    (general Unicode category: Cf)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isPrivateUse" href="#isPrivateUse">isPrivateUse</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode Private Use character
+    (general Unicode category: Co)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogate" href="#isSurrogate">isSurrogate</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode surrogate character
+    (general Unicode category: Cs)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogateHi" href="#isSurrogateHi">isSurrogateHi</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode high surrogate (lead surrogate).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 2.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogateLo" href="#isSurrogateLo">isSurrogateLo</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode low surrogate (trail surrogate).
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 2.0.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNonCharacter" href="#isNonCharacter">isNonCharacter</a>(dchar <i>c</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode non-character
+    (general Unicode category: Cn)
+</p>
+
+<div><b>Standards</b>:<br/> &nbsp; &nbsp; &nbsp; Unicode 6.0.0.</div>
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright 2000 -
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

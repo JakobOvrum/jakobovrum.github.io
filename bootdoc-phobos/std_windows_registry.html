@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.windows.registry -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.windows.registry';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.windows.registry" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.windows.registry</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.windows.registry</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\windows\registry.d -->
+<p>This library provides Win32 Registry facilities.
+</p>
+
+<div><b>License</b>: </div>
+<b>Author:</b><br>
+Matthew Wilson, Kenji Hara
+
+<br><br>
+<b>Histry:</b><br>
+Created      15th March 2003,
+        Updated      25th April 2004,
+
+<br><br>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/windows/registry.d">std/windows/registry.d</a><br><br>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Win32Exception" href="#Win32Exception">Win32Exception</a>: object.Exception;
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RegistryException" href="#RegistryException">RegistryException</a>: std.windows.registry.Win32Exception;
+</h3></div>
+
+<div class="declaration-content"><p>Exception class thrown by the std.windows.registry classes.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>message</i>, string <i>fn</i> = __FILE__, uint <i>ln</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+</h3></div>
+
+<div class="declaration-content"><p>Creates an instance of the exception.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>message</i></td>
+<td>The <i>message</i> associated with the exception.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(string <i>message</i>, int <i>error</i>, string <i>fn</i> = __FILE__, uint <i>ln</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+</h3></div>
+
+<div class="declaration-content"><p>Creates an instance of the exception, with the given.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>message</i></td>
+<td>The <i>message</i> associated with the exception.</td>
+</tr>
+<tr><td class="span2">int <i>error</i></td>
+<td>The Win32 <i>error</i> number associated with the exception.</td>
+</tr>
+</table></div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="REGSAM" href="#REGSAM">REGSAM</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Enumeration of the recognised registry access modes.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_QUERY_VALUE" href="#KEY_QUERY_VALUE">KEY_QUERY_VALUE</a></h3></div>
+
+<div class="declaration-content"><p>Permission to query subkey data</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_SET_VALUE" href="#KEY_SET_VALUE">KEY_SET_VALUE</a></h3></div>
+
+<div class="declaration-content"><p>Permission to set subkey data</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_CREATE_SUB_KEY" href="#KEY_CREATE_SUB_KEY">KEY_CREATE_SUB_KEY</a></h3></div>
+
+<div class="declaration-content"><p>Permission to create subkeys</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_ENUMERATE_SUB_KEYS" href="#KEY_ENUMERATE_SUB_KEYS">KEY_ENUMERATE_SUB_KEYS</a></h3></div>
+
+<div class="declaration-content"><p>Permission to enumerate subkeys</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_NOTIFY" href="#KEY_NOTIFY">KEY_NOTIFY</a></h3></div>
+
+<div class="declaration-content"><p>Permission for change notification</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_CREATE_LINK" href="#KEY_CREATE_LINK">KEY_CREATE_LINK</a></h3></div>
+
+<div class="declaration-content"><p>Permission to create a symbolic link</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_WOW64_32KEY" href="#KEY_WOW64_32KEY">KEY_WOW64_32KEY</a></h3></div>
+
+<div class="declaration-content"><p>Enables a 64- or 32-bit application to open a 32-bit key</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_WOW64_64KEY" href="#KEY_WOW64_64KEY">KEY_WOW64_64KEY</a></h3></div>
+
+<div class="declaration-content"><p>Enables a 64- or 32-bit application to open a 64-bit key</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_WOW64_RES" href="#KEY_WOW64_RES">KEY_WOW64_RES</a></h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_WRITE" href="#KEY_WRITE">KEY_WRITE</a></h3></div>
+
+<div class="declaration-content"><p>Combines the STANDARD_RIGHTS_READ, KEY_QUERY_VALUE,
+ KEY_ENUMERATE_SUB_KEYS, and KEY_NOTIFY access rights</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_EXECUTE" href="#KEY_EXECUTE">KEY_EXECUTE</a></h3></div>
+
+<div class="declaration-content"><p>Combines the STANDARD_RIGHTS_WRITE, KEY_SET_VALUE,
+ and KEY_CREATE_SUB_KEY access rights</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEY_ALL_ACCESS" href="#KEY_ALL_ACCESS">KEY_ALL_ACCESS</a></h3></div>
+
+<div class="declaration-content"><p>Permission for read access</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="REG_VALUE_TYPE" href="#REG_VALUE_TYPE">REG_VALUE_TYPE</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Enumeration of the recognised registry value types.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_UNKNOWN" href="#REG_UNKNOWN">REG_UNKNOWN</a></h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_NONE" href="#REG_NONE">REG_NONE</a></h3></div>
+
+<div class="declaration-content"><p>The <span class="d_keyword">null</span> value type. (In practise this is treated as a zero-length binary array by the Win32 registry)</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_SZ" href="#REG_SZ">REG_SZ</a></h3></div>
+
+<div class="declaration-content"><p>A zero-terminated string</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_EXPAND_SZ" href="#REG_EXPAND_SZ">REG_EXPAND_SZ</a></h3></div>
+
+<div class="declaration-content"><p>A zero-terminated string containing expandable environment variable references</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_BINARY" href="#REG_BINARY">REG_BINARY</a></h3></div>
+
+<div class="declaration-content"><p>A binary blob</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_DWORD" href="#REG_DWORD">REG_DWORD</a></h3></div>
+
+<div class="declaration-content"><p>A 32-bit unsigned integer</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_DWORD_LITTLE_ENDIAN" href="#REG_DWORD_LITTLE_ENDIAN">REG_DWORD_LITTLE_ENDIAN</a></h3></div>
+
+<div class="declaration-content"><p>A 32-bit unsigned integer, stored in little-endian byte order</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_DWORD_BIG_ENDIAN" href="#REG_DWORD_BIG_ENDIAN">REG_DWORD_BIG_ENDIAN</a></h3></div>
+
+<div class="declaration-content"><p>A 32-bit unsigned integer, stored in big-endian byte order</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_LINK" href="#REG_LINK">REG_LINK</a></h3></div>
+
+<div class="declaration-content"><p>A registry link</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_MULTI_SZ" href="#REG_MULTI_SZ">REG_MULTI_SZ</a></h3></div>
+
+<div class="declaration-content"><p>A set of zero-terminated strings</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_RESOURCE_LIST" href="#REG_RESOURCE_LIST">REG_RESOURCE_LIST</a></h3></div>
+
+<div class="declaration-content"><p>A hardware resource list</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_FULL_RESOURCE_DESCRIPTOR" href="#REG_FULL_RESOURCE_DESCRIPTOR">REG_FULL_RESOURCE_DESCRIPTOR</a></h3></div>
+
+<div class="declaration-content"><p>A hardware resource descriptor</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_RESOURCE_REQUIREMENTS_LIST" href="#REG_RESOURCE_REQUIREMENTS_LIST">REG_RESOURCE_REQUIREMENTS_LIST</a></h3></div>
+
+<div class="declaration-content"><p>A hardware resource requirements list</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_QWORD" href="#REG_QWORD">REG_QWORD</a></h3></div>
+
+<div class="declaration-content"><p>A 64-bit unsigned integer</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REG_QWORD_LITTLE_ENDIAN" href="#REG_QWORD_LITTLE_ENDIAN">REG_QWORD_LITTLE_ENDIAN</a></h3></div>
+
+<div class="declaration-content"><p>A 64-bit unsigned integer, stored in little-endian byte order</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Key" href="#Key">Key</a>;
+</h3></div>
+
+<div class="declaration-content"><p>This class represents a registry key.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe string <a class="symbol symbol-anchor" name="name" href="#name">name</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The <a class="symbol symbol-anchor" name="name" href="#name">name</a> of the key</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="keyCount" href="#keyCount">keyCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of sub keys.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @property @safe KeySequence <a class="symbol symbol-anchor" name="keys" href="#keys">keys</a>();
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence of all the sub-<a class="symbol symbol-anchor" name="keys" href="#keys">keys</a> of this key.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @property @safe KeyNameSequence <a class="symbol symbol-anchor" name="keyNames" href="#keyNames">keyNames</a>();
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence of the names of all the sub-keys of this key.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="valueCount" href="#valueCount">valueCount</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of values.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @property @safe ValueSequence <a class="symbol symbol-anchor" name="values" href="#values">values</a>();
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence of all the <a class="symbol symbol-anchor" name="values" href="#values">values</a> of this key.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @property @safe ValueNameSequence <a class="symbol symbol-anchor" name="valueNames" href="#valueNames">valueNames</a>();
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence of the names of all the values of this key.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Key <a class="symbol symbol-anchor" name="createKey" href="#createKey">createKey</a>(string <i>name</i>, REGSAM <i>access</i> = (REGSAM).KEY_ALL_ACCESS);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the named sub-key of this key.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the subkey to create. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The created key.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> is thrown if the key cannot be created.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Key <a class="symbol symbol-anchor" name="getKey" href="#getKey">getKey</a>(string <i>name</i>, REGSAM <i>access</i> = (REGSAM).KEY_READ);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the named sub-key of this key.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the subkey to aquire. If <i>name</i> is the empty
+                   string, then the called key is duplicated.</td>
+</tr>
+<tr><td class="span2">REGSAM <i>access</i></td>
+<td>The desired <i>access</i>; one of the <span class="inlinecode">REGSAM</span> enumeration.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The aquired key.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; This function never returns <span class="inlinecode"><span class="d_keyword">null</span></span>. If a key corresponding to
+            the requested <i>name</i> is not found, <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="deleteKey" href="#deleteKey">deleteKey</a>(string <i>name</i>, REGSAM <i>access</i> = cast(REGSAM)0);
+</h3></div>
+
+<div class="declaration-content"><p>Deletes the named key.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the key to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Value <a class="symbol symbol-anchor" name="getValue" href="#getValue">getValue</a>(string <i>name</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns the named value.
+        If <span class="inlinecode"><i>name</i></span> is the empty string, then the default value is returned.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; This function never returns <span class="inlinecode"><span class="d_keyword">null</span></span>. If a value corresponding
+            to the requested <i>name</i> is not found, <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, uint <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given 32-bit unsigned integer <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">uint <i>value</i></td>
+<td>The 32-bit unsigned <i>value</i> to set.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, uint <i>value</i>, Endian <i>endian</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given 32-bit unsigned integer <i>value</i>,
+        according to the desired byte-ordering.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">uint <i>value</i></td>
+<td>The 32-bit unsigned <i>value</i> to set.</td>
+</tr>
+<tr><td class="span2">Endian <i>endian</i></td>
+<td>Can be <span class="inlinecode">Endian.BigEndian</span> or <span class="inlinecode">Endian.LittleEndian</span>.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, ulong <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given 64-bit unsigned integer <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">ulong <i>value</i></td>
+<td>The 64-bit unsigned <i>value</i> to set.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, string <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given string <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">string <i>value</i></td>
+<td>The string <i>value</i> to set.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, string <i>value</i>, bool <i>asEXPAND_SZ</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given string <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">string <i>value</i></td>
+<td>The string <i>value</i> to set.</td>
+</tr>
+<tr><td class="span2">bool <i>asEXPAND_SZ</i></td>
+<td>If <span class="inlinecode"><span class="d_keyword">true</span></span>, the <i>value</i> will be stored as an
+                          expandable environment string, otherwise as a normal string.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, string[] <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given multiple-strings <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">string[] <i>value</i></td>
+<td>The multiple-strings <i>value</i> to set.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setValue" href="#setValue">setValue</a>(string <i>name</i>, byte[] <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the named <i>value</i> with the given binary <i>value</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
+                   sets the default <i>value</i>.</td>
+</tr>
+<tr><td class="span2">byte[] <i>value</i></td>
+<td>The binary <i>value</i> to set.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a <i>value</i> corresponding to the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="deleteValue" href="#deleteValue">deleteValue</a>(string <i>name</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Deletes the named value.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<td>The <i>name</i> of the value to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; If a value of the requested <i>name</i> is not found,
+            <span class="inlinecode">RegistryException</span> is thrown.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="flush" href="#flush">flush</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Flushes any changes to the key to disk.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Value" href="#Value">Value</a>;
+</h3></div>
+
+<div class="declaration-content"><p>This class represents a value of a registry key.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe string <a class="symbol symbol-anchor" name="name" href="#name">name</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The <a class="symbol symbol-anchor" name="name" href="#name">name</a> of the value.
+        If the value represents a default value of a key, which has no <a class="symbol symbol-anchor" name="name" href="#name">name</a>,
+        the returned string will be of zero length.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe REG_VALUE_TYPE <a class="symbol symbol-anchor" name="type" href="#type">type</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The <a class="symbol symbol-anchor" name="type" href="#type">type</a> of value.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property string <a class="symbol symbol-anchor" name="value_SZ" href="#value_SZ">value_SZ</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the current value of the value as a string.
+        If the value's type is REG_EXPAND_SZ the returned value is <b>not</b>
+        expanded; <span class="inlinecode">value_EXPAND_SZ</span> should be called
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if the type of the value is not REG_SZ,
+            REG_EXPAND_SZ, REG_DWORD, or REG_QWORD.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property string <a class="symbol symbol-anchor" name="value_EXPAND_SZ" href="#value_EXPAND_SZ">value_EXPAND_SZ</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the current value as a string, within which any environment
+        variables have undergone expansion.
+        This function works with the same value-types as <span class="inlinecode">value_SZ</span>.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property string[] <a class="symbol symbol-anchor" name="value_MULTI_SZ" href="#value_MULTI_SZ">value_MULTI_SZ</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the current value as an array of strings.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if the type of the value is not REG_MULTI_SZ.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property uint <a class="symbol symbol-anchor" name="value_DWORD" href="#value_DWORD">value_DWORD</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the current value as a 32-bit unsigned integer, ordered
+        correctly according to the current architecture.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> is thrown for all types other than
+            REG_DWORD, REG_DWORD_LITTLE_ENDIAN and REG_DWORD_BIG_ENDIAN.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property ulong <a class="symbol symbol-anchor" name="value_QWORD" href="#value_QWORD">value_QWORD</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the value as a 64-bit unsigned integer, ordered correctly
+        according to the current architecture.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if the type of the value is not REG_QWORD.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property byte[] <a class="symbol symbol-anchor" name="value_BINARY" href="#value_BINARY">value_BINARY</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Obtains the value as a binary blob.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The contents of the value.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if the type of the value is not REG_BINARY.</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Registry" href="#Registry">Registry</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Represents the local system registry.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="classesRoot" href="#classesRoot">classesRoot</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_CLASSES_ROOT hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="currentUser" href="#currentUser">currentUser</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_CURRENT_USER hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="localMachine" href="#localMachine">localMachine</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_LOCAL_MACHINE hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="users" href="#users">users</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_USERS hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="performanceData" href="#performanceData">performanceData</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_PERFORMANCE_DATA hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="currentConfig" href="#currentConfig">currentConfig</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_CURRENT_CONFIG hive</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static @property Key <a class="symbol symbol-anchor" name="dynData" href="#dynData">dynData</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the root key for the HKEY_DYN_DATA hive</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="KeyNameSequence" href="#KeyNameSequence">KeyNameSequence</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence representing the names of the sub-keys of a registry Key.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">Key key = ...
+<span class="d_keyword">foreach</span> (string subkeyName; key.keyNames)
+{
+    <span class="d_comment">// using subkeyName
+</span>
+}
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of keys.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getKeyName" href="#getKeyName">getKeyName</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The name of the key at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the key to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The name of the key corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; RegistryException if no corresponding key is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The name of the key at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the key to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The name of the key corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref string name) <i>dg</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="KeySequence" href="#KeySequence">KeySequence</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence representing the sub-keys of a registry Key.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">Key key = ...
+<span class="d_keyword">foreach</span> (Key subkey; key.keys)
+{
+    <span class="d_comment">// using subkey
+</span>
+}
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of keys.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Key <a class="symbol symbol-anchor" name="getKey" href="#getKey">getKey</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The key at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the key to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The key corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Key <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The key at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the key to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The key corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding key is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref Key key) <i>dg</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ValueNameSequence" href="#ValueNameSequence">ValueNameSequence</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence representing the names of the values of a registry Key.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">Key key = ...
+<span class="d_keyword">foreach</span> (string valueName; key.valueNames)
+{
+    <span class="d_comment">// using valueName
+</span>
+}
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of values.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getValueName" href="#getValueName">getValueName</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The name of the value at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the value to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The name of the value corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The name of the value at the given <i>index</i>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the value to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The name of the value corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref string name) <i>dg</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ValueSequence" href="#ValueSequence">ValueSequence</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An enumerable sequence representing the values of a registry Key.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code">Key key = ...
+<span class="d_keyword">foreach</span> (Value value; key.values)
+{
+    <span class="d_comment">// using value
+</span>
+}
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>();
+</h3></div>
+
+<div class="declaration-content"><p>The number of values</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Value <a class="symbol symbol-anchor" name="getValue" href="#getValue">getValue</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The value at the given <span class="inlinecode"><i>index</i></span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the value to retrieve</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The value corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding value is retrieved</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Value <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>index</i>);
+</h3></div>
+
+<div class="declaration-content"><p>The value at the given <span class="inlinecode"><i>index</i></span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<td>The 0-based <i>index</i> of the value to retrieve.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The value corresponding to the given <i>index</i>.
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">RegistryException</span> if no corresponding value is retrieved.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref Value value) <i>dg</i>);
+</h3></div>
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright 2003-2004 by Matthew Wilson and Synesis Software
+               Written by Matthew Wilson
+
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

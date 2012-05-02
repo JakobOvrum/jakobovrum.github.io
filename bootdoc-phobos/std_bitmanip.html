@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.bitmanip -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.bitmanip';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.bitmanip" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.bitmanip</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.bitmanip</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\bitmanip.d -->
+<p>Bit-level manipulation facilities.
+</p>
+
+<div><b>License</b>: <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; <a href="http://digitalmars.com">Walter Bright</a>,
+           <a href="http://erdani.org">Andrei Alexandrescu</a>
+</div>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bitmanip.d">std/bitmanip.d</a><br><br>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a>(T...)</h3></div>
+
+<div class="declaration-content"><p>Allows creating bit fields inside <b>struct</b>s and <b>class</b>es.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">struct</span> A
+{
+    <span class="d_keyword">int</span> a;
+    <span class="d_keyword">mixin</span>(<u>bitfields</u>!(
+        <span class="d_keyword">uint</span>, <span class="d_string">"x"</span>,    2,
+        <span class="d_keyword">int</span>,  <span class="d_string">"y"</span>,    3,
+        <span class="d_keyword">uint</span>, <span class="d_string">"z"</span>,    2,
+        <span class="d_keyword">bool</span>, <span class="d_string">"flag"</span>, 1));
+}
+A obj;
+obj.x = 2;
+obj.z = obj.x;
+</pre>
+
+The example above creates a bitfield pack of eight bits, which fit in
+one <b>ubyte</b>. The <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a> are allocated starting from the
+least significant bit, i.e. x occupies the two least significant bits
+of the <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a> storage.
+<br><br>
+
+The sum of all bit lengths in one <b>bitfield</b> instantiation
+must be exactly 8, 16, 32, or 64. If padding is needed, just allocate
+one bitfield with an empty name.
+
+<br><br>
+<b>Example:</b><br>
+<pre class="d_code"><span class="d_keyword">struct</span> A
+{
+    <span class="d_keyword">mixin</span>(<u>bitfields</u>!(
+        <span class="d_keyword">bool</span>, <span class="d_string">"flag1"</span>,    1,
+        <span class="d_keyword">bool</span>, <span class="d_string">"flag2"</span>,    1,
+        <span class="d_keyword">uint</span>, <span class="d_string">""</span>,         6));
+}
+</pre>
+
+The type of a bit field can be any integral type or enumerated
+type. The most efficient type to store in <a class="symbol symbol-anchor" name="bitfields" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FloatRep" href="#FloatRep">FloatRep</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Allows manipulating the fraction, exponent, and sign parts of a
+   <b>float</b> separately. The definition is:
+</p>
+
+<p><pre class="d_code"><span class="d_keyword">struct</span> <u>FloatRep</u>
+{
+    <span class="d_keyword">union</span>
+    {
+        <span class="d_keyword">float</span> value;
+        <span class="d_keyword">mixin</span>(bitfields!(
+                  <span class="d_keyword">uint</span>,  <span class="d_string">"fraction"</span>, 23,
+                  <span class="d_keyword">ubyte</span>, <span class="d_string">"exponent"</span>,  8,
+                  <span class="d_keyword">bool</span>,  <span class="d_string">"sign"</span>,      1));
+    }
+    <span class="d_keyword">enum</span> <span class="d_keyword">uint</span> bias = 127, fractionBits = 23, exponentBits = 8, signBits = 1;
+}
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="DoubleRep" href="#DoubleRep">DoubleRep</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Allows manipulating the fraction, exponent, and sign parts of a
+   <b>double</b> separately. The definition is:
+</p>
+
+<p><pre class="d_code"><span class="d_keyword">struct</span> <u>DoubleRep</u>
+{
+    <span class="d_keyword">union</span>
+    {
+        <span class="d_keyword">double</span> value;
+        <span class="d_keyword">mixin</span>(bitfields!(
+                  <span class="d_keyword">ulong</span>,   <span class="d_string">"fraction"</span>, 52,
+                  <span class="d_keyword">ushort</span>,  <span class="d_string">"exponent"</span>, 11,
+                  <span class="d_keyword">bool</span>,    <span class="d_string">"sign"</span>,      1));
+    }
+    <span class="d_keyword">enum</span> <span class="d_keyword">uint</span> bias = 1023, signBits = 1, fractionBits = 52, exponentBits = 11;
+}
+</pre>
+</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="BitArray" href="#BitArray">BitArray</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An array of bits.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const const @property size_t <a class="symbol symbol-anchor" name="dim" href="#dim">dim</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Gets the amount of native words backing this <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const const @property size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Gets the amount of bits in the <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="length" href="#length">length</a>(size_t <i>newlen</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the amount of bits in the <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Gets the <span class="inlinecode"><i>i</i></span>'th bit in the <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(bool <i>b</i>, size_t <i>i</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets the <span class="inlinecode"><i>i</i></span>'th bit in the <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property BitArray <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Duplicates the <span class="inlinecode">BitArray</span> and its contents.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref bool) <i>dg</i>);
+<br>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref uint, ref bool) <i>dg</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for <span class="inlinecode">foreach</span> loops for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property BitArray <a class="symbol symbol-anchor" name="reverse" href="#reverse">reverse</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Reverses the bits of the <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property BitArray <a class="symbol symbol-anchor" name="sort" href="#sort">sort</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Sorts the <span class="inlinecode">BitArray</span>'s elements.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const BitArray <i>a2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operators == and != for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opCmp" href="#opCmp">opCmp</a>(BitArray <i>a2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Supports comparison operators for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="init" href="#init">init</a>(bool[] <i>ba</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Set this <span class="inlinecode">BitArray</span> to the contents of <span class="inlinecode"><i>ba</i></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="init" href="#init">init</a>(void[] <i>v</i>, size_t <i>numbits</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Map the <span class="inlinecode">BitArray</span> onto <span class="inlinecode"><i>v</i></span>, with <span class="inlinecode"><i>numbits</i></span> being the number of bits
+ in the array. Does not copy the data.
+</p>
+
+<p>This is the inverse of <span class="inlinecode">opCast</span>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="opCast" href="#opCast">opCast</a>(T : void[])();
+</h3></div>
+
+<div class="declaration-content"><p>Convert to <span class="inlinecode">void[]</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t[] <a class="symbol symbol-anchor" name="opCast" href="#opCast">opCast</a>(T : size_t[])();
+</h3></div>
+
+<div class="declaration-content"><p>Convert to <span class="inlinecode">size_t[]</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opCom" href="#opCom">opCom</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Support for unary operator ~ for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opAnd" href="#opAnd">opAnd</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for binary operator &amp; for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opOr" href="#opOr">opOr</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for binary operator | for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opXor" href="#opXor">opXor</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for binary operator ^ for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opSub" href="#opSub">opSub</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for binary operator - for <span class="inlinecode">BitArray</span>.
+</p>
+
+<p><span class="inlinecode">a - b</span> for <span class="inlinecode">BitArray</span> means the same thing as <span class="inlinecode">a &amp; ~b</span>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opAndAssign" href="#opAndAssign">opAndAssign</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operator &amp;= for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opOrAssign" href="#opOrAssign">opOrAssign</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operator |= for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opXorAssign" href="#opXorAssign">opXorAssign</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operator ^= for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opSubAssign" href="#opSubAssign">opSubAssign</a>(BitArray <i>e2</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operator -= for <span class="inlinecode">BitArray</span>.
+</p>
+
+<p><span class="inlinecode">a -= b</span> for <span class="inlinecode">BitArray</span> means the same thing as <span class="inlinecode">a &amp;= ~b</span>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opCatAssign" href="#opCatAssign">opCatAssign</a>(bool <i>b</i>);
+<br>BitArray <a class="symbol symbol-anchor" name="opCatAssign" href="#opCatAssign">opCatAssign</a>(BitArray <i>b</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for operator ~= for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>BitArray <a class="symbol symbol-anchor" name="opCat" href="#opCat">opCat</a>(bool <i>b</i>);
+<br>BitArray <a class="symbol symbol-anchor" name="opCat_r" href="#opCat_r">opCat_r</a>(bool <i>b</i>);
+<br>BitArray <a class="symbol symbol-anchor" name="opCat" href="#opCat">opCat</a>(BitArray <i>b</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Support for binary operator ~ for <span class="inlinecode">BitArray</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <a class="symbol symbol-anchor" name="swapEndian" href="#swapEndian">swapEndian</a>(T)(T <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Swaps the endianness of the given integral value or character.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <a class="symbol symbol-anchor" name="nativeToBigEndian" href="#nativeToBigEndian">nativeToBigEndian</a>(T)(T <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Converts the given value from the native endianness to big endian and
+    returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
+</p>
+
+<p>Returning a <span class="inlinecode">ubyte[n]</span> helps prevent accidentally using a swapped value
+    as a regular one (and in the case of floating point values, it's necessary,
+    because the FPU will mess up any swapped floating point values. So, you
+    can't actually have swapped floating point values as floating point values).
+<br><br>
+
+    <span class="inlinecode">real</span> is not supported, because its size is implementation-dependent
+    and therefore could vary from machine to machine (which could make it
+    unusable if you tried to transfer it to another machine).
+
+</p>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">int</span> i = 12345;
+<span class="d_keyword">ubyte</span>[4] swappedI = <u>nativeToBigEndian</u>(i);
+<span class="d_keyword">assert</span>(i == bigEndianToNative!<span class="d_keyword">int</span>(swappedI));
+
+<span class="d_keyword">double</span> d = 123.45;
+<span class="d_keyword">ubyte</span>[8] swappedD = <u>nativeToBigEndian</u>(d);
+<span class="d_keyword">assert</span>(d == bigEndianToNative!<span class="d_keyword">double</span>(swappedD));
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <a class="symbol symbol-anchor" name="bigEndianToNative" href="#bigEndianToNative">bigEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Converts the given value from big endian to the native endianness and
+    returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
+    of the target type. You must give the target type as a template argument,
+    because there are multiple types with the same size and so the type of the
+    argument is not enough to determine the return type.
+</p>
+
+<p>Taking a <span class="inlinecode">ubyte[n]</span> helps prevent accidentally using a swapped value
+    as a regular one (and in the case of floating point values, it's necessary,
+    because the FPU will mess up any swapped floating point values. So, you
+    can't actually have swapped floating point values as floating point values).
+
+</p>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">ushort</span> i = 12345;
+<span class="d_keyword">ubyte</span>[2] swappedI = nativeToBigEndian(i);
+<span class="d_keyword">assert</span>(i == <u>bigEndianToNative</u>!<span class="d_keyword">ushort</span>(swappedI));
+
+<span class="d_keyword">dchar</span> c = 'D';
+<span class="d_keyword">ubyte</span>[4] swappedC = nativeToBigEndian(c);
+<span class="d_keyword">assert</span>(c == <u>bigEndianToNative</u>!<span class="d_keyword">dchar</span>(swappedC));
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <a class="symbol symbol-anchor" name="nativeToLittleEndian" href="#nativeToLittleEndian">nativeToLittleEndian</a>(T)(T <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Converts the given value from the native endianness to little endian and
+    returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
+</p>
+
+<p>Returning a <span class="inlinecode">ubyte[n]</span> helps prevent accidentally using a swapped value
+    as a regular one (and in the case of floating point values, it's necessary,
+    because the FPU will mess up any swapped floating point values. So, you
+    can't actually have swapped floating point values as floating point values).
+
+</p>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">int</span> i = 12345;
+<span class="d_keyword">ubyte</span>[4] swappedI = <u>nativeToLittleEndian</u>(i);
+<span class="d_keyword">assert</span>(i == littleEndianToNative!<span class="d_keyword">int</span>(swappedI));
+
+<span class="d_keyword">double</span> d = 123.45;
+<span class="d_keyword">ubyte</span>[8] swappedD = <u>nativeToLittleEndian</u>(d);
+<span class="d_keyword">assert</span>(d == littleEndianToNative!<span class="d_keyword">double</span>(swappedD));
+</pre>
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <a class="symbol symbol-anchor" name="littleEndianToNative" href="#littleEndianToNative">littleEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Converts the given value from little endian to the native endianness and
+    returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
+    of the target type. You must give the target type as a template argument,
+    because there are multiple types with the same size and so the type of the
+    argument is not enough to determine the return type.
+</p>
+
+<p>Taking a <span class="inlinecode">ubyte[n]</span> helps prevent accidentally using a swapped value
+    as a regular one (and in the case of floating point values, it's necessary,
+    because the FPU will mess up any swapped floating point values. So, you
+    can't actually have swapped floating point values as floating point values).
+<br><br>
+
+    <span class="inlinecode">real</span> is not supported, because its size is implementation-dependent
+    and therefore could vary from machine to machine (which could make it
+    unusable if you tried to transfer it to another machine).
+
+</p>
+<div><b>Examples</b>:<br/> &nbsp; &nbsp; &nbsp; <pre class="d_code"><span class="d_keyword">ushort</span> i = 12345;
+<span class="d_keyword">ubyte</span>[2] swappedI = nativeToLittleEndian(i);
+<span class="d_keyword">assert</span>(i == <u>littleEndianToNative</u>!<span class="d_keyword">ushort</span>(swappedI));
+
+<span class="d_keyword">dchar</span> c = 'D';
+<span class="d_keyword">ubyte</span>[4] swappedC = nativeToLittleEndian(c);
+<span class="d_keyword">assert</span>(c == <u>littleEndianToNative</u>!<span class="d_keyword">dchar</span>(swappedC));
+</pre>
+</div>
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Copyright Digital Mars 2007 - 2011.
+ 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

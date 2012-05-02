@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.socket -  documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.socket';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master/';
+		var Modules = [
+			
+	"index",
+	"crc32",
+	"etc.c.curl",
+	"etc.c.sqlite3",
+	"etc.c.zlib",
+	"std.algorithm",
+	"std.array",
+	"std.ascii",
+	"std.base64",
+	"std.bigint",
+	"std.bind",
+	"std.bitmanip",
+	"std.c.fenv",
+	"std.c.locale",
+	"std.c.math",
+	"std.c.process",
+	"std.c.stdarg",
+	"std.c.stddef",
+	"std.c.stdio",
+	"std.c.stdlib",
+	"std.c.string",
+	"std.c.time",
+	"std.c.wcharh",
+	"std.c.windows.com",
+	"std.c.windows.stat",
+	"std.c.windows.windows",
+	"std.c.windows.winsock",
+	"std.compiler",
+	"std.complex",
+	"std.concurrency",
+	"std.container",
+	"std.conv",
+	"std.cpuid",
+	"std.cstream",
+	"std.csv",
+	"std.datetime",
+	"std.demangle",
+	"std.encoding",
+	"std.exception",
+	"std.file",
+	"std.format",
+	"std.functional",
+	"std.getopt",
+	"std.internal.math.biguintcore",
+	"std.internal.math.biguintnoasm",
+	"std.internal.math.biguintx86",
+	"std.internal.math.errorfunction",
+	"std.internal.math.gammafunction",
+	"std.internal.processinit",
+	"std.internal.uni",
+	"std.internal.uni_tab",
+	"std.internal.windows.advapi32",
+	"std.json",
+	"std.loader",
+	"std.math",
+	"std.mathspecial",
+	"std.md5",
+	"std.metastrings",
+	"std.mmfile",
+	"std.net.curl",
+	"std.net.isemail",
+	"std.numeric",
+	"std.outbuffer",
+	"std.parallelism",
+	"std.path",
+	"std.perf",
+	"std.process",
+	"std.random",
+	"std.range",
+	"std.regex",
+	"std.regexp",
+	"std.signals",
+	"std.socket",
+	"std.socketstream",
+	"std.stdarg",
+	"std.stdint",
+	"std.stdio",
+	"std.stdiobase",
+	"std.stream",
+	"std.string",
+	"std.syserror",
+	"std.system",
+	"std.traits",
+	"std.typecons",
+	"std.typetuple",
+	"std.uni",
+	"std.uri",
+	"std.utf",
+	"std.variant",
+	"std.windows.charset",
+	"std.windows.iunknown",
+	"std.windows.registry",
+	"std.windows.syserror",
+	"std.xml",
+	"std.zip",
+	"std.zlib",
+	"unittest",PROJECTNAME = Phobos
+		];
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html"></a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Goto symbol in std.socket" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header">Modules<li>
+					<li id="symbol-list" class="nav-header hidden">std.socket</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.socket</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\socket.d -->
+<b>Example:</b><br>
+See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/listener.d">/dmd/samples/d/listener.d</a>
+ and <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/htmlget.d">/dmd/samples/d/htmlget.d</a>
+
+<br><br>
+<div><b>License</b>: <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</div>
+<div><b>Authors</b>:<br/> &nbsp; &nbsp; &nbsp; Christopher E. Miller, <a href="http://klickverbot.at">David Nadlinger</a>,
+      <a href="http://thecybershadow.net">Vladimir Panteleev</a>
+</div>
+<b>Source:</b><br>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/socket.d">std/socket.d</a>
+<br><br>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketException" href="#SocketException">SocketException</a>: object.Exception;
+</h3></div>
+
+<div class="declaration-content"><p>Base exception thrown by <span class="inlinecode">std.socket</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property int <a class="symbol symbol-anchor" name="errorCode" href="#errorCode">errorCode</a>();
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Scheduled for deprecation. Please use <span class="inlinecode">SocketOSException</span>
+ instead.</font>
+</p>
+
+<p>Provided for compatibility with older code using <span class="inlinecode">SocketException</span>.</p>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property string <a class="symbol symbol-anchor" name="lastSocketError" href="#lastSocketError">lastSocketError</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Retrieve the error message for the most recently encountered network error.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketOSException" href="#SocketOSException">SocketOSException</a>: std.socket.SocketException;
+</h3></div>
+
+<div class="declaration-content"><p>Socket exceptions representing network errors reported by the operating
+ system.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="errorCode" href="#errorCode">errorCode</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Platform-specific error code.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketParameterException" href="#SocketParameterException">SocketParameterException</a>: std.socket.SocketException;
+</h3></div>
+
+<div class="declaration-content"><p>Socket exceptions representing invalid parameters specified by user code.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketFeatureException" href="#SocketFeatureException">SocketFeatureException</a>: std.socket.SocketException;
+</h3></div>
+
+<div class="declaration-content"><p>Socket exceptions representing attempts to use network capabilities not
+ available on the current system.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="wouldHaveBlocked" href="#wouldHaveBlocked">wouldHaveBlocked</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Return <span class="inlinecode"><span class="d_keyword">true</span></span> if the last socket operation failed because the socket
+ was in non-blocking mode and the operation would have blocked.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="AddressFamily" href="#AddressFamily">AddressFamily</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The communication domain used to resolve an address.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UNSPEC" href="#UNSPEC">UNSPEC</a></h3></div>
+
+<div class="declaration-content"><p>Unspecified address family</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UNIX" href="#UNIX">UNIX</a></h3></div>
+
+<div class="declaration-content"><p>Local communication</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="INET" href="#INET">INET</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 4</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPX" href="#IPX">IPX</a></h3></div>
+
+<div class="declaration-content"><p>Novell <a class="symbol symbol-anchor" name="IPX" href="#IPX">IPX</a></p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="APPLETALK" href="#APPLETALK">APPLETALK</a></h3></div>
+
+<div class="declaration-content"><p>AppleTalk</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="INET6" href="#INET6">INET6</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 6</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SocketType" href="#SocketType">SocketType</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Communication semantics</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="STREAM" href="#STREAM">STREAM</a></h3></div>
+
+<div class="declaration-content"><p>Sequenced, reliable, two-way communication-based byte streams</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="DGRAM" href="#DGRAM">DGRAM</a></h3></div>
+
+<div class="declaration-content"><p>Connectionless, unreliable datagrams with a fixed maximum length; data may be lost or arrive out of order</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RAW" href="#RAW">RAW</a></h3></div>
+
+<div class="declaration-content"><p>Raw protocol access</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RDM" href="#RDM">RDM</a></h3></div>
+
+<div class="declaration-content"><p>Reliably-delivered message datagrams</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SEQPACKET" href="#SEQPACKET">SEQPACKET</a></h3></div>
+
+<div class="declaration-content"><p>Sequenced, reliable, two-way connection-based datagrams with a fixed maximum length</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="ProtocolType" href="#ProtocolType">ProtocolType</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Protocol</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IP" href="#IP">IP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 4</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ICMP" href="#ICMP">ICMP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Control Message Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IGMP" href="#IGMP">IGMP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Group Management Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="GGP" href="#GGP">GGP</a></h3></div>
+
+<div class="declaration-content"><p>Gateway to Gateway Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="TCP" href="#TCP">TCP</a></h3></div>
+
+<div class="declaration-content"><p>Transmission Control Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="PUP" href="#PUP">PUP</a></h3></div>
+
+<div class="declaration-content"><p>PARC Universal Packet Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UDP" href="#UDP">UDP</a></h3></div>
+
+<div class="declaration-content"><p>User Datagram Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IDP" href="#IDP">IDP</a></h3></div>
+
+<div class="declaration-content"><p>Xerox NS protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RAW" href="#RAW">RAW</a></h3></div>
+
+<div class="declaration-content"><p>Raw IP packets</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6" href="#IPV6">IPV6</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 6</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Protocol" href="#Protocol">Protocol</a>;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Protocol" href="#Protocol">Protocol</a></span> is a class for retrieving protocol information.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_keyword">auto</span> proto = <span class="d_keyword">new</span> <u>Protocol</u>;
+ writeln(<span class="d_string">"About protocol TCP:"</span>);
+ <span class="d_keyword">if</span> (proto.getProtocolByType(ProtocolType.TCP))
+ {
+     writefln(<span class="d_string">"  Name: %s"</span>, proto.name);
+     <span class="d_keyword">foreach</span>(string s; proto.aliases)
+          writefln(<span class="d_string">"  Alias: %s"</span>, s);
+ }
+ <span class="d_keyword">else</span>
+     writeln(<span class="d_string">"  No information found"</span>);
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ProtocolType <a class="symbol symbol-anchor" name="type" href="#type">type</a>;
+<br>string <a class="symbol symbol-anchor" name="name" href="#name">name</a>;
+<br>string[] <a class="symbol symbol-anchor" name="aliases" href="#aliases">aliases</a>;
+</h3></div>
+
+<div class="declaration-content"><p>These members are populated when one of the following functions are called successfully:</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getProtocolByName" href="#getProtocolByName">getProtocolByName</a>(in char[] <i>name</i>);
+</h3></div>
+
+<div class="declaration-content"><div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> on failure </div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getProtocolByType" href="#getProtocolByType">getProtocolByType</a>(ProtocolType <i>type</i>);
+</h3></div>
+
+<div class="declaration-content"><div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> on failure </div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Service" href="#Service">Service</a>;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Service" href="#Service">Service</a></span> is a class for retrieving service information.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_keyword">auto</span> serv = <span class="d_keyword">new</span> <u>Service</u>;
+ writeln(<span class="d_string">"About service epmap:"</span>);
+ <span class="d_keyword">if</span> (serv.getServiceByName(<span class="d_string">"epmap"</span>, <span class="d_string">"tcp"</span>))
+ {
+     writefln(<span class="d_string">"  Service: %s"</span>, serv.name);
+     writefln(<span class="d_string">"  Port: %d"</span>, serv.port);
+     writefln(<span class="d_string">"  Protocol: %s"</span>, serv.protocolName);
+     <span class="d_keyword">foreach</span> (string s; serv.aliases)
+          writefln(<span class="d_string">"  Alias: %s"</span>, s);
+ }
+ <span class="d_keyword">else</span>
+     writefln(<span class="d_string">"  No service for epmap."</span>);
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="name" href="#name">name</a>;
+<br>string[] <a class="symbol symbol-anchor" name="aliases" href="#aliases">aliases</a>;
+<br>ushort <a class="symbol symbol-anchor" name="port" href="#port">port</a>;
+<br>string <a class="symbol symbol-anchor" name="protocolName" href="#protocolName">protocolName</a>;
+</h3></div>
+
+<div class="declaration-content"><p>These members are populated when one of the following functions are called successfully:</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getServiceByName" href="#getServiceByName">getServiceByName</a>(in char[] <i>name</i>, in char[] <i>protocolName</i> = null);
+<br>bool <a class="symbol symbol-anchor" name="getServiceByPort" href="#getServiceByPort">getServiceByPort</a>(ushort <i>port</i>, in char[] <i>protocolName</i> = null);
+</h3></div>
+
+<div class="declaration-content"><p>If a protocol <i>name</i> is omitted, any protocol will be matched.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> on failure.</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="HostException" href="#HostException">HostException</a>: std.socket.SocketOSException;
+</h3></div>
+
+<div class="declaration-content"><p>Class for exceptions thrown from an <span class="inlinecode">InternetHost</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="InternetHost" href="#InternetHost">InternetHost</a>;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="InternetHost" href="#InternetHost">InternetHost</a></span> is a class for resolving IPv4 addresses.
+</p>
+
+<p>Consider using <span class="inlinecode">getAddress</span>, <span class="inlinecode">parseAddress</span> and <span class="inlinecode">Address</span> methods
+ instead of using this class directly.
+
+</p>
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_keyword">auto</span> ih = <span class="d_keyword">new</span> <u>InternetHost</u>;
+
+ <span class="d_comment">// Forward lookup
+</span>
+ writeln(<span class="d_string">"About www.digitalmars.com:"</span>);
+ <span class="d_keyword">if</span> (ih.getHostByName(<span class="d_string">"www.digitalmars.com"</span>))
+ {
+     writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
+     <span class="d_keyword">auto</span> ip = InternetAddress.addrToString(ih.addrList[0]);
+     writefln(<span class="d_string">"  IP address: %s"</span>, ip);
+     <span class="d_keyword">foreach</span> (string s; ih.aliases)
+          writefln(<span class="d_string">"  Alias: %s"</span>, s);
+     writeln(<span class="d_string">"---"</span>);
+
+     <span class="d_comment">// Reverse lookup
+</span>
+     writefln(<span class="d_string">"About IP %s:"</span>, ip);
+     <span class="d_keyword">if</span> (ih.getHostByAddr(ih.addrList[0]))
+     {
+         writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
+         <span class="d_keyword">foreach</span> (string s; ih.aliases)
+              writefln(<span class="d_string">"  Alias: %s"</span>, s);
+     }
+     <span class="d_keyword">else</span>
+         writeln(<span class="d_string">"  Reverse lookup failed"</span>);
+ }
+ <span class="d_keyword">else</span>
+     writeln(<span class="d_string">"  Can't resolve www.digitalmars.com"</span>);
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="name" href="#name">name</a>;
+<br>string[] <a class="symbol symbol-anchor" name="aliases" href="#aliases">aliases</a>;
+<br>uint[] <a class="symbol symbol-anchor" name="addrList" href="#addrList">addrList</a>;
+</h3></div>
+
+<div class="declaration-content"><p>These members are populated when one of the following functions are called successfully:</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getHostByName" href="#getHostByName">getHostByName</a>(in char[] <i>name</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Resolve host <i>name</i>.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> if unable to resolve.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getHostByAddr" href="#getHostByAddr">getHostByAddr</a>(uint <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Resolve IPv4 address number.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>addr</i></td>
+<td>The IPv4 address to resolve, in host byte order.</td>
+</tr>
+</table></div>
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> if unable to resolve.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="getHostByAddr" href="#getHostByAddr">getHostByAddr</a>(in char[] <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Same as previous, but <i>addr</i> is an IPv4 address string in the
+ dotted-decimal form <i>a.b.c.d</i>.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="d_keyword">false</span> if unable to resolve.</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="AddressInfo" href="#AddressInfo">AddressInfo</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Holds information about a socket address retrieved by <span class="inlinecode">getAddressInfo</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>AddressFamily <a class="symbol symbol-anchor" name="family" href="#family">family</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Address family</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>SocketType <a class="symbol symbol-anchor" name="type" href="#type">type</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Socket type</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ProtocolType <a class="symbol symbol-anchor" name="protocol" href="#protocol">protocol</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Protocol</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Address <a class="symbol symbol-anchor" name="address" href="#address">address</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Socket address</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="canonicalName" href="#canonicalName">canonicalName</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Canonical name, when <span class="inlinecode">AddressInfoFlags.CANONNAME</span> is used.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="AddressInfoFlags" href="#AddressInfoFlags">AddressInfoFlags</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Specifies option flags for <span class="inlinecode">getAddressInfo</span>.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="PASSIVE" href="#PASSIVE">PASSIVE</a></h3></div>
+
+<div class="declaration-content"><p>The resulting addresses will be used in a call to <span class="inlinecode">Socket.bind</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="CANONNAME" href="#CANONNAME">CANONNAME</a></h3></div>
+
+<div class="declaration-content"><p>The canonical name is returned in <span class="inlinecode">canonicalName</span> member in the first <span class="inlinecode">AddressInfo</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="NUMERICHOST" href="#NUMERICHOST">NUMERICHOST</a></h3></div>
+
+<div class="declaration-content"><p>The <span class="inlinecode">node</span> parameter passed to <span class="inlinecode">getAddressInfo</span> must be a numeric string.
+ This will suppress any potentially lengthy network host address lookups.</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>AddressInfo[] <a class="symbol symbol-anchor" name="getAddressInfo" href="#getAddressInfo">getAddressInfo</a>(T...)(in const(char[]) <i>node</i>, T <i>options</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Provides protocol-independent translation from host names to socket
+ addresses. If advanced functionality is not required, consider using
+ <span class="inlinecode">getAddress</span> for compatibility with older systems.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; Array with one <span class="inlinecode">AddressInfo</span> per socket address.
+
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketOSException</span> on failure, or <span class="inlinecode">SocketFeatureException</span>
+ if this functionality is not available on the current system.
+
+</div>
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">node</td>
+<td>string containing host name or numeric address</td>
+</tr>
+<tr><td class="span2">options</td>
+<td>optional additional parameters, identified by type:
+             <ul><li><span class="inlinecode">string</span> - service name or port number</li>
+                  <li><span class="inlinecode">AddressInfoFlags</span> - option flags</li>
+                  <li><span class="inlinecode">AddressFamily</span> - address family to filter by</li>
+                  <li><span class="inlinecode">SocketType</span> - socket type to filter by</li>
+                  <li><span class="inlinecode">ProtocolType</span> - protocol to filter by</li></ul></td>
+</tr>
+</table></div>
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_comment">// Roundtrip DNS resolution
+</span>
+ <span class="d_keyword">auto</span> results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>);
+ <span class="d_keyword">assert</span>(results[0].address.toHostNameString() ==
+     <span class="d_string">"digitalmars.com"</span>);
+
+ <span class="d_comment">// Canonical name
+</span>
+ results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>,
+     AddressInfoFlags.CANONNAME);
+ <span class="d_keyword">assert</span>(results[0].canonicalName == <span class="d_string">"digitalmars.com"</span>);
+
+ <span class="d_comment">// IPv6 resolution
+</span>
+ results = <u>getAddressInfo</u>(<span class="d_string">"ipv6.google.com"</span>);
+ <span class="d_keyword">assert</span>(results[0].family == AddressFamily.INET6);
+
+ <span class="d_comment">// Multihomed resolution
+</span>
+ results = <u>getAddressInfo</u>(<span class="d_string">"google.com"</span>);
+ <span class="d_keyword">assert</span>(results.length &gt; 1);
+
+ <span class="d_comment">// Parsing IPv4
+</span>
+ results = <u>getAddressInfo</u>(<span class="d_string">"127.0.0.1"</span>,
+     AddressInfoFlags.NUMERICHOST);
+ <span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
+     AddressFamily.INET);
+
+ <span class="d_comment">// Parsing IPv6
+</span>
+ results = <u>getAddressInfo</u>(<span class="d_string">"::1"</span>,
+     AddressInfoFlags.NUMERICHOST);
+ <span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
+     AddressFamily.INET6);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Address[] <a class="symbol symbol-anchor" name="getAddress" href="#getAddress">getAddress</a>(in char[] <i>hostname</i>, in char[] <i>service</i> = null);
+<br>Address[] <a class="symbol symbol-anchor" name="getAddress" href="#getAddress">getAddress</a>(in char[] <i>hostname</i>, ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Provides protocol-independent translation from host names to socket
+ addresses. Uses <span class="inlinecode">getAddressInfo</span> if the current system supports it,
+ and <span class="inlinecode">InternetHost</span> otherwise.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; Array with one <span class="inlinecode">Address</span> instance per socket address.
+
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketOSException</span> on failure.
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code"> writeln(<span class="d_string">"Resolving www.digitalmars.com:"</span>);
+ <span class="d_keyword">try</span>
+ {
+     <span class="d_keyword">auto</span> addresses = <u>getAddress</u>(<span class="d_string">"www.digitalmars.com"</span>);
+     <span class="d_keyword">foreach</span> (address; addresses)
+         writefln(<span class="d_string">"  IP: %s"</span>, address.toAddrString());
+ }
+ <span class="d_keyword">catch</span> (SocketException e)
+     writefln(<span class="d_string">"  Lookup failed: %s"</span>, e.msg);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Address <a class="symbol symbol-anchor" name="parseAddress" href="#parseAddress">parseAddress</a>(in char[] <i>hostaddr</i>, in char[] <i>service</i> = null);
+<br>Address <a class="symbol symbol-anchor" name="parseAddress" href="#parseAddress">parseAddress</a>(in char[] <i>hostaddr</i>, ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Provides protocol-independent parsing of network addresses. Does not
+ attempt name resolution. Uses <span class="inlinecode">getAddressInfo</span> with
+ <span class="inlinecode">AddressInfoFlags.NUMERICHOST</span> if the current system supports it, and
+ <span class="inlinecode">InternetAddress</span> otherwise.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; An <span class="inlinecode">Address</span> instance representing specified address.
+
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketException</span> on failure.
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code"> writeln(<span class="d_string">"Enter IP address:"</span>);
+ string ip = readln().chomp();
+ <span class="d_keyword">try</span>
+ {
+     Address address = <u>parseAddress</u>(ip);
+     writefln(<span class="d_string">"Looking up reverse of %s:"</span>,
+         address.toAddrString());
+     <span class="d_keyword">try</span>
+     {
+         string reverse = address.toHostNameString());
+         <span class="d_keyword">if</span> (reverse)
+             writefln(<span class="d_string">"  Reverse name: %s"</span>, reverse);
+         <span class="d_keyword">else</span>
+             writeln(<span class="d_string">"  Reverse hostname not found."</span>);
+     }
+     <span class="d_keyword">catch</span> (SocketException e)
+         writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
+ }
+ <span class="d_keyword">catch</span> (SocketException e)
+ {
+     writefln(<span class="d_string">"  %s is not a valid IP address: %s"</span>,
+         ip, e.msg);
+ }
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="AddressException" href="#AddressException">AddressException</a>: std.socket.SocketOSException;
+</h3></div>
+
+<div class="declaration-content"><p>Class for exceptions thrown from an <span class="inlinecode">Address</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>abstract class <a class="symbol symbol-anchor" name="Address" href="#Address">Address</a>;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Address" href="#Address">Address</a></span> is an abstract class for representing a socket addresses.
+</p>
+
+<b>Example:</b><br>
+<pre class="d_code"> writeln(<span class="d_string">"About www.google.com port 80:"</span>);
+ <span class="d_keyword">try</span>
+ {
+     <u>Address</u>[] addresses = getAddress(<span class="d_string">"www.google.com"</span>, 80);
+     writefln(<span class="d_string">"  %d addresses found."</span>, addresses.length);
+     <span class="d_keyword">foreach</span> (<span class="d_keyword">int</span> i, <u>Address</u> a; addresses)
+     {
+         writefln(<span class="d_string">"  Address %d:"</span>, i+1);
+         writefln(<span class="d_string">"    IP address: %s"</span>, a.toAddrString());
+         writefln(<span class="d_string">"    Hostname: %s"</span>, a.toHostNameString());
+         writefln(<span class="d_string">"    Port: %s"</span>, a.toPortString());
+         writefln(<span class="d_string">"    Service name: %s"</span>,
+             a.toServiceNameString());
+     }
+ }
+ <span class="d_keyword">catch</span> (SocketException e)
+     writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
+</pre>
+<br><br>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>sockaddr* <a class="symbol symbol-anchor" name="name" href="#name">name</a>();
+<br>abstract const const(sockaddr)* <a class="symbol symbol-anchor" name="name" href="#name">name</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns pointer to underlying <span class="inlinecode">sockaddr</span> structure.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>abstract const socklen_t <a class="symbol symbol-anchor" name="nameLen" href="#nameLen">nameLen</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns actual size of underlying <span class="inlinecode">sockaddr</span> structure.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property AddressFamily <a class="symbol symbol-anchor" name="addressFamily" href="#addressFamily">addressFamily</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Family of this address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toAddrString" href="#toAddrString">toAddrString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Attempts to retrieve the host address as a human-readable string.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">AddressException</span> on failure, or <span class="inlinecode">SocketFeatureException</span>
+ if address retrieval for this address family is not available on the
+ current system.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toHostNameString" href="#toHostNameString">toHostNameString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Attempts to retrieve the host name as a fully qualified domain name.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The FQDN corresponding to this <span class="inlinecode">Address</span>, or <span class="inlinecode"><span class="d_keyword">null</span></span> if
+ the host name did not resolve.
+
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">AddressException</span> on error, or <span class="inlinecode">SocketFeatureException</span>
+ if host name lookup for this address family is not available on the
+ current system.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toPortString" href="#toPortString">toPortString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Attempts to retrieve the numeric port number as a string.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">AddressException</span> on failure, or <span class="inlinecode">SocketFeatureException</span>
+ if port number retrieval for this address family is not available on the
+ current system.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toServiceNameString" href="#toServiceNameString">toServiceNameString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Attempts to retrieve the service name as a string.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">AddressException</span> on failure, or <span class="inlinecode">SocketFeatureException</span>
+ if service name lookup for this address family is not available on the
+ current system.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Human readable string representing this address.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UnknownAddress" href="#UnknownAddress">UnknownAddress</a>: std.socket.Address;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="UnknownAddress" href="#UnknownAddress">UnknownAddress</a></span> encapsulates an unknown socket address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UnknownAddressReference" href="#UnknownAddressReference">UnknownAddressReference</a>: std.socket.Address;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="UnknownAddressReference" href="#UnknownAddressReference">UnknownAddressReference</a></span> encapsulates a reference to an arbitrary
+ socket address.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(sockaddr* <i>sa</i>, uint <i>len</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructs an <span class="inlinecode">Address</span> with a reference to the specified <span class="inlinecode">sockaddr</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(sockaddr)* <i>sa</i>, uint <i>len</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructs an <span class="inlinecode">Address</span> with a copy of the specified <span class="inlinecode">sockaddr</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="InternetAddress" href="#InternetAddress">InternetAddress</a>: std.socket.Address;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="InternetAddress" href="#InternetAddress">InternetAddress</a></span> encapsulates an IPv4 (Internet Protocol version 4)
+ socket address.
+</p>
+
+<p>Consider using <span class="inlinecode">getAddress</span>, <span class="inlinecode">parseAddress</span> and <span class="inlinecode">Address</span> methods
+ instead of using this class directly.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="ADDR_ANY" href="#ADDR_ANY">ADDR_ANY</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Any IPv4 host address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="ADDR_NONE" href="#ADDR_NONE">ADDR_NONE</a>;
+</h3></div>
+
+<div class="declaration-content"><p>An invalid IPv4 host address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="PORT_ANY" href="#PORT_ANY">PORT_ANY</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Any IPv4 port number.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const ushort <a class="symbol symbol-anchor" name="port" href="#port">port</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the IPv4 port number (in host byte order).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const uint <a class="symbol symbol-anchor" name="addr" href="#addr">addr</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the IPv4 address number (in host byte order).</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>addr</i>, ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construct a new <span class="inlinecode">InternetAddress</span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>addr</i></td>
+<td>an IPv4 address string in the dotted-decimal form a.b.c.d,
+          or a host name which will be resolved using an <span class="inlinecode">InternetHost</span>
+          object.</td>
+</tr>
+<tr><td class="span2">ushort <i>port</i></td>
+<td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(uint <i>addr</i>, ushort <i>port</i>);
+<br>this(ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construct a new <span class="inlinecode">InternetAddress</span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>addr</i></td>
+<td>(optional) an IPv4 address in host byte order, may be <span class="inlinecode">ADDR_ANY</span>.</td>
+</tr>
+<tr><td class="span2">ushort <i>port</i></td>
+<td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toAddrString" href="#toAddrString">toAddrString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Human readable string representing the IPv4 address in dotted-decimal form.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toPortString" href="#toPortString">toPortString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Human readable string representing the IPv4 port.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const string <a class="symbol symbol-anchor" name="toHostNameString" href="#toHostNameString">toHostNameString</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Attempts to retrieve the host name as a fully qualified domain name.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The FQDN corresponding to this <span class="inlinecode">InternetAddress</span>, or
+ <span class="inlinecode"><span class="d_keyword">null</span></span> if the host name did not resolve.
+
+</div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">AddressException</span> on error.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static uint <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(in char[] <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Parse an IPv4 address string in the dotted-decimal form <i>a.b.c.d</i>
+ and return the number.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; If the string is not a legitimate IPv4 address,
+ <span class="inlinecode">ADDR_NONE</span> is returned.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static string <a class="symbol symbol-anchor" name="addrToString" href="#addrToString">addrToString</a>(uint <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Convert an IPv4 address number in host byte order to a human readable
+ string representing the IPv4 address in dotted-decimal form.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Internet6Address" href="#Internet6Address">Internet6Address</a>: std.socket.Address;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Internet6Address" href="#Internet6Address">Internet6Address</a></span> encapsulates an IPv6 (Internet Protocol version 6)
+ socket address.
+</p>
+
+<p>Consider using <span class="inlinecode">getAddress</span>, <span class="inlinecode">parseAddress</span> and <span class="inlinecode">Address</span> methods
+ instead of using this class directly.</p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>static @property ref const(ubyte)[16u] <a class="symbol symbol-anchor" name="ADDR_ANY" href="#ADDR_ANY">ADDR_ANY</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Any IPv6 host address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="PORT_ANY" href="#PORT_ANY">PORT_ANY</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Any IPv6 port number.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const ushort <a class="symbol symbol-anchor" name="port" href="#port">port</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the IPv6 <a class="symbol symbol-anchor" name="port" href="#port">port</a> number.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const ubyte[16u] <a class="symbol symbol-anchor" name="addr" href="#addr">addr</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the IPv6 address.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>node</i>, const(char[]) <i>service</i> = null);
+</h3></div>
+
+<div class="declaration-content"><p>Construct a new <span class="inlinecode">Internet6Address</span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>node</i></td>
+<td>an IPv6 host address string in the form described in RFC 2373,
+          or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
+</tr>
+<tr><td class="span2">port</td>
+<td>(optional) <i>service</i> name or port number.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>node</i>, ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construct a new <span class="inlinecode">Internet6Address</span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">addr</td>
+<td>an IPv6 host address string in the form described in RFC 2373,
+          or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
+</tr>
+<tr><td class="span2">ushort <i>port</i></td>
+<td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(ubyte[16u] <i>addr</i>, ushort <i>port</i>);
+<br>this(ushort <i>port</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Construct a new <span class="inlinecode">Internet6Address</span>.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">ubyte[16u] <i>addr</i></td>
+<td>(optional) an IPv6 host address in host byte order, or
+                <span class="inlinecode">ADDR_ANY</span>.</td>
+</tr>
+<tr><td class="span2">ushort <i>port</i></td>
+<td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
+</tr>
+</table></div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static ubyte[16u] <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(in char[] <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Parse an IPv6 host address string as described in RFC 2373, and return the
+ address.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketException</span> on error.</div>
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketAcceptException" href="#SocketAcceptException">SocketAcceptException</a>: std.socket.SocketOSException;
+</h3></div>
+
+<div class="declaration-content"><p>Class for exceptions thrown by <span class="inlinecode">Socket.accept</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SocketShutdown" href="#SocketShutdown">SocketShutdown</a>;
+</h3></div>
+
+<div class="declaration-content"><p>How a socket is shutdown:</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RECEIVE" href="#RECEIVE">RECEIVE</a></h3></div>
+
+<div class="declaration-content"><p>socket receives are disallowed</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SEND" href="#SEND">SEND</a></h3></div>
+
+<div class="declaration-content"><p>socket sends are disallowed</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="BOTH" href="#BOTH">BOTH</a></h3></div>
+
+<div class="declaration-content"><p>both RECEIVE and SEND</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SocketFlags" href="#SocketFlags">SocketFlags</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Flags may be OR'ed together:</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="NONE" href="#NONE">NONE</a></h3></div>
+
+<div class="declaration-content"><p>no flags specified</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="OOB" href="#OOB">OOB</a></h3></div>
+
+<div class="declaration-content"><p>out-of-band stream data</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="PEEK" href="#PEEK">PEEK</a></h3></div>
+
+<div class="declaration-content"><p>peek at incoming data without removing it from the queue, only for receiving</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="DONTROUTE" href="#DONTROUTE">DONTROUTE</a></h3></div>
+
+<div class="declaration-content"><p>data should not be subject to routing; this flag may be ignored. Only for sending</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="TimeVal" href="#TimeVal">TimeVal</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Duration timeout value.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="timeval" href="#timeval">timeval</a>;
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Scheduled for deprecation. Please use <span class="inlinecode">TimeVal</span> instead.</font></p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketSet" href="#SocketSet">SocketSet</a>;
+</h3></div>
+
+<div class="declaration-content"><p>A collection of sockets for use with <span class="inlinecode">Socket.select</span>.
+</p>
+
+<p><span class="inlinecode"><a class="symbol symbol-anchor" name="SocketSet" href="#SocketSet">SocketSet</a></span> allows specifying the capacity of the underlying
+ <span class="inlinecode">fd_set</span>, however users should be aware that the exact meaning of this
+ value varies depending on the current platform:
+ <ul><li>On POSIX, <span class="inlinecode">fd_set</span> is a bit array of file descriptors. The
+ <span class="inlinecode"><a class="symbol symbol-anchor" name="SocketSet" href="#SocketSet">SocketSet</a></span> capacity specifies the highest file descriptor which can be
+ stored in the set.</li>
+ <li>on Windows, <span class="inlinecode">fd_set</span> is an array of socket handles. Capacity
+ indicates the actual number of sockets that can be stored in the set.</li></ul></p>
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>max</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Set the capacity of this <span class="inlinecode">SocketSet</span>. The exact meaning of the
+ <span class="inlinecode"><i>max</i></span> parameter varies from platform to platform.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketParameterException</span> if <span class="inlinecode"><i>max</i></span> exceeds this
+ platform's maximum socket set size.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this();
+</h3></div>
+
+<div class="declaration-content"><p>Uses the default capacity for the system.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reset" href="#reset">reset</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Reset the <span class="inlinecode">SocketSet</span> so that there are 0 <span class="inlinecode">Socket</span>s in the collection.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="add" href="#add">add</a>(Socket <i>s</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Add a <span class="inlinecode">Socket</span> to the collection.
+</p>
+
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketParameterException</span> if the capacity of this
+ <span class="inlinecode">SocketSet</span> has been exceeded.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(Socket <i>s</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Remove this <span class="inlinecode">Socket</span> from the collection.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const int <a class="symbol symbol-anchor" name="isSet" href="#isSet">isSet</a>(Socket <i>s</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Returns nonzero if this <span class="inlinecode">Socket</span> is in the collection.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property uint <a class="symbol symbol-anchor" name="max" href="#max">max</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Return the capacity of this <span class="inlinecode">SocketSet</span>. The exact meaning of the
+ return value varies from platform to platform.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SocketOptionLevel" href="#SocketOptionLevel">SocketOptionLevel</a>;
+</h3></div>
+
+<div class="declaration-content"><p>The level at which a socket option is defined:</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SOCKET" href="#SOCKET">SOCKET</a></h3></div>
+
+<div class="declaration-content"><p>Socket level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IP" href="#IP">IP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 4 level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ICMP" href="#ICMP">ICMP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Control Message Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IGMP" href="#IGMP">IGMP</a></h3></div>
+
+<div class="declaration-content"><p>Internet Group Management Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="GGP" href="#GGP">GGP</a></h3></div>
+
+<div class="declaration-content"><p>Gateway to Gateway Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="TCP" href="#TCP">TCP</a></h3></div>
+
+<div class="declaration-content"><p>Transmission Control Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="PUP" href="#PUP">PUP</a></h3></div>
+
+<div class="declaration-content"><p>PARC Universal Packet Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UDP" href="#UDP">UDP</a></h3></div>
+
+<div class="declaration-content"><p>User Datagram Protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IDP" href="#IDP">IDP</a></h3></div>
+
+<div class="declaration-content"><p>Xerox NS protocol level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RAW" href="#RAW">RAW</a></h3></div>
+
+<div class="declaration-content"><p>Raw IP packet level</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6" href="#IPV6">IPV6</a></h3></div>
+
+<div class="declaration-content"><p>Internet Protocol version 6 level</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Linger" href="#Linger">Linger</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Linger information for use with SocketOption.LINGER.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="linger" href="#linger">linger</a>;
+</h3></div>
+
+<div class="declaration-content"><p><font color=red>Scheduled for deprecation. Please use <span class="inlinecode">Linger</span> instead.</font></p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SocketOption" href="#SocketOption">SocketOption</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Specifies a socket option:</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="DEBUG" href="#DEBUG">DEBUG</a></h3></div>
+
+<div class="declaration-content"><p>Record debugging information</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="BROADCAST" href="#BROADCAST">BROADCAST</a></h3></div>
+
+<div class="declaration-content"><p>Allow transmission of broadcast messages</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="REUSEADDR" href="#REUSEADDR">REUSEADDR</a></h3></div>
+
+<div class="declaration-content"><p>Allow local reuse of address</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="LINGER" href="#LINGER">LINGER</a></h3></div>
+
+<div class="declaration-content"><p>Linger on close if unsent data is present</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="OOBINLINE" href="#OOBINLINE">OOBINLINE</a></h3></div>
+
+<div class="declaration-content"><p>Receive out-of-band data in band</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SNDBUF" href="#SNDBUF">SNDBUF</a></h3></div>
+
+<div class="declaration-content"><p>Send buffer size</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RCVBUF" href="#RCVBUF">RCVBUF</a></h3></div>
+
+<div class="declaration-content"><p>Receive buffer size</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="DONTROUTE" href="#DONTROUTE">DONTROUTE</a></h3></div>
+
+<div class="declaration-content"><p>Do not route</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SNDTIMEO" href="#SNDTIMEO">SNDTIMEO</a></h3></div>
+
+<div class="declaration-content"><p>Send timeout</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RCVTIMEO" href="#RCVTIMEO">RCVTIMEO</a></h3></div>
+
+<div class="declaration-content"><p>Receive timeout</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ERROR" href="#ERROR">ERROR</a></h3></div>
+
+<div class="declaration-content"><p>Retrieve and clear error status</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="KEEPALIVE" href="#KEEPALIVE">KEEPALIVE</a></h3></div>
+
+<div class="declaration-content"><p>Enable keep-alive packets</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ACCEPTCONN" href="#ACCEPTCONN">ACCEPTCONN</a></h3></div>
+
+<div class="declaration-content"><p>Listen</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="RCVLOWAT" href="#RCVLOWAT">RCVLOWAT</a></h3></div>
+
+<div class="declaration-content"><p>Minimum number of input bytes to process</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="SNDLOWAT" href="#SNDLOWAT">SNDLOWAT</a></h3></div>
+
+<div class="declaration-content"><p>Minimum number of output bytes to process</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="TYPE" href="#TYPE">TYPE</a></h3></div>
+
+<div class="declaration-content"><p>Socket type</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="TCP_NODELAY" href="#TCP_NODELAY">TCP_NODELAY</a></h3></div>
+
+<div class="declaration-content"><p>Disable the Nagle algorithm for send coalescing</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_UNICAST_HOPS" href="#IPV6_UNICAST_HOPS">IPV6_UNICAST_HOPS</a></h3></div>
+
+<div class="declaration-content"><p>IP unicast hop limit</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_MULTICAST_IF" href="#IPV6_MULTICAST_IF">IPV6_MULTICAST_IF</a></h3></div>
+
+<div class="declaration-content"><p>IP multicast interface</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_MULTICAST_LOOP" href="#IPV6_MULTICAST_LOOP">IPV6_MULTICAST_LOOP</a></h3></div>
+
+<div class="declaration-content"><p>IP multicast loopback</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_MULTICAST_HOPS" href="#IPV6_MULTICAST_HOPS">IPV6_MULTICAST_HOPS</a></h3></div>
+
+<div class="declaration-content"><p>IP multicast hops</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_JOIN_GROUP" href="#IPV6_JOIN_GROUP">IPV6_JOIN_GROUP</a></h3></div>
+
+<div class="declaration-content"><p>Add an IP group membership</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_LEAVE_GROUP" href="#IPV6_LEAVE_GROUP">IPV6_LEAVE_GROUP</a></h3></div>
+
+<div class="declaration-content"><p>Drop an IP group membership</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="IPV6_V6ONLY" href="#IPV6_V6ONLY">IPV6_V6ONLY</a></h3></div>
+
+<div class="declaration-content"><p>Treat wildcard bind as AF_INET6-only</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Socket" href="#Socket">Socket</a>;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Socket" href="#Socket">Socket</a></span> is a class that creates a network communication endpoint using
+ the Berkeley sockets interface.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>af</i>, SocketType <i>type</i>, ProtocolType <i>protocol</i>);
+<br>this(AddressFamily <i>af</i>, SocketType <i>type</i>);
+<br>this(AddressFamily <i>af</i>, SocketType <i>type</i>, const(char[]) <i>protocolName</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Create a blocking socket. If a single <i>protocol</i> <i>type</i> exists to support
+ this socket <i>type</i> within the address family, the <span class="inlinecode">ProtocolType</span> may be
+ omitted.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(AddressInfo) <i>info</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Create a blocking socket using the parameters from the specified
+ <span class="inlinecode">AddressInfo</span> structure.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(socket_t <i>sock</i>, AddressFamily <i>af</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Use an existing socket handle.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property socket_t <a class="symbol symbol-anchor" name="handle" href="#handle">handle</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Get underlying socket <a class="symbol symbol-anchor" name="handle" href="#handle">handle</a>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property bool <a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a>();
+<br>@property void <a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a>(bool <i>byes</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get/set socket's <a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a> flag.
+</p>
+
+<p>When a socket is <a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a>, calls to receive(), accept(), and send()
+ will block and wait for data/action.
+ A non-<a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a> socket will immediately return instead of <a class="symbol symbol-anchor" name="blocking" href="#blocking">blocking</a>.</p>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property AddressFamily <a class="symbol symbol-anchor" name="addressFamily" href="#addressFamily">addressFamily</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Get the socket's address family.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const @property bool <a class="symbol symbol-anchor" name="isAlive" href="#isAlive">isAlive</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Property that indicates if this is a valid, alive socket.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="bind" href="#bind">bind</a>(Address <i>addr</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Associate a local address with this socket.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(Address <i>to</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Establish a connection. If the socket is blocking, <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> waits for
+ the connection <i>to</i> be made. If the socket is nonblocking, <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>
+ returns immediately and the connection attempt is still in progress.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="listen" href="#listen">listen</a>(int <i>backlog</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Listen for an incoming connection. <span class="inlinecode">bind</span> must be called before you
+ can <span class="inlinecode"><a class="symbol symbol-anchor" name="listen" href="#listen">listen</a></span>. The <span class="inlinecode"><i>backlog</i></span> is a request of how many pending
+ incoming connections are queued until <span class="inlinecode">accept</span>ed.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>protected Socket <a class="symbol symbol-anchor" name="accepting" href="#accepting">accepting</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Called by <span class="inlinecode">accept</span> when a new <span class="inlinecode">Socket</span> must be created for a new
+ connection. To use a derived class, override this method and return an
+ instance of your class. The returned <span class="inlinecode">Socket</span>'s handle must not be
+ set; <span class="inlinecode">Socket</span> has a protected constructor <span class="inlinecode">this()</span> to use in this
+ situation.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Socket <a class="symbol symbol-anchor" name="accept" href="#accept">accept</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Accept an incoming connection. If the socket is blocking, <span class="inlinecode"><a class="symbol symbol-anchor" name="accept" href="#accept">accept</a></span>
+ waits for a connection request. Throws <span class="inlinecode">SocketAcceptException</span> if
+ unable to accept. See <span class="inlinecode">accepting</span> for use with derived classes.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="shutdown" href="#shutdown">shutdown</a>(SocketShutdown <i>how</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Disables sends and/or receives.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="close" href="#close">close</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Immediately drop any connections and release socket resources.
+ Calling <span class="inlinecode">shutdown</span> before <span class="inlinecode"><a class="symbol symbol-anchor" name="close" href="#close">close</a></span> is recommended for
+ connection-oriented sockets. The <span class="inlinecode">Socket</span> object is no longer
+ usable after <span class="inlinecode"><a class="symbol symbol-anchor" name="close" href="#close">close</a></span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static string <a class="symbol symbol-anchor" name="hostName" href="#hostName">hostName</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns the local machine's host name.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Address <a class="symbol symbol-anchor" name="remoteAddress" href="#remoteAddress">remoteAddress</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Remote endpoint <span class="inlinecode">Address</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Address <a class="symbol symbol-anchor" name="localAddress" href="#localAddress">localAddress</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Local endpoint <span class="inlinecode">Address</span>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="ERROR" href="#ERROR">ERROR</a>;
+</h3></div>
+
+<div class="declaration-content"><p>Send or receive error code. See <span class="inlinecode">wouldHaveBlocked</span>,
+ <span class="inlinecode">lastSocketError</span> and <span class="inlinecode">Socket.getErrorText</span> for obtaining more
+ information about the error.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <a class="symbol symbol-anchor" name="send" href="#send">send</a>(const(void)[] <i>buf</i>, SocketFlags <i>flags</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="send" href="#send">send</a>(const(void)[] <i>buf</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Send data on the connection. If the socket is blocking and there is no
+ buffer space left, <span class="inlinecode"><a class="symbol symbol-anchor" name="send" href="#send">send</a></span> waits.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of bytes actually sent, or <span class="inlinecode">Socket.ERROR</span> on
+ failure.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <a class="symbol symbol-anchor" name="sendTo" href="#sendTo">sendTo</a>(const(void)[] <i>buf</i>, SocketFlags <i>flags</i>, Address <i>to</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="sendTo" href="#sendTo">sendTo</a>(const(void)[] <i>buf</i>, Address <i>to</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="sendTo" href="#sendTo">sendTo</a>(const(void)[] <i>buf</i>, SocketFlags <i>flags</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="sendTo" href="#sendTo">sendTo</a>(const(void)[] <i>buf</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Send data <i>to</i> a specific destination Address. If the destination address is
+ not specified, a connection must have been made and that address is used.
+ If the socket is blocking and there is no buffer space left, <span class="inlinecode"><a class="symbol symbol-anchor" name="sendTo" href="#sendTo">sendTo</a></span> waits.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of bytes actually sent, or <span class="inlinecode">Socket.ERROR</span> on
+ failure.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <a class="symbol symbol-anchor" name="receive" href="#receive">receive</a>(void[] <i>buf</i>, SocketFlags <i>flags</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="receive" href="#receive">receive</a>(void[] <i>buf</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Receive data on the connection. If the socket is blocking, <span class="inlinecode"><a class="symbol symbol-anchor" name="receive" href="#receive">receive</a></span>
+ waits until there is data to be received.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of bytes actually received, <span class="inlinecode">0</span> if the remote side
+ has closed the connection, or <span class="inlinecode">Socket.ERROR</span> on failure.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <a class="symbol symbol-anchor" name="receiveFrom" href="#receiveFrom">receiveFrom</a>(void[] <i>buf</i>, SocketFlags <i>flags</i>, ref Address <i>from</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="receiveFrom" href="#receiveFrom">receiveFrom</a>(void[] <i>buf</i>, ref Address <i>from</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="receiveFrom" href="#receiveFrom">receiveFrom</a>(void[] <i>buf</i>, SocketFlags <i>flags</i>);
+<br>ptrdiff_t <a class="symbol symbol-anchor" name="receiveFrom" href="#receiveFrom">receiveFrom</a>(void[] <i>buf</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Receive data and get the remote endpoint <span class="inlinecode">Address</span>.
+ If the socket is blocking, <span class="inlinecode"><a class="symbol symbol-anchor" name="receiveFrom" href="#receiveFrom">receiveFrom</a></span> waits until there is data to
+ be received.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of bytes actually received, <span class="inlinecode">0</span> if the remote side
+ has closed the connection, or <span class="inlinecode">Socket.ERROR</span> on failure.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="getOption" href="#getOption">getOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, void[] <i>result</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get a socket <i>option</i>.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of bytes written to <span class="inlinecode"><i>result</i></span>.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="getOption" href="#getOption">getOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, out int32_t <i>result</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Common case of getting integer and boolean options.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="getOption" href="#getOption">getOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, out Linger <i>result</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get the linger <i>option</i>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getOption" href="#getOption">getOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, out Duration <i>result</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Get a timeout (duration) <i>option</i>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setOption" href="#setOption">setOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, int32_t <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Common case for setting integer and boolean options.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setOption" href="#setOption">setOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, Linger <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Set the linger <i>option</i>.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setOption" href="#setOption">setOption</a>(SocketOptionLevel <i>level</i>, SocketOption <i>option</i>, Duration <i>value</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Sets a timeout (duration) <i>option</i>, i.e. <span class="inlinecode">SocketOption.SNDTIMEO</span> or
+ <span class="inlinecode">RCVTIMEO</span>. Zero indicates no timeout.
+</p>
+
+<p>In a typical application, you might also want to consider using
+ a non-blocking socket instead of setting a timeout on a blocking one.
+
+</p>
+<b>Note:</b><br>
+While the receive timeout setting is generally quite accurate
+ on *nix systems even for smaller durations, there are two issues to
+ be aware of on Windows: First, although undocumented, the effective
+ timeout duration seems to be the one set on the socket plus half
+ a second. <span class="inlinecode"><a class="symbol symbol-anchor" name="setOption" href="#setOption">setOption</a>()</span> tries to compensate for that, but still,
+ timeouts under 500ms are not possible on Windows. Second, be aware
+ that the actual amount of time spent until a blocking call returns
+ randomly varies on the order of 10ms.
+
+<br><br>
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">Duration <i>value</i></td>
+<td>The timeout duration to set. Must not be negative.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketException</span> if setting the options fails.
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_keyword">import</span> std.datetime;
+ <span class="d_keyword">auto</span> pair = socketPair();
+ <span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
+
+ <span class="d_comment">// Set a receive timeout, and then wait at one end of
+</span>
+ <span class="d_comment">// the socket pair, knowing that no data will arrive.
+</span>
+ pair[0].<u>setOption</u>(SocketOptionLevel.SOCKET,
+     SocketOption.RCVTIMEO, dur!<span class="d_string">"seconds"</span>(1));
+
+ <span class="d_keyword">auto</span> sw = StopWatch(AutoStart.yes);
+ <span class="d_keyword">ubyte</span>[1] buffer;
+ pair[0].receive(buffer);
+ writefln(<span class="d_string">"Waited %s ms until the socket timed out."</span>,
+     sw.peek.msecs);
+</pre>
+<br><br>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getErrorText" href="#getErrorText">getErrorText</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Get a text description of this socket's error status, and clear the
+ socket's error status.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setKeepAlive" href="#setKeepAlive">setKeepAlive</a>(int <i>time</i>, int <i>interval</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Enables TCP keep-alive with the specified parameters.
+</p>
+
+<b>Parameters</b> <div><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>time</i></td>
+<td>Number of seconds with no activity until the first
+              keep-alive packet is sent.</td>
+</tr>
+<tr><td class="span2">int <i>interval</i></td>
+<td>Number of seconds between when successive keep-alive
+              packets are sent if no acknowledgement is received.</td>
+</tr>
+</table></div>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketOSException</span> if setting the options fails, or
+ <span class="inlinecode">SocketFeatureException</span> if setting keep-alive parameters is
+ unsupported on the current platform.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>static int <a class="symbol symbol-anchor" name="select" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, TimeVal* <i>tv</i>);
+<br>static int <a class="symbol symbol-anchor" name="select" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, long <i>microseconds</i>);
+<br>static int <a class="symbol symbol-anchor" name="select" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, Duration <i>duration</i>);
+<br>static int <a class="symbol symbol-anchor" name="select" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Wait for a socket to change status. A wait timeout <span class="inlinecode">TimeVal</span>,
+ <span class="inlinecode">Duration</span> or <span class="inlinecode">long</span> microseconds may be specified; if a timeout
+ is not specified or the <span class="inlinecode">TimeVal</span> is <span class="inlinecode"><span class="d_keyword">null</span></span>, the maximum timeout
+ is used. The <span class="inlinecode">TimeVal</span> timeout has an unspecified value when
+ <span class="inlinecode"><a class="symbol symbol-anchor" name="select" href="#select">select</a></span> returns.
+</p>
+
+<div><b>Returns</b>:<br/> &nbsp; &nbsp; &nbsp; The number of sockets with status changes, <span class="inlinecode">0</span> on timeout,
+ or <span class="inlinecode">-1</span> on interruption. If the return value is greater than <span class="inlinecode">0</span>,
+ the <span class="inlinecode">SocketSets</span> are updated to only contain the sockets having status
+ changes. For a connecting socket, a write status change means the
+ connection is established and it's able to send. For a listening socket,
+ a read status change means there is an incoming connection request and
+ it's able to accept.</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>protected Address <a class="symbol symbol-anchor" name="createAddress" href="#createAddress">createAddress</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Returns a new Address object for the current address family.
+ Can be overridden to support other addresses.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TcpSocket" href="#TcpSocket">TcpSocket</a>: std.socket.Socket;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="TcpSocket" href="#TcpSocket">TcpSocket</a></span> is a shortcut class for a TCP Socket.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>family</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructs a blocking TCP Socket.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this();
+</h3></div>
+
+<div class="declaration-content"><p>Constructs a blocking IPv4 TCP Socket.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(Address <i>connectTo</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructs a blocking TCP Socket and connects to an <span class="inlinecode">Address</span>.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UdpSocket" href="#UdpSocket">UdpSocket</a>: std.socket.Socket;
+</h3></div>
+
+<div class="declaration-content"><p><span class="inlinecode"><a class="symbol symbol-anchor" name="UdpSocket" href="#UdpSocket">UdpSocket</a></span> is a shortcut class for a UDP Socket.</p>
+
+
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>family</i>);
+</h3></div>
+
+<div class="declaration-content"><p>Constructs a blocking UDP Socket.</p>
+
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this();
+</h3></div>
+
+<div class="declaration-content"><p>Constructs a blocking IPv4 UDP Socket.</p>
+
+
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Socket[2u] <a class="symbol symbol-anchor" name="socketPair" href="#socketPair">socketPair</a>();
+</h3></div>
+
+<div class="declaration-content"><p>Creates a pair of connected sockets.
+</p>
+
+<p>The two sockets are indistinguishable.
+
+</p>
+<div><b>Throws</b>:<br/> &nbsp; &nbsp; &nbsp; <span class="inlinecode">SocketException</span> if creation of the sockets fails.
+
+</div>
+<b>Example:</b><br>
+<pre class="d_code"> <span class="d_keyword">immutable</span> <span class="d_keyword">ubyte</span>[] data = [1, 2, 3, 4];
+ <span class="d_keyword">auto</span> pair = <u>socketPair</u>();
+ <span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
+
+ pair[0].send(data);
+
+ <span class="d_keyword">auto</span> buf = <span class="d_keyword">new</span> <span class="d_keyword">ubyte</span>[data.length];
+ pair[1].receive(buf);
+ <span class="d_keyword">assert</span>(buf == data);
+</pre>
+<br><br>
+
+</div>
+
+
+
+				</div>
+			</div>
+			
+			<hr>
+			
+			<div class="pull-right">
+				<footer>
+					<p>&copy; Your Name Here 2012-2012</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+
