@@ -1,6 +1,5 @@
 MODULES = 
 	$(MODULE index)
-	$(MODULE crc32)
 	$(MODULE etc.c.curl)
 	$(MODULE etc.c.sqlite3)
 	$(MODULE etc.c.zlib)
