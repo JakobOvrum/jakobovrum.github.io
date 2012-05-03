@@ -3,6 +3,7 @@ REFERENCETOP = index.html
 REPOSRCTREE = https://github.com/D-Programming-Language/phobos/tree/master
 TITLEBARTEXT = <a href="https://github.com/D-Programming-Language/phobos">Github Page</a>
 RESOURCEROOT = bootDoc/
+PACKAGESEP = .
 FAVICON = favicon.ico
 LOGOSRC = dlogo-small.png
 LOGOALT = The D Programming Language
