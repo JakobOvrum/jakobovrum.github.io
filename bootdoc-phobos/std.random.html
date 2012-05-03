@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.random - Phobos documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.random';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master';
+		var PackageSeparator = '.';
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<!--
+	JavaScript reaps the module list from this element.
+	This is required for the MODULES macro to be reusable
+	in a noscript element later.
+	-->
+	<ul id="module-list-source" class="hidden">
+		
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+	</ul>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Phobos</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.random" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header sidebar-list-entry">Modules<li>
+					<noscript>
+						
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+					</noscript>
+					<li id="symbol-list" class="nav-header sidebar-list-entry hidden">std.random</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.random</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo-small.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\random.d -->
+<dl><p>Facilities for <a class="symbol symbol-anchor" name="random" href="#random">random</a> number generation. The old-style functions
+<b>rand_seed</b> and <b>rand</b> will soon be deprecated as
+they rely on global state and as such are subjected to various
+thread-related issues.
+</p>
+
+<p>The new-style generator objects hold their own state so they are
+immune of threading issues. The generators feature a number of
+well-known and well-documented methods of generating <a class="symbol symbol-anchor" name="random" href="#random">random</a>
+numbers. An overall fast and reliable means to generate <a class="symbol symbol-anchor" name="random" href="#random">random</a> numbers
+is the <b>Mt19937</b> generator, which derives its name from
+"<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a> with a period of 2 to the power of
+19937". In memory-constrained situations, <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=linear congruential">linear congruential</a>
+generators such as <span class="inlinecode">MinstdRand0</span> and <span class="inlinecode">MinstdRand</span> might be
+useful. The standard library provides an alias <b>Random</b> for
+whichever generator it considers the most fit for the target
+environment.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// Generate a uniformly-distributed integer in the range [0, 14]
+</span>
+<span class="d_keyword">auto</span> i = uniform(0, 15);
+<span class="d_comment">// Generate a uniformly-distributed real in the range [0, 100)
+</span>
+<span class="d_comment">// using a specific random generator
+</span>
+Random gen;
+<span class="d_keyword">auto</span> r = uniform(0.0L, 100.0L, gen);
+</pre>
+
+In addition to <a class="symbol symbol-anchor" name="random" href="#random">random</a> number generators, this module features
+distributions, which skew a generator's output statistical
+distribution in various ways. So far the uniform distribution for
+integers and real numbers have been implemented.
+
+</dd>
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/random.d">std/random.d</a>
+
+</dd>
+<dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</dd>
+
+<dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
+           Masahiro Nakagawa (Xorshift randome generator)
+</dd>
+
+<dt>Credits:</dt><dd>
+The entire <a class="symbol symbol-anchor" name="random" href="#random">random</a> number library architecture is derived from the
+           excellent <a href="http://open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2461.pdf">C++0X</a>
+           <a class="symbol symbol-anchor" name="random" href="#random">random</a> number facility proposed by Jens Maurer and contributed to by
+           researchers at the Fermi laboratory(excluding Xorshift).</dd>
+</dl>
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng,ElementType)<br>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng)</h3></div>
+
+
+<div class="declaration-content"><dl><p>Test if Rng is a random-number generator. The overload
+ taking a ElementType also makes sure that the Rng generates
+ values of that type.
+</p>
+
+<p>A random-number generator has at least the following features:
+ <ul>  <li>it's an InputRange</li>
+   <li>it has a 'bool isUniformRandom' field readable in CTFE</li>
+ </ul></p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSeedable" href="#isSeedable">isSeedable</a>(Rng,ElementType)<br>template <a class="symbol symbol-anchor" name="isSeedable" href="#isSeedable">isSeedable</a>(Rng)</h3></div>
+
+
+<div class="declaration-content"><dl><p>Test if Rng is seedable. The overload
+ taking a ElementType also makes sure that the Rng generates
+ values of that type.
+</p>
+
+<p>A seedable random-number generator has the following additional features:
+ <ul>  <li>it has a 'seed(ElementType)' function</li>
+ </ul></p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="LinearCongruentialEngine" href="#LinearCongruentialEngine">LinearCongruentialEngine</a>(UIntType,UIntType a,UIntType c,UIntType m);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Linear Congruential generator.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Mark this as a Rng</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="hasFixedRange" href="#hasFixedRange">hasFixedRange</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Does this generator have a fixed range? (<b><span class="d_keyword">true</span></b>).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Lowest generated value (<span class="inlinecode">1</span> if <span class="inlinecode">c == 0</span>, <span class="inlinecode">0</span> otherwise).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Highest generated value (<span class="inlinecode">modulus - 1</span>).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="multiplier" href="#multiplier">multiplier</a>;
+<br>UIntType <a class="symbol symbol-anchor" name="increment" href="#increment">increment</a>;
+<br>UIntType <a class="symbol symbol-anchor" name="modulus" href="#modulus">modulus</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The parameters of this distribution. The random number is <b>x
+= (x * multipler + increment) % modulus</b>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructs a <b>LinearCongruentialEngine</b> generator seeded with
+<span class="inlinecode"><i>x0</i></span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>x0</i> = 1);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>(Re)seeds the generator.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Advances the random sequence.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the current number in the random sequence.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Always <span class="inlinecode"><span class="d_keyword">false</span></span> (random generators are infinite ranges).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const LinearCongruentialEngine <i>rhs</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Compares against <b><i>rhs</i></b> for equality.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="MinstdRand0" href="#MinstdRand0">MinstdRand0</a>;
+<br>alias <a class="symbol symbol-anchor" name="MinstdRand" href="#MinstdRand">MinstdRand</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Define <b>LinearCongruentialEngine</b> generators with well-chosen
+parameters. <span class="inlinecode"><a class="symbol symbol-anchor" name="MinstdRand0" href="#MinstdRand0">MinstdRand0</a></span> implements Park and Miller's "minimal
+standard" <a href="http://wikipedia.org/wiki/Park%E2%80%93Miller_random_number_generator">generator</a> that uses 16807 for the multiplier. <span class="inlinecode">MinstdRand</span>
+implements a variant that has slightly better spectral behavior by
+using the multiplier 48271. Both generators are rather simplistic.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// seed with a constant
+</span>
+<span class="d_keyword">auto</span> rnd0 = <u>MinstdRand0</u>(1);
+<span class="d_keyword">auto</span> n = rnd0.front; <span class="d_comment">// same for each run
+</span>
+<span class="d_comment">// Seed with an unpredictable value
+</span>
+rnd0.seed(unpredictableSeed);
+n = rnd0.front; <span class="d_comment">// different across runs
+</span>
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="MersenneTwisterEngine" href="#MersenneTwisterEngine">MersenneTwisterEngine</a>(UIntType,size_t w,size_t n,size_t m,size_t r,UIntType a,size_t u,size_t s,UIntType b,size_t t,UIntType c,size_t l);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a> generator.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Mark this as a Rng</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="wordSize" href="#wordSize">wordSize</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Parameter for the generator.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Smallest generated value (0).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Largest generated value.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="defaultSeed" href="#defaultSeed">defaultSeed</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The default seed value.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(UIntType <i>value</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructs a MersenneTwisterEngine object.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>value</i> = defaultSeed);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Seeds a MersenneTwisterEngine object.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Advances the generator.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the current random value.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Always <span class="inlinecode"><span class="d_keyword">false</span></span>.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Mt19937" href="#Mt19937">Mt19937</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>A <span class="inlinecode">MersenneTwisterEngine</span> instantiated with the parameters of the
+original engine <a href="http://math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">MT19937</a>, generating uniformly-distributed 32-bit numbers with a
+period of 2 to the power of 19937. Recommended for random number
+generation unless memory is severely restricted, in which case a <span class="inlinecode">LinearCongruentialEngine</span> would be the generator of choice.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// seed with a constant
+</span>
+<u>Mt19937</u> gen;
+<span class="d_keyword">auto</span> n = gen.front; <span class="d_comment">// same for each run
+</span>
+<span class="d_comment">// Seed with an unpredictable value
+</span>
+gen.seed(unpredictableSeed);
+n = gen.front; <span class="d_comment">// different across runs
+</span>
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="XorshiftEngine" href="#XorshiftEngine">XorshiftEngine</a>(UIntType,UIntType bits,UIntType a,UIntType b,UIntType c);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Xorshift generator using 32bit algorithm.
+</p>
+
+<p>Implemented according to <a href="http://www.jstatsoft.org/v08/i14/paper">Xorshift RNGs</a>.
+<br><br>
+
+ <table cellspacing=0 cellpadding=5 class="table"><caption></caption>  <tr><th>bits</th> <th>period</th></tr>
+  <tr><td valign=top>32</td>   <td valign=top>2^32 - 1</td></tr>
+  <tr><td valign=top>64</td>   <td valign=top>2^64 - 1</td></tr>
+  <tr><td valign=top>96</td>   <td valign=top>2^96 - 1</td></tr>
+  <tr><td valign=top>128</td>  <td valign=top>2^128 - 1</td></tr>
+  <tr><td valign=top>160</td>  <td valign=top>2^160 - 1</td></tr>
+  <tr><td valign=top>192</td>  <td valign=top>2^192 - 2^32</td></tr>
+ </table></p>
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Mark this as a Rng</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Smallest generated value.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Largest generated value.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructs a <span class="inlinecode">XorshiftEngine</span> generator seeded with <b><i>x0</i></b>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>x0</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>(Re)seeds the generator.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the current number in the random sequence.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Advances the random sequence.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Captures a range state.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const XorshiftEngine <i>rhs</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Compares against <b><i>rhs</i></b> for equality.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Xorshift32" href="#Xorshift32">Xorshift32</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift64" href="#Xorshift64">Xorshift64</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift96" href="#Xorshift96">Xorshift96</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift128" href="#Xorshift128">Xorshift128</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift160" href="#Xorshift160">Xorshift160</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift192" href="#Xorshift192">Xorshift192</a>;
+<br>alias <a class="symbol symbol-anchor" name="Xorshift" href="#Xorshift">Xorshift</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Define <span class="inlinecode">XorshiftEngine</span> generators with well-chosen parameters. See each bits examples of "Xorshift RNGs".
+ <span class="inlinecode">Xorshift</span> is a Xorshift128's alias because 128bits implementation is mostly used.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_comment">// Seed with a constant
+</span>
+ <span class="d_keyword">auto</span> rnd = Xorshift(1);
+ <span class="d_keyword">auto</span> num = rnd.front;  <span class="d_comment">// same for each run
+</span>
+
+ <span class="d_comment">// Seed with an unpredictable value
+</span>
+ rnd.seed(unpredictableSeed());
+ num = rnd.front; <span class="d_comment">// different across runs
+</span>
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property uint <a class="symbol symbol-anchor" name="unpredictableSeed" href="#unpredictableSeed">unpredictableSeed</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>A "good" seed for initializing random number engines. Initializing
+with <b><a class="symbol symbol-anchor" name="unpredictableSeed" href="#unpredictableSeed">unpredictableSeed</a></b> makes engines generate different
+random number sequences every run.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">auto</span> rnd = Random(<u>unpredictableSeed</u>);
+<span class="d_keyword">auto</span> n = rnd.front;
+...
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Random" href="#Random">Random</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The "default", "favorite", "suggested" random number generator type on
+the current platform. It is an alias for one of the previously-defined
+generators. You may want to use it if (1) you need to generate some
+nice random numbers, and (2) you don't care for the minutiae of the
+method being used.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property ref Random <a class="symbol symbol-anchor" name="rndGen" href="#rndGen">rndGen</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Global random number generator used by various functions in this
+module whenever no generator is specified. It is allocated per-thread
+and initialized to an unpredictable value for each thread.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2)(T1 <i>a</i>, T2 <i>b</i>);
+<br>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2, UniformRandomNumberGenerator)(T1 <i>a</i>, T2 <i>b</i>, ref UniformRandomNumberGenerator <i>urng</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Generates a number between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The <span class="inlinecode">boundaries</span>
+parameter controls the shape of the interval (open vs. closed on
+either side). Valid values for <span class="inlinecode">boundaries</span> are <span class="inlinecode">"[]"</span>, <span class="inlinecode">"(]"</span>, <span class="inlinecode">"[)"</span>, and <span class="inlinecode">"()"</span>. The default interval
+is closed to the left and open to the right. The version that does not
+take <span class="inlinecode">urng</span> uses the default generator <span class="inlinecode">rndGen</span>.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code">Random gen(unpredictableSeed);
+<span class="d_comment">// Generate an integer in [0, 1023]
+</span>
+<span class="d_keyword">auto</span> a = <u>uniform</u>(0, 1024, gen);
+<span class="d_comment">// Generate a float in [0, 1)
+</span>
+<span class="d_keyword">auto</span> a = <u>uniform</u>(0.0f, 1.0f, gen);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(T, UniformRandomNumberGenerator)(ref UniformRandomNumberGenerator <i>urng</i>);
+<br>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(T)();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Generates a uniformly-distributed number in the range <span class="inlinecode">[T.min,
+T.max]</span> for any integral type <span class="inlinecode">T</span>. If no random number generator is
+passed, uses the default <span class="inlinecode">rndGen</span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>F[] <a class="symbol symbol-anchor" name="uniformDistribution" href="#uniformDistribution">uniformDistribution</a>(F = double)(size_t <i>n</i>, F[] <i>useThis</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Generates a uniform probability distribution of size <span class="inlinecode">n</span>, i.e., an
+array of size <span class="inlinecode">n</span> of positive numbers of type <span class="inlinecode">F</span> that sum to
+<span class="inlinecode">1</span>. If <span class="inlinecode">useThis</span> is provided, it is used as storage.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="randomShuffle" href="#randomShuffle">randomShuffle</a>(Range, RandomGen = Random)(Range <i>r</i>, ref RandomGen <i>gen</i> = rndGen);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Shuffles elements of <span class="inlinecode">r</span> using <span class="inlinecode">gen</span> as a shuffler. <span class="inlinecode">r</span> must be
+a random-access range with length.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Rng, Num)(ref Rng <i>rnd</i>, Num[] <i>proportions</i>...);
+<br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(R, Range)(ref R <i>rnd</i>, Range <i>proportions</i>);
+<br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Range)(Range <i>proportions</i>);
+<br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Num)(Num[] <i>proportions</i>...);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Rolls a <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a> with relative probabilities stored in <span class="inlinecode">proportions</span>. Returns the index in <span class="inlinecode">proportions</span> that was chosen.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">auto</span> x = <u>dice</u>(0.5, 0.5);   <span class="d_comment">// x is 0 or 1 in equal proportions
+</span>
+<span class="d_keyword">auto</span> y = <u>dice</u>(50, 50);     <span class="d_comment">// y is 0 or 1 in equal proportions
+</span>
+<span class="d_keyword">auto</span> z = <u>dice</u>(70, 20, 10); <span class="d_comment">// z is 0 70% of the time, 1 20% of the time,
+</span>
+                           <span class="d_comment">// and 2 10% of the time
+</span>
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RandomCover" href="#RandomCover">RandomCover</a>(Range,Random) if (isUniformRNG!(Random));
+<br>RandomCover!(Range,Random) <a class="symbol symbol-anchor" name="randomCover" href="#randomCover">randomCover</a>(Range, Random)(Range <i>r</i>, Random <i>rnd</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Covers a given range <span class="inlinecode">r</span> in a random manner, i.e. goes through each
+element of <span class="inlinecode">r</span> once and only once, just in a random order. <span class="inlinecode">r</span>
+must be a random-access range with length.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
+<span class="d_keyword">auto</span> rnd = Random(unpredictableSeed);
+<span class="d_keyword">foreach</span> (e; randomCover(a, rnd))
+{
+    writeln(e);
+}
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RandomSample" href="#RandomSample">RandomSample</a>(R,Random = void) if (isUniformRNG!(Random) || is(Random == void));
+<br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>);
+<br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>);
+<br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>, Random <i>gen</i>);
+<br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, Random <i>gen</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Selects a random subsample out of <span class="inlinecode">r</span>, containing exactly <span class="inlinecode">n</span>
+elements. The order of elements is the same as in the original
+range. The total length of <span class="inlinecode">r</span> must be known. If <span class="inlinecode">total</span> is
+passed in, the total number of sample is considered to be <span class="inlinecode">total</span>. Otherwise, <span class="inlinecode"><a class="symbol symbol-anchor" name="RandomSample" href="#RandomSample">RandomSample</a></span> uses <span class="inlinecode">r.length</span>.
+</p>
+
+<p>If the number of elements is not exactly <span class="inlinecode">total</span>, <span class="inlinecode"><a class="symbol symbol-anchor" name="RandomSample" href="#RandomSample">RandomSample</a></span> throws an exception. This is because <span class="inlinecode">total</span> is
+essential to computing the probability of selecting elements in the
+range.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+<span class="d_comment">// Print 5 random elements picked off from a
+</span>
+<span class="d_keyword">foreach</span> (e; randomSample(a, 5))
+{
+    writeln(e);
+}
+</pre>
+</dd>
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>input</i>, size_t <i>howMany</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructor.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+<br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+<br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
+<br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Range primitives.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="index" href="#index">index</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="index" href="#index">index</a> of the visited record.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+
+
+				</div>
+				
+				<hr>
+				
+				<footer class="pull-left">
+					<p>Page generated with <a href="https://github.com/JakobOvrum/bootDoc">bootDoc</a>.</p>
+				</footer>
+				
+				<footer class="pull-right">
+					<p>&copy; Copyright Andrei Alexandrescu 2008 - 2009.
+</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.net.curl - Phobos documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.net.curl';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master';
+		var PackageSeparator = '.';
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<!--
+	JavaScript reaps the module list from this element.
+	This is required for the MODULES macro to be reusable
+	in a noscript element later.
+	-->
+	<ul id="module-list-source" class="hidden">
+		
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+	</ul>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Phobos</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.net.curl" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header sidebar-list-entry">Modules<li>
+					<noscript>
+						
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+					</noscript>
+					<li id="symbol-list" class="nav-header sidebar-list-entry hidden">std.net.curl</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.net.curl</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo-small.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\net\curl.d -->
+<dl><p><script type="text/javascript">inhibitQuickIndex = 1</script>
+</p>
+
+<p><table cellspacing=0 cellpadding=5 class="table"><caption></caption><tr><th>Category</th> <th>Functions</th>
+</tr>
+<tr><td valign=top class="donthyphenate">High level</td> <td valign=top><font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#download">download</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#upload">upload</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#get">get</a>&nbsp;</font>
+<font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#post">post</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#put">put</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#del">del</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#options">options</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#trace">trace</a>&nbsp;</font>
+<font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#connect">connect</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#byLine">byLine</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#byChunk">byChunk</a>&nbsp;</font>
+<font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#byLineAsync">byLineAsync</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#byChunkAsync">byChunkAsync</a>&nbsp;</font> </td>
+</tr>
+<tr><td valign=top class="donthyphenate">Low level</td> <td valign=top><font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#HTTP">HTTP</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#FTP">FTP</a>&nbsp;</font> <font face='Consolas, "Bitstream Vera Sans Mono", "Andale Mono", Monaco, "DejaVu Sans Mono", "Lucida Console", monospace'><a href="#SMTP">SMTP</a>&nbsp;</font> </td>
+</tr>
+</table>
+<br><br>
+
+Networking client functionality as provided by <a href="http://curl.haxx.se/libcurl">libcurl</a>. The libcurl library must be installed on the system in order to use
+this module.
+<br><br>
+
+Compared to using libcurl directly this module allows simpler client code for
+common uses, requires no unsafe operations, and integrates better with the rest
+of the language. Futhermore it provides <a href="std_range.html"><span class="inlinecode">range</span></a>
+access to protocols supported by libcurl both synchronously and asynchronously.
+<br><br>
+
+A high level and a low level API are available. The high level API is built
+entirely on top of the low level one.
+<br><br>
+
+The high level API is for commonly used functionality such as HTTP/FTP get. The
+<a href="#byLineAsync"><span class="inlinecode">byLineAsync</span></a> and <a href="#byChunkAsync"><span class="inlinecode">byChunkAsync</span></a> provides asynchronous <a
+href="std_range.html"><span class="inlinecode">ranges</span></a> that performs the request in another
+thread while handling a line/chunk in the current thread.
+<br><br>
+
+The low level API allows for streaming and other advanced features.
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class="table"><caption>Cheat Sheet</caption><tr><th>Function Name</th> <th>Description</th>
+</tr>
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;High level</em></b></td></tr>
+<tr><td valign=top class="donthyphenate"><a href="#download"><span class="inlinecode">download</span></a></td> <td valign=top><span class="inlinecode">download("ftp.digitalmars.com/sieve.ds", "/tmp/downloaded-ftp-file")</span>
+downloads file from URL to file system.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#upload"><span class="inlinecode">upload</span></a></td> <td valign=top><span class="inlinecode">upload("/tmp/downloaded-ftp-file", "ftp.digitalmars.com/sieve.ds");</span>
+uploads file from file system to URL.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#get"><span class="inlinecode">get</span></a></td> <td valign=top><span class="inlinecode">get("dlang.org")</span> returns a string containing the dlang.org web page.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#put"><span class="inlinecode">put</span></a></td> <td valign=top><span class="inlinecode">put("dlang.org", "Hi")</span> returns a string containing
+the dlang.org web page. after a HTTP PUT of "hi"</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#post"><span class="inlinecode">post</span></a></td> <td valign=top><span class="inlinecode">post("dlang.org", "Hi")</span> returns a string containing
+the dlang.org web page. after a HTTP POST of "hi"</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#byLine"><span class="inlinecode">byLine</span></a></td> <td valign=top><span class="inlinecode">byLine("dlang.org")</span> returns a range of strings containing the
+dlang.org web page.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#byChunk"><span class="inlinecode">byChunk</span></a></td> <td valign=top><span class="inlinecode">byChunk("dlang.org", 10)</span> returns a range of ubyte[10] containing the
+dlang.org web page.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#byLineAsync"><span class="inlinecode">byLineAsync</span></a></td> <td valign=top><span class="inlinecode">byLineAsync("dlang.org")</span> returns a range of strings containing the dlang.org web
+ page asynchronously.</td>
+</tr>
+<tr><td valign=top class="donthyphenate"><a href="#byChunkAsync"><span class="inlinecode">byChunkAsync</span></a></td> <td valign=top><span class="inlinecode">byChunkAsync("dlang.org", 10)</span> returns a range of ubyte[10] containing the
+dlang.org web page asynchronously.</td>
+</tr>
+<tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Low level
+</em></b></td></tr>
+<tr><td valign=top class="donthyphenate"><a href="#HTTP"><span class="inlinecode">HTTP</span></a></td> <td valign=top><span class="inlinecode">HTTP</span> struct for advanced usage</td></tr>
+<tr><td valign=top class="donthyphenate"><a href="#FTP"><span class="inlinecode">FTP</span></a></td> <td valign=top><span class="inlinecode">FTP</span> struct for advanced usage</td></tr>
+<tr><td valign=top class="donthyphenate"><a href="#SMTP"><span class="inlinecode">SMTP</span></a></td> <td valign=top><span class="inlinecode">SMTP</span> struct for advanced usage</td></tr>
+</table>
+<br><br>
+
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.net.<u>curl</u>, std.stdio;
+
+<span class="d_comment">// Return a string containing the content specified by an URL
+</span>
+string content = get(<span class="d_string">"dlang.org"</span>);
+
+<span class="d_comment">// Post data and return a string containing the content specified by an URL
+</span>
+string content = post(<span class="d_string">"mydomain.com/here.cgi"</span>, <span class="d_string">"post data"</span>);
+
+<span class="d_comment">// Get content of file from ftp server
+</span>
+string content = get(<span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>);
+
+<span class="d_comment">// Post and print out content line by line. The request is done in another thread.
+</span>
+<span class="d_keyword">foreach</span> (line; byLineAsync(<span class="d_string">"dlang.org"</span>, <span class="d_string">"Post data"</span>))
+    writeln(line);
+
+<span class="d_comment">// Get using a line range and proxy settings
+</span>
+<span class="d_keyword">auto</span> client = HTTP();
+client.proxy = <span class="d_string">"1.2.3.4"</span>;
+<span class="d_keyword">foreach</span> (line; byLine(<span class="d_string">"dlang.org"</span>, client))
+    writeln(line);
+</pre>
+
+For more control than the high level functions provide, use the low level API:
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.net.<u>curl</u>, std.stdio;
+
+<span class="d_comment">// GET with custom data receivers
+</span>
+<span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"dlang.org"</span>);
+http.onReceiveHeader =
+    (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] key, <span class="d_keyword">in</span> <span class="d_keyword">char</span>[] value) { writeln(key, <span class="d_string">": "</span>, value); };
+http.onReceive = (<span class="d_keyword">ubyte</span>[] data) { <span class="d_comment">/+ drop +/</span>
+ <span class="d_keyword">return</span> data.length; };
+http.perform();
+</pre>
+
+First, an instance of the reference-counted HTTP struct is created. Then the
+custom delegates are set. These will be called whenever the HTTP instance
+receives a header and a data buffer, respectively. In this simple example, the
+headers are writting to stdout and the data is ignored. If the request should be
+stopped before it has finished then return something less than data.length from
+the onReceive callback. See <a href="#onReceiveHeader"><span class="inlinecode">onReceiveHeader</span></a>/<a href="#onReceive"><span class="inlinecode">onReceive</span></a> for more
+information. Finally the HTTP request is effected by calling perform(), which is
+synchronous.
+
+</dd>
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/net/curl.d">std/net/curl.d</a>
+
+</dd>
+<dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</dd>
+
+<dt>Authors</dt><dd>Jonas Drewsen. Some of the SMTP code contributed by Jimmy Cao.
+
+</dd>
+
+<dt>Credits:</dt><dd>
+The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
+         LibCurl is licensed under an MIT/X derivate license.</dd>
+</dl>
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="AutoProtocol" href="#AutoProtocol">AutoProtocol</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Connection type used when the URL should be used to auto detect the protocol.
+</p>
+
+<p>This struct is used as placeholder for the connection parameter when calling
+ the high level API and the connection type (HTTP/FTP) should be guessed by
+ inspecting the URL parameter.
+<br><br>
+
+ The rules for guessing the protocol are:
+ 1, if URL starts with ftp://, ftps:// or ftp. then FTP connection is assumed.
+ 2, HTTP connection otherwise.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <span class="d_comment">// Two requests below will do the same.
+</span>
+ string content;
+
+ <span class="d_comment">// Explicit connection provided
+</span>
+ content = get!HTTP(<span class="d_string">"dlang.org"</span>);
+
+ <span class="d_comment">// Guess connection type by looking at the URL
+</span>
+ content = get!<u>AutoProtocol</u>(<span class="d_string">"ftp://foo.com/file"</span>);
+ <span class="d_comment">// and since AutoProtocol is default this is the same as
+</span>
+ connect = get(<span class="d_string">"ftp://foo.com/file"</span>);
+ <span class="d_comment">// and will end up detecting FTP from the url and be the same as
+</span>
+ connect = get!FTP(<span class="d_string">"ftp://foo.com/file"</span>);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="download" href="#download">download</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, string <i>saveToPath</i>, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="download" href="#download">download</a> to local file system.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource to <a class="symbol symbol-anchor" name="download" href="#download">download</a></td>
+</tr>
+<tr><td class="span2">saveToPath</td>
+<td>path to store the downloaded content on local disk</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <u>download</u>(<span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>, <span class="d_string">"/tmp/downloaded-ftp-file"</span>);
+ <u>download</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, <span class="d_string">"/tmp/downloaded-http-file"</span>);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a>(Conn = AutoProtocol)(string <i>loadFromPath</i>, const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Upload file from local files system using the HTTP or FTP protocol.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">loadFromPath</td>
+<td>path load data from local disk.</td>
+</tr>
+<tr><td class="span2">url</td>
+<td>resource to <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a> to</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <u>upload</u>(<span class="d_string">"/tmp/downloaded-ftp-file"</span>, <span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>);
+ <u>upload</u>(<span class="d_string">"/tmp/downloaded-http-file"</span>, <span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="get" href="#get">get</a>(Conn = AutoProtocol, T = char)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="get" href="#get">get</a> content.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource to <a class="symbol symbol-anchor" name="get" href="#get">get</a></td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ string content = <u>get</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="post" href="#post">post</a>(T = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, HTTP <i>conn</i> = HTTP());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="post" href="#post">post</a> content.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource to <a class="symbol symbol-anchor" name="post" href="#post">post</a> to</td>
+</tr>
+<tr><td class="span2">putData</td>
+<td>data to send as the body of the request. An array
+           of an arbitrary type is accepted and will be cast to ubyte[]
+           before sending it.</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ string content = <u>post</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, [1,2,3,4]);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="put" href="#put">put</a>(Conn = AutoProtocol, T = char, PutUnit)(const(char)[] <i>url</i>, const(PutUnit)[] <i>putData</i>, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="put" href="#put">put</a> content.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource to <a class="symbol symbol-anchor" name="put" href="#put">put</a></td>
+</tr>
+<tr><td class="span2">putData</td>
+<td>data to send as the body of the request. An array
+           of an arbitrary type is accepted and will be cast to ubyte[]
+           before sending it.</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ string content = <u>put</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>,
+                      <span class="d_string">"Putting this data"</span>);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="del" href="#del">del</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP delete content.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource to delete</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <u>del</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
+</pre>
+
+</dd>
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="options" href="#options">options</a>(T = char, OptionsUnit)(const(char)[] <i>url</i>, const(OptionsUnit)[] <i>optionsData</i> = null, HTTP <i>conn</i> = HTTP());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="options" href="#options">options</a> request.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource make a option call to</td>
+</tr>
+<tr><td class="span2">optionsData</td>
+<td><a class="symbol symbol-anchor" name="options" href="#options">options</a> data to send as the body of the request. An array
+               of an arbitrary type is accepted and will be cast to ubyte[]
+               before sending it.</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.
+ Currently the HTTP RFC does not specify any usage of the optionsData and
+ for this reason the example below does not send optionsData to the server.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <span class="d_keyword">auto</span> http = HTTP();
+ <u>options</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, <span class="d_keyword">null</span>, http);
+ writeln(<span class="d_string">"Allow set to "</span> ~ http.responseHeaders[<span class="d_string">"Allow"</span>]);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="options" href="#options">options</a> of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> request.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource make a <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> call to</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <u>trace</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> info of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> request.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>resource make a <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> to</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
+        guess connection type and create a new instance for this call only.
+<br><br>
+
+ The template parameter <span class="inlinecode">T</span> specifies the type to return. Possible values
+ are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <u>connect</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> info of the resource pointed to by the URL.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLine" href="#byLine">byLine</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>struct ByLineBuffer(Char)
+{
+    bool linePresent;
+    bool EOF;
+    Char[] buffer;
+    ubyte[] decodeRemainder;
+</p>
+
+<p>bool append(const(ubyte)[] data)
+    {
+        byLineBuffer ~= data;
+    }
+<br><br>
+
+    @property bool linePresent()
+    {
+        return byLinePresent;
+    }
+<br><br>
+
+    Char[] get()
+    {
+        if (!linePresent)
+        {
+            // Decode ubyte[] into Char[] until a Terminator is found.
+            // If not Terminator is found and EOF is <span class="d_keyword">false</span> then raise an
+            // exception.
+        }
+        return byLineBuffer;
+    }
+<br><br>
+
+}
+ HTTP/FTP fetch content as a range of lines.
+<br><br>
+
+ A range of lines is returned when the request is complete. If the method or
+ other request properties is to be customized then set the <span class="inlinecode">conn</span> parameter
+ with a HTTP/FTP instance that has these properties set.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_keyword">foreach</span> (line; <u>byLine</u>(<span class="d_string">"dlang.org"</span>))
+     writeln(line);
+</pre>
+
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>The url to receive content from</td>
+</tr>
+<tr><td class="span2">postData</td>
+<td>Data to HTTP Post</td>
+</tr>
+<tr><td class="span2">keepTerminator</td>
+<td>KeepTerminator.yes signals that the line terminator should be
+                  returned as part of the lines in the range.</td>
+</tr>
+<tr><td class="span2">terminator</td>
+<td>The character that terminates a line</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>The connection to use e.g. HTTP or FTP.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the URL</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunk" href="#byChunk">byChunk</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks.
+</p>
+
+<p>A range of chunks is returned when the request is complete. If the method or
+ other request properties is to be customized then set the <span class="inlinecode">conn</span> parameter
+ with a HTTP/FTP instance that has these properties set.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_keyword">foreach</span> (chunk; <u>byChunk</u>(<span class="d_string">"dlang.org"</span>, 100))
+     writeln(chunk); <span class="d_comment">// chunk is ubyte[100]
+</span>
+</pre>
+
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>The url to receive content from</td>
+</tr>
+<tr><td class="span2">chunkSize</td>
+<td>The size of each chunk</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>The connection to use e.g. HTTP or FTP.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by the URL</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<br>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of lines asynchronously.
+</p>
+
+<p>A range of lines is returned immediately and the request that fetches the
+ lines is performed in another thread. If the method or other request
+ properties is to be customized then set the <span class="inlinecode">conn</span> parameter with a
+ HTTP/FTP instance that has these properties set.
+<br><br>
+
+ If <span class="inlinecode">postData</span> is non-null the method will be set to <span class="inlinecode">post</span> for HTTP
+ requests.
+<br><br>
+
+ The background thread will buffer up to transmitBuffers number of lines
+ before it stops receiving data from network. When the main thread reads the
+ lines from the range it frees up buffers and allows for the background thread
+ to receive more data from the network.
+<br><br>
+
+ If no data is available and the main thread accesses the range it will block
+ until data becomes available. An exception to this is the <span class="inlinecode">wait(Duration)</span> method on
+ the <a href="#AsyncLineInputRange"><span class="inlinecode">AsyncLineInputRange</span></a>. This method will wait at maximum for the
+ specified duration and return <span class="d_keyword">true</span> if data is available.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_comment">// Get some pages in the background
+</span>
+ <span class="d_keyword">auto</span> range1 = <u>byLineAsync</u>(<span class="d_string">"www.google.com"</span>);
+ <span class="d_keyword">auto</span> range2 = <u>byLineAsync</u>(<span class="d_string">"www.wikipedia.org"</span>);
+ <span class="d_keyword">foreach</span> (line; <u>byLineAsync</u>(<span class="d_string">"dlang.org"</span>))
+     writeln(line);
+
+ <span class="d_comment">// Lines already fetched in the background and ready
+</span>
+ <span class="d_keyword">foreach</span> (line; range1) writeln(line);
+ <span class="d_keyword">foreach</span> (line; range2) writeln(line);
+</pre>
+
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_comment">// Get a line in a background thread and wait in
+</span>
+ <span class="d_comment">// main thread for 2 seconds for it to arrive.
+</span>
+ <span class="d_keyword">auto</span> range3 = <u>byLineAsync</u>(<span class="d_string">"dlang.com"</span>);
+ <span class="d_keyword">if</span> (range.wait(dur!<span class="d_string">"seconds"</span>(2)))
+     writeln(range.front);
+ <span class="d_keyword">else</span>
+     writeln(<span class="d_string">"No line received after 2 seconds!"</span>);
+</pre>
+
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>The url to receive content from</td>
+</tr>
+<tr><td class="span2">postData</td>
+<td>Data to HTTP Post</td>
+</tr>
+<tr><td class="span2">keepTerminator</td>
+<td>KeepTerminator.yes signals that the line terminator should be
+                  returned as part of the lines in the range.</td>
+</tr>
+<tr><td class="span2">terminator</td>
+<td>The character that terminates a line</td>
+</tr>
+<tr><td class="span2">transmitBuffers</td>
+<td>The number of lines buffered asynchronously</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>The connection to use e.g. HTTP or FTP.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the
+ URL.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<br>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks asynchronously.
+</p>
+
+<p>A range of chunks is returned immediately and the request that fetches the
+ chunks is performed in another thread. If the method or other request
+ properties is to be customized then set the <span class="inlinecode">conn</span> parameter with a
+ HTTP/FTP instance that has these properties set.
+<br><br>
+
+ If <span class="inlinecode">postData</span> is non-null the method will be set to <span class="inlinecode">post</span> for HTTP
+ requests.
+<br><br>
+
+ The background thread will buffer up to transmitBuffers number of chunks
+ before is stops receiving data from network. When the main thread reads the
+ chunks from the range it frees up buffers and allows for the background
+ thread to receive more data from the network.
+<br><br>
+
+ If no data is available and the main thread access the range it will block
+ until data becomes available. An exception to this is the <span class="inlinecode">wait(Duration)</span>
+ method on the <a href="#AsyncChunkInputRange"><span class="inlinecode">AsyncChunkInputRange</span></a>. This method will wait at maximum for the specified
+ duration and return <span class="d_keyword">true</span> if data is available.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_comment">// Get some pages in the background
+</span>
+ <span class="d_keyword">auto</span> range1 = <u>byChunkAsync</u>(<span class="d_string">"www.google.com"</span>, 100);
+ <span class="d_keyword">auto</span> range2 = <u>byChunkAsync</u>(<span class="d_string">"www.wikipedia.org"</span>);
+ <span class="d_keyword">foreach</span> (chunk; <u>byChunkAsync</u>(<span class="d_string">"dlang.org"</span>))
+     writeln(chunk); <span class="d_comment">// chunk is ubyte[100]
+</span>
+
+ <span class="d_comment">// Chunks already fetched in the background and ready
+</span>
+ <span class="d_keyword">foreach</span> (chunk; range1) writeln(chunk);
+ <span class="d_keyword">foreach</span> (chunk; range2) writeln(chunk);
+</pre>
+
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_comment">// Get a line in a background thread and wait in
+</span>
+ <span class="d_comment">// main thread for 2 seconds for it to arrive.
+</span>
+ <span class="d_keyword">auto</span> range3 = <u>byChunkAsync</u>(<span class="d_string">"dlang.com"</span>, 10);
+ <span class="d_keyword">if</span> (range.wait(dur!<span class="d_string">"seconds"</span>(2)))
+     writeln(range.front);
+ <span class="d_keyword">else</span>
+     writeln(<span class="d_string">"No chunk received after 2 seconds!"</span>);
+</pre>
+
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<td>The url to receive content from</td>
+</tr>
+<tr><td class="span2">postData</td>
+<td>Data to HTTP Post</td>
+</tr>
+<tr><td class="span2">terminator</td>
+<td>The character that terminates a line</td>
+</tr>
+<tr><td class="span2">chunkSize</td>
+<td>The size of the chunks</td>
+</tr>
+<tr><td class="span2">transmitBuffers</td>
+<td>The number of chunks buffered asynchronously</td>
+</tr>
+<tr><td class="span2">conn</td>
+<td>The connection to use e.g. HTTP or FTP.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by
+ the URL.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a> client functionality.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+
+ <span class="d_comment">// Get with custom data receivers
+</span>
+ <span class="d_keyword">auto</span> http = <u>HTTP</u>(<span class="d_string">"dlang.org"</span>);
+ http.onReceiveHeader =
+     (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] key, <span class="d_keyword">in</span> <span class="d_keyword">char</span>[] value) { writeln(key ~ <span class="d_string">": "</span> ~ value); };
+ http.onReceive = (<span class="d_keyword">ubyte</span>[] data) { <span class="d_comment">/+ drop +/</span>
+ <span class="d_keyword">return</span> data.length; };
+ http.perform();
+
+ <span class="d_comment">// Put with data senders
+</span>
+ <span class="d_keyword">auto</span> msg = <span class="d_string">"Hello world"</span>;
+ http.onSend = (<span class="d_keyword">void</span>[] data)
+ {
+     <span class="d_keyword">auto</span> m = <span class="d_keyword">cast</span>(<span class="d_keyword">void</span>[])msg;
+     size_t length = m.length &gt; data.length ? data.length : m.length;
+     <span class="d_keyword">if</span> (length == 0) <span class="d_keyword">return</span> 0;
+     data[0..length] = m[0..length];
+     msg = msg[length..$];
+     <span class="d_keyword">return</span> length;
+ };
+ http.perform();
+
+ <span class="d_comment">// Track progress
+</span>
+ http.method = <u>HTTP</u>.Method.get;
+ http.url = <span class="d_string">"http://upload.wikimedia.org/wikipedia/commons/"</span>
+            <span class="d_string">"5/53/Wikipedia-logo-en-big.png"</span>;
+ http.onReceive = (<span class="d_keyword">ubyte</span>[] data) { <span class="d_keyword">return</span> data.length; };
+ http.onProgress = (<span class="d_keyword">double</span> dltotal, <span class="d_keyword">double</span> dlnow,
+                    <span class="d_keyword">double</span> ultotal, <span class="d_keyword">double</span> ulnow)
+ {
+     writeln(<span class="d_string">"Progress "</span>, dltotal, <span class="d_string">", "</span>, dlnow, <span class="d_string">", "</span>, ultotal, <span class="d_string">", "</span>, ulnow);
+     <span class="d_keyword">return</span> 0;
+ };
+ http.perform();
+</pre>
+
+</dd>
+<dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC2616</a></dd>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="AuthMethod" href="#AuthMethod">AuthMethod</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Authentication method equal to <a href="etc_c_curl.html#CurlAuth"><span class="inlinecode">etc.c.curl.CurlAuth</span></a></p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="TimeCond" href="#TimeCond">TimeCond</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Time condition enumeration as an alias of <a href="etc_c_curl.html#CurlTimeCond"><span class="inlinecode">etc.c.curl.CurlTimeCond</span></a>
+</p>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">RFC2616 Section 14.25</a></p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char)[] <i>url</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructor taking the <i>url</i> as parameter.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Perform a http request.
+</p>
+
+<p>After the HTTP client has been setup and possibly assigned callbacks the
+       <span class="inlinecode"><a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>()</span> method will start performing the request towards the
+       specified server.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearRequestHeaders" href="#clearRequestHeaders">clearRequestHeaders</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Clear all outgoing headers.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addRequestHeader" href="#addRequestHeader">addRequestHeader</a>(const(char)[] <i>name</i>, const(char)[] <i>value</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Add a header e.g. "X-CustomField: Something is fishy".
+</p>
+
+<p>There is no remove header functionality. Do a <a href="#clearRequestHeaders"><span class="inlinecode">clearRequestHeaders</span></a>
+ and set the needed headers instead.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <span class="d_keyword">auto</span> client = HTTP();
+ client.<u>addRequestHeader</u>(<span class="d_string">"X-Custom-ABC"</span>, <span class="d_string">"This is the custom value"</span>);
+ string content = get(<span class="d_string">"dlang.org"</span>, client);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property string[string] <a class="symbol symbol-anchor" name="responseHeaders" href="#responseHeaders">responseHeaders</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The headers read from a successful response.
+</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="method" href="#method">method</a>(Method <i>m</i>);
+<br>@property Method <a class="symbol symbol-anchor" name="method" href="#method">method</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="method" href="#method">method</a> used.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property StatusLine <a class="symbol symbol-anchor" name="statusLine" href="#statusLine">statusLine</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP status line of last response. One call to perform may
+       result in several requests because of redirection.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setCookieJar" href="#setCookieJar">setCookieJar</a>(const(char)[] <i>path</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set a file <i>path</i> to where a cookie jar should be read/stored.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="flushCookieJar" href="#flushCookieJar">flushCookieJar</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Flush cookie jar to disk.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearSessionCookies" href="#clearSessionCookies">clearSessionCookies</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Clear session cookies.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearAllCookies" href="#clearAllCookies">clearAllCookies</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Clear all cookies.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setTimeCondition" href="#setTimeCondition">setTimeCondition</a>(HTTP.TimeCond <i>cond</i>, SysTime <i>timestamp</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set time condition on the request.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">HTTP.TimeCond <i>cond</i></td>
+<td><span class="inlinecode">CurlTimeCond.{none,ifmodsince,ifunmodsince,lastmod}</span></td>
+</tr>
+<tr><td class="span2">SysTime <i>timestamp</i></td>
+<td>Timestamp for the condition
+<br><br>
+
+       <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">RFC2616 Section 14.25</a></td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(void)[] <i>data</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
+</p>
+
+<p>The <i>data</i> is NOT copied by the library.  Content-Type will default to
+ application/octet-stream.  Data is not converted or encoded by this
+ method.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"http://www.mydomain.com"</span>);
+ http.onReceive = (<span class="d_keyword">ubyte</span>[] <b>data</b>) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(<b>data</b>)); <span class="d_keyword">return</span> <b>data</b>.length; };
+ http.<u>postData</u> = [1,2,3,4,5];
+ http.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(char)[] <i>data</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
+</p>
+
+<p>The <i>data</i> is NOT copied by the library.  Content-Type will default to
+ text/plain.  Data is not converted or encoded by this method.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"http://www.mydomain.com"</span>);
+ http.onReceive = (<span class="d_keyword">ubyte</span>[] <b>data</b>) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(<b>data</b>)); <span class="d_keyword">return</span> <b>data</b>.length; };
+ http.<u>postData</u> = <span class="d_string">"The quick...."</span>;
+ http.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[]) key, const(char[]) value) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set the event handler that receives incoming headers.
+</p>
+
+<p>The <i>callback</i> will receive a header field key, value as parameter. The
+ <span class="inlinecode">const(char)[]</span> arrays are not valid after the delegate has returned.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ <span class="d_keyword">auto</span> http = HTTP(<span class="d_string">"dlang.org"</span>);
+ http.onReceive = (<span class="d_keyword">ubyte</span>[] data) { writeln(to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(data)); <span class="d_keyword">return</span> data.length; };
+ http.<u>onReceiveHeader</u> = (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] key, <span class="d_keyword">in</span> <span class="d_keyword">char</span>[] value) { writeln(key, <span class="d_string">" = "</span>, value); };
+ http.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveStatusLine" href="#onReceiveStatusLine">onReceiveStatusLine</a>(void delegate(StatusLine) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Callback for each received StatusLine.
+</p>
+
+<p>Notice that several callbacks can be done for each call to
+       <span class="inlinecode">perform()</span> due to redirections.
+
+</p>
+<dt>See Also</dt><dd><a href="#StatusLine"><span class="inlinecode">StatusLine</span></a></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The content length in bytes when using request that has content
+       e.g. POST/PUT and not using chunked transfer. Is set as the
+       "Content-Length" header.  Set to size_t.max to reset to chunked transfer.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="authenticationMethod" href="#authenticationMethod">authenticationMethod</a>(AuthMethod <i>authMethod</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Authentication method as specified in <a href="#AuthMethod"><span class="inlinecode">AuthMethod</span></a>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="maxRedirects" href="#maxRedirects">maxRedirects</a>(uint <i>maxRedirs</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set max allowed redirections using the location header.
+       uint.max for infinite.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Method" href="#Method">Method</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><a name="HTTP.Method"/ >The standard HTTP methods :
+  <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.1">RFC2616 Section 5.1.1</a></p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="head" href="#head">head</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="get" href="#get">get</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="post" href="#post">post</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="put" href="#put">put</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="del" href="#del">del</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="options" href="#options">options</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trace" href="#trace">trace</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="connect" href="#connect">connect</a></h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="StatusLine" href="#StatusLine">StatusLine</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP status line ie. the first line returned in an HTTP response.
+</p>
+
+<p>If authentication or redirections are done then the status will be for
+       the last response received.</p>
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="majorVersion" href="#majorVersion">majorVersion</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Major HTTP version ie. 1 in HTTP/1.0.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="minorVersion" href="#minorVersion">minorVersion</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Minor HTTP version ie. 0 in HTTP/1.0.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="code" href="#code">code</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="code" href="#code">code</a> e.g. 200.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a> string.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@safe void <a class="symbol symbol-anchor" name="reset" href="#reset">reset</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Reset this status line</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+</h3></div>
+
+
+<div class="declaration-content"><br><br>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a> client functionality.
+</p>
+
+<dt>See Also</dt><dd><a href="http://tools.ietf.org/html/rfc959">RFC959</a></dd>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(const(char)[] <i>url</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>FTP access to the specified <i>url</i>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Performs the ftp request as it has been configured.
+</p>
+
+<p>After a FTP client has been setup and possibly assigned callbacks the <span class="inlinecode">      <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>()</span> method will start performing the actual communication with the
+       server.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearCommands" href="#clearCommands">clearCommands</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Clear all commands send to ftp server.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addCommand" href="#addCommand">addCommand</a>(const(char)[] <i>command</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Add a <i>command</i> to send to ftp server.
+</p>
+
+<p>There is no remove <i>command</i> functionality. Do a <a href="#clearCommands"><span class="inlinecode">clearCommands</span></a> and
+ set the needed commands instead.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ <span class="d_keyword">auto</span> client = FTP();
+ client.<u>addCommand</u>(<span class="d_string">"RNFR my_file.txt"</span>);
+ client.<u>addCommand</u>(<span class="d_string">"RNTO my_renamed_file.txt"</span>);
+ upload(<span class="d_string">"my_file.txt"</span>, <span class="d_string">"ftp.digitalmars.com"</span>, client);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The content length in bytes of the ftp data.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Basic <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a> protocol support.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+
+ <span class="d_comment">// Send an email with SMTPS
+</span>
+ <span class="d_keyword">auto</span> smtp = <u>SMTP</u>(<span class="d_string">"smtps://smtp.gmail.com"</span>);
+ smtp.setAuthentication(<span class="d_string">"from.addr@gmail.com"</span>, <span class="d_string">"password"</span>);
+ smtp.mailTo = [<span class="d_string">"&lt;to.addr@gmail.com&gt;"</span>];
+ smtp.mailFrom = <span class="d_string">"&lt;from.addr@gmail.com&gt;"</span>;
+ smtp.message = <span class="d_string">"Example Message"</span>;
+ smtp.perform();
+</pre>
+
+</dd>
+<dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2821.txt">RFC2821</a></dd>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>url</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Sets to the URL of the SMTP server.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Performs the request as configured.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailFrom" href="#mailFrom">mailFrom</a>()(const(char)[] <i>sender</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Setter for the sender's email address.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailTo" href="#mailTo">mailTo</a>()(const(char)[][] <i>recipients</i>...);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Setter for the recipient email addresses.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="message" href="#message">message</a>(string <i>msg</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Sets the <a class="symbol symbol-anchor" name="message" href="#message">message</a> body text.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlException" href="#CurlException">CurlException</a>: object.Exception;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Exception thrown on errors in std.net.curl functions.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<td>The message for the exception.</td>
+</tr>
+<tr><td class="span2">string <i>file</i></td>
+<td>The <i>file</i> where the exception occurred.</td>
+</tr>
+<tr><td class="span2">uint <i>line</i></td>
+<td>The <i>line</i> number where the exception occurred.</td>
+</tr>
+<tr><td class="span2">Throwable <i>next</i></td>
+<td>The previous exception in the chain of exceptions, if any.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlTimeoutException" href="#CurlTimeoutException">CurlTimeoutException</a>: std.net.curl.CurlException;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Exception thrown on timeout errors in std.net.curl functions.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<td>The message for the exception.</td>
+</tr>
+<tr><td class="span2">string <i>file</i></td>
+<td>The <i>file</i> where the exception occurred.</td>
+</tr>
+<tr><td class="span2">uint <i>line</i></td>
+<td>The <i>line</i> number where the exception occurred.</td>
+</tr>
+<tr><td class="span2">Throwable <i>next</i></td>
+<td>The previous exception in the chain of exceptions, if any.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="CurlCode" href="#CurlCode">CurlCode</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Equal to <a href="etc_c_curl.html#CURLcode"><span class="inlinecode">etc.c.curl.CURLcode</span></a></p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Curl" href="#Curl">Curl</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Wrapper to provide a better interface to libcurl than using the plain C API.
+  It is recommended to use the <span class="inlinecode">HTTP</span>/<span class="inlinecode">FTP</span> etc. structs instead unless
+  raw access to libcurl is needed.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="initialize" href="#initialize">initialize</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Initialize the instance by creating a working curl handle.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Curl <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Duplicate this handle.
+</p>
+
+<p>The new handle will have all options set as the one it was duplicated
+       from. An exception to this is that all options that cannot be shared
+       across threads are reset thereby making it safe to use the duplicate
+       in a new thread.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="shutdown" href="#shutdown">shutdown</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Stop and invalidate this curl instance.
+</p>
+
+<dt>Warning:</dt><dd>
+Do not call this from inside a callback handler e.g. <span class="inlinecode">onReceive</span>.</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="pause" href="#pause">pause</a>(bool <i>sendingPaused</i>, bool <i>receivingPaused</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Pausing and continuing transfers.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, const(char)[] <i>value</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set a string curl <i>option</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
+</tr>
+<tr><td class="span2">const(char)[] <i>value</i></td>
+<td>The string</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, long <i>value</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set a long curl <i>option</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
+</tr>
+<tr><td class="span2">long <i>value</i></td>
+<td>The long</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, void* <i>value</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set a void* curl <i>option</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
+</tr>
+<tr><td class="span2">void* <i>value</i></td>
+<td>The pointer</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>(CurlOption <i>option</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Clear a pointer <i>option</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CurlCode <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>(bool <i>throwOnError</i> = true);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="perform" href="#perform">perform</a> the curl request by doing the HTTP,FTP etc. as it has
+       been setup beforehand.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceive" href="#onReceive">onReceive</a>(uint delegate(ubyte[]) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that receives incoming data.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint delegate(ubyte[]) <i>callback</i></td>
+<td>the <i>callback</i> that receives the <span class="inlinecode">ubyte[]</span> data.
+ Be sure to copy the incoming data and not store
+ a slice.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>The <i>callback</i> returns the incoming bytes read. If not the entire array is
+ the request will abort.
+ The special value HTTP.pauseRequest can be returned in order to pause the
+ current request.
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+ curl.<u>onReceive</u> = (<span class="d_keyword">ubyte</span>[] data) { writeln(<span class="d_string">"Got data"</span>, to!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[])(data)); <span class="d_keyword">return</span> data.length;};
+ curl.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[])) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that receives incoming headers for protocols
+ that uses headers.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">void delegate(const(char[])) <i>callback</i></td>
+<td>the <i>callback</i> that receives the header string.
+ Make sure the <i>callback</i> copies the incoming params if
+ it needs to store it because they are references into
+ the backend and may very likely change.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+ curl.<u>onReceiveHeader</u> = (<span class="d_keyword">in</span> <span class="d_keyword">char</span>[] header) { writeln(header); };
+ curl.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSend" href="#onSend">onSend</a>(uint delegate(void[]) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that gets called when data is needed for sending.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint delegate(void[]) <i>callback</i></td>
+<td>the <i>callback</i> that has a <span class="inlinecode">void[]</span> buffer to be filled</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>The <i>callback</i> returns the number of elements in the buffer that have been
+ filled and are ready to send.
+ The special value <span class="inlinecode">Curl.abortRequest</span> can be returned in
+ order to abort the current request.
+ The special value <span class="inlinecode">Curl.pauseRequest</span> can be returned in order to
+ pause the current request.
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+
+ string msg = <span class="d_string">"Hello world"</span>;
+ curl.<u>onSend</u> = (<span class="d_keyword">void</span>[] data)
+ {
+     <span class="d_keyword">auto</span> m = <span class="d_keyword">cast</span>(<span class="d_keyword">void</span>[])msg;
+     size_t length = m.length &gt; data.length ? data.length : m.length;
+     <span class="d_keyword">if</span> (length == 0) <span class="d_keyword">return</span> 0;
+     data[0..length] = m[0..length];
+     msg = msg[length..$];
+     <span class="d_keyword">return</span> length;
+ };
+ curl.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSeek" href="#onSeek">onSeek</a>(CurlSeek delegate(long, CurlSeekPos) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that gets called when the curl backend needs to seek
+ the data to be sent.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlSeek delegate(long, CurlSeekPos) <i>callback</i></td>
+<td>the <i>callback</i> that receives a seek offset and a seek position
+            <a href="etc_c_curl.html#CurlSeekPos"><span class="inlinecode">etc.c.curl.CurlSeekPos</span></a></td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>The <i>callback</i> returns the success state of the seeking
+ <a href="etc_c_curl.html#CurlSeek"><span class="inlinecode">etc.c.curl.CurlSeek</span></a>
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+ curl.<u>onSeek</u> = (<span class="d_keyword">long</span> p, CurlSeekPos sp)
+ {
+     <span class="d_keyword">return</span> CurlSeek.cantseek;
+ };
+ curl.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSocketOption" href="#onSocketOption">onSocketOption</a>(int delegate(socket_t, CurlSockType) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that gets called when the net socket has been created
+ but a <span class="inlinecode">connect()</span> call has not yet been done. This makes it possible to set
+ misc. socket options.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int delegate(socket_t, CurlSockType) <i>callback</i></td>
+<td>the <i>callback</i> that receives the socket and socket type
+ <a href="etc_c_curl.html#CurlSockType"><span class="inlinecode">etc.c.curl.CurlSockType</span></a></td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return 1 to signal error
+ and make curl close the socket
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+ curl.<u>onSocketOption</u> = <span class="d_keyword">delegate</span> <span class="d_keyword">int</span>(curl_socket_t s, CurlSockType t) { <span class="d_comment">/+ do stuff +/</span>
+ };
+ curl.perform();
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onProgress" href="#onProgress">onProgress</a>(int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The event handler that gets called to inform of upload/download progress.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i></td>
+<td>the <i>callback</i> that receives the (total bytes to download,
+ currently downloaded bytes, total bytes to upload, currently uploaded
+ bytes).</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return non-zero to abort
+ transfer
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
+ Curl curl;
+ curl.initialize();
+ curl.set(CurlOption.url, <span class="d_string">"http://dlang.org"</span>);
+ curl.<u>onProgress</u> = <span class="d_keyword">delegate</span> <span class="d_keyword">int</span>(size_t dltotal, size_t dlnow, size_t ultotal, size_t uln)
+ {
+     writeln(<span class="d_string">"Progress: downloaded bytes "</span>, dlnow, <span class="d_string">" of "</span>, dltotal);
+     writeln(<span class="d_string">"Progress: uploaded bytes "</span>, ulnow, <span class="d_string">" of "</span>, ultotal);
+     curl.perform();
+ };
+</pre>
+</dd>
+</dl>
+</div>
+
+</div>
+</div>
+
+
+
+				</div>
+				
+				<hr>
+				
+				<footer class="pull-left">
+					<p>Page generated with <a href="https://github.com/JakobOvrum/bootDoc">bootDoc</a>.</p>
+				</footer>
+				
+				<footer class="pull-right">
+					<p>&copy; Copyright Jonas Drewsen 2011-2012
+</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

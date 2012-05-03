@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.file - Phobos documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.file';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master';
+		var PackageSeparator = '.';
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<!--
+	JavaScript reaps the module list from this element.
+	This is required for the MODULES macro to be reusable
+	in a noscript element later.
+	-->
+	<ul id="module-list-source" class="hidden">
+		
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+	</ul>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Phobos</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.file" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header sidebar-list-entry">Modules<li>
+					<noscript>
+						
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+					</noscript>
+					<li id="symbol-list" class="nav-header sidebar-list-entry hidden">std.file</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.file</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo-small.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\file.d -->
+<dl><p>Utilities for manipulating files and scanning directories. Functions
+in this module handle files as a unit, e.g., read or write one file
+at a time. For opening files and manipulating them via handles refer
+to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>.
+</p>
+
+<dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</dd>
+
+<dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
+           <a href="http://erdani.org">Andrei Alexandrescu</a>,
+           Jonathan M Davis
+</dd>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/file.d">std/file.d</a></dd>
+</dl>
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FileException" href="#FileException">FileException</a>: object.Exception;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Exception thrown for file I/O errors.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>immutable uint <a class="symbol symbol-anchor" name="errno" href="#errno">errno</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>OS error code.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>name</i>, const(char[]) <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructor which takes an error message.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>name</i></td>
+<td>Name of <i>file</i> for which the error occurred.</td>
+</tr>
+<tr><td class="span2">const(char[]) <i>msg</i></td>
+<td>Message describing the error.</td>
+</tr>
+<tr><td class="span2">string <i>file</i></td>
+<td>The <i>file</i> where the error occurred.</td>
+</tr>
+<tr><td class="span2">uint <i>line</i></td>
+<td>The <i>line</i> where the error occurred.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>name</i>, uint <i>errno</i> = GetLastError(), string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructor which takes the error number (<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=GetLastError">GetLastError</a>
+        in Windows, <b>getErrno</b> in Posix).
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>name</i></td>
+<td>Name of <i>file</i> for which the error occurred.</td>
+</tr>
+<tr><td class="span2">msg</td>
+<td>Message describing the error.</td>
+</tr>
+<tr><td class="span2">string <i>file</i></td>
+<td>The <i>file</i> where the error occurred.</td>
+</tr>
+<tr><td class="span2">uint <i>line</i></td>
+<td>The <i>line</i> where the error occurred.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="read" href="#read">read</a>(in char[] <i>name</i>, size_t <i>upTo</i> = (uint).max);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Read entire contents of file <span class="inlinecode"><i>name</i></span> and returns it as an untyped
+array. If the file size is larger than <span class="inlinecode"><i>upTo</i></span>, only <span class="inlinecode"><i>upTo</i></span>
+bytes are <a class="symbol symbol-anchor" name="read" href="#read">read</a>.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.file, std.stdio;
+<span class="d_keyword">void</span> main()
+{
+   <span class="d_keyword">auto</span> bytes = <span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>[]) <u>read</u>(<span class="d_string">"filename"</span>, 5);
+   <span class="d_keyword">if</span> (bytes.length == 5)
+       writefln(<span class="d_string">"The fifth byte of the file is 0x%x"</span>, bytes[4]);
+}
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>Untyped array of bytes read.
+
+</dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="readText" href="#readText">readText</a>(S = string)(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Read and validates (using <a href="std_utf.html#validate"><span class="inlinecode">std.utf.validate</span></a>) a text file. <span class="inlinecode">S</span>
+can be a type of array of characters of any width and constancy. No
+width conversion is performed; if the width of the characters in file
+<span class="inlinecode">name</span> is different from the width of elements of <span class="inlinecode">S</span>,
+validation will fail.
+</p>
+
+<dt>Returns</dt><dd>Array of characters read.
+
+</dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on file error, <span class="inlinecode">UTFException</span> on UTF
+decoding error.
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code">enforce(system(<span class="d_string">"echo abc&gt;deleteme"</span>) == 0);
+<span class="d_keyword">scope</span>(exit) remove(<span class="d_string">"deleteme"</span>);
+enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <span class="d_string">"abc"</span>);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(in char[] <i>name</i>, const void[] <i>buffer</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Write <span class="inlinecode"><i>buffer</i></span> to file <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.file;
+<span class="d_keyword">void</span> main()
+{
+   <span class="d_keyword">int</span>[] a = [ 0, 1, 1, 2, 3, 5, 8 ];
+   <u>write</u>(<span class="d_string">"filename"</span>, a);
+   <span class="d_keyword">assert</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>[]) read(<span class="d_string">"filename"</span>) == a);
+}
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="append" href="#append">append</a>(in char[] <i>name</i>, in void[] <i>buffer</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Appends <span class="inlinecode"><i>buffer</i></span> to file <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
+
+</dd>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.file;
+<span class="d_keyword">void</span> main()
+{
+   <span class="d_keyword">int</span>[] a = [ 0, 1, 1, 2, 3, 5, 8 ];
+   write(<span class="d_string">"filename"</span>, a);
+   <span class="d_keyword">int</span>[] b = [ 13, 21 ];
+   <u>append</u>(<span class="d_string">"filename"</span>, b);
+   <span class="d_keyword">assert</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>[]) read(<span class="d_string">"filename"</span>) == a ~ b);
+}
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rename" href="#rename">rename</a>(in char[] <i>from</i>, in char[] <i>to</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Rename file <span class="inlinecode"><i>from</i></span> <i>to</i> <span class="inlinecode"><i>to</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Delete file <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="getSize" href="#getSize">getSize</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Get size of file <span class="inlinecode"><i>name</i></span> in bytes.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error (e.g., file not found).</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getTimes" href="#getTimes">getTimes</a>(in char[] <i>name</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Get the access and modified times of file <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>File <i>name</i> to get times for.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<td>Time the file was last accessed.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<td>Time the file was last modified.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getTimesWin" href="#getTimesWin">getTimesWin</a>(in char[] <i>name</i>, out SysTime <i>fileCreationTime</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=blue>This function is Windows-Only.</font>
+</p>
+
+<p>Get creation/access/modified times of file <span class="inlinecode"><i>name</i></span>.
+<br><br>
+
+    This is the same as <span class="inlinecode">getTimes</span> except that it also gives you the file
+    creation time - which isn't possible on Posix systems.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>File <i>name</i> to get times for.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileCreationTime</i></td>
+<td>Time the file was created.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<td>Time the file was last accessed.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<td>Time the file was last modified.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>SysTime <a class="symbol symbol-anchor" name="timeLastModified" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the time that the given file was last modified.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>SysTime <a class="symbol symbol-anchor" name="timeLastModified" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>, SysTime <i>returnIfMissing</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the time that the given file was last modified. If the
+    file does not exist, returns <span class="inlinecode"><i>returnIfMissing</i></span>.
+</p>
+
+<p>A frequent usage pattern occurs in build automation tools such as
+    <a href="http://gnu.org/software/make">make</a> or <a href="http://   en.wikipedia.org/wiki/Apache_Ant">ant</a>. To check whether file <span class="inlinecode">   target</span> must be rebuilt from file <span class="inlinecode">source</span> (i.e., <span class="inlinecode">target</span> is
+    older than <span class="inlinecode">source</span> or does not exist), use the comparison
+    below. The code throws a <span class="inlinecode">FileException</span> if <span class="inlinecode">source</span> does not
+    exist (as it should). On the other hand, the <span class="inlinecode">SysTime.min</span> default
+    makes a non-existing <span class="inlinecode">target</span> seem infinitely old so the test
+    correctly prompts building it.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The <i>name</i> of the file to get the modification time for.</td>
+</tr>
+<tr><td class="span2">SysTime <i>returnIfMissing</i></td>
+<td>The time to return if the given file does not exist.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">if</span>(<u>timeLastModified</u>(source) &gt;= <u>timeLastModified</u>(target, SysTime.min))
+{
+    <span class="d_comment">// must (re)build
+</span>
+}
+<span class="d_keyword">else</span>
+{
+    <span class="d_comment">// target is up-to-date
+</span>
+}
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="exists" href="#exists">exists</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file (or directory) <a class="symbol symbol-anchor" name="exists" href="#exists">exists</a>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="getAttributes" href="#getAttributes">getAttributes</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the attributes of the given file.
+</p>
+
+<p>Note that the file attributes on Windows and Posix systems are
+ completely different. On Windows, they're what is returned by <a href="http://msdn.microsoft.com/en-us/library/aa364944(v=vs.85).aspx"> GetFileAttributes</a>, whereas on Posix systems, they're the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=st_mode">st_mode</a> value which is part of the <span class="inlinecode">stat struct</span> gotten by
+ calling the <a href="http://en.wikipedia.org/wiki/Stat_%28Unix%29"><span class="inlinecode">stat</span></a>
+ function.
+<br><br>
+
+ On Posix systems, if the given file is a symbolic link, then
+ attributes are the attributes of the file pointed to by the symbolic
+ link.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The file to get the attributes of.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="getLinkAttributes" href="#getLinkAttributes">getLinkAttributes</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>If the given file is a symbolic link, then this returns the attributes of the
+    symbolic link itself rather than file that it points to. If the given file
+    is <i>not</i> a symbolic link, then this function returns the same result
+    as getAttributes.
+</p>
+
+<p>On Windows, <a class="symbol symbol-anchor" name="getLinkAttributes" href="#getLinkAttributes">getLinkAttributes</a> is identical to getAttributes. It exists on
+    Windows so that you don't have to special-case code for Windows when dealing
+    with symbolic links.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The file to get the symbolic link attributes of.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="isDir" href="#isDir">isDir</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file is a directory.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The path to the file.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.
+
+</dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(!<span class="d_string">"/etc/fonts/fonts.conf"</span>.<u>isDir</u>);
+<span class="d_keyword">assert</span>(<span class="d_string">"/usr/share/include"</span>.<u>isDir</u>);
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated nothrow @property bool <a class="symbol symbol-anchor" name="isDir" href="#isDir">isDir</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in May 2012.
+          Please use <span class="inlinecode">attrIsDir</span> instead.</font>
+</p>
+
+<p>Returns whether the given file <i>attributes</i> are for a directory.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsDir" href="#attrIsDir">attrIsDir</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a directory.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(!<u>attrIsDir</u>(getAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
+<span class="d_keyword">assert</span>(!<u>attrIsDir</u>(getLinkAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file (or directory) is a file.
+</p>
+
+<p>On Windows, if a file is not a directory, then it's a file. So,
+    either <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> or <span class="inlinecode">isDir</span> will return <span class="d_keyword">true</span> for any given file.
+<br><br>
+
+    On Posix systems, if <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the file
+    is a regular file (e.g. not a block not device). So, on Posix systems, it's
+    possible for both <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> and <span class="inlinecode">isDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span> for a
+    particular file (in which case, it's a special file). You can use
+    <span class="inlinecode">getAttributes</span> to get the attributes to figure out what type of special
+    it is, or you can use <span class="inlinecode">dirEntry</span> to get at its <span class="inlinecode">statBuf</span>, which is the
+    result from <span class="inlinecode">stat</span>. In either case, see the man page for <span class="inlinecode">stat</span> for
+    more information.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The path to the file.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.
+
+</dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<span class="d_string">"/etc/fonts/fonts.conf"</span>.<u>isFile</u>);
+<span class="d_keyword">assert</span>(!<span class="d_string">"/usr/share/include"</span>.<u>isFile</u>);
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated nothrow @property bool <a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in May 2012.
+          Please use <span class="inlinecode">attrIsFile</span> instead.</font>
+</p>
+
+<p>Returns whether the given file <i>attributes</i> are for a file.
+<br><br>
+
+    On Windows, if a file is not a directory, it's a file. So,
+    either <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> or <span class="inlinecode">isDir</span> will return <span class="inlinecode"><span class="d_keyword">true</span></span> for any given file.
+<br><br>
+
+    On Posix systems, if <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the file
+    is a regular file (e.g. not a block not device). So, on Posix systems,
+    it's possible for both <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> and <span class="inlinecode">isDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span> for a
+    particular file (in which case, it's a special file). If a file is a special
+    file, you can use the <i>attributes</i> to check what type of special
+    file it is (see the man page for <span class="inlinecode">stat</span> for more information).
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a file.
+</p>
+
+<p>On Windows, if a file is not a directory, it's a file. So, either
+    <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> or <span class="inlinecode">attrIsDir</span> will return <span class="inlinecode"><span class="d_keyword">true</span></span> for the
+    <i>attributes</i> of any given file.
+<br><br>
+
+    On Posix systems, if <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the
+    file is a regular file (e.g. not a block not device). So, on Posix systems,
+    it's possible for both <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> and <span class="inlinecode">attrIsDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span>
+    for a particular file (in which case, it's a special file). If a file is a
+    special file, you can use the <i>attributes</i> to check what type of special file
+    it is (see the man page for <span class="inlinecode">stat</span> for more information).
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>attrIsFile</u>(getAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
+<span class="d_keyword">assert</span>(<u>attrIsFile</u>(getLinkAttributes(<span class="d_string">"/etc/fonts/fonts.conf"</span>)));
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isSymlink" href="#isSymlink">isSymlink</a>(C)(const(C)[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file is a symbolic link.
+</p>
+
+<p>On Windows, returns <span class="inlinecode"><span class="d_keyword">true</span></span> when the file is either a symbolic link or a
+    junction point.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">name</td>
+<td>The path to the file.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated nothrow @property bool <a class="symbol symbol-anchor" name="isSymLink" href="#isSymLink">isSymLink</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in May 2012.
+          Please use <span class="inlinecode">attrIsSymlink</span> instead.</font>
+</p>
+
+<p>Returns whether the given file <i>attributes</i> are for a symbolic link.
+<br><br>
+
+    On Windows, return <span class="inlinecode"><span class="d_keyword">true</span></span> when the file is either a symbolic link or a
+    junction point.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsSymlink" href="#attrIsSymlink">attrIsSymlink</a>(uint <i>attributes</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a symbolic link.
+</p>
+
+<p>On Windows, return <span class="inlinecode"><span class="d_keyword">true</span></span> when the file is either a symbolic link or a
+    junction point.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<td>The file <i>attributes</i>.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code">core.sys.posix.unistd.symlink(<span class="d_string">"/etc/fonts/fonts.conf"</span>, <span class="d_string">"/tmp/alink"</span>);
+
+<span class="d_keyword">assert</span>(!getAttributes(<span class="d_string">"/tmp/alink"</span>).isSymlink);
+<span class="d_keyword">assert</span>(getLinkAttributes(<span class="d_string">"/tmp/alink"</span>).isSymlink);
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="chdir" href="#chdir">chdir</a>(in char[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Change directory to <span class="inlinecode"><i>pathname</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mkdir" href="#mkdir">mkdir</a>(in char[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Make directory <span class="inlinecode"><i>pathname</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mkdirRecurse" href="#mkdirRecurse">mkdirRecurse</a>(in char[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Make directory and all parent directories as needed.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdir" href="#rmdir">rmdir</a>(in char[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Remove directory <span class="inlinecode"><i>pathname</i></span>.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getcwd" href="#getcwd">getcwd</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Get current directory.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="listdir" href="#listdir">listdir</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation.
+       Please use <span class="inlinecode">dirEntries</span> instead.</font>
+</p>
+
+<p>For each file and directory <span class="inlinecode">DirEntry</span> in <span class="inlinecode">pathname[]</span>
+ pass it to the callback delegate.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">callback</td>
+<td>Delegate that processes each
+                        DirEntry in turn. Returns <span class="d_keyword">true</span> to
+                        continue, <span class="d_keyword">false</span> to stop.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+This program lists all the files in its
+        path argument and all subdirectories thereof.
+<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
+ <span class="d_keyword">import</span> std.file;
+
+ <span class="d_keyword">void</span> main(string[] args)
+ {
+    <span class="d_keyword">bool</span> callback(DirEntry* de)
+    {
+      <span class="d_keyword">if</span>(de.isDir)
+        <u>listdir</u>(de.name, &amp;callback);
+      <span class="d_keyword">else</span>
+        writefln(de.name);
+
+      <span class="d_keyword">return</span> <span class="d_keyword">true</span>;
+    }
+
+    <u>listdir</u>(args[1], &amp;callback);
+ }
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="copy" href="#copy">copy</a>(in char[] <i>from</i>, in char[] <i>to</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Copy file <span class="inlinecode"><i>from</i></span> <i>to</i> file <span class="inlinecode"><i>to</i></span>. File timestamps are preserved.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setTimes" href="#setTimes">setTimes</a>(in char[] <i>name</i>, SysTime <i>fileAccessTime</i>, SysTime <i>fileModificationTime</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Set access/modified times of file <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<td>Time the file was last accessed.</td>
+</tr>
+<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<td>Time the file was last modified.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdirRecurse" href="#rmdirRecurse">rmdirRecurse</a>(in char[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Remove directory and all of its content and subdirectories,
+    recursively.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if there is an error (including if the given
+        file is not a directory).</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdirRecurse" href="#rmdirRecurse">rmdirRecurse</a>(ref DirEntry <i>de</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Remove directory and all of its content and subdirectories,
+    recursively.
+</p>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if there is an error (including if the given
+        file is not a directory).</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SpanMode" href="#SpanMode">SpanMode</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Dictates directory spanning policy for <b>dirEntries</b> (see below).</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="shallow" href="#shallow">shallow</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Only spans one directory. </p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="depth" href="#depth">depth</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Spans the directory <a class="symbol symbol-anchor" name="depth" href="#depth">depth</a>-first, i.e. the content of any
+     subdirectory is spanned before that subdirectory itself. Useful
+     e.g. when recursively deleting files.  </p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="breadth" href="#breadth">breadth</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Spans the directory <a class="symbol symbol-anchor" name="breadth" href="#breadth">breadth</a>-first, i.e. the content of any
+     subdirectory is spanned right after that subdirectory itself. </p>
+
+</dl>
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="dirEntries" href="#dirEntries">dirEntries</a>(string <i>path</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns an input range of DirEntry that lazily iterates a given directory,
+    also provides two ways of foreach iteration. The iteration variable can be of
+    type <b>string</b> if only the name is needed, or <b>DirEntry</b>
+    if additional details are needed. The span <i>mode</i> dictates the how the
+    directory is traversed. The name of the each directory entry iterated
+    contains the absolute <i>path</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>path</i></td>
+<td>The directory to iterate over.</td>
+</tr>
+<tr><td class="span2">SpanMode <i>mode</i></td>
+<td>Whether the directory's sub-directories should be iterated
+               over depth-first (<b>depth</b>), breadth-first
+               (<b>breadth</b>), or not at all (<b>shallow</b>).</td>
+</tr>
+<tr><td class="span2">bool <i>followSymlink</i></td>
+<td>Whether symbolic links which point to directories
+                         should be treated as directories and their contents
+                         iterated over.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate a directory in depth
+</span>
+<span class="d_keyword">foreach</span> (string name; <u>dirEntries</u>(<span class="d_string">"destroy/me"</span>, SpanMode.depth))
+{
+ remove(name);
+}
+<span class="d_comment">// Iterate a directory in breadth
+</span>
+<span class="d_keyword">foreach</span> (string name; <u>dirEntries</u>(<span class="d_string">"."</span>, SpanMode.breadth))
+{
+ writeln(name);
+}
+<span class="d_comment">// Iterate a directory and get detailed info about it
+</span>
+<span class="d_keyword">foreach</span> (DirEntry e; <u>dirEntries</u>(<span class="d_string">"dmd-testing"</span>, SpanMode.breadth))
+{
+ writeln(e.name, <span class="d_string">"\t"</span>, e.size);
+}
+<span class="d_comment">// Iterate over all *.d files in current directory and all its subdirectories
+</span>
+<span class="d_keyword">auto</span> dFiles = filter!<span class="d_string">`endsWith(a.name,".d")`</span>(<u>dirEntries</u>(<span class="d_string">"."</span>,SpanMode.depth));
+<span class="d_keyword">foreach</span>(d; dFiles)
+    writeln(d.name);
+<span class="d_comment">// Hook it up with std.parallelism to compile them all in parallel:
+</span>
+<span class="d_keyword">foreach</span>(d; parallel(dFiles, 1)) <span class="d_comment">//passes by 1 file to each thread
+</span>
+{
+    string cmd = <span class="d_string">"dmd -c "</span>  ~ d.name;
+    writeln(cmd);
+    std.process.system(cmd);
+}
+</pre>
+//</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="dirEntries" href="#dirEntries">dirEntries</a>(string <i>path</i>, string <i>pattern</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Convenience wrapper for filtering file names with a glob <i>pattern</i>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>path</i></td>
+<td>The directory to iterate over.</td>
+</tr>
+<tr><td class="span2">string <i>pattern</i></td>
+<td>String with wildcards, such as <font color=red>"*.d"</font>. The supported
+                   wildcard strings are described under
+                   <a href="std_<i>path</i>.html#globMatch"><span class="inlinecode">std.<i>path</i>.globMatch</span></a>.</td>
+</tr>
+<tr><td class="span2">SpanMode <i>mode</i></td>
+<td>Whether the directory's sub-directories should be iterated
+               over depth-first (<b>depth</b>), breadth-first
+               (<b>breadth</b>), or not at all (<b>shallow</b>).</td>
+</tr>
+<tr><td class="span2">bool <i>followSymlink</i></td>
+<td>Whether symbolic links which point to directories
+                         should be treated as directories and their contents
+                         iterated over.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate over all D source files in current directory and all its
+</span>
+<span class="d_comment">// subdirectories
+</span>
+<span class="d_keyword">auto</span> dFiles = <u>dirEntries</u>(<span class="d_string">"."</span>,<span class="d_string">"*.{d,di}"</span>,SpanMode.depth);
+<span class="d_keyword">foreach</span>(d; dFiles)
+    writeln(d.name);
+</pre>
+//</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>DirEntry <a class="symbol symbol-anchor" name="dirEntry" href="#dirEntry">dirEntry</a>(in char[] <i>name</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns a DirEntry for the given file (or directory).
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<td>The file (or directory) to get a DirEntry for.</td>
+</tr>
+</table></dd>
+
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the file does not exist.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Select!(Types.length == 1,Types[0][],Tuple!(Types)[]) <a class="symbol symbol-anchor" name="slurp" href="#slurp">slurp</a>(Types...)(string <i>filename</i>, in char[] <i>format</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Reads an entire file into an array.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// Load file; each line is an int followed by comma, whitespace and a
+</span>
+<span class="d_comment">// double.
+</span>
+<span class="d_keyword">auto</span> a = <u>slurp</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>)(<span class="d_string">"filename"</span>, <span class="d_string">"%s, %s"</span>);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C)(in C[] <i>pathname</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation.
+          Please use <span class="inlinecode">dirEntries</span> instead.</font>
+</p>
+
+<p>Returns the contents of the given directory.
+<br><br>
+
+    The names in the contents do not include the pathname.
+
+</p>
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
+
+</dd>
+
+<dt>Examples</dt><dd>This program lists all the files and subdirectories in its
+    path argument.
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.file;
+
+<span class="d_keyword">void</span> main(string[] args)
+{
+    <span class="d_keyword">auto</span> dirs = std.file.<u>listDir</u>(args[1]);
+
+    <span class="d_keyword">foreach</span>(d; dirs)
+        writefln(d);
+}
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>filter</i>, bool <i>followSymlink</i> = true);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation.
+          Please use <span class="inlinecode">dirEntries</span> instead.</font>
+</p>
+
+<p>Returns all the files in the directory and its sub-directories
+    which match pattern or regular expression r.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pathname</td>
+<td>The path of the directory to search.</td>
+</tr>
+<tr><td class="span2">pattern</td>
+<td>String with wildcards, such as <font color=red>"*.d"</font>. The supported
+                   wildcard strings are described under fnmatch() in
+                   <a href="std_path.html">std.path</a>.</td>
+</tr>
+<tr><td class="span2">r</td>
+<td>Regular expression, for more powerful pattern matching.</td>
+</tr>
+<tr><td class="span2">followSymlink</td>
+<td>Whether symbolic links which point to directories
+                         should be treated as directories and their contents
+                         iterated over. Ignored on Windows.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd>This program lists all the files with a "d" extension in
+    the path passed as the first argument.
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.file;
+
+<span class="d_keyword">void</span> main(string[] args)
+{
+  <span class="d_keyword">auto</span> d_source_files = std.file.<u>listDir</u>(args[1], <span class="d_string">"*.d"</span>);
+
+  <span class="d_keyword">foreach</span>(d; d_source_files)
+      writefln(d);
+}
+</pre>
+
+    A regular expression version that searches for all files with "d" or
+    "obj" extensions:
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.file;
+<span class="d_keyword">import</span> std.regexp;
+
+<span class="d_keyword">void</span> main(string[] args)
+{
+  <span class="d_keyword">auto</span> d_source_files = std.file.<u>listDir</u>(args[1], RegExp(<span class="d_string">r"\.(d|obj)$"</span>));
+
+  <span class="d_keyword">foreach</span>(d; d_source_files)
+      writefln(d);
+}
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>callback</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation.
+       Please use <span class="inlinecode">dirEntries</span> instead.</font>
+</p>
+
+<p>For each file and directory name in pathname[],
+ pass it to the callback delegate.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">callback</td>
+<td>Delegate that processes each
+                        filename in turn. Returns <span class="d_keyword">true</span> to
+                        continue, <span class="d_keyword">false</span> to stop.</td>
+</tr>
+</table></dd>
+
+<dt>Example:</dt><dd>
+This program lists all the files in its
+        path argument, including the path.
+<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
+ <span class="d_keyword">import</span> std.path;
+ <span class="d_keyword">import</span> std.file;
+
+ <span class="d_keyword">void</span> main(string[] args)
+ {
+    <span class="d_keyword">auto</span> pathname = args[1];
+    string[] result;
+
+    <span class="d_keyword">bool</span> listing(string filename)
+    {
+      result ~= buildPath(pathname, filename);
+      <span class="d_keyword">return</span> <span class="d_keyword">true</span>; <span class="d_comment">// continue
+</span>
+    }
+
+    listdir(pathname, &amp;listing);
+
+    <span class="d_keyword">foreach</span> (name; result)
+      writefln(<span class="d_string">"%s"</span>, name);
+ }
+</pre>
+</dd>
+</dl>
+</div>
+
+
+
+				</div>
+				
+				<hr>
+				
+				<footer class="pull-left">
+					<p>Page generated with <a href="https://github.com/JakobOvrum/bootDoc">bootDoc</a>.</p>
+				</footer>
+				
+				<footer class="pull-right">
+					<p>&copy; Copyright Digital Mars 2007 - 2011.
+</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

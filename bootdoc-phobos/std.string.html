@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.string - Phobos documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.string';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master';
+		var PackageSeparator = '.';
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<!--
+	JavaScript reaps the module list from this element.
+	This is required for the MODULES macro to be reusable
+	in a noscript element later.
+	-->
+	<ul id="module-list-source" class="hidden">
+		
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+	</ul>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Phobos</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.string" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header sidebar-list-entry">Modules<li>
+					<noscript>
+						
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+					</noscript>
+					<li id="symbol-list" class="nav-header sidebar-list-entry hidden">std.string</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.string</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo-small.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\string.d -->
+<dl><p>String handling functions. Objects of types <span class="inlinecode">string</span>, <span class="inlinecode">wstring</span>, and <span class="inlinecode">dstring</span> are value types and cannot be mutated
+element-by-element. For using mutation during building strings, use
+<span class="inlinecode">char[]</span>, <span class="inlinecode">wchar[]</span>, or <span class="inlinecode">dchar[]</span>. The <span class="inlinecode">*string</span> types
+are preferable because they don't exhibit undesired aliasing, thus
+making code more robust.
+</p>
+
+<dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+
+</dd>
+
+<dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
+         <a href="http://erdani.org">Andrei Alexandrescu</a>,
+         and Jonathan M Davis
+
+</dd>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/string.d">std/string.d</a>
+<br><br>
+
+<b><font color=red>IMPORTANT NOTE:</font></b> Beginning with version 2.052, the
+following symbols have been generalized beyond strings and moved to
+different modules. This action was prompted by the fact that
+generalized routines belong better in other places, although they
+still work for strings as expected. In order to use moved symbols, you
+will need to import the respective modules as follows:
+<br><br>
+
+<table cellspacing=0 cellpadding=5 class="table"><caption></caption><br><br>
+
+<tr><th>Symbol</th> <th>Comment</th></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">cmp</span></td> <td valign=top>Moved to <a href="std_algorithm.html#cmp"><span class="inlinecode">std.algorithm.cmp</span></a> and
+generalized to work for all input ranges and accept a custom
+predicate.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">count</span></td> <td valign=top>Moved to <a href="std_algorithm.html#count"><span class="inlinecode">std.algorithm.count</span></a> and
+generalized to accept a custom predicate.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">ByCodeUnit</span></td> <td valign=top>Removed.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">insert</span></td> <td valign=top>Use <a href="std_array.html#insertInPlace"><span class="inlinecode">std.array.insertInPlace</span></a> instead.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">join</span></td> <td valign=top>Use <a href="std_array.html#join"><span class="inlinecode">std.array.join</span></a> instead.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">repeat</span></td> <td valign=top>Use <a href="std_array.html#replicate"><span class="inlinecode">std.array.replicate</span></a> instead.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">replace</span></td> <td valign=top>Use <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a> instead.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">replaceSlice</span></td> <td valign=top>Use <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a> instead.</td></tr>
+<br><br>
+
+<tr><td valign=top><span class="inlinecode">split</span></td> <td valign=top>Use <a href="std_array.html#split"><span class="inlinecode">std.array.split</span></a> instead.</td></tr>
+</table></dd>
+</dl>
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="StringException" href="#StringException">StringException</a>: object.Exception;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Exception thrown on errors in std.string functions.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<td>The message for the exception.</td>
+</tr>
+<tr><td class="span2">string <i>file</i></td>
+<td>The <i>file</i> where the exception occurred.</td>
+</tr>
+<tr><td class="span2">uint <i>line</i></td>
+<td>The <i>line</i> number where the exception occurred.</td>
+</tr>
+<tr><td class="span2">Throwable <i>next</i></td>
+<td>The previous exception in the chain of exceptions, if any.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable char[16u] <a class="symbol symbol-anchor" name="hexdigits" href="#hexdigits">hexdigits</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#hexDigits"><span class="inlinecode">std.ascii.hexDigits</span></a> instead.</font>
+</p>
+
+<p>0..9A..F</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable string <a class="symbol symbol-anchor" name="digits" href="#digits">digits</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#digits"><span class="inlinecode">std.ascii.digits</span></a> instead.</font>
+</p>
+
+<p>0..9</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable char[8u] <a class="symbol symbol-anchor" name="octdigits" href="#octdigits">octdigits</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#octDigits"><span class="inlinecode">std.ascii.octDigits</span></a> instead.</font>
+</p>
+
+<p>0..7</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <a class="symbol symbol-anchor" name="lowercase" href="#lowercase">lowercase</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#lowercase"><span class="inlinecode">std.ascii.lowercase</span></a> instead.</font>
+</p>
+
+<p>a..z</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable char[52u] <a class="symbol symbol-anchor" name="letters" href="#letters">letters</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#letters"><span class="inlinecode">std.ascii.letters</span></a> instead.</font>
+</p>
+
+<p>A..Za..z</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <a class="symbol symbol-anchor" name="uppercase" href="#uppercase">uppercase</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#uppercase"><span class="inlinecode">std.ascii.uppercase</span></a> instead.</font>
+</p>
+
+<p>A..Z</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="whitespace" href="#whitespace">whitespace</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#whitespace"><span class="inlinecode">std.ascii.whitespace</span></a> instead.</font>
+</p>
+
+<p>ASCII <a class="symbol symbol-anchor" name="whitespace" href="#whitespace">whitespace</a>.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated dchar <a class="symbol symbol-anchor" name="LS" href="#LS">LS</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a> instead.</font>
+</p>
+
+<p>UTF line separator.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated dchar <a class="symbol symbol-anchor" name="PS" href="#PS">PS</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> instead.</font>
+</p>
+
+<p>UTF paragraph separator.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="newline" href="#newline">newline</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <a href="std_ascii.html#newline"><span class="inlinecode">std.ascii.newline</span></a> instead.</font>
+</p>
+
+<p>Newline sequence for this system.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="iswhite" href="#iswhite">iswhite</a>(C)(C <i>c</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <a href="std_ascii.html#isWhite"><span class="inlinecode">std.ascii.isWhite</span></a> or <a href="std_uni.html#isWhite"><span class="inlinecode">std.uni.isWhite</span></a> instead.</font>
+</p>
+
+<p>Returns <span class="d_keyword">true</span> if c is ASCII whitespace or unicode LS or PS.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="icmp" href="#icmp">icmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Compares two ranges of characters lexicographically. The comparison is
+    case insensitive. Use <span class="inlinecode">XREF algorithm, cmp</span> for a case sensitive
+    comparison. <span class="inlinecode"><a class="symbol symbol-anchor" name="icmp" href="#icmp">icmp</a></span> works like <span class="inlinecode">XREF algorithm, cmp</span> except that it
+    converts characters to lowercase prior to applying ($D pred). Technically,
+    <span class="inlinecode"><a class="symbol symbol-anchor" name="icmp" href="#icmp">icmp</a>(r1, r2)</span> is equivalent to
+    <span class="inlinecode">cmp!"std.uni.toLower(a) &lt; std.uni.toLower(b)"(r1, r2)</span>.
+</p>
+
+<p><table cellspacing=0 cellpadding=5 class="table"><caption></caption>        <tr><td valign=top><span class="inlinecode">&lt; 0</span></td>  <td valign=top><span class="inlinecode">s1 &lt; s2</span> </td></tr>
+        <tr><td valign=top><span class="inlinecode">= 0</span></td>  <td valign=top><span class="inlinecode">s1 == s2</span></td></tr>
+        <tr><td valign=top><span class="inlinecode">&gt; 0</span></td>  <td valign=top><span class="inlinecode">s1 &gt; s2</span></td></tr>
+     </table></p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow immutable(char)* <a class="symbol symbol-anchor" name="toStringz" href="#toStringz">toStringz</a>(const(char)[] <i>s</i>);
+<br>pure nothrow immutable(char)* <a class="symbol symbol-anchor" name="toStringz" href="#toStringz">toStringz</a>(string <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns a C-style 0-terminated string equivalent to <span class="inlinecode"><i>s</i></span>. <span class="inlinecode"><i>s</i></span> must not
+    contain embedded <span class="inlinecode">0</span>'<i>s</i> as any C functions will treat the first <span class="inlinecode">0</span>
+    that it sees a the end of the string. I <span class="inlinecode"><i>s</i></span> is <span class="inlinecode"><span class="d_keyword">null</span></span> or empty, then
+    a string containing only <span class="inlinecode">'\0'</span> is returned.
+</p>
+
+<p><font color=red>Important Note:</font> When passing a <span class="inlinecode">char*</span> to a C function, and the C
+    function keeps it around for any reason, make sure that you keep a reference
+    to it in your D code. Otherwise, it may go away during a garbage collection
+    cycle and cause a nasty bug when the C code tries to use it.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CaseSensitive" href="#CaseSensitive">CaseSensitive</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Flag indicating whether a search is case-sensitive.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure sizediff_t <a class="symbol symbol-anchor" name="indexOf" href="#indexOf">indexOf</a>(Char)(in Char[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
+    is not found, then <span class="inlinecode">-1</span> is returned.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="indexOf" href="#indexOf">indexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
+    is not found, then <span class="inlinecode">-1</span> is returned.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="lastIndexOf" href="#lastIndexOf">lastIndexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
+    is not found, then <span class="inlinecode">-1</span> is returned.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="lastIndexOf" href="#lastIndexOf">lastIndexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
+    is not found, then <span class="inlinecode">-1</span> is returned.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure nothrow auto <a class="symbol symbol-anchor" name="representation" href="#representation">representation</a>(Char)(Char[] <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="representation" href="#representation">representation</a> type of a string, which is the same type
+ as the string except the character type is replaced by <span class="inlinecode">ubyte</span>,
+ <span class="inlinecode">ushort</span>, or <span class="inlinecode">uint</span> depending on the character width.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code">string s = <span class="d_string">"hello"</span>;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<u>representation</u>(s)) == <span class="d_keyword">immutable</span>(<span class="d_keyword">ubyte</span>)[]));
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="tolower" href="#tolower">tolower</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <span class="inlinecode">toLower</span> instead.</font>
+</p>
+
+<p>Convert string s[] to lower case.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="toLower" href="#toLower">toLower</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
+    characters are lowercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
+    have any uppercase characters, then <span class="inlinecode">s</span> is returned.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="tolowerInPlace" href="#tolowerInPlace">tolowerInPlace</a>(C)(ref C[] <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+         Please use <span class="inlinecode">toLowerInPlace</span> instead.</font>
+</p>
+
+<p>Converts <span class="inlinecode">s</span> to lowercase in place.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toLowerInPlace" href="#toLowerInPlace">toLowerInPlace</a>(C)(ref C[] <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to lowercase (in unicode, not just ASCII) in place.
+    If <span class="inlinecode">s</span> does not have any uppercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="toupper" href="#toupper">toupper</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <span class="inlinecode">toUpper</span> instead.</font>
+</p>
+
+<p>Convert string s[] to upper case.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="toUpper" href="#toUpper">toUpper</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
+    characters are uppercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
+    have any lowercase characters, then <span class="inlinecode">s</span> is returned.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toupperInPlace" href="#toupperInPlace">toupperInPlace</a>(C)(ref C[] <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+          Please use <span class="inlinecode">toUpperInPlace</span> instead.</font>
+</p>
+
+<p>Converts <span class="inlinecode">s</span> to uppercase in place.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toUpperInPlace" href="#toUpperInPlace">toUpperInPlace</a>(C)(ref C[] <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to uppercase (in unicode, not just ASCII) in place.
+    If <span class="inlinecode">s</span> does not have any lowercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="capitalize" href="#capitalize">capitalize</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Capitalize the first character of <span class="inlinecode">s</span> and conver the rest of <span class="inlinecode">s</span>
+    to lowercase.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="capwords" href="#capwords">capwords</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
+</p>
+
+<p>Capitalize all words in string s[].
+ Remove leading and trailing whitespace.
+ Replace all sequences of whitespace with a single space.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(S)(S <i>s</i>, size_t <i>n</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
+        Please use <a href="std_array.html#replicate"><span class="inlinecode">std.array.replicate</span></a> instead.</font>
+</p>
+
+<p>Repeat <span class="inlinecode">s</span> for <span class="inlinecode">n</span> times.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S[] <a class="symbol symbol-anchor" name="splitlines" href="#splitlines">splitlines</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <a href="#splitLines"><span class="inlinecode">splitLines</span></a> instead.</font>
+</p>
+
+<p>Split s[] into an array of lines,
+ using CR, LF, or CR-LF as the delimiter.
+ The delimiter is not included in the line.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="KeepTerminator" href="#KeepTerminator">KeepTerminator</a>;
+<br>S[] <a class="symbol symbol-anchor" name="splitLines" href="#splitLines">splitLines</a>(S)(S <i>s</i>, KeepTerminator <i>keepTerm</i> = KeepTerminator.no);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Split <span class="inlinecode">s</span> into an array of lines using <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>,
+    <span class="inlinecode">"\r\n"</span>, <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, and <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> as delimiters.
+    If <span class="inlinecode">keepTerm</span> is set to <span class="inlinecode"><a class="symbol symbol-anchor" name="KeepTerminator" href="#KeepTerminator">KeepTerminator</a>.yes</span>, then the delimiter
+    is included in the strings returned.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>String <a class="symbol symbol-anchor" name="stripl" href="#stripl">stripl</a>(String)(String <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+        Please use <span class="inlinecode">stripLeft</span> instead.</font>
+</p>
+
+<p>Strips leading whitespace.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @safe S <a class="symbol symbol-anchor" name="stripLeft" href="#stripLeft">stripLeft</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Strips leading whitespace.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>String <a class="symbol symbol-anchor" name="stripr" href="#stripr">stripr</a>(String)(String <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+        Please use <span class="inlinecode">stripRight</span> instead.</font>
+</p>
+
+<p>Strips trailing whitespace.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="stripRight" href="#stripRight">stripRight</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Strips trailing whitespace.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="strip" href="#strip">strip</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Strips both leading and trailing whitespace.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="chomp" href="#chomp">chomp</a>(S)(S <i>s</i>);
+<br>S <a class="symbol symbol-anchor" name="chomp" href="#chomp">chomp</a>(S, C)(S <i>s</i>, const(C)[] <i>delimiter</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode">s</span> sans the trailing <span class="inlinecode">delimiter</span>, if any. If no <span class="inlinecode">delimiter</span>
+    is given, then any trailing  <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>, <span class="inlinecode">"\r\n"</span>,
+    <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, or <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a>s are removed.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>C1[] <a class="symbol symbol-anchor" name="chompPrefix" href="#chompPrefix">chompPrefix</a>(C1, C2)(C1[] <i>longer</i>, C2[] <i>shorter</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>If <span class="inlinecode">longer.startsWith(shorter)</span>, returns <span class="inlinecode">longer[shorter.length .. $]</span>.
+    Otherwise, returns <span class="inlinecode">longer</span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="chop" href="#chop">chop</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode">s</span> sans its last character, if there is one.
+    If <span class="inlinecode">s</span> ends in "\r\n", then both are removed.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="ljustify" href="#ljustify">ljustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+        Please use <span class="inlinecode">leftJustify</span> instead.</font>
+</p>
+
+<p>Left justify string s[] in field width chars wide.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="leftJustify" href="#leftJustify">leftJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Left justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
+    is the character that will be used to fill up the space in the field that
+    <span class="inlinecode">s</span> doesn't fill.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="rjustify" href="#rjustify">rjustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+        Please use <span class="inlinecode">rightJustify</span> instead.</font>
+</p>
+
+<p>Left right string s[] in field width chars wide.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="rightJustify" href="#rightJustify">rightJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Right justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
+    is the character that will be used to fill up the space in the field that
+    <span class="inlinecode">s</span> doesn't fill.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="center" href="#center">center</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Center <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
+    is the character that will be used to fill up the space in the field that
+    <span class="inlinecode">s</span> doesn't fill.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="zfill" href="#zfill">zfill</a>(S)(S <i>s</i>, int <i>width</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <span class="inlinecode">rightJustify</span> with a fill character of '0' instead.</font>
+</p>
+
+<p>Same as rjustify(), but fill with '0's.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>(S)(S <i>s</i>, size_t <i>index</i>, S <i>sub</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
+       Please use <a href="std_array.html#insertInPlace"><span class="inlinecode">std.array.insertInPlace</span></a> instead.</font>
+</p>
+
+<p>Insert sub[] into s[] at location index.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="expandtabs" href="#expandtabs">expandtabs</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
+       Please use <span class="inlinecode">detab</span> instead.</font>
+</p>
+
+<p>Replace tabs with the appropriate number of spaces.
+ tabsize is the distance between tab stops.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="detab" href="#detab">detab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Replace each tab character in <span class="inlinecode">s</span> with the number of spaces necessary
+    to align the following character at the next tab stop where <span class="inlinecode">tabSize</span>
+    is the distance between tab stops.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="entab" href="#entab">entab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Replaces spaces in <span class="inlinecode">s</span> with the optimal number of tabs.
+    All spaces and tabs at the end of a line are removed.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
+<td>String to convert.</td>
+</tr>
+<tr><td class="span2">tabSize</td>
+<td>Tab columns are <span class="inlinecode">tabSize</span> spaces apart.</td>
+</tr>
+</table></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>@safe C1[] <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>(C1, C2 = immutable(char))(C1[] <i>str</i>, dchar[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
+<br>@safe C1[] <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>(C1, S, C2 = immutable(char))(C1[] <i>str</i>, S[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Replaces the characters in <span class="inlinecode">str</span> which are keys in <span class="inlinecode">transTable</span> with
+    their corresponding values in <span class="inlinecode">transTable</span>. <span class="inlinecode">transTable</span> is an AA
+    where its keys are <span class="inlinecode">dchar</span> and its values are either <span class="inlinecode">dchar</span> or some
+    type of string. Also, if <span class="inlinecode">toRemove</span> is given, the characters in it are
+    removed from <span class="inlinecode">str</span> prior to translation. <span class="inlinecode">str</span> itself is unaltered.
+    A copy with the changes is returned.
+</p>
+
+<dt>See Also</dt><dd><a href="#tr"><span class="inlinecode">tr</span></a>
+        <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
+
+</dd>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
+<td>The original string.</td>
+</tr>
+<tr><td class="span2">transTable</td>
+<td>The AA indicating which characters to replace and what to
+                     replace them with.</td>
+</tr>
+<tr><td class="span2">toRemove</td>
+<td>The characters to remove from the string.</td>
+</tr>
+</table></dd>
+
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
+<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
+
+<span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable2 = ['e' : '5', 'o' : '7', '5': 'q'];
+<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable2, <span class="d_string">"low"</span>) == <span class="d_string">"h5 rd"</span>);
+
+string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d_string">"5"</span>, 'o' : <span class="d_string">"orange"</span>];
+<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable3) == <span class="d_string">"h5llorange worangerld"</span>);
+</pre>
+</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="maketrans" href="#maketrans">maketrans</a>(in char[] <i>from</i>, in char[] <i>to</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in March 2012.</font>
+</p>
+
+<p>Construct translation table for translate().
+</p>
+<dt>Known Bugs</dt><dd>only works with ASCII</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>()(in char[] <i>s</i>, in char[] <i>transtab</i>, in char[] <i>delchars</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in March 2012.
+   Please use the version of <span class="inlinecode"><a class="symbol symbol-anchor" name="translate" href="#translate">translate</a></span> which takes an AA instead.</font>
+</p>
+
+<p>Translate characters in s[] using table created by maketrans().
+ Delete chars in delchars[].
+</p>
+<dt>Known Bugs</dt><dd>only works with ASCII</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="format" href="#format">format</a>(...);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Format arguments into a string.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>char[] <a class="symbol symbol-anchor" name="sformat" href="#sformat">sformat</a>(char[] <i>s</i>,...);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Format arguments into string <i><i>s</i></i> which must be large
+ enough to hold the result. Throws RangeError if it is not.
+</p>
+
+<dt>Returns</dt><dd><i>s</i></dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="inPattern" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, in S <i>pattern</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>See if character c is in the pattern.
+</p>
+
+<dt>Patterns:</dt><dd>
+A <i>pattern</i> is an array of characters much like a <i>character
+  class</i> in regular expressions. A sequence of characters
+  can be given, such as "abcde". The '-' can represent a range
+  of characters, as "a-e" represents the same pattern as "abcde".
+  "a-fA-F0-9" represents all the hex characters.
+  If the first character of a pattern is '^', then the pattern
+  is negated, i.e. "^0-9" means any character except a digit.
+  The functions <a class="symbol symbol-anchor" name="inPattern" href="#inPattern">inPattern</a>, <b>countchars</b>, <b>removeschars</b>,
+  and <b>squeeze</b>
+  use patterns.
+
+</dd>
+<dt>Note:</dt><dd>
+In the future, the pattern syntax may be improved
+  to be more like regular expression character classes.</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="inPattern" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, S[] <i>patterns</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>See if character c is in the intersection of the patterns.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="countchars" href="#countchars">countchars</a>(S, S1)(S <i>s</i>, in S1 <i>pattern</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Count characters in s that match pattern.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="removechars" href="#removechars">removechars</a>(S)(S <i>s</i>, in S <i>pattern</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Return string that is s with all characters removed that match pattern.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="squeeze" href="#squeeze">squeeze</a>(S)(S <i>s</i>, in S <i>pattern</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Return string where sequences of a character in s[] from pattern[]
+ are replaced with a single instance of that character.
+ If pattern is <span class="d_keyword">null</span>, it defaults to all characters.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S1 <a class="symbol symbol-anchor" name="munch" href="#munch">munch</a>(S1, S2)(ref S1 <i>s</i>, S2 <i>pattern</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Finds the position <b>pos</b> of the first character in <b>s</b> that does not match <b>pattern</b> (in the terminology used by
+ <a href="std_string.html">inPattern</a>). Updates <b>s =
+ s[pos..$]</b>. Returns the slice from the beginning of the original
+ (before update) string up to, and excluding, <b>pos</b>.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code">string s = <span class="d_string">"123abc"</span>;
+string t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
+<span class="d_keyword">assert</span>(t == <span class="d_string">"123"</span> &amp;&amp; s == <span class="d_string">"abc"</span>);
+t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
+<span class="d_keyword">assert</span>(t == <span class="d_string">""</span> &amp;&amp; s == <span class="d_string">"abc"</span>);
+</pre>
+
+The <b><a class="symbol symbol-anchor" name="munch" href="#munch">munch</a></b> function is mostly convenient for skipping
+certain category of characters (e.g. whitespace) when parsing
+strings. (In such cases, the return value is not used.)</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="succ" href="#succ">succ</a>(S)(S <i>s</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Return string that is the 'successor' to s[].
+ If the rightmost character is a-zA-Z0-9, it is incremented within
+ its case or digits. If it generates a carry, the process is
+ repeated with the one to its immediate left.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>C1[] <a class="symbol symbol-anchor" name="tr" href="#tr">tr</a>(C1, C2, C3, C4 = immutable(char))(C1[] <i>str</i>, const(C2)[] <i>from</i>, const(C3)[] <i>to</i>, const(C4)[] <i>modifiers</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Replaces the characters in <span class="inlinecode">str</span> which are in <span class="inlinecode">from</span> with the
+    the corresponding characters in <span class="inlinecode">to</span> and returns the resulting string.
+</p>
+
+<p><span class="inlinecode"><a class="symbol symbol-anchor" name="tr" href="#tr">tr</a></span> is based on
+    <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/tr.html">Posix's <a class="symbol symbol-anchor" name="tr" href="#tr">tr</a></a>,
+    though it doesn't do everything that the Posix utility does.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
+<td>The original string.</td>
+</tr>
+<tr><td class="span2">from</td>
+<td>The characters to replace.</td>
+</tr>
+<tr><td class="span2">to</td>
+<td>The characters to replace with.</td>
+</tr>
+<tr><td class="span2">modifiers</td>
+<td>String containing modifiers.</td>
+</tr>
+</table></dd>
+
+<dt>Modifiers:</dt><dd>
+<table cellspacing=0 cellpadding=5 class="table"><caption></caption>        <tr><td valign=top>Modifier</td> <td valign=top>Description</td></tr>
+        <tr><td valign=top><span class="inlinecode">'c'</span></td> <td valign=top>Complement the list of characters in <span class="inlinecode">from</span></td></tr>
+        <tr><td valign=top><span class="inlinecode">'d'</span></td> <td valign=top>Removes matching characters with no corresponding
+                              replacement in <span class="inlinecode">to</span></td></tr>
+        <tr><td valign=top><span class="inlinecode">'s'</span></td> <td valign=top>Removes adjacent duplicates in the replaced
+                              characters</td></tr>
+        </table>
+<br><br>
+
+    If the modifier <span class="inlinecode">'d'</span> is present, then the number of characters in
+    <span class="inlinecode">to</span> may be only <span class="inlinecode">0</span> or <span class="inlinecode">1</span>.
+<br><br>
+
+    If the modifier <span class="inlinecode">'d'</span> is <i>not</i> present, and <span class="inlinecode">to</span> is empty, then
+    <span class="inlinecode">to</span> is taken to be the same as <span class="inlinecode">from</span>.
+<br><br>
+
+    If the modifier <span class="inlinecode">'d'</span> is <i>not</i> present, and <span class="inlinecode">to</span> is shorter than
+    <span class="inlinecode">from</span>, then <span class="inlinecode">to</span> is extended by replicating the last charcter in
+    <span class="inlinecode">to</span>.
+<br><br>
+
+    Both <span class="inlinecode">from</span> and <span class="inlinecode">to</span> may contain ranges using the <span class="inlinecode">'-'</span> character
+    (e.g. <span class="inlinecode">"a-d"</span> is synonymous with <span class="inlinecode">"abcd</span>.) Neither accept a leading
+    <span class="inlinecode">'^'</span> as meaning the complement of the string (use the <span class="inlinecode">'c'</span> modifier
+    for that).</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(const(char)[] <i>s</i>, in bool <i>bAllowSep</i> = false);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>[in] string <i>s</i> can be formatted in the following ways:
+</p>
+
+<p>Integer Whole Number:
+ (for byte, ubyte, short, ushort, int, uint, long, and ulong)
+ ['+'|'-']digit(<i>s</i>)[U|L|UL]
+
+</p>
+<dt>Examples</dt><dd>123, 123UL, 123L, +123U, -123L
+<br><br>
+
+ Floating-Point Number:
+ (for float, double, real, ifloat, idouble, and ireal)
+ ['+'|'-']digit(<i>s</i>)[.][digit(<i>s</i>)][[e-|e+]digit(<i>s</i>)][i|f|L|Li|fi]]
+      or [nan|nani|inf|-inf]
+
+</dd>
+
+<dt>Examples</dt><dd>+123., -123.01, 123.3e-10f, 123.3e-10fi, 123.3e-10L
+<br><br>
+
+ (for cfloat, cdouble, and creal)
+ ['+'|'-']digit(<i>s</i>)[.][digit(<i>s</i>)][[e-|e+]digit(<i>s</i>)][+]
+         [digit(<i>s</i>)[.][digit(<i>s</i>)][[e-|e+]digit(<i>s</i>)][i|f|L|Li|fi]]
+      or [nan|nani|nan+nani|inf|-inf]
+
+</dd>
+
+<dt>Examples</dt><dd>nan, -123e-1+456.9e-10Li, +123e+10+456i, 123+456
+<br><br>
+
+ [in] bool <i>bAllowSep</i>
+ False by default, but when set to <span class="d_keyword">true</span> it will accept the
+ separator characters "," and "" within the string, but these
+ characters should be stripped from the string before using any
+ of the conversion functions like toInt(), toFloat(), and etc
+ else an error will occur.
+<br><br>
+
+ Also please note, that no spaces are allowed within the string
+ anywhere whether it'<i>s</i> a leading, trailing, or embedded space(<i>s</i>),
+ thus they too must be stripped from the string before using this
+ function, or any of the conversion functions.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(...);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
+</p>
+
+<p>Allow any object as a parameter</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>deprecated bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(TypeInfo[] <i>_arguments</i>, va_list <i>_argptr</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
+</p>
+
+<p>Check only the first parameter, all others will be ignored.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>char[] <a class="symbol symbol-anchor" name="soundex" href="#soundex">soundex</a>(const(char)[] <i>string</i>, char[] <i>buffer</i> = null);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Soundex algorithm.
+</p>
+
+<p>The Soundex algorithm converts a word into 4 characters
+ based on how the word sounds phonetically. The idea is that
+ two spellings that sound alike will have the same Soundex
+ value, which means that Soundex can be used for fuzzy matching
+ of names.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char)[] <i>string</i></td>
+<td>String to convert to Soundex representation.</td>
+</tr>
+<tr><td class="span2">char[] <i>buffer</i></td>
+<td>Optional 4 char array to put the resulting Soundex
+      characters into. If <span class="d_keyword">null</span>, the return value
+      <i>buffer</i> will be allocated on the heap.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>The four character array with the Soundex result in it.
+  Returns <span class="d_keyword">null</span> if there is no Soundex representation for the <i>string</i>.
+
+</dd>
+
+<dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Soundex">Wikipedia</a>,
+  <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=The Soundex Indexing System">The Soundex Indexing System</a>
+
+</dd>
+
+<dt>Known Bugs</dt><dd>Only works well with English names.
+  There are other arguably better Soundex algorithms,
+  but this one is the standard one.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>string[string] <a class="symbol symbol-anchor" name="abbrev" href="#abbrev">abbrev</a>(string[] <i>values</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Construct an associative array consisting of all
+ abbreviations that uniquely map to the strings in <i>values</i>.
+</p>
+
+<p>This is useful in cases where the user is expected to type
+ in one of a known set of strings, and the program will helpfully
+ autocomplete the string once sufficient characters have been
+ entered that uniquely identify it.
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
+ <span class="d_keyword">import</span> std.string;
+
+ <span class="d_keyword">void</span> main()
+ {
+    <span class="d_keyword">static</span> string[] list = [ <span class="d_string">"food"</span>, <span class="d_string">"foxy"</span> ];
+
+    <span class="d_keyword">auto</span> abbrevs = std.string.<u>abbrev</u>(list);
+
+    <span class="d_keyword">foreach</span> (key, value; abbrevs)
+    {
+       writefln(<span class="d_string">"%s =&gt; %s"</span>, key, value);
+    }
+ }
+</pre>
+ produces the output:
+ <pre>
+ fox =&gt; foxy
+ food =&gt; food
+ foxy =&gt; foxy
+ foo =&gt; food
+ </pre></dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="column" href="#column">column</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Compute <a class="symbol symbol-anchor" name="column" href="#column">column</a> number after string if string starts in the
+ leftmost <a class="symbol symbol-anchor" name="column" href="#column">column</a>, which is numbered starting from 0.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="wrap" href="#wrap">wrap</a>(S)(S <i>s</i>, size_t <i>columns</i> = 80, S <i>firstindent</i> = null, S <i>indent</i> = null, size_t <i>tabsize</i> = 8);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Wrap text into a paragraph.
+</p>
+
+<p>The input text string s is formed into a paragraph
+ by breaking it up into a sequence of lines, delineated
+ by \n, such that the number of columns is not exceeded
+ on each line.
+ The last line is terminated with a \n.
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
+<td>text string to be wrapped</td>
+</tr>
+<tr><td class="span2">columns</td>
+<td>maximum number of columns in the paragraph</td>
+</tr>
+<tr><td class="span2">firstindent</td>
+<td>string used to indent first line of the paragraph</td>
+</tr>
+<tr><td class="span2">indent</td>
+<td>string to use to indent following lines of the paragraph</td>
+</tr>
+<tr><td class="span2">tabsize</td>
+<td>column spacing of tabs</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>The resulting paragraph.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="outdent" href="#outdent">outdent</a>(S)(S <i>str</i>);
+<br>S[] <a class="symbol symbol-anchor" name="outdent" href="#outdent">outdent</a>(S)(S[] <i>lines</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Removes indentation from a multi-line string or an array of single-line strings.
+</p>
+
+<p>This uniformly outdents the text as much as possible.
+ Whitespace-only lines are always converted to blank lines.
+<br><br>
+
+ A StringException will be thrown if inconsistent indentation prevents
+ the input from being outdented.
+<br><br>
+
+ Works at compile-time.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"> writeln(<span class="d_string">q{
+     import std.stdio;
+     void main() {
+         writeln("Hello");
+     }
+ }</span>.<u>outdent</u>());
+</pre>
+
+</dd>
+<dt>Output:</dt><dd>
+<pre class="d_code">
+ <span class="d_keyword">import</span> std.stdio;
+ <span class="d_keyword">void</span> main() {
+     writeln(<span class="d_string">"Hello"</span>);
+ }
+
+</pre>
+</dd>
+</dl>
+</div>
+
+
+
+				</div>
+				
+				<hr>
+				
+				<footer class="pull-left">
+					<p>Page generated with <a href="https://github.com/JakobOvrum/bootDoc">bootDoc</a>.</p>
+				</footer>
+				
+				<footer class="pull-right">
+					<p>&copy; Copyright Digital Mars 2007-.
+
+</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+

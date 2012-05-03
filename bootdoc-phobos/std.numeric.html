@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>std.numeric - Phobos documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- styles -->
+	<link href="bootDoc/assets/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		}
+		.sidebar-nav {
+		padding: 9px 0;
+		}
+	</style>
+	<link href="bootDoc/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootDoc/bootdoc.css" rel="stylesheet">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- fav and touch icons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootDoc/assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootDoc/assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="bootDoc/assets/ico/apple-touch-icon-57-precomposed.png">
+	
+	<!-- Introduce DDoc settings required by JavaScript -->
+	<script type="text/javascript">
+		var Title = 'std.numeric';
+		var SourceRepository = 'https://github.com/D-Programming-Language/phobos/tree/master';
+		var PackageSeparator = '.';
+	</script>
+	
+	<style type="text/css">
+		.ddoc-icon-variable { background-image: url('bootDoc/ddoc-icons/var.png'); }
+		.ddoc-icon-function { background-image: url('bootDoc/ddoc-icons/func.png'); }
+		.ddoc-icon-property { background-image: url('bootDoc/ddoc-icons/property.png'); }
+		.ddoc-icon-struct { background-image: url('bootDoc/ddoc-icons/struct.png'); }
+		.ddoc-icon-class { background-image: url('bootDoc/ddoc-icons/class.png'); }
+		.ddoc-icon-enum { background-image: url('bootDoc/ddoc-icons/enum.png'); }
+		.ddoc-icon-template { background-image: url('bootDoc/ddoc-icons/template.png'); }
+	</style>
+	</head>
+
+	<body>
+	<!--
+	JavaScript reaps the module list from this element.
+	This is required for the MODULES macro to be reusable
+	in a noscript element later.
+	-->
+	<ul id="module-list-source" class="hidden">
+		
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+	</ul>
+	
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="index.html">Phobos</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html">Reference</a></li>
+					</ul>
+					
+					<form id="gotosymbol" class="navbar-search pull-left hidden">
+						<input type="text" class="search-query" placeholder="Go to symbol in std.numeric" data-provide="typeahead" data-items="4">
+					</form>
+					
+					<p class="navbar-text pull-right"><a href="https://github.com/D-Programming-Language/phobos">Github Page</a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li id="module-list" class="nav-header sidebar-list-entry">Modules<li>
+					<noscript>
+						
+	<li class="sidebar-list-entry tree-leaf"><a href="index.html" title="index"><i class="icon-th"></i>index</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.curl.html" title="etc.c.curl"><i class="icon-th"></i>etc.c.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.sqlite3.html" title="etc.c.sqlite3"><i class="icon-th"></i>etc.c.sqlite3</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="etc.c.zlib.html" title="etc.c.zlib"><i class="icon-th"></i>etc.c.zlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.algorithm.html" title="std.algorithm"><i class="icon-th"></i>std.algorithm</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.array.html" title="std.array"><i class="icon-th"></i>std.array</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.ascii.html" title="std.ascii"><i class="icon-th"></i>std.ascii</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.base64.html" title="std.base64"><i class="icon-th"></i>std.base64</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bigint.html" title="std.bigint"><i class="icon-th"></i>std.bigint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bind.html" title="std.bind"><i class="icon-th"></i>std.bind</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.bitmanip.html" title="std.bitmanip"><i class="icon-th"></i>std.bitmanip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.fenv.html" title="std.c.fenv"><i class="icon-th"></i>std.c.fenv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.locale.html" title="std.c.locale"><i class="icon-th"></i>std.c.locale</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.math.html" title="std.c.math"><i class="icon-th"></i>std.c.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.process.html" title="std.c.process"><i class="icon-th"></i>std.c.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdarg.html" title="std.c.stdarg"><i class="icon-th"></i>std.c.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stddef.html" title="std.c.stddef"><i class="icon-th"></i>std.c.stddef</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdio.html" title="std.c.stdio"><i class="icon-th"></i>std.c.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.stdlib.html" title="std.c.stdlib"><i class="icon-th"></i>std.c.stdlib</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.string.html" title="std.c.string"><i class="icon-th"></i>std.c.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.time.html" title="std.c.time"><i class="icon-th"></i>std.c.time</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.wcharh.html" title="std.c.wcharh"><i class="icon-th"></i>std.c.wcharh</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.com.html" title="std.c.windows.com"><i class="icon-th"></i>std.c.windows.com</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.stat.html" title="std.c.windows.stat"><i class="icon-th"></i>std.c.windows.stat</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.windows.html" title="std.c.windows.windows"><i class="icon-th"></i>std.c.windows.windows</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.c.windows.winsock.html" title="std.c.windows.winsock"><i class="icon-th"></i>std.c.windows.winsock</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.compiler.html" title="std.compiler"><i class="icon-th"></i>std.compiler</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.complex.html" title="std.complex"><i class="icon-th"></i>std.complex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.concurrency.html" title="std.concurrency"><i class="icon-th"></i>std.concurrency</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.container.html" title="std.container"><i class="icon-th"></i>std.container</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.conv.html" title="std.conv"><i class="icon-th"></i>std.conv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cpuid.html" title="std.cpuid"><i class="icon-th"></i>std.cpuid</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.cstream.html" title="std.cstream"><i class="icon-th"></i>std.cstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.csv.html" title="std.csv"><i class="icon-th"></i>std.csv</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.datetime.html" title="std.datetime"><i class="icon-th"></i>std.datetime</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.demangle.html" title="std.demangle"><i class="icon-th"></i>std.demangle</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.encoding.html" title="std.encoding"><i class="icon-th"></i>std.encoding</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.exception.html" title="std.exception"><i class="icon-th"></i>std.exception</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.file.html" title="std.file"><i class="icon-th"></i>std.file</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.format.html" title="std.format"><i class="icon-th"></i>std.format</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.functional.html" title="std.functional"><i class="icon-th"></i>std.functional</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.getopt.html" title="std.getopt"><i class="icon-th"></i>std.getopt</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.json.html" title="std.json"><i class="icon-th"></i>std.json</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.loader.html" title="std.loader"><i class="icon-th"></i>std.loader</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.math.html" title="std.math"><i class="icon-th"></i>std.math</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mathspecial.html" title="std.mathspecial"><i class="icon-th"></i>std.mathspecial</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.md5.html" title="std.md5"><i class="icon-th"></i>std.md5</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.metastrings.html" title="std.metastrings"><i class="icon-th"></i>std.metastrings</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.mmfile.html" title="std.mmfile"><i class="icon-th"></i>std.mmfile</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.curl.html" title="std.net.curl"><i class="icon-th"></i>std.net.curl</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.net.isemail.html" title="std.net.isemail"><i class="icon-th"></i>std.net.isemail</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.numeric.html" title="std.numeric"><i class="icon-th"></i>std.numeric</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.outbuffer.html" title="std.outbuffer"><i class="icon-th"></i>std.outbuffer</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.parallelism.html" title="std.parallelism"><i class="icon-th"></i>std.parallelism</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.path.html" title="std.path"><i class="icon-th"></i>std.path</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.perf.html" title="std.perf"><i class="icon-th"></i>std.perf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.process.html" title="std.process"><i class="icon-th"></i>std.process</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.random.html" title="std.random"><i class="icon-th"></i>std.random</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.range.html" title="std.range"><i class="icon-th"></i>std.range</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regex.html" title="std.regex"><i class="icon-th"></i>std.regex</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.regexp.html" title="std.regexp"><i class="icon-th"></i>std.regexp</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.signals.html" title="std.signals"><i class="icon-th"></i>std.signals</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socket.html" title="std.socket"><i class="icon-th"></i>std.socket</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.socketstream.html" title="std.socketstream"><i class="icon-th"></i>std.socketstream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdarg.html" title="std.stdarg"><i class="icon-th"></i>std.stdarg</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdint.html" title="std.stdint"><i class="icon-th"></i>std.stdint</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdio.html" title="std.stdio"><i class="icon-th"></i>std.stdio</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stdiobase.html" title="std.stdiobase"><i class="icon-th"></i>std.stdiobase</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.stream.html" title="std.stream"><i class="icon-th"></i>std.stream</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.string.html" title="std.string"><i class="icon-th"></i>std.string</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.syserror.html" title="std.syserror"><i class="icon-th"></i>std.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.system.html" title="std.system"><i class="icon-th"></i>std.system</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.traits.html" title="std.traits"><i class="icon-th"></i>std.traits</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typecons.html" title="std.typecons"><i class="icon-th"></i>std.typecons</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.typetuple.html" title="std.typetuple"><i class="icon-th"></i>std.typetuple</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uni.html" title="std.uni"><i class="icon-th"></i>std.uni</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.uri.html" title="std.uri"><i class="icon-th"></i>std.uri</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.utf.html" title="std.utf"><i class="icon-th"></i>std.utf</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.variant.html" title="std.variant"><i class="icon-th"></i>std.variant</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.charset.html" title="std.windows.charset"><i class="icon-th"></i>std.windows.charset</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.iunknown.html" title="std.windows.iunknown"><i class="icon-th"></i>std.windows.iunknown</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.registry.html" title="std.windows.registry"><i class="icon-th"></i>std.windows.registry</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.windows.syserror.html" title="std.windows.syserror"><i class="icon-th"></i>std.windows.syserror</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.xml.html" title="std.xml"><i class="icon-th"></i>std.xml</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zip.html" title="std.zip"><i class="icon-th"></i>std.zip</a></li>
+	<li class="sidebar-list-entry tree-leaf"><a href="std.zlib.html" title="std.zlib"><i class="icon-th"></i>std.zlib</a></li>
+					</noscript>
+					<li id="symbol-list" class="nav-header sidebar-list-entry hidden">std.numeric</li>
+				</ul>
+				</div><!--/.well -->
+			</div><!--/span-->
+			
+			<div class="span10">
+				<div class="row-fluid">
+					<div class="span11">
+						<ul id="module-breadcrumb" class="breadcrumb">
+							<noscript><h1>std.numeric</h1></noscript>
+						</ul>
+						
+					</div>
+					<div class="span1 offset11">
+						<a href="index.html"><img src="dlogo-small.png" alt="The D Programming Language"/></a>
+					</div>
+				</div>
+				<div id="declaration-list">
+					<!-- Generated by Ddoc from phobos\std\numeric.d -->
+<dl><p>This module is a port of a growing fragment of the <b><a class="symbol symbol-anchor" name="numeric" href="#numeric">numeric</a></b>
+header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Template Library</a>, with a few additions.
+</p>
+
+<dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</dd>
+
+<dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>,
+                   Don Clugston, Robert Jacques
+</dd>
+
+<dt>Source:</dt><dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/numeric.d">std/numeric.d</a></dd>
+</dl>
+<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CustomFloatFlags" href="#CustomFloatFlags">CustomFloatFlags</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Format flags for CustomFloat.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="signed" href="#signed">signed</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Adds a sign bit to allow for <a class="symbol symbol-anchor" name="signed" href="#signed">signed</a> numbers.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="storeNormalized" href="#storeNormalized">storeNormalized</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Store values in normalized form by default. The actual precision of the
+ significand is extended by 1 bit by assuming an implicit leading bit of 1
+ instead of 0. i.e. <span class="inlinecode">1.nnnn</span> instead of <span class="inlinecode">0.nnnn</span>.
+ True for all <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEE754">IEE754</a> types</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="allowDenorm" href="#allowDenorm">allowDenorm</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Stores the significand in <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> form when the
+ exponent is 0. Required to express the value 0.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="infinity" href="#infinity">infinity</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 infinity">IEEE754 infinity</a> values.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="nan" href="#nan">nan</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 Not a Number">IEEE754 Not a Number</a> values.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="probability" href="#probability">probability</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>If set, select an exponent bias such that max_exp = 1.
+ i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0.
+ Ignored if the exponent bias is manually specified.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="negativeUnsigned" href="#negativeUnsigned">negativeUnsigned</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>If set, unsigned custom floats are assumed to be negative.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="allowDenormZeroOnly" href="#allowDenormZeroOnly">allowDenormZeroOnly</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>If set, 0 is the only allowed <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> number.
+ Requires allowDenorm and storeNormalized.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ieee" href="#ieee">ieee</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Include all of the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754">IEEE754</a> options.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a></h3></div>
+
+
+<div class="declaration-content"><dl><p>Include <a class="symbol symbol-anchor" name="none" href="#none">none</a> of the above options.</p>
+
+</dl>
+</div>
+
+</div>
+
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint bits) if (bits == 8 || bits == 16 || bits == 32 || bits == 64 || bits == 80)<br>template <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags = CustomFloatFlags.ieee) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0)<br>struct <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags,uint bias) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Allows user code to define custom floating-point formats. These formats are
+ for storage only; all operations on them are performed by first implicitly
+ extracting them to <span class="inlinecode">real</span> first. After the operation is completed the
+ result can be stored in a custom floating-point value via assignment.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"> <span class="d_comment">// Define a 16-bit floating point values
+</span>
+ <u>CustomFloat</u>!16                                x;     <span class="d_comment">// Using the number of bits
+</span>
+ <u>CustomFloat</u>!(10, 5)                           y;     <span class="d_comment">// Using the precision and exponent width
+</span>
+ <u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee)     z;     <span class="d_comment">// Using the precision, exponent width and format flags
+</span>
+ <u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee, 15) w;     <span class="d_comment">// Using the precision, exponent width, format flags and exponent offset bias
+</span>
+
+ <span class="d_comment">// Use the 16-bit floats mostly like normal numbers
+</span>
+ w = x*y - 1;
+ writeln(w);
+
+ <span class="d_comment">// Functions calls require conversion
+</span>
+ z = sin(+x)           + cos(+y);                     <span class="d_comment">// Use uniary plus to concisely convert to a real
+</span>
+ z = sin(x.re)         + cos(y.re);                   <span class="d_comment">// Or use the .re property to convert to a real
+</span>
+ z = sin(x.get!<span class="d_keyword">float</span>)  + cos(y.get!<span class="d_keyword">float</span>);            <span class="d_comment">// Or use get!T
+</span>
+ z = sin(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)x) + cos(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)y);           <span class="d_comment">// Or use cast(T) to explicitly convert
+</span>
+
+ <span class="d_comment">// Define a 8-bit custom float for storing probabilities
+</span>
+ <span class="d_keyword">alias</span> <u>CustomFloat</u>!(4, 4, CustomFloatFlags.ieee^CustomFloatFlags.probability^CustomFloatFlags.signed ) Probability;
+ <span class="d_keyword">auto</span> p = Probability(0.5);
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>(F) if (isFloatingPoint!(F))</h3></div>
+
+
+<div class="declaration-content"><dl><p>Defines the fastest type to use when storing temporaries of a
+calculation intended to ultimately yield a result of type <span class="inlinecode">F</span>
+(where <span class="inlinecode">F</span> must be one of <span class="inlinecode">float</span>, <span class="inlinecode">double</span>, or <span class="inlinecode">real</span>). When doing a multi-step computation, you may want to store
+intermediate results as <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>!F</span>.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// Average numbers in an array
+</span>
+<span class="d_keyword">double</span> avg(<span class="d_keyword">in</span> <span class="d_keyword">double</span>[] a)
+{
+    <span class="d_keyword">if</span> (a.length == 0) <span class="d_keyword">return</span> 0;
+    <u>FPTemporary</u>!<span class="d_keyword">double</span> result = 0;
+    <span class="d_keyword">foreach</span> (e; a) result += e;
+    <span class="d_keyword">return</span> result / a.length;
+}
+</pre>
+
+The necessity of <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a></span> stems from the optimized
+floating-point operations and registers present in virtually all
+processors. When adding numbers in the example above, the addition may
+in fact be done in <span class="inlinecode">real</span> precision internally. In that case,
+storing the intermediate <span class="inlinecode">result</span> in <span class="inlinecode">double format</span> is not only
+less precise, it is also (surprisingly) slower, because a conversion
+from <span class="inlinecode">real</span> to <span class="inlinecode">double</span> is performed every pass through the
+loop. This being a lose-lose situation, <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>!F</span> has been
+defined as the <i>fastest</i> type to use for calculations at precision
+<span class="inlinecode">F</span>. There is no need to define a type for the <i>most accurate</i>
+calculations, as that is always <span class="inlinecode">real</span>.
+<br><br>
+
+Finally, there is no guarantee that using <span class="inlinecode"><a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>!F</span> will
+always be fastest, as the speed of floating-point calculations depends
+on very many factors.</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="secantMethod" href="#secantMethod">secantMethod</a>(alias fun)</h3></div>
+
+
+<div class="declaration-content"><dl><p>Implements the <a href="http://tinyurl.com/2zb9yr">secant method</a> for finding a
+root of the function <span class="inlinecode">fun</span> starting from points <span class="inlinecode">[xn_1, x_n]</span>
+(ideally close to the root). <span class="inlinecode">Num</span> may be <span class="inlinecode">float</span>, <span class="inlinecode">double</span>,
+or <span class="inlinecode">real</span>.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">float</span> f(<span class="d_keyword">float</span> x) {
+    <span class="d_keyword">return</span> cos(x) - x*x*x;
+}
+<span class="d_keyword">auto</span> x = <u>secantMethod</u>!(f)(0f, 1f);
+<span class="d_keyword">assert</span>(approxEqual(x, 0.865474));
+</pre>
+</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="findRoot" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>a</i>, T <i>b</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Find a real root of a real function f(x) via bracketing.
+</p>
+
+<p>Given a function <span class="inlinecode">f</span> and a range <span class="inlinecode">[a..b]</span> such that <span class="inlinecode">f(a)</span>
+ and <span class="inlinecode">f(b)</span> have opposite signs, returns the value of <span class="inlinecode">x</span> in
+ the range which is closest to a root of <span class="inlinecode">f(x)</span>.  If <span class="inlinecode">f(x)</span>
+ has more than one root in the range, one will be chosen
+ arbitrarily.  If <span class="inlinecode">f(x)</span> returns NaN, NaN will be returned;
+ otherwise, this algorithm is guaranteed to succeed.
+<br><br>
+
+ Uses an algorithm based on TOMS748, which uses inverse cubic
+ interpolation whenever possible, otherwise reverting to parabolic
+ or secant interpolation. Compared to TOMS748, this implementation
+ improves worst-case performance by a factor of more than 100, and
+ typical performance by a factor of 2. For 80-bit reals, most
+ problems require 8 to 15 calls to <span class="inlinecode">f(x)</span> to achieve full machine
+ precision. The worst-case performance (pathological cases) is
+ approximately twice the number of bits.
+
+</p>
+<dt>References:</dt><dd>
+"On Enclosing Simple Roots of Nonlinear Equations",
+ G. Alefeld, F.A. Potra, Yixun Shi, Mathematics of Computation 61,
+ pp733-744 (1993).  Fortran code available from <a href="http://www.netlib.org">www.netlib.org</a> as algorithm TOMS478.</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Tuple!(T,T,R,R) <a class="symbol symbol-anchor" name="findRoot" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>ax</i>, T <i>bx</i>, R <i>fax</i>, R <i>fbx</i>, scope bool delegate(T lo, T hi) <i>tolerance</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Find root of a real function f(x) by bracketing, allowing the
+ termination condition to be specified.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">f</td>
+<td>Function to be analyzed</td>
+</tr>
+<tr><td class="span2">ax</td>
+<td>Left bound of initial range of <span class="inlinecode">f</span> known to contain the
+ root.</td>
+</tr>
+<tr><td class="span2">bx</td>
+<td>Right bound of initial range of <span class="inlinecode">f</span> known to contain the
+ root.</td>
+</tr>
+<tr><td class="span2">fax</td>
+<td>Value of <span class="inlinecode">f(ax)</span>.</td>
+</tr>
+<tr><td class="span2">fbx</td>
+<td>Value of <span class="inlinecode">f(bx)</span>. (<span class="inlinecode">f(ax)</span> and <span class="inlinecode">f(bx)</span> are commonly
+ known in advance.)</td>
+</tr>
+<tr><td class="span2">tolerance</td>
+<td>Defines an early termination condition. Receives the
+             current upper and lower bounds on the root. The
+             delegate must return <span class="inlinecode"><span class="d_keyword">true</span></span> when these bounds are
+             acceptable. If this function always returns <span class="inlinecode"><span class="d_keyword">false</span></span>,
+             full machine precision will be achieved.</td>
+</tr>
+</table></dd>
+
+<dt>Returns</dt><dd>A tuple consisting of two ranges. The first two elements are the
+ range (in <span class="inlinecode">x</span>) of the root, while the second pair of elements
+ are the corresponding function values at those points. If an exact
+ root was found, both of the first two elements will contain the
+ root, and the second pair of elements will be 0.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="euclideanDistance" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+<br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="euclideanDistance" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Euclidean distance">Euclidean distance</a> between input ranges <span class="inlinecode">a</span> and
+<span class="inlinecode">b</span>. The two ranges must have the same length. The three-parameter
+version stops computation as soon as the distance is greater than or
+equal to <span class="inlinecode">limit</span> (this is useful to save computation if a small
+distance is sought).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="dotProduct" href="#dotProduct">dotProduct</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+<br>Unqual!(CommonType!(F1,F2)) <a class="symbol symbol-anchor" name="dotProduct" href="#dotProduct">dotProduct</a>(F1, F2)(in F1[] <i>avector</i>, in F2[] <i>bvector</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=dot product">dot product</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
+length, the check is done once; otherwise, it is done at each
+iteration.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="cosineSimilarity" href="#cosineSimilarity">cosineSimilarity</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=cosine similarity">cosine similarity</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
+length, the check is done once; otherwise, it is done at each
+iteration. If either range has all-zero elements, return 0.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="normalize" href="#normalize">normalize</a>(R)(R <i>range</i>, ElementType!(R) <i>sum</i> = 1);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Normalizes values in <span class="inlinecode">range</span> by multiplying each element with a
+number chosen such that values sum up to <span class="inlinecode">sum</span>. If elements in <span class="inlinecode">range</span> sum to zero, assigns <span class="inlinecode">sum / range.length</span> to
+all. Normalization makes sense only if all elements in <span class="inlinecode">range</span> are
+positive. <span class="inlinecode"><a class="symbol symbol-anchor" name="normalize" href="#normalize">normalize</a></span> assumes that is the case without checking it.
+</p>
+
+<dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">true</span></span> if normalization completed normally, <span class="inlinecode"><span class="d_keyword">false</span></span> if
+all elements in <span class="inlinecode">range</span> were zero or if <span class="inlinecode">range</span> is empty.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>ElementType!(Range) <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a>(Range)(Range <i>r</i>);
+<br>ElementType!(Range) <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a>(Range, F)(Range <i>r</i>, F <i>max</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=entropy">entropy</a> of input range <span class="inlinecode">r</span> in bits. This
+function assumes (without checking) that the values in <span class="inlinecode">r</span> are all
+in <span class="inlinecode">[0, 1]</span>. For the <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a> to be meaningful, often <span class="inlinecode">r</span> should
+be normalized too (i.e., its values should sum to 1). The
+two-parameter version stops evaluating as soon as the intermediate
+result is greater than or equal to <span class="inlinecode">max</span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="kullbackLeiblerDivergence" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Kullback-Leibler divergence">Kullback-Leibler divergence</a> between input ranges
+<span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">ai * log(ai / bi)</span>. The base
+of logarithm is 2. The ranges are assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are normalized probability distributions,
+but this is not required or checked by <span class="inlinecode"><a class="symbol symbol-anchor" name="kullbackLeiblerDivergence" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a></span>. If any element <span class="inlinecode">bi</span> is zero and the
+corresponding element <span class="inlinecode">ai</span> nonzero, returns infinity. (Otherwise,
+if <span class="inlinecode">ai == 0 &amp;&amp; bi == 0</span>, the term <span class="inlinecode">ai * log(ai / bi)</span> is
+considered zero.) If the inputs are normalized, the result is
+positive.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="jensenShannonDivergence" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+<br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="jensenShannonDivergence" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Jensen-Shannon divergence">Jensen-Shannon divergence</a> between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">(ai * log(2 * ai / (ai + bi)) + bi * log(2 *
+bi / (ai + bi))) / 2</span>. The base of logarithm is 2. The ranges are
+assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are
+normalized probability distributions, but this is not required or
+checked by <span class="inlinecode"><a class="symbol symbol-anchor" name="jensenShannonDivergence" href="#jensenShannonDivergence">jensenShannonDivergence</a></span>. If the inputs are normalized,
+the result is bounded within <span class="inlinecode">[0, 1]</span>. The three-parameter version
+stops evaluations as soon as the intermediate result is greater than
+or equal to <span class="inlinecode">limit</span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>F <a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The so-called "all-lengths gap-weighted string kernel" computes a
+similarity measure between <span class="inlinecode">s</span> and <span class="inlinecode">t</span> based on all of their
+common subsequences of all lengths. Gapped subsequences are also
+included.
+</p>
+
+<p>To understand what <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(s, t, lambda)</span> computes,
+consider first the case <span class="inlinecode">lambda = 1</span> and the strings <span class="inlinecode">s =
+["Hello", "brave", "new", "world"]</span> and <span class="inlinecode">t = ["Hello", "new",
+"world"]</span>. In that case, <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a></span> counts the
+following matches:
+<br><br>
+
+<ol><li>three matches of length 1, namely <span class="inlinecode">"Hello"</span>, <span class="inlinecode">"new"</span>,
+and <span class="inlinecode">"world"</span>;</li> <li>three matches of length 2, namely (<span class="inlinecode">"Hello", "new"</span>), (<span class="inlinecode">"Hello", "world"</span>), and (<span class="inlinecode">"new", "world"</span>);</li>
+<li>one match of length 3, namely (<span class="inlinecode">"Hello", "new", "world"</span>).</li></ol>
+<br><br>
+
+The call <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(s, t, 1)</span> simply counts all of
+these matches and adds them up, returning 7.
+<br><br>
+
+<pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+<span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 1) == 7);
+</pre>
+
+Note how the gaps in matching are simply ignored, for example (<span class="inlinecode">"Hello", "new"</span>) is deemed as good a match as (<span class="inlinecode">"new",
+"world"</span>). This may be too permissive for some applications. To
+eliminate gapped matches entirely, use <span class="inlinecode">lambda = 0</span>:
+<br><br>
+
+<pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+<span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 0) == 4);
+</pre>
+
+The call above eliminated the gapped matches (<span class="inlinecode">"Hello", "new"</span>),
+(<span class="inlinecode">"Hello", "world"</span>), and (<span class="inlinecode">"Hello", "new", "world"</span>) from the
+tally. That leaves only 4 matches.
+<br><br>
+
+The most interesting case is when gapped matches still participate in
+the result, but not as strongly as ungapped matches. The result will
+be a smooth, fine-grained similarity measure between the input
+strings. This is where values of <span class="inlinecode">lambda</span> between 0 and 1 enter
+into play: gapped matches are <i>exponentially penalized with the
+number of gaps</i> with base <span class="inlinecode">lambda</span>. This means that an ungapped
+match adds 1 to the return value; a match with one gap in either
+string adds <span class="inlinecode">lambda</span> to the return value; ...; a match with a total
+of <span class="inlinecode">n</span> gaps in both strings adds <span class="inlinecode">pow(lambda, n)</span> to the return
+value. In the example above, we have 4 matches without gaps, 2 matches
+with one gap, and 1 match with three gaps. The latter match is (<span class="inlinecode">"Hello", "world"</span>), which has two gaps in the first string and one gap
+in the second string, totaling to three gaps. Summing these up we get
+<span class="inlinecode">4 + 2 * lambda + pow(lambda, 3)</span>.
+<br><br>
+
+<pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+<span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 0.5) == 4 + 0.5 * 2 + 0.125);
+</pre>
+
+<span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a></span> is useful wherever a smooth similarity
+measure between sequences allowing for approximate matches is
+needed. The examples above are given with words, but any sequences
+with elements comparable for equality are allowed, e.g. characters or
+numbers. <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a></span> uses a highly optimized dynamic
+programming implementation that needs <span class="inlinecode">16 * min(s.length,
+t.length)</span> extra bytes of memory and <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length * t.length</span><b><i>)</i></b> time
+to complete.</p>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Select!(isFloatingPoint!(F),F,double) <a class="symbol symbol-anchor" name="gapWeightedSimilarityNormalized" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>, F <i>sSelfSim</i> = F.init, F <i>tSelfSim</i> = F.init);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>The similarity per <span class="inlinecode">gapWeightedSimilarity</span> has an issue in that it
+grows with the lengths of the two strings, even though the strings are
+not actually very similar. For example, the range <span class="inlinecode">["Hello",
+"world"]</span> is increasingly similar with the range <span class="inlinecode">["Hello",
+"world", "world", "world",...]</span> as more instances of <span class="inlinecode">"world"</span> are
+appended. To prevent that, <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarityNormalized" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a></span>
+computes a normalized version of the similarity that is computed as
+<span class="inlinecode">gapWeightedSimilarity(s, t, lambda) /
+sqrt(gapWeightedSimilarity(s, t, lambda) * gapWeightedSimilarity(s, t,
+lambda))</span>. The function <span class="inlinecode"><a class="symbol symbol-anchor" name="gapWeightedSimilarityNormalized" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a></span> (a
+so-called normalized kernel) is bounded in <span class="inlinecode">[0, 1]</span>, reaches <span class="inlinecode">0</span>
+only for ranges that don't match in any position, and <span class="inlinecode">1</span> only for
+identical ranges.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+<span class="d_keyword">assert</span>(gapWeightedSimilarity(s, s, 1) == 15);
+<span class="d_keyword">assert</span>(gapWeightedSimilarity(t, t, 1) == 7);
+<span class="d_keyword">assert</span>(gapWeightedSimilarity(s, t, 1) == 7);
+<span class="d_keyword">assert</span>(<u>gapWeightedSimilarityNormalized</u>(s, t, 1) == 7. / sqrt(15. * 7));
+</pre>
+
+The optional parameters <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span> are meant for
+avoiding duplicate computation. Many applications may have already
+computed <span class="inlinecode">gapWeightedSimilarity(s, s, lambda)</span> and/or <span class="inlinecode">gapWeightedSimilarity(t, t, lambda)</span>. In that case, they can be passed
+as <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span>, respectively.</dd>
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="GapWeightedSimilarityIncremental" href="#GapWeightedSimilarityIncremental">GapWeightedSimilarityIncremental</a>(Range,F = double) if (isRandomAccessRange!(Range) &amp;&amp; hasLength!(Range));
+<br>GapWeightedSimilarityIncremental!(R,F) <a class="symbol symbol-anchor" name="gapWeightedSimilarityIncremental" href="#gapWeightedSimilarityIncremental">gapWeightedSimilarityIncremental</a>(R, F)(R <i>r1</i>, R <i>r2</i>, F <i>penalty</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Similar to <span class="inlinecode">gapWeightedSimilarity</span>, just works in an incremental
+manner by first revealing the matches of length 1, then gapped matches
+of length 2, and so on. The memory requirement is <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length *
+t.length</span><b><i>)</i></b>. The time complexity is <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length * t.length</span><b><i>)</i></b> time
+for computing each step. Continuing on the previous example:
+</p>
+
+<p><pre class="d_code">string[] s = [<span class="d_string">"Hello"</span>, <span class="d_string">"brave"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
+<span class="d_keyword">auto</span> simIter = gapWeightedSimilarityIncremental(s, t, 1);
+<span class="d_keyword">assert</span>(simIter.front == 3); <span class="d_comment">// three 1-length matches
+</span>
+simIter.popFront();
+<span class="d_keyword">assert</span>(simIter.front == 3); <span class="d_comment">// three 2-length matches
+</span>
+simIter.popFront();
+<span class="d_keyword">assert</span>(simIter.front == 1); <span class="d_comment">// one 3-length match
+</span>
+simIter.popFront();
+<span class="d_keyword">assert</span>(simIter.empty);     <span class="d_comment">// no more match
+</span>
+</pre>
+
+The implementation is based on the pseudocode in Fig. 4 of the paper
+<a href="http://jmlr.csail.mit.edu/papers/volume6/rousu05a/rousu05a.pdf">"Efﬁcient Computation of Gapped Substring Kernels on Large Alphabets"</a>
+by Rousu et al., with additional algorithmic and systems-level
+optimizations.</p>
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Range <i>s</i>, Range <i>t</i>, F <i>lambda</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Constructs an object given two ranges <span class="inlinecode"><i>s</i></span> and <span class="inlinecode"><i>t</i></span> and a penalty
+<span class="inlinecode"><i>lambda</i></span>. Constructor completes in <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>s</i>.length * <i>t</i>.length</span><b><i>)</i></b>
+time and computes all matches of length 1.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>GapWeightedSimilarityIncremental <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode">this</span>.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the match of the <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> length. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length *
+t.length</span><b><i>)</i></b> time.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>F <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns the gapped similarity at the current match length (initially
+1, grows with each call to <span class="inlinecode">popFront</span>).</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Returns whether there are more matches.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="gcd" href="#gcd">gcd</a>(T)(T <i>a</i>, T <i>b</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the greatest common divisor of <span class="inlinecode">a</span> and <span class="inlinecode">b</span> by using
+Euler's algorithm.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Fft" href="#Fft">Fft</a>;
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>A class for performing fast Fourier transforms of power of two sizes.
+ This class encapsulates a large amount of state that is reusable when
+ performing multiple FFTs of sizes smaller than or equal to that specified
+ in the constructor.  This results in substantial speedups when performing
+ multiple FFTs with a known maximum size.  However,
+ a free function API is provided for convenience if you need to perform a
+ one-off FFT.
+</p>
+
+<dt>References:</dt><dd>
+<a href="http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm</a></dd>
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>size</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Create an <span class="inlinecode">Fft</span> object for computing fast Fourier transforms of
+ power of two sizes of <span class="inlinecode"><i>size</i></span> or smaller.  <span class="inlinecode"><i>size</i></span> must be a
+ power of two.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Compute the Fourier transform of range using the <b><i>&Omicron;</i>(</b><span class="inlinecode">N log N</span><b><i>)</i></b>
+ Cooley-Tukey Algorithm.  <span class="inlinecode">range</span> must be a random-access range with
+ slicing and a length equal to <span class="inlinecode">size</span> as provided at the construction of
+ this object.  The contents of range can be either  numeric types,
+ which will be interpreted as pure real values, or complex types with
+ properties or members <span class="inlinecode">.re</span> and <span class="inlinecode">.im</span> that can be read.
+</p>
+
+<dt>Note:</dt><dd>
+Pure real FFTs are automatically detected and the relevant
+        optimizations are performed.
+
+</dd>
+<dt>Returns</dt><dd>An array of complex numbers representing the transformed data in
+           the frequency domain.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const void <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Same as the overload, but allows for the results to be stored in a user-
+ provided buffer.  The buffer must be of the same length as range, must be
+ a random-access range, must have slicing, and must contain elements that are
+ complex-like.  This means that they must have a .re and a .im member or
+ property that can be both read and written and are floating point numbers.</p>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Computes the inverse Fourier transform of a range.  The range must be a
+ random access range with slicing, have a length equal to the size
+ provided at construction of this object, and contain elements that are
+ either of type std.complex.Complex or have essentially
+ the same compile-time interface.
+</p>
+
+<dt>Returns</dt><dd>The time-domain signal.</dd>
+
+</dl>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>const void <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Inverse FFT that allows a user-supplied buffer to be provided.  The buffer
+ must be a random access range with slicing, and its elements
+ must be some complex-like type.</p>
+
+</dl>
+</div>
+
+</div>
+</div>
+
+<hr><div class="row-fluid declaration"><h3>Complex!(F)[] <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
+<br>void <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+<br>Complex!(F)[] <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
+<br>void <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+</h3></div>
+
+
+<div class="declaration-content"><dl><p>Convenience functions that create an <span class="inlinecode">Fft</span> object, run the FFT or inverse
+ FFT and return the result.  Useful for one-off FFTs.
+</p>
+
+<dt>Note:</dt><dd>
+In addition to convenience, these functions are slightly more
+        efficient than manually creating an Fft object for a single use,
+        as the Fft object is deterministically destroyed before these
+        functions return.</dd>
+</dl>
+</div>
+
+
+
+				</div>
+				
+				<hr>
+				
+				<footer class="pull-left">
+					<p>Page generated with <a href="https://github.com/JakobOvrum/bootDoc">bootDoc</a>.</p>
+				</footer>
+				
+				<footer class="pull-right">
+					<p>&copy; Copyright Andrei Alexandrescu 2008 - 2009.
+</p>
+				</footer>
+			</div>
+		</div>
+	</div><!--/.fluid-container-->
+
+	<!-- Bootstrap javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootDoc/assets/js/jquery.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-transition.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-alert.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-modal.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-dropdown.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tab.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-tooltip.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-popover.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-button.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-collapse.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-carousel.js"></script>
+	<script src="bootDoc/assets/js/bootstrap-typeahead.js"></script>
+	
+	<!-- bootDoc javascript
+	================================================== -->
+	<script src="bootDoc/bootdoc.js"></script>
+	
+	</body>
+</html>
+
