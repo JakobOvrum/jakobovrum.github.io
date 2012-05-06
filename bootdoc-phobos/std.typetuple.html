@@ -300,16 +300,12 @@ Based on ideas in Table 3.1 from
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typetuple.d">std/typetuple.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="TypeTuple" href="#TypeTuple">TypeTuple</a>(TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Creates a typetuple out of a sequence of zero or more types.
 </p>
 
@@ -334,10 +330,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="staticIndexOf" href="#staticIndexOf">staticIndexOf</a>(T,TList...)<br>template <a class="symbol symbol-anchor" name="staticIndexOf" href="#staticIndexOf">staticIndexOf</a>(alias T,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the index of the first occurrence of type T in the
  sequence of zero or more types TList.
  If not found, -1 is returned.
@@ -358,19 +351,13 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="IndexOf" href="#IndexOf">IndexOf</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Kept for backwards compatibility</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Erase" href="#Erase">Erase</a>(T,TList...)<br>template <a class="symbol symbol-anchor" name="Erase" href="#Erase">Erase</a>(alias T,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the first occurrence,
  if any, of T removed.
 </p>
@@ -384,10 +371,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="EraseAll" href="#EraseAll">EraseAll</a>(T,TList...)<br>template <a class="symbol symbol-anchor" name="EraseAll" href="#EraseAll">EraseAll</a>(alias T,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the all occurrences,
  if any, of T removed.
 </p>
@@ -403,10 +387,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="NoDuplicates" href="#NoDuplicates">NoDuplicates</a>(TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the all duplicate
  types removed.
 </p>
@@ -422,10 +403,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Replace" href="#Replace">Replace</a>(T,U,TList...)<br>template <a class="symbol symbol-anchor" name="Replace" href="#Replace">Replace</a>(alias T,U,TList...)<br>template <a class="symbol symbol-anchor" name="Replace" href="#Replace">Replace</a>(T,alias U,TList...)<br>template <a class="symbol symbol-anchor" name="Replace" href="#Replace">Replace</a>(alias T,alias U,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the first occurrence
  of type T, if found, replaced with type U.
 </p>
@@ -441,10 +419,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ReplaceAll" href="#ReplaceAll">ReplaceAll</a>(T,U,TList...)<br>template <a class="symbol symbol-anchor" name="ReplaceAll" href="#ReplaceAll">ReplaceAll</a>(alias T,U,TList...)<br>template <a class="symbol symbol-anchor" name="ReplaceAll" href="#ReplaceAll">ReplaceAll</a>(T,alias U,TList...)<br>template <a class="symbol symbol-anchor" name="ReplaceAll" href="#ReplaceAll">ReplaceAll</a>(alias T,alias U,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with all occurrences
  of type T, if found, replaced with type U.
 </p>
@@ -460,10 +435,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Reverse" href="#Reverse">Reverse</a>(TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the order reversed.
 </p>
 
@@ -478,10 +450,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="MostDerived" href="#MostDerived">MostDerived</a>(T,TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the type from TList that is the most derived from type T.
  If none are found, T is returned.
 </p>
@@ -498,10 +467,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="DerivedToFront" href="#DerivedToFront">DerivedToFront</a>(TList...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the typetuple TList with the types sorted so that the most
  derived types come first.
 </p>
@@ -520,10 +486,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="staticMap" href="#staticMap">staticMap</a>(alias F,T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">TypeTuple!(F!(T[0]), F!(T[1]), ..., F!(T[$ - 1]))</span>.
 </p>
 
@@ -534,10 +497,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="allSatisfy" href="#allSatisfy">allSatisfy</a>(alias F,T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) &amp;&amp; F!(T[1]) &amp;&amp; ... &amp;&amp; F!(T[$ - 1])</span>.
 </p>
 
@@ -548,10 +508,7 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="anySatisfy" href="#anySatisfy">anySatisfy</a>(alias F,T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) || F!(T[1]) || ... || F!(T[$ - 1])</span>.
 </p>
 
@@ -562,7 +519,6 @@ Based on ideas in Table 3.1 from
 </dd>
 </dl>
 </div>
-
 
 
 				</div>

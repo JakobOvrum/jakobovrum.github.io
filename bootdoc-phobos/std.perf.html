@@ -327,8 +327,6 @@ Matthew Wilson
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="PerformanceCounter" href="#PerformanceCounter">PerformanceCounter</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A performance counter that uses the most accurate measurement APIs available on the host machine
 </p>
 
@@ -338,28 +336,20 @@ Matthew Wilson
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The type of the interval measurement (generally a 64-bit signed integer)</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Starts measurement
 </p>
 
 <p>Begins a measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ends measurement
 </p>
 
@@ -374,58 +364,42 @@ Matthew Wilson
             <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TickCounter" href="#TickCounter">TickCounter</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A low-cost, low-resolution performance counter
 </p>
 
@@ -437,30 +411,22 @@ Matthew Wilson
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The interval type
 </p>
 
 <p>The type of the interval measurement (generally a 64-bit signed integer)</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Starts measurement
 </p>
 
 <p>Begins a measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ends measurement
 </p>
 
@@ -475,58 +441,42 @@ Matthew Wilson
             <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ThreadTimesCounter" href="#ThreadTimesCounter">ThreadTimesCounter</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A performance counter that provides thread-specific performance timings
 </p>
 
@@ -540,19 +490,14 @@ Matthew Wilson
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The interval type
 </p>
 
 <p>The type of the interval measurement (generally a 64-bit signed integer)</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor
 </p>
 
@@ -560,22 +505,16 @@ Matthew Wilson
             be taken with respect to the thread in which the class was created.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Starts measurement
 </p>
 
 <p>Begins a measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ends measurement
 </p>
 
@@ -590,146 +529,106 @@ Matthew Wilson
             <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelPeriodCount" href="#kernelPeriodCount">kernelPeriodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelSeconds" href="#kernelSeconds">kernelSeconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole seconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole seconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMilliseconds" href="#kernelMilliseconds">kernelMilliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole milliseconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole milliseconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMicroseconds" href="#kernelMicroseconds">kernelMicroseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole microseconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole microseconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userPeriodCount" href="#userPeriodCount">userPeriodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userSeconds" href="#userSeconds">userSeconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole seconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole seconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMilliseconds" href="#userMilliseconds">userMilliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole milliseconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole milliseconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMicroseconds" href="#userMicroseconds">userMicroseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole microseconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole microseconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ProcessTimesCounter" href="#ProcessTimesCounter">ProcessTimesCounter</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A performance counter that provides process-specific performance timings
 </p>
 
@@ -743,30 +642,22 @@ Matthew Wilson
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="interval_t" href="#interval_t">interval_t</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The interval type
 </p>
 
 <p>The type of the interval measurement (generally a 64-bit signed integer)</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="start" href="#start">start</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Starts measurement
 </p>
 
 <p>Begins a measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ends measurement
 </p>
 
@@ -781,142 +672,104 @@ Matthew Wilson
             <b><a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>()</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelPeriodCount" href="#kernelPeriodCount">kernelPeriodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelSeconds" href="#kernelSeconds">kernelSeconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole seconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole seconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMilliseconds" href="#kernelMilliseconds">kernelMilliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole milliseconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole milliseconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="kernelMicroseconds" href="#kernelMicroseconds">kernelMicroseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole microseconds in the measurement period for kernel mode activity
 </p>
 
 <p>This represents the extent, in whole microseconds, of the measurement period for kernel mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userPeriodCount" href="#userPeriodCount">userPeriodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userSeconds" href="#userSeconds">userSeconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole seconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole seconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMilliseconds" href="#userMilliseconds">userMilliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole milliseconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole milliseconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="userMicroseconds" href="#userMicroseconds">userMicroseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole microseconds in the measurement period for user mode activity
 </p>
 
 <p>This represents the extent, in whole microseconds, of the measurement period for user mode activity</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="periodCount" href="#periodCount">periodCount</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The elapsed count in the measurement period
 </p>
 
 <p>This represents the extent, in machine-specific increments, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="seconds" href="#seconds">seconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="milliseconds" href="#milliseconds">milliseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const interval_t <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The number of whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a> in the measurement period
 </p>
 
 <p>This represents the extent, in whole <a class="symbol symbol-anchor" name="microseconds" href="#microseconds">microseconds</a>, of the measurement period</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

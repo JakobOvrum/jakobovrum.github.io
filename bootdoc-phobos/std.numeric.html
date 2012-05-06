@@ -290,32 +290,23 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>,
                    Don Clugston, Robert Jacques
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/numeric.d">std/numeric.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CustomFloatFlags" href="#CustomFloatFlags">CustomFloatFlags</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Format flags for CustomFloat.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="signed" href="#signed">signed</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Adds a sign bit to allow for <a class="symbol symbol-anchor" name="signed" href="#signed">signed</a> numbers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="storeNormalized" href="#storeNormalized">storeNormalized</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Store values in normalized form by default. The actual precision of the
  significand is extended by 1 bit by assuming an implicit leading bit of 1
  instead of 0. i.e. <span class="inlinecode">1.nnnn</span> instead of <span class="inlinecode">0.nnnn</span>.
@@ -323,83 +314,55 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="allowDenorm" href="#allowDenorm">allowDenorm</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Stores the significand in <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> form when the
  exponent is 0. Required to express the value 0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="infinity" href="#infinity">infinity</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 infinity">IEEE754 infinity</a> values.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="nan" href="#nan">nan</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 Not a Number">IEEE754 Not a Number</a> values.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="probability" href="#probability">probability</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>If set, select an exponent bias such that max_exp = 1.
  i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0.
  Ignored if the exponent bias is manually specified.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="negativeUnsigned" href="#negativeUnsigned">negativeUnsigned</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>If set, unsigned custom floats are assumed to be negative.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="allowDenormZeroOnly" href="#allowDenormZeroOnly">allowDenormZeroOnly</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>If set, 0 is the only allowed <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> number.
  Requires allowDenorm and storeNormalized.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ieee" href="#ieee">ieee</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Include all of the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754">IEEE754</a> options.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Include <a class="symbol symbol-anchor" name="none" href="#none">none</a> of the above options.</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint bits) if (bits == 8 || bits == 16 || bits == 32 || bits == 64 || bits == 80)<br>template <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags = CustomFloatFlags.ieee) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0)<br>struct <a class="symbol symbol-anchor" name="CustomFloat" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags,uint bias) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Allows user code to define custom floating-point formats. These formats are
  for storage only; all operations on them are performed by first implicitly
  extracting them to <span class="inlinecode">real</span> first. After the operation is completed the
@@ -442,10 +405,7 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="FPTemporary" href="#FPTemporary">FPTemporary</a>(F) if (isFloatingPoint!(F))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines the fastest type to use when storing temporaries of a
 calculation intended to ultimately yield a result of type <span class="inlinecode">F</span>
 (where <span class="inlinecode">F</span> must be one of <span class="inlinecode">float</span>, <span class="inlinecode">double</span>, or <span class="inlinecode">real</span>). When doing a multi-step computation, you may want to store
@@ -482,10 +442,7 @@ always be fastest, as the speed of floating-point calculations depends
 on very many factors.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="secantMethod" href="#secantMethod">secantMethod</a>(alias fun)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements the <a href="http://tinyurl.com/2zb9yr">secant method</a> for finding a
 root of the function <span class="inlinecode">fun</span> starting from points <span class="inlinecode">[xn_1, x_n]</span>
 (ideally close to the root). <span class="inlinecode">Num</span> may be <span class="inlinecode">float</span>, <span class="inlinecode">double</span>,
@@ -502,11 +459,8 @@ or <span class="inlinecode">real</span>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="findRoot" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>a</i>, T <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Find a real root of a real function f(x) via bracketing.
 </p>
 
@@ -534,11 +488,8 @@ or <span class="inlinecode">real</span>.
  pp733-744 (1993).  Fortran code available from <a href="http://www.netlib.org">www.netlib.org</a> as algorithm TOMS478.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Tuple!(T,T,R,R) <a class="symbol symbol-anchor" name="findRoot" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>ax</i>, T <i>bx</i>, R <i>fax</i>, R <i>fbx</i>, scope bool delegate(T lo, T hi) <i>tolerance</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Find root of a real function f(x) by bracketing, allowing the
  termination condition to be specified.
 </p>
@@ -569,21 +520,16 @@ or <span class="inlinecode">real</span>.
              full machine precision will be achieved.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>A tuple consisting of two ranges. The first two elements are the
  range (in <span class="inlinecode">x</span>) of the root, while the second pair of elements
  are the corresponding function values at those points. If an exact
  root was found, both of the first two elements will contain the
  root, and the second pair of elements will be 0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="euclideanDistance" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="euclideanDistance" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Euclidean distance">Euclidean distance</a> between input ranges <span class="inlinecode">a</span> and
 <span class="inlinecode">b</span>. The two ranges must have the same length. The three-parameter
 version stops computation as soon as the distance is greater than or
@@ -592,34 +538,25 @@ distance is sought).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="dotProduct" href="#dotProduct">dotProduct</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>Unqual!(CommonType!(F1,F2)) <a class="symbol symbol-anchor" name="dotProduct" href="#dotProduct">dotProduct</a>(F1, F2)(in F1[] <i>avector</i>, in F2[] <i>bvector</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=dot product">dot product</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
 length, the check is done once; otherwise, it is done at each
 iteration.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="cosineSimilarity" href="#cosineSimilarity">cosineSimilarity</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=cosine similarity">cosine similarity</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
 length, the check is done once; otherwise, it is done at each
 iteration. If either range has all-zero elements, return 0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="normalize" href="#normalize">normalize</a>(R)(R <i>range</i>, ElementType!(R) <i>sum</i> = 1);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Normalizes values in <span class="inlinecode">range</span> by multiplying each element with a
 number chosen such that values sum up to <span class="inlinecode">sum</span>. If elements in <span class="inlinecode">range</span> sum to zero, assigns <span class="inlinecode">sum / range.length</span> to
 all. Normalization makes sense only if all elements in <span class="inlinecode">range</span> are
@@ -628,15 +565,11 @@ positive. <span class="inlinecode"><a class="symbol symbol-anchor" name="normali
 
 <dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">true</span></span> if normalization completed normally, <span class="inlinecode"><span class="d_keyword">false</span></span> if
 all elements in <span class="inlinecode">range</span> were zero or if <span class="inlinecode">range</span> is empty.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(Range) <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a>(Range)(Range <i>r</i>);
 <br>ElementType!(Range) <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a>(Range, F)(Range <i>r</i>, F <i>max</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=entropy">entropy</a> of input range <span class="inlinecode">r</span> in bits. This
 function assumes (without checking) that the values in <span class="inlinecode">r</span> are all
 in <span class="inlinecode">[0, 1]</span>. For the <a class="symbol symbol-anchor" name="entropy" href="#entropy">entropy</a> to be meaningful, often <span class="inlinecode">r</span> should
@@ -646,11 +579,8 @@ result is greater than or equal to <span class="inlinecode">max</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="kullbackLeiblerDivergence" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Kullback-Leibler divergence">Kullback-Leibler divergence</a> between input ranges
 <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">ai * log(ai / bi)</span>. The base
 of logarithm is 2. The ranges are assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are normalized probability distributions,
@@ -662,12 +592,9 @@ positive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="jensenShannonDivergence" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <a class="symbol symbol-anchor" name="jensenShannonDivergence" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Jensen-Shannon divergence">Jensen-Shannon divergence</a> between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">(ai * log(2 * ai / (ai + bi)) + bi * log(2 *
 bi / (ai + bi))) / 2</span>. The base of logarithm is 2. The ranges are
 assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are
@@ -679,11 +606,8 @@ or equal to <span class="inlinecode">limit</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>F <a class="symbol symbol-anchor" name="gapWeightedSimilarity" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The so-called "all-lengths gap-weighted string kernel" computes a
 similarity measure between <span class="inlinecode">s</span> and <span class="inlinecode">t</span> based on all of their
 common subsequences of all lengths. Gapped subsequences are also
@@ -756,11 +680,8 @@ t.length)</span> extra bytes of memory and <b><i>&Omicron;</i>(</b><span class="
 to complete.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Select!(isFloatingPoint!(F),F,double) <a class="symbol symbol-anchor" name="gapWeightedSimilarityNormalized" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>, F <i>sSelfSim</i> = F.init, F <i>tSelfSim</i> = F.init);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The similarity per <span class="inlinecode">gapWeightedSimilarity</span> has an issue in that it
 grows with the lengths of the two strings, even though the strings are
 not actually very similar. For example, the range <span class="inlinecode">["Hello",
@@ -791,12 +712,9 @@ computed <span class="inlinecode">gapWeightedSimilarity(s, s, lambda)</span> and
 as <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span>, respectively.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="GapWeightedSimilarityIncremental" href="#GapWeightedSimilarityIncremental">GapWeightedSimilarityIncremental</a>(Range,F = double) if (isRandomAccessRange!(Range) &amp;&amp; hasLength!(Range));
 <br>GapWeightedSimilarityIncremental!(R,F) <a class="symbol symbol-anchor" name="gapWeightedSimilarityIncremental" href="#gapWeightedSimilarityIncremental">gapWeightedSimilarityIncremental</a>(R, F)(R <i>r1</i>, R <i>r2</i>, F <i>penalty</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">gapWeightedSimilarity</span>, just works in an incremental
 manner by first revealing the matches of length 1, then gapped matches
 of length 2, and so on. The memory requirement is <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length *
@@ -827,70 +745,49 @@ optimizations.</p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Range <i>s</i>, Range <i>t</i>, F <i>lambda</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructs an object given two ranges <span class="inlinecode"><i>s</i></span> and <span class="inlinecode"><i>t</i></span> and a penalty
 <span class="inlinecode"><i>lambda</i></span>. Constructor completes in <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>s</i>.length * <i>t</i>.length</span><b><i>)</i></b>
 time and computes all matches of length 1.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>GapWeightedSimilarityIncremental <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode">this</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the match of the <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a> length. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">s.length *
 t.length</span><b><i>)</i></b> time.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>F <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the gapped similarity at the current match length (initially
 1, grows with each call to <span class="inlinecode">popFront</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether there are more matches.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="gcd" href="#gcd">gcd</a>(T)(T <i>a</i>, T <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the greatest common divisor of <span class="inlinecode">a</span> and <span class="inlinecode">b</span> by using
 Euler's algorithm.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Fft" href="#Fft">Fft</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A class for performing fast Fourier transforms of power of two sizes.
  This class encapsulates a large amount of state that is reusable when
  performing multiple FFTs of sizes smaller than or equal to that specified
@@ -905,19 +802,14 @@ Euler's algorithm.</p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create an <span class="inlinecode">Fft</span> object for computing fast Fourier transforms of
  power of two sizes of <span class="inlinecode"><i>size</i></span> or smaller.  <span class="inlinecode"><i>size</i></span> must be a
  power of two.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compute the Fourier transform of range using the <b><i>&Omicron;</i>(</b><span class="inlinecode">N log N</span><b><i>)</i></b>
  Cooley-Tukey Algorithm.  <span class="inlinecode">range</span> must be a random-access range with
  slicing and a length equal to <span class="inlinecode">size</span> as provided at the construction of
@@ -933,14 +825,10 @@ Pure real FFTs are automatically detected and the relevant
 </dd>
 <dt>Returns</dt><dd>An array of complex numbers representing the transformed data in
            the frequency domain.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const void <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Same as the overload, but allows for the results to be stored in a user-
  provided buffer.  The buffer must be of the same length as range, must be
  a random-access range, must have slicing, and must contain elements that are
@@ -949,11 +837,8 @@ Pure real FFTs are automatically detected and the relevant
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the inverse Fourier transform of a range.  The range must be a
  random access range with slicing, have a length equal to the size
  provided at construction of this object, and contain elements that are
@@ -962,31 +847,23 @@ Pure real FFTs are automatically detected and the relevant
 </p>
 
 <dt>Returns</dt><dd>The time-domain signal.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const void <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inverse FFT that allows a user-supplied buffer to be provided.  The buffer
  must be a random access range with slicing, and its elements
  must be some complex-like type.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Complex!(F)[] <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
 <br>void <a class="symbol symbol-anchor" name="fft" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
 <br>Complex!(F)[] <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
 <br>void <a class="symbol symbol-anchor" name="inverseFft" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience functions that create an <span class="inlinecode">Fft</span> object, run the FFT or inverse
  FFT and return the result.  Useful for one-off FFTs.
 </p>
@@ -998,7 +875,6 @@ In addition to convenience, these functions are slightly more
         functions return.</dd>
 </dl>
 </div>
-
 
 
 				</div>

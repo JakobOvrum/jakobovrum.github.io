@@ -362,17 +362,13 @@
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/regexp.d">std/regexp.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>deprecated string <a class="symbol symbol-anchor" name="email" href="#email">email</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Regular expression to extract an email address.
 </p>
 
@@ -381,29 +377,20 @@
   <a href="http://tools.ietf.org/html/rfc2822#section-3.4.1">RFC 2822 Internet Message Format</a></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated string <a class="symbol symbol-anchor" name="url" href="#url">url</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Regular expression to extract a url </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RegExpException" href="#RegExpException">RegExpException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>One of these gets thrown on compilation errors</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated string <a class="symbol symbol-anchor" name="sub" href="#sub">sub</a>(string <i>s</i>, string <i>pattern</i>, string <i>format</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search string for matches with regular expression
  <i>pattern</i> with <i>attributes</i>.
  Replace each match with string generated from <i>format</i>.
@@ -422,10 +409,8 @@
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the resulting string
 </dd>
-
 <dt>Example:</dt><dd>
 Replace the letters 'a' with the letters 'ZZ'.
 <pre class="d_code"> <b>s</b> = <span class="d_string">"Strap a rocket engine on a chicken."</span>
@@ -442,11 +427,8 @@ Replace the letters 'a' with the letters 'ZZ'.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated string <a class="symbol symbol-anchor" name="sub" href="#sub">sub</a>(string <i>s</i>, string <i>pattern</i>, string delegate(RegExp) <i>dg</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search string for matches with regular expression
  <i>pattern</i> with <i>attributes</i>.
  Pass each match to delegate <i>dg</i>.
@@ -466,10 +448,8 @@ Replace the letters 'a' with the letters 'ZZ'.
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the resulting string.
 </dd>
-
 <dt>Example:</dt><dd>
 Capitalize the letters 'a' and 'r':
 <pre class="d_code"> <b>s</b> = <span class="d_string">"Strap a rocket engine on a chicken."</span>;
@@ -484,11 +464,8 @@ Capitalize the letters 'a' and 'r':
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated sizediff_t <a class="symbol symbol-anchor" name="find" href="#find">find</a>(string <i>s</i>, RegExp <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <b><i>s</i>[]</b> for first match with <b><i>pattern</i></b>.
 </p>
 
@@ -499,10 +476,8 @@ Capitalize the letters 'a' and 'r':
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>index into <i>s</i>[] of match if found, -1 if no match.
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> <b>s</b> = <span class="d_string">"abcabcabab"</span>;
  <u>find</u>(<b>s</b>, RegExp(<span class="d_string">"b"</span>));    <span class="d_comment">// match, returns 1
@@ -513,26 +488,19 @@ Capitalize the letters 'a' and 'r':
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated sizediff_t <a class="symbol symbol-anchor" name="find" href="#find">find</a>(string <i>s</i>, string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-
 <dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
    ambiguity with the homonym function in std.string. Instead of
    <b>std.regexp.<a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, p, a)</b>, you may want to use <b>  <a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated sizediff_t <a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(string <i>s</i>, RegExp <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <b><i>s</i>[]</b> for last match with <b><i>pattern</i></b>.
 </p>
 
@@ -543,10 +511,8 @@ This function is scheduled for deprecation due to unnecessary
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>index into <i>s</i>[] of match if found, -1 if no match.
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> <b>s</b> = <span class="d_string">"abcabcabab"</span>;
  <u>rfind</u>(<b>s</b>, RegExp(<span class="d_string">"b"</span>));    <span class="d_comment">// match, returns 9
@@ -557,26 +523,19 @@ This function is scheduled for deprecation due to unnecessary
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated sizediff_t <a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(string <i>s</i>, string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-
 <dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
 ambiguity with the homonym function in std.string. Instead of
 <b>std.regexp.<a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="rfind" href="#rfind">rfind</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated string[] <a class="symbol symbol-anchor" name="split" href="#split">split</a>(string <i>s</i>, RegExp <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Split <i>s</i>[] into an array of strings, using the regular
  expression <b><i>pattern</i></b> as the separator.
 </p>
@@ -588,10 +547,8 @@ ambiguity with the homonym function in std.string. Instead of
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>array of slices into <i>s</i>[]
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">foreach</span> (<b>s</b>; <u>split</u>(<span class="d_string">"abcabcabab"</span>, RegExp(<span class="d_string">"C."</span>, <span class="d_string">"i"</span>)))
  {
@@ -609,26 +566,19 @@ ambiguity with the homonym function in std.string. Instead of
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated string[] <a class="symbol symbol-anchor" name="split" href="#split">split</a>(string <i>s</i>, string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Returns</dt><dd>Same as <b><a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, RegExp(<i>pattern</i>, <i>attributes</i>))</b>.
 
 </dd>
-
 <dt>WARNING:</dt><dd>
 This function is scheduled for deprecation due to unnecessary
 ambiguity with the homonym function in std.string. Instead of
 <b>std.regexp.<a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, p, a)</b>, you may want to use <b><a class="symbol symbol-anchor" name="split" href="#split">split</a>(<i>s</i>, RegExp(p, a))</b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated RegExp <a class="symbol symbol-anchor" name="search" href="#search">search</a>(string <i>s</i>, string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <i>s</i>[] for first match with <i>pattern</i>[] with <i>attributes</i>[].
 </p>
 
@@ -642,10 +592,8 @@ ambiguity with the homonym function in std.string. Instead of
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>corresponding RegExp if found, <span class="d_keyword">null</span> if not.
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.regexp;
@@ -665,11 +613,8 @@ ambiguity with the homonym function in std.string. Instead of
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RegExp" href="#RegExp">RegExp</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="RegExp" href="#RegExp">RegExp</a> is a class to handle regular expressions.
 </p>
 
@@ -678,8 +623,6 @@ ambiguity with the homonym function in std.string. Instead of
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a RegExp object. Compile <i>pattern</i>
  with <i><i>attributes</i></i> into
  an internal form for fast execution.
@@ -692,10 +635,8 @@ ambiguity with the homonym function in std.string. Instead of
 <td>attributes</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd>RegExpException if there are any compilation errors.
 </dd>
-
 <dt>Example:</dt><dd>
 Declare two variables and assign to them a RegExp object:
 <pre class="d_code"> <span class="d_keyword">auto</span> r = <span class="d_keyword">new</span> RegExp(<span class="d_string">"pattern"</span>);
@@ -704,11 +645,8 @@ Declare two variables and assign to them a RegExp object:
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>static RegExp <a class="symbol symbol-anchor" name="opCall" href="#opCall">opCall</a>(string <i>pattern</i>, string <i>attributes</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Generate instance of RegExp.
 </p>
 
@@ -719,10 +657,8 @@ Declare two variables and assign to them a RegExp object:
 <td>attributes</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd>RegExpException if there are any compilation errors.
 </dd>
-
 <dt>Example:</dt><dd>
 Declare two variables and assign to them a RegExp object:
 <pre class="d_code"> <span class="d_keyword">auto</span> r = RegExp(<span class="d_string">"pattern"</span>);
@@ -731,18 +667,14 @@ Declare two variables and assign to them a RegExp object:
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>RegExp <a class="symbol symbol-anchor" name="search" href="#search">search</a>(<i>string</i> <i>string</i>);
 <br>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref RegExp) <i>dg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set up for start of foreach loop.
 </p>
 
 <dt>Returns</dt><dd><a class="symbol symbol-anchor" name="search" href="#search">search</a>() returns instance of RegExp set up to search <i>string</i>[].
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
  <span class="d_keyword">import</span> std.regexp;
@@ -768,11 +700,8 @@ Declare two variables and assign to them a RegExp object:
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Retrieve match <i>n</i>.
 </p>
 
@@ -782,11 +711,8 @@ Declare two variables and assign to them a RegExp object:
  <span class="d_keyword">null</span> is returned.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="match" href="#match">match</a>(size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Same as <b>opIndex(<i>n</i>)</b>.
 </p>
 
@@ -796,67 +722,46 @@ Scheduled for deprecation due to confusion with overloaded
        you may want to use <b>regex[<i>n</i>]</b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property string <a class="symbol symbol-anchor" name="pre" href="#pre">pre</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return the slice of the input that precedes the matched substring.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property string <a class="symbol symbol-anchor" name="post" href="#post">post</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return the slice of the input that follows the matched substring.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="split" href="#split">split</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Split <i>s</i>[] into an array of strings, using the regular
  expression as the separator.
 </p>
 
 <dt>Returns</dt><dd>array of slices into <i>s</i>[]</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="find" href="#find">find</a>(<i>string</i> <i>string</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <i>string</i>[] for match with regular expression.
 </p>
 
 <dt>Returns</dt><dd>index of match if successful, -1 if not found</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="match" href="#match">match</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <i>s</i>[] for <a class="symbol symbol-anchor" name="match" href="#match">match</a>.
 </p>
 
 <dt>Returns</dt><dd>If global attribute, return same value as exec(<i>s</i>).
   If not global attribute, return array of all matches.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(string <i>s</i>, string <i>format</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Find regular expression matches in <i>s</i>[]. Replace those matches
  with a new string composed of <i>format</i>[] merged with the result of the
  matches.
@@ -864,45 +769,32 @@ Scheduled for deprecation due to confusion with overloaded
 </p>
 
 <dt>Returns</dt><dd>the new string</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="exec" href="#exec">exec</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search string[] for match.
 </p>
 
 <dt>Returns</dt><dd>array of slices into string[] representing matches</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="exec" href="#exec">exec</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Pick up where last <a class="symbol symbol-anchor" name="exec" href="#exec">exec</a>(string) or <a class="symbol symbol-anchor" name="exec" href="#exec">exec</a>() left off,
  searching string[] for next match.
 </p>
 
 <dt>Returns</dt><dd>array of slices into string[] representing matches</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="test" href="#test">test</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search <i>s</i>[] for match.
 </p>
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 <span class="d_keyword">import</span> std.regexp;
@@ -928,46 +820,32 @@ Scheduled for deprecation due to confusion with overloaded
  which prints: 1</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="test" href="#test">test</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Pick up where last <a class="symbol symbol-anchor" name="test" href="#test">test</a>(string) or <a class="symbol symbol-anchor" name="test" href="#test">test</a>() left off, and search again.
 </p>
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="test" href="#test">test</a>(string <i>s</i>, size_t <i>startindex</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Test <i>s</i>[] starting at <i>startindex</i> against regular expression.
 </p>
 
 <dt>Returns</dt><dd>0 for no match, !=0 for match</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(string <i>format</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>After a match is found with test(), this function
  will take the match results and, using the <i>format</i>
  string, generate and return a new string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="replaceOld" href="#replaceOld">replaceOld</a>(string <i>format</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Like replace(char[] <i>format</i>), but uses old style formatting:
         <table border=1 cellspacing=0 cellpadding=5>
         <th>Format
@@ -988,10 +866,8 @@ Scheduled for deprecation due to confusion with overloaded
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

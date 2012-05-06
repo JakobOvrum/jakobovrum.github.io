@@ -327,11 +327,9 @@ integers and real numbers have been implemented.
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
            Masahiro Nakagawa (Xorshift randome generator)
 </dd>
-
 <dt>Credits:</dt><dd>
 The entire <a class="symbol symbol-anchor" name="random" href="#random">random</a> number library architecture is derived from the
            excellent <a href="http://open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2461.pdf">C++0X</a>
@@ -339,8 +337,6 @@ The entire <a class="symbol symbol-anchor" name="random" href="#random">random</
            researchers at the Fermi laboratory(excluding Xorshift).</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng,ElementType)<br>template <a class="symbol symbol-anchor" name="isUniformRNG" href="#isUniformRNG">isUniformRNG</a>(Rng)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Test if Rng is a random-number generator. The overload
  taking a ElementType also makes sure that the Rng generates
  values of that type.
@@ -352,10 +348,7 @@ The entire <a class="symbol symbol-anchor" name="random" href="#random">random</
  </ul></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSeedable" href="#isSeedable">isSeedable</a>(Rng,ElementType)<br>template <a class="symbol symbol-anchor" name="isSeedable" href="#isSeedable">isSeedable</a>(Rng)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Test if Rng is seedable. The overload
  taking a ElementType also makes sure that the Rng generates
  values of that type.
@@ -366,132 +359,90 @@ The entire <a class="symbol symbol-anchor" name="random" href="#random">random</
  </ul></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="LinearCongruentialEngine" href="#LinearCongruentialEngine">LinearCongruentialEngine</a>(UIntType,UIntType a,UIntType c,UIntType m);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Linear Congruential generator.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Mark this as a Rng</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="hasFixedRange" href="#hasFixedRange">hasFixedRange</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Does this generator have a fixed range? (<b><span class="d_keyword">true</span></b>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Lowest generated value (<span class="inlinecode">1</span> if <span class="inlinecode">c == 0</span>, <span class="inlinecode">0</span> otherwise).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Highest generated value (<span class="inlinecode">modulus - 1</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="multiplier" href="#multiplier">multiplier</a>;
 <br>UIntType <a class="symbol symbol-anchor" name="increment" href="#increment">increment</a>;
 <br>UIntType <a class="symbol symbol-anchor" name="modulus" href="#modulus">modulus</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The parameters of this distribution. The random number is <b>x
 = (x * multipler + increment) % modulus</b>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructs a <b>LinearCongruentialEngine</b> generator seeded with
 <span class="inlinecode"><i>x0</i></span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>x0</i> = 1);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>(Re)seeds the generator.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Advances the random sequence.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the current number in the random sequence.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Always <span class="inlinecode"><span class="d_keyword">false</span></span> (random generators are infinite ranges).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const LinearCongruentialEngine <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compares against <b><i>rhs</i></b> for equality.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="MinstdRand0" href="#MinstdRand0">MinstdRand0</a>;
 <br>alias <a class="symbol symbol-anchor" name="MinstdRand" href="#MinstdRand">MinstdRand</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Define <b>LinearCongruentialEngine</b> generators with well-chosen
 parameters. <span class="inlinecode"><a class="symbol symbol-anchor" name="MinstdRand0" href="#MinstdRand0">MinstdRand0</a></span> implements Park and Miller's "minimal
 standard" <a href="http://wikipedia.org/wiki/Park%E2%80%93Miller_random_number_generator">generator</a> that uses 16807 for the multiplier. <span class="inlinecode">MinstdRand</span>
@@ -514,118 +465,79 @@ n = rnd0.front; <span class="d_comment">// different across runs
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="MersenneTwisterEngine" href="#MersenneTwisterEngine">MersenneTwisterEngine</a>(UIntType,size_t w,size_t n,size_t m,size_t r,UIntType a,size_t u,size_t s,UIntType b,size_t t,UIntType c,size_t l);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a> generator.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Mark this as a Rng</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="wordSize" href="#wordSize">wordSize</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Parameter for the generator.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Smallest generated value (0).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Largest generated value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="defaultSeed" href="#defaultSeed">defaultSeed</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The default seed value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(UIntType <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructs a MersenneTwisterEngine object.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>value</i> = defaultSeed);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Seeds a MersenneTwisterEngine object.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Advances the generator.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the current random value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Always <span class="inlinecode"><span class="d_keyword">false</span></span>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Mt19937" href="#Mt19937">Mt19937</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A <span class="inlinecode">MersenneTwisterEngine</span> instantiated with the parameters of the
 original engine <a href="http://math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">MT19937</a>, generating uniformly-distributed 32-bit numbers with a
 period of 2 to the power of 19937. Recommended for random number
@@ -647,11 +559,8 @@ n = gen.front; <span class="d_comment">// different across runs
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="XorshiftEngine" href="#XorshiftEngine">XorshiftEngine</a>(UIntType,UIntType bits,UIntType a,UIntType b,UIntType c);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Xorshift generator using 32bit algorithm.
 </p>
 
@@ -669,88 +578,60 @@ n = gen.front; <span class="d_comment">// different across runs
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isUniformRandom" href="#isUniformRandom">isUniformRandom</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Mark this as a Rng</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="min" href="#min">min</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Smallest generated value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="max" href="#max">max</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Largest generated value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructs a <span class="inlinecode">XorshiftEngine</span> generator seeded with <b><i>x0</i></b>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="seed" href="#seed">seed</a>(UIntType <i>x0</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>(Re)seeds the generator.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>UIntType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the current number in the random sequence.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Advances the random sequence.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Captures a range state.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const XorshiftEngine <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compares against <b><i>rhs</i></b> for equality.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Xorshift32" href="#Xorshift32">Xorshift32</a>;
 <br>alias <a class="symbol symbol-anchor" name="Xorshift64" href="#Xorshift64">Xorshift64</a>;
 <br>alias <a class="symbol symbol-anchor" name="Xorshift96" href="#Xorshift96">Xorshift96</a>;
@@ -759,8 +640,6 @@ n = gen.front; <span class="d_comment">// different across runs
 <br>alias <a class="symbol symbol-anchor" name="Xorshift192" href="#Xorshift192">Xorshift192</a>;
 <br>alias <a class="symbol symbol-anchor" name="Xorshift" href="#Xorshift">Xorshift</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Define <span class="inlinecode">XorshiftEngine</span> generators with well-chosen parameters. See each bits examples of "Xorshift RNGs".
  <span class="inlinecode">Xorshift</span> is a Xorshift128's alias because 128bits implementation is mostly used.
 </p>
@@ -781,11 +660,8 @@ n = gen.front; <span class="d_comment">// different across runs
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property uint <a class="symbol symbol-anchor" name="unpredictableSeed" href="#unpredictableSeed">unpredictableSeed</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A "good" seed for initializing random number engines. Initializing
 with <b><a class="symbol symbol-anchor" name="unpredictableSeed" href="#unpredictableSeed">unpredictableSeed</a></b> makes engines generate different
 random number sequences every run.
@@ -799,11 +675,8 @@ random number sequences every run.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Random" href="#Random">Random</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The "default", "favorite", "suggested" random number generator type on
 the current platform. It is an alias for one of the previously-defined
 generators. You may want to use it if (1) you need to generate some
@@ -812,23 +685,17 @@ method being used.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ref Random <a class="symbol symbol-anchor" name="rndGen" href="#rndGen">rndGen</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Global random number generator used by various functions in this
 module whenever no generator is specified. It is allocated per-thread
 and initialized to an unpredictable value for each thread.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2)(T1 <i>a</i>, T2 <i>b</i>);
 <br>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2, UniformRandomNumberGenerator)(T1 <i>a</i>, T2 <i>b</i>, ref UniformRandomNumberGenerator <i>urng</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Generates a number between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The <span class="inlinecode">boundaries</span>
 parameter controls the shape of the interval (open vs. closed on
 either side). Valid values for <span class="inlinecode">boundaries</span> are <span class="inlinecode">"[]"</span>, <span class="inlinecode">"(]"</span>, <span class="inlinecode">"[)"</span>, and <span class="inlinecode">"()"</span>. The default interval
@@ -848,47 +715,35 @@ take <span class="inlinecode">urng</span> uses the default generator <span class
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(T, UniformRandomNumberGenerator)(ref UniformRandomNumberGenerator <i>urng</i>);
 <br>auto <a class="symbol symbol-anchor" name="uniform" href="#uniform">uniform</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Generates a uniformly-distributed number in the range <span class="inlinecode">[T.min,
 T.max]</span> for any integral type <span class="inlinecode">T</span>. If no random number generator is
 passed, uses the default <span class="inlinecode">rndGen</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>F[] <a class="symbol symbol-anchor" name="uniformDistribution" href="#uniformDistribution">uniformDistribution</a>(F = double)(size_t <i>n</i>, F[] <i>useThis</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Generates a uniform probability distribution of size <span class="inlinecode">n</span>, i.e., an
 array of size <span class="inlinecode">n</span> of positive numbers of type <span class="inlinecode">F</span> that sum to
 <span class="inlinecode">1</span>. If <span class="inlinecode">useThis</span> is provided, it is used as storage.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="randomShuffle" href="#randomShuffle">randomShuffle</a>(Range, RandomGen = Random)(Range <i>r</i>, ref RandomGen <i>gen</i> = rndGen);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Shuffles elements of <span class="inlinecode">r</span> using <span class="inlinecode">gen</span> as a shuffler. <span class="inlinecode">r</span> must be
 a random-access range with length.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Rng, Num)(ref Rng <i>rnd</i>, Num[] <i>proportions</i>...);
 <br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(R, Range)(ref R <i>rnd</i>, Range <i>proportions</i>);
 <br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Range)(Range <i>proportions</i>);
 <br>size_t <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a>(Num)(Num[] <i>proportions</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Rolls a <a class="symbol symbol-anchor" name="dice" href="#dice">dice</a> with relative probabilities stored in <span class="inlinecode">proportions</span>. Returns the index in <span class="inlinecode">proportions</span> that was chosen.
 </p>
 
@@ -905,12 +760,9 @@ a random-access range with length.</p>
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RandomCover" href="#RandomCover">RandomCover</a>(Range,Random) if (isUniformRNG!(Random));
 <br>RandomCover!(Range,Random) <a class="symbol symbol-anchor" name="randomCover" href="#randomCover">randomCover</a>(Range, Random)(Range <i>r</i>, Random <i>rnd</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Covers a given range <span class="inlinecode">r</span> in a random manner, i.e. goes through each
 element of <span class="inlinecode">r</span> once and only once, just in a random order. <span class="inlinecode">r</span>
 must be a random-access range with length.
@@ -927,15 +779,12 @@ must be a random-access range with length.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RandomSample" href="#RandomSample">RandomSample</a>(R,Random = void) if (isUniformRNG!(Random) || is(Random == void));
 <br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>);
 <br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>);
 <br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>, Random <i>gen</i>);
 <br>auto <a class="symbol symbol-anchor" name="randomSample" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, Random <i>gen</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Selects a random subsample out of <span class="inlinecode">r</span>, containing exactly <span class="inlinecode">n</span>
 elements. The order of elements is the same as in the original
 range. The total length of <span class="inlinecode">r</span> must be known. If <span class="inlinecode">total</span> is
@@ -960,37 +809,27 @@ range.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>input</i>, size_t <i>howMany</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 <br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="index" href="#index">index</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="index" href="#index">index</a> of the visited record.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

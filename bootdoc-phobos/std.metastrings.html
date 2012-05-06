@@ -289,17 +289,13 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            Don Clugston
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/metastrings.d">std/metastrings.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Format" href="#Format">Format</a>(A...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Formats constants into a string at compile time.  Analogous to <a href="std_string.html#format"><span class="inlinecode">std.string.format</span></a>.
 </p>
 
@@ -326,34 +322,24 @@ The formats supported are %s for strings, and %%
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(ulong v)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(long v)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(uint U)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(int I)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(bool B)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(string S)<br>template <a class="symbol symbol-anchor" name="toStringNow" href="#toStringNow">toStringNow</a>(char C)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Convert constant argument to a string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="parseUinteger" href="#parseUinteger">parseUinteger</a>(const(char)[] s)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Parse unsigned integer literal from the start of string s.
 </p>
 
 <dt>Returns</dt><dd>.value = the integer literal as a string,
     .rest = the string following the integer literal
 </dd>
-
 <dt>Otherwise:</dt><dd>
 .value = <span class="d_keyword">null</span>,
     .rest = s</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="parseInteger" href="#parseInteger">parseInteger</a>(const(char)[] s)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Parse integer literal optionally preceded by <span class="inlinecode">'-'</span> from the start
 of string <span class="inlinecode">s</span>.
 </p>
@@ -362,24 +348,19 @@ of string <span class="inlinecode">s</span>.
    .rest = the string following the integer literal
 
 </dd>
-
 <dt>Otherwise:</dt><dd>
 .value = <span class="d_keyword">null</span>,
    .rest = s</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="ToString" href="#ToString">ToString</a>;
 <br>deprecated alias <a class="symbol symbol-anchor" name="ParseUinteger" href="#ParseUinteger">ParseUinteger</a>;
 <br>deprecated alias <a class="symbol symbol-anchor" name="ParseInteger" href="#ParseInteger">ParseInteger</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Deprecated aliases held for backward compatibility.</p>
 
 </dl>
 </div>
-
 
 
 				</div>

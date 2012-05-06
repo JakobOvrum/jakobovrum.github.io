@@ -324,72 +324,50 @@ This library provides a mechanism whereby other modules may add <span class="inl
 </p>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd>Janice Caron
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/encoding.d">std/encoding.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="INVALID_SEQUENCE" href="#INVALID_SEQUENCE">INVALID_SEQUENCE</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Special value returned by <span class="inlinecode">safeDecode</span> </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="AsciiChar" href="#AsciiChar">AsciiChar</a>;
 <br>alias <a class="symbol symbol-anchor" name="AsciiString" href="#AsciiString">AsciiString</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines various character sets. </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Latin1Char" href="#Latin1Char">Latin1Char</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines an Latin1-encoded character. </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Latin1String" href="#Latin1String">Latin1String</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines an Latin1-encoded string (as an array of <span class="inlinecode">immutable(Latin1Char)</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Windows1252Char" href="#Windows1252Char">Windows1252Char</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines a Windows1252-encoded character. </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Windows1252String" href="#Windows1252String">Windows1252String</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines an Windows1252-encoded string (as an array of <span class="inlinecode">immutable(Windows1252Char)</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isValidCodePoint" href="#isValidCodePoint">isValidCodePoint</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if <i>c</i> is a valid code point
 </p>
 
@@ -405,19 +383,14 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dchar <i>c</i></td>
 <td>the code point to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="encodingName" href="#encodingName">encodingName</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the name of an encoding.
 </p>
 
@@ -428,18 +401,13 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>encodingName</u>!(Latin1Char) == <span class="d_string">"ISO-8859-1"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="canEncode" href="#canEncode">canEncode</a>(E)(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> iff it is possible to represent the specifed codepoint
  in the encoding.
 </p>
@@ -451,18 +419,13 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>canEncode</u>!(Latin1Char)('A'));
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isValidCodeUnit" href="#isValidCodeUnit">isValidCodeUnit</a>(E)(E <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the code unit is legal. For example, the byte 0x80 would
  not be legal in ASCII, because ASCII code units must always be in the range
  0x00 to 0x7F.
@@ -471,19 +434,14 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code unit to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isValid" href="#isValid">isValid</a>(E)(const(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the string is encoded correctly
 </p>
 
@@ -496,19 +454,14 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="validLength" href="#validLength">validLength</a>(E)(const(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of the longest possible substring, starting from
  the first code unit, which is validly encoded.
 </p>
@@ -516,19 +469,14 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>immutable(E)[] <a class="symbol symbol-anchor" name="sanitize" href="#sanitize">sanitize</a>(E)(immutable(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sanitizes a string by replacing malformed code unit sequences with valid
  code unit sequences. The result is guaranteed to be valid for this encoding.
 </p>
@@ -544,19 +492,14 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sanitized</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="firstSequence" href="#firstSequence">firstSequence</a>(E)(const(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of the first encoded sequence.
 </p>
 
@@ -567,19 +510,14 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="lastSequence" href="#lastSequence">lastSequence</a>(E)(const(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length the last encoded sequence.
 </p>
 
@@ -590,19 +528,14 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="index" href="#index">index</a>(E)(const(E)[] <i>s</i>, int <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the array <a class="symbol symbol-anchor" name="index" href="#index">index</a> at which the (n+1)th code point begins.
 </p>
 
@@ -617,19 +550,14 @@ This function supercedes std.utf.toUTFindex().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be counted</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(S)(ref S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes a single code point.
 </p>
 
@@ -649,19 +577,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="decodeReverse" href="#decodeReverse">decodeReverse</a>(E)(ref const(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes a single code point from the end of a string.
 </p>
 
@@ -676,19 +599,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="safeDecode" href="#safeDecode">safeDecode</a>(S)(ref S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes a single code point. The input does not have to be valid.
 </p>
 
@@ -704,19 +622,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="encodedLength" href="#encodedLength">encodedLength</a>(E)(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of code units required to encode a single code point.
 </p>
 
@@ -731,19 +644,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="decode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E[] <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(E)(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes a single code point.
 </p>
 
@@ -767,19 +675,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(E)(dchar <i>c</i>, E[] <i>array</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes a single code point into an array.
 </p>
 
@@ -804,21 +707,15 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the number of code units written to the array</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(E)(dchar <i>c</i>, void delegate(E) <i>dg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes a single code point to a delegate.
 </p>
 
@@ -842,19 +739,14 @@ This function supercedes std.utf.<a class="symbol symbol-anchor" name="encode" h
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CodePoints!(E) <a class="symbol symbol-anchor" name="codePoints" href="#codePoints">codePoints</a>(E)(immutable(E)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a foreachable struct which can bidirectionally iterate over all
  code points in a string.
 </p>
@@ -876,12 +768,10 @@ This function supercedes std.utf.decode().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the string to be decoded</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> string s = <span class="d_string">"hello world"</span>;
  <span class="d_keyword">foreach</span>(c;<u>codePoints</u>(s))
  {
@@ -892,14 +782,10 @@ This function supercedes std.utf.decode().
 
  Note that, currently, foreach(c:<a class="symbol symbol-anchor" name="codePoints" href="#codePoints">codePoints</a>(s)) is superior to foreach(c;s)
  in that the latter will fall over on encountering U+FFFF.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CodeUnits!(E) <a class="symbol symbol-anchor" name="codeUnits" href="#codeUnits">codeUnits</a>(E)(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a foreachable struct which can bidirectionally iterate over all
  code units in a code point.
 </p>
@@ -919,12 +805,10 @@ This function supercedes std.utf.encode().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">d</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">dchar</span> d = '\u20AC';
  <span class="d_keyword">foreach</span>(c;<u>codeUnits</u>!(<span class="d_keyword">char</span>)(d))
  {
@@ -940,24 +824,17 @@ This function supercedes std.utf.encode().
 </span>
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(Tgt, Src, R)(in const(Src[]) <i>s</i>, R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes <span class="inlinecode">c</span> in units of type <span class="inlinecode">E</span> and writes the result to the
 output range <span class="inlinecode">R</span>. Returns the number of <span class="inlinecode">E</span>s written.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="transcode" href="#transcode">transcode</a>(Src, Dst)(immutable(Src)[] <i>s</i>, out immutable(Dst)[] <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convert a string from one encoding to another. (See also to!() below).
 </p>
 
@@ -974,7 +851,6 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>the source string</td>
 </tr>
@@ -982,7 +858,6 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the destination string</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> wstring ws;
  <u>transcode</u>(<span class="d_string">"hello world"</span>,ws);
      <span class="d_comment">// transcode from UTF-8 to UTF-16
@@ -994,30 +869,21 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </span>
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingException" href="#EncodingException">EncodingException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The base class for exceptions thrown by this module </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract class <a class="symbol symbol-anchor" name="EncodingScheme" href="#EncodingScheme">EncodingScheme</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Abstract base class of all encoding schemes </p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>static void <a class="symbol symbol-anchor" name="register" href="#register">register</a>(string <i>className</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Registers a subclass of EncodingScheme.
 </p>
 
@@ -1034,14 +900,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>static EncodingScheme <a class="symbol symbol-anchor" name="create" href="#create">create</a>(string <i>encodingName</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Obtains a subclass of EncodingScheme which is capable of encoding
  and decoding the named encoding scheme.
 </p>
@@ -1053,42 +915,29 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> scheme = EncodingScheme.<u>create</u>(<span class="d_string">"Amiga-1251"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the standard name of the encoding scheme</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const string[] <a class="symbol symbol-anchor" name="names" href="#names">names</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns an array of all known <a class="symbol symbol-anchor" name="names" href="#names">names</a> for this encoding scheme</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const bool <a class="symbol symbol-anchor" name="canEncode" href="#canEncode">canEncode</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the character <i>c</i> can be represented
  in this encoding scheme.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const size_t <a class="symbol symbol-anchor" name="encodedLength" href="#encodedLength">encodedLength</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of ubytes required to encode this code point.
 </p>
 
@@ -1099,16 +948,11 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the number of ubytes required.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const size_t <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(dchar <i>c</i>, ubyte[] <i>buffer</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes a single code point into a user-supplied, fixed-size <i>buffer</i>.
 </p>
 
@@ -1125,16 +969,11 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the number of ubytes written.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const dchar <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(ref const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes a single code point.
 </p>
 
@@ -1149,14 +988,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array whose first code point is to be decoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const dchar <a class="symbol symbol-anchor" name="safeDecode" href="#safeDecode">safeDecode</a>(ref const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes a single code point. The input does not have to be valid.
 </p>
 
@@ -1173,14 +1008,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array whose first code point is to be decoded</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract const const @property immutable(ubyte)[] <a class="symbol symbol-anchor" name="replacementSequence" href="#replacementSequence">replacementSequence</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the sequence of ubytes to be used to represent
  any character which cannot be represented in the encoding scheme.
 </p>
@@ -1189,11 +1020,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  character, such as U+FFFD or '?'.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isValid" href="#isValid">isValid</a>(const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the array is encoded correctly
 </p>
 
@@ -1201,14 +1029,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="validLength" href="#validLength">validLength</a>(const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of the longest possible substring, starting from
  the first element, which is validly encoded.
 </p>
@@ -1217,14 +1041,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be tested</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>immutable(ubyte)[] <a class="symbol symbol-anchor" name="sanitize" href="#sanitize">sanitize</a>(immutable(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sanitizes an array by replacing malformed ubyte sequences with valid
  ubyte sequences. The result is guaranteed to be valid for this
  encoding scheme.
@@ -1239,14 +1059,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be sanitized</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="firstSequence" href="#firstSequence">firstSequence</a>(const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of the first encoded sequence.
 </p>
 
@@ -1258,14 +1074,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the array to be sliced</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>(const(ubyte)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the total number of code points encoded in a ubyte array.
 </p>
 
@@ -1277,14 +1089,10 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be counted</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="index" href="#index">index</a>(const(ubyte)[] <i>s</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the array <a class="symbol symbol-anchor" name="index" href="#index">index</a> at which the (<i>n</i>+1)th code point begins.
 </p>
 
@@ -1296,17 +1104,12 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <td>the string to be counted</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeASCII" href="#EncodingSchemeASCII">EncodingSchemeASCII</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle ASCII
 </p>
 
@@ -1324,11 +1127,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "us"</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeLatin1" href="#EncodingSchemeLatin1">EncodingSchemeLatin1</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle Latin-1
 </p>
 
@@ -1344,11 +1144,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "latin1"</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeWindows1252" href="#EncodingSchemeWindows1252">EncodingSchemeWindows1252</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle Windows-1252
 </p>
 
@@ -1356,11 +1153,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "windows-1252"</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeUtf8" href="#EncodingSchemeUtf8">EncodingSchemeUtf8</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle UTF-8
 </p>
 
@@ -1368,11 +1162,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "UTF-8"</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeUtf16Native" href="#EncodingSchemeUtf16Native">EncodingSchemeUtf16Native</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle UTF-16 in native byte order
 </p>
 
@@ -1381,11 +1172,8 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "UTF-16BE" (big-endian architecture only)</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EncodingSchemeUtf32Native" href="#EncodingSchemeUtf32Native">EncodingSchemeUtf32Native</a>: std.encoding.EncodingScheme;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>EncodingScheme to handle UTF-32 in native byte order
 </p>
 
@@ -1394,7 +1182,6 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
                  "UTF-32BE" (big-endian architecture only)</p>
 </dl>
 </div>
-
 
 
 				</div>

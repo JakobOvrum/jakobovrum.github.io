@@ -293,47 +293,34 @@
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/zlib.d">std/zlib.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ZlibException" href="#ZlibException">ZlibException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Errors throw a <a class="symbol symbol-anchor" name="ZlibException" href="#ZlibException">ZlibException</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="adler32" href="#adler32">adler32</a>(uint <i>adler</i>, const(void)[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compute the Adler32 checksum of the data in <i>buf</i>[]. <i>adler</i> is the starting
  value when computing a cumulative checksum.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="crc32" href="#crc32">crc32</a>(uint <i>crc</i>, const(void)[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compute the CRC32 checksum of the data in <i>buf</i>[]. <i>crc</i> is the starting value
  when computing a cumulative checksum.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(void)[] <a class="symbol symbol-anchor" name="compress" href="#compress">compress</a>(const(void)[] <i>srcbuf</i>, int <i>level</i>);
 <br>const(void)[] <a class="symbol symbol-anchor" name="compress" href="#compress">compress</a>(const(void)[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compresses the data in <i>srcbuf</i>[] using compression level <i>level</i>.
  The default value
  for <i>level</i> is 6, legal values are 1..9, with 1 being the least compression
@@ -342,11 +329,8 @@
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="uncompress" href="#uncompress">uncompress</a>(void[] <i>srcbuf</i>, size_t <i>destlen</i> = 0u, int <i>winbits</i> = 15);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decompresses the data in <i>srcbuf</i>[].
 </p>
 
@@ -356,79 +340,54 @@
  size is supplied.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>the decompressed data.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="HeaderFormat" href="#HeaderFormat">HeaderFormat</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>the header format the compressed stream is wrapped in</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="deflate" href="#deflate">deflate</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>a standard zlib header</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="gzip" href="#gzip">gzip</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>a <a class="symbol symbol-anchor" name="gzip" href="#gzip">gzip</a> file format header</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="determineFromData" href="#determineFromData">determineFromData</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>used when decompressing. Try to automatically detect the stream format by looking at the data</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="Compress" href="#Compress">Compress</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Used when the data to be compressed is not all in one buffer.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(int <i>level</i>, HeaderFormat <i>header</i> = cast(HeaderFormat)0);
 <br>this(HeaderFormat <i>header</i> = cast(HeaderFormat)0);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct. <i>level</i> is the same as for D.zlib.compress(). <i>header</i> can be used to make a gzip compatible stream.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(void)[] <a class="symbol symbol-anchor" name="compress" href="#compress">compress</a>(const(void)[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compress the data in <i>buf</i> and return the compressed data.
  The buffers
  returned from successive calls to this should be concatenated together.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="flush" href="#flush">flush</a>(int <i>mode</i> = Z_FINISH);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compress and return any remaining data.
  The returned data should be appended to that returned by compress().
 </p>
@@ -448,55 +407,40 @@
                 </dl></td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UnCompress" href="#UnCompress">UnCompress</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Used when the data to be decompressed is not all in one buffer.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>destbufsize</i>);
 <br>this(HeaderFormat <i>format</i> = cast(HeaderFormat)2);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct. <i>destbufsize</i> is the same as for D.zlib.uncompress().</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(void)[] <a class="symbol symbol-anchor" name="uncompress" href="#uncompress">uncompress</a>(const(void)[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decompress the data in <i>buf</i> and return the decompressed data.
  The buffers returned from successive calls to this should be concatenated
  together.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="flush" href="#flush">flush</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decompress and return any remaining data.
  The returned data should be appended to that returned by uncompress().
  The UnCompress object cannot be used further.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

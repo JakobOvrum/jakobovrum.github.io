@@ -321,17 +321,13 @@
 </p>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a> and Jonathan M Davis
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/exception.d">std/exception.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assertNotThrown" href="#assertNotThrown">assertNotThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Asserts that the given expression does <i>not</i> throw the given type
     of <span class="inlinecode">Throwable</span>. If a <span class="inlinecode">Throwable</span> of the given type is thrown,
     it is caught and does not escape <a class="symbol symbol-anchor" name="assertNotThrown" href="#assertNotThrown">assertNotThrown</a>. Rather, an
@@ -348,11 +344,9 @@
 <td>Optional message to output on test failure.</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is thrown.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"><u>assertNotThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
 
 <span class="d_comment">//Exception is the default.
@@ -364,14 +358,10 @@
        <span class="d_string">`assertNotThrown failed: StringException was thrown.`</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assertThrown" href="#assertThrown">assertThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Asserts that the given expression throws the given type of <span class="inlinecode">Throwable</span>.
     The <span class="inlinecode">Throwable</span> is caught and does not escape <a class="symbol symbol-anchor" name="assertThrown" href="#assertThrown">assertThrown</a>. However,
     any other <span class="inlinecode">Throwable</span>s <i>will</i> escape, and if no <span class="inlinecode">Throwable</span>
@@ -388,11 +378,9 @@
 <td>Optional message to output on test failure.</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is not thrown.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"><u>assertThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
 
 <span class="d_comment">//Exception is the default.
@@ -404,14 +392,10 @@
        <span class="d_string">`assertThrown failed: No StringException was thrown.`</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new Exception(msg)</span> is thrown.
 </p>
@@ -433,11 +417,8 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T, Dg, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, scope Dg <i>dg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, the given
     delegate is called.
 </p>
@@ -445,11 +426,8 @@
 <p>The whole safety and purity are inferred from <span class="inlinecode">Dg</span>'s safety and purity.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy Throwable <i>ex</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, <span class="inlinecode">ex</span> is thrown.
 </p>
 
@@ -462,11 +440,8 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="errnoEnforce" href="#errnoEnforce">errnoEnforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy string <i>msg</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new ErrnoException(msg)</span> is thrown. <span class="inlinecode">ErrnoException</span> assumes that the
     last operation set <span class="inlinecode">errno</span> to an error code.
@@ -481,10 +456,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E("","phobos\\std\\exception.d",488))))</h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new E(msg, file, line)</span> is thrown.
 </p>
@@ -497,10 +469,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E(""))) &amp;&amp; !is(typeof(new E("","phobos\\std\\exception.d",506))))</h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use the version
           of <span class="inlinecode"><a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a></span> which takes an exception that constructs with
           <span class="inlinecode">new E(msg, file, line)</span>.</font>
@@ -510,11 +479,8 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
     <span class="inlinecode">new E(msg)</span> is thrown.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a>(T = Exception, E)(lazy E <i>expression</i>, ref E <i>result</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Catches and returns the exception thrown from the given expression.
     If no exception is thrown, then <span class="d_keyword">null</span> is returned and <span class="inlinecode">result</span> is
     set to the result of the expression.
@@ -538,7 +504,6 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The result of the expression if no exception is thrown.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[3];
 <span class="d_keyword">int</span> b;
@@ -547,11 +512,8 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Catches and returns the exception thrown from the given expression.
     If no exception is thrown, then <span class="d_keyword">null</span> is returned. <span class="inlinecode">E</span> can be
     <span class="inlinecode">void</span>.
@@ -572,14 +534,10 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="collectExceptionMsg" href="#collectExceptionMsg">collectExceptionMsg</a>(T = Exception, E)(lazy E <i>expression</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Catches the exception thrown from the given expression and returns the
     msg property of that exception. If no exception is thrown, then <span class="d_keyword">null</span> is
     returned. <span class="inlinecode">E</span> can be <span class="inlinecode">void</span>.
@@ -604,7 +562,6 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">void</span> throwFunc() {<span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">"My Message."</span>);}
 <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwFunc()) == <span class="d_string">"My Message."</span>);
 
@@ -615,24 +572,17 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwEmptyFunc()) == emptyExceptionMsg);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="emptyExceptionMsg" href="#emptyExceptionMsg">emptyExceptionMsg</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Value that collectExceptionMsg returns when it catches an exception
     with an empty exception message.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow immutable(T)[] <a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a>(T)(ref T[] <i>array</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Casts a mutable array to an immutable array in an idiomatic
  manner. Technically, <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> just inserts a cast,
  but its name documents assumptions on the part of the
@@ -703,11 +653,8 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  assumption; on the upside, the idiomatic use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @trusted bool <a class="symbol symbol-anchor" name="pointsTo" href="#pointsTo">pointsTo</a>(S, T, Tdummy = void)(ref const S <i>source</i>, ref const T <i>target</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">source</span>'s representation embeds a pointer
 that points to <span class="inlinecode">target</span>'s representation or somewhere inside
 it. Note that evaluating <span class="inlinecode"><a class="symbol symbol-anchor" name="pointsTo" href="#pointsTo">pointsTo</a>(x, x)</span> checks whether <span class="inlinecode">x</span> has
@@ -715,16 +662,12 @@ internal pointers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ErrnoException" href="#ErrnoException">ErrnoException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown if errors that set <span class="inlinecode">errno</span> occur.</p>
 
 </dl>
 </div>
-
 
 
 				</div>

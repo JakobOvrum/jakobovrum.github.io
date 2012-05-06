@@ -295,10 +295,8 @@
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd>Tomasz Stachowiak
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bind.d">std/bind.d</a></dd>
 </dl>
@@ -313,132 +311,88 @@
 <br>deprecated const DynArg!(8) <a class="symbol symbol-anchor" name="_8" href="#_8">_8</a>;
 <br>deprecated const DynArg!(9) <a class="symbol symbol-anchor" name="_9" href="#_9">_9</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>When passed to the 'bind' function, they will mark dynamic params - ones that aren't statically bound
         In boost, they're called _1, _2, _3, etc.. here _0, _1, _2, ...</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a>(T...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A simple tuple struct with some basic operations</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="appendT" href="#appendT">appendT</a>(X)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Statically yields a tuple type with an extra element added at its end</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>appendT!(X) <a class="symbol symbol-anchor" name="append" href="#append">append</a>(X)(X <i>x</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Yields a tuple with an extra element added at its end</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="prependT" href="#prependT">prependT</a>(X)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Statically yields a tuple type with an extra element added at its beginning</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>prependT!(X) <a class="symbol symbol-anchor" name="prepend" href="#prepend">prepend</a>(X)(X <i>x</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Yields a tuple with an extra element added at its beginning</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="concatT" href="#concatT">concatT</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Statically concatenates this tuple type with another tuple type</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Tuple" href="#Tuple">Tuple</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>An empty tuple struct</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="type" href="#type">type</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>an empty built-in tuple</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="value" href="#value">value</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>an empty built-in tuple</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Tuple!(T) <a class="symbol symbol-anchor" name="tuple" href="#tuple">tuple</a>(T...)(T <i>t</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Dynamically create a <a class="symbol symbol-anchor" name="tuple" href="#tuple">tuple</a> from the given items</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isTypeTuple" href="#isTypeTuple">isTypeTuple</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks whether a given type is the Tuple struct of any length</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="minNumArgs" href="#minNumArgs">minNumArgs</a>(alias fn,fnT = typeof(&amp;fn))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Finds the minimal number of arguments a given function needs to be provided</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="BoundFunc" href="#BoundFunc">BoundFunc</a>(FT,alias FAlias_,AllBoundArgs_);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A context for bound/curried functions</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(new BoundFunc!(FT,NullAlias,Tuple!(ArgList))) <a class="symbol symbol-anchor" name="bind" href="#bind">bind</a>(FT, ArgList...)(FT <i>fp</i>, ArgList <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="bind" href="#bind">bind</a>() can curry or "<a class="symbol symbol-anchor" name="bind" href="#bind">bind</a>" arguments of a function, producing a different function which requires less parameters,
         or a different order of parameters. It also allows function composition.
 </p>
@@ -520,10 +474,7 @@ Tuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>) b
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="bindAlias" href="#bindAlias">bindAlias</a>(alias FT)</h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="bindAlias" href="#bindAlias">bindAlias</a>() is similar to bind(), but it's more powerful. Use <a class="symbol symbol-anchor" name="bindAlias" href="#bindAlias">bindAlias</a>() rather than bind() where possible. <br/>
 </p>
 
@@ -552,7 +503,6 @@ there is no bind-time check for reference nullness, there is however a call-time
         by using version=BindNoNullCheck or compiling in release mode.</dd>
 </dl>
 </div>
-
 
 
 				</div>

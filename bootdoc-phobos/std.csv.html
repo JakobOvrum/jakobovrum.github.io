@@ -358,20 +358,15 @@
       Comma-separated values</a>
 
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd>Jesse Phillips
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/csv.d">std/csv.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CSVException" href="#CSVException">CSVException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception containing the row and column for when an exception was thrown.
 </p>
 
@@ -384,25 +379,16 @@
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="row" href="#row">row</a>;
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="col" href="#col">col</a>;
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="IncompleteCellException" href="#IncompleteCellException">IncompleteCellException</a>: std.csv.CSVException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown when a Token is identified to not be completed: a quote is
  found in an unquoted field, data continues after a closing quote, or the
  quoted field was not closed before data was empty.</p>
@@ -410,8 +396,6 @@
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>dstring <a class="symbol symbol-anchor" name="partialData" href="#partialData">partialData</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Data pulled from input before finding a problem
 </p>
 
@@ -420,14 +404,10 @@
  already been fed to the output range.</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="HeaderMismatchException" href="#HeaderMismatchException">HeaderMismatchException</a>: std.csv.CSVException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown under different conditions based on the type of <span class="inlinecode">Contents</span>.
 </p>
 
@@ -448,11 +428,8 @@
  occurred before the previous starting at one.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Malformed" href="#Malformed">Malformed</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Determines the behavior for when an error is detected.
 </p>
 
@@ -469,29 +446,20 @@
   </ul></p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="ignore" href="#ignore">ignore</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>No exceptions are thrown due to incorrect CSV.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="throwException" href="#throwException">throwException</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Use exceptions when input has incorrect CSV.</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="csvReader" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Separator = char)(Range <i>input</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns an input range for iterating over records found in <span class="inlinecode">input</span>.
 </p>
 
@@ -548,7 +516,6 @@
         a range with element type <span class="inlinecode">Contents</span>.
 
 </dd>
-
 <dt>Throws</dt><dd><a href="#CSVException"><span class="inlinecode">CSVException</span></a> When a quote is found in an unquoted field,
        data continues after a closing quote, the quoted field was not
        closed before data was empty, a conversion failed, or when the row's
@@ -559,14 +526,10 @@
        matching column is not found or the order did not match that found in
        the input. Read the exception documentation for specific details of
        when the exception is thrown for different types of <span class="inlinecode">Contents</span>.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="csvReader" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Header, Separator = char)(Range <i>input</i>, Header <i>header</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>An optional <span class="inlinecode">header</span> can be provided. The first record will be read in
  as the header. If <span class="inlinecode">Contents</span> is a struct then the header provided is
  expected to correspond to the fields in the struct. When <span class="inlinecode">Contents</span> is
@@ -630,7 +593,6 @@
 </pre>
 
 </dd>
-
 <dt>Throws</dt><dd><a href="#CSVException"><span class="inlinecode">CSVException</span></a> When a quote is found in an unquoted field,
        data continues after a closing quote, the quoted field was not
        closed before data was empty, a conversion failed, or when the row's
@@ -641,14 +603,10 @@
        matching column is not found or the order did not match that found in
        the input. Read the exception documentation for specific details of
        when the exception is thrown for different types of <span class="inlinecode">Contents</span>.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="csvNextToken" href="#csvNextToken">csvNextToken</a>(Range, Malformed ErrorLevel = Malformed.throwException, Separator, Output)(ref Range <i>input</i>, ref Output <i>ans</i>, Separator <i>sep</i>, Separator <i>quote</i>, bool <i>startQuoted</i> = false);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Lower level control over parsing CSV
 </p>
 
@@ -696,14 +654,11 @@
  quotes</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd><a href="#IncompleteCellException"><span class="inlinecode">IncompleteCellException</span></a> When a quote is found in an unquoted
        field, data continues after a closing quote, or the quoted field was
        not closed before data was empty.</dd>
-
 </dl>
 </div>
-
 
 
 				</div>

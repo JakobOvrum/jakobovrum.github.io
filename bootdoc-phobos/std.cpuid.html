@@ -319,214 +319,145 @@
 <dt>Known Bugs</dt><dd>Only works on x86 CPUs
 
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd>Tomas Lindquist Olsen &lt;tomas@famolsen.dk&gt;
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/cpuid.d">std/cpuid.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns everything as a printable string</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="vendor" href="#vendor">vendor</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <a class="symbol symbol-anchor" name="vendor" href="#vendor">vendor</a> string</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="processor" href="#processor">processor</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <a class="symbol symbol-anchor" name="processor" href="#processor">processor</a> string</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="mmx" href="#mmx">mmx</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is MMX supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="fxsr" href="#fxsr">fxsr</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is FXSR supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="sse" href="#sse">sse</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is SSE supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="sse2" href="#sse2">sse2</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is SSE2 supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="sse3" href="#sse3">sse3</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is SSE3 supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="ssse3" href="#ssse3">ssse3</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is SSSE3 supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="amd3dnow" href="#amd3dnow">amd3dnow</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is AMD 3DNOW supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="amd3dnowExt" href="#amd3dnowExt">amd3dnowExt</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is AMD 3DNOW Ext supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="amdMmx" href="#amdMmx">amdMmx</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is AMD MMX supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="ia64" href="#ia64">ia64</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is this an Intel Architecture IA64?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="amd64" href="#amd64">amd64</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is this an AMD 64?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="hyperThreading" href="#hyperThreading">hyperThreading</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is hyperthreading supported?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="threadsPerCPU" href="#threadsPerCPU">threadsPerCPU</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns number of threads per CPU</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="coresPerCPU" href="#coresPerCPU">coresPerCPU</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns number of cores in CPU</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="intel" href="#intel">intel</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is this an Intel processor?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="amd" href="#amd">amd</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Is this an AMD processor?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property uint <a class="symbol symbol-anchor" name="stepping" href="#stepping">stepping</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <a class="symbol symbol-anchor" name="stepping" href="#stepping">stepping</a></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property uint <a class="symbol symbol-anchor" name="model" href="#model">model</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <a class="symbol symbol-anchor" name="model" href="#model">model</a></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property uint <a class="symbol symbol-anchor" name="family" href="#family">family</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <a class="symbol symbol-anchor" name="family" href="#family">family</a></p>
 
 </dl>
 </div>
-
 
 
 				</div>

@@ -294,7 +294,6 @@
 (See accompanying file LICENSE_1_0.txt or copy at <a href="http://boost.org/LICENSE_1_0.txt">boost.org/LICENSE_1_0.txt</a>).
 
 </dd>
-
 <dt>Authors</dt><dd>Steven Schveighoffer, <a href="http://erdani.com">Andrei Alexandrescu</a>
 <br><br>
 
@@ -581,50 +580,36 @@ The key's type is defined by the container.</td></tr>
 <br><br>
 
 </table></dd>
-
 </dl>
 <hr><div class="row-fluid declaration"><h3>Container <a class="symbol symbol-anchor" name="make" href="#make">make</a>(Container, T...)(T <i>arguments</i>);
 <br>Container <a class="symbol symbol-anchor" name="make" href="#make">make</a>(Container, T...)(T <i>arguments</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns an initialized container. This function is mainly for
 eliminating construction differences between <span class="inlinecode">class</span> containers and
 <span class="inlinecode">struct</span> containers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SList" href="#SList">SList</a>(T);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements a simple and fast singly-linked list.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(U)(U[] <i>values</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor taking a number of nodes</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor taking an input range</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(const SList <i>rhs</i>);
 <br>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const SList <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Comparison for equality.
 </p>
 
@@ -633,11 +618,8 @@ eliminating construction differences between <span class="inlinecode">class</spa
 elements in <span class="inlinecode"><i>rhs</i></span>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines the container's primary range, which embodies a forward range.</p>
 
 </dl>
@@ -647,20 +629,14 @@ elements in <span class="inlinecode"><i>rhs</i></span>.</dd>
 <br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward range primitives.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has no
 elements.
 </p>
@@ -669,11 +645,8 @@ elements.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>SList <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Duplicates the container. The elements themselves are not transitively
 duplicated.
 </p>
@@ -682,11 +655,8 @@ duplicated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range that iterates over all elements of the container, in
 forward order.
 </p>
@@ -695,11 +665,8 @@ forward order.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span>.
 </p>
 
@@ -707,11 +674,8 @@ forward order.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a>(<i>value</i>)</span>.
 </p>
 
@@ -719,22 +683,16 @@ forward order.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>SList <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a new <span class="inlinecode">SList</span> that's the concatenation of <span class="inlinecode">this</span> and its
 argument. <span class="inlinecode">opBinaryRight</span> is only defined if <span class="inlinecode">Stuff</span> does not
 define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a></span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all contents from the <span class="inlinecode">SList</span>.
 </p>
 
@@ -746,15 +704,12 @@ define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" 
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertFront" href="#insertFront">insertFront</a>(Stuff)(Stuff <i>stuff</i>);
 <br>size_t <a class="symbol symbol-anchor" name="insertFront" href="#insertFront">insertFront</a>(Stuff)(Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
 <br>alias <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>;
 <br>alias <a class="symbol symbol-anchor" name="stableInsertFront" href="#stableInsertFront">stableInsertFront</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">stuff</span> to the front of the container. <span class="inlinecode">stuff</span> can be a
 value convertible to <span class="inlinecode">T</span> or a range of objects convertible to <span class="inlinecode">T</span>. The stable version behaves the same, but guarantees that ranges
 iterating over the container are never invalidated.
@@ -763,17 +718,13 @@ iterating over the container are never invalidated.
 <dt>Returns</dt><dd>The number of elements inserted
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Picks one value from the front of the container, removes it from the
 container, and returns it.
 </p>
@@ -785,17 +736,13 @@ container, and returns it.
 <dt>Returns</dt><dd>The element removed.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveFront" href="#stableRemoveFront">stableRemoveFront</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the value at the front of the container. The stable version
 behaves the same, but guarantees that ranges iterating over the
 container are never invalidated.
@@ -809,12 +756,9 @@ container are never invalidated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>(size_t <i>howMany</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveFront" href="#stableRemoveFront">stableRemoveFront</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
 container. Unlike the unparameterized versions above, these functions
 do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span> elements. Instead,
@@ -827,16 +771,12 @@ never invalidated.
 <dt>Returns</dt><dd>The number of elements removed
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i> * log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">stuff</span> after range <span class="inlinecode">r</span>, which must be a range
 previously extracted from this container. Given that all ranges for a
 list end at the end of the list, this function essentially appends to
@@ -854,18 +794,14 @@ invalidated.
 <dt>Returns</dt><dd>The number of values inserted.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">k + m</span><b><i>)</i></b>, where <span class="inlinecode">k</span> is the number of elements in
 <span class="inlinecode">r</span> and <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Take!(Range) <i>r</i>, Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableInsertAfter" href="#stableInsertAfter">stableInsertAfter</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode"><a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a></span> above, but accepts a range bounded in
 count. This is important for ensuring fast insertions in the middle of
 the list.  For fast insertions after a specified position <span class="inlinecode">r</span>, use
@@ -880,53 +816,40 @@ only depends on the number of elements in <span class="inlinecode">stuff</span>.
 <dt>Returns</dt><dd>The number of values inserted.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">k + m</span><b><i>)</i></b>, where <span class="inlinecode">k</span> is the number of elements in
 <span class="inlinecode">r</span> and <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes a range from the list in linear time.
 </p>
 
 <dt>Returns</dt><dd>An empty range.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Take!(Range) <i>r</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes a <span class="inlinecode">Take!Range</span> from the list in linear time.
 </p>
 
 <dt>Returns</dt><dd>A range comprehending the elements after the removed range.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Array" href="#Array">Array</a>(T) if (!is(T : const(bool)));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="Array" href="#Array">Array</a> type with deterministic control of memory. The memory allocated
 for the array is reclaimed as soon as possible; there is no reliance
 on the garbage collector. <span class="inlinecode"><a class="symbol symbol-anchor" name="Array" href="#Array">Array</a></span> uses <span class="inlinecode">malloc</span> and <span class="inlinecode">free</span>
@@ -936,26 +859,18 @@ for managing its own memory.</p>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(const Array <i>rhs</i>);
 <br>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(ref const Array <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Comparison for equality.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines the container's primary range, which is a random-access range.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has no
 elements.
 </p>
@@ -964,11 +879,8 @@ elements.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Array <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Duplicates the container. The elements themselves are not transitively
 duplicated.
 </p>
@@ -977,11 +889,8 @@ duplicated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of elements in the container.
 </p>
 
@@ -989,11 +898,8 @@ duplicated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the maximum number of elements the container can store without
    (a) allocating memory, (b) invalidating iterators upon insertion.
 </p>
@@ -1002,11 +908,8 @@ duplicated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(size_t <i>elements</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ensures sufficient capacity to accommodate <span class="inlinecode">e</span> <i>elements</i>.
 </p>
 
@@ -1018,11 +921,8 @@ duplicated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range that iterates over elements of the container, in
 forward order.
 </p>
@@ -1031,11 +931,8 @@ forward order.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>a</i>, size_t <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <i>a</i> range that iterates over elements of the container from
 index <span class="inlinecode"><i>a</i></span> up to (excluding) index <span class="inlinecode"><i>b</i></span>.
 </p>
@@ -1048,23 +945,17 @@ index <span class="inlinecode"><i>a</i></span> up to (excluding) index <span cla
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const size_t <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>@@@BUG@@@ This doesn't work yet</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(T <i>value</i>);
 <br>T <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(T <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span> and <span class="inlinecode">opSlice().back</span>, respectively.
 </p>
 
@@ -1076,13 +967,10 @@ index <span class="inlinecode"><i>a</i></span> up to (excluding) index <span cla
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(T <i>value</i>, size_t <i>i</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexOpAssign" href="#opIndexOpAssign">opIndexOpAssign</a>(string op)(T <i>value</i>, size_t <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indexing operators yield or modify the value at a specified index.
 </p>
 
@@ -1094,11 +982,8 @@ index <span class="inlinecode"><i>a</i></span> up to (excluding) index <span cla
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Array <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a new container that's the concatenation of <span class="inlinecode">this</span> and its
 argument. <span class="inlinecode">opBinaryRight</span> is only defined if <span class="inlinecode">Stuff</span> does not
 define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a></span>.
@@ -1108,20 +993,14 @@ define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" 
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where m is the number of elements in <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opOpAssign" href="#opOpAssign">opOpAssign</a>(string op, Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forwards to <span class="inlinecode">insertBack(stuff)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all contents from the container. The container decides how <span class="inlinecode">capacity</span> is affected.
 </p>
 
@@ -1133,11 +1012,8 @@ define <span class="inlinecode"><a class="symbol symbol-anchor" name="opBinary" 
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="length" href="#length">length</a>(size_t <i>newLength</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets the number of elements in the container to <span class="inlinecode">newSize</span>. If <span class="inlinecode">newSize</span> is greater than <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>, the added elements are added to
 unspecified positions in the container and initialized with <span class="inlinecode">T.init</span>.
 </p>
@@ -1150,12 +1026,9 @@ unspecified positions in the container and initialized with <span class="inlinec
 <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a> == <i>newLength</i></span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Picks one value in an unspecified position in the container, removes
 it from the container, and returns it. Implementations should pick the
 value that's the most advantageous for the container, but document the
@@ -1170,17 +1043,13 @@ that ranges iterating over the container are never invalidated.
 <dt>Returns</dt><dd>The element removed.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">value</span> to the front or back of the container. <span class="inlinecode">stuff</span>
 can be a value convertible to <span class="inlinecode">T</span> or a range of objects convertible
 to <span class="inlinecode">T</span>. The stable version behaves the same, but guarantees that
@@ -1190,18 +1059,14 @@ ranges iterating over the container are never invalidated.
 <dt>Returns</dt><dd>The number of elements inserted
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of
 elements in <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the value at the back of the container. The stable version
 behaves the same, but guarantees that ranges iterating over the
 container are never invalidated.
@@ -1215,12 +1080,9 @@ container are never invalidated.
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>(size_t <i>howMany</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
 container. Unlike the unparameterized versions above, these functions
 do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span> elements. Instead,
@@ -1233,20 +1095,16 @@ never invalidated.
 <dt>Returns</dt><dd>The number of elements removed
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i></span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>size_t <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>size_t <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">stuff</span> before, after, or instead range <span class="inlinecode">r</span>, which must
 be a valid range previously extracted from this container. <span class="inlinecode">stuff</span>
 can be a value convertible to <span class="inlinecode">T</span> or a range of objects convertible
@@ -1257,17 +1115,13 @@ ranges iterating over the container are never invalidated.
 <dt>Returns</dt><dd>The number of values inserted.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all elements belonging to <span class="inlinecode"><i>r</i></span>, which must be a range
 obtained originally from this container. The stable version behaves
 the same, but guarantees that ranges iterating over the container are
@@ -1278,20 +1132,15 @@ never invalidated.
 initially were right after <span class="inlinecode"><i>r</i></span>.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n - m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of elements in
 <span class="inlinecode"><i>r</i></span></dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a>(Store,alias less = "a &lt; b") if (isRandomAccessRange!(Store) || isRandomAccessRange!(typeof(Store.init[])));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements a <a href="http://en.wikipedia.org/wiki/Binary_heap">binary heap</a>
 container on top of a given random-access range type (usually <span class="inlinecode">T[]</span>) or a random-access container type (usually <span class="inlinecode">Array!T</span>). The
 documentation of <span class="inlinecode"><a class="symbol symbol-anchor" name="BinaryHeap" href="#BinaryHeap">BinaryHeap</a></span> will refer to the underlying range or
@@ -1337,8 +1186,6 @@ container.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Converts the store <span class="inlinecode"><i>s</i></span> into a heap. If <span class="inlinecode"><i>initialSize</i></span> is
        specified, only the first <span class="inlinecode"><i>initialSize</i></span> elements in <span class="inlinecode"><i>s</i></span>
        are transformed into a heap, after which the heap can grow up
@@ -1348,118 +1195,82 @@ container.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="acquire" href="#acquire">acquire</a>(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Takes ownership of a store. After this, manipulating <span class="inlinecode"><i>s</i></span> may make
 the heap work incorrectly.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assume" href="#assume">assume</a>(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Takes ownership of a store assuming it already was organized as a
 heap.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="release" href="#release">release</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clears the heap. Returns the portion of the store from <span class="inlinecode">0</span> up to
 <span class="inlinecode">length</span>, which satisfies the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=heap property">heap property</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the heap is empty, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>BinaryHeap <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a duplicate of the heap. The underlying store must also
 support a <span class="inlinecode"><a class="symbol symbol-anchor" name="dup" href="#dup">dup</a></span> method.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of the heap.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the capacity of the heap, which is the length of the
 underlying store (if the store is a range) or the capacity of the
 underlying store (if the store is a container).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(Store) <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a copy of the front of the heap, which is the largest element
 according to <span class="inlinecode">less</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clears the heap by detaching it from the underlying store.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>(ElementType!(Store) <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode"><i>value</i></span> into the store. If the underlying store is a range
 and <span class="inlinecode">length == capacity</span>, throws an exception.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the largest element from the heap.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(Store) <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the largest element from the heap and returns a copy of
 it. The element still resides in the heap's store. For performance
 reasons you may want to use <span class="inlinecode">removeFront</span> with heaps of objects
@@ -1467,20 +1278,14 @@ that are expensive to copy.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="replaceFront" href="#replaceFront">replaceFront</a>(ElementType!(Store) <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Replaces the largest element in the store with <span class="inlinecode"><i>value</i></span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="conditionalInsert" href="#conditionalInsert">conditionalInsert</a>(ElementType!(Store) <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the heap has room to grow, inserts <span class="inlinecode"><i>value</i></span> into the store and
 returns <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, if <span class="inlinecode">less(<i>value</i>, front)</span>, calls <span class="inlinecode">replaceFront(<i>value</i>)</span> and returns again <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leaves
 the heap unaffected and returns <span class="inlinecode"><span class="d_keyword">false</span></span>. This method is useful in
@@ -1489,32 +1294,23 @@ must be collected.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>BinaryHeap!(Store) <a class="symbol symbol-anchor" name="heapify" href="#heapify">heapify</a>(Store)(Store <i>s</i>, size_t <i>initialSize</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience function that returns a <span class="inlinecode">BinaryHeap!Store</span> object
 initialized with <span class="inlinecode">s</span> and <span class="inlinecode">initialSize</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Array" href="#Array">Array</a>(T) if (is(T == bool));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Array specialized for <span class="inlinecode">bool</span>. Packs together values efficiently by
 allocating one bit per element.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Defines the container's primary range.</p>
 
 </dl>
@@ -1532,20 +1328,14 @@ allocating one bit per element.</p>
 <br>T <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>i</i>);
 <br>const ulong <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Property returning <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the container has
        no elements.
 </p>
@@ -1554,11 +1344,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a duplicate of the container. The elements themselves
        are not transitively duplicated.
 </p>
@@ -1567,11 +1354,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of elements in the container.
 </p>
 
@@ -1579,11 +1363,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="capacity" href="#capacity">capacity</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the maximum number of elements the container can store
        without (a) allocating memory, (b) invalidating iterators upon
        insertion.
@@ -1593,11 +1374,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(ulong <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ensures sufficient capacity to accommodate <span class="inlinecode">n</span> elements.
 </p>
 
@@ -1610,11 +1388,8 @@ allocating one bit per element.</p>
        otherwise <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range that iterates over all elements of the
        container, in a container-defined order. The container should
        choose the most convenient and fast method of iteration for <span class="inlinecode">      <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>()</span>.
@@ -1624,11 +1399,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(ulong <i>a</i>, ulong <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <i>a</i> range that iterates the container between two
        specified positions.
 </p>
@@ -1637,14 +1409,11 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(bool <i>value</i>);
 <br>bool <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(bool <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Equivalent to <span class="inlinecode">opSlice().<a class="symbol symbol-anchor" name="front" href="#front">front</a></span> and <span class="inlinecode">opSlice().back</span>,
        respectively.
 </p>
@@ -1653,23 +1422,17 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(ulong <i>i</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(bool <i>value</i>, ulong <i>i</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexOpAssign" href="#opIndexOpAssign">opIndexOpAssign</a>(string op)(bool <i>value</i>, ulong <i>i</i>);
 <br>T <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(ulong <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indexing operators yield or modify the value at a specified index.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="opBinary" href="#opBinary">opBinary</a>(string op, Stuff)(Stuff <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a new container that's the concatenation of <span class="inlinecode">this</span>
        and its argument.
 </p>
@@ -1679,20 +1442,14 @@ allocating one bit per element.</p>
        in <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Array!(bool) <a class="symbol symbol-anchor" name="opOpAssign" href="#opOpAssign">opOpAssign</a>(string op, Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forwards to <span class="inlinecode">insertAfter(this[], stuff)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all contents from the container. The container decides
        how <span class="inlinecode">capacity</span> is affected.
 </p>
@@ -1705,11 +1462,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="length" href="#length">length</a>(ulong <i>newLength</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets the number of elements in the container to <span class="inlinecode">      newSize</span>. If <span class="inlinecode">newSize</span> is greater than <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>, the
        added elements are added to the container and initialized with
        <span class="inlinecode">ElementType.init</span>.
@@ -1723,12 +1477,9 @@ allocating one bit per element.</p>
 <span class="inlinecode">length == <i>newLength</i></span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
 <br>alias <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">stuff</span> in the container. <span class="inlinecode">stuff</span> can be a value
        convertible to <span class="inlinecode">ElementType</span> or a range of objects
        convertible to <span class="inlinecode">ElementType</span>.
@@ -1742,29 +1493,22 @@ allocating one bit per element.</p>
 <dt>Returns</dt><dd>The number of elements added.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the number of
        elements in <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="linearInsert" href="#linearInsert">linearInsert</a>;
 <br>alias <a class="symbol symbol-anchor" name="stableLinearInsert" href="#stableLinearInsert">stableLinearInsert</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Same as <span class="inlinecode">insert(stuff)</span> and <span class="inlinecode">stableInsert(stuff)</span>
        respectively, but relax the complexity constraint to linear.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveAny" href="#stableRemoveAny">stableRemoveAny</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Picks one value in the container, removes it from the
        container, and returns it. The stable version behaves the same,
        but guarantees that ranges iterating over the container are
@@ -1778,18 +1522,14 @@ allocating one bit per element.</p>
 <dt>Returns</dt><dd>The element removed.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
 <br>ulong <a class="symbol symbol-anchor" name="insertBack" href="#insertBack">insertBack</a>(Stuff)(Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableInsertBack" href="#stableInsertBack">stableInsertBack</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">value</span> to the back of the container. <span class="inlinecode">stuff</span> can
        be a value convertible to <span class="inlinecode">ElementType</span> or a range of
        objects convertible to <span class="inlinecode">ElementType</span>. The stable version
@@ -1800,17 +1540,13 @@ allocating one bit per element.</p>
 <dt>Returns</dt><dd>The number of elements inserted
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
 <br>alias <a class="symbol symbol-anchor" name="stableRemoveBack" href="#stableRemoveBack">stableRemoveBack</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the value at the front or back of the container. The
        stable version behaves the same, but guarantees that ranges
        iterating over the container are never invalidated. The
@@ -1827,11 +1563,8 @@ allocating one bit per element.</p>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>(ulong <i>howMany</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes <span class="inlinecode"><i>howMany</i></span> values at the front or back of the
        container. Unlike the unparameterized versions above, these
        functions do not throw if they could not remove <span class="inlinecode"><i>howMany</i></span>
@@ -1844,14 +1577,12 @@ allocating one bit per element.</p>
 <dt>Returns</dt><dd>The number of elements removed
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>howMany</i> * log(n)</span><b><i>)</i></b>.
      
  ditto</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="insertBefore" href="#insertBefore">insertBefore</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableInsertBefore" href="#stableInsertBefore">stableInsertBefore</a>;
 <br>ulong <a class="symbol symbol-anchor" name="insertAfter" href="#insertAfter">insertAfter</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
@@ -1859,8 +1590,6 @@ allocating one bit per element.</p>
 <br>size_t <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(Stuff)(Range <i>r</i>, Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableReplace" href="#stableReplace">stableReplace</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Inserts <span class="inlinecode">stuff</span> before, after, or instead range <span class="inlinecode">r</span>,
        which must be a valid range previously extracted from this
        container. <span class="inlinecode">stuff</span> can be a value convertible to <span class="inlinecode">      ElementType</span> or a range of objects convertible to <span class="inlinecode">      ElementType</span>. The stable version behaves the same, but
@@ -1871,17 +1600,13 @@ allocating one bit per element.</p>
 <dt>Returns</dt><dd>The number of values inserted.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n + m</span><b><i>)</i></b>, where <span class="inlinecode">m</span> is the length of <span class="inlinecode">stuff</span></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="linearRemove" href="#linearRemove">linearRemove</a>(Range <i>r</i>);
 <br>alias <a class="symbol symbol-anchor" name="stableLinearRemove" href="#stableLinearRemove">stableLinearRemove</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all elements belonging to <span class="inlinecode"><i>r</i></span>, which must be a range
        obtained originally from this container. The stable version
        behaves the same, but guarantees that ranges iterating over the
@@ -1892,19 +1617,14 @@ allocating one bit per element.</p>
        initially were right after <span class="inlinecode"><i>r</i></span>.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RedBlackTree" href="#RedBlackTree">RedBlackTree</a>(T,alias less = "a &lt; b",bool allowDuplicates = false) if (is(typeof(binaryFun!(less)(T.init,T.init))));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Implementation of a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=red-black tree">red-black tree</a> container.
 </p>
 
@@ -1930,51 +1650,35 @@ allocating one bit per element.</p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Elem" href="#Elem">Elem</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Element type for the tree</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Range" href="#Range">Range</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The range type for <span class="inlinecode">RedBlackTree</span></p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the range is empty</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the first element in the range</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the last element in the range</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>pop the front element from the range
 </p>
 
@@ -1982,11 +1686,8 @@ allocating one bit per element.</p>
 amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>pop the back element from the range
 </p>
 
@@ -1994,33 +1695,23 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Trivial save implementation, needed for <span class="inlinecode">isForwardRange</span>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Check if any elements exist in the container.  Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if at least
  one element exists.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of elements in the container.
 </p>
 
@@ -2028,11 +1719,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>RedBlackTree <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Duplicate this container.  The resulting container contains a shallow
  copy of the elements.
 </p>
@@ -2041,11 +1729,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Fetch a range that spans all the elements in the container.
 </p>
 
@@ -2053,11 +1738,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="front" href="#front">front</a> element in the container
 </p>
 
@@ -2065,11 +1747,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The last element in the container
 </p>
 
@@ -2077,11 +1756,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opBinaryRight" href="#opBinaryRight">opBinaryRight</a>(string op)(Elem <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode">in</span> operator. Check to see if the given element exists in the
         container.
 </p>
@@ -2090,11 +1766,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all elements from the container.
 </p>
 
@@ -2102,11 +1775,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>(Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Insert a single element in the container.  Note that this does not
  invalidate any ranges currently iterating the container.
 </p>
@@ -2115,12 +1785,9 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="stableInsert" href="#stableInsert">stableInsert</a>(Stuff)(Stuff <i>stuff</i>);
 <br>alias <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Insert a range of elements in the container.  Note that this does not
  invalidate any ranges currently iterating the container.
 </p>
@@ -2129,11 +1796,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Elem <a class="symbol symbol-anchor" name="removeAny" href="#removeAny">removeAny</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Remove an element from the container and return its value.
 </p>
 
@@ -2141,11 +1805,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeFront" href="#removeFront">removeFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Remove the front element from the container.
 </p>
 
@@ -2153,11 +1814,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="removeBack" href="#removeBack">removeBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Remove the back element from the container.
 </p>
 
@@ -2165,11 +1823,8 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(Range <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the given range from the container.
 </p>
 
@@ -2177,17 +1832,13 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
                  given range.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b> (where m is the number of elements in
                     the range)</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(Take!(Range) <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes the given <span class="inlinecode">Take!Range</span> from the container
 </p>
 
@@ -2195,19 +1846,15 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
                  given range.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m * log(n)</span><b><i>)</i></b> (where m is the number of elements in
                     the range)</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(U...)(U <i>elems</i>);
 <br>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(U)(U[] <i>elems</i>);
 <br>size_t <a class="symbol symbol-anchor" name="removeKey" href="#removeKey">removeKey</a>(Stuff)(Stuff <i>stuff</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes elements from the container that are equal to the given values
        according to the less comparator. One element is removed for each value
        given which is in the container. If <span class="inlinecode">allowDuplicates</span> is <span class="d_keyword">true</span>,
@@ -2217,7 +1864,6 @@ amortized <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></
 <dt>Returns</dt><dd>The number of elements removed.
 
 </dd>
-
 <dt>Complexity:</dt><dd>
 <b><i>&Omicron;</i>(</b><span class="inlinecode">m log(n)</span><b><i>)</i></b> (where m is the number of elements to remove)
 
@@ -2229,14 +1875,10 @@ rbt.<u>removeKey</u>(1, 1, 0);
 <span class="d_keyword">assert</span>(std.algorithm.equal(rbt[], [5]));
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="upperBound" href="#upperBound">upperBound</a>(Elem <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a range from the container with all elements that are &gt; <i>e</i> according
  to the less comparator
 </p>
@@ -2245,11 +1887,8 @@ rbt.<u>removeKey</u>(1, 1, 0);
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="lowerBound" href="#lowerBound">lowerBound</a>(Elem <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a range from the container with all elements that are &lt; <i>e</i> according
  to the less comparator
 </p>
@@ -2258,11 +1897,8 @@ rbt.<u>removeKey</u>(1, 1, 0);
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Range <a class="symbol symbol-anchor" name="equalRange" href="#equalRange">equalRange</a>(Elem <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a range from the container with all elements that are == <i>e</i> according
  to the less comparator
 </p>
@@ -2271,34 +1907,24 @@ rbt.<u>removeKey</u>(1, 1, 0);
 <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(Elem[] <i>elems</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor.  Pass in an array of elements, or individual elements to
        initialize the tree with.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(E)(E[] <i>elems</i>...);
 <br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(bool allowDuplicates, E)(E[] <i>elems</i>...);
 <br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(alias less, E)(E[] <i>elems</i>...);
 <br>auto <a class="symbol symbol-anchor" name="redBlackTree" href="#redBlackTree">redBlackTree</a>(alias less, bool allowDuplicates, E)(E[] <i>elems</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience function for creating a <span class="inlinecode">RedBlackTree!E</span> from a list of
     values.
 </p>
@@ -2310,10 +1936,8 @@ rbt.<u>removeKey</u>(1, 1, 0);
 <span class="d_keyword">auto</span> rbt5 = <u>redBlackTree</u>!(<span class="d_string">"a &gt; b"</span>, <span class="d_keyword">true</span>)(0.1, 1.3, 5.9, 7.2, 5.9);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 
 
 				</div>

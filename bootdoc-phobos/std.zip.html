@@ -299,247 +299,168 @@
       </ul>
 
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/zip.d">std/zip.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ZipException" href="#ZipException">ZipException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown on error.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ArchiveMember" href="#ArchiveMember">ArchiveMember</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A member of the ZipArchive.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="madeVersion" href="#madeVersion">madeVersion</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="extractVersion" href="#extractVersion">extractVersion</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="flags" href="#flags">flags</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: normally set to 0</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="compressionMethod" href="#compressionMethod">compressionMethod</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: 0 for compression, 8 for deflate</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>std.datetime.DosFileTime <a class="symbol symbol-anchor" name="time" href="#time">time</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: Last modified <a class="symbol symbol-anchor" name="time" href="#time">time</a> of the member. It's in the DOS date/<a class="symbol symbol-anchor" name="time" href="#time">time</a> format.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="crc32" href="#crc32">crc32</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: cyclic redundancy check (CRC) value</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="compressedSize" href="#compressedSize">compressedSize</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: size of data of member in compressed form.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="expandedSize" href="#expandedSize">expandedSize</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: size of data of member in expanded form.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="diskNumber" href="#diskNumber">diskNumber</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: should be 0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="internalAttributes" href="#internalAttributes">internalAttributes</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="externalAttributes" href="#externalAttributes">externalAttributes</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="name" href="#name">name</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: Usually the file <a class="symbol symbol-anchor" name="name" href="#name">name</a> of the archive member; it is used to
  index the archive directory for the member. Each member must have a unique
  <a class="symbol symbol-anchor" name="name" href="#name">name</a>[]. Do not change without removing member from the directory first.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="extra" href="#extra">extra</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: <a class="symbol symbol-anchor" name="extra" href="#extra">extra</a> data for this member.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="comment" href="#comment">comment</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: <a class="symbol symbol-anchor" name="comment" href="#comment">comment</a> associated with this member.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="compressedData" href="#compressedData">compressedData</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: data of member in compressed form.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="expandedData" href="#expandedData">expandedData</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: data of member in uncompressed form.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ZipArchive" href="#ZipArchive">ZipArchive</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Object representing the entire archive.
  ZipArchives are collections of ArchiveMembers.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="data" href="#data">data</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: array representing the entire contents of the archive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="diskNumber" href="#diskNumber">diskNumber</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: 0 since multi-disk zip archives are not supported.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="diskStartDir" href="#diskStartDir">diskStartDir</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: 0 since multi-disk zip archives are not supported.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="numEntries" href="#numEntries">numEntries</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: number of ArchiveMembers in the directory.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="totalEntries" href="#totalEntries">totalEntries</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: same as <a class="symbol symbol-anchor" name="totalEntries" href="#totalEntries">totalEntries</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="comment" href="#comment">comment</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write: the archive <a class="symbol symbol-anchor" name="comment" href="#comment">comment</a>. Must be less than 65536 bytes in length.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ArchiveMember[string] <a class="symbol symbol-anchor" name="directory" href="#directory">directory</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read Only: array indexed by the name of each member of the archive.
 </p>
 
@@ -554,38 +475,26 @@ All the members of the archive can be accessed with a foreach loop:
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor to use when creating a new archive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addMember" href="#addMember">addMember</a>(ArchiveMember <i>de</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Add <i>de</i> to the archive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="deleteMember" href="#deleteMember">deleteMember</a>(ArchiveMember <i>de</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Delete <i>de</i> from the archive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="build" href="#build">build</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct an archive out of the current members of the archive.
 </p>
 
@@ -596,14 +505,10 @@ All the members of the archive can be accessed with a foreach loop:
 
 </p>
 <dt>Returns</dt><dd>array representing the entire archive.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(void[] <i>buffer</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor to use when reading an existing archive.
 </p>
 
@@ -620,14 +525,10 @@ All the members of the archive can be accessed with a foreach loop:
 <td>the entire contents of the archive.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a>(ArchiveMember <i>de</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decompress the contents of archive member <i>de</i> and return the expanded
  data.
 </p>
@@ -636,10 +537,8 @@ All the members of the archive can be accessed with a foreach loop:
  crc32, compressedSize, expandedSize, expandedData[], name[], extra[].</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

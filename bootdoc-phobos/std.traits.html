@@ -290,33 +290,23 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
             Tomasz Stachowiak (<span class="inlinecode">isExpressionTuple</span>),
             <a href="http://erdani.org">Andrei Alexandrescu</a>,
             Shin Fujishiro,
             <a href="http://octarineparrot.com">Robert Clipsham</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/traits.d">std/traits.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Demangle" href="#Demangle">Demangle</a>(T);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="defaultInit" href="#defaultInit">defaultInit</a>(T)</h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="packageName" href="#packageName">packageName</a>(alias T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the full package name for the given symbol.
 </p>
 
@@ -327,10 +317,7 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="moduleName" href="#moduleName">moduleName</a>(alias T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the module name (including package) for the given symbol.
 </p>
 
@@ -341,10 +328,7 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="fullyQualifiedName" href="#fullyQualifiedName">fullyQualifiedName</a>(alias T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the fully qualified name of a symbol.
 </p>
 
@@ -355,10 +339,7 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ReturnType" href="#ReturnType">ReturnType</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the type of the return value from a function,
  a pointer to function, a delegate, a struct
  with an opCall, a pointer to a struct with an opCall,
@@ -374,10 +355,7 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ParameterTypeTuple" href="#ParameterTypeTuple">ParameterTypeTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get, as a tuple, the types of the parameters to a function, a pointer
 to function, a delegate, a struct with an <span class="inlinecode">opCall</span>, a pointer to a
 struct with an <span class="inlinecode">opCall</span>, or a class with an <span class="inlinecode">opCall</span>.
@@ -394,11 +372,8 @@ struct with an <span class="inlinecode">opCall</span>, or a class with an <span 
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="ParameterStorageClass" href="#ParameterStorageClass">ParameterStorageClass</a>;
 <br>template <a class="symbol symbol-anchor" name="ParameterStorageClassTuple" href="#ParameterStorageClassTuple">ParameterStorageClassTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a tuple consisting of the storage classes of the parameters of a
 function <span class="inlinecode">func</span>.
 </p>
@@ -420,8 +395,6 @@ function <span class="inlinecode">func</span>.
 </dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a><br><a class="symbol symbol-anchor" name="scope_" href="#scope_">scope_</a><br><a class="symbol symbol-anchor" name="out_" href="#out_">out_</a><br><a class="symbol symbol-anchor" name="ref_" href="#ref_">ref_</a><br><a class="symbol symbol-anchor" name="lazy_" href="#lazy_">lazy_</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>These flags can be bitwise OR-ed together to represent complex storage
  class.
      
@@ -429,15 +402,11 @@ function <span class="inlinecode">func</span>.
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="FunctionAttribute" href="#FunctionAttribute">FunctionAttribute</a>;
 <br>template <a class="symbol symbol-anchor" name="functionAttributes" href="#functionAttributes">functionAttributes</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the attributes attached to a function <span class="inlinecode">func</span>.
 </p>
 
@@ -457,22 +426,16 @@ function <span class="inlinecode">func</span>.
 </dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="none" href="#none">none</a><br><a class="symbol symbol-anchor" name="pure_" href="#pure_">pure_</a><br><a class="symbol symbol-anchor" name="nothrow_" href="#nothrow_">nothrow_</a><br><a class="symbol symbol-anchor" name="ref_" href="#ref_">ref_</a><br><a class="symbol symbol-anchor" name="property" href="#property">property</a><br><a class="symbol symbol-anchor" name="trusted" href="#trusted">trusted</a><br><a class="symbol symbol-anchor" name="safe" href="#safe">safe</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>These flags can be bitwise OR-ed together to represent complex attribute.
      
  ditto</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSafe" href="#isSafe">isSafe</a>(alias func)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks the func that is @safe or @trusted
 </p>
 
@@ -488,10 +451,7 @@ function <span class="inlinecode">func</span>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="areAllSafe" href="#areAllSafe">areAllSafe</a>(funcs...) if (funcs.length &gt; 0)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks the all functions are @safe or @trusted
 </p>
 
@@ -506,10 +466,7 @@ function <span class="inlinecode">func</span>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isUnsafe" href="#isUnsafe">isUnsafe</a>(alias func)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks the func that is @system
 </p>
 
@@ -525,10 +482,7 @@ function <span class="inlinecode">func</span>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="functionLinkage" href="#functionLinkage">functionLinkage</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the calling convention of function as a string.
 </p>
 
@@ -545,11 +499,8 @@ string b = <u>functionLinkage</u>!(fp);
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Variadic" href="#Variadic">Variadic</a>;
 <br>template <a class="symbol symbol-anchor" name="variadicFunctionStyle" href="#variadicFunctionStyle">variadicFunctionStyle</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Determines what kind of variadic parameters function has.
 </p>
 
@@ -563,45 +514,30 @@ string b = <u>functionLinkage</u>!(fp);
 </dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Function is not variadic.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="c" href="#c">c</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Function is a C-style variadic function.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="d" href="#d">d</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Function is a D-style variadic function, which uses
  _argptr and _arguments.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="typesafe" href="#typesafe">typesafe</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Function is a <a class="symbol symbol-anchor" name="typesafe" href="#typesafe">typesafe</a> variadic function.</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="FunctionTypeOf" href="#FunctionTypeOf">FunctionTypeOf</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the function type from a callable object <span class="inlinecode">func</span>.
 </p>
 
@@ -622,10 +558,7 @@ Do not confuse function types with function pointer types; function types are
 usually used for compile-time reflection purposes.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="FieldTypeTuple" href="#FieldTypeTuple">FieldTypeTuple</a>(S)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the types of the fields of a struct or class.
  This consists of the fields that take up memory space,
  excluding the hidden fields like the virtual function
@@ -633,10 +566,7 @@ usually used for compile-time reflection purposes.</dd>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="RepresentationTypeTuple" href="#RepresentationTypeTuple">RepresentationTypeTuple</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the primitive types of the fields of a struct or class, in
 topological order.
 </p>
@@ -652,10 +582,7 @@ topological order.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasAliasing" href="#hasAliasing">hasAliasing</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span>'s representation includes at
 least one of the following: <ol><li>a raw pointer <span class="inlinecode">U*</span> and <span class="inlinecode">U</span>
 is not immutable;</li> <li>an array <span class="inlinecode">U[]</span> and <span class="inlinecode">U</span> is not
@@ -665,10 +592,7 @@ not immutable.</li> <li>an associative array that is not immutable.</li>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasIndirections" href="#hasIndirections">hasIndirections</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span>'s representation includes at
 least one of the following: <ol><li>a raw pointer <span class="inlinecode">U*</span>;</li> <li>an
 array <span class="inlinecode">U[]</span>;</li> <li>a reference to a class type <span class="inlinecode">C</span>.</li>
@@ -676,10 +600,7 @@ array <span class="inlinecode">U[]</span>;</li> <li>a reference to a class type 
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasUnsharedAliasing" href="#hasUnsharedAliasing">hasUnsharedAliasing</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span>'s representation includes at
 least one of the following: <ol><li>a raw pointer <span class="inlinecode">U*</span> and <span class="inlinecode">U</span>
 is not immutable or shared;</li> <li>an array <span class="inlinecode">U[]</span> and <span class="inlinecode">U</span> is not
@@ -689,10 +610,7 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasElaborateCopyConstructor" href="#hasElaborateCopyConstructor">hasElaborateCopyConstructor</a>(S)</h3></div>
-
-
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type embedded directly in the representation of <span class="inlinecode">S</span>
  defines an elaborate copy constructor. Elaborate copy constructors are
  introduced by defining <span class="inlinecode">this(this)</span> for a <span class="inlinecode">struct</span>. (Non-struct types
@@ -700,10 +618,7 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasElaborateAssign" href="#hasElaborateAssign">hasElaborateAssign</a>(S)</h3></div>
-
-
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type directly embedded in the representation of <span class="inlinecode">S</span>
    defines an elaborate assignmentq. Elaborate assignments are introduced by
    defining <span class="inlinecode">opAssign(typeof(this))</span> or <span class="inlinecode">opAssign(ref typeof(this))</span>
@@ -711,10 +626,7 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasElaborateDestructor" href="#hasElaborateDestructor">hasElaborateDestructor</a>(S)</h3></div>
-
-
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type directly embedded in the representation
    of <span class="inlinecode">S</span> defines an elaborate destructor. Elaborate destructors
    are introduced by defining <span class="inlinecode">~this()</span> for a <span class="inlinecode">  struct</span>. (Non-struct types never have elaborate destructors, even
@@ -722,19 +634,13 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasMember" href="#hasMember">hasMember</a>(T,string name)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Yields <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span> is an aggregate that defines
    a symbol called <span class="inlinecode">name</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="EnumMembers" href="#EnumMembers">EnumMembers</a>(E) if (is(E == enum))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Retrieves the members of an enumerated type <span class="inlinecode">enum E</span>.
 </p>
 
@@ -742,12 +648,10 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 <td>An enumerated type. <span class="inlinecode">E</span> may have duplicated values.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>Static tuple composed of the members of the enumerated type <span class="inlinecode">E</span>.
  The members are arranged in the same order as declared in <span class="inlinecode">E</span>.
 
 </dd>
-
 <dt>Note:</dt><dd>
 Returned values are strictly typed with <span class="inlinecode">E</span>. Thus, the following code
  does not work without the explicit cast:
@@ -795,13 +699,9 @@ size_t rank(E)(E e)
 <span class="d_keyword">assert</span>(rank(Mode.map  ) == 2);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="BaseTypeTuple" href="#BaseTypeTuple">BaseTypeTuple</a>(A)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of the base class and base interfaces of
  this class or interface. <b><a class="symbol symbol-anchor" name="BaseTypeTuple" href="#BaseTypeTuple">BaseTypeTuple</a>!(Object)</b> returns
  the empty type tuple.
@@ -823,10 +723,7 @@ size_t rank(E)(E e)
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="BaseClassesTuple" href="#BaseClassesTuple">BaseClassesTuple</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> base classes of this class,
  in decreasing order. Interfaces are not included. <b><a class="symbol symbol-anchor" name="BaseClassesTuple" href="#BaseClassesTuple">BaseClassesTuple</a>!(Object)</b> yields the empty type tuple.
 </p>
@@ -848,10 +745,7 @@ size_t rank(E)(E e)
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="InterfacesTuple" href="#InterfacesTuple">InterfacesTuple</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> interfaces directly or
  indirectly inherited by this class or interface. Interfaces do not
  repeat if multiply implemented. <b><a class="symbol symbol-anchor" name="InterfacesTuple" href="#InterfacesTuple">InterfacesTuple</a>!(Object)</b>
@@ -876,10 +770,7 @@ size_t rank(E)(E e)
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="TransitiveBaseTypeTuple" href="#TransitiveBaseTypeTuple">TransitiveBaseTypeTuple</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> base classes of <b>T</b>, in decreasing order, followed by <b>T</b>'s
  interfaces. <b><a class="symbol symbol-anchor" name="TransitiveBaseTypeTuple" href="#TransitiveBaseTypeTuple">TransitiveBaseTypeTuple</a>!(Object)</b> yields the
  empty type tuple.
@@ -902,10 +793,7 @@ size_t rank(E)(E e)
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="MemberFunctionsTuple" href="#MemberFunctionsTuple">MemberFunctionsTuple</a>(C,string name) if (is(C == class) || is(C == interface))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a tuple of non-static functions with the name <span class="inlinecode">name</span> declared in the
 class or interface <span class="inlinecode">C</span>.  Covariant duplicates are shrunk into the most
 derived one.
@@ -930,10 +818,7 @@ derived one.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="CommonType" href="#CommonType">CommonType</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the type that all types can be implicitly converted to. Useful
 e.g. in figuring out an array type from a bunch of initializing
 values. Returns <b>void</b> if passed an empty list, or if the
@@ -949,10 +834,7 @@ types have no common type.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ImplicitConversionTargets" href="#ImplicitConversionTargets">ImplicitConversionTargets</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a tuple with all possible target types of an implicit
  conversion of a value of type <b>T</b>.
 </p>
@@ -966,18 +848,12 @@ types have no common type.
  include <b>float</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isImplicitlyConvertible" href="#isImplicitlyConvertible">isImplicitlyConvertible</a>(From,To)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Is <span class="inlinecode">From</span> implicitly convertible to <span class="inlinecode">To</span>?</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isAssignable" href="#isAssignable">isAssignable</a>(Lhs,Rhs)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> iff a value of type <span class="inlinecode">Rhs</span> can be assigned to a variable of
 type <span class="inlinecode">Lhs</span>.
 </p>
@@ -988,13 +864,9 @@ type <span class="inlinecode">Lhs</span>.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(string, <span class="d_keyword">char</span>[]));
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isCovariantWith" href="#isCovariantWith">isCovariantWith</a>(F,G) if (is(F == function) &amp;&amp; is(G == function))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Determines whether the function type <span class="inlinecode">F</span> is covariant with <span class="inlinecode">G</span>, i.e.,
 functions of the type <span class="inlinecode">F</span> can override ones of the type <span class="inlinecode">G</span>.
 </p>
@@ -1024,124 +896,79 @@ functions of the type <span class="inlinecode">F</span> can override ones of the
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isBoolean" href="#isBoolean">isBoolean</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in boolean type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isIntegral" href="#isIntegral">isIntegral</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in integral type. Types <span class="inlinecode">bool</span>,
  <span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, and <span class="inlinecode">dchar</span> are not considered integral.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isFloatingPoint" href="#isFloatingPoint">isFloatingPoint</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in floating point type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in numeric type (integral or floating
 point).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isUnsigned" href="#isUnsigned">isUnsigned</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in unsigned numeric type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSigned" href="#isSigned">isSigned</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in signed numeric type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSomeChar" href="#isSomeChar">isSomeChar</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as one of the built-in character types.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSomeString" href="#isSomeString">isSomeString</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether we can treat T as one of the built-in string types.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isStaticArray" href="#isStaticArray">isStaticArray</a>(T : U[N],U,size_t N)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether type T is a static array.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isDynamicArray" href="#isDynamicArray">isDynamicArray</a>(T,U = void)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether type T is a dynamic array.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isArray" href="#isArray">isArray</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether type T is an array.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isAssociativeArray" href="#isAssociativeArray">isAssociativeArray</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether T is an associative array type</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isPointer" href="#isPointer">isPointer</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether type <span class="inlinecode">T</span> is a pointer.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="pointerTarget" href="#pointerTarget">pointerTarget</a>(T : T*)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the target type of a pointer.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isIterable" href="#isIterable">isIterable</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if T can be iterated over using a <span class="inlinecode">foreach</span> loop with
  a single loop variable of automatically inferred type, regardless of how
  the <span class="inlinecode">foreach</span> loop is implemented.  This includes ranges, structs/classes
@@ -1150,68 +977,44 @@ point).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isExpressionTuple" href="#isExpressionTuple">isExpressionTuple</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Tells whether the tuple T is an expression tuple.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isTypeTuple" href="#isTypeTuple">isTypeTuple</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether tuple <span class="inlinecode">T</span> is a type tuple.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isFunctionPointer" href="#isFunctionPointer">isFunctionPointer</a>(T...) if (T.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether symbol or type <span class="inlinecode">T</span> is a function pointer.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isDelegate" href="#isDelegate">isDelegate</a>(T...) if (T.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a delegate.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isSomeFunction" href="#isSomeFunction">isSomeFunction</a>(T...) if (T.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether symbol or type <span class="inlinecode">T</span> is a function, a function pointer or a delegate.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isCallable" href="#isCallable">isCallable</a>(T...) if (T.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a callable object, which can be called with the
 function call operator <span class="inlinecode">(...)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isAbstractFunction" href="#isAbstractFunction">isAbstractFunction</a>(method...) if (method.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Exactly the same as the builtin traits:
 <span class="inlinecode">__traits(isAbstractFunction, method)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Unqual" href="#Unqual">Unqual</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes all qualifiers, if any, from type <span class="inlinecode">T</span>.
 </p>
 
@@ -1225,10 +1028,7 @@ function call operator <span class="inlinecode">(...)</span>.</p>
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ForeachType" href="#ForeachType">ForeachType</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the inferred type of the loop variable when a variable of type T
 is iterated over using a <span class="inlinecode">foreach</span> loop with a single loop variable and
 automatically inferred return type.  Note that this may not be the same as
@@ -1237,10 +1037,7 @@ has both opApply and a range interface.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="OriginalType" href="#OriginalType">OriginalType</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Strips off all <span class="inlinecode">typedef</span>s (including <span class="inlinecode">enum</span> ones) from type <span class="inlinecode">T</span>.
 </p>
 
@@ -1253,39 +1050,27 @@ has both opApply and a range interface.</p>
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Unsigned" href="#Unsigned">Unsigned</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the corresponding unsigned type for T. T must be a numeric
  integral type, otherwise a compile-time error occurs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Largest" href="#Largest">Largest</a>(T...) if (T.length &gt;= 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the largest type, i.e. T such that T.sizeof is the largest.  If more
 than one type is of the same size, the leftmost argument of these in will be
 returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Signed" href="#Signed">Signed</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the corresponding signed type for T. T must be a numeric integral type,
 otherwise a compile-time error occurs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="unsigned" href="#unsigned">unsigned</a>(T)(T <i>x</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the corresponding <a class="symbol symbol-anchor" name="unsigned" href="#unsigned">unsigned</a> value for <span class="inlinecode">x</span>, e.g. if <span class="inlinecode">x</span>
  has type <span class="inlinecode">int</span>, returns <span class="inlinecode">cast(uint) x</span>. The advantage
  compared to the cast is that you do not need to rewrite the cast if
@@ -1293,18 +1078,12 @@ otherwise a compile-time error occurs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="mostNegative" href="#mostNegative">mostNegative</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the most negative value of the numeric type T.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="mangledName" href="#mangledName">mangledName</a>(sth...) if (sth.length == 1)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the mangled name of symbol or type <span class="inlinecode">sth</span>.
 </p>
 
@@ -1325,10 +1104,7 @@ the correct names of property functions are obtained.
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Select" href="#Select">Select</a>(bool condition,T,F)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Aliases itself to <span class="inlinecode">T</span> if the boolean <span class="inlinecode">condition</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>
 and to <span class="inlinecode">F</span> otherwise.
 </p>
@@ -1339,17 +1115,13 @@ and to <span class="inlinecode">F</span> otherwise.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>A <a class="symbol symbol-anchor" name="select" href="#select">select</a>(bool cond : true, A, B)(A <i>a</i>, lazy B <i>b</i>);
 <br>B <a class="symbol symbol-anchor" name="select" href="#select">select</a>(bool cond : false, A, B)(lazy A <i>a</i>, B <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">cond</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, returns <span class="inlinecode">a</span> without evaluating <span class="inlinecode">b</span>. Otherwise, returns <span class="inlinecode">b</span> without evaluating <span class="inlinecode">a</span>.</p>
 
 </dl>
 </div>
-
 
 
 				</div>

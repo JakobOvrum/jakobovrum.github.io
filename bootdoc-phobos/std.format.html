@@ -292,36 +292,26 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>, <a href="http://erdani.com">   Andrei Alexandrescu</a>, and Kenji Hara
 
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/format.d">std/format.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FormatException" href="#FormatException">FormatException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Signals a mismatch between a format and its corresponding argument.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="FormatError" href="#FormatError">FormatError</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation. Please use <span class="inlinecode">FormatException</span></font> instead.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formattedWrite" href="#formattedWrite">formattedWrite</a>(Writer, Char, A...)(Writer <i>w</i>, in Char[] <i>fmt</i>, A <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interprets variadic argument list <span class="inlinecode">args</span>, formats them according
    to <span class="inlinecode">fmt</span>, and sends the resulting characters to <span class="inlinecode">w</span>. The
    encoding of the output is the same as <span class="inlinecode">Char</span>. type <span class="inlinecode">Writer</span>
@@ -362,11 +352,9 @@
 <td>Variadic argument list.</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd>Mismatched arguments and formats result in a <span class="inlinecode">  FormatException</span> being thrown.
 
 </dd>
-
 <dt>Format String:</dt><dd>
 <a name="format-string"><i>Format strings</i></a>
    consist of characters interspersed with <i>format
@@ -658,14 +646,10 @@ My array is -1-, -2-, -3-.
  [4 5 6]
  [7 8 9]]
 </pre></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="formattedRead" href="#formattedRead">formattedRead</a>(R, Char, S...)(ref R <i>r</i>, const(Char)[] <i>fmt</i>, S <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads characters from input range <span class="inlinecode">r</span>, converts them according
    to <span class="inlinecode">fmt</span>, and writes them to <span class="inlinecode">args</span>.
 </p>
@@ -681,168 +665,118 @@ string a;
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FormatSpec" href="#FormatSpec">FormatSpec</a>(Char) if (is(Unqual!(Char) == Char));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A compiled version of an individual format specifier, backwards
  compatible with <span class="inlinecode">printf</span> specifiers.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="width" href="#width">width</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Minimum width, default <span class="inlinecode">0</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="precision" href="#precision">precision</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Precision. Its semantics depends on the argument type. For
        floating point numbers, precision dictates the number of
        decimals printed.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="DYNAMIC" href="#DYNAMIC">DYNAMIC</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Special value for width and precision. <span class="inlinecode"><a class="symbol symbol-anchor" name="DYNAMIC" href="#DYNAMIC">DYNAMIC</a></span> width or
        precision means that they were specified with <span class="inlinecode">'*'</span> in the
        format string and are passed at runtime through the varargs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="UNSPECIFIED" href="#UNSPECIFIED">UNSPECIFIED</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Special value for precision, meaning the format specifier
        contained no explicit precision.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>char <a class="symbol symbol-anchor" name="spec" href="#spec">spec</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The actual format specifier, <span class="inlinecode">'s'</span> by default.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte <a class="symbol symbol-anchor" name="indexStart" href="#indexStart">indexStart</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Index of the argument for positional parameters, from <span class="inlinecode">1</span> to
        <span class="inlinecode">ubyte.max</span>. (<span class="inlinecode">0</span> means not used).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte <a class="symbol symbol-anchor" name="indexEnd" href="#indexEnd">indexEnd</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Index of the last argument for positional parameter range, from
        <span class="inlinecode">1</span> to <span class="inlinecode">ubyte.max</span>. (<span class="inlinecode">0</span> means not used).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="flDash" href="#flDash">flDash</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'-'</span> (<span class="inlinecode">printf</span>
          compatibility).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="flZero" href="#flZero">flZero</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'0'</span> (<span class="inlinecode">printf</span>
          compatibility).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="flSpace" href="#flSpace">flSpace</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">' '</span> (<span class="inlinecode">printf</span>
          compatibility).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="flPlus" href="#flPlus">flPlus</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'+'</span> (<span class="inlinecode">printf</span>
          compatibility).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="flHash" href="#flHash">flHash</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'#'</span> (<span class="inlinecode">printf</span>
          compatibility).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(Char)[] <a class="symbol symbol-anchor" name="nested" href="#nested">nested</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>In case of a compound format specifier starting with <span class="inlinecode">      "%("</span> and ending with <span class="inlinecode">"%)"</span>, <span class="inlinecode">nested</span>
        contains the string contained within the two separators.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(Char)[] <a class="symbol symbol-anchor" name="sep" href="#sep">sep</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>In case of a compound format specifier, <span class="inlinecode">sep</span> contains the
        string positioning after <span class="inlinecode">"%|"</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(Char)[] <a class="symbol symbol-anchor" name="trailing" href="#trailing">trailing</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode">trailing</span> contains the rest of the format string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(in Char[] <i>fmt</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a string format specification <i>fmt</i>, parses a format
        specifier. The string is assumed to start with the character
        immediately following the <span class="inlinecode">'%'</span>. The string is advanced to
@@ -850,71 +784,49 @@ string a;
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode">bool</span>s are formatted as "<span class="d_keyword">true</span>" or "<span class="d_keyword">false</span>" with %s and as "1" or
    "0" with integral-specific format specs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Integrals are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Floating-point values are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Individual characters (<span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, or <span class="inlinecode">dchar</span>) are
    formatted as Unicode characters with %s and as integers with
    integral-specific format specs.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Strings are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, ref T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Static-size arrays are formatted as dynamic arrays.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Dynamic arrays are formatted as input ranges.
 </p>
 
@@ -923,23 +835,17 @@ string a;
           <li>Const array is converted to input range by removing its qualifier.</li></ul></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Associative arrays are formatted by using <span class="inlinecode">':'</span> and <span class="inlinecode">', '</span> as
    separators, and enclosed by <span class="inlinecode">'['</span> and <span class="inlinecode">']'</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 <br>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 <br>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, auto ref T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Aggregates (<span class="inlinecode">struct</span>, <span class="inlinecode">union</span>, <span class="inlinecode">class</span>, and <span class="inlinecode">interface</span>) are
    basically formatted by calling <span class="inlinecode">toString</span>.
    <span class="inlinecode">toString</span> should have one of the following signatures:
@@ -965,97 +871,66 @@ string a;
    Otherwise, are formatted just as their type name.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode">enum</span> is formatted like its base value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Pointers are formatted as hex integers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="formatValue" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Delegates are formatted by 'Attributes ReturnType delegate(Parameters)'</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads a boolean value and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads an integral value and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads a floating-point value and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads one character and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads a string and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads an array (except for string types) and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="unformatValue" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reads an associative array and returns it.</p>
 
 </dl>
 </div>
-
 
 
 				</div>

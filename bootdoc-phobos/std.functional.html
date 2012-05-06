@@ -289,16 +289,12 @@
 
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/functional.d">std/functional.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="unaryFun" href="#unaryFun">unaryFun</a>(alias fun,bool byRef = false,string parmName = "a")</h3></div>
-
-
 <div class="declaration-content"><dl><p>Transforms a string representing an expression into a unary
 function. The string must use symbol name <span class="inlinecode">a</span> as the parameter.
 </p>
@@ -310,10 +306,7 @@ function. The string must use symbol name <span class="inlinecode">a</span> as t
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="binaryFun" href="#binaryFun">binaryFun</a>(alias fun,string parm1Name = "a",string parm2Name = "b")</h3></div>
-
-
 <div class="declaration-content"><dl><p>Transforms a string representing an expression into a Boolean binary
 predicate. The string must use symbol names <span class="inlinecode">a</span> and <span class="inlinecode">b</span> as the
 compared elements.
@@ -328,10 +321,7 @@ compared elements.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="not" href="#not">not</a>(alias pred)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Negates predicate <span class="inlinecode">pred</span>.
 </p>
 
@@ -342,10 +332,7 @@ compared elements.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="curry" href="#curry">curry</a>(alias fun,alias arg)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Curries <span class="inlinecode">fun</span> by tying its first argument to a particular value.
 </p>
 
@@ -360,10 +347,7 @@ assignment. Using an alias allows you to <a class="symbol symbol-anchor" name="c
 without committing to a particular type of the function.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="adjoin" href="#adjoin">adjoin</a>(F...) if (F.length)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Takes multiple functions and adjoins them together. The result is a
 <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> with one element per passed-in function. Upon
 invocation, the returned tuple is the adjoined results of all
@@ -380,10 +364,7 @@ functions.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="compose" href="#compose">compose</a>(fun...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Composes passed-in functions <span class="inlinecode">fun[0], fun[1], ...</span> returning a
    function <span class="inlinecode">f(x)</span> that in turn returns <span class="inlinecode">  fun[0](fun[1](...(x)))...</span>. Each function can be a regular
    functions, a delegate, or a string.
@@ -399,10 +380,7 @@ functions.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="pipe" href="#pipe">pipe</a>(fun...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Pipes functions in sequence. Offers the same functionality as <span class="inlinecode">  compose</span>, but with functions specified in reverse order. This may
    lead to more readable code in some situation because the order of
    execution is the same as lexical order.
@@ -420,11 +398,8 @@ functions.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ReturnType!(fun) <a class="symbol symbol-anchor" name="memoize" href="#memoize">memoize</a>(alias fun, uint maxSize = (uint).max)(ParameterTypeTuple!(fun) <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Memoizes">Memoizes</a> a function so as to avoid repeated
  computation. The memoization structure is a hash table keyed by a
  tuple of the function's arguments. There is a speed gain if the
@@ -505,11 +480,8 @@ table is found to be <span class="inlinecode">maxSize</span>, the table is simpl
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="toDelegate" href="#toDelegate">toDelegate</a>(F)(auto ref F <i>fp</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convert a callable to a delegate with the same parameter list and
  return type, avoiding heap allocations and use of auxiliary storage.
 </p>
@@ -528,14 +500,11 @@ table is found to be <span class="inlinecode">maxSize</span>, the table is simpl
 </pre>
 
 </dd>
-
 <dt>Known Bugs</dt><dd><ul>  <li>Does not work with <span class="inlinecode">@safe</span> functions.</li>
    <li>Ignores C-style / D-style variadic arguments.</li>
  </ul></dd>
-
 </dl>
 </div>
-
 
 
 				</div>

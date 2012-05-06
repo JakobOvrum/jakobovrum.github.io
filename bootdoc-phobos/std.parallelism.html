@@ -366,12 +366,9 @@ Unless marked as <span class="inlinecode">@trusted</span> or <span class="inline
 David Simcha
 </dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a></dd>
-
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Task" href="#Task">Task</a>(alias fun,Args...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span> represents the fundamental unit of work.  A <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span> may be
 executed in parallel with any other <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span>.  Using this struct directly
 allows future/promise parallelism.  In this paradigm, a function (or delegate
@@ -402,32 +399,23 @@ pointer.
 </p>
 <dt>Known Bugs</dt><dd>Changes to <span class="inlinecode">ref</span> and <span class="inlinecode">out</span> arguments are not propagated to the
        call site, only to <span class="inlinecode">args</span> in this struct.</dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="args" href="#args">args</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The arguments the function was called with.  Changes to <span class="inlinecode">out</span> and
     <span class="inlinecode">ref</span> arguments will be visible here.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="ReturnType" href="#ReturnType">ReturnType</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The return type of the function called by this <span class="inlinecode">Task</span>.  This can be
     <span class="inlinecode">void</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="spinForce" href="#spinForce">spinForce</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">Task</span> isn't started yet, execute it in the current thread.
     If it's done, return its return value, if any.  If it's in progress,
     busy spin until it's done, then return the return value.  If it threw
@@ -439,11 +427,8 @@ pointer.
     context switch.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="yieldForce" href="#yieldForce">yieldForce</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">Task</span> isn't started yet, execute it in the current thread.
     If it's done, return its return value, if any.  If it's in progress,
     wait on a condition variable.  If it threw an exception, rethrow that
@@ -454,11 +439,8 @@ pointer.
     condition variable introduces latency, but avoids wasted CPU cycles.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="workForce" href="#workForce">workForce</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If this <span class="inlinecode">Task</span> was not started yet, execute it in the current
     thread.  If it is finished, return its result.  If it is in progress,
     execute any other <span class="inlinecode">Task</span> from the <span class="inlinecode">TaskPool</span> instance that
@@ -469,25 +451,18 @@ pointer.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted bool <a class="symbol symbol-anchor" name="done" href="#done">done</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the <span class="inlinecode">Task</span> is finished executing.
 </p>
 
 <dt>Throws</dt><dd>Rethrows any exception thrown during the execution of the
              <span class="inlinecode">Task</span>.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="executeInNewThread" href="#executeInNewThread">executeInNewThread</a>();
 <br>@trusted void <a class="symbol symbol-anchor" name="executeInNewThread" href="#executeInNewThread">executeInNewThread</a>(int <i>priority</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create a new thread for executing this <span class="inlinecode">Task</span>, execute it in the
     newly created thread, then terminate the thread.  This can be used for
     future/promise parallelism.  An explicit priority may be given
@@ -497,14 +472,10 @@ pointer.
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(alias fun, Args...)(Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Task</span> on the GC heap that calls an alias.  This may be executed
 via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to a
 <a href="std_parallelism.html#TaskPool"><span class="inlinecode">std.parallelism.TaskPool</span></a>.  A globally accessible instance of
@@ -514,7 +485,6 @@ via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to 
 <dt>Returns</dt><dd>A pointer to the <span class="inlinecode">Task</span>.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Read two files into memory at the same time.
 </span>
 <span class="d_keyword">import</span> std.file;
@@ -585,14 +555,10 @@ via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to 
 }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(F, Args...)(F <i>delegateOrFp</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Task</span> on the GC heap that calls a function pointer, delegate, or
 class/struct with overloaded opCall.
 </p>
@@ -621,7 +587,6 @@ class/struct with overloaded opCall.
 </pre>
 
 </dd>
-
 <dt>Notes:</dt><dd>
 This function takes a non-scope delegate, meaning it can be
        used with closures.  If you can't allocate a closure due to objects
@@ -629,11 +594,8 @@ This function takes a non-scope delegate, meaning it can be
        takes a scope delegate.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Version of <span class="inlinecode"><a class="symbol symbol-anchor" name="task" href="#task">task</a></span> usable from <span class="inlinecode">@safe</span> code.  Usage mechanics are
 identical to the non-@safe case, but safety introduces the some restrictions.
 </p>
@@ -659,13 +621,10 @@ identical to the non-@safe case, but safety introduces the some restrictions.
     of using a <span class="inlinecode">TaskPool</span>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(alias fun, Args...)(Args <i>args</i>);
 <br>auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(F, Args...)(scope F <i>delegateOrFp</i>, Args <i>args</i>);
 <br>@trusted auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>These functions allow the creation of <span class="inlinecode">Task</span> objects on the stack rather
 than the GC heap.  The lifetime of a <span class="inlinecode">Task</span> created by <span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span>
 cannot exceed the lifetime of the scope it was created in.
@@ -693,21 +652,15 @@ call <span class="inlinecode">Task.yieldForce</span> in their destructor if nece
 the <span class="inlinecode">Task</span> is complete before the stack frame they reside on is destroyed.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>immutable uint <a class="symbol symbol-anchor" name="totalCPUs" href="#totalCPUs">totalCPUs</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The total number of CPU cores available on the current machine, as reported by
 the operating system.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TaskPool" href="#TaskPool">TaskPool</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This class encapsulates a task queue and a set of worker threads.  Its purpose
 is to efficiently map a large number of <span class="inlinecode">Task</span>s onto a smaller number of
 threads.  A task queue is a FIFO queue of <span class="inlinecode">Task</span> objects that have been
@@ -731,8 +684,6 @@ Occasionally it is useful to explicitly instantiate a <span class="inlinecode"><
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@trusted  this();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Default constructor that initializes a <span class="inlinecode">TaskPool</span> with
 <span class="inlinecode">totalCPUs</span> - 1 worker threads.  The minus 1 is included because the
 main thread will also be available to do work.
@@ -743,21 +694,15 @@ On single-core machines, the primitives provided by <span class="inlinecode">Tas
        operate transparently in single-threaded mode.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted  this(uint <i>nWorkers</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Allows for custom number of worker threads.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
 <br>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements a <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach loop over a range.  This works by implicitly
     creating and submitting one <span class="inlinecode">Task</span> to the <span class="inlinecode">TaskPool</span> for each worker
     thread.  A work unit is a set of consecutive elements of <span class="inlinecode">range</span> to
@@ -812,7 +757,6 @@ On single-core machines, the primitives provided by <span class="inlinecode">Tas
 </pre>
 
 </dd>
-
 <dt>Notes:</dt><dd>
 The memory usage of this implementation is guaranteed to be constant
     in <span class="inlinecode">range.length</span>.
@@ -846,10 +790,7 @@ The memory usage of this implementation is guaranteed to be constant
     rethrown.  The order of the exception chaining is non-deterministic.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="amap" href="#amap">amap</a>(functions...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Eager parallel map.  The eagerness of this function means it has less
     overhead than the lazily evaluated <span class="inlinecode">TaskPool.map</span> and should be
     preferred where the memory requirements of eagerness are acceptable.
@@ -945,17 +886,11 @@ To perform the mapping operation in place, provide the same range for the
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="amap" href="#amap">amap</a>(Args...)(Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="map" href="#map">map</a>(functions...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>A semi-lazy parallel <a class="symbol symbol-anchor" name="map" href="#map">map</a> that can be used for pipelining.  The <a class="symbol symbol-anchor" name="map" href="#map">map</a>
     functions are evaluated for the first <span class="inlinecode">bufSize</span> elements and stored in a
     buffer and made available to <span class="inlinecode">popFront</span>.  Meanwhile, in the
@@ -988,12 +923,10 @@ To perform the mapping operation in place, provide the same range for the
     the pool-wide default.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>An input range representing the results of the <a class="symbol symbol-anchor" name="map" href="#map">map</a>.  This range
               has a length iff <span class="inlinecode">source</span> has a length.
 
 </dd>
-
 <dt>Notes:</dt><dd>
 If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> or <span class="inlinecode">asyncBuf</span> is used as an input to
     <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span>, then as an optimization the copying from the output buffer
@@ -1031,22 +964,15 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     if thrown during construction, are simply allowed to propagate to the
     caller.  In the case of exceptions thrown while computing the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function,
     the exceptions are chained as in <span class="inlinecode">TaskPool.amap</span>.</dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="map" href="#map">map</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100, size_t <i>workUnitSize</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a <span class="inlinecode">source</span> range that is expensive to iterate over, returns an
     input range that asynchronously buffers the contents of
     <span class="inlinecode">source</span> into a buffer of <span class="inlinecode">bufSize</span> elements in a worker thread,
@@ -1095,14 +1021,10 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     Any exceptions thrown while iterating over <span class="inlinecode">source</span> are re-thrown on a
     call to <span class="inlinecode">popFront</span> or, if thrown during construction, simply
     allowed to propagate to the caller.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a>(C1, C2)(C1 <i>next</i>, C2 <i>empty</i>, size_t <i>initialBufSize</i> = 0, size_t <i>nBuffers</i> = 100);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a callable object <span class="inlinecode">next</span> that writes to a user-provided buffer and
     a second callable object <span class="inlinecode">empty</span> that determines whether more data is
     available to write via <span class="inlinecode">next</span>, returns an input range that
@@ -1132,7 +1054,6 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
 <td>The number of buffers to cycle through when calling <span class="inlinecode">next</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_comment">// Fetch lines of a file in a background thread while processing prevously
 </span>
     <span class="d_comment">// fetched lines, without duplicating any lines.
@@ -1165,7 +1086,6 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     call to <span class="inlinecode">popFront</span>.
 
 </dd>
-
 <dt>Warning:</dt><dd>
 Using the range returned by this function in a parallel foreach loop
     will not work because buffers may be overwritten while the task that
@@ -1173,10 +1093,7 @@ Using the range returned by this function in a parallel foreach loop
     and will result in a static assertion failure.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a>(functions...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Parallel <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a> on a random access range.  Except as otherwise noted, usage
     is similar to <a href="std_algorithm.html#reduce"><span class="inlinecode">std.algorithm.reduce</span></a>.  This function works by splitting
     the range to be reduced into work units, which are slices to be reduced in
@@ -1270,18 +1187,12 @@ Using the range returned by this function in a parallel foreach loop
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a>(Args...)(Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const nothrow @property @safe size_t <a class="symbol symbol-anchor" name="workerIndex" href="#workerIndex">workerIndex</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Gets the index of the current thread relative to this <span class="inlinecode">TaskPool</span>.  Any
     thread not in this pool will receive an index of 0.  The worker threads in
     this pool receive unique indices of 1 through <span class="inlinecode">this.size</span>.
@@ -1323,14 +1234,10 @@ Using the range returned by this function in a parallel foreach loop
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="WorkerLocalStorage" href="#WorkerLocalStorage">WorkerLocalStorage</a>(T);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Struct for creating worker-local storage.  Worker-local storage is
     thread-local storage that exists only for worker threads in a given
     <span class="inlinecode">TaskPool</span> plus a single thread outside the pool.  It is allocated on the
@@ -1381,12 +1288,9 @@ Using the range returned by this function in a parallel foreach loop
     }
 </pre>
 </dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property T <a class="symbol symbol-anchor" name="get" href="#get">get</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the current thread's instance.  Returns by ref.
         Note that calling <span class="inlinecode"><a class="symbol symbol-anchor" name="get" href="#get">get</a></span> from any thread
         outside the <span class="inlinecode">TaskPool</span> that created this instance will return the
@@ -1401,21 +1305,15 @@ Using the range returned by this function in a parallel foreach loop
         when assertions are disabled for performance reasons.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="get" href="#get">get</a>(T <i>val</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Assign a value to the current thread's instance.  This function has
         the same caveats as its overload.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property WorkerLocalStorageRange!(T) <a class="symbol symbol-anchor" name="toRange" href="#toRange">toRange</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range view of the values for all threads, which can be used
         to further process the results of each thread after running the parallel
         part of your algorithm.  Do not use this method in the parallel portion
@@ -1427,14 +1325,10 @@ Using the range returned by this function in a parallel foreach loop
         will result in an assertion failure if assertions are enabled.</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="WorkerLocalStorageRange" href="#WorkerLocalStorageRange">WorkerLocalStorageRange</a>(T);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives for worker-local storage.  The purpose of this is to
     access results produced by each worker thread from a single thread once you
     are no longer using the worker-local storage from multiple threads.
@@ -1448,11 +1342,8 @@ Using the range returned by this function in a parallel foreach loop
     created it plus 1.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>WorkerLocalStorage!(T) <a class="symbol symbol-anchor" name="workerLocalStorage" href="#workerLocalStorage">workerLocalStorage</a>(T)(lazy T <i>initialVal</i> = T.init);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Creates an instance of worker-local storage, initialized with a given
     value.  The value is <span class="inlinecode">lazy</span> so that you can, for example, easily
     create one instance of a class for each worker.  For usage example,
@@ -1460,11 +1351,8 @@ Using the range returned by this function in a parallel foreach loop
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Signals to all worker threads to terminate as soon as they are finished
     with their current <span class="inlinecode">Task</span>, or immediately if they are not executing a
     <span class="inlinecode">Task</span>.  <span class="inlinecode">Task</span>s that were in queue will not be executed unless
@@ -1477,31 +1365,22 @@ Using the range returned by this function in a parallel foreach loop
     need the results.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="finish" href="#finish">finish</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Signals worker threads to terminate when the queue becomes empty.  Does
     not block.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe size_t <a class="symbol symbol-anchor" name="size" href="#size">size</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of worker threads in the pool.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(alias fun, Args...)(ref Task!(fun,Args) <i>task</i>);
 <br>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(alias fun, Args...)(Task!(fun,Args)* <i>task</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Put a <span class="inlinecode">Task</span> object on the back of the task queue.  The <span class="inlinecode">Task</span>
     object may be passed by pointer or reference.
 </p>
@@ -1537,12 +1416,9 @@ Using the range returned by this function in a parallel foreach loop
     complete and no longer referenced by a <span class="inlinecode">TaskPool</span>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property @trusted bool <a class="symbol symbol-anchor" name="isDaemon" href="#isDaemon">isDaemon</a>();
 <br>@property @trusted void <a class="symbol symbol-anchor" name="isDaemon" href="#isDaemon">isDaemon</a>(bool <i>newVal</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>These properties control whether the worker threads are daemon threads.
     A daemon thread is automatically terminated when all non-daemon threads
     have terminated.  A non-daemon thread will prevent a program from
@@ -1563,12 +1439,9 @@ For a size zero pool, the getter arbitrarily returns <span class="d_keyword">tru
            setter has no effect.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property @trusted int <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a>();
 <br>@property @trusted void <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a>(int <i>newPriority</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>These functions allow getting and setting the OS scheduling <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> of
     the worker threads in this <span class="inlinecode">TaskPool</span>.  They forward to
     <span class="inlinecode">core.thread.Thread.<a class="symbol symbol-anchor" name="priority" href="#priority">priority</a></span>, so a given <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> value here means the
@@ -1580,14 +1453,10 @@ For a size zero pool, the getter arbitrarily returns
            <span class="inlinecode">core.thread.Thread.PRIORITY_MIN</span> and the setter has no effect.</dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property @trusted TaskPool <a class="symbol symbol-anchor" name="taskPool" href="#taskPool">taskPool</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a lazily initialized global instantiation of <span class="inlinecode">TaskPool</span>.
 This function can safely be called concurrently from multiple non-worker
 threads.  The worker threads in this pool are daemon threads, meaning that it
@@ -1596,12 +1465,9 @@ terminating the main thread.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property @trusted uint <a class="symbol symbol-anchor" name="defaultPoolThreads" href="#defaultPoolThreads">defaultPoolThreads</a>();
 <br>@property @trusted void <a class="symbol symbol-anchor" name="defaultPoolThreads" href="#defaultPoolThreads">defaultPoolThreads</a>(uint <i>newVal</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>These properties get and set the number of worker threads in the <span class="inlinecode">TaskPool</span>
 instance returned by <span class="inlinecode">taskPool</span>.  The default value is <span class="inlinecode">totalCPUs</span> - 1.
 Calling the setter after the first call to <span class="inlinecode">taskPool</span> does not changes
@@ -1609,12 +1475,9 @@ number of worker threads in the instance returned by <span class="inlinecode">ta
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>);
 <br>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience functions that forwards to <span class="inlinecode">taskPool.<a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a></span>.  The
 purpose of these is to make <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach less verbose and more
 readable.
@@ -1634,7 +1497,6 @@ readable.
 </dd>
 </dl>
 </div>
-
 
 
 				</div>

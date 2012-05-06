@@ -334,19 +334,14 @@
       Not safe for multiple threads operating on the same <a class="symbol symbol-anchor" name="signals" href="#signals">signals</a>
       or slots.
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/signals.d">std/signals.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Signal" href="#Signal">Signal</a>(T1...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Mixin to create a signal within a class object.
 </p>
 
@@ -422,8 +417,6 @@
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="slot_t" href="#slot_t">slot_t</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A slot is implemented as a delegate.
  The <a class="symbol symbol-anchor" name="slot_t" href="#slot_t">slot_t</a> is the type of the delegate.
  The delegate must be to an instance of a class or an interface
@@ -433,37 +426,26 @@
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="emit" href="#emit">emit</a>(T1 <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Call each of the connected slots, passing the argument(s) <i>i</i> to them.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(slot_t <i>slot</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Add a <i>slot</i> to the list of slots to be called when emit() is called.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="disconnect" href="#disconnect">disconnect</a>(slot_t <i>slot</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Remove a <i>slot</i> from the list of slots to be called when emit() is called.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

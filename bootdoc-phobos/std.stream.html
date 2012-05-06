@@ -290,110 +290,77 @@
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="StreamException" href="#StreamException">StreamException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A base class for stream exceptions.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a StreamException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ReadException" href="#ReadException">ReadException</a>: std.stream.StreamException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown when unable to read data from Stream.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a ReadException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="WriteException" href="#WriteException">WriteException</a>: std.stream.StreamException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown when unable to write data to Stream.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a WriteException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SeekException" href="#SeekException">SeekException</a>: std.stream.StreamException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown when unable to move Stream pointer.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a SeekException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract interface <a class="symbol symbol-anchor" name="InputStream" href="#InputStream">InputStream</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="InputStream" href="#InputStream">InputStream</a> is the interface for readable streams.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="readExact" href="#readExact">readExact</a>(void* <i>buffer</i>, size_t <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read exactly <i>size</i> bytes into the <i>buffer</i>.
 </p>
 
 <p>Throws a ReadException if it is not correct.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract size_t <a class="symbol symbol-anchor" name="read" href="#read">read</a>(ubyte[] <i>buffer</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read a block of data big enough to fill the given array <i>buffer</i>.
 </p>
 
 <dt>Returns</dt><dd>the actual number of bytes <a class="symbol symbol-anchor" name="read" href="#read">read</a>. Unfilled bytes are not modified.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="read" href="#read">read</a>(out byte <i>x</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="read" href="#read">read</a>(out ubyte <i>x</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="read" href="#read">read</a>(out short <i>x</i>);
@@ -417,8 +384,6 @@
 <br>abstract void <a class="symbol symbol-anchor" name="read" href="#read">read</a>(out char[] <i>s</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="read" href="#read">read</a>(out wchar[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read a basic type or counted string.
 </p>
 
@@ -428,14 +393,11 @@
  to write.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract char[] <a class="symbol symbol-anchor" name="readLine" href="#readLine">readLine</a>();
 <br>abstract char[] <a class="symbol symbol-anchor" name="readLine" href="#readLine">readLine</a>(char[] <i>result</i>);
 <br>abstract wchar[] <a class="symbol symbol-anchor" name="readLineW" href="#readLineW">readLineW</a>();
 <br>abstract wchar[] <a class="symbol symbol-anchor" name="readLineW" href="#readLineW">readLineW</a>(wchar[] <i>result</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read a line that is terminated with some combination of carriage return and
  line feed or end-of-file.
 </p>
@@ -445,14 +407,11 @@
  it if necessary) and a slice of the result is returned.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref char[] line) <i>dg</i>);
 <br>abstract int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref ulong n, ref char[] line) <i>dg</i>);
 <br>abstract int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref wchar[] line) <i>dg</i>);
 <br>abstract int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(scope int delegate(ref ulong n, ref wchar[] line) <i>dg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Overload foreach statements to read the stream line by line and call the
  supplied delegate with each line or with each line with line number.
 </p>
@@ -472,21 +431,15 @@
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract char[] <a class="symbol symbol-anchor" name="readString" href="#readString">readString</a>(size_t <i>length</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read a string of the given <i>length</i>,
  throwing ReadException if there was a problem.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract wchar[] <a class="symbol symbol-anchor" name="readStringW" href="#readStringW">readStringW</a>(size_t <i>length</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read a string of the given <i>length</i>, throwing ReadException if there was a
  problem.
 </p>
@@ -495,12 +448,9 @@
  except as opposite actions to <b>write</b>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract char <a class="symbol symbol-anchor" name="getc" href="#getc">getc</a>();
 <br>abstract wchar <a class="symbol symbol-anchor" name="getcw" href="#getcw">getcw</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read and return the next character in the stream.
 </p>
 
@@ -509,12 +459,9 @@
  If EOF is reached then <a class="symbol symbol-anchor" name="getc" href="#getc">getc</a> returns char.init and getcw returns wchar.init.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract char <a class="symbol symbol-anchor" name="ungetc" href="#ungetc">ungetc</a>(char <i>c</i>);
 <br>abstract wchar <a class="symbol symbol-anchor" name="ungetcw" href="#ungetcw">ungetcw</a>(wchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Push a character back onto the stream.
 </p>
 
@@ -522,12 +469,9 @@
  Only has effect on further calls to getc() and getcw().</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract int <a class="symbol symbol-anchor" name="vreadf" href="#vreadf">vreadf</a>(TypeInfo[] <i>arguments</i>, void* <i>args</i>);
 <br>abstract int <a class="symbol symbol-anchor" name="readf" href="#readf">readf</a>(...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Scan a string from the input using a similar form to C's scanf
  and <a href="std_format.html">std.format</a>.
 </p>
@@ -549,20 +493,14 @@
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract @property size_t <a class="symbol symbol-anchor" name="available" href="#available">available</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Retrieve the number of bytes <a class="symbol symbol-anchor" name="available" href="#available">available</a> for immediate reading.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract bool <a class="symbol symbol-anchor" name="eof" href="#eof">eof</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return whether the current file position is the same as the end of the
  file.
 </p>
@@ -572,46 +510,33 @@
  past the end.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract @property bool <a class="symbol symbol-anchor" name="isOpen" href="#isOpen">isOpen</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return <span class="d_keyword">true</span> if the stream is currently open.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract interface <a class="symbol symbol-anchor" name="OutputStream" href="#OutputStream">OutputStream</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for writable streams.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="writeExact" href="#writeExact">writeExact</a>(const void* <i>buffer</i>, size_t <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write exactly <i>size</i> bytes from <i>buffer</i>, or throw a WriteException if that
  could not be done.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract size_t <a class="symbol symbol-anchor" name="write" href="#write">write</a>(const(ubyte)[] <i>buffer</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write as much of the <i>buffer</i> as possible,
  returning the number of bytes written.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(byte <i>x</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(ubyte <i>x</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(short <i>x</i>);
@@ -633,8 +558,6 @@
 <br>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(wchar <i>x</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(dchar <i>x</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write a basic type.
 </p>
 
@@ -643,12 +566,9 @@
  Throw WriteException on error.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(const(char)[] <i>s</i>);
 <br>abstract void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(const(wchar)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Writes a string, together with its length.
 </p>
 
@@ -657,11 +577,8 @@
  Throw WriteException on error.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="writeLine" href="#writeLine">writeLine</a>(const(char)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write a line of text,
  appending the line with an operating-system-specific line ending.
 </p>
@@ -669,11 +586,8 @@
 <p>Throws WriteException on error.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="writeLineW" href="#writeLineW">writeLineW</a>(const(wchar)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write a line of text,
  appending the line with an operating-system-specific line ending.
 </p>
@@ -682,22 +596,16 @@
  Throws WriteException on error.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="writeString" href="#writeString">writeString</a>(const(char)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write a string of text.
 </p>
 
 <p>Throws WriteException if it could not be fully written.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="writeStringW" href="#writeStringW">writeStringW</a>(const(wchar)[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write a string of text.
 </p>
 
@@ -705,24 +613,18 @@
  Throws WriteException if it could not be fully written.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract size_t <a class="symbol symbol-anchor" name="vprintf" href="#vprintf">vprintf</a>(const(char)[] <i>format</i>, va_list <i>args</i>);
 <br>abstract size_t <a class="symbol symbol-anchor" name="printf" href="#printf">printf</a>(const(char)[] <i>format</i>,...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Print a formatted string into the stream using printf-style syntax,
  returning the number of bytes written.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract OutputStream <a class="symbol symbol-anchor" name="writef" href="#writef">writef</a>(...);
 <br>abstract OutputStream <a class="symbol symbol-anchor" name="writefln" href="#writefln">writefln</a>(...);
 <br>abstract OutputStream <a class="symbol symbol-anchor" name="writefx" href="#writefx">writefx</a>(TypeInfo[] <i>arguments</i>, void* <i>argptr</i>, int <i>newline</i> = false);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Print a formatted string into the stream using <a class="symbol symbol-anchor" name="writef" href="#writef">writef</a>-style syntax.
 </p>
 
@@ -730,44 +632,30 @@
 <a href="std_format.html">std.format</a>.
 </dd>
 <dt>Returns</dt><dd>self to chain with other stream commands like flush.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="flush" href="#flush">flush</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Flush pending output if appropriate.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract void <a class="symbol symbol-anchor" name="close" href="#close">close</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Close the stream, flushing output if appropriate.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract @property bool <a class="symbol symbol-anchor" name="isOpen" href="#isOpen">isOpen</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return <span class="d_keyword">true</span> if the stream is currently open.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract class <a class="symbol symbol-anchor" name="Stream" href="#Stream">Stream</a>: std.stream.InputStream, std.stream.OutputStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="Stream" href="#Stream">Stream</a> is the base abstract class from which the other stream classes derive.
 </p>
 
@@ -797,107 +685,75 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="readable" href="#readable">readable</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates whether this stream can be read from.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="writeable" href="#writeable">writeable</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates whether this stream can be written to.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="seekable" href="#seekable">seekable</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates whether this stream can be seeked within.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>protected bool <a class="symbol symbol-anchor" name="isopen" href="#isopen">isopen</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates whether this stream is open.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>protected bool <a class="symbol symbol-anchor" name="readEOF" href="#readEOF">readEOF</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates whether this stream is at eof
  after the last read attempt.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>protected bool <a class="symbol symbol-anchor" name="prevCr" href="#prevCr">prevCr</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>For a non-seekable stream indicates that
  the last readLine or readLineW ended on a
  '\r' character.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract size_t <a class="symbol symbol-anchor" name="readBlock" href="#readBlock">readBlock</a>(void* <i>buffer</i>, size_t <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read up to <i>size</i> bytes into the <i>buffer</i> and return the number of bytes
  actually read. A return value of 0 indicates end-of-file.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract size_t <a class="symbol symbol-anchor" name="writeBlock" href="#writeBlock">writeBlock</a>(const void* <i>buffer</i>, size_t <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write up to <i>size</i> bytes from <i>buffer</i> in the stream, returning the actual
  number of bytes that were written.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="copyFrom" href="#copyFrom">copyFrom</a>(Stream <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Copies all data from <i>s</i> into this stream.
  This may throw ReadException or WriteException on failure.
  This restores the file position of <i>s</i> so that it is unchanged.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="copyFrom" href="#copyFrom">copyFrom</a>(Stream <i>s</i>, ulong <i>count</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Copy a specified number of bytes from the given stream into this one.
  This may throw ReadException or WriteException on failure.
  Unlike the previous form, this doesn't restore the file position of <i>s</i>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>abstract ulong <a class="symbol symbol-anchor" name="seek" href="#seek">seek</a>(long <i>offset</i>, SeekPos <i>whence</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Change the current position of the stream. <i>whence</i> is either SeekPos.Set, in
    which case the <i>offset</i> is an absolute index from the beginning of the stream,
    SeekPos.Current, in which case the <i>offset</i> is a delta from the current
@@ -907,74 +763,52 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="seekSet" href="#seekSet">seekSet</a>(long <i>offset</i>);
 <br>ulong <a class="symbol symbol-anchor" name="seekCur" href="#seekCur">seekCur</a>(long <i>offset</i>);
 <br>ulong <a class="symbol symbol-anchor" name="seekEnd" href="#seekEnd">seekEnd</a>(long <i>offset</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Aliases for their normal seek counterparts.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="position" href="#position">position</a>(ulong <i>pos</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets file <a class="symbol symbol-anchor" name="position" href="#position">position</a>. Equivalent to calling seek(<i>pos</i>, SeekPos.Set).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ulong <a class="symbol symbol-anchor" name="position" href="#position">position</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns current file <a class="symbol symbol-anchor" name="position" href="#position">position</a>. Equivalent to seek(0, SeekPos.Current).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ulong <a class="symbol symbol-anchor" name="size" href="#size">size</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Retrieve the <a class="symbol symbol-anchor" name="size" href="#size">size</a> of the stream in bytes.
  The stream must be seekable or a SeekException is thrown.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read the entire stream and return it as a string.
  If the stream is not seekable the contents from the current position to eof
  is read and returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>nothrow @trusted size_t <a class="symbol symbol-anchor" name="toHash" href="#toHash">toHash</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get a hash of the stream by reading each byte and using it in a CRC-32
  checksum.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FilterStream" href="#FilterStream">FilterStream</a>: std.stream.Stream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A base class for streams that wrap a source stream with additional
  functionality.
 </p>
@@ -990,37 +824,26 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="nestClose" href="#nestClose">nestClose</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Property indicating when this stream closes to close the source stream as
  well.
  Defaults to <span class="d_keyword">true</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a FilterStream for the given <i>source</i>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>final Stream <a class="symbol symbol-anchor" name="source" href="#source">source</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the current <a class="symbol symbol-anchor" name="source" href="#source">source</a> stream.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="source" href="#source">source</a>(Stream <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set the current <a class="symbol symbol-anchor" name="source" href="#source">source</a> stream.
 </p>
 
@@ -1029,24 +852,17 @@ These methods require that the seekable flag be set.
  state.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="resetSource" href="#resetSource">resetSource</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicates the source stream changed state and that this stream should reset
  any readable, writeable, seekable, isopen and buffering flags.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="BufferedStream" href="#BufferedStream">BufferedStream</a>: std.stream.FilterStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass is for buffering a source stream.
 </p>
 
@@ -1058,66 +874,46 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>, uint <i>bufferSize</i> = 8192u);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create a buffered stream for the stream <i>source</i> with the buffer size
  <i>bufferSize</i>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="StreamFileException" href="#StreamFileException">StreamFileException</a>: std.stream.StreamException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>An exception for File errors.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a StreamFileException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="OpenException" href="#OpenException">OpenException</a>: std.stream.StreamFileException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>An exception for errors during File.open.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct an OpenFileException with given error message.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="File" href="#File">File</a>: std.stream.Stream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass is for unbuffered file system streams.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, FileMode <i>mode</i> = cast(FileMode)1);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create the stream with no open file, an open file in read <i>mode</i>, or an open
  file with explicit file <i>mode</i>.
  <i>mode</i>, if given, is a combination of FileMode.In
@@ -1132,53 +928,37 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="open" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).In);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Open a file for the stream, in an identical manner to the constructors.
  If an error occurs an OpenException is thrown.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="create" href="#create">create</a>(string <i>filename</i>);
 <br>void <a class="symbol symbol-anchor" name="create" href="#create">create</a>(string <i>filename</i>, FileMode <i>mode</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create a file for writing.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="close" href="#close">close</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Close the current file if it is open; otherwise it does nothing.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property size_t <a class="symbol symbol-anchor" name="available" href="#available">available</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>For a seekable file returns the difference of the size and position and
  otherwise returns 0.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="BufferedFile" href="#BufferedFile">BufferedFile</a>: std.stream.BufferedStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass is for buffered file system streams.
 </p>
 
@@ -1188,116 +968,77 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>opens file for reading</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, FileMode <i>mode</i> = cast(FileMode)1, uint <i>bufferSize</i> = 8192u);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>opens file in requested <i>mode</i> and buffer size</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(File <i>file</i>, uint <i>bufferSize</i> = 8192u);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>opens <i>file</i> for reading with requested buffer size</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(void* <i>hFile</i>, FileMode <i>mode</i>, uint <i>buffersize</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>opens existing handle; use with care!</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="open" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).In);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>opens file in requested <i>mode</i></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="create" href="#create">create</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).OutNew);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>creates file in requested <i>mode</i></p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="BOM" href="#BOM">BOM</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF byte-order-mark signatures</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UTF8" href="#UTF8">UTF8</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF-8</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UTF16LE" href="#UTF16LE">UTF16LE</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF-16 Little Endian</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UTF16BE" href="#UTF16BE">UTF16BE</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF-16 Big Endian</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UTF32LE" href="#UTF32LE">UTF32LE</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF-32 Little Endian</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UTF32BE" href="#UTF32BE">UTF32BE</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF-32 Big Endian</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="EndianStream" href="#EndianStream">EndianStream</a>: std.stream.FilterStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass wraps a stream with big-endian or little-endian byte order
  swapping.
 </p>
@@ -1314,17 +1055,12 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>Endian <a class="symbol symbol-anchor" name="endian" href="#endian">endian</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Endianness property of the source stream.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>, Endian <i>end</i> = endian);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create the endian stream for the <i>source</i> stream <i>source</i> with endianness <i>end</i>.
  The default endianness is the native byte order.
  The Endian type is defined
@@ -1332,11 +1068,8 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="readBOM" href="#readBOM">readBOM</a>(int <i>ungetCharSize</i> = 1);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return -1 if no BOM and otherwise read the BOM and return it.
 </p>
 
@@ -1346,44 +1079,31 @@ These methods require that the seekable flag be set.
  ungetcw instead of ungetc when no BOM is present.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>final void <a class="symbol symbol-anchor" name="fixBO" href="#fixBO">fixBO</a>(const(void)* <i>buffer</i>, size_t <i>size</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Correct the byte order of <i>buffer</i> to match native endianness.
  <i>size</i> must be even.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>final void <a class="symbol symbol-anchor" name="fixBlockBO" href="#fixBlockBO">fixBlockBO</a>(void* <i>buffer</i>, uint <i>size</i>, size_t <i>repeat</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Correct the byte order of the given <i>buffer</i> in blocks of the given <i>size</i> and
  repeated the given number of times.
  <i>size</i> must be even.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="writeBOM" href="#writeBOM">writeBOM</a>(BOM <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Write the specified BOM <i>b</i> to the source stream.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TArrayStream" href="#TArrayStream">TArrayStream</a>(Buffer): Stream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Parameterized subclass that wraps an array-like buffer with a stream
  interface.
 </p>
@@ -1394,89 +1114,62 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Buffer <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create the stream for the the buffer <i>buf</i>. Non-copying.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="data" href="#data">data</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the current memory <a class="symbol symbol-anchor" name="data" href="#data">data</a> in total.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="MemoryStream" href="#MemoryStream">MemoryStream</a>: std.stream.TArrayStream!(ubyte[]).TArrayStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass reads and constructs an array of bytes in memory.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create the output buffer and setup for reading, writing, and seeking.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(ubyte[] <i>buf</i>);
 <br>this(byte[] <i>buf</i>);
 <br>this(char[] <i>buf</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create the output buffer and setup for reading, writing, and seeking.
  Load it with specific input data.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(size_t <i>count</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ensure the stream can hold <i>count</i> bytes.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="MmFileStream" href="#MmFileStream">MmFileStream</a>: std.stream.TArrayStream!(MmFile).TArrayStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass wraps a memory-mapped file with the stream API.
  See std.mmfile module.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(MmFile <i>file</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Create stream wrapper for <i>file</i>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SliceStream" href="#SliceStream">SliceStream</a>: std.stream.FilterStream;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This subclass slices off a portion of another stream, making seeking relative
  to the boundaries of the slice.
 </p>
@@ -1488,8 +1181,6 @@ These methods require that the seekable flag be set.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Stream <i>s</i>, ulong <i>low</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicate both the source stream to use for reading from and the <i>low</i> part of
  the slice.
 </p>
@@ -1498,11 +1189,8 @@ These methods require that the seekable flag be set.
  stream, so that if you write beyond the end it resizes the stream normally.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(Stream <i>s</i>, ulong <i>low</i>, ulong <i>high</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Indicate the <i>high</i> index as well.
 </p>
 
@@ -1510,10 +1198,8 @@ These methods require that the seekable flag be set.
  index results in the end being clipped off.</p>
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

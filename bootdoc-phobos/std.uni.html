@@ -303,46 +303,33 @@ Unicode(tm) is a trademark of Unicode, Inc.
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>, Jonathan M Davis, and Kenji Hara
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/uni.d">std/uni.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="lineSep" href="#lineSep">lineSep</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF line separator</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="paraSep" href="#paraSep">paraSep</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>UTF paragraph separator</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isWhite" href="#isWhite">isWhite</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Whether or not <span class="inlinecode"><i>c</i></span> is a Unicode whitespace character.
     (general Unicode category: Part of C0(tab, vertical tab, form feed,
     carriage return, and linefeed characters), Zs, Zl, Zp, and NEL(U+0085))</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniLower" href="#isUniLower">isUniLower</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please use
    <span class="inlinecode">isLower</span> instead.</font>
 </p>
@@ -350,20 +337,14 @@ Unicode(tm) is a trademark of Unicode, Inc.
 <p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isLower" href="#isLower">isLower</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniUpper" href="#isUniUpper">isUniUpper</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please use
    <span class="inlinecode">isUpper</span> instead.</font>
 </p>
@@ -371,20 +352,14 @@ Unicode(tm) is a trademark of Unicode, Inc.
 <p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUpper" href="#isUpper">isUpper</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return whether <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUniLower" href="#toUniLower">toUniLower</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please use
    <span class="inlinecode">toLower</span> instead.</font>
 </p>
@@ -393,21 +368,15 @@ Unicode(tm) is a trademark of Unicode, Inc.
     is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toLower" href="#toLower">toLower</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode"><i>c</i></span> is a Unicode uppercase character, then its lowercase equivalent
     is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUniUpper" href="#toUniUpper">toUniUpper</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please use
    <span class="inlinecode">toUpper</span> instead.</font>
 </p>
@@ -416,21 +385,15 @@ Unicode(tm) is a trademark of Unicode, Inc.
     is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <a class="symbol symbol-anchor" name="toUpper" href="#toUpper">toUpper</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode"><i>c</i></span> is a Unicode lowercase character, then its uppercase equivalent
     is returned. Otherwise <span class="inlinecode"><i>c</i></span> is returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated pure nothrow @safe bool <a class="symbol symbol-anchor" name="isUniAlpha" href="#isUniAlpha">isUniAlpha</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please use
    <span class="inlinecode">isAlpha</span> instead.</font>
 </p>
@@ -440,190 +403,132 @@ Unicode(tm) is a trademark of Unicode, Inc.
 
 </p>
 <dt>Standards</dt><dd>Unicode 5.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isAlpha" href="#isAlpha">isAlpha</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode alpha character
     (general Unicode category: Lu, Ll, Lt, Lm, and Lo).
 </p>
 
 <dt>Standards</dt><dd>Unicode 5.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isMark" href="#isMark">isMark</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode mark
     (general Unicode category: Mn, Me, Mc).
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNumber" href="#isNumber">isNumber</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode numerical character
     (general Unicode category: Nd, Nl, No).
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isPunctuation" href="#isPunctuation">isPunctuation</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode punctuation character
     (general Unicode category: Pd, Ps, Pe, Pc, Po, Pi, Pf).
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSymbol" href="#isSymbol">isSymbol</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode symbol character
     (general Unicode category: Sm, Sc, Sk, So)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSpace" href="#isSpace">isSpace</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode whitespace character
     (general Unicode category: Zs)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isGraphical" href="#isGraphical">isGraphical</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode graphical character
     (general Unicode category: L, M, N, P, S, Zs).
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isControl" href="#isControl">isControl</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode control character
     (general Unicode category: Cc)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isFormat" href="#isFormat">isFormat</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode formatting character
     (general Unicode category: Cf)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isPrivateUse" href="#isPrivateUse">isPrivateUse</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode Private Use character
     (general Unicode category: Co)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogate" href="#isSurrogate">isSurrogate</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode surrogate character
     (general Unicode category: Cs)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogateHi" href="#isSurrogateHi">isSurrogateHi</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode high surrogate (lead surrogate).
 </p>
 
 <dt>Standards</dt><dd>Unicode 2.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isSurrogateLo" href="#isSurrogateLo">isSurrogateLo</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode low surrogate (trail surrogate).
 </p>
 
 <dt>Standards</dt><dd>Unicode 2.0.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isNonCharacter" href="#isNonCharacter">isNonCharacter</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a Unicode non-character
     (general Unicode category: Cn)
 </p>
 
 <dt>Standards</dt><dd>Unicode 6.0.0.</dd>
-
 </dl>
 </div>
-
 
 
 				</div>

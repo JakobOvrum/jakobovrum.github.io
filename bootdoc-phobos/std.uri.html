@@ -295,86 +295,63 @@
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a><br>
   <a href="http://en.wikipedia.org/wiki/Uniform_resource_identifier">Wikipedia</a>
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/uri.d">std/uri.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(string <i>encodedURI</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes the URI string <i>encodedURI</i> into a UTF-8 string and returns it.
  Escape sequences that resolve to reserved URI characters are not replaced.
  Escape sequences that resolve to the '#' character are not replaced.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="decodeComponent" href="#decodeComponent">decodeComponent</a>(string <i>encodedURIComponent</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes the URI string encodedURI into a UTF-8 string and returns it. All
  escape sequences are decoded.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(string <i>uri</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes the UTF-8 string <i>uri</i> into a URI and returns that URI. Any character
  not a valid URI character is escaped. The '#' character is not escaped.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="encodeComponent" href="#encodeComponent">encodeComponent</a>(string <i>uriComponent</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes the UTF-8 string <i>uriComponent</i> into a URI and returns that URI.
  Any character not a letter, digit, or one of -.!~*'() is escaped.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="uriLength" href="#uriLength">uriLength</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Does string <i>s</i>[] start with a URL?
 </p>
 
 <dt>Returns</dt><dd>-1    it does not
   len  it does, and <i>s</i>[0..len] is the slice of <i>s</i>[] that is that URL</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="emailLength" href="#emailLength">emailLength</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Does string <i>s</i>[] start with an email address?
 </p>
 
 <dt>Returns</dt><dd>-1    it does not
   len   it does, and <i>s</i>[0..i] is the slice of <i>s</i>[] that is that email address
 </dd>
-
 <dt>References:</dt><dd>
 RFC2822</dd>
 </dl>
 </div>
-
 
 
 				</div>

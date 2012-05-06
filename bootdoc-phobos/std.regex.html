@@ -505,7 +505,6 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
-
 <dt>Authors</dt><dd>Dmitry Olshansky,
 <br><br>
 
@@ -513,12 +512,9 @@
   by Walter Bright and Andrei Alexandrescu.
 
 </dd>
-
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Regex" href="#Regex">Regex</a>(Char);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Regex" href="#Regex">Regex</a></span> object holds regular expression pattern in compiled form.
     Instances of this object are constructed via calls to <span class="inlinecode">regex</span>.
     This is an intended form for caching and storage of frequently
@@ -527,8 +523,6 @@
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const nothrow bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Test if this object doesn't contain any compiled pattern.
 </p>
 
@@ -542,14 +536,10 @@
 </dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="StaticRegex" href="#StaticRegex">StaticRegex</a>(Char);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A <span class="inlinecode"><a class="symbol symbol-anchor" name="StaticRegex" href="#StaticRegex">StaticRegex</a></span> is <span class="inlinecode">Regex</span> object that contains specially
     generated machine code to speed up matching.
     Implicitly convertible to normal <span class="inlinecode">Regex</span>,
@@ -557,11 +547,8 @@
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Captures" href="#Captures">Captures</a>(R,DIndex = size_t) if (isSomeString!(R));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Captures" href="#Captures">Captures</a></span> object contains submatches captured during a call
     to <span class="inlinecode">match</span> or iteration over <span class="inlinecode">RegexMatch</span> range.
 </p>
@@ -598,31 +585,22 @@
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="pre" href="#pre">pre</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Slice of input prior to the match.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="post" href="#post">post</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Slice of input immediately after the match.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="hit" href="#hit">hit</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Slice of matched portion of input.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>R <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
@@ -630,17 +608,12 @@
 <br>const bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 <br>R <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>()(size_t <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range interface.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(String)(String <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Lookup named submatch.
 </p>
 
@@ -660,32 +633,22 @@
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Number of matches in this object.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="captures" href="#captures">captures</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A hook for compatibility with original std.regex.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="RegexMatch" href="#RegexMatch">RegexMatch</a>(R,alias Engine = ThompsonMatcher) if (isSomeString!(R));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A regex engine state, as returned by <span class="inlinecode">match</span> family of functions.
 </p>
 
@@ -700,19 +663,14 @@
 <br>R <a class="symbol symbol-anchor" name="post" href="#post">post</a>();
 <br>R <a class="symbol symbol-anchor" name="hit" href="#hit">hit</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Shorthands for front.<a class="symbol symbol-anchor" name="pre" href="#pre">pre</a>, front.post, front.hit.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>auto <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Functionality for processing subsequent matches of global regexes via range interface:
 <pre class="d_code">        <span class="d_keyword">import</span> std.regex;
         <span class="d_keyword">auto</span> m = match(<span class="d_string">"Hello, world!"</span>, regex(<span class="d_string">`\w+`</span>, <span class="d_string">"g"</span>));
@@ -726,41 +684,28 @@
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Test if this match object is <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="opCast" href="#opCast">opCast</a>(T : bool)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Same as !(x.empty), provided for its convenience  in conditional statements.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="captures" href="#captures">captures</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Same as .front, provided for compatibility with original std.regex.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="regex" href="#regex">regex</a>(S)(S <i>pattern</i>, const(char)[] <i>flags</i> = "");
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compile regular expression pattern for the later execution.
 </p>
 
@@ -768,7 +713,6 @@
     the same character width as <span class="inlinecode">pattern</span>.
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pattern</td>
 <td>Regular expression</td>
 </tr>
@@ -776,15 +720,10 @@
 <td>The attributes (g, i, m and x accepted)</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">RegexException</span> if there were any errors during compilation.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ctRegex" href="#ctRegex">ctRegex</a>(alias pattern,alias flags = [])</h3></div>
-
-
 <div class="declaration-content"><dl><p>Experimental feature.
 </p>
 
@@ -795,7 +734,6 @@
 <dt>Returns</dt><dd>StaticRegex object for faster matching.
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pattern</td>
 <td>Regular expression</td>
 </tr>
@@ -803,15 +741,11 @@
 <td>The attributes (g, i, m and x accepted)</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="match" href="#match">match</a>(R, RegEx)(R <i>input</i>, RegEx <i>re</i>);
 <br>auto <a class="symbol symbol-anchor" name="match" href="#match">match</a>(R, String)(R <i>input</i>, String <i>re</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Start matching <span class="inlinecode">input</span> to regex pattern <span class="inlinecode">re</span>,
     using Thompson NFA matching scheme.
 </p>
@@ -828,15 +762,11 @@
     </ul>
 </p>
 <dt>Returns</dt><dd>a <span class="inlinecode">RegexMatch</span> object holding engine state after first <a class="symbol symbol-anchor" name="match" href="#match">match</a>.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="bmatch" href="#bmatch">bmatch</a>(R, RegEx)(R <i>input</i>, RegEx <i>re</i>);
 <br>auto <a class="symbol symbol-anchor" name="bmatch" href="#bmatch">bmatch</a>(R, String)(R <i>input</i>, String <i>re</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Start matching <span class="inlinecode">input</span> to regex pattern <span class="inlinecode">re</span>,
     using traditional <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=backtracking">backtracking</a> matching scheme.
 </p>
@@ -852,14 +782,10 @@
 </p>
 <dt>Returns</dt><dd>a <span class="inlinecode">RegexMatch</span> object holding engine
     state after first match.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(alias scheme = match, R, RegEx)(R <i>input</i>, RegEx <i>re</i>, R <i>format</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct a new string from <span class="inlinecode">input</span> by replacing each match with
     a string generated from match according to <span class="inlinecode">format</span> specifier.
 </p>
@@ -878,7 +804,6 @@
 <td>format string to generate replacements from</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code">    <span class="d_comment">//Comify a number
 </span>
@@ -901,11 +826,8 @@
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="replace" href="#replace">replace</a>(alias fun, R, RegEx, alias scheme = match)(R <i>input</i>, RegEx <i>re</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Search string for matches using regular expression pattern <span class="inlinecode">re</span>
     and pass captures for each match to user-defined functor <span class="inlinecode">fun</span>.
 </p>
@@ -917,7 +839,6 @@
 <dt>Returns</dt><dd>new string with all matches replaced by return values of <span class="inlinecode">fun</span>.
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
 <td>string to search</td>
 </tr>
@@ -928,7 +849,6 @@
 <td>delegate to use</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 Capitalize the letters 'a' and 'r':
 <pre class="d_code">    string baz(Captures!(string) m)
@@ -942,11 +862,8 @@ Capitalize the letters 'a' and 'r':
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Splitter" href="#Splitter">Splitter</a>(Range,alias RegEx = Regex) if (isSomeString!(Range) &amp;&amp; isRegexFor!(RegEx,Range));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range that splits a string using a regular expression as a
 separator.
 </p>
@@ -963,52 +880,36 @@ separator.
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>@property auto <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward range primitives.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Splitter!(Range,RegEx) <a class="symbol symbol-anchor" name="splitter" href="#splitter">splitter</a>(Range, RegEx)(Range <i>r</i>, RegEx <i>pat</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>A helper function, creates a <span class="inlinecode">Splitter</span> on range <span class="inlinecode">r</span> separated by regex <span class="inlinecode">pat</span>.
     Captured subexpressions have no effect on the resulting range.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>String[] <a class="symbol symbol-anchor" name="split" href="#split">split</a>(String, RegEx)(String <i>input</i>, RegEx <i>rx</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>An eager version of <span class="inlinecode">splitter</span> that creates an array with splitted slices of <span class="inlinecode">input</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="RegexException" href="#RegexException">RegexException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception object thrown in case of errors during regex compilation.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@trusted  this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

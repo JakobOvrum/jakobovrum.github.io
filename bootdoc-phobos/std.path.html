@@ -322,38 +322,28 @@
         Thomas Kühne,
         <a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/path.d">std/path.d</a>
 </dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="dirSeparator" href="#dirSeparator">dirSeparator</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>String used to separate directory names in a path.  Under
     POSIX this is a slash, under Windows a backslash.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="pathSeparator" href="#pathSeparator">pathSeparator</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Path separator string.  A colon under POSIX, a semicolon
     under Windows.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isDirSeparator" href="#isDirSeparator">isDirSeparator</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Determine whether the given character is a directory separator.
 </p>
 
@@ -361,51 +351,36 @@
     On POSIX, it's just <span class="inlinecode">'/'</span>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CaseSensitive" href="#CaseSensitive">CaseSensitive</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This <span class="inlinecode">enum</span> is used as a template argument to functions which
     compare file names, and determines whether the comparison is
     case sensitive or not.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>File names are case insensitive</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>File names are case sensitive</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="osDefault" href="#osDefault">osDefault</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>The default (or most common) setting for the current platform.
         That is, <span class="inlinecode">no</span> on Windows and Mac OS X, and <span class="inlinecode">yes</span> on all
         POSIX systems except OS X (Linux, *BSD, etc.).</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted inout(C)[] <a class="symbol symbol-anchor" name="baseName" href="#baseName">baseName</a>(C)(inout(C)[] <i>path</i>);
 <br>pure @safe inout(C)[] <a class="symbol symbol-anchor" name="baseName" href="#baseName">baseName</a>(CaseSensitive cs = CaseSensitive.osDefault, C, C1)(inout(C)[] <i>path</i>, in C1[] <i>suffix</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the name of a file, without any leading directory
     and with an optional suffix chopped off.
 </p>
@@ -431,7 +406,6 @@
 </pre>
 
 </dd>
-
 <dt>Note:</dt><dd>
 This function only strips away the specified suffix.  If you want
     to remove the extension from a path, regardless of what the extension
@@ -445,14 +419,10 @@ This function only strips away the specified suffix.  If you want
 <dt>Standards</dt><dd>This function complies with
     <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/basename.html">    the POSIX requirements for the 'basename' shell utility</a>
     (with suitable adaptations for Windows paths).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>C[] <a class="symbol symbol-anchor" name="dirName" href="#dirName">dirName</a>(C)(C[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the directory part of a path.  On Windows, this
     includes the drive letter if present.
 </p>
@@ -472,18 +442,13 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
-
 <dt>Standards</dt><dd>This function complies with
     <a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/dirname.html">    the POSIX requirements for the 'dirname' shell utility</a>
     (with suitable adaptations for Windows paths).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="rootName" href="#rootName">rootName</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the root directory of the specified path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the
     path is not rooted.
 </p>
@@ -499,14 +464,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="driveName" href="#driveName">driveName</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the drive of a path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the drive
     is not specified.  In the case of UNC paths, the network share
     is returned.
@@ -523,14 +484,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="stripDrive" href="#stripDrive">stripDrive</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Strip the drive from a Windows path.  On POSIX, this is a noop.
 </p>
 
@@ -544,11 +501,8 @@ This function only strips away the specified suffix.  If you want
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="extension" href="#extension">extension</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Get the extension part of a file name, including the dot.
 </p>
 
@@ -563,14 +517,10 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".ext"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="stripExtension" href="#stripExtension">stripExtension</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return the path with the extension stripped off.
 </p>
 
@@ -583,15 +533,11 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"dir/file.ext"</span>)   == <span class="d_string">"dir/file"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(Unqual!(C1))[] <a class="symbol symbol-anchor" name="setExtension" href="#setExtension">setExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
 <br>pure nothrow @trusted immutable(C1)[] <a class="symbol symbol-anchor" name="setExtension" href="#setExtension">setExtension</a>(C1, C2)(immutable(C1)[] <i>path</i>, const(C2)[] <i>ext</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set the extension of a filename.
 </p>
 
@@ -610,14 +556,10 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.new"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted immutable(Unqual!(C1))[] <a class="symbol symbol-anchor" name="defaultExtension" href="#defaultExtension">defaultExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set the extension of a filename, but only if it doesn't
     already have one.
 </p>
@@ -636,14 +578,10 @@ This function only strips away the specified suffix.  If you want
     <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.old"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>immutable(C)[] <a class="symbol symbol-anchor" name="buildPath" href="#buildPath">buildPath</a>(C)(const(C[])[] <i>paths</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Joins one or more path components.
 </p>
 
@@ -669,14 +607,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(C)[] <a class="symbol symbol-anchor" name="buildNormalizedPath" href="#buildNormalizedPath">buildNormalizedPath</a>(C)(const(C[])[] <i>paths</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Performs the same task as <a href="#buildPath"><span class="inlinecode">buildPath</span></a>,
     while at the same time resolving current/parent directory
     symbols (<span class="inlinecode">"."</span> and <span class="inlinecode">".."</span>) and removing superfluous
@@ -707,14 +641,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <a class="symbol symbol-anchor" name="pathSplitter" href="#pathSplitter">pathSplitter</a>(C)(const(C)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a bidirectional range that iterates over the elements of a path.
 </p>
 
@@ -732,14 +662,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isRooted" href="#isRooted">isRooted</a>(C)(in const(C[]) <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Determines whether a path starts at a root directory.
 </p>
 
@@ -770,11 +696,8 @@ This function only strips away the specified suffix.  If you want
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isAbsolute" href="#isAbsolute">isAbsolute</a>(C)(in const(C[]) <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Determines whether a path is absolute or not.
 </p>
 
@@ -804,14 +727,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="absolutePath" href="#absolutePath">absolutePath</a>(string <i>path</i>, string <i>base</i> = getcwd());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Translate <span class="inlinecode"><i>path</i></span> into an absolute path.
 </p>
 
@@ -840,16 +759,11 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="relativePath" href="#relativePath">relativePath</a>(CaseSensitive cs = CaseSensitive.osDefault)(string <i>path</i>, string <i>base</i> = getcwd());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Translate <span class="inlinecode">path</span> into a relative path.
 </p>
 
@@ -901,16 +815,11 @@ This function only strips away the specified suffix.  If you want
 </pre>
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe int <a class="symbol symbol-anchor" name="filenameCharCmp" href="#filenameCharCmp">filenameCharCmp</a>(CaseSensitive cs = CaseSensitive.osDefault)(dchar <i>a</i>, dchar <i>b</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compare filename characters and return <span class="inlinecode">&lt; 0</span> if <span class="inlinecode">a &lt; b</span>, <span class="inlinecode">0</span> if
     <span class="inlinecode">a == b</span> and <span class="inlinecode">&gt; 0</span> if <span class="inlinecode">a &gt; b</span>.
 </p>
@@ -946,14 +855,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe int <a class="symbol symbol-anchor" name="filenameCmp" href="#filenameCmp">filenameCmp</a>(CaseSensitive cs = CaseSensitive.osDefault, C1, C2)(const(C1)[] <i>filename1</i>, const(C2)[] <i>filename2</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compare file names and return
     <span class="inlinecode">&lt; 0</span> if <span class="inlinecode">filename1 &lt; filename2</span>,
     <span class="inlinecode">0</span> if <span class="inlinecode">filename1 == filename2</span> and
@@ -990,14 +895,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="globMatch" href="#globMatch">globMatch</a>(CaseSensitive cs = CaseSensitive.osDefault, C)(const(C)[] <i>path</i>, const(C)[] <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Matches a pattern against a path.
 </p>
 
@@ -1034,11 +935,9 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">true</span></span> if pattern matches path, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia: glob (programming)</a>
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>));
     <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*.*"</span>));
     <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">`foo/foo\bar`</span>, <span class="d_string">"f*b*r"</span>));
@@ -1064,14 +963,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isValidFilename" href="#isValidFilename">isValidFilename</a>(C)(in C[] <i>filename</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks that the given file or directory name is valid.
 </p>
 
@@ -1101,11 +996,8 @@ This function only strips away the specified suffix.  If you want
     the <span class="d_keyword">null</span> character (<span class="inlinecode">'\0'</span>).</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isValidPath" href="#isValidPath">isValidPath</a>(C)(in C[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks whether <span class="inlinecode">path</span> is a valid path.
 </p>
 
@@ -1132,11 +1024,8 @@ This function only strips away the specified suffix.  If you want
     </ul></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="expandTilde" href="#expandTilde">expandTilde</a>(string <i>inputPath</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Performs tilde expansion in paths on POSIX systems.
     On Windows, this function does nothing.
 </p>
@@ -1170,7 +1059,6 @@ This function only strips away the specified suffix.  If you want
     For Windows, <span class="inlinecode"><a class="symbol symbol-anchor" name="expandTilde" href="#expandTilde">expandTilde</a></span> merely returns its argument <span class="inlinecode"><i>inputPath</i></span>.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">void</span> processFile(string path)
     {
         <span class="d_comment">// Allow calling this function with paths such as ~/foo
@@ -1180,14 +1068,10 @@ This function only strips away the specified suffix.  If you want
     }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="fcmp" href="#fcmp">fcmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a> instead.</font>
 </p>
@@ -1199,14 +1083,10 @@ This function only strips away the specified suffix.  If you want
       <tr> <td> = 0   <td> filename1 == filename2
       <tr> <td> &gt; 0        <td> filename1 &gt; filename2
       </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getExt" href="#getExt">getExt</a>()(string <i>fullname</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#extension"><span class="inlinecode">extension</span></a> instead.</font>
 </p>
@@ -1225,11 +1105,9 @@ This function only strips away the specified suffix.  If you want
  contain any dots or path separators, returns <span class="d_keyword">null</span>.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>getExt</u>(<span class="d_string">r"d:\path\foo.bat"</span>) <span class="d_comment">// "bat"
@@ -1248,14 +1126,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getName" href="#getName">getName</a>()(string <i>fullname</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#stripExtension"><span class="inlinecode">stripExtension</span></a> instead.</font>
 </p>
@@ -1274,11 +1148,9 @@ This function only strips away the specified suffix.  If you want
  contain any dots or path separators, returns <span class="d_keyword">null</span>.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>getName</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:\path\foo"</span>
@@ -1292,14 +1164,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="basename" href="#basename">basename</a>(Char, ExtChar = immutable(char))(Char[] <i>fullname</i>, ExtChar[] <i>extension</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#baseName"><span class="inlinecode">baseName</span></a> instead.</font>
 </p>
@@ -1321,11 +1189,9 @@ This function only strips away the specified suffix.  If you want
  part and the extension part, if any, have been removed.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>basename</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"foo.bat"</span>
@@ -1338,14 +1204,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="dirname" href="#dirname">dirname</a>(Char)(Char[] <i>fullname</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#dirName"><span class="inlinecode">dirName</span></a> instead.</font>
 </p>
@@ -1368,11 +1230,9 @@ This function only strips away the specified suffix.  If you want
  if and only if it represents the root.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">r"d:\path\foo.bat"</span>) == <span class="d_string">r"d:\path"</span>);
@@ -1388,14 +1248,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="getDrive" href="#getDrive">getDrive</a>(Char)(Char[] <i>fullname</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#driveName"><span class="inlinecode">driveName</span></a> instead.</font>
 </p>
@@ -1413,22 +1269,16 @@ This function only strips away the specified suffix.  If you want
  Under Linux, this function always returns <span class="d_keyword">null</span> immediately.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <u>getDrive</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:"</span>
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="defaultExt" href="#defaultExt">defaultExt</a>()(string <i>filename</i>, string <i>ext</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#defaultExtension"><span class="inlinecode">defaultExtension</span></a> instead.</font>
 </p>
@@ -1446,24 +1296,18 @@ This function only strips away the specified suffix.  If you want
  + ext.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <u>defaultExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.txt"</span>
  <u>defaultExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>defaultExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="addExt" href="#addExt">addExt</a>()(string <i>filename</i>, string <i>ext</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#setExtension"><span class="inlinecode">setExtension</span></a> instead.</font>
 </p>
@@ -1483,24 +1327,18 @@ This function only strips away the specified suffix.  If you want
  result.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <u>addExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>addExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
  <u>addExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isabs" href="#isabs">isabs</a>()(in char[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#isAbsolute"><span class="inlinecode">isAbsolute</span></a> instead.</font>
 </p>
@@ -1513,11 +1351,9 @@ This function only strips away the specified suffix.  If you want
  zero otherwise.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>isabs</u>(<span class="d_string">r"relative\path"</span>) =&gt; 0
@@ -1531,14 +1367,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="rel2abs" href="#rel2abs">rel2abs</a>()(string <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#absolutePath"><span class="inlinecode">absolutePath</span></a> instead.</font>
 </p>
@@ -1546,11 +1378,8 @@ This function only strips away the specified suffix.  If you want
 <p>Converts a relative path into an absolute path.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="join" href="#join">join</a>()(const(char)[] <i>p1</i>, const(char)[] <i>p2</i>, const(char[])[] <i>more</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#buildPath"><span class="inlinecode">buildPath</span></a> instead.</font>
 </p>
@@ -1566,11 +1395,9 @@ This function only strips away the specified suffix.  If you want
  will be returned.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>join</u>(<span class="d_string">r"c:\foo"</span>, <span class="d_string">"bar"</span>) =&gt; <span class="d_string">r"c:\foo\bar"</span>
@@ -1583,14 +1410,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="fncharmatch" href="#fncharmatch">fncharmatch</a>()(dchar <i>c1</i>, dchar <i>c2</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a> instead.</font>
 </p>
@@ -1605,11 +1428,9 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd>non zero if c1 matches c2, zero otherwise.
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>fncharmatch</u>('a', 'b') =&gt; 0
@@ -1622,14 +1443,10 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="fnmatch" href="#fnmatch">fnmatch</a>()(const(char)[] <i>filename</i>, const(char)[] <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#globMatch"><span class="inlinecode">globMatch</span></a> instead.</font>
 </p>
@@ -1660,15 +1477,12 @@ This function only strips away the specified suffix.  If you want
 <dt>Returns</dt><dd>non zero if pattern matches filename, zero otherwise.
 
 </dd>
-
 <dt>See Also</dt><dd>fncharmatch().
 
 </dd>
-
 <dt>Throws</dt><dd>Nothing.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
  {
      <u>fnmatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>) =&gt; 1
@@ -1685,10 +1499,8 @@ This function only strips away the specified suffix.  If you want
  }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 
 
 				</div>

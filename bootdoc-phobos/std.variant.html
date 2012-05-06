@@ -347,17 +347,13 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.org">Andrei Alexandrescu</a>
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/variant.d">std/variant.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="VariantN" href="#VariantN">VariantN</a>(size_t maxDataSize,AllowedTypesX...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><b><a class="symbol symbol-anchor" name="VariantN" href="#VariantN">VariantN</a></b> is a back-end type seldom used directly by user
  code. Two commonly-used types using <b><a class="symbol symbol-anchor" name="VariantN" href="#VariantN">VariantN</a></b> as
  back-end are:
@@ -383,39 +379,28 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
  <b><a class="symbol symbol-anchor" name="VariantN" href="#VariantN">VariantN</a></b> object.</p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="allowed" href="#allowed">allowed</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Tells whether a type <b>T</b> is statically <a class="symbol symbol-anchor" name="allowed" href="#allowed">allowed</a> for
  storage inside a <b>VariantN</b> object by looking
  <b>T</b> up in <b>AllowedTypes</b>. If <b>AllowedTypes</b> is empty, all types of size up to <b>maxSize</b> are <a class="symbol symbol-anchor" name="allowed" href="#allowed">allowed</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(T)(T <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructs a <b>VariantN</b> value given an argument of a
  generic type. Statically rejects disallowed types.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>VariantN <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(T)(T <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Assigns a <b>VariantN</b> from a generic
  argument. Statically rejects disallowed types. </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="hasValue" href="#hasValue">hasValue</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if and only if the <b>VariantN</b> object
  holds a valid value (has been initialized with, or assigned
  from, a valid value).
@@ -434,11 +419,8 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T* <a class="symbol symbol-anchor" name="peek" href="#peek">peek</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the <b>VariantN</b> object holds a value of the
  <i>exact</i> type <b>T</b>, returns a pointer to that
  value. Otherwise, returns <b><span class="d_keyword">null</span></b>. In cases
@@ -455,31 +437,22 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const TypeInfo <a class="symbol symbol-anchor" name="type" href="#type">type</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <b>typeid</b> of the currently held value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="convertsTo" href="#convertsTo">convertsTo</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <b><span class="d_keyword">true</span></b> if and only if the <b>VariantN</b>
  object holds an object implicitly convertible to type <b>U</b>. Implicit convertibility is defined as per
  <a href="std_traits.html#ImplicitConversionTargets">ImplicitConversionTargets</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="get" href="#get">get</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the value stored in the <b>VariantN</b> object,
  implicitly converted to the requested type <b>T</b>, in
  fact <b>DecayStaticToDynamicArray!(T)</b>. If an implicit
@@ -487,11 +460,8 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="coerce" href="#coerce">coerce</a>(T)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the value stored in the <b>VariantN</b> object,
  explicitly converted (coerced) to the requested type <b>T</b>. If <b>T</b> is a string type, the value is formatted as
  a string. If the <b>VariantN</b> object is a string, a
@@ -500,50 +470,35 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Formats the stored value as a string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(T)(T <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Comparison for equality used by the "==" and "!="  operators.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opCmp" href="#opCmp">opCmp</a>(T)(T <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Ordering comparison used by the "&lt;", "&lt;=", "&gt;", and "&gt;="
  operators. In case comparison is not sensible between the held
  value and <b>rhs</b>, an exception is thrown.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="toHash" href="#toHash">toHash</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Computes the hash of the held value.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>VariantN <a class="symbol symbol-anchor" name="opAdd" href="#opAdd">opAdd</a>(T)(T <i>rhs</i>);
 <br>VariantN <a class="symbol symbol-anchor" name="opSub" href="#opSub">opSub</a>(T)(T <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Arithmetic between <b>VariantN</b> objects and numeric
  values. All arithmetic operations return a <b>VariantN</b>
  object typed depending on the types of both values
@@ -552,7 +507,6 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>VariantN <a class="symbol symbol-anchor" name="opMul" href="#opMul">opMul</a>(T)(T <i>rhs</i>);
 <br>VariantN <a class="symbol symbol-anchor" name="opDiv" href="#opDiv">opDiv</a>(T)(T <i>rhs</i>);
 <br>VariantN <a class="symbol symbol-anchor" name="opMod" href="#opMod">opMod</a>(T)(T <i>rhs</i>);
@@ -576,19 +530,14 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 <br>VariantN <a class="symbol symbol-anchor" name="opUShrAssign" href="#opUShrAssign">opUShrAssign</a>(T)(T <i>rhs</i>);
 <br>VariantN <a class="symbol symbol-anchor" name="opCatAssign" href="#opCatAssign">opCatAssign</a>(T)(T <i>rhs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>ditto
 ditto</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>VariantN <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(K)(K <i>i</i>);
 <br>VariantN <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(T, N)(T <i>value</i>, N <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Array and associative array operations. If a <b>VariantN</b> contains an (associative) array, it can be indexed
  into. Otherwise, an exception is thrown.
 </p>
@@ -617,34 +566,24 @@ Due to limitations in current language, read-modify-write
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the <b>VariantN</b> contains an (associative) array,
  returns the <a class="symbol symbol-anchor" name="length" href="#length">length</a> of that array. Otherwise, throws an
  exception.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(Delegate)(scope Delegate <i>dg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">VariantN</span> contains an array, applies <span class="inlinecode">dg</span> to each
        element of the array in turn. Otherwise, throws an exception.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Algebraic" href="#Algebraic">Algebraic</a>(T...)</h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="Algebraic" href="#Algebraic">Algebraic</a> data type restricted to a closed set of possible
  types. It's an alias for a <b>VariantN</b> with an
  appropriately-constructed maximum size. <b><a class="symbol symbol-anchor" name="Algebraic" href="#Algebraic">Algebraic</a></b> is
@@ -663,7 +602,6 @@ Due to limitations in current language, read-modify-write
  implementation.
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">auto</span> v = <u>Algebraic</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, string)(5);
  <span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">int</span>));
@@ -677,11 +615,8 @@ Due to limitations in current language, read-modify-write
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="Variant" href="#Variant">Variant</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><b><a class="symbol symbol-anchor" name="Variant" href="#Variant">Variant</a></b> is an alias for <b>VariantN</b> instantiated
 with the largest of <b>creal</b>, <b>char[]</b>, and <b>void delegate()</b>. This ensures that <b><a class="symbol symbol-anchor" name="Variant" href="#Variant">Variant</a></b> is large enough
 to hold all of D's predefined types, including all numeric types,
@@ -691,11 +626,8 @@ storing larger types, or for saving memory.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Variant[] <a class="symbol symbol-anchor" name="variantArray" href="#variantArray">variantArray</a>(T...)(T <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns an array of variants constructed from <b>args</b>.
 </p>
 
@@ -732,11 +664,8 @@ storing larger types, or for saving memory.</p>
  pointer to function for fast retrieval.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="VariantException" href="#VariantException">VariantException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown in three cases:
 </p>
 
@@ -748,25 +677,18 @@ storing larger types, or for saving memory.</p>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>TypeInfo <a class="symbol symbol-anchor" name="source" href="#source">source</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="source" href="#source">source</a> type in the conversion or comparison</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>TypeInfo <a class="symbol symbol-anchor" name="target" href="#target">target</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="target" href="#target">target</a> type in the conversion or comparison</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

@@ -648,14 +648,10 @@ manipulating ranges:
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
-
 <dt>Authors</dt><dd><a href="http://erdani.com">Andrei Alexandrescu</a>, David Simcha. Credit
 for some of the ideas in building this module goes to <a href="http://fantascienza.net/leonardo/so/">Leonardo Maffi</a>.</dd>
-
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isInputRange" href="#isInputRange">isInputRange</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an input range. An input range must
 define the primitives <span class="inlinecode">empty</span>, <span class="inlinecode">popFront</span>, and <span class="inlinecode">front</span>. The
 following code should compile for any input range.
@@ -684,11 +680,8 @@ element in the range. Calling <span class="inlinecode">r.popFront</span> is allo
 calling <span class="inlinecode">r.empty</span> has, or would have, returned <span class="inlinecode"><span class="d_keyword">false</span></span>.</li></ul></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(R, E)(ref R <i>r</i>, E <i>e</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Outputs <span class="inlinecode">e</span> to <span class="inlinecode">r</span>. The exact effect is dependent upon the two
 types. Several cases are accepted, as described below. The code snippets
 are attempted in order, and the first to compile "wins" and gets
@@ -725,20 +718,14 @@ accepting an <span class="inlinecode">E[]</span>.</td></tr>
 </table></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isOutputRange" href="#isOutputRange">isOutputRange</a>(R,E)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an output range for elements of type
 <span class="inlinecode">E</span>. An output range is defined functionally as a range that
 supports the operation <span class="inlinecode">put(r, e)</span> as defined above.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isForwardRange" href="#isForwardRange">isForwardRange</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range. A forward range is an
 input range <span class="inlinecode">r</span> that can save "checkpoints" by saving <span class="inlinecode">r.save</span>
 to another value of type <span class="inlinecode">R</span>. Notable examples of input ranges that
@@ -769,10 +756,7 @@ that backtracking must be possible by saving a copy of the range
 object with <span class="inlinecode">save</span> and using it later.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isBidirectionalRange" href="#isBidirectionalRange">isBidirectionalRange</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a bidirectional range. A bidirectional
 range is a forward range that also offers the primitives <span class="inlinecode">back</span> and
 <span class="inlinecode">popBack</span>. The following code should compile for any bidirectional
@@ -801,10 +785,7 @@ element in the range. Calling <span class="inlinecode">r.back</span> is allowed 
 <span class="inlinecode">r.empty</span> has, or would have, returned <span class="inlinecode"><span class="d_keyword">false</span></span>.</li></ul></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isRandomAccessRange" href="#isRandomAccessRange">isRandomAccessRange</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a random-access range. A random-access
 range is a bidirectional range that also offers the primitive <span class="inlinecode">opIndex</span>, OR an infinite forward range that offers <span class="inlinecode">opIndex</span>. In
 either case, the range must either offer <span class="inlinecode">length</span> or be
@@ -834,10 +815,7 @@ variable-length encodings (UTF-8 and UTF-16 respectively). These types
 are bidirectional ranges only.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasMobileElements" href="#hasMobileElements">hasMobileElements</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> iff the range supports the <span class="inlinecode">moveFront</span> primitive,
 as well as <span class="inlinecode">moveBack</span> and <span class="inlinecode">moveAt</span> if it's a bidirectional or
 random access range.  These may be explicitly implemented, or may work
@@ -846,10 +824,7 @@ and friends.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ElementType" href="#ElementType">ElementType</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>The element type of <span class="inlinecode">R</span>. <span class="inlinecode">R</span> does not have to be a range. The
 element type is determined as the type yielded by <span class="inlinecode">r.front</span> for an
 object <span class="inlinecode">r</span> or type <span class="inlinecode">R</span>. For example, <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementType" href="#ElementType">ElementType</a>!(T[])</span> is
@@ -857,10 +832,7 @@ object <span class="inlinecode">r</span> or type <span class="inlinecode">R</spa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="ElementEncodingType" href="#ElementEncodingType">ElementEncodingType</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>The encoding element type of <span class="inlinecode">R</span>. For narrow strings (<span class="inlinecode">char[]</span>,
 <span class="inlinecode">wchar[]</span> and their qualified variants including <span class="inlinecode">string</span> and
 <span class="inlinecode">wstring</span>), <span class="inlinecode"><a class="symbol symbol-anchor" name="ElementEncodingType" href="#ElementEncodingType">ElementEncodingType</a></span> is the character type of the
@@ -869,10 +841,7 @@ string. For all other ranges, <span class="inlinecode"><a class="symbol symbol-a
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasSwappableElements" href="#hasSwappableElements">hasSwappableElements</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range and has swappable
 elements. The following code should compile for any random-access
 range.
@@ -887,10 +856,7 @@ swap(r.front, r.front);              <span class="d_comment">// can swap element
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasAssignableElements" href="#hasAssignableElements">hasAssignableElements</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is a forward range and has mutable
 elements. The following code should compile for any random-access
 range.
@@ -906,19 +872,13 @@ r.front = e;                      <span class="d_comment">// can assign elements
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasLvalueElements" href="#hasLvalueElements">hasLvalueElements</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Tests whether <span class="inlinecode">R</span> has lvalue elements.  These are defined as elements that
 can be passed by reference and have their address taken.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasLength" href="#hasLength">hasLength</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> has a <span class="inlinecode">length</span> member that returns an
 integral type. <span class="inlinecode">R</span> does not have to be a range. Note that <span class="inlinecode">length</span> is an optional primitive as no range must implement it. Some
 ranges do not store their length explicitly, some cannot compute it
@@ -933,10 +893,7 @@ the number of encoding units, and as such is not useful with
 range-oriented algorithms.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isInfinite" href="#isInfinite">isInfinite</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> is an infinite input range. An
 infinite input range is an input range that has a statically-defined
 enumerated member called <span class="inlinecode">empty</span> that is always <span class="inlinecode"><span class="d_keyword">false</span></span>,
@@ -952,10 +909,7 @@ for example:
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="hasSlicing" href="#hasSlicing">hasSlicing</a>(R)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">R</span> offers a slicing operator with
 integral boundaries, that in turn returns an input range type. The
 following code should compile for <span class="inlinecode"><a class="symbol symbol-anchor" name="hasSlicing" href="#hasSlicing">hasSlicing</a></span> to be <span class="inlinecode"><span class="d_keyword">true</span></span>:
@@ -968,11 +922,8 @@ following code should compile for <span class="inlinecode"><a class="symbol symb
 </p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="walkLength" href="#walkLength">walkLength</a>(Range)(Range <i>range</i>, const size_t <i>upTo</i> = size_t.max);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This is a best-effort implementation of <span class="inlinecode">length</span> for any kind of
 range.
 </p>
@@ -988,11 +939,8 @@ the interest is in seeing whether the range has at least some number
 of elements. If the parameter <span class="inlinecode">upTo</span> is specified, stops if <span class="inlinecode">upTo</span> steps have been taken and returns <span class="inlinecode">upTo</span>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="retro" href="#retro">retro</a>(Range)(Range <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Iterates a bidirectional range backwards. The original range can be
 accessed by using the <span class="inlinecode">source</span> property. Applying <a class="symbol symbol-anchor" name="retro" href="#retro">retro</a> twice to
 the same range yields the original range.
@@ -1007,11 +955,8 @@ the same range yields the original range.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a>(Range)(Range <i>r</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Iterates range <span class="inlinecode">r</span> with <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a> <span class="inlinecode">n</span>. If the range is a
 random-access range, moves by indexing into the range; otehrwise,
 moves by successive calls to <span class="inlinecode">popFront</span>. Applying <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a> twice to
@@ -1022,7 +967,6 @@ product of the two applications.
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if <span class="inlinecode">n == 0</span>.
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 <span class="d_keyword">assert</span>(equal(<u>stride</u>(a, 3), [ 1, 4, 7, 10 ][]));
@@ -1031,11 +975,8 @@ product of the two applications.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="chain" href="#chain">chain</a>(Ranges...)(Ranges <i>rs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Spans multiple ranges in sequence. The function <span class="inlinecode"><a class="symbol symbol-anchor" name="chain" href="#chain">chain</a></span> takes any
 number of ranges and returns a <span class="inlinecode">Chain!(R1, R2,...)</span> object. The
 ranges may be different, but they must have the same element type. The
@@ -1058,11 +999,8 @@ range's type.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="roundRobin" href="#roundRobin">roundRobin</a>(Rs...)(Rs <i>rs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="roundRobin" href="#roundRobin">roundRobin</a>(r1, r2, r3)</span> yields <span class="inlinecode">r1.front</span>, then <span class="inlinecode">r2.front</span>,
 then <span class="inlinecode">r3.front</span>, after which it pops off one element from each and
 continues again from <span class="inlinecode">r1</span>. For example, if two ranges are involved,
@@ -1079,12 +1017,9 @@ finish early).
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="radial" href="#radial">radial</a>(Range, I)(Range <i>r</i>, I <i>startingIndex</i>);
 <br>auto <a class="symbol symbol-anchor" name="radial" href="#radial">radial</a>(R)(R <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Iterates a random-access range starting from a given point and
 progressively extending left and right from that point. If no initial
 point is given, iteration starts from the middle of the
@@ -1100,12 +1035,9 @@ a = [ 1, 2, 3, 4 ];
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Take" href="#Take">Take</a>(Range) if (isInputRange!(Unqual!(Range)) &amp;&amp; !(hasSlicing!(Unqual!(Range)) || is(Range T == <a class="symbol symbol-anchor" name="Take" href="#Take">Take</a>!(T))));
 <br>Take!(R) <a class="symbol symbol-anchor" name="take" href="#take">take</a>(R)(R <i>input</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Lazily takes only up to <span class="inlinecode">n</span> elements of a range. This is
 particularly useful when using with infinite ranges. If the range
 offers random access and <span class="inlinecode">length</span>, <span class="inlinecode"><a class="symbol symbol-anchor" name="Take" href="#Take">Take</a></span> offers them as well.
@@ -1121,11 +1053,8 @@ offers random access and <span class="inlinecode">length</span>, <span class="in
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="takeExactly" href="#takeExactly">takeExactly</a>(R)(R <i>range</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Similar to <a href="#take"><span class="inlinecode">take</span></a>, but assumes that <span class="inlinecode">range</span> has at least <span class="inlinecode">n</span> elements. Consequently, the result of <span class="inlinecode"><a class="symbol symbol-anchor" name="takeExactly" href="#takeExactly">takeExactly</a>(range, n)</span>
 always defines the <span class="inlinecode">length</span> property (and initializes it to <span class="inlinecode">n</span>)
 even when <span class="inlinecode">range</span> itself does not define <span class="inlinecode">length</span>.
@@ -1137,12 +1066,9 @@ is an input range with length. Finally, if <span class="inlinecode">R</span> is 
 with length.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a>(R)(R <i>source</i>);
 <br>auto <a class="symbol symbol-anchor" name="takeNone" href="#takeNone">takeNone</a>(R)();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range with at most one element; for example, <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a>([42, 43, 44])</span> returns a range consisting of the integer <span class="inlinecode">42</span>. Calling <span class="inlinecode">popFront()</span> off that range renders it empty.
 </p>
 
@@ -1178,11 +1104,8 @@ range with length regardless of <span class="inlinecode">R</span>'s capability (
 that distinguishes <span class="inlinecode"><a class="symbol symbol-anchor" name="takeOne" href="#takeOne">takeOne</a></span>/<span class="inlinecode">takeNone</span> from <span class="inlinecode">take</span>).</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>R <a class="symbol symbol-anchor" name="drop" href="#drop">drop</a>(R)(R <i>range</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience function which calls <span class="inlinecode"><a href="#popFrontN"><span class="inlinecode">popFrontN</span></a>(range, n)</span> and
     returns <span class="inlinecode">range</span>.
 </p>
@@ -1193,14 +1116,10 @@ that distinguishes <span class="inlinecode"><a class="symbol symbol-anchor" name
 <span class="d_keyword">assert</span>(equal(<u>drop</u>(take(<span class="d_string">"hello world"</span>, 6), 3), <span class="d_string">"lo "</span>));
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="popFrontN" href="#popFrontN">popFrontN</a>(Range)(ref Range <i>r</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Eagerly advances <span class="inlinecode">r</span> itself (not a copy) <span class="inlinecode">n</span> times (by calling
 <span class="inlinecode">r.popFront</span> at most <span class="inlinecode">n</span> times). The pass of <span class="inlinecode">r</span> into <span class="inlinecode"><a class="symbol symbol-anchor" name="popFrontN" href="#popFrontN">popFrontN</a></span> is by reference, so the original range is
 affected. Completes in <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> steps for ranges that support
@@ -1215,11 +1134,8 @@ a.<u>popFrontN</u>(2);
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="popBackN" href="#popBackN">popBackN</a>(Range)(ref Range <i>r</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Eagerly reduces <span class="inlinecode">r</span> itself (not a copy) <span class="inlinecode">n</span> times from its right
    side (by calling <span class="inlinecode">r.popBack</span> <span class="inlinecode">n</span> times). The pass of <span class="inlinecode">r</span> into
    <span class="inlinecode"><a class="symbol symbol-anchor" name="popBackN" href="#popBackN">popBackN</a></span> is by reference, so the original range is
@@ -1238,12 +1154,9 @@ a.<u>popFrontN</u>(2);
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Repeat" href="#Repeat">Repeat</a>(T);
 <br>Repeat!(T) <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(T)(T <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Repeats one value forever.
 </p>
 
@@ -1260,34 +1173,24 @@ a.<u>popFrontN</u>(2);
 <br>Repeat!(T) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 <br>T <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitive implementations.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Take!(Repeat!(T)) <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(T)(T <i>value</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Repeats <span class="inlinecode">value</span> exactly <span class="inlinecode">n</span> times. Equivalent to <span class="inlinecode">  take(<a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(value), n)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Take!(Repeat!(T)) <a class="symbol symbol-anchor" name="replicate" href="#replicate">replicate</a>(T)(T <i>value</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Equivalent to <span class="inlinecode">repeat(value, n)</span>. Scheduled for deprecation.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(Range) if (isForwardRange!(Unqual!(Range)) &amp;&amp; !isInfinite!(Unqual!(Range)));
 <br>template <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(R) if (isInfinite!(R))<br>struct <a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a>(R) if (isStaticArray!(R));
 <br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(R <i>input</i>);
@@ -1295,8 +1198,6 @@ a.<u>popFrontN</u>(2);
 <br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(R <i>input</i>);
 <br>Cycle!(R) <a class="symbol symbol-anchor" name="cycle" href="#cycle">cycle</a>(R)(ref R <i>input</i>, size_t <i>index</i> = 0);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Repeats the given forward range ad infinitum. If the original range is
 infinite (fact that would make <span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> the identity application),
 <span class="inlinecode"><a class="symbol symbol-anchor" name="Cycle" href="#Cycle">Cycle</a></span> detects that and aliases itself to the range type
@@ -1321,22 +1222,16 @@ This is a great way to implement simple circular buffers.</dd>
 <br>auto <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType!(R) <i>val</i>, size_t <i>n</i>);
 <br>Cycle!(R) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitive implementations.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Zip" href="#Zip">Zip</a>(Ranges...) if (Ranges.length &amp;&amp; allSatisfy!(isInputRange,staticMap!(Unqual,Ranges)));
 <br>auto <a class="symbol symbol-anchor" name="zip" href="#zip">zip</a>(R...)(R <i>ranges</i>);
 <br>auto <a class="symbol symbol-anchor" name="zip" href="#zip">zip</a>(R...)(StoppingPolicy <i>sp</i>, R <i>ranges</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Iterate several ranges in lockstep. The element type is a proxy tuple
    that allows accessing the current element in the <span class="inlinecode">n</span>th range by
    using <span class="inlinecode">e[n]</span>.
@@ -1370,203 +1265,140 @@ This is a great way to implement simple circular buffers.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(R <i>rs</i>, StoppingPolicy <i>s</i> = StoppingPolicy.shortest);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Builds an object. Usually this is invoked indirectly by using the
    <a href="#zip"><span class="inlinecode">zip</span></a> function.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the range is at end. The test depends on the
    stopping policy.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the current iterated element.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(ElementType <i>v</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets the <a class="symbol symbol-anchor" name="front" href="#front">front</a> of all iterated ranges.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Moves out the front.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the rightmost element.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Moves out the back.
 </p>
 
 <p>Returns the rightmost element.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(ElementType <i>v</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the current iterated element.
 </p>
 
 <p>Returns the rightmost element.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Advances to the next element in all controlled ranges.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Calls <span class="inlinecode"><a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a></span> for all controlled ranges.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="length" href="#length">length</a> of this range. Defined only if all ranges define
    <span class="inlinecode"><a class="symbol symbol-anchor" name="length" href="#length">length</a></span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the length of this range. Defined only if all ranges define
    <span class="inlinecode">length</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Zip <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>from</i>, size_t <i>to</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a slice of the range. Defined only if all range define
    slicing.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <span class="inlinecode"><i>n</i></span>th element in the composite range. Defined if all
    ranges offer random access.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType <i>v</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Assigns to the <span class="inlinecode"><i>n</i></span>th element in the composite range. Defined if
    all ranges offer random access.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Destructively reads the <span class="inlinecode"><i>n</i></span>th element in the composite
    range. Defined if all ranges offer random access.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="StoppingPolicy" href="#StoppingPolicy">StoppingPolicy</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Dictates how iteration in a <span class="inlinecode">Zip</span> should stop. By default stop at
    the end of the shortest of all ranges.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="shortest" href="#shortest">shortest</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Stop when the <a class="symbol symbol-anchor" name="shortest" href="#shortest">shortest</a> range is exhausted</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="longest" href="#longest">longest</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Stop when the <a class="symbol symbol-anchor" name="longest" href="#longest">longest</a> range is exhausted</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="requireSameLength" href="#requireSameLength">requireSameLength</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Require that all ranges are equal</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Lockstep" href="#Lockstep">Lockstep</a>(Ranges...) if (Ranges.length &gt; 1 &amp;&amp; allSatisfy!(isInputRange,staticMap!(Unqual,Ranges)));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Iterate multiple ranges in lockstep using a <span class="inlinecode">foreach</span> loop.  If only a single
    range is passed in, the <span class="inlinecode"><a class="symbol symbol-anchor" name="Lockstep" href="#Lockstep">Lockstep</a></span> aliases itself away.  If the
    ranges are of different lengths and <span class="inlinecode">s</span> == <span class="inlinecode">StoppingPolicy.shortest</span>
@@ -1581,7 +1413,6 @@ This is a great way to implement simple circular buffers.</dd>
    to the variable will not be propagated to the underlying range.
 
 </dd>
-
 <dt>Examples</dt><dd><pre class="d_code">   <span class="d_keyword">auto</span> arr1 = [1,2,3,4,5];
    <span class="d_keyword">auto</span> arr2 = [6,7,8,9,10];
 
@@ -1599,15 +1430,11 @@ This is a great way to implement simple circular buffers.</dd>
    }
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Recurrence" href="#Recurrence">Recurrence</a>(alias fun,StateType,size_t stateSize);
 <br>Recurrence!(fun,CommonType!(State),State.length) <a class="symbol symbol-anchor" name="recurrence" href="#recurrence">recurrence</a>(alias fun, State...)(State <i>initial</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Creates a mathematical sequence given the initial values and a
 recurrence function that computes the next value from the existing
 values. The sequence comes in the form of an infinite forward
@@ -1646,12 +1473,9 @@ managing the recurrence's state and shifting it appropriately.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Sequence" href="#Sequence">Sequence</a>(alias fun,State);
 <br>Sequence!(fun,Tuple!(State)) <a class="symbol symbol-anchor" name="sequence" href="#sequence">sequence</a>(alias fun, State...)(State <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Sequence" href="#Sequence">Sequence</a></span> is similar to <span class="inlinecode">Recurrence</span> except that iteration is
    presented in the so-called <a href="http://en.wikipedia.org/wiki/Closed_form">   closed form</a>. This means that the <span class="inlinecode">n</span>th element in the series is
    computable directly from the initial values and <span class="inlinecode">n</span> itself. This
@@ -1672,14 +1496,11 @@ managing the recurrence's state and shifting it appropriately.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E, S)(B <i>begin</i>, E <i>end</i>, S <i>step</i>);
 <br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E)(B <i>begin</i>, E <i>end</i>);
 <br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(B, E)(B <i>begin</i>, E <i>end</i>);
 <br>auto <a class="symbol symbol-anchor" name="iota" href="#iota">iota</a>(E)(E <i>end</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a range that goes through the numbers <span class="inlinecode">begin</span>, <span class="inlinecode">begin +
    step</span>, <span class="inlinecode">begin + 2 * step</span>, <span class="inlinecode">...</span>, up to and excluding <span class="inlinecode">  end</span>. The range offered is a random access range. The two-arguments
    version has <span class="inlinecode">step = 1</span>. If <span class="inlinecode">begin &lt; end &amp;&amp; step &lt;= 0</span> or <span class="inlinecode">  begin &gt; end &amp;&amp; step &gt;= 0</span>, then an empty range is returned. If <span class="inlinecode">  begin != end</span> and <span class="inlinecode">step == 0</span>, an exception is thrown.
@@ -1688,7 +1509,6 @@ managing the recurrence's state and shifting it appropriately.
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if <span class="inlinecode">step == 0</span>
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code">   <span class="d_keyword">auto</span> r = <u>iota</u>(0, 10, 1);
    <span class="d_keyword">assert</span>(equal(r, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9][]));
@@ -1701,27 +1521,19 @@ managing the recurrence's state and shifting it appropriately.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="TransverseOptions" href="#TransverseOptions">TransverseOptions</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Options for the <a href="#FrontTransversal"><span class="inlinecode">FrontTransversal</span></a> and <a href="#Transversal"><span class="inlinecode">Transversal</span></a> ranges
    (below).</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="assumeJagged" href="#assumeJagged">assumeJagged</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>When transversed, the elements of a range of ranges are assumed to
    have different lengths (e.g. a jagged array).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="enforceNotJagged" href="#enforceNotJagged">enforceNotJagged</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>The transversal enforces that the elements of a range of ranges have
        all the same length (e.g. an array of arrays, all having the same
        length). Checking is done once upon construction of the transversal
@@ -1729,26 +1541,19 @@ managing the recurrence's state and shifting it appropriately.
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="assumeNotJagged" href="#assumeNotJagged">assumeNotJagged</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>The transversal assumes, without verifying, that the elements of a
        range of ranges have all the same length. This option is useful if
        checking was already done from the outside of the range.</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FrontTransversal" href="#FrontTransversal">FrontTransversal</a>(Ror,TransverseOptions opt = TransverseOptions.assumeJagged);
 <br>FrontTransversal!(RangeOfRanges,opt) <a class="symbol symbol-anchor" name="frontTransversal" href="#frontTransversal">frontTransversal</a>(TransverseOptions opt = TransverseOptions.assumeJagged, RangeOfRanges)(RangeOfRanges <i>rr</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a range of ranges, iterate transversally through the first
    elements of each of the enclosed ranges.
 </p>
@@ -1764,68 +1569,50 @@ managing the recurrence's state and shifting it appropriately.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construction from an <i>input</i>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
 <br>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>ElementType <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward range primitives.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 <br>ElementType <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Bidirectional primitives. They are offered if <span class="inlinecode">  isBidirectionalRange!RangeOfRanges</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ref auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
 <br>ElementType <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType <i>val</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Random-access primitive. It is offered if <span class="inlinecode">  isRandomAccessRange!RangeOfRanges &amp;&amp; (opt ==
    TransverseOptions.assumeNotJagged || opt ==
    TransverseOptions.enforceNotJagged)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>lower</i>, size_t <i>upper</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Slicing if offered if <span class="inlinecode">RangeOfRanges</span> supports slicing and all the
    conditions for supporting indexing are met.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Transversal" href="#Transversal">Transversal</a>(Ror,TransverseOptions opt = TransverseOptions.assumeJagged);
 <br>Transversal!(RangeOfRanges,opt) <a class="symbol symbol-anchor" name="transversal" href="#transversal">transversal</a>(TransverseOptions opt = TransverseOptions.assumeJagged, RangeOfRanges)(RangeOfRanges <i>rr</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a range of ranges, iterate transversally through the the <span class="inlinecode">  n</span>th element of each of the enclosed ranges. All elements of the
    enclosing range must offer random access.
 </p>
@@ -1841,13 +1628,10 @@ managing the recurrence's state and shifting it appropriately.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(RangeOfRanges <i>input</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construction from an <i>input</i> and an index.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>;
 <br>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>E <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
@@ -1855,58 +1639,43 @@ managing the recurrence's state and shifting it appropriately.
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>typeof(this) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Forward range primitives.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 <br>E <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
 <br>@property auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>(E <i>val</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Bidirectional primitives. They are offered if <span class="inlinecode">  isBidirectionalRange!RangeOfRanges</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ref auto <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>n</i>);
 <br>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>n</i>);
 <br>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(E <i>val</i>, size_t <i>n</i>);
 <br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 <br>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Random-access primitive. It is offered if <span class="inlinecode">  isRandomAccessRange!RangeOfRanges &amp;&amp; (opt ==
    TransverseOptions.assumeNotJagged || opt ==
    TransverseOptions.enforceNotJagged)</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>typeof(this) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>lower</i>, size_t <i>upper</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Slicing if offered if <span class="inlinecode">RangeOfRanges</span> supports slicing and all the
    conditions for supporting indexing are met.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Indexed" href="#Indexed">Indexed</a>(Source,Indices) if (isRandomAccessRange!(Source) &amp;&amp; isInputRange!(Indices) &amp;&amp; is(typeof(Source.init[ElementType!(Indices).init])));
 <br>Indexed!(Source,Indices) <a class="symbol symbol-anchor" name="indexed" href="#indexed">indexed</a>(Source, Indices)(Source <i>source</i>, Indices <i>indices</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This struct takes two ranges, <span class="inlinecode">source</span> and <span class="inlinecode">indices</span>, and creates a view
 of <span class="inlinecode">source</span> as if its elements were reordered according to <span class="inlinecode">indices</span>.
 <span class="inlinecode">indices</span> may include only a subset of the elements of <span class="inlinecode">source</span> and
@@ -1932,7 +1701,6 @@ ind[0]++;
 <span class="d_keyword">assert</span>(ind[5] == 6);
 </pre>
 </dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property ref auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
@@ -1949,35 +1717,24 @@ ind[0]++;
 <br>auto <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ElementType!(Source) <i>newVal</i>, size_t <i>index</i>);
 <br>auto <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Source <a class="symbol symbol-anchor" name="source" href="#source">source</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="source" href="#source">source</a> range.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Indices <a class="symbol symbol-anchor" name="indices" href="#indices">indices</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="indices" href="#indices">indices</a> range.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="physicalIndex" href="#physicalIndex">physicalIndex</a>(size_t <i>logicalIndex</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the physical index into the source range corresponding to a
         given logical index.  This is useful, for example, when indexing
         an <span class="inlinecode">Indexed</span> without adding another layer of indirection.
@@ -1987,18 +1744,13 @@ ind[0]++;
         <span class="d_keyword">assert</span>(ind.<u>physicalIndex</u>(0) == 1);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Chunks" href="#Chunks">Chunks</a>(Source) if (hasSlicing!(Source) &amp;&amp; hasLength!(Source));
 <br>Chunks!(Source) <a class="symbol symbol-anchor" name="chunks" href="#chunks">chunks</a>(Source)(Source <i>source</i>, size_t <i>chunkSize</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This range iterates over fixed-sized chunks of size <span class="inlinecode">chunkSize</span> of a
 <span class="inlinecode">source</span> range.  <span class="inlinecode">Source</span> must be an input range with slicing and length.
 If <span class="inlinecode">source.length</span> is not evenly divisible by <span class="inlinecode">chunkSize</span>, the back
@@ -2015,15 +1767,11 @@ element of this range will contain fewer than <span class="inlinecode">chunkSize
 <span class="d_keyword">assert</span>(chunks.length == 3);
 </pre>
 </dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Source <i>source</i>, size_t <i>chunkSize</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property auto <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 <br>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 <br>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
@@ -2034,52 +1782,37 @@ element of this range will contain fewer than <span class="inlinecode">chunkSize
 <br>@property auto <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 <br>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>(R)(R <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Moves the front of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">r.front</span> in a
    destroyable state that does not allocate any resources (usually equal
    to its <span class="inlinecode">.init</span> value).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>(R)(R <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Moves the back of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">r.back</span> in a
    destroyable state that does not allocate any resources (usually equal
    to its <span class="inlinecode">.init</span> value).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ElementType!(R) <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(R, I)(R <i>r</i>, I <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Moves element at index <span class="inlinecode">i</span> of <span class="inlinecode">r</span> out and returns it. Leaves <span class="inlinecode">  r.front</span> in a destroyable state that does not allocate any resources
    (usually equal to its <span class="inlinecode">.init</span> value).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="InputRange" href="#InputRange">InputRange</a>(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>These interfaces are intended to provide virtual function-based wrappers
  around input ranges with element type E.  This is useful where a well-defined
  binary interface is required, such as when a DLL function or virtual function
@@ -2110,7 +1843,6 @@ element of this range will contain fewer than <span class="inlinecode">chunkSize
 </pre>
 
 </dd>
-
 <dt>Limitations:</dt><dd>
 These interfaces are not capable of forwarding <span class="inlinecode">ref</span> access to elements.
 <br><br>
@@ -2122,324 +1854,204 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="front" href="#front">front</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveFront" href="#moveFront">moveFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popFront" href="#popFront">popFront</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="empty" href="#empty">empty</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(int delegate(E));
 <br>int <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>(int delegate(size_t, E));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode">foreach</span> iteration uses <a class="symbol symbol-anchor" name="opApply" href="#opApply">opApply</a>, since one delegate call per loop
  iteration is faster than three virtual function calls.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="ForwardRange" href="#ForwardRange">ForwardRange</a>(E): InputRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for a forward range of type <span class="inlinecode">E</span>.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ForwardRange!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="BidirectionalRange" href="#BidirectionalRange">BidirectionalRange</a>(E): ForwardRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for a bidirectional range of type <span class="inlinecode">E</span>.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>BidirectionalRange!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="back" href="#back">back</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveBack" href="#moveBack">moveBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="popBack" href="#popBack">popBack</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomAccessFinite" href="#RandomAccessFinite">RandomAccessFinite</a>(E): BidirectionalRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for a finite random access range of type <span class="inlinecode">E</span>.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>RandomAccessFinite!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="opDollar" href="#opDollar">opDollar</a>;
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>RandomAccessFinite!(E) <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t, size_t);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomAccessInfinite" href="#RandomAccessInfinite">RandomAccessInfinite</a>(E): ForwardRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for an infinite random access range of type <span class="inlinecode">E</span>.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="moveAt" href="#moveAt">moveAt</a>(size_t);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>RandomAccessInfinite!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>E <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="InputAssignable" href="#InputAssignable">InputAssignable</a>(E): InputRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Adds assignable elements to InputRange.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="front" href="#front">front</a>(E <i>newVal</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="ForwardAssignable" href="#ForwardAssignable">ForwardAssignable</a>(E): InputAssignable!(E), ForwardRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Adds assignable elements to ForwardRange.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ForwardAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="BidirectionalAssignable" href="#BidirectionalAssignable">BidirectionalAssignable</a>(E): ForwardAssignable!(E), BidirectionalRange!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Adds assignable elements to BidirectionalRange.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>BidirectionalAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="back" href="#back">back</a>(E <i>newVal</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="RandomFiniteAssignable" href="#RandomFiniteAssignable">RandomFiniteAssignable</a>(E): RandomAccessFinite!(E), BidirectionalAssignable!(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Adds assignable elements to RandomAccessFinite.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>RandomFiniteAssignable!(E) <a class="symbol symbol-anchor" name="save" href="#save">save</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(E <i>val</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>interface <a class="symbol symbol-anchor" name="OutputRange" href="#OutputRange">OutputRange</a>(E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Interface for an output range of type <span class="inlinecode">E</span>.  Usage is similar to the
  <span class="inlinecode">InputRange</span> interface and descendants.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(E);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="OutputRangeObject" href="#OutputRangeObject">OutputRangeObject</a>(R,E...): staticMap!(OutputRange,E);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements the <span class="inlinecode">OutputRange</span> interface for all types E and wraps the
  <span class="inlinecode">put</span> method for each type <span class="inlinecode">E</span> in a virtual function.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="MostDerivedInputRange" href="#MostDerivedInputRange">MostDerivedInputRange</a>(R) if (isInputRange!(Unqual!(R)))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the interface type that best matches <span class="inlinecode">R</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="InputRangeObject" href="#InputRangeObject">InputRangeObject</a>(R) if (isInputRange!(Unqual!(R)))</h3></div>
-
-
 <div class="declaration-content"><dl><p>Implements the most derived interface that <span class="inlinecode">R</span> works with and wraps
  all relevant range primitives in virtual functions.  If <span class="inlinecode">R</span> is already
  derived from the <span class="inlinecode">InputRange</span> interface, aliases itself away.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>InputRangeObject!(R) <a class="symbol symbol-anchor" name="inputRangeObject" href="#inputRangeObject">inputRangeObject</a>(R)(R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience function for creating a <span class="inlinecode">InputRangeObject</span> of the proper type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="outputRangeObject" href="#outputRangeObject">outputRangeObject</a>(E...)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience function for creating a <span class="inlinecode">OutputRangeObject</span> with a base range
  of type <span class="inlinecode">R</span> that accepts types <span class="inlinecode">E</span>.
 </p>
@@ -2451,21 +2063,14 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
  <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(appWrapped) : OutputRange!(<span class="d_keyword">uint</span>)));
 </pre>
 </dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>OutputRangeObject!(R,E) <a class="symbol symbol-anchor" name="outputRangeObject" href="#outputRangeObject">outputRangeObject</a>(R)(R <i>range</i>);
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="isTwoWayCompatible" href="#isTwoWayCompatible">isTwoWayCompatible</a>(alias fn,T1,T2)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if <span class="inlinecode">fn</span> accepts variables of type T1 and T2 in any order.
   The following code should compile:
 <pre class="d_code">  T1 t1;
@@ -2477,17 +2082,12 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SearchPolicy" href="#SearchPolicy">SearchPolicy</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Policy used with the searching primitives <span class="inlinecode">lowerBound</span>, <span class="inlinecode">  upperBound</span>, and <span class="inlinecode">equalRange</span> of <a href="#SortedRange"><span class="inlinecode">SortedRange</span></a> below.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trot" href="#trot">trot</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Searches with a step that is grows linearly (1, 2, 3,...)
        leading to a quadratic search schedule (indexes tried are 0, 1,
        3, 6, 10, 15, 21, 28,...) Once the search overshoots its target,
@@ -2498,10 +2098,7 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="gallop" href="#gallop">gallop</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Performs a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=galloping search algorithm">galloping search algorithm</a>, i.e. searches
        with a step that doubles every time, (1, 2, 4, 8, ...)  leading
        to an exponential search schedule (indexes tried are 0, 1, 3,
@@ -2511,10 +2108,7 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="binarySearch" href="#binarySearch">binarySearch</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Searches using a classic interval halving policy. The search
        starts in the middle of the range, and each search step cuts
        the range in half. This policy finds a value in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b>
@@ -2524,33 +2118,23 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trotBackwards" href="#trotBackwards">trotBackwards</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">trot</span> but starts backwards. Use it when
        confident that the value is around the end of the range.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="gallopBackwards" href="#gallopBackwards">gallopBackwards</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">gallop</span> but starts backwards. Use it when
        confident that the value is around the end of the range.</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a>(Range,alias pred = "a &lt; b") if (isRandomAccessRange!(Range));
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Represents a sorted random-access range. In addition to the regular
    range primitives, supports fast operations using binary search. To
    obtain a <span class="inlinecode"><a class="symbol symbol-anchor" name="SortedRange" href="#SortedRange">SortedRange</a></span> from an unsorted range <span class="inlinecode">r</span>, use
@@ -2602,26 +2186,18 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 <br>auto <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(size_t <i>a</i>, size_t <i>b</i>);
 <br>size_t <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Range primitives.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="release" href="#release">release</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Releases the controlled range and returns it.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="lowerBound" href="#lowerBound">lowerBound</a>(SearchPolicy sp = SearchPolicy.binarySearch, V)(V <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This function uses binary search with policy <span class="inlinecode">sp</span> to find the
    largest left subrange on which <span class="inlinecode">pred(x, value)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span> for
    all <span class="inlinecode">x</span> (e.g., if <span class="inlinecode">pred</span> is "less than", returns the portion of
@@ -2639,11 +2215,8 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="upperBound" href="#upperBound">upperBound</a>(SearchPolicy sp = SearchPolicy.binarySearch, V)(V <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>This function uses binary search with policy <span class="inlinecode">sp</span> to find the
    largest right subrange on which <span class="inlinecode">pred(value, x)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>
    for all <span class="inlinecode">x</span> (e.g., if <span class="inlinecode">pred</span> is "less than", returns the
@@ -2660,11 +2233,8 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="equalRange" href="#equalRange">equalRange</a>(V)(V <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the subrange containing all elements <span class="inlinecode">e</span> for which both <span class="inlinecode">  pred(e, value)</span> and <span class="inlinecode">pred(value, e)</span> evaluate to <span class="inlinecode"><span class="d_keyword">false</span></span> (e.g.,
    if <span class="inlinecode">pred</span> is "less than", returns the portion of the range with
    elements equal to <span class="inlinecode">value</span>). Uses a classic binary search with
@@ -2685,11 +2255,8 @@ These interfaces are not capable of forwarding <span class="inlinecode">ref</spa
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="trisect" href="#trisect">trisect</a>(V)(V <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a tuple <span class="inlinecode">r</span> such that <span class="inlinecode">r[0]</span> is the same as the result
 of <span class="inlinecode">lowerBound(value)</span>, <span class="inlinecode">r[1]</span> is the same as the result of <span class="inlinecode">equalRange(value)</span>, and <span class="inlinecode">r[2]</span> is the same as the result of <span class="inlinecode">upperBound(value)</span>. The call is faster than computing all three
 separately. Uses a search schedule similar to <span class="inlinecode">equalRange</span>. Completes the entire search in <b><i>&Omicron;</i>(</b><span class="inlinecode">log(n)</span><b><i>)</i></b> time.
@@ -2705,33 +2272,23 @@ separately. Uses a search schedule similar to <span class="inlinecode">equalRang
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="contains" href="#contains">contains</a>(V)(V <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">value</span> can be found in <span class="inlinecode">range</span>, which is assumed to be sorted. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">log(r.length)</span><b><i>)</i></b>
 evaluations of <span class="inlinecode">pred</span>. See also STL's <a href="http://sgi.com/tech/stl/binary_search.html">binary_search</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="canFind" href="#canFind">canFind</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Deprecated alias for <span class="inlinecode">contains</span>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="assumeSorted" href="#assumeSorted">assumeSorted</a>(alias pred = "a &lt; b", R)(R <i>r</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Assumes <span class="inlinecode">r</span> is sorted by predicate <span class="inlinecode">pred</span> and returns the
 corresponding <span class="inlinecode">SortedRange!(pred, R)</span> having <span class="inlinecode">r</span> as support. To
 keep the checking costs low, the cost is <b><i>&Omicron;</i>(</b><span class="inlinecode">1</span><b><i>)</i></b> in release mode
@@ -2746,7 +2303,6 @@ cost <b><i>&Omicron;</i>(</b><span class="inlinecode">n</span><b><i>)</i></b>, u
 
 </dl>
 </div>
-
 
 
 				</div>

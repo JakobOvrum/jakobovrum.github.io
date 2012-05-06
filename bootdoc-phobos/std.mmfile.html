@@ -289,81 +289,56 @@
 
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
             Matthew Wilson
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/mmfile.d">std/mmfile.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="MmFile" href="#MmFile">MmFile</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="MmFile" href="#MmFile">MmFile</a> objects control the memory mapped file resource.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Mode" href="#Mode">Mode</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The mode the memory mapped file is opened with.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="read" href="#read">read</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Read existing file</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="readWriteNew" href="#readWriteNew">readWriteNew</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Delete existing file, write new file</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="readWrite" href="#readWrite">readWrite</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write existing file, create if not existing</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="readCopyOnWrite" href="#readCopyOnWrite">readCopyOnWrite</a></h3></div>
-
-
 <div class="declaration-content"><dl><p>Read/Write existing file, copy on write</p>
 
 </dl>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Open memory mapped file <i>filename</i> for reading.
  File is closed when the object instance is deleted.
 </p>
 
 <dt>Throws</dt><dd>std.file.FileException</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, Mode <i>mode</i>, ulong <i>size</i>, void* <i>address</i>, uint <i>window</i> = cast(uint)0);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Open memory mapped file <i>filename</i> in <i>mode</i>.
  File is closed when the object instance is deleted.
 </p>
@@ -390,69 +365,47 @@
       multiple of the memory allocation page <i>size</i>.</td>
 </tr>
 </table></dd>
-
 <dt>Throws</dt><dd>std.file.FileException</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const @property ulong <a class="symbol symbol-anchor" name="length" href="#length">length</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Gives size in bytes of the memory mapped file.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Mode <a class="symbol symbol-anchor" name="mode" href="#mode">mode</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Read-only property returning the file <a class="symbol symbol-anchor" name="mode" href="#mode">mode</a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns entire file contents as an array.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="opSlice" href="#opSlice">opSlice</a>(ulong <i>i1</i>, ulong <i>i2</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns slice of file contents as an array.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(ulong <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns byte at index <i>i</i> in file.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ubyte <a class="symbol symbol-anchor" name="opIndexAssign" href="#opIndexAssign">opIndexAssign</a>(ubyte <i>value</i>, ulong <i>i</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets and returns byte at index <i>i</i> in file to <i>value</i>.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

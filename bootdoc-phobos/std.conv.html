@@ -290,7 +290,6 @@
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a>,
            Shin Fujishiro,
@@ -298,53 +297,38 @@
            Kenji Hara
 
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ConvException" href="#ConvException">ConvException</a>: object.Exception;
 <br>deprecated alias <a class="symbol symbol-anchor" name="ConvError" href="#ConvError">ConvError</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown on conversion errors.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ConvOverflowException" href="#ConvOverflowException">ConvOverflowException</a>: std.conv.ConvException;
 <br>deprecated alias <a class="symbol symbol-anchor" name="ConvOverflowError" href="#ConvOverflowError">ConvOverflowError</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Thrown on conversion overflow errors.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="to" href="#to">to</a>(T)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Entry point that dispatches <a class="symbol symbol-anchor" name="to" href="#to">to</a> the appropriate conversion
    primitive. Client code normally calls <span class="inlinecode">to!TargetType(value)</span>
    (and not some variant of <span class="inlinecode">toImpl</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If the source type is implicitly convertible to the target type, <span class="inlinecode">to</span> simply performs the implicit conversion.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012. Please define <span class="inlinecode">opCast</span>
       for user-defined types instead of a <span class="inlinecode">to</span> function.
       <a href="#to"><span class="inlinecode">to</span></a> will now use <span class="inlinecode">opCast</span>.</font>
@@ -375,38 +359,28 @@ object.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>When source type supports member template function opCast, is is used.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>src</i>);
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>src</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>When target type supports 'converting construction', it is used.
 <ul><li>If target type is struct, <span class="inlinecode">T(src)</span> is used.</li>
      <li>If target type is class, <span class="inlinecode">new T(src)</span> is used.</li></ul></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Object-to-object conversions by dynamic casting throw exception when the source is
 non-<span class="d_keyword">null</span> and the target is <span class="d_keyword">null</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>);
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>);
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>);
@@ -424,8 +398,6 @@ non-<span class="d_keyword">null</span> and the target is <span class="d_keyword
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Stringnize conversion from all types is supported.
 <ul> <li>String to string conversion works for any two string types having
        (<span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, <span class="inlinecode">dchar</span>) character widths and any
@@ -458,42 +430,30 @@ non-<span class="d_keyword">null</span> and the target is <span class="d_keyword
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Narrowing numeric-numeric conversions throw when the value does not
 fit in the narrower type.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>src</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Array-to-array conversion (except when target is a string type)
 converts each element in turn by using <span class="inlinecode">to</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>src</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Associative array to associative array conversion converts each key
 and each value in turn.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 <br>T <a class="symbol symbol-anchor" name="toImpl" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>String to non-string conversion runs parsing.
 <ul> <li>When the source is a wide string, it is first converted to a narrow
        string and then parsed.</li>
@@ -501,10 +461,7 @@ and each value in turn.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="roundTo" href="#roundTo">roundTo</a>(Target)</h3></div>
-
-
 <div class="declaration-content"><dl><p>Rounded conversion from floating point to integral.
 </p>
 
@@ -521,12 +478,9 @@ and each value in turn.</p>
 Rounded conversions do not work with non-integral target types.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
 <br>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, uint <i>radix</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The <b><a class="symbol symbol-anchor" name="parse" href="#parse">parse</a></b> family of functions works quite like the
  <b>to</b> family, except that (1) it only works with character ranges
  as input, (2) takes the input by reference and advances it to
@@ -552,43 +506,31 @@ munch(test, <span class="d_string">" \t\n\r"</span>); <span class="d_comment">//
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Parsing one character off a string returns the character and bumps the
 string up one position.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
 <br>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Parses an array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), and element seprator (by
  default <span class="inlinecode">','</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Target <a class="symbol symbol-anchor" name="parse" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>keyval</i> = ':', dchar <i>comma</i> = ',');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Parses an associative array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), key-value separator (default <span class="inlinecode">':'</span>), and element seprator (by default <span class="inlinecode">','</span>).</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="text" href="#text">text</a>(T...)(T <i>args</i>);
 <br>wstring <a class="symbol symbol-anchor" name="wtext" href="#wtext">wtext</a>(T...)(T <i>args</i>);
 <br>dstring <a class="symbol symbol-anchor" name="dtext" href="#dtext">dtext</a>(T...)(T <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Convenience functions for converting any number and types of
    arguments into text (the three character widths).
 </p>
@@ -601,14 +543,11 @@ string up one position.</p>
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>(string num)();
 <br>long <a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>(string num)();
 <br>uint <a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>(string num)();
 <br>ulong <a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>(string num)();
 <br>template <a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>(alias s) if (isIntegral!(typeof(s)))</h3></div>
-
-
 <div class="declaration-content"><dl><p>The <span class="inlinecode"><a class="symbol symbol-anchor" name="octal" href="#octal">octal</a></span> facility is intended as an experimental facility to
 replace octal literals starting with <span class="inlinecode">'0'</span>, which many find
 confusing. Using <span class="inlinecode"><a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>!177</span> or <span class="inlinecode"><a class="symbol symbol-anchor" name="octal" href="#octal">octal</a>!"177"</span> instead of <span class="inlinecode">0177</span> as an octal literal makes code clearer and the intent more
@@ -637,12 +576,9 @@ of the passed-in integral.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T* <a class="symbol symbol-anchor" name="emplace" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
 <br>T* <a class="symbol symbol-anchor" name="emplace" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as <span class="inlinecode">T</span>), constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that
 address.
@@ -654,14 +590,10 @@ address.
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object (which is the same
 as <span class="inlinecode">chunk</span>).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T* <a class="symbol symbol-anchor" name="emplace" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as a non-class type <span class="inlinecode">T</span>), constructs an object of type <span class="inlinecode">T</span> at
 that address from arguments <span class="inlinecode">args</span>.
@@ -673,14 +605,10 @@ that address from arguments <span class="inlinecode">args</span>.
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object (which is the same
 as <span class="inlinecode">chunk</span>).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="emplace" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of <span class="inlinecode">class</span>
 type <span class="inlinecode">T</span> at that address. The constructor is passed the arguments
 <span class="inlinecode">Args</span>. The <span class="inlinecode">chunk</span> must be as least as large as <span class="inlinecode">T</span> needs
@@ -693,14 +621,10 @@ of a <span class="inlinecode">class</span> instance is obtained by using <span c
 
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T* <a class="symbol symbol-anchor" name="emplace" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that address. The constructor is passed the
 arguments <span class="inlinecode">args</span>, if any. The <span class="inlinecode">chunk</span> must be as least as large
 as <span class="inlinecode">T</span> needs and should have an alignment multiple of <span class="inlinecode">T</span>'s
@@ -712,10 +636,8 @@ alignment.
 
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
-
 </dl>
 </div>
-
 
 
 				</div>

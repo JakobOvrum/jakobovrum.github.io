@@ -421,19 +421,15 @@ synchronous.
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd>Jonas Drewsen. Some of the SMTP code contributed by Jimmy Cao.
 
 </dd>
-
 <dt>Credits:</dt><dd>
 The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
          LibCurl is licensed under an MIT/X derivate license.</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="AutoProtocol" href="#AutoProtocol">AutoProtocol</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Connection type used when the URL should be used to auto detect the protocol.
 </p>
 
@@ -470,11 +466,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="download" href="#download">download</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, string <i>saveToPath</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="download" href="#download">download</a> to local file system.
 </p>
 
@@ -489,7 +482,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>download</u>(<span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>, <span class="d_string">"/tmp/downloaded-ftp-file"</span>);
@@ -498,11 +490,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a>(Conn = AutoProtocol)(string <i>loadFromPath</i>, const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Upload file from local files system using the HTTP or FTP protocol.
 </p>
 
@@ -517,7 +506,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>upload</u>(<span class="d_string">"/tmp/downloaded-ftp-file"</span>, <span class="d_string">"ftp.digitalmars.com/sieve.ds"</span>);
@@ -526,11 +514,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="get" href="#get">get</a>(Conn = AutoProtocol, T = char)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="get" href="#get">get</a> content.
 </p>
 
@@ -546,7 +531,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>get</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
@@ -556,16 +540,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="post" href="#post">post</a>(T = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="post" href="#post">post</a> content.
 </p>
 
@@ -586,7 +565,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>post</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>, [1,2,3,4]);
@@ -596,16 +574,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="put" href="#put">put</a>(Conn = AutoProtocol, T = char, PutUnit)(const(char)[] <i>url</i>, const(PutUnit)[] <i>putData</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="put" href="#put">put</a> content.
 </p>
 
@@ -626,7 +599,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  string content = <u>put</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>,
@@ -637,16 +609,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the content of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="del" href="#del">del</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP delete content.
 </p>
 
@@ -658,7 +625,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
         guess connection type and create a new instance for this call only.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>del</u>(<span class="d_string">"d-lang.appspot.com/testUrl2"</span>);
@@ -666,14 +632,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dd>
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="options" href="#options">options</a>(T = char, OptionsUnit)(const(char)[] <i>url</i>, const(OptionsUnit)[] <i>optionsData</i> = null, HTTP <i>conn</i> = HTTP());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="options" href="#options">options</a> request.
 </p>
 
@@ -696,7 +658,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  for this reason the example below does not send optionsData to the server.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <span class="d_keyword">auto</span> http = HTTP();
@@ -708,16 +669,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="options" href="#options">options</a> of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> request.
 </p>
 
@@ -733,7 +689,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>trace</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
@@ -743,16 +698,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> info of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> request.
 </p>
 
@@ -768,7 +718,6 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  are <span class="inlinecode">char</span> and <span class="inlinecode">ubyte</span> to return <span class="inlinecode">char[]</span> or <span class="inlinecode">ubyte[]</span>.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  <u>connect</u>(<span class="d_string">"d-lang.appspot.com/testUrl1"</span>);
@@ -778,16 +727,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> info of the resource pointed to by the URL.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLine" href="#byLine">byLine</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>struct ByLineBuffer(Char)
 {
     bool linePresent;
@@ -853,16 +797,11 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the URL</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunk" href="#byChunk">byChunk</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks.
 </p>
 
@@ -889,17 +828,12 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by the URL</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 <br>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of lines asynchronously.
 </p>
 
@@ -973,18 +907,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the
  URL.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 <br>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks asynchronously.
 </p>
 
@@ -1058,17 +987,12 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by
  the URL.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a> client functionality.
 </p>
 
@@ -1115,41 +1039,29 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dd>
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC2616</a></dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="AuthMethod" href="#AuthMethod">AuthMethod</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Authentication method equal to <a href="etc_c_curl.html#CurlAuth"><span class="inlinecode">etc.c.curl.CurlAuth</span></a></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="TimeCond" href="#TimeCond">TimeCond</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Time condition enumeration as an alias of <a href="etc_c_curl.html#CurlTimeCond"><span class="inlinecode">etc.c.curl.CurlTimeCond</span></a>
 </p>
 
 <p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">RFC2616 Section 14.25</a></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>this(const(char)[] <i>url</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Constructor taking the <i>url</i> as parameter.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Perform a http request.
 </p>
 
@@ -1158,29 +1070,20 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        specified server.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearRequestHeaders" href="#clearRequestHeaders">clearRequestHeaders</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clear all outgoing headers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addRequestHeader" href="#addRequestHeader">addRequestHeader</a>(const(char)[] <i>name</i>, const(char)[] <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Add a header e.g. "X-CustomField: Something is fishy".
 </p>
 
@@ -1197,77 +1100,53 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property string[string] <a class="symbol symbol-anchor" name="responseHeaders" href="#responseHeaders">responseHeaders</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The headers read from a successful response.
 </p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="method" href="#method">method</a>(Method <i>m</i>);
 <br>@property Method <a class="symbol symbol-anchor" name="method" href="#method">method</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="method" href="#method">method</a> used.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property StatusLine <a class="symbol symbol-anchor" name="statusLine" href="#statusLine">statusLine</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP status line of last response. One call to perform may
        result in several requests because of redirection.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setCookieJar" href="#setCookieJar">setCookieJar</a>(const(char)[] <i>path</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set a file <i>path</i> to where a cookie jar should be read/stored.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="flushCookieJar" href="#flushCookieJar">flushCookieJar</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Flush cookie jar to disk.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearSessionCookies" href="#clearSessionCookies">clearSessionCookies</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clear session cookies.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearAllCookies" href="#clearAllCookies">clearAllCookies</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clear all cookies.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setTimeCondition" href="#setTimeCondition">setTimeCondition</a>(HTTP.TimeCond <i>cond</i>, SysTime <i>timestamp</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set time condition on the request.
 </p>
 
@@ -1281,14 +1160,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.25">RFC2616 Section 14.25</a></td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(void)[] <i>data</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
 </p>
 
@@ -1307,11 +1182,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(char)[] <i>data</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
 </p>
 
@@ -1329,11 +1201,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[]) key, const(char[]) value) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set the event handler that receives incoming headers.
 </p>
 
@@ -1351,11 +1220,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveStatusLine" href="#onReceiveStatusLine">onReceiveStatusLine</a>(void delegate(StatusLine) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Callback for each received StatusLine.
 </p>
 
@@ -1364,104 +1230,64 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </p>
 <dt>See Also</dt><dd><a href="#StatusLine"><span class="inlinecode">StatusLine</span></a></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The content length in bytes when using request that has content
        e.g. POST/PUT and not using chunked transfer. Is set as the
        "Content-Length" header.  Set to size_t.max to reset to chunked transfer.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="authenticationMethod" href="#authenticationMethod">authenticationMethod</a>(AuthMethod <i>authMethod</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Authentication method as specified in <a href="#AuthMethod"><span class="inlinecode">AuthMethod</span></a>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="maxRedirects" href="#maxRedirects">maxRedirects</a>(uint <i>maxRedirs</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set max allowed redirections using the location header.
        uint.max for infinite.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Method" href="#Method">Method</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a name="HTTP.Method"/ >The standard HTTP methods :
   <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.1">RFC2616 Section 5.1.1</a></p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="head" href="#head">head</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="get" href="#get">get</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="post" href="#post">post</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="put" href="#put">put</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="del" href="#del">del</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="options" href="#options">options</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trace" href="#trace">trace</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 <hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="connect" href="#connect">connect</a></h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="StatusLine" href="#StatusLine">StatusLine</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP status line ie. the first line returned in an HTTP response.
 </p>
 
@@ -1470,85 +1296,57 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="majorVersion" href="#majorVersion">majorVersion</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Major HTTP version ie. 1 in HTTP/1.0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="minorVersion" href="#minorVersion">minorVersion</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Minor HTTP version ie. 0 in HTTP/1.0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="code" href="#code">code</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="code" href="#code">code</a> e.g. 200.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a> string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@safe void <a class="symbol symbol-anchor" name="reset" href="#reset">reset</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Reset this status line</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
 </h3></div>
-
-
 <div class="declaration-content"><br><br>
 </div>
-
 </div>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a> client functionality.
 </p>
 
 <dt>See Also</dt><dd><a href="http://tools.ietf.org/html/rfc959">RFC959</a></dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(const(char)[] <i>url</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>FTP access to the specified <i>url</i>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Performs the ftp request as it has been configured.
 </p>
 
@@ -1556,29 +1354,20 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        server.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearCommands" href="#clearCommands">clearCommands</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clear all commands send to ftp server.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addCommand" href="#addCommand">addCommand</a>(const(char)[] <i>command</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Add a <i>command</i> to send to ftp server.
 </p>
 
@@ -1596,23 +1385,16 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The content length in bytes of the ftp data.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Basic <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a> protocol support.
 </p>
 
@@ -1631,76 +1413,52 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dd>
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2821.txt">RFC2821</a></dd>
-
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>url</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets to the URL of the SMTP server.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Performs the request as configured.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailFrom" href="#mailFrom">mailFrom</a>()(const(char)[] <i>sender</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Setter for the sender's email address.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailTo" href="#mailTo">mailTo</a>()(const(char)[][] <i>recipients</i>...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Setter for the recipient email addresses.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="message" href="#message">message</a>(string <i>msg</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Sets the <a class="symbol symbol-anchor" name="message" href="#message">message</a> body text.</p>
 
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlException" href="#CurlException">CurlException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown on errors in std.net.curl functions.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
@@ -1714,24 +1472,17 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlTimeoutException" href="#CurlTimeoutException">CurlTimeoutException</a>: std.net.curl.CurlException;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown on timeout errors in std.net.curl functions.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
@@ -1745,26 +1496,18 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="CurlCode" href="#CurlCode">CurlCode</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Equal to <a href="etc_c_curl.html#CURLcode"><span class="inlinecode">etc.c.curl.CURLcode</span></a></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Curl" href="#Curl">Curl</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Wrapper to provide a better interface to libcurl than using the plain C API.
   It is recommended to use the <span class="inlinecode">HTTP</span>/<span class="inlinecode">FTP</span> etc. structs instead unless
   raw access to libcurl is needed.</p>
@@ -1772,17 +1515,12 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="initialize" href="#initialize">initialize</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Initialize the instance by creating a working curl handle.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>Curl <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Duplicate this handle.
 </p>
 
@@ -1792,11 +1530,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        in a new thread.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="shutdown" href="#shutdown">shutdown</a>();
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Stop and invalidate this curl instance.
 </p>
 
@@ -1804,20 +1539,14 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 Do not call this from inside a callback handler e.g. <span class="inlinecode">onReceive</span>.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="pause" href="#pause">pause</a>(bool <i>sendingPaused</i>, bool <i>receivingPaused</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Pausing and continuing transfers.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, const(char)[] <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set a string curl <i>option</i>.
 </p>
 
@@ -1828,14 +1557,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The string</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, long <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set a long curl <i>option</i>.
 </p>
 
@@ -1846,14 +1571,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The long</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, void* <i>value</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Set a void* curl <i>option</i>.
 </p>
 
@@ -1864,14 +1585,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>The pointer</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>(CurlOption <i>option</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Clear a pointer <i>option</i>.
 </p>
 
@@ -1879,24 +1596,17 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>CurlCode <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>(bool <i>throwOnError</i> = true);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="perform" href="#perform">perform</a> the curl request by doing the HTTP,FTP etc. as it has
        been setup beforehand.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceive" href="#onReceive">onReceive</a>(uint delegate(ubyte[]) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that receives incoming data.
 </p>
 
@@ -1906,14 +1616,12 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  a slice.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>The <i>callback</i> returns the incoming bytes read. If not the entire array is
  the request will abort.
  The special value HTTP.pauseRequest can be returned in order to pause the
  current request.
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  Curl curl;
@@ -1925,11 +1633,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[])) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that receives incoming headers for protocols
  that uses headers.
 </p>
@@ -1941,7 +1646,6 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  the backend and may very likely change.</td>
 </tr>
 </table></dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl, std.stdio;
  Curl curl;
@@ -1953,11 +1657,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSend" href="#onSend">onSend</a>(uint delegate(void[]) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that gets called when data is needed for sending.
 </p>
 
@@ -1965,7 +1666,6 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <td>the <i>callback</i> that has a <span class="inlinecode">void[]</span> buffer to be filled</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>The <i>callback</i> returns the number of elements in the buffer that have been
  filled and are ready to send.
  The special value <span class="inlinecode">Curl.abortRequest</span> can be returned in
@@ -1974,7 +1674,6 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  pause the current request.
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
@@ -1996,11 +1695,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSeek" href="#onSeek">onSeek</a>(CurlSeek delegate(long, CurlSeekPos) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that gets called when the curl backend needs to seek
  the data to be sent.
 </p>
@@ -2010,12 +1706,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
             <a href="etc_c_curl.html#CurlSeekPos"><span class="inlinecode">etc.c.curl.CurlSeekPos</span></a></td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>The <i>callback</i> returns the success state of the seeking
  <a href="etc_c_curl.html#CurlSeek"><span class="inlinecode">etc.c.curl.CurlSeek</span></a>
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
@@ -2030,11 +1724,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSocketOption" href="#onSocketOption">onSocketOption</a>(int delegate(socket_t, CurlSockType) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that gets called when the net socket has been created
  but a <span class="inlinecode">connect()</span> call has not yet been done. This makes it possible to set
  misc. socket options.
@@ -2045,12 +1736,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  <a href="etc_c_curl.html#CurlSockType"><span class="inlinecode">etc.c.curl.CurlSockType</span></a></td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return 1 to signal error
  and make curl close the socket
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
@@ -2063,11 +1752,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onProgress" href="#onProgress">onProgress</a>(int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>The event handler that gets called to inform of upload/download progress.
 </p>
 
@@ -2077,12 +1763,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  bytes).</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>Return 0 from the <i>callback</i> to signal success, return non-zero to abort
  transfer
 
 </dd>
-
 <dt>Example:</dt><dd>
 <pre class="d_code"> <span class="d_keyword">import</span> std.net.curl;
  Curl curl;
@@ -2098,10 +1782,8 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-
 </div>
 </div>
-
 
 
 				</div>

@@ -294,13 +294,11 @@ making code more robust.
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
          <a href="http://erdani.org">Andrei Alexandrescu</a>,
          and Jonathan M Davis
 
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/string.d">std/string.d</a>
 <br><br>
@@ -350,15 +348,11 @@ generalized to accept a custom predicate.</td></tr>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="StringException" href="#StringException">StringException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown on errors in std.string functions.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
@@ -372,17 +366,12 @@ generalized to accept a custom predicate.</td></tr>
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 </div>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable char[16u] <a class="symbol symbol-anchor" name="hexdigits" href="#hexdigits">hexdigits</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#hexDigits"><span class="inlinecode">std.ascii.hexDigits</span></a> instead.</font>
 </p>
@@ -390,11 +379,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>0..9A..F</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable string <a class="symbol symbol-anchor" name="digits" href="#digits">digits</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#digits"><span class="inlinecode">std.ascii.digits</span></a> instead.</font>
 </p>
@@ -402,11 +388,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>0..9</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable char[8u] <a class="symbol symbol-anchor" name="octdigits" href="#octdigits">octdigits</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#octDigits"><span class="inlinecode">std.ascii.octDigits</span></a> instead.</font>
 </p>
@@ -414,11 +397,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>0..7</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <a class="symbol symbol-anchor" name="lowercase" href="#lowercase">lowercase</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#lowercase"><span class="inlinecode">std.ascii.lowercase</span></a> instead.</font>
 </p>
@@ -426,11 +406,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>a..z</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable char[52u] <a class="symbol symbol-anchor" name="letters" href="#letters">letters</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#letters"><span class="inlinecode">std.ascii.letters</span></a> instead.</font>
 </p>
@@ -438,11 +415,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>A..Za..z</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <a class="symbol symbol-anchor" name="uppercase" href="#uppercase">uppercase</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#uppercase"><span class="inlinecode">std.ascii.uppercase</span></a> instead.</font>
 </p>
@@ -450,11 +424,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>A..Z</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="whitespace" href="#whitespace">whitespace</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#whitespace"><span class="inlinecode">std.ascii.whitespace</span></a> instead.</font>
 </p>
@@ -462,11 +433,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>ASCII <a class="symbol symbol-anchor" name="whitespace" href="#whitespace">whitespace</a>.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated dchar <a class="symbol symbol-anchor" name="LS" href="#LS">LS</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a> instead.</font>
 </p>
@@ -474,11 +442,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>UTF line separator.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated dchar <a class="symbol symbol-anchor" name="PS" href="#PS">PS</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> instead.</font>
 </p>
@@ -486,11 +451,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>UTF paragraph separator.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="newline" href="#newline">newline</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <a href="std_ascii.html#newline"><span class="inlinecode">std.ascii.newline</span></a> instead.</font>
 </p>
@@ -498,11 +460,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>Newline sequence for this system.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="iswhite" href="#iswhite">iswhite</a>(C)(C <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <a href="std_ascii.html#isWhite"><span class="inlinecode">std.ascii.isWhite</span></a> or <a href="std_uni.html#isWhite"><span class="inlinecode">std.uni.isWhite</span></a> instead.</font>
 </p>
@@ -510,11 +469,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>Returns <span class="d_keyword">true</span> if c is ASCII whitespace or unicode LS or PS.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="icmp" href="#icmp">icmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compares two ranges of characters lexicographically. The comparison is
     case insensitive. Use <span class="inlinecode">XREF algorithm, cmp</span> for a case sensitive
     comparison. <span class="inlinecode"><a class="symbol symbol-anchor" name="icmp" href="#icmp">icmp</a></span> works like <span class="inlinecode">XREF algorithm, cmp</span> except that it
@@ -529,12 +485,9 @@ generalized to accept a custom predicate.</td></tr>
      </table></p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow immutable(char)* <a class="symbol symbol-anchor" name="toStringz" href="#toStringz">toStringz</a>(const(char)[] <i>s</i>);
 <br>pure nothrow immutable(char)* <a class="symbol symbol-anchor" name="toStringz" href="#toStringz">toStringz</a>(string <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a C-style 0-terminated string equivalent to <span class="inlinecode"><i>s</i></span>. <span class="inlinecode"><i>s</i></span> must not
     contain embedded <span class="inlinecode">0</span>'<i>s</i> as any C functions will treat the first <span class="inlinecode">0</span>
     that it sees a the end of the string. I <span class="inlinecode"><i>s</i></span> is <span class="inlinecode"><span class="d_keyword">null</span></span> or empty, then
@@ -547,20 +500,14 @@ generalized to accept a custom predicate.</td></tr>
     cycle and cause a nasty bug when the C code tries to use it.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CaseSensitive" href="#CaseSensitive">CaseSensitive</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Flag indicating whether a search is case-sensitive.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure sizediff_t <a class="symbol symbol-anchor" name="indexOf" href="#indexOf">indexOf</a>(Char)(in Char[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
 </p>
@@ -568,11 +515,8 @@ generalized to accept a custom predicate.</td></tr>
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="indexOf" href="#indexOf">indexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
 </p>
@@ -580,11 +524,8 @@ generalized to accept a custom predicate.</td></tr>
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="lastIndexOf" href="#lastIndexOf">lastIndexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
 </p>
@@ -592,11 +533,8 @@ generalized to accept a custom predicate.</td></tr>
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>sizediff_t <a class="symbol symbol-anchor" name="lastIndexOf" href="#lastIndexOf">lastIndexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
 </p>
@@ -604,11 +542,8 @@ generalized to accept a custom predicate.</td></tr>
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow auto <a class="symbol symbol-anchor" name="representation" href="#representation">representation</a>(Char)(Char[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="representation" href="#representation">representation</a> type of a string, which is the same type
  as the string except the character type is replaced by <span class="inlinecode">ubyte</span>,
  <span class="inlinecode">ushort</span>, or <span class="inlinecode">uint</span> depending on the character width.
@@ -621,11 +556,8 @@ generalized to accept a custom predicate.</td></tr>
 </dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="tolower" href="#tolower">tolower</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <span class="inlinecode">toLower</span> instead.</font>
 </p>
@@ -633,22 +565,16 @@ generalized to accept a custom predicate.</td></tr>
 <p>Convert string s[] to lower case.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="toLower" href="#toLower">toLower</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
     characters are lowercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
     have any uppercase characters, then <span class="inlinecode">s</span> is returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="tolowerInPlace" href="#tolowerInPlace">tolowerInPlace</a>(C)(ref C[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
          Please use <span class="inlinecode">toLowerInPlace</span> instead.</font>
 </p>
@@ -656,21 +582,15 @@ generalized to accept a custom predicate.</td></tr>
 <p>Converts <span class="inlinecode">s</span> to lowercase in place.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toLowerInPlace" href="#toLowerInPlace">toLowerInPlace</a>(C)(ref C[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to lowercase (in unicode, not just ASCII) in place.
     If <span class="inlinecode">s</span> does not have any uppercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="toupper" href="#toupper">toupper</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <span class="inlinecode">toUpper</span> instead.</font>
 </p>
@@ -678,22 +598,16 @@ generalized to accept a custom predicate.</td></tr>
 <p>Convert string s[] to upper case.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="toUpper" href="#toUpper">toUpper</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
     characters are uppercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
     have any lowercase characters, then <span class="inlinecode">s</span> is returned.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toupperInPlace" href="#toupperInPlace">toupperInPlace</a>(C)(ref C[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
           Please use <span class="inlinecode">toUpperInPlace</span> instead.</font>
 </p>
@@ -701,31 +615,22 @@ generalized to accept a custom predicate.</td></tr>
 <p>Converts <span class="inlinecode">s</span> to uppercase in place.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="toUpperInPlace" href="#toUpperInPlace">toUpperInPlace</a>(C)(ref C[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to uppercase (in unicode, not just ASCII) in place.
     If <span class="inlinecode">s</span> does not have any lowercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="capitalize" href="#capitalize">capitalize</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Capitalize the first character of <span class="inlinecode">s</span> and conver the rest of <span class="inlinecode">s</span>
     to lowercase.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="capwords" href="#capwords">capwords</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
 </p>
 
@@ -734,11 +639,8 @@ generalized to accept a custom predicate.</td></tr>
  Replace all sequences of whitespace with a single space.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="repeat" href="#repeat">repeat</a>(S)(S <i>s</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
         Please use <a href="std_array.html#replicate"><span class="inlinecode">std.array.replicate</span></a> instead.</font>
 </p>
@@ -746,11 +648,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>Repeat <span class="inlinecode">s</span> for <span class="inlinecode">n</span> times.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S[] <a class="symbol symbol-anchor" name="splitlines" href="#splitlines">splitlines</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <a href="#splitLines"><span class="inlinecode">splitLines</span></a> instead.</font>
 </p>
@@ -760,12 +659,9 @@ generalized to accept a custom predicate.</td></tr>
  The delimiter is not included in the line.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="KeepTerminator" href="#KeepTerminator">KeepTerminator</a>;
 <br>S[] <a class="symbol symbol-anchor" name="splitLines" href="#splitLines">splitLines</a>(S)(S <i>s</i>, KeepTerminator <i>keepTerm</i> = KeepTerminator.no);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Split <span class="inlinecode">s</span> into an array of lines using <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>,
     <span class="inlinecode">"\r\n"</span>, <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, and <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> as delimiters.
     If <span class="inlinecode">keepTerm</span> is set to <span class="inlinecode"><a class="symbol symbol-anchor" name="KeepTerminator" href="#KeepTerminator">KeepTerminator</a>.yes</span>, then the delimiter
@@ -773,11 +669,8 @@ generalized to accept a custom predicate.</td></tr>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>String <a class="symbol symbol-anchor" name="stripl" href="#stripl">stripl</a>(String)(String <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
         Please use <span class="inlinecode">stripLeft</span> instead.</font>
 </p>
@@ -785,20 +678,14 @@ generalized to accept a custom predicate.</td></tr>
 <p>Strips leading whitespace.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe S <a class="symbol symbol-anchor" name="stripLeft" href="#stripLeft">stripLeft</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Strips leading whitespace.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>String <a class="symbol symbol-anchor" name="stripr" href="#stripr">stripr</a>(String)(String <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
         Please use <span class="inlinecode">stripRight</span> instead.</font>
 </p>
@@ -806,61 +693,43 @@ generalized to accept a custom predicate.</td></tr>
 <p>Strips trailing whitespace.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="stripRight" href="#stripRight">stripRight</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Strips trailing whitespace.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="strip" href="#strip">strip</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Strips both leading and trailing whitespace.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="chomp" href="#chomp">chomp</a>(S)(S <i>s</i>);
 <br>S <a class="symbol symbol-anchor" name="chomp" href="#chomp">chomp</a>(S, C)(S <i>s</i>, const(C)[] <i>delimiter</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode">s</span> sans the trailing <span class="inlinecode">delimiter</span>, if any. If no <span class="inlinecode">delimiter</span>
     is given, then any trailing  <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>, <span class="inlinecode">"\r\n"</span>,
     <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, or <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a>s are removed.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>C1[] <a class="symbol symbol-anchor" name="chompPrefix" href="#chompPrefix">chompPrefix</a>(C1, C2)(C1[] <i>longer</i>, C2[] <i>shorter</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>If <span class="inlinecode">longer.startsWith(shorter)</span>, returns <span class="inlinecode">longer[shorter.length .. $]</span>.
     Otherwise, returns <span class="inlinecode">longer</span>.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="chop" href="#chop">chop</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode">s</span> sans its last character, if there is one.
     If <span class="inlinecode">s</span> ends in "\r\n", then both are removed.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="ljustify" href="#ljustify">ljustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
         Please use <span class="inlinecode">leftJustify</span> instead.</font>
 </p>
@@ -868,22 +737,16 @@ generalized to accept a custom predicate.</td></tr>
 <p>Left justify string s[] in field width chars wide.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="leftJustify" href="#leftJustify">leftJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Left justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
     <span class="inlinecode">s</span> doesn't fill.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="rjustify" href="#rjustify">rjustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
         Please use <span class="inlinecode">rightJustify</span> instead.</font>
 </p>
@@ -891,33 +754,24 @@ generalized to accept a custom predicate.</td></tr>
 <p>Left right string s[] in field width chars wide.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="rightJustify" href="#rightJustify">rightJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Right justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
     <span class="inlinecode">s</span> doesn't fill.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@trusted S <a class="symbol symbol-anchor" name="center" href="#center">center</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Center <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
     <span class="inlinecode">s</span> doesn't fill.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="zfill" href="#zfill">zfill</a>(S)(S <i>s</i>, int <i>width</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <span class="inlinecode">rightJustify</span> with a fill character of '0' instead.</font>
 </p>
@@ -925,11 +779,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>Same as rjustify(), but fill with '0's.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="insert" href="#insert">insert</a>(S)(S <i>s</i>, size_t <i>index</i>, S <i>sub</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
        Please use <a href="std_array.html#insertInPlace"><span class="inlinecode">std.array.insertInPlace</span></a> instead.</font>
 </p>
@@ -937,11 +788,8 @@ generalized to accept a custom predicate.</td></tr>
 <p>Insert sub[] into s[] at location index.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="expandtabs" href="#expandtabs">expandtabs</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.
        Please use <span class="inlinecode">detab</span> instead.</font>
 </p>
@@ -950,22 +798,16 @@ generalized to accept a custom predicate.</td></tr>
  tabsize is the distance between tab stops.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="detab" href="#detab">detab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Replace each tab character in <span class="inlinecode">s</span> with the number of spaces necessary
     to align the following character at the next tab stop where <span class="inlinecode">tabSize</span>
     is the distance between tab stops.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted S <a class="symbol symbol-anchor" name="entab" href="#entab">entab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Replaces spaces in <span class="inlinecode">s</span> with the optimal number of tabs.
     All spaces and tabs at the end of a line are removed.
 </p>
@@ -977,15 +819,11 @@ generalized to accept a custom predicate.</td></tr>
 <td>Tab columns are <span class="inlinecode">tabSize</span> spaces apart.</td>
 </tr>
 </table></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>@safe C1[] <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>(C1, C2 = immutable(char))(C1[] <i>str</i>, dchar[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
 <br>@safe C1[] <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>(C1, S, C2 = immutable(char))(C1[] <i>str</i>, S[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Replaces the characters in <span class="inlinecode">str</span> which are keys in <span class="inlinecode">transTable</span> with
     their corresponding values in <span class="inlinecode">transTable</span>. <span class="inlinecode">transTable</span> is an AA
     where its keys are <span class="inlinecode">dchar</span> and its values are either <span class="inlinecode">dchar</span> or some
@@ -998,7 +836,6 @@ generalized to accept a custom predicate.</td></tr>
         <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
 
 </dd>
-
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
 <td>The original string.</td>
 </tr>
@@ -1010,7 +847,6 @@ generalized to accept a custom predicate.</td></tr>
 <td>The characters to remove from the string.</td>
 </tr>
 </table></dd>
-
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
 <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
 
@@ -1021,28 +857,20 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
 <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable3) == <span class="d_string">"h5llorange worangerld"</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="maketrans" href="#maketrans">maketrans</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in March 2012.</font>
 </p>
 
 <p>Construct translation table for translate().
 </p>
 <dt>Known Bugs</dt><dd>only works with ASCII</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="translate" href="#translate">translate</a>()(in char[] <i>s</i>, in char[] <i>transtab</i>, in char[] <i>delchars</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in March 2012.
    Please use the version of <span class="inlinecode"><a class="symbol symbol-anchor" name="translate" href="#translate">translate</a></span> which takes an AA instead.</font>
 </p>
@@ -1051,36 +879,25 @@ string[<span class="d_keyword">dchar</span>] transTable3 = ['e' : <span class="d
  Delete chars in delchars[].
 </p>
 <dt>Known Bugs</dt><dd>only works with ASCII</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="format" href="#format">format</a>(...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Format arguments into a string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>char[] <a class="symbol symbol-anchor" name="sformat" href="#sformat">sformat</a>(char[] <i>s</i>,...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Format arguments into string <i><i>s</i></i> which must be large
  enough to hold the result. Throws RangeError if it is not.
 </p>
 
 <dt>Returns</dt><dd><i>s</i></dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="inPattern" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, in S <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>See if character c is in the pattern.
 </p>
 
@@ -1102,49 +919,34 @@ In the future, the pattern syntax may be improved
   to be more like regular expression character classes.</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="inPattern" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, S[] <i>patterns</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>See if character c is in the intersection of the patterns.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="countchars" href="#countchars">countchars</a>(S, S1)(S <i>s</i>, in S1 <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Count characters in s that match pattern.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="removechars" href="#removechars">removechars</a>(S)(S <i>s</i>, in S <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return string that is s with all characters removed that match pattern.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="squeeze" href="#squeeze">squeeze</a>(S)(S <i>s</i>, in S <i>pattern</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return string where sequences of a character in s[] from pattern[]
  are replaced with a single instance of that character.
  If pattern is <span class="d_keyword">null</span>, it defaults to all characters.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S1 <a class="symbol symbol-anchor" name="munch" href="#munch">munch</a>(S1, S2)(ref S1 <i>s</i>, S2 <i>pattern</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Finds the position <b>pos</b> of the first character in <b>s</b> that does not match <b>pattern</b> (in the terminology used by
  <a href="std_string.html">inPattern</a>). Updates <b>s =
  s[pos..$]</b>. Returns the slice from the beginning of the original
@@ -1164,11 +966,8 @@ certain category of characters (e.g. whitespace) when parsing
 strings. (In such cases, the return value is not used.)</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="succ" href="#succ">succ</a>(S)(S <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Return string that is the 'successor' to s[].
  If the rightmost character is a-zA-Z0-9, it is incremented within
  its case or digits. If it generates a carry, the process is
@@ -1176,11 +975,8 @@ strings. (In such cases, the return value is not used.)</dd>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>C1[] <a class="symbol symbol-anchor" name="tr" href="#tr">tr</a>(C1, C2, C3, C4 = immutable(char))(C1[] <i>str</i>, const(C2)[] <i>from</i>, const(C3)[] <i>to</i>, const(C4)[] <i>modifiers</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Replaces the characters in <span class="inlinecode">str</span> which are in <span class="inlinecode">from</span> with the
     the corresponding characters in <span class="inlinecode">to</span> and returns the resulting string.
 </p>
@@ -1203,7 +999,6 @@ strings. (In such cases, the return value is not used.)</dd>
 <td>String containing modifiers.</td>
 </tr>
 </table></dd>
-
 <dt>Modifiers:</dt><dd>
 <table cellspacing=0 cellpadding=5 class="table"><caption></caption>        <tr><td valign=top>Modifier</td> <td valign=top>Description</td></tr>
         <tr><td valign=top><span class="inlinecode">'c'</span></td> <td valign=top>Complement the list of characters in <span class="inlinecode">from</span></td></tr>
@@ -1233,11 +1028,8 @@ strings. (In such cases, the return value is not used.)</dd>
     for that).</dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(const(char)[] <i>s</i>, in bool <i>bAllowSep</i> = false);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>[in] string <i>s</i> can be formatted in the following ways:
 </p>
 
@@ -1255,7 +1047,6 @@ strings. (In such cases, the return value is not used.)</dd>
       or [nan|nani|inf|-inf]
 
 </dd>
-
 <dt>Examples</dt><dd>+123., -123.01, 123.3e-10f, 123.3e-10fi, 123.3e-10L
 <br><br>
 
@@ -1265,7 +1056,6 @@ strings. (In such cases, the return value is not used.)</dd>
       or [nan|nani|nan+nani|inf|-inf]
 
 </dd>
-
 <dt>Examples</dt><dd>nan, -123e-1+456.9e-10Li, +123e+10+456i, 123+456
 <br><br>
 
@@ -1281,36 +1071,26 @@ strings. (In such cases, the return value is not used.)</dd>
  anywhere whether it'<i>s</i> a leading, trailing, or embedded space(<i>s</i>),
  thus they too must be stripped from the string before using this
  function, or any of the conversion functions.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(...);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
 </p>
 
 <p>Allow any object as a parameter</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>deprecated bool <a class="symbol symbol-anchor" name="isNumeric" href="#isNumeric">isNumeric</a>(TypeInfo[] <i>_arguments</i>, va_list <i>_argptr</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in August 2012.</font>
 </p>
 
 <p>Check only the first parameter, all others will be ignored.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>char[] <a class="symbol symbol-anchor" name="soundex" href="#soundex">soundex</a>(const(char)[] <i>string</i>, char[] <i>buffer</i> = null);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Soundex algorithm.
 </p>
 
@@ -1330,28 +1110,21 @@ strings. (In such cases, the return value is not used.)</dd>
       <i>buffer</i> will be allocated on the heap.</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>The four character array with the Soundex result in it.
   Returns <span class="d_keyword">null</span> if there is no Soundex representation for the <i>string</i>.
 
 </dd>
-
 <dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Soundex">Wikipedia</a>,
   <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=The Soundex Indexing System">The Soundex Indexing System</a>
 
 </dd>
-
 <dt>Known Bugs</dt><dd>Only works well with English names.
   There are other arguably better Soundex algorithms,
   but this one is the standard one.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>string[string] <a class="symbol symbol-anchor" name="abbrev" href="#abbrev">abbrev</a>(string[] <i>values</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Construct an associative array consisting of all
  abbreviations that uniquely map to the strings in <i>values</i>.
 </p>
@@ -1386,21 +1159,15 @@ strings. (In such cases, the return value is not used.)</dd>
  </pre></dd>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="column" href="#column">column</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Compute <a class="symbol symbol-anchor" name="column" href="#column">column</a> number after string if string starts in the
  leftmost <a class="symbol symbol-anchor" name="column" href="#column">column</a>, which is numbered starting from 0.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="wrap" href="#wrap">wrap</a>(S)(S <i>s</i>, size_t <i>columns</i> = 80, S <i>firstindent</i> = null, S <i>indent</i> = null, size_t <i>tabsize</i> = 8);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Wrap text into a paragraph.
 </p>
 
@@ -1426,17 +1193,12 @@ strings. (In such cases, the return value is not used.)</dd>
 <td>column spacing of tabs</td>
 </tr>
 </table></dd>
-
 <dt>Returns</dt><dd>The resulting paragraph.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="outdent" href="#outdent">outdent</a>(S)(S <i>str</i>);
 <br>S[] <a class="symbol symbol-anchor" name="outdent" href="#outdent">outdent</a>(S)(S[] <i>lines</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Removes indentation from a multi-line string or an array of single-line strings.
 </p>
 
@@ -1472,7 +1234,6 @@ strings. (In such cases, the return value is not used.)</dd>
 </dd>
 </dl>
 </div>
-
 
 
 				</div>

@@ -295,39 +295,28 @@
         <a href="http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8">http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8</a><br>
         <a href="http://anubis.dkuug.dk/JTC1/SC2/WG2/docs/n1335">http://anubis.dkuug.dk/JTC1/SC2/WG2/docs/n1335</a>
 </dd>
-
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a> and Jonathan M Davis
 </dd>
-
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/utf.d">std/utf.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="UTFException" href="#UTFException">UTFException</a>: object.Exception;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Exception thrown on errors in std.utf functions.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="UtfException" href="#UtfException">UtfException</a>;
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in December 2012.
           Please use <a href="#UTFException"><span class="inlinecode">UTFException</span></a> instead.</font></p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isValidDchar" href="#isValidDchar">isValidDchar</a>(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a valid UTF-32 character.
 </p>
 
@@ -336,11 +325,8 @@
     not allowed for interchange by the Unicode standard.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe uint <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a>(S)(in const(S) <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="stride" href="#stride">stride</a></span> returns the length of the UTF-8 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
@@ -348,17 +334,12 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF-8
         sequence.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe uint <a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a>(in char[] <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a></span> returns the length of the UTF-8 sequence ending one code
     unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
 </p>
@@ -366,30 +347,21 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
         UTF-8 sequence.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a>(S)(in const(S) <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="stride" href="#stride">stride</a></span> returns the length of the UTF-16 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe uint <a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a>(in wchar[] <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a></span> returns the length of the UTF-16 sequence ending one code
     unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
 </p>
@@ -397,43 +369,30 @@
 <dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
         UTF-16 sequence.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <a class="symbol symbol-anchor" name="stride" href="#stride">stride</a>(S)(in const(S) <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="stride" href="#stride">stride</a></span> returns the length of the UTF-32 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a>(in dchar[] <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="strideBack" href="#strideBack">strideBack</a></span> returns the length of the UTF-32 sequence ending one code
     unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
 </p>
 
 <dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe size_t <a class="symbol symbol-anchor" name="toUCSindex" href="#toUCSindex">toUCSindex</a>(C)(const(C)[] <i>str</i>, size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given <span class="inlinecode">index</span> into <span class="inlinecode">str</span> and assuming that <span class="inlinecode">index</span> is at the start
     of a UTF sequence, <span class="inlinecode"><a class="symbol symbol-anchor" name="toUCSindex" href="#toUCSindex">toUCSindex</a></span> determines the number of UCS characters
     up to <span class="inlinecode">index</span>. So, <span class="inlinecode">index</span> is the index of a code unit at the
@@ -454,16 +413,12 @@
 <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe size_t <a class="symbol symbol-anchor" name="toUTFindex" href="#toUTFindex">toUTFindex</a>(in char[] <i>str</i>, size_t <i>n</i>);
 <br>pure nothrow @safe size_t <a class="symbol symbol-anchor" name="toUTFindex" href="#toUTFindex">toUTFindex</a>(in wchar[] <i>str</i>, size_t <i>n</i>);
 <br>pure nothrow @safe size_t <a class="symbol symbol-anchor" name="toUTFindex" href="#toUTFindex">toUTFindex</a>(in dchar[] <i>str</i>, size_t <i>n</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Given a UCS index <span class="inlinecode"><i>n</i></span> into <span class="inlinecode"><i>str</i></span>, returns the UTF index.
     So, <span class="inlinecode"><i>n</i></span> is how many code points into the string the code point is, and
     the array index of the code unit is returned.
@@ -482,16 +437,12 @@
 <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted dchar <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(S)(in const(S) <i>str</i>, ref size_t <i>index</i>);
 <br>pure @trusted dchar <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(S)(in const(S) <i>str</i>, ref size_t <i>index</i>);
 <br>pure @safe dchar <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>(S)(in const(S) <i>str</i>, ref size_t <i>index</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Decodes and returns the character starting at <span class="inlinecode">str[index]</span>. <span class="inlinecode">index</span>
     is advanced to one past the decoded character. If the character is not
     well-formed, then a <span class="inlinecode">UTFException</span> is thrown and <span class="inlinecode">index</span> remains
@@ -500,15 +451,11 @@
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF
         sequence.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe size_t <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(ref char[4u] <i>buf</i>, dchar <i>c</i>);
 <br>pure @safe size_t <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(ref wchar[2u] <i>buf</i>, dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes <span class="inlinecode"><i>c</i></span> into the static array, <span class="inlinecode"><i>buf</i></span>, and returns the actual
     length of the encoded character (a number between <span class="inlinecode">1</span> and <span class="inlinecode">4</span> for
     <span class="inlinecode">char[4]</span> buffers and a number between <span class="inlinecode">1</span> and <span class="inlinecode">2</span> for
@@ -516,28 +463,20 @@
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe void <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(ref char[] <i>str</i>, dchar <i>c</i>);
 <br>pure @safe void <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(ref wchar[] <i>str</i>, dchar <i>c</i>);
 <br>pure @safe void <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>(ref dchar[] <i>str</i>, dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes <span class="inlinecode"><i>c</i></span> in <span class="inlinecode"><i>str</i></span>'s encoding and appends it to <span class="inlinecode"><i>str</i></span>.
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe ubyte <a class="symbol symbol-anchor" name="codeLength" href="#codeLength">codeLength</a>(C)(dchar <i>c</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the number of code units that are required to encode the code point
     <span class="inlinecode">c</span> when <span class="inlinecode">C</span> is the character type used to encode it.
 </p>
@@ -551,59 +490,42 @@
 <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('\U0010FFFF') == 1);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe void <a class="symbol symbol-anchor" name="validate" href="#validate">validate</a>(S)(in const(S) <i>str</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Checks to see if <span class="inlinecode">str</span> is well-formed unicode or not.
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str</span> is not well-formed.</dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @safe string <a class="symbol symbol-anchor" name="toUTF8" href="#toUTF8">toUTF8</a>(in char[] <i>s</i>);
 <br>pure @trusted string <a class="symbol symbol-anchor" name="toUTF8" href="#toUTF8">toUTF8</a>(in wchar[] <i>s</i>);
 <br>pure @trusted string <a class="symbol symbol-anchor" name="toUTF8" href="#toUTF8">toUTF8</a>(in dchar[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes string <b><i>s</i></b> into UTF-8 and returns the encoded string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted wstring <a class="symbol symbol-anchor" name="toUTF16" href="#toUTF16">toUTF16</a>(in char[] <i>s</i>);
 <br>pure @safe wstring <a class="symbol symbol-anchor" name="toUTF16" href="#toUTF16">toUTF16</a>(in wchar[] <i>s</i>);
 <br>pure @trusted wstring <a class="symbol symbol-anchor" name="toUTF16" href="#toUTF16">toUTF16</a>(in dchar[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes string <span class="inlinecode"><i>s</i></span> into UTF-16 and returns the encoded string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted dstring <a class="symbol symbol-anchor" name="toUTF32" href="#toUTF32">toUTF32</a>(in char[] <i>s</i>);
 <br>pure @trusted dstring <a class="symbol symbol-anchor" name="toUTF32" href="#toUTF32">toUTF32</a>(in wchar[] <i>s</i>);
 <br>pure @safe dstring <a class="symbol symbol-anchor" name="toUTF32" href="#toUTF32">toUTF32</a>(in dchar[] <i>s</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Encodes string <b><i>s</i></b> into UTF-32 and returns the encoded string.</p>
 
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="toUTFz" href="#toUTFz">toUTFz</a>(P)<br>@system P <a class="symbol symbol-anchor" name="toUTFz" href="#toUTFz">toUTFz</a>(P, S)(S <i>str</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns a C-style zero-terminated string equivalent to <span class="inlinecode">str</span>. <span class="inlinecode">str</span>
     must not contain embedded <span class="inlinecode">'\0'</span>'s as any C function will treat the first
     <span class="inlinecode">'\0'</span> that it sees a the end of the string. If <span class="inlinecode">str.empty</span> is
@@ -652,14 +574,10 @@
 <span class="d_keyword">auto</span> p6 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">dchar</span>)*)(<span class="d_string">"hello world"w</span>);
 </pre>
 </dd>
-
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>const(wchar)* <a class="symbol symbol-anchor" name="toUTF16z" href="#toUTF16z">toUTF16z</a>(C)(const(C)[] <i>str</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="toUTF16z" href="#toUTF16z">toUTF16z</a></span> is a convenience function for <span class="inlinecode">toUTFz!(const(wchar)*)</span>.
 </p>
 
@@ -668,11 +586,8 @@
     that take an <span class="inlinecode">LPWSTR</span> or <span class="inlinecode">LPCWSTR</span> argument.</p>
 </dl>
 </div>
-
 <hr><div class="row-fluid declaration"><h3>pure @trusted size_t <a class="symbol symbol-anchor" name="count" href="#count">count</a>(C)(const(C)[] <i>str</i>);
 </h3></div>
-
-
 <div class="declaration-content"><dl><p>Returns the total number of code points encoded in <span class="inlinecode">str</span>.
 </p>
 
@@ -683,12 +598,9 @@ This function supercedes <a href="#toUCSindex"><span class="inlinecode">toUCSind
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str</span> is not well-formed.</dd>
-
 </dl>
 </div>
-
 
 
 				</div>
