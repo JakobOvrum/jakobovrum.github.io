@@ -494,25 +494,25 @@ or <span class="inlinecode">real</span>.
  termination condition to be specified.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">f</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>f</td>
 <td>Function to be analyzed</td>
 </tr>
-<tr><td class="span2">ax</td>
+<tr><td>ax</td>
 <td>Left bound of initial range of <span class="inlinecode">f</span> known to contain the
  root.</td>
 </tr>
-<tr><td class="span2">bx</td>
+<tr><td>bx</td>
 <td>Right bound of initial range of <span class="inlinecode">f</span> known to contain the
  root.</td>
 </tr>
-<tr><td class="span2">fax</td>
+<tr><td>fax</td>
 <td>Value of <span class="inlinecode">f(ax)</span>.</td>
 </tr>
-<tr><td class="span2">fbx</td>
+<tr><td>fbx</td>
 <td>Value of <span class="inlinecode">f(bx)</span>. (<span class="inlinecode">f(ax)</span> and <span class="inlinecode">f(bx)</span> are commonly
  known in advance.)</td>
 </tr>
-<tr><td class="span2">tolerance</td>
+<tr><td>tolerance</td>
 <td>Defines an early termination condition. Receives the
              current upper and lower bounds on the root. The
              delegate must return <span class="inlinecode"><span class="d_keyword">true</span></span> when these bounds are

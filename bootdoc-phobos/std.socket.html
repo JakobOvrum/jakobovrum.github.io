@@ -631,7 +631,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Resolve IPv4 address number.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>addr</i></td>
 <td>The IPv4 address to resolve, in host byte order.</td>
 </tr>
 </table></dd>
@@ -724,10 +724,10 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  if this functionality is not available on the current system.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">node</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>node</td>
 <td>string containing host name or numeric address</td>
 </tr>
-<tr><td class="span2">options</td>
+<tr><td>options</td>
 <td>optional additional parameters, identified by type:
              <ul><li><span class="inlinecode">string</span> - service name or port number</li>
                   <li><span class="inlinecode">AddressInfoFlags</span> - option flags</li>
@@ -1020,12 +1020,12 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">InternetAddress</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>addr</i></td>
 <td>an IPv4 address string in the dotted-decimal form a.b.c.d,
           or a host name which will be resolved using an <span class="inlinecode">InternetHost</span>
           object.</td>
 </tr>
-<tr><td class="span2">ushort <i>port</i></td>
+<tr><td>ushort <i>port</i></td>
 <td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
 </tr>
 </table></dd>
@@ -1037,10 +1037,10 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">InternetAddress</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>addr</i></td>
 <td>(optional) an IPv4 address in host byte order, may be <span class="inlinecode">ADDR_ANY</span>.</td>
 </tr>
-<tr><td class="span2">ushort <i>port</i></td>
+<tr><td>ushort <i>port</i></td>
 <td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
 </tr>
 </table></dd>
@@ -1127,11 +1127,11 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>node</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>node</i></td>
 <td>an IPv6 host address string in the form described in RFC 2373,
           or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
 </tr>
-<tr><td class="span2">port</td>
+<tr><td>port</td>
 <td>(optional) <i>service</i> name or port number.</td>
 </tr>
 </table></dd>
@@ -1142,11 +1142,11 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">addr</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>addr</td>
 <td>an IPv6 host address string in the form described in RFC 2373,
           or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
 </tr>
-<tr><td class="span2">ushort <i>port</i></td>
+<tr><td>ushort <i>port</i></td>
 <td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
 </tr>
 </table></dd>
@@ -1158,11 +1158,11 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">ubyte[16u] <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>ubyte[16u] <i>addr</i></td>
 <td>(optional) an IPv6 host address in host byte order, or
                 <span class="inlinecode">ADDR_ANY</span>.</td>
 </tr>
-<tr><td class="span2">ushort <i>port</i></td>
+<tr><td>ushort <i>port</i></td>
 <td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
 </tr>
 </table></dd>
@@ -1765,7 +1765,7 @@ While the receive timeout setting is generally quite accurate
  randomly varies on the order of 10ms.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Duration <i>value</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Duration <i>value</i></td>
 <td>The timeout duration to set. Must not be negative.</td>
 </tr>
 </table></dd>
@@ -1805,11 +1805,11 @@ While the receive timeout setting is generally quite accurate
 <div class="declaration-content"><dl><p>Enables TCP keep-alive with the specified parameters.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>time</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>time</i></td>
 <td>Number of seconds with no activity until the first
               keep-alive packet is sent.</td>
 </tr>
-<tr><td class="span2">int <i>interval</i></td>
+<tr><td>int <i>interval</i></td>
 <td>Number of seconds between when successive keep-alive
               packets are sent if no acknowledgement is received.</td>
 </tr>

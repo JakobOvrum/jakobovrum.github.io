@@ -709,12 +709,12 @@ On some systems, the monotonic clock may stop counting when
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>nothrow  this(const(DateTime) <i>dateTime</i>, immutable(TimeZone) <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(DateTime) <i>dateTime</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(DateTime) <i>dateTime</i></td>
 <td>The <span class="inlinecode">DateTime</span> to use to set this <span class="inlinecode">SysTime</span>'s
                        internal std time. As <span class="inlinecode">DateTime</span> has no concept of
                        time zone, <i>tz</i> is used as its time zone.</td>
 </tr>
-<tr><td class="span2">immutable(TimeZone) <i>tz</i></td>
+<tr><td>immutable(TimeZone) <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                        <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">DateTime</span> is
                        assumed to be in the given time zone.</td>
@@ -724,15 +724,15 @@ On some systems, the monotonic clock may stop counting when
 </div>
 <hr><div class="row-fluid declaration"><h3>this(const(DateTime) <i>dateTime</i>, const(FracSec) <i>fracSec</i>, immutable(TimeZone) <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(DateTime) <i>dateTime</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(DateTime) <i>dateTime</i></td>
 <td>The <span class="inlinecode">DateTime</span> to use to set this <span class="inlinecode">SysTime</span>'s
                        internal std time. As <span class="inlinecode">DateTime</span> has no concept of
                        time zone, <i>tz</i> is used as its time zone.</td>
 </tr>
-<tr><td class="span2">const(FracSec) <i>fracSec</i></td>
+<tr><td>const(FracSec) <i>fracSec</i></td>
 <td>The fractional seconds portion of the time.</td>
 </tr>
-<tr><td class="span2">immutable(TimeZone) <i>tz</i></td>
+<tr><td>immutable(TimeZone) <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                        <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">DateTime</span> is
                        assumed to be in the given time zone.</td>
@@ -743,12 +743,12 @@ On some systems, the monotonic clock may stop counting when
 </div>
 <hr><div class="row-fluid declaration"><h3>nothrow  this(const(Date) <i>date</i>, immutable(TimeZone) <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(Date) <i>date</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Date) <i>date</i></td>
 <td>The <span class="inlinecode">Date</span> to use to set this <span class="inlinecode">SysTime</span>'s internal std
                    time. As <span class="inlinecode">Date</span> has no concept of time zone, <i>tz</i> is used as
                    its time zone.</td>
 </tr>
-<tr><td class="span2">immutable(TimeZone) <i>tz</i></td>
+<tr><td>immutable(TimeZone) <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                    <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">Date</span> is assumed
                    to be in the given time zone.</td>
@@ -769,10 +769,10 @@ Whereas the other constructors take in the given date/time, assume
             of the arguments to this constructor takes place.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The number of hnsecs since midnight, January 1st, 1 A.D. UTC.</td>
 </tr>
-<tr><td class="span2">immutable(TimeZone) <i>tz</i></td>
+<tr><td>immutable(TimeZone) <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                       <span class="inlinecode">LocalTime</span> will be used.</td>
 </tr>
@@ -781,7 +781,7 @@ Whereas the other constructors take in the given date/time, assume
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow ref SysTime <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref const SysTime <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>rhs</i></td>
 <td>The <span class="inlinecode">SysTime</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -789,7 +789,7 @@ Whereas the other constructors take in the given date/time, assume
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow ref SysTime <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(SysTime <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>rhs</i></td>
 <td>The <span class="inlinecode">SysTime</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -833,7 +833,7 @@ Whereas the other constructors take in the given date/time, assume
         are B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
 <td>The <a class="symbol symbol-anchor" name="year" href="#year">year</a> to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="year" href="#year">year</a> to.</td>
 </tr>
 </table></dd>
@@ -868,7 +868,7 @@ Whereas the other constructors take in the given date/time, assume
 <div class="declaration-content"><dl><p>Year B.C. of the Gregorian Calendar counting <i>year</i> 0 as 1 B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>The <i>year</i> B.C. to set this <span class="inlinecode">SysTime</span>'s <i>year</i> to.</td>
 </tr>
 </table></dd>
@@ -902,7 +902,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Month of a Gregorian Year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
 <td>The <a class="symbol symbol-anchor" name="month" href="#month">month</a> to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="month" href="#month">month</a> to.</td>
 </tr>
 </table></dd>
@@ -926,7 +926,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Day of a Gregorian Month.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
 <td>The <a class="symbol symbol-anchor" name="day" href="#day">day</a> of the month to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="day" href="#day">day</a> to.</td>
 </tr>
 </table></dd>
@@ -945,7 +945,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Hours past midnight.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
 <td>The hours to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a> to.</td>
 </tr>
 </table></dd>
@@ -964,7 +964,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Minutes past the current hour.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">minutes</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>minutes</td>
 <td>The <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to.</td>
 </tr>
 </table></dd>
@@ -983,7 +983,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Seconds past the current minute.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
 <td>The <a class="symbol symbol-anchor" name="second" href="#second">second</a> to set this <span class="inlinecode">SysTime</span>'s <a class="symbol symbol-anchor" name="second" href="#second">second</a> to.</td>
 </tr>
 </table></dd>
@@ -1002,7 +1002,7 @@ st.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Fractional seconds passed the second.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">FracSec <a class="symbol symbol-anchor" name="fracSec" href="#fracSec">fracSec</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>FracSec <a class="symbol symbol-anchor" name="fracSec" href="#fracSec">fracSec</a></td>
 <td>The fractional seconds to set this <span class="inlinecode">SysTimes</span>'s
                       fractional seconds to.</td>
 </tr>
@@ -1023,7 +1023,7 @@ st.<u>yearBC</u> = 10;
         internal representation of <span class="inlinecode">SysTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <a class="symbol symbol-anchor" name="stdTime" href="#stdTime">stdTime</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <a class="symbol symbol-anchor" name="stdTime" href="#stdTime">stdTime</a></td>
 <td>The number of hnsecs since January 1st, 1 A.D. UTC.</td>
 </tr>
 </table></dd>
@@ -1046,7 +1046,7 @@ st.<u>yearBC</u> = 10;
         adjust the time to this <span class="inlinecode">SysTime</span>'s time zone before returning.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">tz</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>tz</td>
 <td>The <span class="inlinecode">TimeZone</span> to set this <span class="inlinecode">SysTime</span>'s time zone to.</td>
 </tr>
 </table></dd>
@@ -1138,14 +1138,14 @@ st.<u>yearBC</u> = 10;
         day in the month (e.g. June 31st would become June 30th).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <a class="symbol symbol-anchor" name="add" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to <a class="symbol symbol-anchor" name="add" href="#add">add</a> to this
                             <span class="inlinecode">SysTime</span>.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -1185,14 +1185,14 @@ st4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         between adding and rolling years.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">SysTime</span>.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -1245,10 +1245,10 @@ st6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         rolling 100,000 usecs.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of <b>units</b> to add to this <span class="inlinecode">SysTime</span>.</td>
 </tr>
 </table></dd>
@@ -1291,7 +1291,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">SysTime</span>.</td>
 </tr>
@@ -1312,7 +1312,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">SysTime</span>.</td>
 </tr>
@@ -1353,7 +1353,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         and January 31st are one month apart.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>rhs</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>rhs</i></td>
 <td>The <span class="inlinecode">SysTime</span> to subtract from this one.</td>
 </tr>
 </table></dd>
@@ -1394,7 +1394,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
 <div class="declaration-content"><dl><p>Day of the year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>day</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>day</i></td>
 <td>The <i>day</i> of the year to set which <i>day</i> of the year this
                   <span class="inlinecode">SysTime</span> is on.</td>
 </tr>
@@ -1426,7 +1426,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         Setting this property does not affect the time portion of <span class="inlinecode">SysTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>days</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>days</i></td>
 <td>The day of the Gregorian Calendar to set this <span class="inlinecode">SysTime</span>
                    to.</td>
 </tr>
@@ -1721,10 +1721,10 @@ st.<u>dayOfGregorianCal</u> = 734_137;
         are +H, -H, +HH, -HH, +H:MM, -H:MM, +HH:MM, and -HH:MM.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO format for dates and times.</td>
 </tr>
-<tr><td class="span2">tz</td>
+<tr><td>tz</td>
 <td>The time zone to convert the given time to (no
                         conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1780,11 +1780,11 @@ st.<u>dayOfGregorianCal</u> = 734_137;
         are +H, -H, +HH, -HH, +H:MM, -H:MM, +HH:MM, and -HH:MM.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO Extended format for dates
                         and times.</td>
 </tr>
-<tr><td class="span2">tz</td>
+<tr><td>tz</td>
 <td>The time zone to convert the given time to (no
                         conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1849,11 +1849,11 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
 <td>A string formatted in the way that
                            <span class="inlinecode">toSimpleString</span> formats dates and times.</td>
 </tr>
-<tr><td class="span2">tz</td>
+<tr><td>tz</td>
 <td>The time zone to convert the given time to (no
                            conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1928,15 +1928,15 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><dt>Throws</dt><dd><span class="inlinecode">DateTimeException</span> if the resulting <span class="inlinecode">Date</span> would not be valid.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>Year of the Gregorian Calendar. Positive values are A.D.
                     Non-positive values are B.C. with <i>year</i> 0 being the <i>year</i>
                     prior to 1 A.D.</td>
 </tr>
-<tr><td class="span2">int <i>month</i></td>
+<tr><td>int <i>month</i></td>
 <td>Month of the <i>year</i>.</td>
 </tr>
-<tr><td class="span2">int <i>day</i></td>
+<tr><td>int <i>day</i></td>
 <td>Day of the <i>month</i>.</td>
 </tr>
 </table></dd>
@@ -1944,7 +1944,7 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow  this(int <i>day</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>day</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>day</i></td>
 <td>The Xth <i>day</i> of the Gregorian Calendar that the constructed
                   <span class="inlinecode">Date</span> will be for.</td>
 </tr>
@@ -1981,7 +1981,7 @@ st.<u>dayOfGregorianCal</u> = 734_137;
         are B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
 <td>The <a class="symbol symbol-anchor" name="year" href="#year">year</a> to set this Date's <a class="symbol symbol-anchor" name="year" href="#year">year</a> to.</td>
 </tr>
 </table></dd>
@@ -2009,7 +2009,7 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Year B.C. of the Gregorian Calendar counting <i>year</i> 0 as 1 B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>The <i>year</i> B.C. to set this <span class="inlinecode">Date</span>'s <i>year</i> to.</td>
 </tr>
 </table></dd>
@@ -2043,7 +2043,7 @@ date.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Month of a Gregorian Year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
 <td>The <a class="symbol symbol-anchor" name="month" href="#month">month</a> to set this <span class="inlinecode">Date</span>'s <a class="symbol symbol-anchor" name="month" href="#month">month</a> to.</td>
 </tr>
 </table></dd>
@@ -2068,7 +2068,7 @@ date.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Day of a Gregorian Month.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
 <td>The <a class="symbol symbol-anchor" name="day" href="#day">day</a> of the month to set this <span class="inlinecode">Date</span>'s <a class="symbol symbol-anchor" name="day" href="#day">day</a> to.</td>
 </tr>
 </table></dd>
@@ -2091,14 +2091,14 @@ date.<u>yearBC</u> = 10;
         day in the month (e.g. June 31st would become June 30th).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <a class="symbol symbol-anchor" name="add" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to <a class="symbol symbol-anchor" name="add" href="#add">add</a> to this
                             <span class="inlinecode">Date</span>.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the day should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -2138,10 +2138,10 @@ d4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         between adding and rolling years.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">Date</span>.</td>
 </tr>
@@ -2187,10 +2187,10 @@ d6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         The only accepted units are <span class="inlinecode">"days"</span>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add. Must be <span class="inlinecode">"days"</span>.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of days to add to this <span class="inlinecode">Date</span>.</td>
 </tr>
 </table></dd>
@@ -2219,7 +2219,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this <span class="inlinecode">Date</span>.</td>
 </tr>
 </table></dd>
@@ -2239,7 +2239,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this <span class="inlinecode">Date</span>.</td>
 </tr>
 </table></dd>
@@ -2279,7 +2279,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
         and January 31st are one month apart.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Date <i>rhs</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Date <i>rhs</i></td>
 <td>The <span class="inlinecode">Date</span> to subtract from this one.</td>
 </tr>
 </table></dd>
@@ -2320,7 +2320,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
 <div class="declaration-content"><dl><p>Day of the year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>day</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>day</i></td>
 <td>The <i>day</i> of the year to set which <i>day</i> of the year this
                   <span class="inlinecode">Date</span> is on.</td>
 </tr>
@@ -2353,7 +2353,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
 <div class="declaration-content"><dl><p>The Xth <i>day</i> of the Gregorian Calendar that this <span class="inlinecode">Date</span> is on.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>day</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>day</i></td>
 <td>The <i>day</i> of the Gregorian Calendar to set this <span class="inlinecode">Date</span> to.</td>
 </tr>
 </table></dd>
@@ -2511,7 +2511,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
         is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO format for dates.</td>
 </tr>
 </table></dd>
@@ -2534,7 +2534,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
         is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoExtString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoExtString</td>
 <td>A string formatted in the ISO Extended format for
                            dates.</td>
 </tr>
@@ -2565,7 +2565,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
 <td>A string formatted in the way that toSimpleString
                            formats dates.</td>
 </tr>
@@ -2607,13 +2607,13 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure  this(int <i>hour</i>, int <i>minute</i>, int <i>second</i> = 0);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>hour</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>hour</i></td>
 <td>Hour of the day [0 - 24).</td>
 </tr>
-<tr><td class="span2">int <i>minute</i></td>
+<tr><td>int <i>minute</i></td>
 <td>Minute of the <i>hour</i> [0 - 60).</td>
 </tr>
-<tr><td class="span2">int <i>second</i></td>
+<tr><td>int <i>second</i></td>
 <td>Second of the <i>minute</i> [0 - 60).</td>
 </tr>
 </table></dd>
@@ -2643,7 +2643,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Hours passed midnight.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
 <td>The <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a> of the day to set this <span class="inlinecode">TimeOfDay</span>'s <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a> to.</td>
 </tr>
 </table></dd>
@@ -2662,7 +2662,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Minutes passed the hour.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a></td>
 <td>The <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to set this <span class="inlinecode">TimeOfDay</span>'s <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to.</td>
 </tr>
 </table></dd>
@@ -2681,7 +2681,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Seconds passed the minute.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
 <td>The <a class="symbol symbol-anchor" name="second" href="#second">second</a> to set this <span class="inlinecode">TimeOfDay</span>'s <a class="symbol symbol-anchor" name="second" href="#second">second</a> to.</td>
 </tr>
 </table></dd>
@@ -2704,10 +2704,10 @@ date.<u>dayOfGregorianCal</u> = 734_137;
         Accepted units are <span class="inlinecode">"hours"</span>, <span class="inlinecode">"minutes"</span>, and <span class="inlinecode">"seconds"</span>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of <b>units</b> to add to this
                     <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
@@ -2753,7 +2753,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
@@ -2775,7 +2775,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
@@ -2794,7 +2794,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">rhs</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>rhs</td>
 <td>The <span class="inlinecode">TimeOfDay</span> to subtract from this one.</td>
 </tr>
 </table></dd>
@@ -2841,7 +2841,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO format for times.</td>
 </tr>
 </table></dd>
@@ -2862,7 +2862,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO Extended format for times.</td>
 </tr>
 </table></dd>
@@ -2912,10 +2912,10 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow  this(const(Date) <i>date</i>, const(TimeOfDay) <i>tod</i> = TimeOfDay(cast(ubyte)0u,cast(ubyte)0u,cast(ubyte)0u));
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(Date) <i>date</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Date) <i>date</i></td>
 <td>The <i>date</i> portion of <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td class="span2">const(TimeOfDay) <i>tod</i></td>
+<tr><td>const(TimeOfDay) <i>tod</i></td>
 <td>The time portion of <span class="inlinecode">DateTime</span>.</td>
 </tr>
 </table></dd>
@@ -2923,22 +2923,22 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 </div>
 <hr><div class="row-fluid declaration"><h3>pure  this(int <i>year</i>, int <i>month</i>, int <i>day</i>, int <i>hour</i> = 0, int <i>minute</i> = 0, int <i>second</i> = 0);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>The <i>year</i> portion of the date.</td>
 </tr>
-<tr><td class="span2">int <i>month</i></td>
+<tr><td>int <i>month</i></td>
 <td>The <i>month</i> portion of the date.</td>
 </tr>
-<tr><td class="span2">int <i>day</i></td>
+<tr><td>int <i>day</i></td>
 <td>The <i>day</i> portion of the date.</td>
 </tr>
-<tr><td class="span2">int <i>hour</i></td>
+<tr><td>int <i>hour</i></td>
 <td>The <i>hour</i> portion of the time;</td>
 </tr>
-<tr><td class="span2">int <i>minute</i></td>
+<tr><td>int <i>minute</i></td>
 <td>The <i>minute</i> portion of the time;</td>
 </tr>
-<tr><td class="span2">int <i>second</i></td>
+<tr><td>int <i>second</i></td>
 <td>The <i>second</i> portion of the time;</td>
 </tr>
 </table></dd>
@@ -2966,7 +2966,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="date" href="#date">date</a> portion of <span class="inlinecode">DateTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Date <a class="symbol symbol-anchor" name="date" href="#date">date</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Date <a class="symbol symbol-anchor" name="date" href="#date">date</a></td>
 <td>The Date to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="date" href="#date">date</a> portion to.</td>
 </tr>
 </table></dd>
@@ -2983,7 +2983,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 <div class="declaration-content"><dl><p>The time portion of <span class="inlinecode">DateTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TimeOfDay <i>tod</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TimeOfDay <i>tod</i></td>
 <td>The <span class="inlinecode">TimeOfDay</span> to set this <span class="inlinecode">DateTime</span>'s time portion
                   to.</td>
 </tr>
@@ -3003,7 +3003,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         are B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="year" href="#year">year</a></td>
 <td>The <a class="symbol symbol-anchor" name="year" href="#year">year</a> to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="year" href="#year">year</a> to.</td>
 </tr>
 </table></dd>
@@ -3038,7 +3038,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 <div class="declaration-content"><dl><p>Year B.C. of the Gregorian Calendar counting <i>year</i> 0 as 1 B.C.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>The <i>year</i> B.C. to set this <span class="inlinecode">DateTime</span>'s <i>year</i> to.</td>
 </tr>
 </table></dd>
@@ -3072,7 +3072,7 @@ dt.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Month of a Gregorian Year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Month <a class="symbol symbol-anchor" name="month" href="#month">month</a></td>
 <td>The <a class="symbol symbol-anchor" name="month" href="#month">month</a> to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="month" href="#month">month</a> to.</td>
 </tr>
 </table></dd>
@@ -3096,7 +3096,7 @@ dt.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Day of a Gregorian Month.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="day" href="#day">day</a></td>
 <td>The <a class="symbol symbol-anchor" name="day" href="#day">day</a> of the month to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="day" href="#day">day</a> to.</td>
 </tr>
 </table></dd>
@@ -3115,7 +3115,7 @@ dt.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Hours passed midnight.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a></td>
 <td>The <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a> of the day to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="hour" href="#hour">hour</a> to.</td>
 </tr>
 </table></dd>
@@ -3134,7 +3134,7 @@ dt.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Minutes passed the hour.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a></td>
 <td>The <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="minute" href="#minute">minute</a> to.</td>
 </tr>
 </table></dd>
@@ -3153,7 +3153,7 @@ dt.<u>yearBC</u> = 10;
 <div class="declaration-content"><dl><p>Seconds passed the minute.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <a class="symbol symbol-anchor" name="second" href="#second">second</a></td>
 <td>The <a class="symbol symbol-anchor" name="second" href="#second">second</a> to set this <span class="inlinecode">DateTime</span>'s <a class="symbol symbol-anchor" name="second" href="#second">second</a> to.</td>
 </tr>
 </table></dd>
@@ -3176,14 +3176,14 @@ dt.<u>yearBC</u> = 10;
         day in the month (e.g. June 31st would become June 30th).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <a class="symbol symbol-anchor" name="add" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to <a class="symbol symbol-anchor" name="add" href="#add">add</a> to this
                             <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -3223,14 +3223,14 @@ dt4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         between adding and rolling years.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -3277,10 +3277,10 @@ dt6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
         <span class="inlinecode">"minutes"</span>, and <span class="inlinecode">"seconds"</span>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number of <b>units</b> to add to this <span class="inlinecode">DateTime</span>.</td>
 </tr>
 </table></dd>
@@ -3317,7 +3317,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">DateTime</span>.</td>
 </tr>
@@ -3338,7 +3338,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">DateTime</span>.</td>
 </tr>
@@ -3379,7 +3379,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         and January 31st are one month apart.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">DateTime <i>rhs</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>DateTime <i>rhs</i></td>
 <td>The <span class="inlinecode">DateTime</span> to subtract from this one.</td>
 </tr>
 </table></dd>
@@ -3427,7 +3427,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 <div class="declaration-content"><dl><p>Day of the year.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>day</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>day</i></td>
 <td>The <i>day</i> of the year to set which <i>day</i> of the year this
                   <span class="inlinecode">DateTime</span> is on.</td>
 </tr>
@@ -3468,7 +3468,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         <span class="inlinecode">DateTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>days</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>days</i></td>
 <td>The day of the Gregorian Calendar to set this <span class="inlinecode">DateTime</span>
                    to.</td>
 </tr>
@@ -3660,7 +3660,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO format for dates and times.</td>
 </tr>
 </table></dd>
@@ -3692,7 +3692,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         YYYY-MM-DDTHH:MM:SS. Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
 <td>A string formatted in the ISO Extended format for dates
                         and times.</td>
 </tr>
@@ -3733,7 +3733,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         YYYY-Mon-DD HH:MM:SS. Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
 <td>A string formatted in the way that toSimpleString
                            formats dates and times.</td>
 </tr>
@@ -3794,10 +3794,10 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure  this(U)(in TP <i>begin</i>, in U <i>end</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">begin</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>begin</td>
 <td>The time point which begins the interval.</td>
 </tr>
-<tr><td class="span2">end</td>
+<tr><td>end</td>
 <td>The time point which ends (but is not included in) the
                     interval.</td>
 </tr>
@@ -3812,10 +3812,10 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </div>
 <hr><div class="row-fluid declaration"><h3>pure  this(D)(in TP <i>begin</i>, in D <i>duration</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">begin</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>begin</td>
 <td>The time point which begins the interval.</td>
 </tr>
-<tr><td class="span2">duration</td>
+<tr><td>duration</td>
 <td>The duration from the starting point to the end point.</td>
 </tr>
 </table></dd>
@@ -3831,7 +3831,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow Interval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref const Interval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>rhs</i></td>
 <td>The <span class="inlinecode">Interval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -3839,7 +3839,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow Interval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(Interval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>rhs</i></td>
 <td>The <span class="inlinecode">Interval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -3861,7 +3861,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>The starting point of the interval. It is included in the interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to set <span class="inlinecode"><a class="symbol symbol-anchor" name="begin" href="#begin">begin</a></span> to.</td>
 </tr>
 </table></dd>
@@ -3884,7 +3884,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="end" href="#end">end</a> point of the interval. It is excluded from the interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to set <a class="symbol symbol-anchor" name="end" href="#end">end</a> to.</td>
 </tr>
 </table></dd>
@@ -3918,7 +3918,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given time point is within this interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check for inclusion in this interval.</td>
 </tr>
 </table></dd>
@@ -3941,7 +3941,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -3970,7 +3970,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -3993,7 +3993,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         finite <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4011,7 +4011,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether this interval is before the given time point.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is before
                         it.</td>
 </tr>
@@ -4037,7 +4037,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         intersect with it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4062,7 +4062,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         intersect with it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4088,7 +4088,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i> can never be before an <i>interval</i> beginning at negative infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4106,7 +4106,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether this interval is after the given time point.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is after
                         it.</td>
 </tr>
@@ -4132,7 +4132,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4161,7 +4161,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i> can never be after an <i>interval</i> going to positive infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4180,7 +4180,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4198,7 +4198,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4222,7 +4222,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4243,7 +4243,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4264,7 +4264,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4288,7 +4288,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4312,7 +4312,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4336,7 +4336,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -4361,7 +4361,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -4383,7 +4383,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -4405,7 +4405,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4429,7 +4429,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4453,7 +4453,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4479,7 +4479,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4504,7 +4504,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4529,7 +4529,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4555,7 +4555,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -4585,13 +4585,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             on begin and end with the given number of years and months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month
                                 to increment.</td>
@@ -4621,10 +4621,10 @@ interval2.<u>shift</u>(-2);
         <b>dir</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">dir</td>
+<tr><td>dir</td>
 <td>The direction in time to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval.</td>
 </tr>
 </table></dd>
@@ -4652,13 +4652,13 @@ interval2.<u>expand</u>(-2);
             in time is determined by <b>dir</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month
                                 to increment.</td>
@@ -4706,11 +4706,11 @@ interval2.<u>expand</u>(-2);
         "Range-generating function," making them easily searchable.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP delegate(in TP) <i>func</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP delegate(in TP) <i>func</i></td>
 <td>The function used to generate the time points of the
                        range over the interval.</td>
 </tr>
-<tr><td class="span2">PopFirst <i>popFirst</i></td>
+<tr><td>PopFirst <i>popFirst</i></td>
 <td>Whether <span class="inlinecode">popFront</span> should be called on the range
                        before returning it.</td>
 </tr>
@@ -4799,11 +4799,11 @@ range.popFront();
         "Range-generating function," making them easily searchable.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP delegate(in TP) <i>func</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP delegate(in TP) <i>func</i></td>
 <td>The function used to generate the time points of the
                        range over the interval.</td>
 </tr>
-<tr><td class="span2">PopFirst <i>popFirst</i></td>
+<tr><td>PopFirst <i>popFirst</i></td>
 <td>Whether <span class="inlinecode">popFront</span> should be called on the range
                        before returning it.</td>
 </tr>
@@ -4885,7 +4885,7 @@ range.popFront();
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow  this(in TP <i>begin</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>begin</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>begin</i></td>
 <td>The time point which begins the interval.</td>
 </tr>
 </table></dd>
@@ -4896,7 +4896,7 @@ range.popFront();
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow PosInfInterval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref const PosInfInterval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>rhs</i></td>
 <td>The <span class="inlinecode">PosInfInterval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -4904,7 +4904,7 @@ range.popFront();
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow PosInfInterval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(PosInfInterval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>rhs</i></td>
 <td>The <span class="inlinecode">PosInfInterval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -4925,7 +4925,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>The starting point of the interval. It is included in the interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to set <span class="inlinecode"><a class="symbol symbol-anchor" name="begin" href="#begin">begin</a></span> to.</td>
 </tr>
 </table></dd>
@@ -4946,7 +4946,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given time point is within this interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check for inclusion in this interval.</td>
 </tr>
 </table></dd>
@@ -4961,7 +4961,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4985,7 +4985,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5007,7 +5007,7 @@ range.popFront();
         can never contain an <i>interval</i> beginning at negative infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5026,7 +5026,7 @@ range.popFront();
         can never be before any time point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is before
                         it.</td>
 </tr>
@@ -5048,7 +5048,7 @@ range.popFront();
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5074,7 +5074,7 @@ range.popFront();
         never be before any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5097,7 +5097,7 @@ range.popFront();
         never be before any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5112,7 +5112,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether this interval is after the given time point.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is after
                         it.</td>
 </tr>
@@ -5129,7 +5129,7 @@ range.popFront();
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5158,7 +5158,7 @@ range.popFront();
         never be after another <i>interval</i> going to positive infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5177,7 +5177,7 @@ range.popFront();
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5195,7 +5195,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5223,7 +5223,7 @@ range.popFront();
         always overlap.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this
                        <i>interval</i>.</td>
 </tr>
@@ -5242,7 +5242,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this
                        <i>interval</i>.</td>
 </tr>
@@ -5261,7 +5261,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5285,7 +5285,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5305,7 +5305,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5328,7 +5328,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -5354,7 +5354,7 @@ range.popFront();
         can never be adjacent to one another.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -5373,7 +5373,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -5392,7 +5392,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5423,7 +5423,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5452,7 +5452,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -5489,7 +5489,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -5520,7 +5520,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         <span class="inlinecode">begin += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -5547,13 +5547,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span>, causing its month to increment.</td>
 </tr>
@@ -5580,10 +5580,10 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
         <span class="inlinecode">begin -= duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">dir</td>
+<tr><td>dir</td>
 <td>The direction in time to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval.</td>
 </tr>
 </table></dd>
@@ -5605,13 +5605,13 @@ interval2.<u>expand</u>(dur!<span class="d_string">"days"</span>(-2));
             it subtracts the given number of months/years from <span class="inlinecode">begin</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span>, causing its month to increment.</td>
 </tr>
@@ -5656,11 +5656,11 @@ interval2.<u>expand</u>(-2);
         "Range-generating function," to make them easily searchable.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP delegate(in TP) <i>func</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP delegate(in TP) <i>func</i></td>
 <td>The function used to generate the time points of the
                        range over the interval.</td>
 </tr>
-<tr><td class="span2">PopFirst <i>popFirst</i></td>
+<tr><td>PopFirst <i>popFirst</i></td>
 <td>Whether <span class="inlinecode">popFront</span> should be called on the range
                        before returning it.</td>
 </tr>
@@ -5744,7 +5744,7 @@ range.popFront();
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow  this(in TP <i>end</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">begin</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>begin</td>
 <td>The time point which begins the interval.</td>
 </tr>
 </table></dd>
@@ -5755,7 +5755,7 @@ range.popFront();
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow NegInfInterval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref const NegInfInterval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>rhs</i></td>
 <td>The <span class="inlinecode">NegInfInterval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -5763,7 +5763,7 @@ range.popFront();
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow NegInfInterval <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(NegInfInterval <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>rhs</i></td>
 <td>The <span class="inlinecode">NegInfInterval</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -5784,7 +5784,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>The <a class="symbol symbol-anchor" name="end" href="#end">end</a> point of the interval. It is excluded from the interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to set <a class="symbol symbol-anchor" name="end" href="#end">end</a> to.</td>
 </tr>
 </table></dd>
@@ -5805,7 +5805,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given time point is within this interval.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check for inclusion in this interval.</td>
 </tr>
 </table></dd>
@@ -5821,7 +5821,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5849,7 +5849,7 @@ range.popFront();
         infinity can never contain an <i>interval</i> going to positive infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5864,7 +5864,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5882,7 +5882,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether this interval is before the given time point.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is
                         before it.</td>
 </tr>
@@ -5900,7 +5900,7 @@ range.popFront();
         intersect it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5925,7 +5925,7 @@ range.popFront();
         intersect it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5949,7 +5949,7 @@ range.popFront();
         infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5971,7 +5971,7 @@ range.popFront();
         can never be after any time point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP <i>timePoint</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP <i>timePoint</i></td>
 <td>The time point to check whether this interval is after
                         it.</td>
 </tr>
@@ -5994,7 +5994,7 @@ range.popFront();
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6023,7 +6023,7 @@ range.popFront();
         can never be after any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6046,7 +6046,7 @@ range.popFront();
         can never be after any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6064,7 +6064,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6088,7 +6088,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this
                        <i>interval</i>.</td>
 </tr>
@@ -6111,7 +6111,7 @@ range.popFront();
         always overlap.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6129,7 +6129,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6153,7 +6153,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6176,7 +6176,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the <a class="symbol symbol-anchor" name="intersection" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6196,7 +6196,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -6224,7 +6224,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -6247,7 +6247,7 @@ range.popFront();
         infinity can never be adjacent to one another.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -6266,7 +6266,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6297,7 +6297,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to <a class="symbol symbol-anchor" name="merge" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6326,7 +6326,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -6363,7 +6363,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfInterval <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval <i>interval</i></td>
 <td>The <i>interval</i> to create a <a class="symbol symbol-anchor" name="span" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -6394,7 +6394,7 @@ There is no overload for <span class="inlinecode"><a class="symbol symbol-anchor
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -6420,13 +6420,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             on end with the given number of years and months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="shift" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">end</span>, causing its month to increment.</td>
 </tr>
@@ -6453,10 +6453,10 @@ interval2.<u>shift</u>(-2);
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
 <td>The duration to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">dir</td>
+<tr><td>dir</td>
 <td>The direction in time to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval.</td>
 </tr>
 </table></dd>
@@ -6478,13 +6478,13 @@ interval2.<u>expand</u>(dur!<span class="d_string">"days"</span>(-2));
             it adds the given number of months/years to end.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
 <td>The number of years to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to <a class="symbol symbol-anchor" name="expand" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">end</span>, causing their month to increment.</td>
 </tr>
@@ -6529,11 +6529,11 @@ interval2.<u>expand</u>(-2);
         "Range-generating function," to make them easily searchable.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">TP delegate(in TP) <i>func</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP delegate(in TP) <i>func</i></td>
 <td>The function used to generate the time points of the
                        range over the interval.</td>
 </tr>
-<tr><td class="span2">PopFirst <i>popFirst</i></td>
+<tr><td>PopFirst <i>popFirst</i></td>
 <td>Whether <span class="inlinecode">popFront</span> should be called on the range
                        before returning it.</td>
 </tr>
@@ -6618,12 +6618,12 @@ range.popFront();
     iterate over all of the Mondays in a range.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dir</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dir</td>
 <td>The direction to iterate in. If passing the return value to
                     <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                     <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td class="span2">dayOfWeek</td>
+<tr><td>dayOfWeek</td>
 <td>The week that each time point in the range will be.</td>
 </tr>
 </table></dd>
@@ -6672,12 +6672,12 @@ range.popFront();
     calculating the next time point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dir</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dir</td>
 <td>The direction to iterate in. If passing the return value to
                 <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                 <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td class="span2">month</td>
+<tr><td>month</td>
 <td>The month that each time point in the range will be in.</td>
 </tr>
 </table></dd>
@@ -6725,12 +6725,12 @@ range.popFront();
     over a range of days which are each 3 days apart.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dir</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dir</td>
 <td>The direction to iterate in. If passing the return value to
                    <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                    <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td class="span2">duration</td>
+<tr><td>duration</td>
 <td>The duration which separates each successive time point in
                    the range.</td>
 </tr>
@@ -6787,25 +6787,25 @@ range.popFront();
     from <span class="inlinecode">begin</span>).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">dir</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dir</td>
 <td>The direction to iterate in. If passing the return
                         value to <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If
                         passing it to <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td class="span2">years</td>
+<tr><td>years</td>
 <td>The number of years to add to the time point passed to
                         the delegate.</td>
 </tr>
-<tr><td class="span2">months</td>
+<tr><td>months</td>
 <td>The number of months to add to the time point passed to
                         the delegate.</td>
 </tr>
-<tr><td class="span2">allowOverflow</td>
+<tr><td>allowOverflow</td>
 <td>Whether the days should be allowed to overflow on
                         <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month to
                         increment.</td>
 </tr>
-<tr><td class="span2">duration</td>
+<tr><td>duration</td>
 <td>The duration to add to the time point passed to the
                         delegate.</td>
 </tr>
@@ -6882,7 +6882,7 @@ range.popFront();
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow IntervalRange <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref IntervalRange <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">IntervalRange <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>IntervalRange <i>rhs</i></td>
 <td>The <span class="inlinecode">IntervalRange</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -6974,7 +6974,7 @@ range.popFront();
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow PosInfIntervalRange <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref PosInfIntervalRange <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">PosInfIntervalRange <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfIntervalRange <i>rhs</i></td>
 <td>The <span class="inlinecode">PosInfIntervalRange</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -7060,7 +7060,7 @@ range.popFront();
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow NegInfIntervalRange <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(ref NegInfIntervalRange <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">NegInfIntervalRange <i>rhs</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfIntervalRange <i>rhs</i></td>
 <td>The <span class="inlinecode">NegInfIntervalRange</span> to assign to this one.</td>
 </tr>
 </table></dd>
@@ -7162,7 +7162,7 @@ range.popFront();
         time zone at the given point in time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be checked for DST in this time
                       zone.</td>
 </tr>
@@ -7175,7 +7175,7 @@ range.popFront();
         in UTC time (i.e. std time) and converts it to this time zone's time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be adjusted to this time zone's
                       time.</td>
 </tr>
@@ -7188,7 +7188,7 @@ range.popFront();
         in this time zone's time and converts it to UTC (i.e. std time).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>adjTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>adjTime</i></td>
 <td>The time in this time zone that needs to be adjusted to
                       UTC time.</td>
 </tr>
@@ -7201,7 +7201,7 @@ range.popFront();
         It includes the DST offset in effect at that time (if any).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time for which to get the offset from UTC for this
                       time zone.</td>
 </tr>
@@ -7233,7 +7233,7 @@ range.popFront();
             <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/zone_tzid.html">                  Windows &lt;-&gt; TZ Database Name Conversion Table</a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The TZ Database <i>name</i> of the desired time zone</td>
 </tr>
 </table></dd>
@@ -7262,7 +7262,7 @@ range.popFront();
         zone names, use <span class="inlinecode">WindowsTimeZone.<a class="symbol symbol-anchor" name="getInstalledTZNames" href="#getInstalledTZNames">getInstalledTZNames</a></span> directly.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>subName</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>subName</i></td>
 <td>The first part of the time zones desired.</td>
 </tr>
 </table></dd>
@@ -7340,7 +7340,7 @@ range.popFront();
         time zone at the given point in time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be checked for DST in this time
                       zone.</td>
 </tr>
@@ -7354,7 +7354,7 @@ range.popFront();
         systems to adjust the time to the appropriate time zone from std time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be adjusted to this time zone's
                       time.</td>
 </tr>
@@ -7372,7 +7372,7 @@ range.popFront();
 <dt>See Also</dt><dd><span class="inlinecode">TimeZone.<a class="symbol symbol-anchor" name="tzToUTC" href="#tzToUTC">tzToUTC</a></span>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>adjTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>adjTime</i></td>
 <td>The time in this time zone that needs to be adjusted to
                       UTC time.</td>
 </tr>
@@ -7409,7 +7409,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns the given hnsecs without changing them at all.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be adjusted to this time zone's
                       time.</td>
 </tr>
@@ -7425,7 +7425,7 @@ range.popFront();
 <dt>See Also</dt><dd><span class="inlinecode">TimeZone.<a class="symbol symbol-anchor" name="tzToUTC" href="#tzToUTC">tzToUTC</a></span>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>adjTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>adjTime</i></td>
 <td>The time in this time zone that needs to be adjusted to
                       UTC time.</td>
 </tr>
@@ -7437,7 +7437,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns a <a href="core_time.html#Duration"><span class="inlinecode">core.time.Duration</span></a> of 0.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time for which to get the offset from UTC for this
                       time zone.</td>
 </tr>
@@ -7479,7 +7479,7 @@ range.popFront();
         in UTC time (i.e. std time) and converts it to this time zone's time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be adjusted to this time zone's
                       time.</td>
 </tr>
@@ -7492,7 +7492,7 @@ range.popFront();
         in this time zone's time and converts it to UTC (i.e. std time).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>adjTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>adjTime</i></td>
 <td>The time in this time zone that needs to be adjusted to
                       UTC time.</td>
 </tr>
@@ -7504,7 +7504,7 @@ range.popFront();
 <div class="declaration-content"><dl><p>Returns utcOffset as a <a href="core_time.html#Duration"><span class="inlinecode">core.time.Duration</span></a>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time for which to get the offset from UTC for this
                       time zone.</td>
 </tr>
@@ -7513,12 +7513,12 @@ range.popFront();
 </div>
 <hr><div class="row-fluid declaration"><h3>immutable  this(int <i>utcOffset</i>, string <i>stdName</i> = "");
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>utcOffset</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>utcOffset</i></td>
 <td>This time zone's offset from UTC in minutes with west of
                         UTC being negative (it is added to UTC to get the
                         adjusted time).</td>
 </tr>
-<tr><td class="span2">string <i>stdName</i></td>
+<tr><td>string <i>stdName</i></td>
 <td>The <span class="inlinecode"><i>stdName</i></span> for this time zone.</td>
 </tr>
 </table></dd>
@@ -7581,7 +7581,7 @@ Unless your system's local time zone deals with leap seconds (which is
         time zone at the given point in time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be checked for DST in this time
                       zone.</td>
 </tr>
@@ -7594,7 +7594,7 @@ Unless your system's local time zone deals with leap seconds (which is
         in UTC time (i.e. std time) and converts it to this time zone's time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The UTC time that needs to be adjusted to this time zone's
                       time.</td>
 </tr>
@@ -7607,7 +7607,7 @@ Unless your system's local time zone deals with leap seconds (which is
         in this time zone's time and converts it to UTC (i.e. std time).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>adjTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>adjTime</i></td>
 <td>The time in this time zone that needs to be adjusted to
                       UTC time.</td>
 </tr>
@@ -7634,10 +7634,10 @@ Unless your system's local time zone deals with leap seconds (which is
               Time Zones</a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The TZ Database <i>name</i> of the desired time zone</td>
 </tr>
-<tr><td class="span2">string <i>tzDatabaseDir</i></td>
+<tr><td>string <i>tzDatabaseDir</i></td>
 <td>The directory where the TZ Database files are
                             located. Because these files are not located on
                             Windows systems, provide them
@@ -7669,7 +7669,7 @@ Unless your system's local time zone deals with leap seconds (which is
         begin with "America".
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>subName</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>subName</i></td>
 <td>The first part of the desired time zones.</td>
 </tr>
 </table></dd>
@@ -7698,7 +7698,7 @@ Unless your system's local time zone deals with leap seconds (which is
 <dt>See Also</dt><dd><a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/zone_tzid.html">              Windows &lt;-&gt; TZ Database Name Conversion Table</a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>tzName</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>tzName</i></td>
 <td>The TZ Database name to convert.</td>
 </tr>
 </table></dd>
@@ -7715,7 +7715,7 @@ Unless your system's local time zone deals with leap seconds (which is
 <dt>See Also</dt><dd><a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/zone_tzid.html">              Windows &lt;-&gt; TZ Database Name Conversion Table</a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>tzName</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>tzName</i></td>
 <td>The TZ Database name to convert.</td>
 </tr>
 </table></dd>
@@ -7819,11 +7819,11 @@ Unless your system's local time zone deals with leap seconds (which is
 <div class="declaration-content"><dl><p>Benchmarks code for speed assessment and comparison.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">fun</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fun</td>
 <td>aliases of callable objects (e.g. function names). Each should
               take no arguments.</td>
 </tr>
-<tr><td class="span2">n</td>
+<tr><td>n</td>
 <td>The number of times each function is to be executed.</td>
 </tr>
 </table></dd>
@@ -7878,13 +7878,13 @@ writefln(<span class="d_string">"Milliseconds to call fun[0] n times: %s"</span>
 <div class="declaration-content"><dl><p>Benchmark with two functions comparing.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">baseFunc</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>baseFunc</td>
 <td>The function to become the base of the speed.</td>
 </tr>
-<tr><td class="span2">targetFunc</td>
+<tr><td>targetFunc</td>
 <td>The function that wants to measure speed.</td>
 </tr>
-<tr><td class="span2">times</td>
+<tr><td>times</td>
 <td>The number of times each function is to be executed.</td>
 </tr>
 </table></dd>
@@ -7916,7 +7916,7 @@ writefln(<span class="d_string">"Milliseconds to call fun[0] n times: %s"</span>
 <div class="declaration-content"><dl><p>Whether the given Gregorian Year is a leap <i>year</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>year</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>year</i></td>
 <td>The <i>year</i> to to be tested.</td>
 </tr>
 </table></dd>
@@ -7929,7 +7929,7 @@ writefln(<span class="d_string">"Milliseconds to call fun[0] n times: %s"</span>
     January 1st, 1 A.D. UTC and hnsecs as its units).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">time_t <i>unixTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>time_t <i>unixTime</i></td>
 <td>The <span class="inlinecode">time_t</span> to convert.</td>
 </tr>
 </table></dd>
@@ -7955,7 +7955,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
         <span class="inlinecode"><a class="symbol symbol-anchor" name="stdTimeToUnixTime" href="#stdTimeToUnixTime">stdTimeToUnixTime</a></span> is non-negative.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">long <i>stdTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The std time to convert.</td>
 </tr>
 </table></dd>
@@ -7972,10 +7972,10 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <div class="declaration-content"><dl><p>Converts from DOS file date/time to <span class="inlinecode">SysTime</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">DosFileTime <i>dft</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>DosFileTime <i>dft</i></td>
 <td>The DOS file time to convert.</td>
 </tr>
-<tr><td class="span2">TimeZone <i>tz</i></td>
+<tr><td>TimeZone <i>tz</i></td>
 <td>The time zone which the DOS file time is assumed to be in.</td>
 </tr>
 </table></dd>
@@ -7987,7 +7987,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <div class="declaration-content"><dl><p>Converts from <span class="inlinecode">SysTime</span> to DOS file date/time.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>sysTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>sysTime</i></td>
 <td>The <span class="inlinecode">SysTime</span> to convert.</td>
 </tr>
 </table></dd>
@@ -8046,10 +8046,10 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
     1 - 12 inclusive).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number to validate.</td>
 </tr>
 </table></dd>
@@ -8066,16 +8066,16 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <div class="declaration-content"><dl><p>Returns whether the given day is <a class="symbol symbol-anchor" name="valid" href="#valid">valid</a> for the given year and month.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td class="span2">year</td>
+<tr><td>year</td>
 <td>The year of the day to validate.</td>
 </tr>
-<tr><td class="span2">month</td>
+<tr><td>month</td>
 <td>The month of the day to validate.</td>
 </tr>
-<tr><td class="span2">day</td>
+<tr><td>day</td>
 <td>The day to validate.</td>
 </tr>
 </table></dd>
@@ -8083,16 +8083,16 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 </div>
 <hr><div class="row-fluid declaration"><h3>pure void <a class="symbol symbol-anchor" name="enforceValid" href="#enforceValid">enforceValid</a>(string units)(int <i>value</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td class="span2">value</td>
+<tr><td>value</td>
 <td>The number to validate.</td>
 </tr>
-<tr><td class="span2">file</td>
+<tr><td>file</td>
 <td>The file that the <span class="inlinecode">DateTimeException</span> will list if thrown.</td>
 </tr>
-<tr><td class="span2">line</td>
+<tr><td>line</td>
 <td>The line number that the <span class="inlinecode">DateTimeException</span> will list if
                 thrown.</td>
 </tr>
@@ -8102,22 +8102,22 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 </div>
 <hr><div class="row-fluid declaration"><h3>pure void <a class="symbol symbol-anchor" name="enforceValid" href="#enforceValid">enforceValid</a>(string units)(int <i>year</i>, Month <i>month</i>, int <i>day</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">units</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td class="span2">year</td>
+<tr><td>year</td>
 <td>The year of the day to validate.</td>
 </tr>
-<tr><td class="span2">month</td>
+<tr><td>month</td>
 <td>The month of the day to validate.</td>
 </tr>
-<tr><td class="span2">day</td>
+<tr><td>day</td>
 <td>The day to validate.</td>
 </tr>
-<tr><td class="span2">file</td>
+<tr><td>file</td>
 <td>The file that the <span class="inlinecode">DateTimeException</span> will list if thrown.</td>
 </tr>
-<tr><td class="span2">line</td>
+<tr><td>line</td>
 <td>The line number that the <span class="inlinecode">DateTimeException</span> will list if
                 thrown.</td>
 </tr>
@@ -8131,10 +8131,10 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
     given <i>month</i> of the year. If they are the same, then the result is 0.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int <i>currMonth</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>currMonth</i></td>
 <td>The current <i>month</i> of the year.</td>
 </tr>
-<tr><td class="span2">int <i>month</i></td>
+<tr><td>int <i>month</i></td>
 <td>The <i>month</i> of the year to get the number of months to.</td>
 </tr>
 </table></dd>
@@ -8146,10 +8146,10 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
     day of the week. If they are the same, then the result is 0.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">DayOfWeek <i>currDoW</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>DayOfWeek <i>currDoW</i></td>
 <td>The current day of the week.</td>
 </tr>
-<tr><td class="span2">DayOfWeek <i>dow</i></td>
+<tr><td>DayOfWeek <i>dow</i></td>
 <td>The day of the week to get the number of days to.</td>
 </tr>
 </table></dd>

@@ -314,7 +314,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Creates an instance of the exception.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>message</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>message</i></td>
 <td>The <i>message</i> associated with the exception.</td>
 </tr>
 </table></dd>
@@ -325,10 +325,10 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Creates an instance of the exception, with the given.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>message</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>message</i></td>
 <td>The <i>message</i> associated with the exception.</td>
 </tr>
-<tr><td class="span2">int <i>error</i></td>
+<tr><td>int <i>error</i></td>
 <td>The Win32 <i>error</i> number associated with the exception.</td>
 </tr>
 </table></dd>
@@ -537,7 +537,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Returns the named sub-key of this key.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the subkey to create. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
@@ -551,11 +551,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Returns the named sub-key of this key.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the subkey to aquire. If <i>name</i> is the empty
                    string, then the called key is duplicated.</td>
 </tr>
-<tr><td class="span2">REGSAM <i>access</i></td>
+<tr><td>REGSAM <i>access</i></td>
 <td>The desired <i>access</i>; one of the <span class="inlinecode">REGSAM</span> enumeration.</td>
 </tr>
 </table></dd>
@@ -570,7 +570,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Deletes the named key.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the key to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
@@ -591,11 +591,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given 32-bit unsigned integer <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">uint <i>value</i></td>
+<tr><td>uint <i>value</i></td>
 <td>The 32-bit unsigned <i>value</i> to set.</td>
 </tr>
 </table></dd>
@@ -609,14 +609,14 @@ Created      15th March 2003,
         according to the desired byte-ordering.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">uint <i>value</i></td>
+<tr><td>uint <i>value</i></td>
 <td>The 32-bit unsigned <i>value</i> to set.</td>
 </tr>
-<tr><td class="span2">Endian <i>endian</i></td>
+<tr><td>Endian <i>endian</i></td>
 <td>Can be <span class="inlinecode">Endian.BigEndian</span> or <span class="inlinecode">Endian.LittleEndian</span>.</td>
 </tr>
 </table></dd>
@@ -629,11 +629,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given 64-bit unsigned integer <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">ulong <i>value</i></td>
+<tr><td>ulong <i>value</i></td>
 <td>The 64-bit unsigned <i>value</i> to set.</td>
 </tr>
 </table></dd>
@@ -646,11 +646,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given string <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">string <i>value</i></td>
+<tr><td>string <i>value</i></td>
 <td>The string <i>value</i> to set.</td>
 </tr>
 </table></dd>
@@ -663,14 +663,14 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given string <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">string <i>value</i></td>
+<tr><td>string <i>value</i></td>
 <td>The string <i>value</i> to set.</td>
 </tr>
-<tr><td class="span2">bool <i>asEXPAND_SZ</i></td>
+<tr><td>bool <i>asEXPAND_SZ</i></td>
 <td>If <span class="inlinecode"><span class="d_keyword">true</span></span>, the <i>value</i> will be stored as an
                           expandable environment string, otherwise as a normal string.</td>
 </tr>
@@ -684,11 +684,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given multiple-strings <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">string[] <i>value</i></td>
+<tr><td>string[] <i>value</i></td>
 <td>The multiple-strings <i>value</i> to set.</td>
 </tr>
 </table></dd>
@@ -701,11 +701,11 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Sets the named <i>value</i> with the given binary <i>value</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the <i>value</i> to set. If it is the empty string,
                    sets the default <i>value</i>.</td>
 </tr>
-<tr><td class="span2">byte[] <i>value</i></td>
+<tr><td>byte[] <i>value</i></td>
 <td>The binary <i>value</i> to set.</td>
 </tr>
 </table></dd>
@@ -718,7 +718,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>Deletes the named value.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> of the value to delete. May not be <span class="inlinecode"><span class="d_keyword">null</span></span>.</td>
 </tr>
 </table></dd>
@@ -896,7 +896,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The name of the key at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
@@ -910,7 +910,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The name of the key at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
@@ -951,7 +951,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The key at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
@@ -965,7 +965,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The key at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the key to retrieve.</td>
 </tr>
 </table></dd>
@@ -1006,7 +1006,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The name of the value at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>
@@ -1020,7 +1020,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The name of the value at the given <i>index</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>
@@ -1061,7 +1061,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The value at the given <span class="inlinecode"><i>index</i></span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the value to retrieve</td>
 </tr>
 </table></dd>
@@ -1075,7 +1075,7 @@ Created      15th March 2003,
 <div class="declaration-content"><dl><p>The value at the given <span class="inlinecode"><i>index</i></span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>index</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>index</i></td>
 <td>The 0-based <i>index</i> of the value to retrieve.</td>
 </tr>
 </table></dd>

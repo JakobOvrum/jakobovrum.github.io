@@ -471,13 +471,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="download" href="#download">download</a> to local file system.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource to <a class="symbol symbol-anchor" name="download" href="#download">download</a></td>
 </tr>
-<tr><td class="span2">saveToPath</td>
+<tr><td>saveToPath</td>
 <td>path to store the downloaded content on local disk</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.</td>
 </tr>
@@ -495,13 +495,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>Upload file from local files system using the HTTP or FTP protocol.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">loadFromPath</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>loadFromPath</td>
 <td>path load data from local disk.</td>
 </tr>
-<tr><td class="span2">url</td>
+<tr><td>url</td>
 <td>resource to <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a> to</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.</td>
 </tr>
@@ -519,10 +519,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="get" href="#get">get</a> content.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource to <a class="symbol symbol-anchor" name="get" href="#get">get</a></td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -548,15 +548,15 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="post" href="#post">post</a> content.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource to <a class="symbol symbol-anchor" name="post" href="#post">post</a> to</td>
 </tr>
-<tr><td class="span2">putData</td>
+<tr><td>putData</td>
 <td>data to send as the body of the request. An array
            of an arbitrary type is accepted and will be cast to ubyte[]
            before sending it.</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -582,15 +582,15 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="put" href="#put">put</a> content.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource to <a class="symbol symbol-anchor" name="put" href="#put">put</a></td>
 </tr>
-<tr><td class="span2">putData</td>
+<tr><td>putData</td>
 <td>data to send as the body of the request. An array
            of an arbitrary type is accepted and will be cast to ubyte[]
            before sending it.</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -617,10 +617,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP/FTP delete content.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource to delete</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.</td>
 </tr>
@@ -639,15 +639,15 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="options" href="#options">options</a> request.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource make a option call to</td>
 </tr>
-<tr><td class="span2">optionsData</td>
+<tr><td>optionsData</td>
 <td><a class="symbol symbol-anchor" name="options" href="#options">options</a> data to send as the body of the request. An array
                of an arbitrary type is accepted and will be cast to ubyte[]
                before sending it.</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -677,10 +677,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> request.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource make a <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> call to</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -706,10 +706,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> request.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource make a <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> to</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
         guess connection type and create a new instance for this call only.
 <br><br>
@@ -780,20 +780,20 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>The url to receive content from</td>
 </tr>
-<tr><td class="span2">postData</td>
+<tr><td>postData</td>
 <td>Data to HTTP Post</td>
 </tr>
-<tr><td class="span2">keepTerminator</td>
+<tr><td>keepTerminator</td>
 <td>KeepTerminator.yes signals that the line terminator should be
                   returned as part of the lines in the range.</td>
 </tr>
-<tr><td class="span2">terminator</td>
+<tr><td>terminator</td>
 <td>The character that terminates a line</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
@@ -818,13 +818,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>The url to receive content from</td>
 </tr>
-<tr><td class="span2">chunkSize</td>
+<tr><td>chunkSize</td>
 <td>The size of each chunk</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
@@ -887,23 +887,23 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>The url to receive content from</td>
 </tr>
-<tr><td class="span2">postData</td>
+<tr><td>postData</td>
 <td>Data to HTTP Post</td>
 </tr>
-<tr><td class="span2">keepTerminator</td>
+<tr><td>keepTerminator</td>
 <td>KeepTerminator.yes signals that the line terminator should be
                   returned as part of the lines in the range.</td>
 </tr>
-<tr><td class="span2">terminator</td>
+<tr><td>terminator</td>
 <td>The character that terminates a line</td>
 </tr>
-<tr><td class="span2">transmitBuffers</td>
+<tr><td>transmitBuffers</td>
 <td>The number of lines buffered asynchronously</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
@@ -968,22 +968,22 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">url</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>The url to receive content from</td>
 </tr>
-<tr><td class="span2">postData</td>
+<tr><td>postData</td>
 <td>Data to HTTP Post</td>
 </tr>
-<tr><td class="span2">terminator</td>
+<tr><td>terminator</td>
 <td>The character that terminates a line</td>
 </tr>
-<tr><td class="span2">chunkSize</td>
+<tr><td>chunkSize</td>
 <td>The size of the chunks</td>
 </tr>
-<tr><td class="span2">transmitBuffers</td>
+<tr><td>transmitBuffers</td>
 <td>The number of chunks buffered asynchronously</td>
 </tr>
-<tr><td class="span2">conn</td>
+<tr><td>conn</td>
 <td>The connection to use e.g. HTTP or FTP.</td>
 </tr>
 </table></dd>
@@ -1150,10 +1150,10 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <div class="declaration-content"><dl><p>Set time condition on the request.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">HTTP.TimeCond <i>cond</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>HTTP.TimeCond <i>cond</i></td>
 <td><span class="inlinecode">CurlTimeCond.{none,ifmodsince,ifunmodsince,lastmod}</span></td>
 </tr>
-<tr><td class="span2">SysTime <i>timestamp</i></td>
+<tr><td>SysTime <i>timestamp</i></td>
 <td>Timestamp for the condition
 <br><br>
 
@@ -1459,16 +1459,16 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
-<tr><td class="span2">string <i>file</i></td>
+<tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the exception occurred.</td>
 </tr>
-<tr><td class="span2">uint <i>line</i></td>
+<tr><td>uint <i>line</i></td>
 <td>The <i>line</i> number where the exception occurred.</td>
 </tr>
-<tr><td class="span2">Throwable <i>next</i></td>
+<tr><td>Throwable <i>next</i></td>
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
@@ -1483,16 +1483,16 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
-<tr><td class="span2">string <i>file</i></td>
+<tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the exception occurred.</td>
 </tr>
-<tr><td class="span2">uint <i>line</i></td>
+<tr><td>uint <i>line</i></td>
 <td>The <i>line</i> number where the exception occurred.</td>
 </tr>
-<tr><td class="span2">Throwable <i>next</i></td>
+<tr><td>Throwable <i>next</i></td>
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
@@ -1550,10 +1550,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>Set a string curl <i>option</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>CurlOption <i>option</i></td>
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
-<tr><td class="span2">const(char)[] <i>value</i></td>
+<tr><td>const(char)[] <i>value</i></td>
 <td>The string</td>
 </tr>
 </table></dd>
@@ -1564,10 +1564,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>Set a long curl <i>option</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>CurlOption <i>option</i></td>
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
-<tr><td class="span2">long <i>value</i></td>
+<tr><td>long <i>value</i></td>
 <td>The long</td>
 </tr>
 </table></dd>
@@ -1578,10 +1578,10 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>Set a void* curl <i>option</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>CurlOption <i>option</i></td>
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
-<tr><td class="span2">void* <i>value</i></td>
+<tr><td>void* <i>value</i></td>
 <td>The pointer</td>
 </tr>
 </table></dd>
@@ -1592,7 +1592,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>Clear a pointer <i>option</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlOption <i>option</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>CurlOption <i>option</i></td>
 <td>A <a href="etc_c_curl.html#CurlOption"><span class="inlinecode">etc.c.curl.CurlOption</span></a> as found in the curl documentation</td>
 </tr>
 </table></dd>
@@ -1610,7 +1610,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>The event handler that receives incoming data.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint delegate(ubyte[]) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint delegate(ubyte[]) <i>callback</i></td>
 <td>the <i>callback</i> that receives the <span class="inlinecode">ubyte[]</span> data.
  Be sure to copy the incoming data and not store
  a slice.</td>
@@ -1639,7 +1639,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  that uses headers.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">void delegate(const(char[])) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>void delegate(const(char[])) <i>callback</i></td>
 <td>the <i>callback</i> that receives the header string.
  Make sure the <i>callback</i> copies the incoming params if
  it needs to store it because they are references into
@@ -1662,7 +1662,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>The event handler that gets called when data is needed for sending.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint delegate(void[]) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint delegate(void[]) <i>callback</i></td>
 <td>the <i>callback</i> that has a <span class="inlinecode">void[]</span> buffer to be filled</td>
 </tr>
 </table></dd>
@@ -1701,7 +1701,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  the data to be sent.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">CurlSeek delegate(long, CurlSeekPos) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>CurlSeek delegate(long, CurlSeekPos) <i>callback</i></td>
 <td>the <i>callback</i> that receives a seek offset and a seek position
             <a href="etc_c_curl.html#CurlSeekPos"><span class="inlinecode">etc.c.curl.CurlSeekPos</span></a></td>
 </tr>
@@ -1731,7 +1731,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
  misc. socket options.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int delegate(socket_t, CurlSockType) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int delegate(socket_t, CurlSockType) <i>callback</i></td>
 <td>the <i>callback</i> that receives the socket and socket type
  <a href="etc_c_curl.html#CurlSockType"><span class="inlinecode">etc.c.curl.CurlSockType</span></a></td>
 </tr>
@@ -1757,7 +1757,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 <div class="declaration-content"><dl><p>The event handler that gets called to inform of upload/download progress.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i></td>
 <td>the <i>callback</i> that receives the (total bytes to download,
  currently downloaded bytes, total bytes to upload, currently uploaded
  bytes).</td>

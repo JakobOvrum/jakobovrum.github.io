@@ -952,10 +952,10 @@ forward range in all other cases.
 <p>To find the last occurence of <span class="inlinecode">needle</span> in <span class="inlinecode">haystack</span>, call <span class="inlinecode"><a class="symbol symbol-anchor" name="find" href="#find">find</a>(retro(haystack), needle)</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">haystack</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>haystack</td>
 <td>The range searched in.</td>
 </tr>
-<tr><td class="span2">needle</td>
+<tr><td>needle</td>
 <td>The element searched for.</td>
 </tr>
 </table></dd>
@@ -997,10 +997,10 @@ bidirectional or random access (where present) may accelerate search
 depending on the statistics of the two ranges' content.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">haystack</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>haystack</td>
 <td>The range searched in.</td>
 </tr>
-<tr><td class="span2">needle</td>
+<tr><td>needle</td>
 <td>The range searched for.</td>
 </tr>
 </table></dd>
@@ -1028,13 +1028,13 @@ such position exists, returns <span class="inlinecode">haystack</span> advanced 
 compared for equality.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">haystack</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>haystack</td>
 <td>The target of the search. Must be an <a href="../glossary.html#input
 range">input
 range</a>. If any of <span class="inlinecode">needles</span> is a range with elements comparable to
 elements in <span class="inlinecode">haystack</span>, then <span class="inlinecode">haystack</span> must be a <a href="../glossary.html#forward range">forward range</a> such that the search can backtrack.</td>
 </tr>
-<tr><td class="span2">needles</td>
+<tr><td>needles</td>
 <td>One or more items to search for. Each of <span class="inlinecode">needles</span> must
 be either comparable to one element in <span class="inlinecode">haystack</span>, or be itself a
 <a href="../glossary.html#forward range">forward range</a> with elements comparable with elements in

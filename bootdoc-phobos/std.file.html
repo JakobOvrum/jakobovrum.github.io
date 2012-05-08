@@ -315,16 +315,16 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 <div class="declaration-content"><dl><p>Constructor which takes an error message.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>name</i></td>
 <td>Name of <i>file</i> for which the error occurred.</td>
 </tr>
-<tr><td class="span2">const(char[]) <i>msg</i></td>
+<tr><td>const(char[]) <i>msg</i></td>
 <td>Message describing the error.</td>
 </tr>
-<tr><td class="span2">string <i>file</i></td>
+<tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the error occurred.</td>
 </tr>
-<tr><td class="span2">uint <i>line</i></td>
+<tr><td>uint <i>line</i></td>
 <td>The <i>line</i> where the error occurred.</td>
 </tr>
 </table></dd>
@@ -336,16 +336,16 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
         in Windows, <b>getErrno</b> in Posix).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char[]) <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>name</i></td>
 <td>Name of <i>file</i> for which the error occurred.</td>
 </tr>
-<tr><td class="span2">msg</td>
+<tr><td>msg</td>
 <td>Message describing the error.</td>
 </tr>
-<tr><td class="span2">string <i>file</i></td>
+<tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the error occurred.</td>
 </tr>
-<tr><td class="span2">uint <i>line</i></td>
+<tr><td>uint <i>line</i></td>
 <td>The <i>line</i> where the error occurred.</td>
 </tr>
 </table></dd>
@@ -472,13 +472,13 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <div class="declaration-content"><dl><p>Get the access and modified times of file <span class="inlinecode"><i>name</i></span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>File <i>name</i> to get times for.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<tr><td>SysTime <i>fileAccessTime</i></td>
 <td>Time the file was last accessed.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<tr><td>SysTime <i>fileModificationTime</i></td>
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
@@ -497,16 +497,16 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     creation time - which isn't possible on Posix systems.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>File <i>name</i> to get times for.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileCreationTime</i></td>
+<tr><td>SysTime <i>fileCreationTime</i></td>
 <td>Time the file was created.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<tr><td>SysTime <i>fileAccessTime</i></td>
 <td>Time the file was last accessed.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<tr><td>SysTime <i>fileModificationTime</i></td>
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
@@ -536,10 +536,10 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     correctly prompts building it.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The <i>name</i> of the file to get the modification time for.</td>
 </tr>
-<tr><td class="span2">SysTime <i>returnIfMissing</i></td>
+<tr><td>SysTime <i>returnIfMissing</i></td>
 <td>The time to return if the given file does not exist.</td>
 </tr>
 </table></dd>
@@ -579,7 +579,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
  link.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The file to get the attributes of.</td>
 </tr>
 </table></dd>
@@ -598,7 +598,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     with symbolic links.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The file to get the symbolic link attributes of.</td>
 </tr>
 </table></dd>
@@ -610,7 +610,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <div class="declaration-content"><dl><p>Returns whether the given file is a directory.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The path to the file.</td>
 </tr>
 </table></dd>
@@ -632,7 +632,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <p>Returns whether the given file <i>attributes</i> are for a directory.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -643,7 +643,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a directory.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -672,7 +672,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     more information.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The path to the file.</td>
 </tr>
 </table></dd>
@@ -706,7 +706,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     file it is (see the man page for <span class="inlinecode">stat</span> for more information).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -730,7 +730,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     it is (see the man page for <span class="inlinecode">stat</span> for more information).
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -749,7 +749,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     junction point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">name</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>name</td>
 <td>The path to the file.</td>
 </tr>
 </table></dd>
@@ -769,7 +769,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     junction point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -784,7 +784,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     junction point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">uint <i>attributes</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>uint <i>attributes</i></td>
 <td>The file <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -844,7 +844,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
  pass it to the callback delegate.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">callback</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>callback</td>
 <td>Delegate that processes each
                         DirEntry in turn. Returns <span class="d_keyword">true</span> to
                         continue, <span class="d_keyword">false</span> to stop.</td>
@@ -885,10 +885,10 @@ This program lists all the files in its
 <div class="declaration-content"><dl><p>Set access/modified times of file <span class="inlinecode"><i>name</i></span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">SysTime <i>fileAccessTime</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>fileAccessTime</i></td>
 <td>Time the file was last accessed.</td>
 </tr>
-<tr><td class="span2">SysTime <i>fileModificationTime</i></td>
+<tr><td>SysTime <i>fileModificationTime</i></td>
 <td>Time the file was last modified.</td>
 </tr>
 </table></dd>
@@ -951,15 +951,15 @@ This program lists all the files in its
     contains the absolute <i>path</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>path</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>path</i></td>
 <td>The directory to iterate over.</td>
 </tr>
-<tr><td class="span2">SpanMode <i>mode</i></td>
+<tr><td>SpanMode <i>mode</i></td>
 <td>Whether the directory's sub-directories should be iterated
                over depth-first (<b>depth</b>), breadth-first
                (<b>breadth</b>), or not at all (<b>shallow</b>).</td>
 </tr>
-<tr><td class="span2">bool <i>followSymlink</i></td>
+<tr><td>bool <i>followSymlink</i></td>
 <td>Whether symbolic links which point to directories
                          should be treated as directories and their contents
                          iterated over.</td>
@@ -1006,20 +1006,20 @@ This program lists all the files in its
 <div class="declaration-content"><dl><p>Convenience wrapper for filtering file names with a glob <i>pattern</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>path</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>path</i></td>
 <td>The directory to iterate over.</td>
 </tr>
-<tr><td class="span2">string <i>pattern</i></td>
+<tr><td>string <i>pattern</i></td>
 <td>String with wildcards, such as <font color=red>"*.d"</font>. The supported
                    wildcard strings are described under
                    <a href="std_<i>path</i>.html#globMatch"><span class="inlinecode">std.<i>path</i>.globMatch</span></a>.</td>
 </tr>
-<tr><td class="span2">SpanMode <i>mode</i></td>
+<tr><td>SpanMode <i>mode</i></td>
 <td>Whether the directory's sub-directories should be iterated
                over depth-first (<b>depth</b>), breadth-first
                (<b>breadth</b>), or not at all (<b>shallow</b>).</td>
 </tr>
-<tr><td class="span2">bool <i>followSymlink</i></td>
+<tr><td>bool <i>followSymlink</i></td>
 <td>Whether symbolic links which point to directories
                          should be treated as directories and their contents
                          iterated over.</td>
@@ -1041,7 +1041,7 @@ This program lists all the files in its
 <div class="declaration-content"><dl><p>Returns a DirEntry for the given file (or directory).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">char[] <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The file (or directory) to get a DirEntry for.</td>
 </tr>
 </table></dd>
@@ -1104,18 +1104,18 @@ This program lists all the files in its
     which match pattern or regular expression r.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">pathname</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>pathname</td>
 <td>The path of the directory to search.</td>
 </tr>
-<tr><td class="span2">pattern</td>
+<tr><td>pattern</td>
 <td>String with wildcards, such as <font color=red>"*.d"</font>. The supported
                    wildcard strings are described under fnmatch() in
                    <a href="std_path.html">std.path</a>.</td>
 </tr>
-<tr><td class="span2">r</td>
+<tr><td>r</td>
 <td>Regular expression, for more powerful pattern matching.</td>
 </tr>
-<tr><td class="span2">followSymlink</td>
+<tr><td>followSymlink</td>
 <td>Whether symbolic links which point to directories
                          should be treated as directories and their contents
                          iterated over. Ignored on Windows.</td>
@@ -1162,7 +1162,7 @@ This program lists all the files in its
  pass it to the callback delegate.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">callback</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>callback</td>
 <td>Delegate that processes each
                         filename in turn. Returns <span class="d_keyword">true</span> to
                         continue, <span class="d_keyword">false</span> to stop.</td>

@@ -353,16 +353,16 @@ generalized to accept a custom predicate.</td></tr>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>msg</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>msg</i></td>
 <td>The message for the exception.</td>
 </tr>
-<tr><td class="span2">string <i>file</i></td>
+<tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the exception occurred.</td>
 </tr>
-<tr><td class="span2">uint <i>line</i></td>
+<tr><td>uint <i>line</i></td>
 <td>The <i>line</i> number where the exception occurred.</td>
 </tr>
-<tr><td class="span2">Throwable <i>next</i></td>
+<tr><td>Throwable <i>next</i></td>
 <td>The previous exception in the chain of exceptions, if any.</td>
 </tr>
 </table></dd>
@@ -812,10 +812,10 @@ generalized to accept a custom predicate.</td></tr>
     All spaces and tabs at the end of a line are removed.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
 <td>String to convert.</td>
 </tr>
-<tr><td class="span2">tabSize</td>
+<tr><td>tabSize</td>
 <td>Tab columns are <span class="inlinecode">tabSize</span> spaces apart.</td>
 </tr>
 </table></dd>
@@ -836,14 +836,14 @@ generalized to accept a custom predicate.</td></tr>
         <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>str</td>
 <td>The original string.</td>
 </tr>
-<tr><td class="span2">transTable</td>
+<tr><td>transTable</td>
 <td>The AA indicating which characters to replace and what to
                      replace them with.</td>
 </tr>
-<tr><td class="span2">toRemove</td>
+<tr><td>toRemove</td>
 <td>The characters to remove from the string.</td>
 </tr>
 </table></dd>
@@ -986,16 +986,16 @@ strings. (In such cases, the return value is not used.)</dd>
     though it doesn't do everything that the Posix utility does.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">str</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>str</td>
 <td>The original string.</td>
 </tr>
-<tr><td class="span2">from</td>
+<tr><td>from</td>
 <td>The characters to replace.</td>
 </tr>
-<tr><td class="span2">to</td>
+<tr><td>to</td>
 <td>The characters to replace with.</td>
 </tr>
-<tr><td class="span2">modifiers</td>
+<tr><td>modifiers</td>
 <td>String containing modifiers.</td>
 </tr>
 </table></dd>
@@ -1101,10 +1101,10 @@ strings. (In such cases, the return value is not used.)</dd>
  of names.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">const(char)[] <i>string</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char)[] <i>string</i></td>
 <td>String to convert to Soundex representation.</td>
 </tr>
-<tr><td class="span2">char[] <i>buffer</i></td>
+<tr><td>char[] <i>buffer</i></td>
 <td>Optional 4 char array to put the resulting Soundex
       characters into. If <span class="d_keyword">null</span>, the return value
       <i>buffer</i> will be allocated on the heap.</td>
@@ -1177,19 +1177,19 @@ strings. (In such cases, the return value is not used.)</dd>
  on each line.
  The last line is terminated with a \n.
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
 <td>text string to be wrapped</td>
 </tr>
-<tr><td class="span2">columns</td>
+<tr><td>columns</td>
 <td>maximum number of columns in the paragraph</td>
 </tr>
-<tr><td class="span2">firstindent</td>
+<tr><td>firstindent</td>
 <td>string used to indent first line of the paragraph</td>
 </tr>
-<tr><td class="span2">indent</td>
+<tr><td>indent</td>
 <td>string to use to indent following lines of the paragraph</td>
 </tr>
-<tr><td class="span2">tabsize</td>
+<tr><td>tabsize</td>
 <td>column spacing of tabs</td>
 </tr>
 </table></dd>

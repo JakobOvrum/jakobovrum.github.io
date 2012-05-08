@@ -907,15 +907,15 @@ To perform the mapping operation in place, provide the same range for the
     with non-random access ranges.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>The input range to be mapped.  If <span class="inlinecode">source</span> is not random
     access it will be lazily buffered to an array of size <span class="inlinecode">bufSize</span> before
     the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function is evaluated.  (For an exception to this rule, see Notes.)</td>
 </tr>
-<tr><td class="span2">bufSize</td>
+<tr><td>bufSize</td>
 <td>The size of the buffer to store the evaluated elements.</td>
 </tr>
-<tr><td class="span2">workUnitSize</td>
+<tr><td>workUnitSize</td>
 <td>The number of elements to evaluate in a single
     <span class="inlinecode">Task</span>.  Must be less than or equal to <span class="inlinecode">bufSize</span>, and
     should be a fraction of <span class="inlinecode">bufSize</span> such that all worker threads can be
@@ -1036,21 +1036,21 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     filled and vice-versa.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">next</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>next</td>
 <td>A callable object that takes a single argument that must be an array
            with mutable elements.  When called, <span class="inlinecode">next</span> writes data to
            the array provided by the caller.</td>
 </tr>
-<tr><td class="span2">empty</td>
+<tr><td>empty</td>
 <td>A callable object that takes no arguments and returns a type
             implicitly convertible to <span class="inlinecode">bool</span>.  This is used to signify
             that no more data is available to be obtained by calling <span class="inlinecode">next</span>.</td>
 </tr>
-<tr><td class="span2">initialBufSize</td>
+<tr><td>initialBufSize</td>
 <td>The initial size of each buffer.  If <span class="inlinecode">next</span> takes its
                      array by reference, it may resize the buffers.</td>
 </tr>
-<tr><td class="span2">nBuffers</td>
+<tr><td>nBuffers</td>
 <td>The number of buffers to cycle through when calling <span class="inlinecode">next</span>.</td>
 </tr>
 </table></dd>

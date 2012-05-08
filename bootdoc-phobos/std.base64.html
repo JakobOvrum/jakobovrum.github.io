@@ -350,7 +350,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Calculates the minimum length for encoding.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>sourceLength</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>sourceLength</i></td>
 <td>the length of source array.</td>
 </tr>
 </table></dd>
@@ -363,10 +363,10 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Encodes <b>source</b> into <b>buffer</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>an <span class="inlinecode">InputRange</span> to <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>.</td>
 </tr>
-<tr><td class="span2">range</td>
+<tr><td>range</td>
 <td>a buffer to store encoded result.</td>
 </tr>
 </table></dd>
@@ -379,10 +379,10 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Encodes <b>source</b> into <b>range</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>an <span class="inlinecode">InputRange</span> to <a class="symbol symbol-anchor" name="encode" href="#encode">encode</a>.</td>
 </tr>
-<tr><td class="span2">range</td>
+<tr><td>range</td>
 <td>an <span class="inlinecode">OutputRange</span> to put encoded result.</td>
 </tr>
 </table></dd>
@@ -503,7 +503,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">range</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>
@@ -515,7 +515,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Calculates the minimum length for decoding.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">size_t <i>sourceLength</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>sourceLength</i></td>
 <td>the length of source array.</td>
 </tr>
 </table></dd>
@@ -528,10 +528,10 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Decodes <b>source</b> into <b>buffer</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>an <span class="inlinecode">InputRange</span> to <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>.</td>
 </tr>
-<tr><td class="span2">buffer</td>
+<tr><td>buffer</td>
 <td>a buffer to store decoded result.</td>
 </tr>
 </table></dd>
@@ -547,10 +547,10 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <div class="declaration-content"><dl><p>Decodes <b>source</b> into <b>range</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>an <span class="inlinecode">InputRange</span> to <a class="symbol symbol-anchor" name="decode" href="#decode">decode</a>.</td>
 </tr>
-<tr><td class="span2">range</td>
+<tr><td>range</td>
 <td>an <span class="inlinecode">OutputRange</span> to put decoded result</td>
 </tr>
 </table></dd>
@@ -678,7 +678,7 @@ If you use <span class="inlinecode">ByChunk</span>, chunk-size should be the mul
   <span class="inlinecode">Decoder</span> can't judge a encode-boundary.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">range</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>

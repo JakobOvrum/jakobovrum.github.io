@@ -407,10 +407,10 @@
  <span class="inlinecode">receive()</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">fn</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fn</td>
 <td>The function to execute.</td>
 </tr>
-<tr><td class="span2">args</td>
+<tr><td>args</td>
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
@@ -464,10 +464,10 @@
  OwnerTerminated exception to be thrown on receive().
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">fn</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fn</td>
 <td>The function to execute.</td>
 </tr>
-<tr><td class="span2">args</td>
+<tr><td>args</td>
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
@@ -598,13 +598,13 @@
  is unbounded.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Tid <i>tid</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Tid <i>tid</i></td>
 <td>The Tid of the thread for which this limit should be set.</td>
 </tr>
-<tr><td class="span2">size_t <i>messages</i></td>
+<tr><td>size_t <i>messages</i></td>
 <td>The maximum number of <i>messages</i> or zero if no limit.</td>
 </tr>
-<tr><td class="span2">OnCrowding <i>doThis</i></td>
+<tr><td>OnCrowding <i>doThis</i></td>
 <td>The behavior executed when a message is sent to a full
              mailbox.</td>
 </tr>
@@ -618,13 +618,13 @@
  execute <i>onCrowdingDoThis</i>.  If <i>messages</i> is zero, the mailbox is unbounded.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">Tid <i>tid</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Tid <i>tid</i></td>
 <td>The Tid of the thread for which this limit should be set.</td>
 </tr>
-<tr><td class="span2">size_t <i>messages</i></td>
+<tr><td>size_t <i>messages</i></td>
 <td>The maximum number of <i>messages</i> or zero if no limit.</td>
 </tr>
-<tr><td class="span2">bool function(Tid) <i>onCrowdingDoThis</i></td>
+<tr><td>bool function(Tid) <i>onCrowdingDoThis</i></td>
 <td>The routine called when a message is sent to a full
                      mailbox.</td>
 </tr>
@@ -638,10 +638,10 @@
  automatically unregistered.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> to associate with <i>tid</i>.</td>
 </tr>
-<tr><td class="span2">Tid <i>tid</i></td>
+<tr><td>Tid <i>tid</i></td>
 <td>The <i>tid</i> <a class="symbol symbol-anchor" name="register" href="#register">register</a> by <i>name</i>.</td>
 </tr>
 </table></dd>
@@ -654,7 +654,7 @@
 <div class="declaration-content"><dl><p>Removes the registered <i>name</i> associated with a tid.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> to <a class="symbol symbol-anchor" name="unregister" href="#unregister">unregister</a>.</td>
 </tr>
 </table></dd>
@@ -666,7 +666,7 @@
 <div class="declaration-content"><dl><p>Gets the Tid associated with <i>name</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
 <td>The <i>name</i> to <a class="symbol symbol-anchor" name="locate" href="#locate">locate</a> within the registry.</td>
 </tr>
 </table></dd>

@@ -396,16 +396,16 @@
  Replace each match with string generated from <i>format</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to search.</td>
 </tr>
-<tr><td class="span2">string <i>pattern</i></td>
+<tr><td>string <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
-<tr><td class="span2">string <i>format</i></td>
+<tr><td>string <i>format</i></td>
 <td>Replacement string <i>format</i>.</td>
 </tr>
-<tr><td class="span2">string <i>attributes</i></td>
+<tr><td>string <i>attributes</i></td>
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -435,16 +435,16 @@ Replace the letters 'a' with the letters 'ZZ'.
  Replace each match with the return value from <i>dg</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to search.</td>
 </tr>
-<tr><td class="span2">string <i>pattern</i></td>
+<tr><td>string <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
-<tr><td class="span2">string delegate(RegExp) <i>dg</i></td>
+<tr><td>string delegate(RegExp) <i>dg</i></td>
 <td>Delegate</td>
 </tr>
-<tr><td class="span2">string <i>attributes</i></td>
+<tr><td>string <i>attributes</i></td>
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -469,10 +469,10 @@ Capitalize the letters 'a' and 'r':
 <div class="declaration-content"><dl><p>Search <b><i>s</i>[]</b> for first match with <b><i>pattern</i></b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to search.</td>
 </tr>
-<tr><td class="span2">RegExp <i>pattern</i></td>
+<tr><td>RegExp <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
@@ -504,10 +504,10 @@ This function is scheduled for deprecation due to unnecessary
 <div class="declaration-content"><dl><p>Search <b><i>s</i>[]</b> for last match with <b><i>pattern</i></b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to search.</td>
 </tr>
-<tr><td class="span2">RegExp <i>pattern</i></td>
+<tr><td>RegExp <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
@@ -540,10 +540,10 @@ ambiguity with the homonym function in std.string. Instead of
  expression <b><i>pattern</i></b> as the separator.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to search.</td>
 </tr>
-<tr><td class="span2">RegExp <i>pattern</i></td>
+<tr><td>RegExp <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
 </table></dd>
@@ -582,13 +582,13 @@ ambiguity with the homonym function in std.string. Instead of
 <div class="declaration-content"><dl><p>Search <i>s</i>[] for first match with <i>pattern</i>[] with <i>attributes</i>[].
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>s</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>s</i></td>
 <td>String to <a class="symbol symbol-anchor" name="search" href="#search">search</a>.</td>
 </tr>
-<tr><td class="span2">string <i>pattern</i></td>
+<tr><td>string <i>pattern</i></td>
 <td>Regular expression <i>pattern</i>.</td>
 </tr>
-<tr><td class="span2">string <i>attributes</i></td>
+<tr><td>string <i>attributes</i></td>
 <td>Regular expression <i>attributes</i>.</td>
 </tr>
 </table></dd>
@@ -628,10 +628,10 @@ ambiguity with the homonym function in std.string. Instead of
  an internal form for fast execution.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>pattern</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>pattern</i></td>
 <td>regular expression</td>
 </tr>
-<tr><td class="span2">string <i>attributes</i></td>
+<tr><td>string <i>attributes</i></td>
 <td>attributes</td>
 </tr>
 </table></dd>
@@ -650,10 +650,10 @@ Declare two variables and assign to them a RegExp object:
 <div class="declaration-content"><dl><p>Generate instance of RegExp.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>pattern</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>pattern</i></td>
 <td>regular expression</td>
 </tr>
-<tr><td class="span2">string <i>attributes</i></td>
+<tr><td>string <i>attributes</i></td>
 <td>attributes</td>
 </tr>
 </table></dd>

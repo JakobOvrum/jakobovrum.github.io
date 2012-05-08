@@ -343,23 +343,23 @@
  File is closed when the object instance is deleted.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td class="span2">string <i>filename</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>filename</i></td>
 <td>name of the file.
       If <span class="d_keyword">null</span>, an anonymous file mapping is created.</td>
 </tr>
-<tr><td class="span2">Mode <i>mode</i></td>
+<tr><td>Mode <i>mode</i></td>
 <td>access <i>mode</i> defined above.</td>
 </tr>
-<tr><td class="span2">ulong <i>size</i></td>
+<tr><td>ulong <i>size</i></td>
 <td>the <i>size</i> of the file. If 0, it is taken to be the
       <i>size</i> of the existing file.</td>
 </tr>
-<tr><td class="span2">void* <i>address</i></td>
+<tr><td>void* <i>address</i></td>
 <td>the preferred <i>address</i> to map the file to,
       although the system is not required to honor it.
       If <span class="d_keyword">null</span>, the system selects the most convenient <i>address</i>.</td>
 </tr>
-<tr><td class="span2">uint <i>window</i></td>
+<tr><td>uint <i>window</i></td>
 <td>preferred block <i>size</i> of the amount of data to map at one time
       with 0 meaning map the entire file. The <i>window</i> <i>size</i> must be a
       multiple of the memory allocation page <i>size</i>.</td>
