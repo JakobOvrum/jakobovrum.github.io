@@ -289,12 +289,12 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/file.d">std/file.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="FileException" href="#FileException">FileException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="FileException"></span><a class="symbol-anchor" href="#FileException">FileException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception thrown for file I/O errors.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>immutable uint <a class="symbol symbol-anchor" name="errno" href="#errno">errno</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>immutable uint <span class="symbol" id="errno"></span><a class="symbol-anchor" href="#errno">errno</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>OS error code.</p>
 
@@ -343,11 +343,11 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>void[] <a class="symbol symbol-anchor" name="read" href="#read">read</a>(in char[] <i>name</i>, size_t <i>upTo</i> = (uint).max);
+<hr><div class="row-fluid declaration"><h3>void[] <span class="symbol" id="read"></span><a class="symbol-anchor" href="#read">read</a>(in char[] <i>name</i>, size_t <i>upTo</i> = (uint).max);
 </h3></div>
 <div class="declaration-content"><dl><p>Read entire contents of file <span class="inlinecode"><i>name</i></span> and returns it as an untyped
 array. If the file size is larger than <span class="inlinecode"><i>upTo</i></span>, only <span class="inlinecode"><i>upTo</i></span>
-bytes are <a class="symbol symbol-anchor" name="read" href="#read">read</a>.
+bytes are <span class="symbol" id="read"></span><a class="symbol-anchor" href="#read">read</a>.
 </p>
 
 <dt>Example:</dt><dd>
@@ -367,7 +367,7 @@ bytes are <a class="symbol symbol-anchor" name="read" href="#read">read</a>.
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <a class="symbol symbol-anchor" name="readText" href="#readText">readText</a>(S = string)(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>S <span class="symbol" id="readText"></span><a class="symbol-anchor" href="#readText">readText</a>(S = string)(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Read and validates (using <a href="std_utf.html#validate"><span class="inlinecode">std.utf.validate</span></a>) a text file. <span class="inlinecode">S</span>
 can be a type of array of characters of any width and constancy. No
@@ -391,7 +391,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(in char[] <i>name</i>, const void[] <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(in char[] <i>name</i>, const void[] <i>buffer</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Write <span class="inlinecode"><i>buffer</i></span> to file <span class="inlinecode"><i>name</i></span>.
 </p>
@@ -411,7 +411,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="append" href="#append">append</a>(in char[] <i>name</i>, in void[] <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="append"></span><a class="symbol-anchor" href="#append">append</a>(in char[] <i>name</i>, in void[] <i>buffer</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Appends <span class="inlinecode"><i>buffer</i></span> to file <span class="inlinecode"><i>name</i></span>.
 </p>
@@ -433,7 +433,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rename" href="#rename">rename</a>(in char[] <i>from</i>, in char[] <i>to</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="rename"></span><a class="symbol-anchor" href="#rename">rename</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Rename file <span class="inlinecode"><i>from</i></span> <i>to</i> <span class="inlinecode"><i>to</i></span>.
 </p>
@@ -441,7 +441,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="remove" href="#remove">remove</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Delete file <span class="inlinecode"><i>name</i></span>.
 </p>
@@ -449,7 +449,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="getSize" href="#getSize">getSize</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>ulong <span class="symbol" id="getSize"></span><a class="symbol-anchor" href="#getSize">getSize</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Get size of file <span class="inlinecode"><i>name</i></span> in bytes.
 </p>
@@ -457,7 +457,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error (e.g., file not found).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getTimes" href="#getTimes">getTimes</a>(in char[] <i>name</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="getTimes"></span><a class="symbol-anchor" href="#getTimes">getTimes</a>(in char[] <i>name</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Get the access and modified times of file <span class="inlinecode"><i>name</i></span>.
 </p>
@@ -475,7 +475,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getTimesWin" href="#getTimesWin">getTimesWin</a>(in char[] <i>name</i>, out SysTime <i>fileCreationTime</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="getTimesWin"></span><a class="symbol-anchor" href="#getTimesWin">getTimesWin</a>(in char[] <i>name</i>, out SysTime <i>fileCreationTime</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=blue>This function is Windows-Only.</font>
 </p>
@@ -503,7 +503,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SysTime <a class="symbol symbol-anchor" name="timeLastModified" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol" id="timeLastModified"></span><a class="symbol-anchor" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the time that the given file was last modified.
 </p>
@@ -511,7 +511,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SysTime <a class="symbol symbol-anchor" name="timeLastModified" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>, SysTime <i>returnIfMissing</i>);
+<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol" id="timeLastModified"></span><a class="symbol-anchor" href="#timeLastModified">timeLastModified</a>(in char[] <i>name</i>, SysTime <i>returnIfMissing</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the time that the given file was last modified. If the
     file does not exist, returns <span class="inlinecode"><i>returnIfMissing</i></span>.
@@ -547,13 +547,13 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="exists" href="#exists">exists</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>@property bool <span class="symbol" id="exists"></span><a class="symbol-anchor" href="#exists">exists</a>(in char[] <i>name</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Returns whether the given file (or directory) <a class="symbol symbol-anchor" name="exists" href="#exists">exists</a>.</p>
+<div class="declaration-content"><dl><p>Returns whether the given file (or directory) <span class="symbol" id="exists"></span><a class="symbol-anchor" href="#exists">exists</a>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="getAttributes" href="#getAttributes">getAttributes</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol" id="getAttributes"></span><a class="symbol-anchor" href="#getAttributes">getAttributes</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the attributes of the given file.
 </p>
@@ -575,7 +575,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>uint <a class="symbol symbol-anchor" name="getLinkAttributes" href="#getLinkAttributes">getLinkAttributes</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol" id="getLinkAttributes"></span><a class="symbol-anchor" href="#getLinkAttributes">getLinkAttributes</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If the given file is a symbolic link, then this returns the attributes of the
     symbolic link itself rather than file that it points to. If the given file
@@ -583,7 +583,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     as getAttributes.
 </p>
 
-<p>On Windows, <a class="symbol symbol-anchor" name="getLinkAttributes" href="#getLinkAttributes">getLinkAttributes</a> is identical to getAttributes. It exists on
+<p>On Windows, <span class="symbol" id="getLinkAttributes"></span><a class="symbol-anchor" href="#getLinkAttributes">getLinkAttributes</a> is identical to getAttributes. It exists on
     Windows so that you don't have to special-case code for Windows when dealing
     with symbolic links.
 
@@ -595,7 +595,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="isDir" href="#isDir">isDir</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>@property bool <span class="symbol" id="isDir"></span><a class="symbol-anchor" href="#isDir">isDir</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file is a directory.
 </p>
@@ -613,7 +613,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsDir" href="#attrIsDir">attrIsDir</a>(uint <i>attributes</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow bool <span class="symbol" id="attrIsDir"></span><a class="symbol-anchor" href="#attrIsDir">attrIsDir</a>(uint <i>attributes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a directory.
 </p>
@@ -628,18 +628,18 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property bool <a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>@property bool <span class="symbol" id="isFile"></span><a class="symbol-anchor" href="#isFile">isFile</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file (or directory) is a file.
 </p>
 
 <p>On Windows, if a file is not a directory, then it's a file. So,
-    either <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> or <span class="inlinecode">isDir</span> will return <span class="d_keyword">true</span> for any given file.
+    either <span class="inlinecode"><span class="symbol" id="isFile"></span><a class="symbol-anchor" href="#isFile">isFile</a></span> or <span class="inlinecode">isDir</span> will return <span class="d_keyword">true</span> for any given file.
 <br><br>
 
-    On Posix systems, if <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the file
+    On Posix systems, if <span class="inlinecode"><span class="symbol" id="isFile"></span><a class="symbol-anchor" href="#isFile">isFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the file
     is a regular file (e.g. not a block not device). So, on Posix systems, it's
-    possible for both <span class="inlinecode"><a class="symbol symbol-anchor" name="isFile" href="#isFile">isFile</a></span> and <span class="inlinecode">isDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span> for a
+    possible for both <span class="inlinecode"><span class="symbol" id="isFile"></span><a class="symbol-anchor" href="#isFile">isFile</a></span> and <span class="inlinecode">isDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span> for a
     particular file (in which case, it's a special file). You can use
     <span class="inlinecode">getAttributes</span> to get the attributes to figure out what type of special
     it is, or you can use <span class="inlinecode">dirEntry</span> to get at its <span class="inlinecode">statBuf</span>, which is the
@@ -660,19 +660,19 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a>(uint <i>attributes</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow bool <span class="symbol" id="attrIsFile"></span><a class="symbol-anchor" href="#attrIsFile">attrIsFile</a>(uint <i>attributes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a file.
 </p>
 
 <p>On Windows, if a file is not a directory, it's a file. So, either
-    <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> or <span class="inlinecode">attrIsDir</span> will return <span class="inlinecode"><span class="d_keyword">true</span></span> for the
+    <span class="inlinecode"><span class="symbol" id="attrIsFile"></span><a class="symbol-anchor" href="#attrIsFile">attrIsFile</a></span> or <span class="inlinecode">attrIsDir</span> will return <span class="inlinecode"><span class="d_keyword">true</span></span> for the
     <i>attributes</i> of any given file.
 <br><br>
 
-    On Posix systems, if <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the
+    On Posix systems, if <span class="inlinecode"><span class="symbol" id="attrIsFile"></span><a class="symbol-anchor" href="#attrIsFile">attrIsFile</a></span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, that indicates that the
     file is a regular file (e.g. not a block not device). So, on Posix systems,
-    it's possible for both <span class="inlinecode"><a class="symbol symbol-anchor" name="attrIsFile" href="#attrIsFile">attrIsFile</a></span> and <span class="inlinecode">attrIsDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span>
+    it's possible for both <span class="inlinecode"><span class="symbol" id="attrIsFile"></span><a class="symbol-anchor" href="#attrIsFile">attrIsFile</a></span> and <span class="inlinecode">attrIsDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span>
     for a particular file (in which case, it's a special file). If a file is a
     special file, you can use the <i>attributes</i> to check what type of special file
     it is (see the man page for <span class="inlinecode">stat</span> for more information).
@@ -688,7 +688,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isSymlink" href="#isSymlink">isSymlink</a>(C)(const(C)[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="isSymlink"></span><a class="symbol-anchor" href="#isSymlink">isSymlink</a>(C)(const(C)[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file is a symbolic link.
 </p>
@@ -704,7 +704,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the given file does not exist.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow bool <a class="symbol symbol-anchor" name="attrIsSymlink" href="#attrIsSymlink">attrIsSymlink</a>(uint <i>attributes</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow bool <span class="symbol" id="attrIsSymlink"></span><a class="symbol-anchor" href="#attrIsSymlink">attrIsSymlink</a>(uint <i>attributes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file <i>attributes</i> are for a symbolic link.
 </p>
@@ -725,7 +725,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="chdir" href="#chdir">chdir</a>(in char[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="chdir"></span><a class="symbol-anchor" href="#chdir">chdir</a>(in char[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Change directory to <span class="inlinecode"><i>pathname</i></span>.
 </p>
@@ -733,7 +733,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mkdir" href="#mkdir">mkdir</a>(in char[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="mkdir"></span><a class="symbol-anchor" href="#mkdir">mkdir</a>(in char[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Make directory <span class="inlinecode"><i>pathname</i></span>.
 </p>
@@ -741,13 +741,13 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mkdirRecurse" href="#mkdirRecurse">mkdirRecurse</a>(in char[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="mkdirRecurse"></span><a class="symbol-anchor" href="#mkdirRecurse">mkdirRecurse</a>(in char[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Make directory and all parent directories as needed.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdir" href="#rmdir">rmdir</a>(in char[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="rmdir"></span><a class="symbol-anchor" href="#rmdir">rmdir</a>(in char[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Remove directory <span class="inlinecode"><i>pathname</i></span>.
 </p>
@@ -755,7 +755,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getcwd" href="#getcwd">getcwd</a>();
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="getcwd"></span><a class="symbol-anchor" href="#getcwd">getcwd</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Get current directory.
 </p>
@@ -763,7 +763,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <a class="symbol symbol-anchor" name="listdir" href="#listdir">listdir</a>;
+<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol" id="listdir"></span><a class="symbol-anchor" href="#listdir">listdir</a>;
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
        Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
@@ -803,13 +803,13 @@ This program lists all the files in its
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="copy" href="#copy">copy</a>(in char[] <i>from</i>, in char[] <i>to</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Copy file <span class="inlinecode"><i>from</i></span> <i>to</i> file <span class="inlinecode"><i>to</i></span>. File timestamps are preserved.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setTimes" href="#setTimes">setTimes</a>(in char[] <i>name</i>, SysTime <i>fileAccessTime</i>, SysTime <i>fileModificationTime</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="setTimes"></span><a class="symbol-anchor" href="#setTimes">setTimes</a>(in char[] <i>name</i>, SysTime <i>fileAccessTime</i>, SysTime <i>fileModificationTime</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set access/modified times of file <span class="inlinecode"><i>name</i></span>.
 </p>
@@ -824,7 +824,7 @@ This program lists all the files in its
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdirRecurse" href="#rmdirRecurse">rmdirRecurse</a>(in char[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="rmdirRecurse"></span><a class="symbol-anchor" href="#rmdirRecurse">rmdirRecurse</a>(in char[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Remove directory and all of its content and subdirectories,
     recursively.
@@ -834,7 +834,7 @@ This program lists all the files in its
         file is not a directory).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="rmdirRecurse" href="#rmdirRecurse">rmdirRecurse</a>(ref DirEntry <i>de</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="rmdirRecurse"></span><a class="symbol-anchor" href="#rmdirRecurse">rmdirRecurse</a>(ref DirEntry <i>de</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Remove directory and all of its content and subdirectories,
     recursively.
@@ -844,25 +844,25 @@ This program lists all the files in its
         file is not a directory).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="SpanMode" href="#SpanMode">SpanMode</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="SpanMode"></span><a class="symbol-anchor" href="#SpanMode">SpanMode</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Dictates directory spanning policy for <b>dirEntries</b> (see below).</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="shallow" href="#shallow">shallow</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="shallow"></span><a class="symbol-anchor" href="#shallow">shallow</a></h3></div>
 <div class="declaration-content"><dl><p>Only spans one directory. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="depth" href="#depth">depth</a></h3></div>
-<div class="declaration-content"><dl><p>Spans the directory <a class="symbol symbol-anchor" name="depth" href="#depth">depth</a>-first, i.e. the content of any
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="depth"></span><a class="symbol-anchor" href="#depth">depth</a></h3></div>
+<div class="declaration-content"><dl><p>Spans the directory <span class="symbol" id="depth"></span><a class="symbol-anchor" href="#depth">depth</a>-first, i.e. the content of any
      subdirectory is spanned before that subdirectory itself. Useful
      e.g. when recursively deleting files.  </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="breadth" href="#breadth">breadth</a></h3></div>
-<div class="declaration-content"><dl><p>Spans the directory <a class="symbol symbol-anchor" name="breadth" href="#breadth">breadth</a>-first, i.e. the content of any
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="breadth"></span><a class="symbol-anchor" href="#breadth">breadth</a></h3></div>
+<div class="declaration-content"><dl><p>Spans the directory <span class="symbol" id="breadth"></span><a class="symbol-anchor" href="#breadth">breadth</a>-first, i.e. the content of any
      subdirectory is spanned right after that subdirectory itself. </p>
 
 </dl>
@@ -870,7 +870,7 @@ This program lists all the files in its
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="dirEntries" href="#dirEntries">dirEntries</a>(string <i>path</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="dirEntries"></span><a class="symbol-anchor" href="#dirEntries">dirEntries</a>(string <i>path</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an input range of DirEntry that lazily iterates a given directory,
     also provides two ways of foreach iteration. The iteration variable can be of
@@ -930,7 +930,7 @@ This program lists all the files in its
 //</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="dirEntries" href="#dirEntries">dirEntries</a>(string <i>path</i>, string <i>pattern</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="dirEntries"></span><a class="symbol-anchor" href="#dirEntries">dirEntries</a>(string <i>path</i>, string <i>pattern</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
 </h3></div>
 <div class="declaration-content"><dl><p>Convenience wrapper for filtering file names with a glob <i>pattern</i>.
 </p>
@@ -965,7 +965,7 @@ This program lists all the files in its
 //</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>DirEntry <a class="symbol symbol-anchor" name="dirEntry" href="#dirEntry">dirEntry</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>DirEntry <span class="symbol" id="dirEntry"></span><a class="symbol-anchor" href="#dirEntry">dirEntry</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a DirEntry for the given file (or directory).
 </p>
@@ -977,7 +977,7 @@ This program lists all the files in its
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the file does not exist.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Select!(Types.length == 1,Types[0][],Tuple!(Types)[]) <a class="symbol symbol-anchor" name="slurp" href="#slurp">slurp</a>(Types...)(string <i>filename</i>, in char[] <i>format</i>);
+<hr><div class="row-fluid declaration"><h3>Select!(Types.length == 1,Types[0][],Tuple!(Types)[]) <span class="symbol" id="slurp"></span><a class="symbol-anchor" href="#slurp">slurp</a>(Types...)(string <i>filename</i>, in char[] <i>format</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reads an entire file into an array.
 </p>
@@ -992,7 +992,7 @@ This program lists all the files in its
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="tempDir" href="#tempDir">tempDir</a>();
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="tempDir"></span><a class="symbol-anchor" href="#tempDir">tempDir</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path to a directory for temporary files.
 </p>
@@ -1012,7 +1012,7 @@ and returns the first one which is found to exist:
 </ol>
 <br><br>
 
-On all platforms, <span class="inlinecode"><a class="symbol symbol-anchor" name="tempDir" href="#tempDir">tempDir</a></span> returns <span class="inlinecode">"."</span> on failure, representing
+On all platforms, <span class="inlinecode"><span class="symbol" id="tempDir"></span><a class="symbol-anchor" href="#tempDir">tempDir</a></span> returns <span class="inlinecode">"."</span> on failure, representing
 the current working directory.
 <br><br>
 
@@ -1023,11 +1023,11 @@ environment variables and directory structures have changed in the
 meantime.
 <br><br>
 
-The POSIX <span class="inlinecode"><a class="symbol symbol-anchor" name="tempDir" href="#tempDir">tempDir</a></span> algorithm is inspired by Python's
+The POSIX <span class="inlinecode"><span class="symbol" id="tempDir"></span><a class="symbol-anchor" href="#tempDir">tempDir</a></span> algorithm is inspired by Python's
 <span class="inlinecode"><a href="http://docs.python.org/library/tempfile.html#tempfile.tempdir">tempfile.tempdir</a></span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C)(in C[] <i>pathname</i>);
+<hr><div class="row-fluid declaration"><h3>string[] <span class="symbol" id="listDir"></span><a class="symbol-anchor" href="#listDir">listDir</a>(C)(in C[] <i>pathname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
           Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
@@ -1058,7 +1058,7 @@ The POSIX <span class="inlinecode"><a class="symbol symbol-anchor" name="tempDir
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string[] <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>filter</i>, bool <i>followSymlink</i> = true);
+<hr><div class="row-fluid declaration"><h3>string[] <span class="symbol" id="listDir"></span><a class="symbol-anchor" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>filter</i>, bool <i>followSymlink</i> = true);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
           Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
@@ -1116,7 +1116,7 @@ The POSIX <span class="inlinecode"><a class="symbol symbol-anchor" name="tempDir
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="listDir" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="listDir"></span><a class="symbol-anchor" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
        Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>

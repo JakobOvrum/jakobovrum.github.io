@@ -281,23 +281,23 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/outbuffer.d">std/outbuffer.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="OutBuffer" href="#OutBuffer">OutBuffer</a>;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="OutBuffer"></span><a class="symbol-anchor" href="#OutBuffer">OutBuffer</a>;
 </h3></div>
-<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="OutBuffer" href="#OutBuffer">OutBuffer</a> provides a way to build up an array of bytes out
+<div class="declaration-content"><dl><p><span class="symbol" id="OutBuffer"></span><a class="symbol-anchor" href="#OutBuffer">OutBuffer</a> provides a way to build up an array of bytes out
  of raw data. It is useful for things like preparing an
  array of bytes to write out to a file.
- <a class="symbol symbol-anchor" name="OutBuffer" href="#OutBuffer">OutBuffer</a>'s byte order is the format native to the computer.
+ <span class="symbol" id="OutBuffer"></span><a class="symbol-anchor" href="#OutBuffer">OutBuffer</a>'s byte order is the format native to the computer.
  To control the byte order (endianness), use a class derived
- from <a class="symbol symbol-anchor" name="OutBuffer" href="#OutBuffer">OutBuffer</a>.</p>
+ from <span class="symbol" id="OutBuffer"></span><a class="symbol-anchor" href="#OutBuffer">OutBuffer</a>.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ubyte[] <a class="symbol symbol-anchor" name="toBytes" href="#toBytes">toBytes</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ubyte[] <span class="symbol" id="toBytes"></span><a class="symbol-anchor" href="#toBytes">toBytes</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Convert to array of bytes.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="reserve" href="#reserve">reserve</a>(size_t <i>nbytes</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="reserve"></span><a class="symbol-anchor" href="#reserve">reserve</a>(size_t <i>nbytes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Preallocate <i>nbytes</i> more to the size of the internal buffer.
 </p>
@@ -307,71 +307,71 @@
  buffer will improve performance by eliminating reallocations and copying.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(const(ubyte)[] <i>bytes</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(ubyte <i>b</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(byte <i>b</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(char <i>c</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(dchar <i>c</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(ushort <i>w</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(short <i>s</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(wchar <i>c</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(uint <i>w</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(int <i>i</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(ulong <i>l</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(long <i>l</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(float <i>f</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(double <i>f</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(real <i>f</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(in char[] <i>s</i>);
-<br>void <a class="symbol symbol-anchor" name="write" href="#write">write</a>(OutBuffer <i>buf</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(const(ubyte)[] <i>bytes</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(ubyte <i>b</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(byte <i>b</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(char <i>c</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(dchar <i>c</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(ushort <i>w</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(short <i>s</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(wchar <i>c</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(uint <i>w</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(int <i>i</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(ulong <i>l</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(long <i>l</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(float <i>f</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(double <i>f</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(real <i>f</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(in char[] <i>s</i>);
+<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(OutBuffer <i>buf</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Append data to the internal buffer.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="fill0" href="#fill0">fill0</a>(size_t <i>nbytes</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="fill0"></span><a class="symbol-anchor" href="#fill0">fill0</a>(size_t <i>nbytes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Append <i>nbytes</i> of 0 to the internal buffer.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="alignSize" href="#alignSize">alignSize</a>(size_t <i>alignsize</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="alignSize"></span><a class="symbol-anchor" href="#alignSize">alignSize</a>(size_t <i>alignsize</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>0-fill to align on power of 2 boundary.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="align2" href="#align2">align2</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="align2"></span><a class="symbol-anchor" href="#align2">align2</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Optimize common special case alignSize(2)</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="align4" href="#align4">align4</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="align4"></span><a class="symbol-anchor" href="#align4">align4</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Optimize common special case alignSize(4)</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="toString"></span><a class="symbol-anchor" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Convert internal buffer to array of chars.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="vprintf" href="#vprintf">vprintf</a>(string <i>format</i>, va_list <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="vprintf"></span><a class="symbol-anchor" href="#vprintf">vprintf</a>(string <i>format</i>, va_list <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Append output of C's <a class="symbol symbol-anchor" name="vprintf" href="#vprintf">vprintf</a>() to internal buffer.</p>
+<div class="declaration-content"><dl><p>Append output of C's <span class="symbol" id="vprintf"></span><a class="symbol-anchor" href="#vprintf">vprintf</a>() to internal buffer.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="printf" href="#printf">printf</a>(string <i>format</i>,...);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="printf"></span><a class="symbol-anchor" href="#printf">printf</a>(string <i>format</i>,...);
 </h3></div>
-<div class="declaration-content"><dl><p>Append output of C's <a class="symbol symbol-anchor" name="printf" href="#printf">printf</a>() to internal buffer.</p>
+<div class="declaration-content"><dl><p>Append output of C's <span class="symbol" id="printf"></span><a class="symbol-anchor" href="#printf">printf</a>() to internal buffer.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="spread" href="#spread">spread</a>(size_t <i>index</i>, size_t <i>nbytes</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="spread"></span><a class="symbol-anchor" href="#spread">spread</a>(size_t <i>index</i>, size_t <i>nbytes</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>At offset <i>index</i> into buffer, create <i>nbytes</i> of space by shifting upwards
  all data past <i>index</i>.</p>

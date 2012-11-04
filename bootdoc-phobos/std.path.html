@@ -323,21 +323,21 @@
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/path.d">std/path.d</a>
 </dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="dirSeparator" href="#dirSeparator">dirSeparator</a>;
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="dirSeparator"></span><a class="symbol-anchor" href="#dirSeparator">dirSeparator</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>String used to separate directory names in a path.  Under
     POSIX this is a slash, under Windows a backslash.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="pathSeparator" href="#pathSeparator">pathSeparator</a>;
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="pathSeparator"></span><a class="symbol-anchor" href="#pathSeparator">pathSeparator</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Path separator string.  A colon under POSIX, a semicolon
     under Windows.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isDirSeparator" href="#isDirSeparator">isDirSeparator</a>(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="isDirSeparator"></span><a class="symbol-anchor" href="#isDirSeparator">isDirSeparator</a>(dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Determines whether the given character is a directory separator.
 </p>
@@ -346,24 +346,24 @@
     On POSIX, it's just <span class="inlinecode">'/'</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="CaseSensitive" href="#CaseSensitive">CaseSensitive</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="CaseSensitive"></span><a class="symbol-anchor" href="#CaseSensitive">CaseSensitive</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>This <span class="inlinecode">enum</span> is used as a template argument to functions which
     compare file names, and determines whether the comparison is
     case sensitive or not.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="no" href="#no">no</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="no"></span><a class="symbol-anchor" href="#no">no</a></h3></div>
 <div class="declaration-content"><dl><p>File names are case insensitive</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="yes" href="#yes">yes</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="yes"></span><a class="symbol-anchor" href="#yes">yes</a></h3></div>
 <div class="declaration-content"><dl><p>File names are case sensitive</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="osDefault" href="#osDefault">osDefault</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="osDefault"></span><a class="symbol-anchor" href="#osDefault">osDefault</a></h3></div>
 <div class="declaration-content"><dl><p>The default (or most common) setting for the current platform.
         That is, <span class="inlinecode">no</span> on Windows and Mac OS X, and <span class="inlinecode">yes</span> on all
         POSIX systems except OS X (Linux, *BSD, etc.).</p>
@@ -373,8 +373,8 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted inout(C)[] <a class="symbol symbol-anchor" name="baseName" href="#baseName">baseName</a>(C)(inout(C)[] <i>path</i>);
-<br>pure @safe inout(C)[] <a class="symbol symbol-anchor" name="baseName" href="#baseName">baseName</a>(CaseSensitive cs = CaseSensitive.osDefault, C, C1)(inout(C)[] <i>path</i>, in C1[] <i>suffix</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted inout(C)[] <span class="symbol" id="baseName"></span><a class="symbol-anchor" href="#baseName">baseName</a>(C)(inout(C)[] <i>path</i>);
+<br>pure @safe inout(C)[] <span class="symbol" id="baseName"></span><a class="symbol-anchor" href="#baseName">baseName</a>(CaseSensitive cs = CaseSensitive.osDefault, C, C1)(inout(C)[] <i>path</i>, in C1[] <i>suffix</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the name of a file, without any leading directory
     and with an optional suffix chopped off.
@@ -417,7 +417,7 @@ This function <i>only</i> strips away the specified suffix, which
     (with suitable adaptations for Windows paths).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>C[] <a class="symbol symbol-anchor" name="dirName" href="#dirName">dirName</a>(C)(C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol" id="dirName"></span><a class="symbol-anchor" href="#dirName">dirName</a>(C)(C[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the directory part of a path.  On Windows, this
     includes the drive letter if present.
@@ -449,7 +449,7 @@ This function <i>only</i> strips away the specified suffix, which
     (with suitable adaptations for Windows paths).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="rootName" href="#rootName">rootName</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol" id="rootName"></span><a class="symbol-anchor" href="#rootName">rootName</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the root directory of the specified path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the
     path is not rooted.
@@ -468,7 +468,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="driveName" href="#driveName">driveName</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol" id="driveName"></span><a class="symbol-anchor" href="#driveName">driveName</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the drive of a path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the drive
     is not specified.  In the case of UNC paths, the network share
@@ -488,7 +488,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="stripDrive" href="#stripDrive">stripDrive</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol" id="stripDrive"></span><a class="symbol-anchor" href="#stripDrive">stripDrive</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Strips the drive from a Windows path.  On POSIX, the path is returned
     unaltered.
@@ -504,7 +504,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="extension" href="#extension">extension</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol" id="extension"></span><a class="symbol-anchor" href="#extension">extension</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the extension part of a file name, including the dot.
 </p>
@@ -522,7 +522,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <a class="symbol symbol-anchor" name="stripExtension" href="#stripExtension">stripExtension</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol" id="stripExtension"></span><a class="symbol-anchor" href="#stripExtension">stripExtension</a>(C)(inout(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path with the extension stripped off.
 </p>
@@ -538,8 +538,8 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(Unqual!(C1))[] <a class="symbol symbol-anchor" name="setExtension" href="#setExtension">setExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
-<br>pure nothrow @trusted immutable(C1)[] <a class="symbol symbol-anchor" name="setExtension" href="#setExtension">setExtension</a>(C1, C2)(immutable(C1)[] <i>path</i>, const(C2)[] <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(Unqual!(C1))[] <span class="symbol" id="setExtension"></span><a class="symbol-anchor" href="#setExtension">setExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
+<br>pure nothrow @trusted immutable(C1)[] <span class="symbol" id="setExtension"></span><a class="symbol-anchor" href="#setExtension">setExtension</a>(C1, C2)(immutable(C1)[] <i>path</i>, const(C2)[] <i>ext</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string containing the path given by <span class="inlinecode">path</span>, but where
     the extension has been set to <span class="inlinecode">ext</span>.
@@ -563,7 +563,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted immutable(Unqual!(C1))[] <a class="symbol symbol-anchor" name="defaultExtension" href="#defaultExtension">defaultExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted immutable(Unqual!(C1))[] <span class="symbol" id="defaultExtension"></span><a class="symbol-anchor" href="#defaultExtension">defaultExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path given by <span class="inlinecode">path</span>, with the extension given by
     <span class="inlinecode">ext</span> appended if the path doesn't already have one.
@@ -585,7 +585,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe immutable(C)[] <a class="symbol symbol-anchor" name="buildPath" href="#buildPath">buildPath</a>(C)(const(C[])[] <i>paths</i>...);
+<hr><div class="row-fluid declaration"><h3>pure @safe immutable(C)[] <span class="symbol" id="buildPath"></span><a class="symbol-anchor" href="#buildPath">buildPath</a>(C)(const(C[])[] <i>paths</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Combines one or more path components.
 </p>
@@ -617,7 +617,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(C)[] <a class="symbol symbol-anchor" name="buildNormalizedPath" href="#buildNormalizedPath">buildNormalizedPath</a>(C)(const(C[])[] <i>paths</i>...);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(C)[] <span class="symbol" id="buildNormalizedPath"></span><a class="symbol-anchor" href="#buildNormalizedPath">buildNormalizedPath</a>(C)(const(C[])[] <i>paths</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Performs the same task as <a href="#buildPath"><span class="inlinecode">buildPath</span></a>,
     while at the same time resolving current/parent directory
@@ -654,7 +654,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <a class="symbol symbol-anchor" name="pathSplitter" href="#pathSplitter">pathSplitter</a>(C)(const(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol" id="pathSplitter"></span><a class="symbol-anchor" href="#pathSplitter">pathSplitter</a>(C)(const(C)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a bidirectional range that iterates over the elements of a path.
 </p>
@@ -675,7 +675,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isRooted" href="#isRooted">isRooted</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="isRooted"></span><a class="symbol-anchor" href="#isRooted">isRooted</a>(C)(in C[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Determines whether a path starts at a root directory.
 </p>
@@ -707,7 +707,7 @@ This function <i>only</i> strips away the specified suffix, which
 </p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isAbsolute" href="#isAbsolute">isAbsolute</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="isAbsolute"></span><a class="symbol-anchor" href="#isAbsolute">isAbsolute</a>(C)(in C[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Determines whether a path is absolute or not.
 </p>
@@ -740,7 +740,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe string <a class="symbol symbol-anchor" name="absolutePath" href="#absolutePath">absolutePath</a>(string <i>path</i>, lazy string <i>base</i> = getcwd());
+<hr><div class="row-fluid declaration"><h3>pure @safe string <span class="symbol" id="absolutePath"></span><a class="symbol-anchor" href="#absolutePath">absolutePath</a>(string <i>path</i>, lazy string <i>base</i> = getcwd());
 </h3></div>
 <div class="declaration-content"><dl><p>Translates <span class="inlinecode"><i>path</i></span> into an absolute path.
 </p>
@@ -775,7 +775,7 @@ This function <i>only</i> strips away the specified suffix, which
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="relativePath" href="#relativePath">relativePath</a>(CaseSensitive cs = CaseSensitive.osDefault)(string <i>path</i>, lazy string <i>base</i> = getcwd());
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="relativePath"></span><a class="symbol-anchor" href="#relativePath">relativePath</a>(CaseSensitive cs = CaseSensitive.osDefault)(string <i>path</i>, lazy string <i>base</i> = getcwd());
 </h3></div>
 <div class="declaration-content"><dl><p>Translates <span class="inlinecode">path</span> into a relative path.
 </p>
@@ -833,7 +833,7 @@ This function <i>only</i> strips away the specified suffix, which
 <dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the specified base directory is not absolute.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe int <a class="symbol symbol-anchor" name="filenameCharCmp" href="#filenameCharCmp">filenameCharCmp</a>(CaseSensitive cs = CaseSensitive.osDefault)(dchar <i>a</i>, dchar <i>b</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe int <span class="symbol" id="filenameCharCmp"></span><a class="symbol-anchor" href="#filenameCharCmp">filenameCharCmp</a>(CaseSensitive cs = CaseSensitive.osDefault)(dchar <i>a</i>, dchar <i>b</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares filename characters and return <span class="inlinecode">&lt; 0</span> if <span class="inlinecode">a &lt; b</span>, <span class="inlinecode">0</span> if
     <span class="inlinecode">a == b</span> and <span class="inlinecode">&gt; 0</span> if <span class="inlinecode">a &gt; b</span>.
@@ -872,7 +872,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe int <a class="symbol symbol-anchor" name="filenameCmp" href="#filenameCmp">filenameCmp</a>(CaseSensitive cs = CaseSensitive.osDefault, C1, C2)(const(C1)[] <i>filename1</i>, const(C2)[] <i>filename2</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe int <span class="symbol" id="filenameCmp"></span><a class="symbol-anchor" href="#filenameCmp">filenameCmp</a>(CaseSensitive cs = CaseSensitive.osDefault, C1, C2)(const(C1)[] <i>filename1</i>, const(C2)[] <i>filename2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares file names and returns
     <span class="inlinecode">&lt; 0</span> if <span class="inlinecode">filename1 &lt; filename2</span>,
@@ -912,7 +912,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="globMatch" href="#globMatch">globMatch</a>(CaseSensitive cs = CaseSensitive.osDefault, C)(const(C)[] <i>path</i>, const(C)[] <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="globMatch"></span><a class="symbol-anchor" href="#globMatch">globMatch</a>(CaseSensitive cs = CaseSensitive.osDefault, C)(const(C)[] <i>path</i>, const(C)[] <i>pattern</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Matches a pattern against a path.
 </p>
@@ -980,7 +980,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isValidFilename" href="#isValidFilename">isValidFilename</a>(C)(in C[] <i>filename</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="isValidFilename"></span><a class="symbol-anchor" href="#isValidFilename">isValidFilename</a>(C)(in C[] <i>filename</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks that the given file or directory name is valid.
 </p>
@@ -1011,7 +1011,7 @@ This function <i>only</i> strips away the specified suffix, which
     the <span class="d_keyword">null</span> character (<span class="inlinecode">'\0'</span>).</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <a class="symbol symbol-anchor" name="isValidPath" href="#isValidPath">isValidPath</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol" id="isValidPath"></span><a class="symbol-anchor" href="#isValidPath">isValidPath</a>(C)(in C[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks whether <span class="inlinecode">path</span> is a valid path.
 </p>
@@ -1039,7 +1039,7 @@ This function <i>only</i> strips away the specified suffix, which
     </ul></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="expandTilde" href="#expandTilde">expandTilde</a>(string <i>inputPath</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="expandTilde"></span><a class="symbol-anchor" href="#expandTilde">expandTilde</a>(string <i>inputPath</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Performs tilde expansion in paths on POSIX systems.
     On Windows, this function does nothing.
@@ -1074,7 +1074,7 @@ This function <i>only</i> strips away the specified suffix, which
 </p>
 <dt>Returns</dt><dd><span class="inlinecode"><i>inputPath</i></span> with the tilde expanded, or just <span class="inlinecode"><i>inputPath</i></span>
     if it could not be expanded.
-    For Windows, <span class="inlinecode"><a class="symbol symbol-anchor" name="expandTilde" href="#expandTilde">expandTilde</a></span> merely returns its argument <span class="inlinecode"><i>inputPath</i></span>.
+    For Windows, <span class="inlinecode"><span class="symbol" id="expandTilde"></span><a class="symbol-anchor" href="#expandTilde">expandTilde</a></span> merely returns its argument <span class="inlinecode"><i>inputPath</i></span>.
 
 </dd>
 <dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">void</span> processFile(string path)
@@ -1088,7 +1088,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="fcmp" href="#fcmp">fcmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="fcmp"></span><a class="symbol-anchor" href="#fcmp">fcmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a> instead.</font>
@@ -1103,7 +1103,7 @@ This function <i>only</i> strips away the specified suffix, which
       </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getExt" href="#getExt">getExt</a>()(string <i>fullname</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="getExt"></span><a class="symbol-anchor" href="#getExt">getExt</a>()(string <i>fullname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#extension"><span class="inlinecode">extension</span></a> instead.</font>
@@ -1146,7 +1146,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getName" href="#getName">getName</a>()(string <i>fullname</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="getName"></span><a class="symbol-anchor" href="#getName">getName</a>()(string <i>fullname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#stripExtension"><span class="inlinecode">stripExtension</span></a> instead.</font>
@@ -1184,7 +1184,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="basename" href="#basename">basename</a>(Char, ExtChar = immutable(char))(Char[] <i>fullname</i>, ExtChar[] <i>extension</i> = null);
+<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol" id="basename"></span><a class="symbol-anchor" href="#basename">basename</a>(Char, ExtChar = immutable(char))(Char[] <i>fullname</i>, ExtChar[] <i>extension</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#baseName"><span class="inlinecode">baseName</span></a> instead.</font>
@@ -1224,7 +1224,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="dirname" href="#dirname">dirname</a>(Char)(Char[] <i>fullname</i>);
+<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol" id="dirname"></span><a class="symbol-anchor" href="#dirname">dirname</a>(Char)(Char[] <i>fullname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#dirName"><span class="inlinecode">dirName</span></a> instead.</font>
@@ -1268,7 +1268,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Char[] <a class="symbol symbol-anchor" name="getDrive" href="#getDrive">getDrive</a>(Char)(Char[] <i>fullname</i>);
+<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol" id="getDrive"></span><a class="symbol-anchor" href="#getDrive">getDrive</a>(Char)(Char[] <i>fullname</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#driveName"><span class="inlinecode">driveName</span></a> instead.</font>
@@ -1295,7 +1295,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="defaultExt" href="#defaultExt">defaultExt</a>()(string <i>filename</i>, string <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="defaultExt"></span><a class="symbol-anchor" href="#defaultExt">defaultExt</a>()(string <i>filename</i>, string <i>ext</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#defaultExtension"><span class="inlinecode">defaultExtension</span></a> instead.</font>
@@ -1324,7 +1324,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="addExt" href="#addExt">addExt</a>()(string <i>filename</i>, string <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="addExt"></span><a class="symbol-anchor" href="#addExt">addExt</a>()(string <i>filename</i>, string <i>ext</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#setExtension"><span class="inlinecode">setExtension</span></a> instead.</font>
@@ -1355,7 +1355,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="isabs" href="#isabs">isabs</a>()(in char[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="isabs"></span><a class="symbol-anchor" href="#isabs">isabs</a>()(in char[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#isAbsolute"><span class="inlinecode">isAbsolute</span></a> instead.</font>
@@ -1387,7 +1387,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="rel2abs" href="#rel2abs">rel2abs</a>()(string <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="rel2abs"></span><a class="symbol-anchor" href="#rel2abs">rel2abs</a>()(string <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#absolutePath"><span class="inlinecode">absolutePath</span></a> instead.</font>
@@ -1396,7 +1396,7 @@ This function <i>only</i> strips away the specified suffix, which
 <p>Converts a relative path into an absolute path.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="join" href="#join">join</a>()(const(char)[] <i>p1</i>, const(char)[] <i>p2</i>, const(char[])[] <i>more</i>...);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="join"></span><a class="symbol-anchor" href="#join">join</a>()(const(char)[] <i>p1</i>, const(char)[] <i>p2</i>, const(char[])[] <i>more</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#buildPath"><span class="inlinecode">buildPath</span></a> instead.</font>
@@ -1430,7 +1430,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="fncharmatch" href="#fncharmatch">fncharmatch</a>()(dchar <i>c1</i>, dchar <i>c2</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="fncharmatch"></span><a class="symbol-anchor" href="#fncharmatch">fncharmatch</a>()(dchar <i>c1</i>, dchar <i>c2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a> instead.</font>
@@ -1463,7 +1463,7 @@ This function <i>only</i> strips away the specified suffix, which
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <a class="symbol symbol-anchor" name="fnmatch" href="#fnmatch">fnmatch</a>()(const(char)[] <i>filename</i>, const(char)[] <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="fnmatch"></span><a class="symbol-anchor" href="#fnmatch">fnmatch</a>()(const(char)[] <i>filename</i>, const(char)[] <i>pattern</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
        <a href="#globMatch"><span class="inlinecode">globMatch</span></a> instead.</font>

@@ -296,9 +296,9 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/h
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/socketstream.d">std/socketstream.d</a>
 </dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="SocketStream" href="#SocketStream">SocketStream</a>: std.stream.Stream;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="SocketStream"></span><a class="symbol-anchor" href="#SocketStream">SocketStream</a>: std.stream.Stream;
 </h3></div>
-<div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="SocketStream" href="#SocketStream">SocketStream</a></span> is a stream for a blocking,
+<div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol" id="SocketStream"></span><a class="symbol-anchor" href="#SocketStream">SocketStream</a></span> is a stream for a blocking,
  connected <span class="inlinecode">Socket</span>.</p>
 
 </dl>
@@ -314,39 +314,39 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/h
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Socket <a class="symbol symbol-anchor" name="socket" href="#socket">socket</a>();
+<hr><div class="row-fluid declaration"><h3>Socket <span class="symbol" id="socket"></span><a class="symbol-anchor" href="#socket">socket</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Property to get the <span class="inlinecode">Socket</span> that is being streamed.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="readBlock" href="#readBlock">readBlock</a>(void* <i>_buffer</i>, size_t <i>size</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol" id="readBlock"></span><a class="symbol-anchor" href="#readBlock">readBlock</a>(void* <i>_buffer</i>, size_t <i>size</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Attempts to read the entire block, waiting if necessary.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <a class="symbol symbol-anchor" name="writeBlock" href="#writeBlock">writeBlock</a>(const void* <i>_buffer</i>, size_t <i>size</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol" id="writeBlock"></span><a class="symbol-anchor" href="#writeBlock">writeBlock</a>(const void* <i>_buffer</i>, size_t <i>size</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Attempts to write the entire block, waiting if necessary.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="seek" href="#seek">seek</a>(long <i>offset</i>, SeekPos <i>whence</i>);
+<hr><div class="row-fluid declaration"><h3>ulong <span class="symbol" id="seek"></span><a class="symbol-anchor" href="#seek">seek</a>(long <i>offset</i>, SeekPos <i>whence</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Socket streams do not support seeking. This disabled method throws
  a <span class="inlinecode">SeekException</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="toString"></span><a class="symbol-anchor" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Does not return the entire stream because that would
  require the remote connection to be closed.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="close" href="#close">close</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="close"></span><a class="symbol-anchor" href="#close">close</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Close the <span class="inlinecode">Socket</span>.</p>
 

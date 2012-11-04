@@ -418,7 +418,7 @@ synchronous.
 The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
          LibCurl is licensed under an MIT/X derivate license.</dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="AutoProtocol" href="#AutoProtocol">AutoProtocol</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="AutoProtocol"></span><a class="symbol-anchor" href="#AutoProtocol">AutoProtocol</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Connection type used when the URL should be used to auto detect the protocol.
 </p>
@@ -456,13 +456,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="download" href="#download">download</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, string <i>saveToPath</i>, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="download"></span><a class="symbol-anchor" href="#download">download</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, string <i>saveToPath</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="download" href="#download">download</a> to local file system.
+<div class="declaration-content"><dl><p>HTTP/FTP <span class="symbol" id="download"></span><a class="symbol-anchor" href="#download">download</a> to local file system.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource to <a class="symbol symbol-anchor" name="download" href="#download">download</a></td>
+<td>resource to <span class="symbol" id="download"></span><a class="symbol-anchor" href="#download">download</a></td>
 </tr>
 <tr><td>saveToPath</td>
 <td>path to store the downloaded content on local disk</td>
@@ -480,7 +480,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a>(Conn = AutoProtocol)(string <i>loadFromPath</i>, const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="upload"></span><a class="symbol-anchor" href="#upload">upload</a>(Conn = AutoProtocol)(string <i>loadFromPath</i>, const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>Upload file from local files system using the HTTP or FTP protocol.
 </p>
@@ -489,7 +489,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <td>path load data from local disk.</td>
 </tr>
 <tr><td>url</td>
-<td>resource to <a class="symbol symbol-anchor" name="upload" href="#upload">upload</a> to</td>
+<td>resource to <span class="symbol" id="upload"></span><a class="symbol-anchor" href="#upload">upload</a> to</td>
 </tr>
 <tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
@@ -504,13 +504,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="get" href="#get">get</a>(Conn = AutoProtocol, T = char)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a>(Conn = AutoProtocol, T = char)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="get" href="#get">get</a> content.
+<div class="declaration-content"><dl><p>HTTP/FTP <span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a> content.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource to <a class="symbol symbol-anchor" name="get" href="#get">get</a></td>
+<td>resource to <span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a></td>
 </tr>
 <tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
@@ -533,13 +533,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="post" href="#post">post</a>(T = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, HTTP <i>conn</i> = HTTP());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="post"></span><a class="symbol-anchor" href="#post">post</a>(T = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="post" href="#post">post</a> content.
+<div class="declaration-content"><dl><p>HTTP <span class="symbol" id="post"></span><a class="symbol-anchor" href="#post">post</a> content.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource to <a class="symbol symbol-anchor" name="post" href="#post">post</a> to</td>
+<td>resource to <span class="symbol" id="post"></span><a class="symbol-anchor" href="#post">post</a> to</td>
 </tr>
 <tr><td>putData</td>
 <td>data to send as the body of the request. An array
@@ -567,13 +567,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="put" href="#put">put</a>(Conn = AutoProtocol, T = char, PutUnit)(const(char)[] <i>url</i>, const(PutUnit)[] <i>putData</i>, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a>(Conn = AutoProtocol, T = char, PutUnit)(const(char)[] <i>url</i>, const(PutUnit)[] <i>putData</i>, Conn <i>conn</i> = Conn());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP/FTP <a class="symbol symbol-anchor" name="put" href="#put">put</a> content.
+<div class="declaration-content"><dl><p>HTTP/FTP <span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a> content.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource to <a class="symbol symbol-anchor" name="put" href="#put">put</a></td>
+<td>resource to <span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a></td>
 </tr>
 <tr><td>putData</td>
 <td>data to send as the body of the request. An array
@@ -602,7 +602,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="del" href="#del">del</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="del"></span><a class="symbol-anchor" href="#del">del</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP/FTP delete content.
 </p>
@@ -624,16 +624,16 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="options" href="#options">options</a>(T = char, OptionsUnit)(const(char)[] <i>url</i>, const(OptionsUnit)[] <i>optionsData</i> = null, HTTP <i>conn</i> = HTTP());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="options"></span><a class="symbol-anchor" href="#options">options</a>(T = char, OptionsUnit)(const(char)[] <i>url</i>, const(OptionsUnit)[] <i>optionsData</i> = null, HTTP <i>conn</i> = HTTP());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="options" href="#options">options</a> request.
+<div class="declaration-content"><dl><p>HTTP <span class="symbol" id="options"></span><a class="symbol-anchor" href="#options">options</a> request.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
 <td>resource make a option call to</td>
 </tr>
 <tr><td>optionsData</td>
-<td><a class="symbol symbol-anchor" name="options" href="#options">options</a> data to send as the body of the request. An array
+<td><span class="symbol" id="options"></span><a class="symbol-anchor" href="#options">options</a> data to send as the body of the request. An array
                of an arbitrary type is accepted and will be cast to ubyte[]
                before sending it.</td>
 </tr>
@@ -656,19 +656,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="options" href="#options">options</a> of the resource pointed to by the URL.
+<dt>Returns</dt><dd>A T[] range containing the <span class="symbol" id="options"></span><a class="symbol-anchor" href="#options">options</a> of the resource pointed to by the URL.
 
 </dd>
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="trace"></span><a class="symbol-anchor" href="#trace">trace</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> request.
+<div class="declaration-content"><dl><p>HTTP <span class="symbol" id="trace"></span><a class="symbol-anchor" href="#trace">trace</a> request.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource make a <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> call to</td>
+<td>resource make a <span class="symbol" id="trace"></span><a class="symbol-anchor" href="#trace">trace</a> call to</td>
 </tr>
 <tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
@@ -685,19 +685,19 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="trace" href="#trace">trace</a> info of the resource pointed to by the URL.
+<dt>Returns</dt><dd>A T[] range containing the <span class="symbol" id="trace"></span><a class="symbol-anchor" href="#trace">trace</a> info of the resource pointed to by the URL.
 
 </dd>
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T[] <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
+<hr><div class="row-fluid declaration"><h3>T[] <span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a>(T = char)(const(char)[] <i>url</i>, HTTP <i>conn</i> = HTTP());
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> request.
+<div class="declaration-content"><dl><p>HTTP <span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a> request.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>url</td>
-<td>resource make a <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> to</td>
+<td>resource make a <span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a> to</td>
 </tr>
 <tr><td>conn</td>
 <td>connection to use e.g. FTP or HTTP. The default AutoProtocol will
@@ -714,13 +714,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </pre>
 
 </dd>
-<dt>Returns</dt><dd>A T[] range containing the <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a> info of the resource pointed to by the URL.
+<dt>Returns</dt><dd>A T[] range containing the <span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a> info of the resource pointed to by the URL.
 
 </dd>
 <dt>See Also</dt><dd><a href="#HTTP.Method"><span class="inlinecode">HTTP.Method</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLine" href="#byLine">byLine</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="byLine"></span><a class="symbol-anchor" href="#byLine">byLine</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>struct ByLineBuffer(Char)
 {
@@ -790,7 +790,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A range of Char[] with the content of the resource pointer to by the URL</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunk" href="#byChunk">byChunk</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="byChunk"></span><a class="symbol-anchor" href="#byChunk">byChunk</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks.
 </p>
@@ -821,8 +821,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>Returns</dt><dd>A range of ubyte[chunkSize] with the content of the resource pointer to by the URL</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
-<br>auto <a class="symbol symbol-anchor" name="byLineAsync" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="byLineAsync"></span><a class="symbol-anchor" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<br>auto <span class="symbol" id="byLineAsync"></span><a class="symbol-anchor" href="#byLineAsync">byLineAsync</a>(Conn = AutoProtocol, Terminator = char, Char = char)(const(char)[] <i>url</i>, KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a', size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of lines asynchronously.
 </p>
@@ -901,8 +901,8 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  URL.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
-<br>auto <a class="symbol symbol-anchor" name="byChunkAsync" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="byChunkAsync"></span><a class="symbol-anchor" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol, PostUnit)(const(char)[] <i>url</i>, const(PostUnit)[] <i>postData</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
+<br>auto <span class="symbol" id="byChunkAsync"></span><a class="symbol-anchor" href="#byChunkAsync">byChunkAsync</a>(Conn = AutoProtocol)(const(char)[] <i>url</i>, size_t <i>chunkSize</i> = 1024, size_t <i>transmitBuffers</i> = 10, Conn <i>conn</i> = Conn());
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP/FTP fetch content as a range of chunks asynchronously.
 </p>
@@ -981,9 +981,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
  the URL.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="HTTP"></span><a class="symbol-anchor" href="#HTTP">HTTP</a>;
 </h3></div>
-<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="HTTP" href="#HTTP">HTTP</a> client functionality.
+<div class="declaration-content"><dl><p><span class="symbol" id="HTTP"></span><a class="symbol-anchor" href="#HTTP">HTTP</a> client functionality.
 </p>
 
 <dt>Example:</dt><dd>
@@ -1030,13 +1030,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 <dt>See Also</dt><dd><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC2616</a></dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="AuthMethod" href="#AuthMethod">AuthMethod</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="AuthMethod"></span><a class="symbol-anchor" href="#AuthMethod">AuthMethod</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Authentication method equal to <a href="etc_c_curl.html#CurlAuth"><span class="inlinecode">etc.c.curl.CurlAuth</span></a></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="TimeCond" href="#TimeCond">TimeCond</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="TimeCond"></span><a class="symbol-anchor" href="#TimeCond">TimeCond</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Time condition enumeration as an alias of <a href="etc_c_curl.html#CurlTimeCond"><span class="inlinecode">etc.c.curl.CurlTimeCond</span></a>
 </p>
@@ -1050,29 +1050,29 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Perform a http request.
 </p>
 
 <p>After the HTTP client has been setup and possibly assigned callbacks the
-       <span class="inlinecode"><a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>()</span> method will start performing the request towards the
+       <span class="inlinecode"><span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>()</span> method will start performing the request towards the
        specified server.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>(const(char)[] <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>);
 </h3></div>
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearRequestHeaders" href="#clearRequestHeaders">clearRequestHeaders</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="clearRequestHeaders"></span><a class="symbol-anchor" href="#clearRequestHeaders">clearRequestHeaders</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Clear all outgoing headers.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addRequestHeader" href="#addRequestHeader">addRequestHeader</a>(const(char)[] <i>name</i>, const(char)[] <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="addRequestHeader"></span><a class="symbol-anchor" href="#addRequestHeader">addRequestHeader</a>(const(char)[] <i>name</i>, const(char)[] <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Add a header e.g. "X-CustomField: Something is fishy".
 </p>
@@ -1090,52 +1090,52 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property string[string] <a class="symbol symbol-anchor" name="responseHeaders" href="#responseHeaders">responseHeaders</a>();
+<hr><div class="row-fluid declaration"><h3>@property string[string] <span class="symbol" id="responseHeaders"></span><a class="symbol-anchor" href="#responseHeaders">responseHeaders</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The headers read from a successful response.
 </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="method" href="#method">method</a>(Method <i>m</i>);
-<br>@property Method <a class="symbol symbol-anchor" name="method" href="#method">method</a>();
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="method"></span><a class="symbol-anchor" href="#method">method</a>(Method <i>m</i>);
+<br>@property Method <span class="symbol" id="method"></span><a class="symbol-anchor" href="#method">method</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP <a class="symbol symbol-anchor" name="method" href="#method">method</a> used.</p>
+<div class="declaration-content"><dl><p>HTTP <span class="symbol" id="method"></span><a class="symbol-anchor" href="#method">method</a> used.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property StatusLine <a class="symbol symbol-anchor" name="statusLine" href="#statusLine">statusLine</a>();
+<hr><div class="row-fluid declaration"><h3>@property StatusLine <span class="symbol" id="statusLine"></span><a class="symbol-anchor" href="#statusLine">statusLine</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP status line of last response. One call to perform may
        result in several requests because of redirection.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setCookieJar" href="#setCookieJar">setCookieJar</a>(const(char)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="setCookieJar"></span><a class="symbol-anchor" href="#setCookieJar">setCookieJar</a>(const(char)[] <i>path</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set a file <i>path</i> to where a cookie jar should be read/stored.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="flushCookieJar" href="#flushCookieJar">flushCookieJar</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="flushCookieJar"></span><a class="symbol-anchor" href="#flushCookieJar">flushCookieJar</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Flush cookie jar to disk.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearSessionCookies" href="#clearSessionCookies">clearSessionCookies</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="clearSessionCookies"></span><a class="symbol-anchor" href="#clearSessionCookies">clearSessionCookies</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Clear session cookies.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearAllCookies" href="#clearAllCookies">clearAllCookies</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="clearAllCookies"></span><a class="symbol-anchor" href="#clearAllCookies">clearAllCookies</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Clear all cookies.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="setTimeCondition" href="#setTimeCondition">setTimeCondition</a>(HTTP.TimeCond <i>cond</i>, SysTime <i>timestamp</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="setTimeCondition"></span><a class="symbol-anchor" href="#setTimeCondition">setTimeCondition</a>(HTTP.TimeCond <i>cond</i>, SysTime <i>timestamp</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set time condition on the request.
 </p>
@@ -1152,7 +1152,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(void)[] <i>data</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="postData"></span><a class="symbol-anchor" href="#postData">postData</a>(const(void)[] <i>data</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
 </p>
@@ -1172,7 +1172,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="postData" href="#postData">postData</a>(const(char)[] <i>data</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="postData"></span><a class="symbol-anchor" href="#postData">postData</a>(const(char)[] <i>data</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Specifying <i>data</i> to post when not using the onSend callback.
 </p>
@@ -1191,7 +1191,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[]) key, const(char[]) value) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onReceiveHeader"></span><a class="symbol-anchor" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[]) key, const(char[]) value) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set the event handler that receives incoming headers.
 </p>
@@ -1210,7 +1210,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveStatusLine" href="#onReceiveStatusLine">onReceiveStatusLine</a>(void delegate(StatusLine) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onReceiveStatusLine"></span><a class="symbol-anchor" href="#onReceiveStatusLine">onReceiveStatusLine</a>(void delegate(StatusLine) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Callback for each received StatusLine.
 </p>
@@ -1222,7 +1222,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <dt>See Also</dt><dd><a href="#StatusLine"><span class="inlinecode">StatusLine</span></a></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="contentLength"></span><a class="symbol-anchor" href="#contentLength">contentLength</a>(size_t <i>len</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The content length in bytes when using request that has content
        e.g. POST/PUT and not using chunked transfer. Is set as the
@@ -1230,53 +1230,53 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="authenticationMethod" href="#authenticationMethod">authenticationMethod</a>(AuthMethod <i>authMethod</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="authenticationMethod"></span><a class="symbol-anchor" href="#authenticationMethod">authenticationMethod</a>(AuthMethod <i>authMethod</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Authentication method as specified in <a href="#AuthMethod"><span class="inlinecode">AuthMethod</span></a>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="maxRedirects" href="#maxRedirects">maxRedirects</a>(uint <i>maxRedirs</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="maxRedirects"></span><a class="symbol-anchor" href="#maxRedirects">maxRedirects</a>(uint <i>maxRedirs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set max allowed redirections using the location header.
        uint.max for infinite.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="Method" href="#Method">Method</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="Method"></span><a class="symbol-anchor" href="#Method">Method</a>;
 </h3></div>
 <div class="declaration-content"><dl><p><a name="HTTP.Method"/ >The standard HTTP methods :
   <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.1">RFC2616 Section 5.1.1</a></p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="head" href="#head">head</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="head"></span><a class="symbol-anchor" href="#head">head</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="get" href="#get">get</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="post" href="#post">post</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="post"></span><a class="symbol-anchor" href="#post">post</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="put" href="#put">put</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="del" href="#del">del</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="del"></span><a class="symbol-anchor" href="#del">del</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="options" href="#options">options</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="options"></span><a class="symbol-anchor" href="#options">options</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="trace" href="#trace">trace</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="trace"></span><a class="symbol-anchor" href="#trace">trace</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="connect" href="#connect">connect</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a></h3></div>
 <div class="declaration-content"><br><br>
 </div>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="StatusLine" href="#StatusLine">StatusLine</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="StatusLine"></span><a class="symbol-anchor" href="#StatusLine">StatusLine</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>HTTP status line ie. the first line returned in an HTTP response.
 </p>
@@ -1284,37 +1284,37 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 <p>If authentication or redirections are done then the status will be for
        the last response received.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="majorVersion" href="#majorVersion">majorVersion</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>ushort <span class="symbol" id="majorVersion"></span><a class="symbol-anchor" href="#majorVersion">majorVersion</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Major HTTP version ie. 1 in HTTP/1.0.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="minorVersion" href="#minorVersion">minorVersion</a>;
+<hr><div class="row-fluid declaration"><h3>ushort <span class="symbol" id="minorVersion"></span><a class="symbol-anchor" href="#minorVersion">minorVersion</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Minor HTTP version ie. 0 in HTTP/1.0.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ushort <a class="symbol symbol-anchor" name="code" href="#code">code</a>;
+<hr><div class="row-fluid declaration"><h3>ushort <span class="symbol" id="code"></span><a class="symbol-anchor" href="#code">code</a>;
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="code" href="#code">code</a> e.g. 200.</p>
+<div class="declaration-content"><dl><p>HTTP status line <span class="symbol" id="code"></span><a class="symbol-anchor" href="#code">code</a> e.g. 200.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a>;
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="reason"></span><a class="symbol-anchor" href="#reason">reason</a>;
 </h3></div>
-<div class="declaration-content"><dl><p>HTTP status line <a class="symbol symbol-anchor" name="reason" href="#reason">reason</a> string.</p>
+<div class="declaration-content"><dl><p>HTTP status line <span class="symbol" id="reason"></span><a class="symbol-anchor" href="#reason">reason</a> string.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@safe void <a class="symbol symbol-anchor" name="reset" href="#reset">reset</a>();
+<hr><div class="row-fluid declaration"><h3>@safe void <span class="symbol" id="reset"></span><a class="symbol-anchor" href="#reset">reset</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Reset this status line</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="toString"></span><a class="symbol-anchor" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -1322,9 +1322,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="FTP"></span><a class="symbol-anchor" href="#FTP">FTP</a>;
 </h3></div>
-<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="FTP" href="#FTP">FTP</a> client functionality.
+<div class="declaration-content"><dl><p><span class="symbol" id="FTP"></span><a class="symbol-anchor" href="#FTP">FTP</a> client functionality.
 </p>
 
 <dt>See Also</dt><dd><a href="http://tools.ietf.org/html/rfc959">RFC959</a></dd>
@@ -1335,28 +1335,28 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Performs the ftp request as it has been configured.
 </p>
 
-<p>After a FTP client has been setup and possibly assigned callbacks the <span class="inlinecode">      <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>()</span> method will start performing the actual communication with the
+<p>After a FTP client has been setup and possibly assigned callbacks the <span class="inlinecode">      <span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>()</span> method will start performing the actual communication with the
        server.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>(const(char)[] <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>);
 </h3></div>
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clearCommands" href="#clearCommands">clearCommands</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="clearCommands"></span><a class="symbol-anchor" href="#clearCommands">clearCommands</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Clear all commands send to ftp server.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="addCommand" href="#addCommand">addCommand</a>(const(char)[] <i>command</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="addCommand"></span><a class="symbol-anchor" href="#addCommand">addCommand</a>(const(char)[] <i>command</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Add a <i>command</i> to send to ftp server.
 </p>
@@ -1375,7 +1375,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="contentLength" href="#contentLength">contentLength</a>(size_t <i>len</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="contentLength"></span><a class="symbol-anchor" href="#contentLength">contentLength</a>(size_t <i>len</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The content length in bytes of the ftp data.</p>
 
@@ -1383,9 +1383,9 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="SMTP"></span><a class="symbol-anchor" href="#SMTP">SMTP</a>;
 </h3></div>
-<div class="declaration-content"><dl><p>Basic <a class="symbol symbol-anchor" name="SMTP" href="#SMTP">SMTP</a> protocol support.
+<div class="declaration-content"><dl><p>Basic <span class="symbol" id="SMTP"></span><a class="symbol-anchor" href="#SMTP">SMTP</a> protocol support.
 </p>
 
 <dt>Example:</dt><dd>
@@ -1410,39 +1410,39 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Performs the request as configured.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="url" href="#url">url</a>(const(char)[] <a class="symbol symbol-anchor" name="url" href="#url">url</a>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>(const(char)[] <span class="symbol" id="url"></span><a class="symbol-anchor" href="#url">url</a>);
 </h3></div>
 <div class="declaration-content"><dl><p>The URL to specify the location of the resource.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailFrom" href="#mailFrom">mailFrom</a>()(const(char)[] <i>sender</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="mailFrom"></span><a class="symbol-anchor" href="#mailFrom">mailFrom</a>()(const(char)[] <i>sender</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Setter for the sender's email address.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="mailTo" href="#mailTo">mailTo</a>()(const(char)[][] <i>recipients</i>...);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="mailTo"></span><a class="symbol-anchor" href="#mailTo">mailTo</a>()(const(char)[][] <i>recipients</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Setter for the recipient email addresses.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="message" href="#message">message</a>(string <i>msg</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="message"></span><a class="symbol-anchor" href="#message">message</a>(string <i>msg</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Sets the <a class="symbol symbol-anchor" name="message" href="#message">message</a> body text.</p>
+<div class="declaration-content"><dl><p>Sets the <span class="symbol" id="message"></span><a class="symbol-anchor" href="#message">message</a> body text.</p>
 
 </dl>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlException" href="#CurlException">CurlException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="CurlException"></span><a class="symbol-anchor" href="#CurlException">CurlException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception thrown on errors in std.net.curl functions.</p>
 
@@ -1466,7 +1466,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CurlTimeoutException" href="#CurlTimeoutException">CurlTimeoutException</a>: std.net.curl.CurlException;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="CurlTimeoutException"></span><a class="symbol-anchor" href="#CurlTimeoutException">CurlTimeoutException</a>: std.net.curl.CurlException;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception thrown on timeout errors in std.net.curl functions.</p>
 
@@ -1490,26 +1490,26 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="CurlCode" href="#CurlCode">CurlCode</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="CurlCode"></span><a class="symbol-anchor" href="#CurlCode">CurlCode</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Equal to <a href="etc_c_curl.html#CURLcode"><span class="inlinecode">etc.c.curl.CURLcode</span></a></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Curl" href="#Curl">Curl</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="Curl"></span><a class="symbol-anchor" href="#Curl">Curl</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Wrapper to provide a better interface to libcurl than using the plain C API.
   It is recommended to use the <span class="inlinecode">HTTP</span>/<span class="inlinecode">FTP</span> etc. structs instead unless
   raw access to libcurl is needed.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="initialize" href="#initialize">initialize</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="initialize"></span><a class="symbol-anchor" href="#initialize">initialize</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Initialize the instance by creating a working curl handle.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Curl <a class="symbol symbol-anchor" name="dup" href="#dup">dup</a>();
+<hr><div class="row-fluid declaration"><h3>Curl <span class="symbol" id="dup"></span><a class="symbol-anchor" href="#dup">dup</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Duplicate this handle.
 </p>
@@ -1520,7 +1520,7 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
        in a new thread.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="shutdown" href="#shutdown">shutdown</a>();
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="shutdown"></span><a class="symbol-anchor" href="#shutdown">shutdown</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Stop and invalidate this curl instance.
 </p>
@@ -1529,13 +1529,13 @@ The functionally is based on <a href="http://curl.haxx.se/libcurl">libcurl</a>.
 Do not call this from inside a callback handler e.g. <span class="inlinecode">onReceive</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="pause" href="#pause">pause</a>(bool <i>sendingPaused</i>, bool <i>receivingPaused</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="pause"></span><a class="symbol-anchor" href="#pause">pause</a>(bool <i>sendingPaused</i>, bool <i>receivingPaused</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Pausing and continuing transfers.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, const(char)[] <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="set"></span><a class="symbol-anchor" href="#set">set</a>(CurlOption <i>option</i>, const(char)[] <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set a string curl <i>option</i>.
 </p>
@@ -1549,7 +1549,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, long <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="set"></span><a class="symbol-anchor" href="#set">set</a>(CurlOption <i>option</i>, long <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set a long curl <i>option</i>.
 </p>
@@ -1563,7 +1563,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="set" href="#set">set</a>(CurlOption <i>option</i>, void* <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="set"></span><a class="symbol-anchor" href="#set">set</a>(CurlOption <i>option</i>, void* <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set a void* curl <i>option</i>.
 </p>
@@ -1577,7 +1577,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="clear" href="#clear">clear</a>(CurlOption <i>option</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="clear"></span><a class="symbol-anchor" href="#clear">clear</a>(CurlOption <i>option</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Clear a pointer <i>option</i>.
 </p>
@@ -1588,14 +1588,14 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CurlCode <a class="symbol symbol-anchor" name="perform" href="#perform">perform</a>(bool <i>throwOnError</i> = true);
+<hr><div class="row-fluid declaration"><h3>CurlCode <span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a>(bool <i>throwOnError</i> = true);
 </h3></div>
-<div class="declaration-content"><dl><p><a class="symbol symbol-anchor" name="perform" href="#perform">perform</a> the curl request by doing the HTTP,FTP etc. as it has
+<div class="declaration-content"><dl><p><span class="symbol" id="perform"></span><a class="symbol-anchor" href="#perform">perform</a> the curl request by doing the HTTP,FTP etc. as it has
        been setup beforehand.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceive" href="#onReceive">onReceive</a>(uint delegate(ubyte[]) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onReceive"></span><a class="symbol-anchor" href="#onReceive">onReceive</a>(uint delegate(ubyte[]) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that receives incoming data.
 </p>
@@ -1623,7 +1623,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onReceiveHeader" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[])) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onReceiveHeader"></span><a class="symbol-anchor" href="#onReceiveHeader">onReceiveHeader</a>(void delegate(const(char[])) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that receives incoming headers for protocols
  that uses headers.
@@ -1647,7 +1647,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSend" href="#onSend">onSend</a>(uint delegate(void[]) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onSend"></span><a class="symbol-anchor" href="#onSend">onSend</a>(uint delegate(void[]) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that gets called when data is needed for sending.
 </p>
@@ -1685,7 +1685,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSeek" href="#onSeek">onSeek</a>(CurlSeek delegate(long, CurlSeekPos) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onSeek"></span><a class="symbol-anchor" href="#onSeek">onSeek</a>(CurlSeek delegate(long, CurlSeekPos) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that gets called when the curl backend needs to seek
  the data to be sent.
@@ -1714,7 +1714,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onSocketOption" href="#onSocketOption">onSocketOption</a>(int delegate(socket_t, CurlSockType) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onSocketOption"></span><a class="symbol-anchor" href="#onSocketOption">onSocketOption</a>(int delegate(socket_t, CurlSockType) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that gets called when the net socket has been created
  but a <span class="inlinecode">connect()</span> call has not yet been done. This makes it possible to set
@@ -1742,7 +1742,7 @@ Do not call this from inside a callback handler e.g. <span class="inlinecode">on
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="onProgress" href="#onProgress">onProgress</a>(int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="onProgress"></span><a class="symbol-anchor" href="#onProgress">onProgress</a>(int delegate(uint dlTotal, uint dlNow, uint ulTotal, uint ulNow) <i>callback</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The event handler that gets called to inform of upload/download progress.
 </p>

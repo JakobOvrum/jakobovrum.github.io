@@ -287,17 +287,17 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/json.d">std/json.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="JSON_TYPE" href="#JSON_TYPE">JSON_TYPE</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="JSON_TYPE"></span><a class="symbol-anchor" href="#JSON_TYPE">JSON_TYPE</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>JSON type enumeration</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="STRING" href="#STRING">STRING</a><br><a class="symbol symbol-anchor" name="INTEGER" href="#INTEGER">INTEGER</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="STRING"></span><a class="symbol-anchor" href="#STRING">STRING</a><br><span class="symbol" id="INTEGER"></span><a class="symbol-anchor" href="#INTEGER">INTEGER</a></h3></div>
 <div class="declaration-content"><dl><p>Indicates the type of a <span class="inlinecode">JSONValue</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="UINTEGER" href="#UINTEGER">UINTEGER</a><br><a class="symbol symbol-anchor" name="FLOAT" href="#FLOAT">FLOAT</a><br><a class="symbol symbol-anchor" name="OBJECT" href="#OBJECT">OBJECT</a><br><a class="symbol symbol-anchor" name="ARRAY" href="#ARRAY">ARRAY</a><br><a class="symbol symbol-anchor" name="TRUE" href="#TRUE">TRUE</a><br><a class="symbol symbol-anchor" name="FALSE" href="#FALSE">FALSE</a><br><a class="symbol symbol-anchor" name="NULL" href="#NULL">NULL</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="UINTEGER"></span><a class="symbol-anchor" href="#UINTEGER">UINTEGER</a><br><span class="symbol" id="FLOAT"></span><a class="symbol-anchor" href="#FLOAT">FLOAT</a><br><span class="symbol" id="OBJECT"></span><a class="symbol-anchor" href="#OBJECT">OBJECT</a><br><span class="symbol" id="ARRAY"></span><a class="symbol-anchor" href="#ARRAY">ARRAY</a><br><span class="symbol" id="TRUE"></span><a class="symbol-anchor" href="#TRUE">TRUE</a><br><span class="symbol" id="FALSE"></span><a class="symbol-anchor" href="#FALSE">FALSE</a><br><span class="symbol" id="NULL"></span><a class="symbol-anchor" href="#NULL">NULL</a></h3></div>
 <div class="declaration-content"><dl><p>integers &gt; 2^63-1</p>
 
 </dl>
@@ -305,60 +305,60 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="JSONValue" href="#JSONValue">JSONValue</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="JSONValue"></span><a class="symbol-anchor" href="#JSONValue">JSONValue</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>JSON value node</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="str" href="#str">str</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="str"></span><a class="symbol-anchor" href="#str">str</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.STRING</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>long <a class="symbol symbol-anchor" name="integer" href="#integer">integer</a>;
+<hr><div class="row-fluid declaration"><h3>long <span class="symbol" id="integer"></span><a class="symbol-anchor" href="#integer">integer</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.INTEGER</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ulong <a class="symbol symbol-anchor" name="uinteger" href="#uinteger">uinteger</a>;
+<hr><div class="row-fluid declaration"><h3>ulong <span class="symbol" id="uinteger"></span><a class="symbol-anchor" href="#uinteger">uinteger</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.UINTEGER</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>real <a class="symbol symbol-anchor" name="floating" href="#floating">floating</a>;
+<hr><div class="row-fluid declaration"><h3>real <span class="symbol" id="floating"></span><a class="symbol-anchor" href="#floating">floating</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.FLOAT</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>JSONValue[string] <a class="symbol symbol-anchor" name="object" href="#object">object</a>;
+<hr><div class="row-fluid declaration"><h3>JSONValue[string] <span class="symbol" id="object"></span><a class="symbol-anchor" href="#object">object</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.OBJECT</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>JSONValue[] <a class="symbol symbol-anchor" name="array" href="#array">array</a>;
+<hr><div class="row-fluid declaration"><h3>JSONValue[] <span class="symbol" id="array"></span><a class="symbol-anchor" href="#array">array</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value when <span class="inlinecode">type</span> is <span class="inlinecode">JSON_TYPE.ARRAY</span></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>JSON_TYPE <a class="symbol symbol-anchor" name="type" href="#type">type</a>;
+<hr><div class="row-fluid declaration"><h3>JSON_TYPE <span class="symbol" id="type"></span><a class="symbol-anchor" href="#type">type</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Specifies the type of the value stored in this structure.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ref JSONValue <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+<hr><div class="row-fluid declaration"><h3>ref JSONValue <span class="symbol" id="opIndex"></span><a class="symbol-anchor" href="#opIndex">opIndex</a>(size_t <i>i</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>array syntax for json arrays</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ref JSONValue <a class="symbol symbol-anchor" name="opIndex" href="#opIndex">opIndex</a>(string <i>k</i>);
+<hr><div class="row-fluid declaration"><h3>ref JSONValue <span class="symbol" id="opIndex"></span><a class="symbol-anchor" href="#opIndex">opIndex</a>(string <i>k</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>hash syntax for json objects</p>
 
@@ -366,19 +366,19 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>JSONValue <a class="symbol symbol-anchor" name="parseJSON" href="#parseJSON">parseJSON</a>(T)(T <i>json</i>, int <i>maxDepth</i> = -1);
+<hr><div class="row-fluid declaration"><h3>JSONValue <span class="symbol" id="parseJSON"></span><a class="symbol-anchor" href="#parseJSON">parseJSON</a>(T)(T <i>json</i>, int <i>maxDepth</i> = -1);
 </h3></div>
 <div class="declaration-content"><dl><p>Parses a serialized string and returns a tree of JSON values.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="toJSON" href="#toJSON">toJSON</a>(in JSONValue* <i>root</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="toJSON"></span><a class="symbol-anchor" href="#toJSON">toJSON</a>(in JSONValue* <i>root</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Takes a tree of JSON values and returns the serialized string.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="JSONException" href="#JSONException">JSONException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="JSONException"></span><a class="symbol-anchor" href="#JSONException">JSONException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception thrown on JSON errors</p>
 

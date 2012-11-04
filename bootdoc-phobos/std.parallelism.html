@@ -357,17 +357,17 @@ David Simcha
 </dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="Task" href="#Task">Task</a>(alias fun,Args...);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a>(alias fun,Args...);
 </h3></div>
-<div class="declaration-content"><dl><p><span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span> represents the fundamental unit of work.  A <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span> may be
-executed in parallel with any other <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span>.  Using this struct directly
+<div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a></span> represents the fundamental unit of work.  A <span class="inlinecode"><span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a></span> may be
+executed in parallel with any other <span class="inlinecode"><span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a></span>.  Using this struct directly
 allows future/promise parallelism.  In this paradigm, a function (or delegate
 or other callable) is executed in a thread other than the one it was called
 from.  The calling thread does not block while the function is being executed.
 A call to <span class="inlinecode">workForce</span>, <span class="inlinecode">yieldForce</span>, or <span class="inlinecode">spinForce</span> is used to
-ensure that the <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span> has finished executing and to obtain the return
+ensure that the <span class="inlinecode"><span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a></span> has finished executing and to obtain the return
 value, if any.  These functions and <span class="inlinecode">done</span> also act as full memory barriers,
-meaning that any memory writes made in the thread that executed the <span class="inlinecode"><a class="symbol symbol-anchor" name="Task" href="#Task">Task</a></span>
+meaning that any memory writes made in the thread that executed the <span class="inlinecode"><span class="symbol" id="Task"></span><a class="symbol-anchor" href="#Task">Task</a></span>
 are guaranteed to be visible in the calling thread after one of these functions
 returns.
 </p>
@@ -390,21 +390,21 @@ pointer.
 <dt>Known Bugs</dt><dd>Changes to <span class="inlinecode">ref</span> and <span class="inlinecode">out</span> arguments are not propagated to the
        call site, only to <span class="inlinecode">args</span> in this struct.</dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="args" href="#args">args</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="args"></span><a class="symbol-anchor" href="#args">args</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The arguments the function was called with.  Changes to <span class="inlinecode">out</span> and
     <span class="inlinecode">ref</span> arguments will be visible here.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="ReturnType" href="#ReturnType">ReturnType</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="ReturnType"></span><a class="symbol-anchor" href="#ReturnType">ReturnType</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The return type of the function called by this <span class="inlinecode">Task</span>.  This can be
     <span class="inlinecode">void</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="spinForce" href="#spinForce">spinForce</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <span class="symbol" id="spinForce"></span><a class="symbol-anchor" href="#spinForce">spinForce</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">Task</span> isn't started yet, execute it in the current thread.
     If it's done, return its return value, if any.  If it's in progress,
@@ -417,7 +417,7 @@ pointer.
     context switch.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="yieldForce" href="#yieldForce">yieldForce</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <span class="symbol" id="yieldForce"></span><a class="symbol-anchor" href="#yieldForce">yieldForce</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">Task</span> isn't started yet, execute it in the current thread.
     If it's done, return its return value, if any.  If it's in progress,
@@ -429,7 +429,7 @@ pointer.
     condition variable introduces latency, but avoids wasted CPU cycles.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <a class="symbol symbol-anchor" name="workForce" href="#workForce">workForce</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted ReturnType <span class="symbol" id="workForce"></span><a class="symbol-anchor" href="#workForce">workForce</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>If this <span class="inlinecode">Task</span> was not started yet, execute it in the current
     thread.  If it is finished, return its result.  If it is in progress,
@@ -441,7 +441,7 @@ pointer.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted bool <a class="symbol symbol-anchor" name="done" href="#done">done</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted bool <span class="symbol" id="done"></span><a class="symbol-anchor" href="#done">done</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the <span class="inlinecode">Task</span> is finished executing.
 </p>
@@ -450,8 +450,8 @@ pointer.
              <span class="inlinecode">Task</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="executeInNewThread" href="#executeInNewThread">executeInNewThread</a>();
-<br>@trusted void <a class="symbol symbol-anchor" name="executeInNewThread" href="#executeInNewThread">executeInNewThread</a>(int <i>priority</i>);
+<hr><div class="row-fluid declaration"><h3>@trusted void <span class="symbol" id="executeInNewThread"></span><a class="symbol-anchor" href="#executeInNewThread">executeInNewThread</a>();
+<br>@trusted void <span class="symbol" id="executeInNewThread"></span><a class="symbol-anchor" href="#executeInNewThread">executeInNewThread</a>(int <i>priority</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create a new thread for executing this <span class="inlinecode">Task</span>, execute it in the
     newly created thread, then terminate the thread.  This can be used for
@@ -464,7 +464,7 @@ pointer.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(alias fun, Args...)(Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="task"></span><a class="symbol-anchor" href="#task">task</a>(alias fun, Args...)(Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Task</span> on the GC heap that calls an alias.  This may be executed
 via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to a
@@ -547,7 +547,7 @@ via <span class="inlinecode">Task.executeInNewThread</span> or by submitting to 
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(F, Args...)(F <i>delegateOrFp</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="task"></span><a class="symbol-anchor" href="#task">task</a>(F, Args...)(F <i>delegateOrFp</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Task</span> on the GC heap that calls a function pointer, delegate, or
 class/struct with overloaded opCall.
@@ -584,9 +584,9 @@ This function takes a non-scope delegate, meaning it can be
        takes a scope delegate.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted auto <a class="symbol symbol-anchor" name="task" href="#task">task</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>@trusted auto <span class="symbol" id="task"></span><a class="symbol-anchor" href="#task">task</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Version of <span class="inlinecode"><a class="symbol symbol-anchor" name="task" href="#task">task</a></span> usable from <span class="inlinecode">@safe</span> code.  Usage mechanics are
+<div class="declaration-content"><dl><p>Version of <span class="inlinecode"><span class="symbol" id="task"></span><a class="symbol-anchor" href="#task">task</a></span> usable from <span class="inlinecode">@safe</span> code.  Usage mechanics are
 identical to the non-@safe case, but safety introduces the some restrictions.
 </p>
 
@@ -611,21 +611,21 @@ identical to the non-@safe case, but safety introduces the some restrictions.
     of using a <span class="inlinecode">TaskPool</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(alias fun, Args...)(Args <i>args</i>);
-<br>auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(F, Args...)(scope F <i>delegateOrFp</i>, Args <i>args</i>);
-<br>@trusted auto <a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a>(alias fun, Args...)(Args <i>args</i>);
+<br>auto <span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a>(F, Args...)(scope F <i>delegateOrFp</i>, Args <i>args</i>);
+<br>@trusted auto <span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a>(F, Args...)(F <i>fun</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>These functions allow the creation of <span class="inlinecode">Task</span> objects on the stack rather
-than the GC heap.  The lifetime of a <span class="inlinecode">Task</span> created by <span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span>
+than the GC heap.  The lifetime of a <span class="inlinecode">Task</span> created by <span class="inlinecode"><span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a></span>
 cannot exceed the lifetime of the scope it was created in.
 </p>
 
-<p><span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span> might be preferred over <span class="inlinecode">task</span>:
+<p><span class="inlinecode"><span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a></span> might be preferred over <span class="inlinecode">task</span>:
 <br><br>
 
 1.  When a <span class="inlinecode">Task</span> that calls a delegate is being created and a closure
     cannot be allocated due to objects on the stack that have scoped
-    destruction.  The delegate overload of <span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span> takes a <span class="inlinecode">scope</span>
+    destruction.  The delegate overload of <span class="inlinecode"><span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a></span> takes a <span class="inlinecode">scope</span>
     delegate.
 <br><br>
 
@@ -637,34 +637,34 @@ Usage is otherwise identical to <span class="inlinecode">task</span>.
 
 </p>
 <dt>Notes:</dt><dd>
-<span class="inlinecode">Task</span> objects created using <span class="inlinecode"><a class="symbol symbol-anchor" name="scopedTask" href="#scopedTask">scopedTask</a></span> will automatically
+<span class="inlinecode">Task</span> objects created using <span class="inlinecode"><span class="symbol" id="scopedTask"></span><a class="symbol-anchor" href="#scopedTask">scopedTask</a></span> will automatically
 call <span class="inlinecode">Task.yieldForce</span> in their destructor if necessary to ensure
 the <span class="inlinecode">Task</span> is complete before the stack frame they reside on is destroyed.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>immutable uint <a class="symbol symbol-anchor" name="totalCPUs" href="#totalCPUs">totalCPUs</a>;
+<hr><div class="row-fluid declaration"><h3>immutable uint <span class="symbol" id="totalCPUs"></span><a class="symbol-anchor" href="#totalCPUs">totalCPUs</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The total number of CPU cores available on the current machine, as reported by
 the operating system.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="TaskPool" href="#TaskPool">TaskPool</a>;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="TaskPool"></span><a class="symbol-anchor" href="#TaskPool">TaskPool</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>This class encapsulates a task queue and a set of worker threads.  Its purpose
 is to efficiently map a large number of <span class="inlinecode">Task</span>s onto a smaller number of
 threads.  A task queue is a FIFO queue of <span class="inlinecode">Task</span> objects that have been
-submitted to the <span class="inlinecode"><a class="symbol symbol-anchor" name="TaskPool" href="#TaskPool">TaskPool</a></span> and are awaiting execution.  A worker thread is a
+submitted to the <span class="inlinecode"><span class="symbol" id="TaskPool"></span><a class="symbol-anchor" href="#TaskPool">TaskPool</a></span> and are awaiting execution.  A worker thread is a
 thread that executes the <span class="inlinecode">Task</span> at the front of the queue when one is
 available and sleeps when the queue is empty.
 </p>
 
 <p>This class should usually be used via the global instantiation
 available via the <a href="std_parallelism.html#taskPool"><span class="inlinecode">std.parallelism.taskPool</span></a> property.
-Occasionally it is useful to explicitly instantiate a <span class="inlinecode"><a class="symbol symbol-anchor" name="TaskPool" href="#TaskPool">TaskPool</a></span>:
+Occasionally it is useful to explicitly instantiate a <span class="inlinecode"><span class="symbol" id="TaskPool"></span><a class="symbol-anchor" href="#TaskPool">TaskPool</a></span>:
 <br><br>
 
-1.  When you want <span class="inlinecode"><a class="symbol symbol-anchor" name="TaskPool" href="#TaskPool">TaskPool</a></span> instances with multiple priorities, for example
+1.  When you want <span class="inlinecode"><span class="symbol" id="TaskPool"></span><a class="symbol-anchor" href="#TaskPool">TaskPool</a></span> instances with multiple priorities, for example
     a low priority pool and a high priority pool.
 <br><br>
 
@@ -690,10 +690,10 @@ On single-core machines, the primitives provided by <span class="inlinecode">Tas
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
-<br>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
+<br>ParallelForeach!(R) <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a>(R)(R <i>range</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Implements a <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach loop over a range.  This works by implicitly
+<div class="declaration-content"><dl><p>Implements a <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach loop over a range.  This works by implicitly
     creating and submitting one <span class="inlinecode">Task</span> to the <span class="inlinecode">TaskPool</span> for each worker
     thread.  A work unit is a set of consecutive elements of <span class="inlinecode">range</span> to
     be processed by a worker thread between communication with any other
@@ -752,14 +752,14 @@ The memory usage of this implementation is guaranteed to be constant
     in <span class="inlinecode">range.length</span>.
 <br><br>
 
-    Breaking from a <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach loop via a break, labeled break,
+    Breaking from a <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach loop via a break, labeled break,
     labeled continue, return or goto statement throws a
     <span class="inlinecode">ParallelForeachError</span>.
 <br><br>
 
-    In the case of non-random access ranges, <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach buffers lazily
-    to an array of size <span class="inlinecode">workUnitSize</span> before executing the <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> portion
-    of the loop.  The exception is that, if a <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach is executed
+    In the case of non-random access ranges, <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach buffers lazily
+    to an array of size <span class="inlinecode">workUnitSize</span> before executing the <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> portion
+    of the loop.  The exception is that, if a <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach is executed
     over a range returned by <span class="inlinecode">asyncBuf</span> or <span class="inlinecode">map</span>, the copying is elided
     and the buffers are simply swapped.  In this case <span class="inlinecode">workUnitSize</span> is
     ignored and the work unit size is set to the  buffer size of <span class="inlinecode">range</span>.
@@ -772,7 +772,7 @@ The memory usage of this implementation is guaranteed to be constant
     <b>Exception Handling</b>:
 <br><br>
 
-    When at least one exception is thrown from inside a <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach loop,
+    When at least one exception is thrown from inside a <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach loop,
     the submission of additional <span class="inlinecode">Task</span> objects is terminated as soon as
     possible, in a non-deterministic manner.  All executing or
     enqueued work units are allowed to complete.  Then, all exceptions that
@@ -780,7 +780,7 @@ The memory usage of this implementation is guaranteed to be constant
     rethrown.  The order of the exception chaining is non-deterministic.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="amap" href="#amap">amap</a>(functions...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="amap"></span><a class="symbol-anchor" href="#amap">amap</a>(functions...)</h3></div>
 <div class="declaration-content"><dl><p>Eager parallel map.  The eagerness of this function means it has less
     overhead than the lazily evaluated <span class="inlinecode">TaskPool.map</span> and should be
     preferred where the memory requirements of eagerness are acceptable.
@@ -807,7 +807,7 @@ The memory usage of this implementation is guaranteed to be constant
 </pre>
 
     Immediately after the range argument, an optional work unit size argument
-    may be provided.  Work units as used by <span class="inlinecode"><a class="symbol symbol-anchor" name="amap" href="#amap">amap</a></span> are identical to those
+    may be provided.  Work units as used by <span class="inlinecode"><span class="symbol" id="amap"></span><a class="symbol-anchor" href="#amap">amap</a></span> are identical to those
     defined for parallel foreach.  If no work unit size is provided, the
     default work unit size is used.
 <br><br>
@@ -861,7 +861,7 @@ To perform the mapping operation in place, provide the same range for the
 
     To parallelize the copying of a range with expensive to evaluate elements
     to an array, pass an identity function (a function that just returns
-    whatever argument is provided to it) to <span class="inlinecode"><a class="symbol symbol-anchor" name="amap" href="#amap">amap</a></span>.
+    whatever argument is provided to it) to <span class="inlinecode"><span class="symbol" id="amap"></span><a class="symbol-anchor" href="#amap">amap</a></span>.
 <br><br>
 
     <b>Exception Handling</b>:
@@ -874,14 +874,14 @@ To perform the mapping operation in place, provide the same range for the
     were thrown from any work unit are chained using <span class="inlinecode">Throwable.next</span> and
     rethrown.  The order of the exception chaining is non-deterministic.</dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="amap" href="#amap">amap</a>(Args...)(Args <i>args</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="amap"></span><a class="symbol-anchor" href="#amap">amap</a>(Args...)(Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="map" href="#map">map</a>(functions...)</h3></div>
-<div class="declaration-content"><dl><p>A semi-lazy parallel <a class="symbol symbol-anchor" name="map" href="#map">map</a> that can be used for pipelining.  The <a class="symbol symbol-anchor" name="map" href="#map">map</a>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>(functions...)</h3></div>
+<div class="declaration-content"><dl><p>A semi-lazy parallel <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a> that can be used for pipelining.  The <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>
     functions are evaluated for the first <span class="inlinecode">bufSize</span> elements and stored in a
     buffer and made available to <span class="inlinecode">popFront</span>.  Meanwhile, in the
     background a second buffer of the same size is filled.  When the first
@@ -892,7 +892,7 @@ To perform the mapping operation in place, provide the same range for the
     enables the mapping function to be evaluated efficiently in parallel.
 </p>
 
-<p><span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> has more overhead than the simpler procedure used by <span class="inlinecode">amap</span>
+<p><span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> has more overhead than the simpler procedure used by <span class="inlinecode">amap</span>
     but avoids the need to keep all results in memory simultaneously and works
     with non-random access ranges.
 
@@ -900,7 +900,7 @@ To perform the mapping operation in place, provide the same range for the
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
 <td>The input range to be mapped.  If <span class="inlinecode">source</span> is not random
     access it will be lazily buffered to an array of size <span class="inlinecode">bufSize</span> before
-    the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function is evaluated.  (For an exception to this rule, see Notes.)</td>
+    the <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a> function is evaluated.  (For an exception to this rule, see Notes.)</td>
 </tr>
 <tr><td>bufSize</td>
 <td>The size of the buffer to store the evaluated elements.</td>
@@ -913,17 +913,17 @@ To perform the mapping operation in place, provide the same range for the
     the pool-wide default.</td>
 </tr>
 </table></dd>
-<dt>Returns</dt><dd>An input range representing the results of the <a class="symbol symbol-anchor" name="map" href="#map">map</a>.  This range
+<dt>Returns</dt><dd>An input range representing the results of the <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>.  This range
               has a length iff <span class="inlinecode">source</span> has a length.
 
 </dd>
 <dt>Notes:</dt><dd>
-If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> or <span class="inlinecode">asyncBuf</span> is used as an input to
-    <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span>, then as an optimization the copying from the output buffer
+If a range returned by <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> or <span class="inlinecode">asyncBuf</span> is used as an input to
+    <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span>, then as an optimization the copying from the output buffer
     of the first range to the input buffer of the second range is elided, even
-    though the ranges returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> and <span class="inlinecode">asyncBuf</span> are non-random
+    though the ranges returned by <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> and <span class="inlinecode">asyncBuf</span> are non-random
     access ranges.  This means that the <span class="inlinecode">bufSize</span> parameter passed to the
-    current call to <span class="inlinecode"><a class="symbol symbol-anchor" name="map" href="#map">map</a></span> will be ignored and the size of the buffer
+    current call to <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> will be ignored and the size of the buffer
     will be the buffer size of <span class="inlinecode">source</span>.
 
 </dd>
@@ -950,18 +950,18 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
 <br><br>
 
     Any exceptions thrown while iterating over <span class="inlinecode">source</span>
-    or computing the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function are re-thrown on a call to <span class="inlinecode">popFront</span> or,
+    or computing the <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a> function are re-thrown on a call to <span class="inlinecode">popFront</span> or,
     if thrown during construction, are simply allowed to propagate to the
-    caller.  In the case of exceptions thrown while computing the <a class="symbol symbol-anchor" name="map" href="#map">map</a> function,
+    caller.  In the case of exceptions thrown while computing the <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a> function,
     the exceptions are chained as in <span class="inlinecode">TaskPool.amap</span>.</dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="map" href="#map">map</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100, size_t <i>workUnitSize</i> = size_t.max);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100, size_t <i>workUnitSize</i> = size_t.max);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="asyncBuf"></span><a class="symbol-anchor" href="#asyncBuf">asyncBuf</a>(S)(S <i>source</i>, size_t <i>bufSize</i> = 100);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a <span class="inlinecode">source</span> range that is expensive to iterate over, returns an
     input range that asynchronously buffers the contents of
@@ -969,7 +969,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     while making prevously buffered elements from a second buffer, also of size
     <span class="inlinecode">bufSize</span>, available via the range interface of the returned
     object.  The returned range has a length iff <span class="inlinecode">hasLength!(S)</span>.
-    <span class="inlinecode"><a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a></span> is useful, for example, when performing expensive operations
+    <span class="inlinecode"><span class="symbol" id="asyncBuf"></span><a class="symbol-anchor" href="#asyncBuf">asyncBuf</a></span> is useful, for example, when performing expensive operations
     on the elements of ranges that represent data on a disk or network.
 </p>
 
@@ -1013,7 +1013,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     allowed to propagate to the caller.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a>(C1, C2)(C1 <i>next</i>, C2 <i>empty</i>, size_t <i>initialBufSize</i> = 0, size_t <i>nBuffers</i> = 100);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="asyncBuf"></span><a class="symbol-anchor" href="#asyncBuf">asyncBuf</a>(C1, C2)(C1 <i>next</i>, C2 <i>empty</i>, size_t <i>initialBufSize</i> = 0, size_t <i>nBuffers</i> = 100);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a callable object <span class="inlinecode">next</span> that writes to a user-provided buffer and
     a second callable object <span class="inlinecode">empty</span> that determines whether more data is
@@ -1021,7 +1021,7 @@ If a range returned by <span class="inlinecode"><a class="symbol symbol-anchor" 
     asynchronously calls <span class="inlinecode">next</span> with a set of size <span class="inlinecode">nBuffers</span> of buffers
     and makes the results available in the order they were obtained via the
     input range interface of the returned object.  Similarly to the
-    input range overload of <span class="inlinecode"><a class="symbol symbol-anchor" name="asyncBuf" href="#asyncBuf">asyncBuf</a></span>, the first half of the buffers
+    input range overload of <span class="inlinecode"><span class="symbol" id="asyncBuf"></span><a class="symbol-anchor" href="#asyncBuf">asyncBuf</a></span>, the first half of the buffers
     are made available via the range interface while the second half are
     filled and vice-versa.
 </p>
@@ -1083,8 +1083,8 @@ Using the range returned by this function in a parallel foreach loop
     and will result in a static assertion failure.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a>(functions...)</h3></div>
-<div class="declaration-content"><dl><p>Parallel <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a> on a random access range.  Except as otherwise noted, usage
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a>(functions...)</h3></div>
+<div class="declaration-content"><dl><p>Parallel <span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a> on a random access range.  Except as otherwise noted, usage
     is similar to <a href="std_algorithm.html#reduce"><span class="inlinecode">std.algorithm.reduce</span></a>.  This function works by splitting
     the range to be reduced into work units, which are slices to be reduced in
     parallel.  Once the results from all work units are computed, a final serial
@@ -1159,8 +1159,8 @@ Using the range returned by this function in a parallel foreach loop
     <span class="d_keyword">auto</span> sum3 = taskPool.<u>reduce</u>!<span class="d_string">"a + b"</span>(0.0, nums, 100);
 </pre>
 
-    Parallel <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a> supports multiple functions, like
-    <span class="inlinecode">std.algorithm.<a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a></span>.
+    Parallel <span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a> supports multiple functions, like
+    <span class="inlinecode">std.algorithm.<span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a></span>.
 <pre class="d_code">    <span class="d_comment">// Find both the min and max of nums.
 </span>
     <span class="d_keyword">auto</span> minMax = taskPool.<u>reduce</u>!(min, max)(nums);
@@ -1175,13 +1175,13 @@ Using the range returned by this function in a parallel foreach loop
     are chained together via <span class="inlinecode">Throwable.next</span> and rethrown.  The chaining
     order is non-deterministic.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <a class="symbol symbol-anchor" name="reduce" href="#reduce">reduce</a>(Args...)(Args <i>args</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a>(Args...)(Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>const nothrow @property @safe size_t <a class="symbol symbol-anchor" name="workerIndex" href="#workerIndex">workerIndex</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @property @safe size_t <span class="symbol" id="workerIndex"></span><a class="symbol-anchor" href="#workerIndex">workerIndex</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the index of the current thread relative to this <span class="inlinecode">TaskPool</span>.  Any
     thread not in this pool will receive an index of 0.  The worker threads in
@@ -1226,7 +1226,7 @@ Using the range returned by this function in a parallel foreach loop
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="WorkerLocalStorage" href="#WorkerLocalStorage">WorkerLocalStorage</a>(T);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="WorkerLocalStorage"></span><a class="symbol-anchor" href="#WorkerLocalStorage">WorkerLocalStorage</a>(T);
 </h3></div>
 <div class="declaration-content"><dl><p>Struct for creating worker-local storage.  Worker-local storage is
     thread-local storage that exists only for worker threads in a given
@@ -1279,10 +1279,10 @@ Using the range returned by this function in a parallel foreach loop
 </pre>
 </dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property T <a class="symbol symbol-anchor" name="get" href="#get">get</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@property T <span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Get the current thread's instance.  Returns by ref.
-        Note that calling <span class="inlinecode"><a class="symbol symbol-anchor" name="get" href="#get">get</a></span> from any thread
+        Note that calling <span class="inlinecode"><span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a></span> from any thread
         outside the <span class="inlinecode">TaskPool</span> that created this instance will return the
         same reference, so an instance of worker-local storage should only be
         accessed from one thread outside the pool that created it.  If this
@@ -1295,14 +1295,14 @@ Using the range returned by this function in a parallel foreach loop
         when assertions are disabled for performance reasons.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property void <a class="symbol symbol-anchor" name="get" href="#get">get</a>(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>@property void <span class="symbol" id="get"></span><a class="symbol-anchor" href="#get">get</a>(T <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Assign a value to the current thread's instance.  This function has
         the same caveats as its overload.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property WorkerLocalStorageRange!(T) <a class="symbol symbol-anchor" name="toRange" href="#toRange">toRange</a>();
+<hr><div class="row-fluid declaration"><h3>@property WorkerLocalStorageRange!(T) <span class="symbol" id="toRange"></span><a class="symbol-anchor" href="#toRange">toRange</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a range view of the values for all threads, which can be used
         to further process the results of each thread after running the parallel
@@ -1317,7 +1317,7 @@ Using the range returned by this function in a parallel foreach loop
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="WorkerLocalStorageRange" href="#WorkerLocalStorageRange">WorkerLocalStorageRange</a>(T);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="WorkerLocalStorageRange"></span><a class="symbol-anchor" href="#WorkerLocalStorageRange">WorkerLocalStorageRange</a>(T);
 </h3></div>
 <div class="declaration-content"><dl><p>Range primitives for worker-local storage.  The purpose of this is to
     access results produced by each worker thread from a single thread once you
@@ -1332,7 +1332,7 @@ Using the range returned by this function in a parallel foreach loop
     created it plus 1.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>WorkerLocalStorage!(T) <a class="symbol symbol-anchor" name="workerLocalStorage" href="#workerLocalStorage">workerLocalStorage</a>(T)(lazy T <i>initialVal</i> = T.init);
+<hr><div class="row-fluid declaration"><h3>WorkerLocalStorage!(T) <span class="symbol" id="workerLocalStorage"></span><a class="symbol-anchor" href="#workerLocalStorage">workerLocalStorage</a>(T)(lazy T <i>initialVal</i> = T.init);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates an instance of worker-local storage, initialized with a given
     value.  The value is <span class="inlinecode">lazy</span> so that you can, for example, easily
@@ -1341,7 +1341,7 @@ Using the range returned by this function in a parallel foreach loop
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="stop" href="#stop">stop</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted void <span class="symbol" id="stop"></span><a class="symbol-anchor" href="#stop">stop</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Signals to all worker threads to terminate as soon as they are finished
     with their current <span class="inlinecode">Task</span>, or immediately if they are not executing a
@@ -1355,7 +1355,7 @@ Using the range returned by this function in a parallel foreach loop
     need the results.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted void <a class="symbol symbol-anchor" name="finish" href="#finish">finish</a>(bool <i>blocking</i> = false);
+<hr><div class="row-fluid declaration"><h3>@trusted void <span class="symbol" id="finish"></span><a class="symbol-anchor" href="#finish">finish</a>(bool <i>blocking</i> = false);
 </h3></div>
 <div class="declaration-content"><dl><p>Signals worker threads to terminate when the queue becomes empty.
 </p>
@@ -1367,14 +1367,14 @@ Using the range returned by this function in a parallel foreach loop
     return values.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe size_t <a class="symbol symbol-anchor" name="size" href="#size">size</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe size_t <span class="symbol" id="size"></span><a class="symbol-anchor" href="#size">size</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of worker threads in the pool.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(alias fun, Args...)(ref Task!(fun,Args) <i>task</i>);
-<br>void <a class="symbol symbol-anchor" name="put" href="#put">put</a>(alias fun, Args...)(Task!(fun,Args)* <i>task</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a>(alias fun, Args...)(ref Task!(fun,Args) <i>task</i>);
+<br>void <span class="symbol" id="put"></span><a class="symbol-anchor" href="#put">put</a>(alias fun, Args...)(Task!(fun,Args)* <i>task</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Put a <span class="inlinecode">Task</span> object on the back of the task queue.  The <span class="inlinecode">Task</span>
     object may be passed by pointer or reference.
@@ -1411,8 +1411,8 @@ Using the range returned by this function in a parallel foreach loop
     complete and no longer referenced by a <span class="inlinecode">TaskPool</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property @trusted bool <a class="symbol symbol-anchor" name="isDaemon" href="#isDaemon">isDaemon</a>();
-<br>@property @trusted void <a class="symbol symbol-anchor" name="isDaemon" href="#isDaemon">isDaemon</a>(bool <i>newVal</i>);
+<hr><div class="row-fluid declaration"><h3>@property @trusted bool <span class="symbol" id="isDaemon"></span><a class="symbol-anchor" href="#isDaemon">isDaemon</a>();
+<br>@property @trusted void <span class="symbol" id="isDaemon"></span><a class="symbol-anchor" href="#isDaemon">isDaemon</a>(bool <i>newVal</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>These properties control whether the worker threads are daemon threads.
     A daemon thread is automatically terminated when all non-daemon threads
@@ -1434,13 +1434,13 @@ For a size zero pool, the getter arbitrarily returns <span class="d_keyword">tru
            setter has no effect.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property @trusted int <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a>();
-<br>@property @trusted void <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a>(int <i>newPriority</i>);
+<hr><div class="row-fluid declaration"><h3>@property @trusted int <span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a>();
+<br>@property @trusted void <span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a>(int <i>newPriority</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>These functions allow getting and setting the OS scheduling <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> of
+<div class="declaration-content"><dl><p>These functions allow getting and setting the OS scheduling <span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a> of
     the worker threads in this <span class="inlinecode">TaskPool</span>.  They forward to
-    <span class="inlinecode">core.thread.Thread.<a class="symbol symbol-anchor" name="priority" href="#priority">priority</a></span>, so a given <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> value here means the
-    same thing as an identical <a class="symbol symbol-anchor" name="priority" href="#priority">priority</a> value in <span class="inlinecode">core.thread</span>.
+    <span class="inlinecode">core.thread.Thread.<span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a></span>, so a given <span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a> value here means the
+    same thing as an identical <span class="symbol" id="priority"></span><a class="symbol-anchor" href="#priority">priority</a> value in <span class="inlinecode">core.thread</span>.
 </p>
 
 <dt>Note:</dt><dd>
@@ -1450,7 +1450,7 @@ For a size zero pool, the getter arbitrarily returns
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property @trusted TaskPool <a class="symbol symbol-anchor" name="taskPool" href="#taskPool">taskPool</a>();
+<hr><div class="row-fluid declaration"><h3>@property @trusted TaskPool <span class="symbol" id="taskPool"></span><a class="symbol-anchor" href="#taskPool">taskPool</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a lazily initialized global instantiation of <span class="inlinecode">TaskPool</span>.
 This function can safely be called concurrently from multiple non-worker
@@ -1460,8 +1460,8 @@ terminating the main thread.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property @trusted uint <a class="symbol symbol-anchor" name="defaultPoolThreads" href="#defaultPoolThreads">defaultPoolThreads</a>();
-<br>@property @trusted void <a class="symbol symbol-anchor" name="defaultPoolThreads" href="#defaultPoolThreads">defaultPoolThreads</a>(uint <i>newVal</i>);
+<hr><div class="row-fluid declaration"><h3>@property @trusted uint <span class="symbol" id="defaultPoolThreads"></span><a class="symbol-anchor" href="#defaultPoolThreads">defaultPoolThreads</a>();
+<br>@property @trusted void <span class="symbol" id="defaultPoolThreads"></span><a class="symbol-anchor" href="#defaultPoolThreads">defaultPoolThreads</a>(uint <i>newVal</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>These properties get and set the number of worker threads in the <span class="inlinecode">TaskPool</span>
 instance returned by <span class="inlinecode">taskPool</span>.  The default value is <span class="inlinecode">totalCPUs</span> - 1.
@@ -1470,11 +1470,11 @@ number of worker threads in the instance returned by <span class="inlinecode">ta
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>);
-<br>ParallelForeach!(R) <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
+<hr><div class="row-fluid declaration"><h3>ParallelForeach!(R) <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a>(R)(R <i>range</i>);
+<br>ParallelForeach!(R) <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a>(R)(R <i>range</i>, size_t <i>workUnitSize</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Convenience functions that forwards to <span class="inlinecode">taskPool.<a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a></span>.  The
-purpose of these is to make <a class="symbol symbol-anchor" name="parallel" href="#parallel">parallel</a> foreach less verbose and more
+<div class="declaration-content"><dl><p>Convenience functions that forwards to <span class="inlinecode">taskPool.<span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a></span>.  The
+purpose of these is to make <span class="symbol" id="parallel"></span><a class="symbol-anchor" href="#parallel">parallel</a> foreach less verbose and more
 readable.
 </p>
 

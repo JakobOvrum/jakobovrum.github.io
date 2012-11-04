@@ -279,8 +279,8 @@
        but be aware that it will not remain long term.</font>
 </p>
 
-<p>The std.<a class="symbol symbol-anchor" name="cstream" href="#cstream">cstream</a> module bridges std.c.stdio (or std.stdio) and std.stream.
- Both std.c.stdio and std.stream are publicly imported by std.<a class="symbol symbol-anchor" name="cstream" href="#cstream">cstream</a>.
+<p>The std.<span class="symbol" id="cstream"></span><a class="symbol-anchor" href="#cstream">cstream</a> module bridges std.c.stdio (or std.stdio) and std.stream.
+ Both std.c.stdio and std.stream are publicly imported by std.<span class="symbol" id="cstream"></span><a class="symbol-anchor" href="#cstream">cstream</a>.
 
 </p>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
@@ -290,7 +290,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/cstream.d">std/cstream.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="CFile" href="#CFile">CFile</a>: std.stream.Stream;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="CFile"></span><a class="symbol-anchor" href="#CFile">CFile</a>: std.stream.Stream;
 </h3></div>
 <div class="declaration-content"><dl><p>A Stream wrapper for a C file of type FILE*.</p>
 
@@ -310,24 +310,24 @@
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property shared(_iobuf)* <a class="symbol symbol-anchor" name="file" href="#file">file</a>();
-<br>@property void <a class="symbol symbol-anchor" name="file" href="#file">file</a>(shared(_iobuf)* <i>cfile</i>);
+<hr><div class="row-fluid declaration"><h3>@property shared(_iobuf)* <span class="symbol" id="file"></span><a class="symbol-anchor" href="#file">file</a>();
+<br>@property void <span class="symbol" id="file"></span><a class="symbol-anchor" href="#file">file</a>(shared(_iobuf)* <i>cfile</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Property to get or set the underlying <a class="symbol symbol-anchor" name="file" href="#file">file</a> for this stream.
- Setting the <a class="symbol symbol-anchor" name="file" href="#file">file</a> marks the stream as open.</p>
+<div class="declaration-content"><dl><p>Property to get or set the underlying <span class="symbol" id="file"></span><a class="symbol-anchor" href="#file">file</a> for this stream.
+ Setting the <span class="symbol" id="file"></span><a class="symbol-anchor" href="#file">file</a> marks the stream as open.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="flush" href="#flush">flush</a>();
-<br>void <a class="symbol symbol-anchor" name="close" href="#close">close</a>();
-<br>bool <a class="symbol symbol-anchor" name="eof" href="#eof">eof</a>();
-<br>char <a class="symbol symbol-anchor" name="getc" href="#getc">getc</a>();
-<br>char <a class="symbol symbol-anchor" name="ungetc" href="#ungetc">ungetc</a>(char <i>c</i>);
-<br>size_t <a class="symbol symbol-anchor" name="readBlock" href="#readBlock">readBlock</a>(void* <i>buffer</i>, size_t <i>size</i>);
-<br>size_t <a class="symbol symbol-anchor" name="writeBlock" href="#writeBlock">writeBlock</a>(const void* <i>buffer</i>, size_t <i>size</i>);
-<br>ulong <a class="symbol symbol-anchor" name="seek" href="#seek">seek</a>(long <i>offset</i>, SeekPos <i>rel</i>);
-<br>void <a class="symbol symbol-anchor" name="writeLine" href="#writeLine">writeLine</a>(const(char)[] <i>s</i>);
-<br>void <a class="symbol symbol-anchor" name="writeLineW" href="#writeLineW">writeLineW</a>(const(wchar)[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="flush"></span><a class="symbol-anchor" href="#flush">flush</a>();
+<br>void <span class="symbol" id="close"></span><a class="symbol-anchor" href="#close">close</a>();
+<br>bool <span class="symbol" id="eof"></span><a class="symbol-anchor" href="#eof">eof</a>();
+<br>char <span class="symbol" id="getc"></span><a class="symbol-anchor" href="#getc">getc</a>();
+<br>char <span class="symbol" id="ungetc"></span><a class="symbol-anchor" href="#ungetc">ungetc</a>(char <i>c</i>);
+<br>size_t <span class="symbol" id="readBlock"></span><a class="symbol-anchor" href="#readBlock">readBlock</a>(void* <i>buffer</i>, size_t <i>size</i>);
+<br>size_t <span class="symbol" id="writeBlock"></span><a class="symbol-anchor" href="#writeBlock">writeBlock</a>(const void* <i>buffer</i>, size_t <i>size</i>);
+<br>ulong <span class="symbol" id="seek"></span><a class="symbol-anchor" href="#seek">seek</a>(long <i>offset</i>, SeekPos <i>rel</i>);
+<br>void <span class="symbol" id="writeLine"></span><a class="symbol-anchor" href="#writeLine">writeLine</a>(const(char)[] <i>s</i>);
+<br>void <span class="symbol" id="writeLineW"></span><a class="symbol-anchor" href="#writeLineW">writeLineW</a>(const(wchar)[] <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Overrides of the <b>Stream</b> methods to call the underlying <b>FILE*</b>
  C functions.</p>
@@ -336,19 +336,19 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>CFile <a class="symbol symbol-anchor" name="din" href="#din">din</a>;
+<hr><div class="row-fluid declaration"><h3>CFile <span class="symbol" id="din"></span><a class="symbol-anchor" href="#din">din</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>CFile wrapper of std.c.stdio.stdin (not seekable).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CFile <a class="symbol symbol-anchor" name="dout" href="#dout">dout</a>;
+<hr><div class="row-fluid declaration"><h3>CFile <span class="symbol" id="dout"></span><a class="symbol-anchor" href="#dout">dout</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>CFile wrapper of std.c.stdio.stdout (not seekable).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CFile <a class="symbol symbol-anchor" name="derr" href="#derr">derr</a>;
+<hr><div class="row-fluid declaration"><h3>CFile <span class="symbol" id="derr"></span><a class="symbol-anchor" href="#derr">derr</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>CFile wrapper of std.c.stdio.stderr (not seekable).</p>
 

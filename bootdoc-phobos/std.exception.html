@@ -278,7 +278,7 @@
     handling. It also defines functions intended to aid in unit testing.
 </p>
 
-<p>Synopsis of some of std.<a class="symbol symbol-anchor" name="exception" href="#exception">exception</a>'s functions:
+<p>Synopsis of some of std.<span class="symbol" id="exception"></span><a class="symbol-anchor" href="#exception">exception</a>'s functions:
 <pre class="d_code">string synopsis()
 {
    FILE* f = enforce(fopen(<span class="d_string">"some/file"</span>));
@@ -316,11 +316,11 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/exception.d">std/exception.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assertNotThrown" href="#assertNotThrown">assertNotThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="assertNotThrown"></span><a class="symbol-anchor" href="#assertNotThrown">assertNotThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>Asserts that the given expression does <i>not</i> throw the given type
     of <span class="inlinecode">Throwable</span>. If a <span class="inlinecode">Throwable</span> of the given type is thrown,
-    it is caught and does not escape <a class="symbol symbol-anchor" name="assertNotThrown" href="#assertNotThrown">assertNotThrown</a>. Rather, an
+    it is caught and does not escape <span class="symbol" id="assertNotThrown"></span><a class="symbol-anchor" href="#assertNotThrown">assertNotThrown</a>. Rather, an
     <span class="inlinecode">AssertError</span> is thrown. However, any other <span class="inlinecode">Throwable</span>s will escape.
 </p>
 
@@ -350,10 +350,10 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="assertThrown" href="#assertThrown">assertThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="assertThrown"></span><a class="symbol-anchor" href="#assertThrown">assertThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>Asserts that the given expression throws the given type of <span class="inlinecode">Throwable</span>.
-    The <span class="inlinecode">Throwable</span> is caught and does not escape <a class="symbol symbol-anchor" name="assertThrown" href="#assertThrown">assertThrown</a>. However,
+    The <span class="inlinecode">Throwable</span> is caught and does not escape <span class="symbol" id="assertThrown"></span><a class="symbol-anchor" href="#assertThrown">assertThrown</a>. However,
     any other <span class="inlinecode">Throwable</span>s <i>will</i> escape, and if no <span class="inlinecode">Throwable</span>
     of the given type is thrown, then an <span class="inlinecode">AssertError</span> is thrown.
 </p>
@@ -384,17 +384,17 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new Exception(msg)</span> is thrown.
 </p>
 
 <dt>Note:</dt><dd>
-<span class="inlinecode"><a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a></span> is used to throw exceptions and is therefore intended to
+<span class="inlinecode"><span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a></span> is used to throw exceptions and is therefore intended to
         aid in error handling. It is <i>not</i> intended for verifying the logic
         of your program. That is what <span class="inlinecode">assert</span> is for. Also, do not use
-        <span class="inlinecode"><a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a></span> inside of contracts (i.e. inside of <span class="inlinecode">in</span> and <span class="inlinecode">out</span>
+        <span class="inlinecode"><span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a></span> inside of contracts (i.e. inside of <span class="inlinecode">in</span> and <span class="inlinecode">out</span>
         blocks and <span class="inlinecode">invariant</span>s), because they will be compiled out when
         compiling with <i>-release</i>. Use <span class="inlinecode">assert</span> in contracts.
 
@@ -407,16 +407,16 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T, string file, size_t line = __LINE__)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null);
+<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a>(T, string file, size_t line = __LINE__)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in January 2013. If passing the file or line
-         number explicitly, please use the version of <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a> which takes them as
+         number explicitly, please use the version of <span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a> which takes them as
          function arguments. Taking them as template arguments causes
          unnecessary template bloat.</font></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T, Dg, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, scope Dg <i>dg</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a>(T, Dg, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, scope Dg <i>dg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, the given
     delegate is called.
@@ -425,7 +425,7 @@
 <p>The whole safety and purity are inferred from <span class="inlinecode">Dg</span>'s safety and purity.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="enforce" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy Throwable <i>ex</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol" id="enforce"></span><a class="symbol-anchor" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy Throwable <i>ex</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, <span class="inlinecode">ex</span> is thrown.
 </p>
@@ -439,7 +439,7 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <a class="symbol symbol-anchor" name="errnoEnforce" href="#errnoEnforce">errnoEnforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy string <i>msg</i> = null);
+<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol" id="errnoEnforce"></span><a class="symbol-anchor" href="#errnoEnforce">errnoEnforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy string <i>msg</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new ErrnoException(msg)</span> is thrown. <span class="inlinecode">ErrnoException</span> assumes that the
@@ -455,7 +455,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E("","phobos\\std\\exception.d",503))))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="enforceEx"></span><a class="symbol-anchor" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E("","phobos\\std\\exception.d",503))))</h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new E(msg, file, line)</span> is thrown. Or if <span class="inlinecode">E</span> doesn't take a message
     and can be constructed with <span class="inlinecode">new E(file, line)</span>, then
@@ -470,9 +470,9 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E(""))) &amp;&amp; !is(typeof(new E("","phobos\\std\\exception.d",531))) &amp;&amp; !is(typeof(new E("phobos\\std\\exception.d",531))))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="enforceEx"></span><a class="symbol-anchor" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E(""))) &amp;&amp; !is(typeof(new E("","phobos\\std\\exception.d",531))) &amp;&amp; !is(typeof(new E("phobos\\std\\exception.d",531))))</h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use the version
-          of <span class="inlinecode"><a class="symbol symbol-anchor" name="enforceEx" href="#enforceEx">enforceEx</a></span> which takes an exception that constructs with
+          of <span class="inlinecode"><span class="symbol" id="enforceEx"></span><a class="symbol-anchor" href="#enforceEx">enforceEx</a></span> which takes an exception that constructs with
           <span class="inlinecode">new E(msg, file, line)</span>.</font>
 </p>
 
@@ -480,17 +480,17 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
     <span class="inlinecode">new E(msg)</span> is thrown.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a>(T = Exception, E)(lazy E <i>expression</i>, ref E <i>result</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a>(T = Exception, E)(lazy E <i>expression</i>, ref E <i>result</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Catches and returns the exception thrown from the given expression.
     If no exception is thrown, then <span class="d_keyword">null</span> is returned and <span class="inlinecode">result</span> is
     set to the result of the expression.
 </p>
 
-<p>Note that while <span class="inlinecode"><a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a></span> <i>can</i> be used to collect any
+<p>Note that while <span class="inlinecode"><span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a></span> <i>can</i> be used to collect any
     <span class="inlinecode">Throwable</span> and not just <span class="inlinecode">Exception</span>s, it is generally ill-advised to
     catch anything that is neither an <span class="inlinecode">Exception</span> nor a type derived from
-    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a></span> to collect
+    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a></span> to collect
     non-<span class="inlinecode">Exception</span>s unless you're sure that that's what you really want to
     do.
 
@@ -513,17 +513,17 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Catches and returns the exception thrown from the given expression.
     If no exception is thrown, then <span class="d_keyword">null</span> is returned. <span class="inlinecode">E</span> can be
     <span class="inlinecode">void</span>.
 </p>
 
-<p>Note that while <span class="inlinecode"><a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a></span> <i>can</i> be used to collect any
+<p>Note that while <span class="inlinecode"><span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a></span> <i>can</i> be used to collect any
     <span class="inlinecode">Throwable</span> and not just <span class="inlinecode">Exception</span>s, it is generally ill-advised to
     catch anything that is neither an <span class="inlinecode">Exception</span> nor a type derived from
-    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><a class="symbol symbol-anchor" name="collectException" href="#collectException">collectException</a></span> to collect
+    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><span class="symbol" id="collectException"></span><a class="symbol-anchor" href="#collectException">collectException</a></span> to collect
     non-<span class="inlinecode">Exception</span>s unless you're sure that that's what you really want to
     do.
 
@@ -537,7 +537,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="collectExceptionMsg" href="#collectExceptionMsg">collectExceptionMsg</a>(T = Exception, E)(lazy E <i>expression</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="collectExceptionMsg"></span><a class="symbol-anchor" href="#collectExceptionMsg">collectExceptionMsg</a>(T = Exception, E)(lazy E <i>expression</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Catches the exception thrown from the given expression and returns the
     msg property of that exception. If no exception is thrown, then <span class="d_keyword">null</span> is
@@ -548,10 +548,10 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
     <span class="inlinecode">emptyExceptionMsg</span> is returned.
 <br><br>
 
-    Note that while <span class="inlinecode"><a class="symbol symbol-anchor" name="collectExceptionMsg" href="#collectExceptionMsg">collectExceptionMsg</a></span> <i>can</i> be used to collect any
+    Note that while <span class="inlinecode"><span class="symbol" id="collectExceptionMsg"></span><a class="symbol-anchor" href="#collectExceptionMsg">collectExceptionMsg</a></span> <i>can</i> be used to collect any
     <span class="inlinecode">Throwable</span> and not just <span class="inlinecode">Exception</span>s, it is generally ill-advised to
     catch anything that is neither an <span class="inlinecode">Exception</span> nor a type derived from
-    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><a class="symbol symbol-anchor" name="collectExceptionMsg" href="#collectExceptionMsg">collectExceptionMsg</a></span> to collect
+    <span class="inlinecode">Exception</span>. So, do not use <span class="inlinecode"><span class="symbol" id="collectExceptionMsg"></span><a class="symbol-anchor" href="#collectExceptionMsg">collectExceptionMsg</a></span> to collect
     non-<span class="inlinecode">Exception</span>s unless you're sure that that's what you really want to
     do.
 
@@ -575,27 +575,27 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="emptyExceptionMsg" href="#emptyExceptionMsg">emptyExceptionMsg</a>;
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="emptyExceptionMsg"></span><a class="symbol-anchor" href="#emptyExceptionMsg">emptyExceptionMsg</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Value that collectExceptionMsg returns when it catches an exception
     with an empty exception message.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow immutable(T)[] <a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a>(T)(ref T[] <i>array</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow immutable(T)[] <span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a>(T)(ref T[] <i>array</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Casts a mutable array to an immutable array in an idiomatic
- manner. Technically, <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> just inserts a cast,
+ manner. Technically, <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span> just inserts a cast,
  but its name documents assumptions on the part of the
- caller. <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a>(arr)</span> should only be called when
- there are no more active mutable aliases to elements of <span class="inlinecode">arr</span>. To strenghten this assumption, <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a>(arr)</span>
- also clears <span class="inlinecode">arr</span> before returning. Essentially <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a>(arr)</span> indicates commitment from the caller that there
+ caller. <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a>(arr)</span> should only be called when
+ there are no more active mutable aliases to elements of <span class="inlinecode">arr</span>. To strenghten this assumption, <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a>(arr)</span>
+ also clears <span class="inlinecode">arr</span> before returning. Essentially <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a>(arr)</span> indicates commitment from the caller that there
  is no more mutable access to any of <span class="inlinecode">arr</span>'s elements
  (transitively), and that all future accesses will be done through
- the immutable array returned by <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span>.
+ the immutable array returned by <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span>.
 </p>
 
-<p>Typically, <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> is used to return arrays from
+<p>Typically, <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span> is used to return arrays from
  functions that have allocated and built them.
 
 </p>
@@ -614,7 +614,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  The use in the example above is correct because <span class="inlinecode">result</span>
  was private to <span class="inlinecode">letters</span> and is unaccessible in writing
  after the function returns. The following example shows an
- incorrect use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span>.
+ incorrect use of <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span>.
 
 </dd>
 <dt>Bad:</dt><dd>
@@ -649,21 +649,21 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  cases (see the <span class="inlinecode">unique</span> and <span class="inlinecode">lent</span> keywords in
  the <a href="http://archjava.fluid.cs.cmu.edu/papers/oopsla02.pdf">ArchJava</a>
  language), but complicates the language considerably. The downside
- of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span>'s convention-based usage is that at this
+ of <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span>'s convention-based usage is that at this
  time there is no formal checking of the correctness of the
- assumption; on the upside, the idiomatic use of <span class="inlinecode"><a class="symbol symbol-anchor" name="assumeUnique" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.</dd>
+ assumption; on the upside, the idiomatic use of <span class="inlinecode"><span class="symbol" id="assumeUnique"></span><a class="symbol-anchor" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted bool <a class="symbol symbol-anchor" name="pointsTo" href="#pointsTo">pointsTo</a>(S, T, Tdummy = void)(ref const S <i>source</i>, ref const T <i>target</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted bool <span class="symbol" id="pointsTo"></span><a class="symbol-anchor" href="#pointsTo">pointsTo</a>(S, T, Tdummy = void)(ref const S <i>source</i>, ref const T <i>target</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">source</span>'s representation embeds a pointer
 that points to <span class="inlinecode">target</span>'s representation or somewhere inside
-it. Note that evaluating <span class="inlinecode"><a class="symbol symbol-anchor" name="pointsTo" href="#pointsTo">pointsTo</a>(x, x)</span> checks whether <span class="inlinecode">x</span> has
+it. Note that evaluating <span class="inlinecode"><span class="symbol" id="pointsTo"></span><a class="symbol-anchor" href="#pointsTo">pointsTo</a>(x, x)</span> checks whether <span class="inlinecode">x</span> has
 internal pointers.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <a class="symbol symbol-anchor" name="ErrnoException" href="#ErrnoException">ErrnoException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="ErrnoException"></span><a class="symbol-anchor" href="#ErrnoException">ErrnoException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown if errors that set <span class="inlinecode">errno</span> occur.</p>
 

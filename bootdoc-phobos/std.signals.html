@@ -310,8 +310,8 @@
       <a href="http://www.digitalmars.com/d/archives/28456.html">Signal/Slot mechanism?</a><br>
       <a href="http://www.digitalmars.com/d/archives/19470.html">Modern Features?</a><br>
       <a href="http://www.digitalmars.com/d/archives/16592.html">Delegates vs interfaces</a><br>
-      <a href="http://www.digitalmars.com/d/archives/16583.html">The importance of component programming (properties <a class="symbol symbol-anchor" name="signals" href="#signals">signals</a> and slots etc)</a><br>
-      <a href="http://www.digitalmars.com/d/archives/16368.html"><a class="symbol symbol-anchor" name="signals" href="#signals">signals</a> and slots</a><br>
+      <a href="http://www.digitalmars.com/d/archives/16583.html">The importance of component programming (properties <span class="symbol" id="signals"></span><a class="symbol-anchor" href="#signals">signals</a> and slots etc)</a><br>
+      <a href="http://www.digitalmars.com/d/archives/16368.html"><span class="symbol" id="signals"></span><a class="symbol-anchor" href="#signals">signals</a> and slots</a><br>
 
 </dd>
 <dt>Known Bugs</dt><dd>Slots can only be delegates formed from class objects or
@@ -321,7 +321,7 @@
       will result.
 <br><br>
 
-      Not safe for multiple threads operating on the same <a class="symbol symbol-anchor" name="signals" href="#signals">signals</a>
+      Not safe for multiple threads operating on the same <span class="symbol" id="signals"></span><a class="symbol-anchor" href="#signals">signals</a>
       or slots.
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
@@ -331,7 +331,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/signals.d">std/signals.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>template <a class="symbol symbol-anchor" name="Signal" href="#Signal">Signal</a>(T1...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="Signal"></span><a class="symbol-anchor" href="#Signal">Signal</a>(T1...)</h3></div>
 <div class="declaration-content"><dl><p>Mixin to create a signal within a class object.
 </p>
 
@@ -405,10 +405,10 @@
  Observed msg 'setting new value' and value 6
  </pre></dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="slot_t" href="#slot_t">slot_t</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="slot_t"></span><a class="symbol-anchor" href="#slot_t">slot_t</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>A slot is implemented as a delegate.
- The <a class="symbol symbol-anchor" name="slot_t" href="#slot_t">slot_t</a> is the type of the delegate.
+ The <span class="symbol" id="slot_t"></span><a class="symbol-anchor" href="#slot_t">slot_t</a> is the type of the delegate.
  The delegate must be to an instance of a class or an interface
  to a class instance.
  Delegates to struct instances or nested functions must not be
@@ -416,19 +416,19 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="emit" href="#emit">emit</a>(T1 <i>i</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="emit"></span><a class="symbol-anchor" href="#emit">emit</a>(T1 <i>i</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Call each of the connected slots, passing the argument(s) <i>i</i> to them.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="connect" href="#connect">connect</a>(slot_t <i>slot</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="connect"></span><a class="symbol-anchor" href="#connect">connect</a>(slot_t <i>slot</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Add a <i>slot</i> to the list of slots to be called when emit() is called.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="disconnect" href="#disconnect">disconnect</a>(slot_t <i>slot</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="disconnect"></span><a class="symbol-anchor" href="#disconnect">disconnect</a>(slot_t <i>slot</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Remove a <i>slot</i> from the list of slots to be called when emit() is called.</p>
 

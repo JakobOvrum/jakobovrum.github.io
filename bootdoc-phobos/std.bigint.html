@@ -299,7 +299,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bigint.d">std/bigint.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>struct <a class="symbol symbol-anchor" name="BigInt" href="#BigInt">BigInt</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="BigInt"></span><a class="symbol-anchor" href="#BigInt">BigInt</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>A struct representing an arbitrary precision integer
 </p>
@@ -308,7 +308,7 @@
  unsigned shift right (&gt;&gt;&gt;). Logical operations are not currently supported.
 <br><br>
 
- <a class="symbol symbol-anchor" name="BigInt" href="#BigInt">BigInt</a> implements value semantics using copy-on-write. This means that
+ <span class="symbol" id="BigInt"></span><a class="symbol-anchor" href="#BigInt">BigInt</a> implements value semantics using copy-on-write. This means that
  assignment is cheap, but operations such as x++ will cause heap
  allocation. (But note that for most bigint operations, heap allocation is
  inevitable anyway).
@@ -359,59 +359,59 @@ Should throw a IllegalArgumentException/ConvError if invalid character found</dd
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>BigInt <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(T : long)(T <i>x</i>);
+<hr><div class="row-fluid declaration"><h3>BigInt <span class="symbol" id="opAssign"></span><a class="symbol-anchor" href="#opAssign">opAssign</a>(T : long)(T <i>x</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>BigInt <a class="symbol symbol-anchor" name="opAssign" href="#opAssign">opAssign</a>(T : BigInt)(T <i>x</i>);
+<hr><div class="row-fluid declaration"><h3>BigInt <span class="symbol" id="opAssign"></span><a class="symbol-anchor" href="#opAssign">opAssign</a>(T : BigInt)(T <i>x</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>()(auto ref const BigInt <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol" id="opEquals"></span><a class="symbol-anchor" href="#opEquals">opEquals</a>()(auto ref const BigInt <i>y</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>const bool <a class="symbol symbol-anchor" name="opEquals" href="#opEquals">opEquals</a>(T : long)(T <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol" id="opEquals"></span><a class="symbol-anchor" href="#opEquals">opEquals</a>(T : long)(T <i>y</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opCmp" href="#opCmp">opCmp</a>(T : long)(T <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="opCmp"></span><a class="symbol-anchor" href="#opCmp">opCmp</a>(T : long)(T <i>y</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="opCmp" href="#opCmp">opCmp</a>(T : BigInt)(T <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="opCmp"></span><a class="symbol-anchor" href="#opCmp">opCmp</a>(T : BigInt)(T <i>y</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure long <a class="symbol symbol-anchor" name="toLong" href="#toLong">toLong</a>();
+<hr><div class="row-fluid declaration"><h3>const pure long <span class="symbol" id="toLong"></span><a class="symbol-anchor" href="#toLong">toLong</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the value of this BigInt as a long,
  or +- long.max if outside the representable range.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure int <a class="symbol symbol-anchor" name="toInt" href="#toInt">toInt</a>();
+<hr><div class="row-fluid declaration"><h3>const pure int <span class="symbol" id="toInt"></span><a class="symbol-anchor" href="#toInt">toInt</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the value of this BigInt as an int,
  or +- int.max if outside the representable range.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure @property size_t <a class="symbol symbol-anchor" name="uintLength" href="#uintLength">uintLength</a>();
+<hr><div class="row-fluid declaration"><h3>const pure @property size_t <span class="symbol" id="uintLength"></span><a class="symbol-anchor" href="#uintLength">uintLength</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Number of significant uints which are used in storing this number.
- The absolute value of this BigInt is always &lt; 2^^(32*<a class="symbol symbol-anchor" name="uintLength" href="#uintLength">uintLength</a>)</p>
+ The absolute value of this BigInt is always &lt; 2^^(32*<span class="symbol" id="uintLength"></span><a class="symbol-anchor" href="#uintLength">uintLength</a>)</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure @property size_t <a class="symbol symbol-anchor" name="ulongLength" href="#ulongLength">ulongLength</a>();
+<hr><div class="row-fluid declaration"><h3>const pure @property size_t <span class="symbol" id="ulongLength"></span><a class="symbol-anchor" href="#ulongLength">ulongLength</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Number of significant ulongs which are used in storing this number.
- The absolute value of this BigInt is always &lt; 2^^(64*<a class="symbol symbol-anchor" name="ulongLength" href="#ulongLength">ulongLength</a>)</p>
+ The absolute value of this BigInt is always &lt; 2^^(64*<span class="symbol" id="ulongLength"></span><a class="symbol-anchor" href="#ulongLength">ulongLength</a>)</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const void <a class="symbol symbol-anchor" name="toString" href="#toString">toString</a>(scope void delegate(const(char)[]) <i>sink</i>, string <i>formatString</i>);
+<hr><div class="row-fluid declaration"><h3>const void <span class="symbol" id="toString"></span><a class="symbol-anchor" href="#toString">toString</a>(scope void delegate(const(char)[]) <i>sink</i>, string <i>formatString</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Convert the BigInt to string, passing it to '<i>sink</i>'.
 </p>

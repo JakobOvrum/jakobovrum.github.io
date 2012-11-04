@@ -277,7 +277,7 @@
 <dl><p>Processing of command line options.
 </p>
 
-<p>The <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a> module implements a <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> function, which adheres to
+<p>The <span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a> module implements a <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> function, which adheres to
 the POSIX syntax for command line options. GNU extensions are
 supported in the form of long options introduced by a double dash
 ("--"). Support for bundling of command line options, as was the case
@@ -291,13 +291,13 @@ enabled by default.
 </dd>
 <dt>Credits:</dt><dd>
 This module and its documentation are inspired by Perl's <a href="http://                  perldoc.perl.org/Getopt/Long.html">Getopt::Long</a> module. The syntax of
-                   D's <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> is simpler than its Perl counterpart because <span class="inlinecode">                  <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> infers the expected parameter types from the static types of
+                   D's <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> is simpler than its Perl counterpart because <span class="inlinecode">                  <span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> infers the expected parameter types from the static types of
                    the passed-in pointers.
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/getopt.d">std/getopt.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>void <a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>(T...)(ref string[] <i>args</i>, T <i>opts</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>(T...)(ref string[] <i>args</i>, T <i>opts</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Synopsis:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.<u>getopt</u>;
@@ -324,26 +324,26 @@ Color color;
 }
 </pre>
 
- The <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> function takes a reference to the command line
+ The <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> function takes a reference to the command line
  (as received by <span class="inlinecode">main</span>) as its first argument, and an
  unbounded number of pairs of strings and pointers. Each string is an
  option meant to "fill" the value pointed-to by the pointer to its
  right (the "bound" pointer). The option string in the call to
- <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> should not start with a dash.
+ <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> should not start with a dash.
 <br><br>
 
  In all cases, the command-line options that were parsed and used by
- <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> are removed from <span class="inlinecode">args</span>. Whatever in the
+ <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> are removed from <span class="inlinecode">args</span>. Whatever in the
  arguments did not look like an option is left in <span class="inlinecode">args</span> for
  further processing by the program. Values that were unaffected by the
  options are not touched, so a common idiom is to initialize options
- to their defaults and then invoke <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>. If a
+ to their defaults and then invoke <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span>. If a
  command-line argument is recognized as an option with a parameter and
  the parameter cannot be parsed properly (e.g. a number is expected
  but not present), a <span class="inlinecode">ConvException</span> exception is thrown.
 <br><br>
 
- Depending on the type of the pointer being bound, <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>
+ Depending on the type of the pointer being bound, <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span>
  recognizes the following kinds of options:
 <br><br>
 
@@ -516,7 +516,7 @@ using "|" as a separator:
 <br><br>
 
 By default options are case-insensitive. You can change that behavior
-by passing <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> the <span class="inlinecode">caseSensitive</span> directive like this:
+by passing <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> the <span class="inlinecode">caseSensitive</span> directive like this:
 <br><br>
 
 <pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
@@ -527,7 +527,7 @@ by passing <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt
 </pre>
 
 In the example above, "--foo", "--bar", "--FOo", "--bAr" etc. are recognized.
-The directive is active til the end of <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>, or until the
+The directive is active til the end of <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span>, or until the
 converse directive <span class="inlinecode">caseInsensitive</span> is encountered:
 <br><br>
 
@@ -539,8 +539,8 @@ converse directive <span class="inlinecode">caseInsensitive</span> is encountere
     <span class="d_string">"bar"</span>, &amp;bar);
 </pre>
 
-The option "--Foo" is rejected due to <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.caseSensitive</span>, but not "--Bar", "--bAr"
-etc. because the directive <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.caseInsensitive</span> turned sensitivity off before
+The option "--Foo" is rejected due to <span class="inlinecode">std.<span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>.config.caseSensitive</span>, but not "--Bar", "--bAr"
+etc. because the directive <span class="inlinecode">std.<span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>.config.caseInsensitive</span> turned sensitivity off before
 option "bar" was parsed.
 <br><br>
 
@@ -548,7 +548,7 @@ option "bar" was parsed.
 <br><br>
 
 Traditionally, programs accepted single-letter options preceded by
-only one dash (e.g. <span class="inlinecode">-t</span>). <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> accepts such parameters
+only one dash (e.g. <span class="inlinecode">-t</span>). <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> accepts such parameters
 seamlessly. When used with a double-dash (e.g. <span class="inlinecode">--t</span>), a
 single-letter option behaves the same as a multi-letter option. When
 used with a single dash, a single-letter option is accepted. If the
@@ -573,7 +573,7 @@ For more details about short options, refer also to the next section.
 
 Single-letter options can be bundled together, i.e. "-abc" is the same as
 <span class="inlinecode">"-a -b -c"</span>. By default, this confusing option is turned off. You can
-turn it on with the <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.bundling</span> directive:
+turn it on with the <span class="inlinecode">std.<span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>.config.bundling</span> directive:
 <br><br>
 
 <pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
@@ -584,15 +584,15 @@ turn it on with the <span class="inlinecode">std.<a class="symbol symbol-anchor"
 </pre>
 
 In case you want to only enable bundling for some of the parameters,
-bundling can be turned off with <span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.noBundling</span>.
+bundling can be turned off with <span class="inlinecode">std.<span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>.config.noBundling</span>.
 <br><br>
 
 <b>Passing unrecognized options through</b>
 <br><br>
 
 If an application needs to do its own processing of whichever arguments
-<span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> did not understand, it can pass the
-<span class="inlinecode">std.<a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a>.config.passThrough</span> directive to <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span>:
+<span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> did not understand, it can pass the
+<span class="inlinecode">std.<span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a>.config.passThrough</span> directive to <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span>:
 <br><br>
 
 <pre class="d_code"><span class="d_keyword">bool</span> foo, bar;
@@ -603,56 +603,56 @@ If an application needs to do its own processing of whichever arguments
 </pre>
 
 An unrecognized option such as "--baz" will be found untouched in
-<span class="inlinecode">args</span> after <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> returns.
+<span class="inlinecode">args</span> after <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> returns.
 <br><br>
 
 <b>Options Terminator</b>
 <br><br>
 
-A lonesome double-dash terminates <span class="inlinecode"><a class="symbol symbol-anchor" name="getopt" href="#getopt">getopt</a></span> gathering. It is used to
+A lonesome double-dash terminates <span class="inlinecode"><span class="symbol" id="getopt"></span><a class="symbol-anchor" href="#getopt">getopt</a></span> gathering. It is used to
 separate program options from other parameters (e.g. options to be passed
 to another program). Invoking the example above with <span class="inlinecode">"--foo -- --bar"</span>
 parses foo but leaves "--bar" in <span class="inlinecode">args</span>. The double-dash itself is
 removed from the argument array.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <a class="symbol symbol-anchor" name="config" href="#config">config</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="config"></span><a class="symbol-anchor" href="#config">config</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Configuration options for <span class="inlinecode">getopt</span>. You can pass them to <span class="inlinecode">getopt</span> in any position, except in between an option string and its
  bound pointer.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="caseSensitive" href="#caseSensitive">caseSensitive</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="caseSensitive"></span><a class="symbol-anchor" href="#caseSensitive">caseSensitive</a></h3></div>
 <div class="declaration-content"><dl><p>Turns case sensitivity on</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="caseInsensitive" href="#caseInsensitive">caseInsensitive</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="caseInsensitive"></span><a class="symbol-anchor" href="#caseInsensitive">caseInsensitive</a></h3></div>
 <div class="declaration-content"><dl><p>Turns case sensitivity off</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="bundling" href="#bundling">bundling</a></h3></div>
-<div class="declaration-content"><dl><p>Turns <a class="symbol symbol-anchor" name="bundling" href="#bundling">bundling</a> on</p>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="bundling"></span><a class="symbol-anchor" href="#bundling">bundling</a></h3></div>
+<div class="declaration-content"><dl><p>Turns <span class="symbol" id="bundling"></span><a class="symbol-anchor" href="#bundling">bundling</a> on</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="noBundling" href="#noBundling">noBundling</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="noBundling"></span><a class="symbol-anchor" href="#noBundling">noBundling</a></h3></div>
 <div class="declaration-content"><dl><p>Turns bundling off</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="passThrough" href="#passThrough">passThrough</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="passThrough"></span><a class="symbol-anchor" href="#passThrough">passThrough</a></h3></div>
 <div class="declaration-content"><dl><p>Pass unrecognized arguments through</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="noPassThrough" href="#noPassThrough">noPassThrough</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="noPassThrough"></span><a class="symbol-anchor" href="#noPassThrough">noPassThrough</a></h3></div>
 <div class="declaration-content"><dl><p>Signal unrecognized arguments as errors</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><a class="symbol symbol-anchor" name="stopOnFirstNonOption" href="#stopOnFirstNonOption">stopOnFirstNonOption</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol" id="stopOnFirstNonOption"></span><a class="symbol-anchor" href="#stopOnFirstNonOption">stopOnFirstNonOption</a></h3></div>
 <div class="declaration-content"><dl><p>Stop at first argument that does not look like an option</p>
 
 </dl>
@@ -660,23 +660,23 @@ removed from the argument array.</dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="optionChar" href="#optionChar">optionChar</a>;
+<hr><div class="row-fluid declaration"><h3>dchar <span class="symbol" id="optionChar"></span><a class="symbol-anchor" href="#optionChar">optionChar</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The option character. Defaults to '-' but it can be assigned to
    prior to calling <span class="inlinecode">getopt</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="endOfOptions" href="#endOfOptions">endOfOptions</a>;
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="endOfOptions"></span><a class="symbol-anchor" href="#endOfOptions">endOfOptions</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The string that conventionally marks the end of all
    options. Defaults to "--" but can be assigned to prior to calling
-   <span class="inlinecode">getopt</span>. Assigning an empty string to <span class="inlinecode"><a class="symbol symbol-anchor" name="endOfOptions" href="#endOfOptions">endOfOptions</a></span>
+   <span class="inlinecode">getopt</span>. Assigning an empty string to <span class="inlinecode"><span class="symbol" id="endOfOptions"></span><a class="symbol-anchor" href="#endOfOptions">endOfOptions</a></span>
    effectively disables it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>dchar <a class="symbol symbol-anchor" name="assignChar" href="#assignChar">assignChar</a>;
+<hr><div class="row-fluid declaration"><h3>dchar <span class="symbol" id="assignChar"></span><a class="symbol-anchor" href="#assignChar">assignChar</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>The assignment character used in options with parameters. Defaults
    to '=' but can be assigned to prior to calling <span class="inlinecode">getopt</span>.</p>

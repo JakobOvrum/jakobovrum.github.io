@@ -283,7 +283,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/process.d">std/process.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="system" href="#system">system</a>(string <i>command</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="system"></span><a class="symbol-anchor" href="#system">system</a>(string <i>command</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Execute <span class="inlinecode"><i>command</i></span> in a command shell.
 </p>
@@ -299,13 +299,13 @@ On Unix systems, the homonym C function (which is accessible
    to D programs as <a href="std_c_process.html">std.c.system</a>)
    returns a code in the same format as <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=waitpid, waitpid">waitpid, waitpid</a>,
    meaning that C programs must use the <span class="inlinecode">WEXITSTATUS</span> macro to
-   extract the actual exit code from the <span class="inlinecode"><a class="symbol symbol-anchor" name="system" href="#system">system</a></span> call. D's <span class="inlinecode">  <a class="symbol symbol-anchor" name="system" href="#system">system</a></span> automatically extracts the exit status.</dd>
+   extract the actual exit code from the <span class="inlinecode"><span class="symbol" id="system"></span><a class="symbol-anchor" href="#system">system</a></span> call. D's <span class="inlinecode">  <span class="symbol" id="system"></span><a class="symbol-anchor" href="#system">system</a></span> automatically extracts the exit status.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <a class="symbol symbol-anchor" name="execv" href="#execv">execv</a>(in string <i>pathname</i>, in string[] <i>argv</i>);
-<br>int <a class="symbol symbol-anchor" name="execve" href="#execve">execve</a>(in string <i>pathname</i>, in string[] <i>argv</i>, in string[] <i>envp</i>);
-<br>int <a class="symbol symbol-anchor" name="execvp" href="#execvp">execvp</a>(in string <i>pathname</i>, in string[] <i>argv</i>);
-<br>int <a class="symbol symbol-anchor" name="execvpe" href="#execvpe">execvpe</a>(in string <i>pathname</i>, in string[] <i>argv</i>, in string[] <i>envp</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="execv"></span><a class="symbol-anchor" href="#execv">execv</a>(in string <i>pathname</i>, in string[] <i>argv</i>);
+<br>int <span class="symbol" id="execve"></span><a class="symbol-anchor" href="#execve">execve</a>(in string <i>pathname</i>, in string[] <i>argv</i>, in string[] <i>envp</i>);
+<br>int <span class="symbol" id="execvp"></span><a class="symbol-anchor" href="#execvp">execvp</a>(in string <i>pathname</i>, in string[] <i>argv</i>);
+<br>int <span class="symbol" id="execvpe"></span><a class="symbol-anchor" href="#execvpe">execvpe</a>(in string <i>pathname</i>, in string[] <i>argv</i>, in string[] <i>envp</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Execute program specified by <i>pathname</i>, passing it the arguments (<i>argv</i>)
  and the environment (envp), returning the exit status.
@@ -314,7 +314,7 @@ On Unix systems, the homonym C function (which is accessible
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="getpid" href="#getpid">getpid</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="getpid"></span><a class="symbol-anchor" href="#getpid">getpid</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the process ID of the calling process, which is guaranteed to be
  unique on the system. This call is always successful.
@@ -326,9 +326,9 @@ On Unix systems, the homonym C function (which is accessible
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="shell" href="#shell">shell</a>(string <i>cmd</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="shell"></span><a class="symbol-anchor" href="#shell">shell</a>(string <i>cmd</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Runs <b><i>cmd</i></b> in a <a class="symbol symbol-anchor" name="shell" href="#shell">shell</a> and returns its standard output. If
+<div class="declaration-content"><dl><p>Runs <b><i>cmd</i></b> in a <span class="symbol" id="shell"></span><a class="symbol-anchor" href="#shell">shell</a> and returns its standard output. If
    the process could not be started or exits with an error code,
    throws an exception.
 </p>
@@ -346,7 +346,7 @@ On Unix systems, the homonym C function (which is accessible
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="getenv" href="#getenv">getenv</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="getenv"></span><a class="symbol-anchor" href="#getenv">getenv</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the value of environment variable <span class="inlinecode"><i>name</i></span> as a string. Calls
 <a href="std_c_stdlib.html#getenv">std.c.stdlib.getenv</a>
@@ -354,9 +354,9 @@ internally. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <a class="symbol symbol-anchor" name="environment" href="#environment">environment</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol" id="environment"></span><a class="symbol-anchor" href="#environment">environment</a>;
 </h3></div>
-<div class="declaration-content"><dl><p>Manipulates <a class="symbol symbol-anchor" name="environment" href="#environment">environment</a> variables using an associative-array-like
+<div class="declaration-content"><dl><p>Manipulates <span class="symbol" id="environment"></span><a class="symbol-anchor" href="#environment">environment</a> variables using an associative-array-like
     interface.
 </p>
 
@@ -389,14 +389,14 @@ internally. </p>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow string <a class="symbol symbol-anchor" name="escapeWindowsArgument" href="#escapeWindowsArgument">escapeWindowsArgument</a>(in char[] <i>arg</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow string <span class="symbol" id="escapeWindowsArgument"></span><a class="symbol-anchor" href="#escapeWindowsArgument">escapeWindowsArgument</a>(in char[] <i>arg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Quote an argument in a manner conforming to the behavior of
     <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb776391(v=vs.85).aspx">    CommandLineToArgvW</a>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <a class="symbol symbol-anchor" name="escapeShellCommand" href="#escapeShellCommand">escapeShellCommand</a>(in char[][] <i>args</i>...);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="escapeShellCommand"></span><a class="symbol-anchor" href="#escapeShellCommand">escapeShellCommand</a>(in char[][] <i>args</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Escape an argv-style argument array to be used with the
     <span class="inlinecode">system</span> or <span class="inlinecode">shell</span> functions.
@@ -407,7 +407,7 @@ internally. </p>
 system(<u>escapeShellCommand</u>(<span class="d_string">"wget"</span>, url, <span class="d_string">"-O"</span>, <span class="d_string">"dlang-index.html"</span>));
 </pre>
 
-    Concatenate multiple <span class="inlinecode"><a class="symbol symbol-anchor" name="escapeShellCommand" href="#escapeShellCommand">escapeShellCommand</a></span> and
+    Concatenate multiple <span class="inlinecode"><span class="symbol" id="escapeShellCommand"></span><a class="symbol-anchor" href="#escapeShellCommand">escapeShellCommand</a></span> and
     <span class="inlinecode">escapeShellFileName</span> results to use shell redirection or
     piping operators.
 
@@ -423,7 +423,7 @@ system(<u>escapeShellCommand</u>(<span class="d_string">"wget"</span>, url, <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow string <a class="symbol symbol-anchor" name="escapeShellFileName" href="#escapeShellFileName">escapeShellFileName</a>(in char[] <i>fn</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow string <span class="symbol" id="escapeShellFileName"></span><a class="symbol-anchor" href="#escapeShellFileName">escapeShellFileName</a>(in char[] <i>fn</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Escape a filename to be used for shell redirection with
     the <span class="inlinecode">system</span> or <span class="inlinecode">shell</span> functions.</p>
