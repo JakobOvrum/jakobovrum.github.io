@@ -328,19 +328,19 @@ The routines and algorithms are derived from the
 </pre>
 </dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="sum"></span><a class="symbol-anchor" href="#sum">sum</a>(ref ubyte[16u] <i>digest</i>, in void[][] <i>data</i>...);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="sum">&nbsp;</span><a class="symbol-link" href="#sum">sum</a>(ref ubyte[16u] <i>digest</i>, in void[][] <i>data</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes MD5 <i>digest</i> of several arrays of <i>data</i>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="digestToString"></span><a class="symbol-anchor" href="#digestToString">digestToString</a>(in ubyte[16u] <i>digest</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="digestToString">&nbsp;</span><a class="symbol-link" href="#digestToString">digestToString</a>(in ubyte[16u] <i>digest</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts MD5 <i>digest</i> to a string.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="getDigestString"></span><a class="symbol-anchor" href="#getDigestString">getDigestString</a>(in void[][] <i>data</i>...);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="getDigestString">&nbsp;</span><a class="symbol-link" href="#getDigestString">getDigestString</a>(in void[][] <i>data</i>...);
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the digest of all <span class="inlinecode"><i>data</i></span> items passed in.
 </p>
@@ -353,28 +353,28 @@ string d = <u>getDigestString</u>(a, b, c);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="MD5_CTX"></span><a class="symbol-anchor" href="#MD5_CTX">MD5_CTX</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="MD5_CTX">&nbsp;</span><a class="symbol-link" href="#MD5_CTX">MD5_CTX</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Holds context of MD5 computation.
 </p>
 
 <p>Used when data to be digested is buffered.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="start"></span><a class="symbol-anchor" href="#start">start</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="start">&nbsp;</span><a class="symbol-link" href="#start">start</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>MD5 initialization. Begins an MD5 operation, writing a new context.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="update"></span><a class="symbol-anchor" href="#update">update</a>(const void[] <i>input</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="update">&nbsp;</span><a class="symbol-link" href="#update">update</a>(const void[] <i>input</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>MD5 block <span class="symbol" id="update"></span><a class="symbol-anchor" href="#update">update</a> operation. Continues an MD5 message-digest
+<div class="declaration-content"><dl><p>MD5 block <span class="symbol-target" id="update">&nbsp;</span><a class="symbol-link" href="#update">update</a> operation. Continues an MD5 message-digest
       operation, processing another message block, and updating the
       context.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="finish"></span><a class="symbol-anchor" href="#finish">finish</a>(ref ubyte[16u] <i>digest</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="finish">&nbsp;</span><a class="symbol-link" href="#finish">finish</a>(ref ubyte[16u] <i>digest</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>MD5 finalization. Ends an MD5 message-<i>digest</i> operation, writing the
  the message to <i>digest</i> and zeroing the context.</p>

@@ -284,7 +284,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/functional.d">std/functional.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="unaryFun"></span><a class="symbol-anchor" href="#unaryFun">unaryFun</a>(alias fun,bool byRef = false,string parmName = "a")</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="unaryFun">&nbsp;</span><a class="symbol-link" href="#unaryFun">unaryFun</a>(alias fun,bool byRef = false,string parmName = "a")</h3></div>
 <div class="declaration-content"><dl><p>Transforms a string representing an expression into a unary
 function. The string must use symbol name <span class="inlinecode">a</span> as the parameter.
 </p>
@@ -296,7 +296,7 @@ function. The string must use symbol name <span class="inlinecode">a</span> as t
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="binaryFun"></span><a class="symbol-anchor" href="#binaryFun">binaryFun</a>(alias fun,string parm1Name = "a",string parm2Name = "b")</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="binaryFun">&nbsp;</span><a class="symbol-link" href="#binaryFun">binaryFun</a>(alias fun,string parm1Name = "a",string parm2Name = "b")</h3></div>
 <div class="declaration-content"><dl><p>Transforms a string representing an expression into a Boolean binary
 predicate. The string must use symbol names <span class="inlinecode">a</span> and <span class="inlinecode">b</span> as the
 compared elements.
@@ -311,13 +311,13 @@ compared elements.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="binaryReverseArgs"></span><a class="symbol-anchor" href="#binaryReverseArgs">binaryReverseArgs</a>(alias pred)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="binaryReverseArgs">&nbsp;</span><a class="symbol-link" href="#binaryReverseArgs">binaryReverseArgs</a>(alias pred)</h3></div>
 <div class="declaration-content"><dl><p>Binary predicate that reverses the order of arguments, e.g., given
    <span class="inlinecode">pred(a, b)</span>, returns <span class="inlinecode">pred(b, a)</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="not"></span><a class="symbol-anchor" href="#not">not</a>(alias pred)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="not">&nbsp;</span><a class="symbol-link" href="#not">not</a>(alias pred)</h3></div>
 <div class="declaration-content"><dl><p>Negates predicate <span class="inlinecode">pred</span>.
 </p>
 
@@ -328,7 +328,7 @@ compared elements.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="curry"></span><a class="symbol-anchor" href="#curry">curry</a>(alias fun,alias arg)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="curry">&nbsp;</span><a class="symbol-link" href="#curry">curry</a>(alias fun,alias arg)</h3></div>
 <div class="declaration-content"><dl><p>Curries <span class="inlinecode">fun</span> by tying its first argument to a particular value.
 </p>
 
@@ -339,11 +339,11 @@ compared elements.
 </pre>
 
 Note that in most cases you'd use an alias instead of a value
-assignment. Using an alias allows you to <span class="symbol" id="curry"></span><a class="symbol-anchor" href="#curry">curry</a> template functions
+assignment. Using an alias allows you to <span class="symbol-target" id="curry">&nbsp;</span><a class="symbol-link" href="#curry">curry</a> template functions
 without committing to a particular type of the function.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="adjoin"></span><a class="symbol-anchor" href="#adjoin">adjoin</a>(F...) if (F.length)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="adjoin">&nbsp;</span><a class="symbol-link" href="#adjoin">adjoin</a>(F...) if (F.length)</h3></div>
 <div class="declaration-content"><dl><p>Takes multiple functions and adjoins them together. The result is a
 <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> with one element per passed-in function. Upon
 invocation, the returned tuple is the adjoined results of all
@@ -360,7 +360,7 @@ functions.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="compose"></span><a class="symbol-anchor" href="#compose">compose</a>(fun...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="compose">&nbsp;</span><a class="symbol-link" href="#compose">compose</a>(fun...)</h3></div>
 <div class="declaration-content"><dl><p>Composes passed-in functions <span class="inlinecode">fun[0], fun[1], ...</span> returning a
    function <span class="inlinecode">f(x)</span> that in turn returns <span class="inlinecode">  fun[0](fun[1](...(x)))...</span>. Each function can be a regular
    functions, a delegate, or a string.
@@ -376,7 +376,7 @@ functions.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="pipe"></span><a class="symbol-anchor" href="#pipe">pipe</a>(fun...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="pipe">&nbsp;</span><a class="symbol-link" href="#pipe">pipe</a>(fun...)</h3></div>
 <div class="declaration-content"><dl><p>Pipes functions in sequence. Offers the same functionality as <span class="inlinecode">  compose</span>, but with functions specified in reverse order. This may
    lead to more readable code in some situation because the order of
    execution is the same as lexical order.
@@ -394,7 +394,7 @@ functions.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ReturnType!(fun) <span class="symbol" id="memoize"></span><a class="symbol-anchor" href="#memoize">memoize</a>(alias fun, uint maxSize = (uint).max)(ParameterTypeTuple!(fun) <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>ReturnType!(fun) <span class="symbol-target" id="memoize">&nbsp;</span><a class="symbol-link" href="#memoize">memoize</a>(alias fun, uint maxSize = (uint).max)(ParameterTypeTuple!(fun) <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Memoizes">Memoizes</a> a function so as to avoid repeated
  computation. The memoization structure is a hash table keyed by a
@@ -417,10 +417,10 @@ functions.
 }
 </pre>
 
-Technically the memoized function should be pure because <span class="inlinecode"><span class="symbol" id="memoize"></span><a class="symbol-anchor" href="#memoize">memoize</a></span> assumes it will
-always return the same result for a given tuple of arguments. However, <span class="inlinecode"><span class="symbol" id="memoize"></span><a class="symbol-anchor" href="#memoize">memoize</a></span> does not
+Technically the memoized function should be pure because <span class="inlinecode"><span class="symbol-target" id="memoize">&nbsp;</span><a class="symbol-link" href="#memoize">memoize</a></span> assumes it will
+always return the same result for a given tuple of arguments. However, <span class="inlinecode"><span class="symbol-target" id="memoize">&nbsp;</span><a class="symbol-link" href="#memoize">memoize</a></span> does not
 enforce that because sometimes it
-is useful to <span class="symbol" id="memoize"></span><a class="symbol-anchor" href="#memoize">memoize</a> an impure function, too.
+is useful to <span class="symbol-target" id="memoize">&nbsp;</span><a class="symbol-link" href="#memoize">memoize</a> an impure function, too.
 <br><br>
 
 To memoize a recursive function, simply insert the memoized call in lieu of the plain recursive call.
@@ -451,7 +451,7 @@ To improve the speed of the factorial function,
 </pre>
 
 This memoizes all values of <span class="inlinecode">fact</span> up to the largest argument. To only cache the final
-result, move <span class="inlinecode"><span class="symbol" id="memoize"></span><a class="symbol-anchor" href="#memoize">memoize</a></span> outside the function as shown below.
+result, move <span class="inlinecode"><span class="symbol-target" id="memoize">&nbsp;</span><a class="symbol-link" href="#memoize">memoize</a></span> outside the function as shown below.
 
 </dd>
 <dt>Example:</dt><dd>
@@ -476,7 +476,7 @@ table is found to be <span class="inlinecode">maxSize</span>, the table is simpl
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="toDelegate"></span><a class="symbol-anchor" href="#toDelegate">toDelegate</a>(F)(auto ref F <i>fp</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="toDelegate">&nbsp;</span><a class="symbol-link" href="#toDelegate">toDelegate</a>(F)(auto ref F <i>fp</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Convert a callable to a delegate with the same parameter list and
  return type, avoiding heap allocations and use of auxiliary storage.

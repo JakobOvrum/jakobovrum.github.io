@@ -300,61 +300,61 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/concurrency.d">std/concurrency.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="MessageMismatch"></span><a class="symbol-anchor" href="#MessageMismatch">MessageMismatch</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="MessageMismatch">&nbsp;</span><a class="symbol-link" href="#MessageMismatch">MessageMismatch</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown on calls to <span class="inlinecode">receiveOnly</span> if a message other than the type
  the receiving thread expected is sent.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="OwnerTerminated"></span><a class="symbol-anchor" href="#OwnerTerminated">OwnerTerminated</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="OwnerTerminated">&nbsp;</span><a class="symbol-link" href="#OwnerTerminated">OwnerTerminated</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown on calls to <span class="inlinecode">receive</span> if the thread that spawned the receiving
  thread has terminated and no more messages exist.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="LinkTerminated"></span><a class="symbol-anchor" href="#LinkTerminated">LinkTerminated</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="LinkTerminated">&nbsp;</span><a class="symbol-link" href="#LinkTerminated">LinkTerminated</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown if a linked thread has terminated.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="PriorityMessageException"></span><a class="symbol-anchor" href="#PriorityMessageException">PriorityMessageException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="PriorityMessageException">&nbsp;</span><a class="symbol-link" href="#PriorityMessageException">PriorityMessageException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown if a message was sent to a thread via
  <a href="std_concurrency.html#prioritySend"><span class="inlinecode">std.concurrency.prioritySend</span></a> and the receiver does not have a handler
  for a message of this type.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>Variant <span class="symbol" id="message"></span><a class="symbol-anchor" href="#message">message</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>Variant <span class="symbol-target" id="message">&nbsp;</span><a class="symbol-link" href="#message">message</a>;
 </h3></div>
-<div class="declaration-content"><dl><p>The <span class="symbol" id="message"></span><a class="symbol-anchor" href="#message">message</a> that was sent.</p>
+<div class="declaration-content"><dl><p>The <span class="symbol-target" id="message">&nbsp;</span><a class="symbol-link" href="#message">message</a> that was sent.</p>
 
 </dl>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="MailboxFull"></span><a class="symbol-anchor" href="#MailboxFull">MailboxFull</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="MailboxFull">&nbsp;</span><a class="symbol-link" href="#MailboxFull">MailboxFull</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown on mailbox crowding if the mailbox is configured with
  <span class="inlinecode">OnCrowding.throwException</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="Tid"></span><a class="symbol-anchor" href="#Tid">Tid</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Tid">&nbsp;</span><a class="symbol-link" href="#Tid">Tid</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>An opaque type used to represent a logical local process.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property Tid <span class="symbol" id="thisTid"></span><a class="symbol-anchor" href="#thisTid">thisTid</a>();
+<hr><div class="row-fluid declaration"><h3>@property Tid <span class="symbol-target" id="thisTid">&nbsp;</span><a class="symbol-link" href="#thisTid">thisTid</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the caller's Tid.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol" id="spawn"></span><a class="symbol-anchor" href="#spawn">spawn</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawn">&nbsp;</span><a class="symbol-link" href="#spawn">spawn</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Executes the supplied function in a new context represented by <span class="inlinecode">Tid</span>.  The
  calling context is designated as the owner of the new context.  When the
@@ -384,7 +384,7 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol" id="spawnLinked"></span><a class="symbol-anchor" href="#spawnLinked">spawnLinked</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawnLinked">&nbsp;</span><a class="symbol-link" href="#spawnLinked">spawnLinked</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Executes the supplied function in a new context represented by Tid.  This
  new context is linked to the calling context so that if either it or the
@@ -405,14 +405,14 @@
 <dt>Returns</dt><dd>A Tid representing the new context.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="send"></span><a class="symbol-anchor" href="#send">send</a>(T...)(Tid <i>tid</i>, T <i>vals</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="send">&nbsp;</span><a class="symbol-link" href="#send">send</a>(T...)(Tid <i>tid</i>, T <i>vals</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sends the supplied value to the context represented by tid.  As with
  <a href="std_concurrency.html#spawn"><span class="inlinecode">std.concurrency.spawn</span></a>, <span class="inlinecode">T</span> must not have unshared aliasing.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="prioritySend"></span><a class="symbol-anchor" href="#prioritySend">prioritySend</a>(T...)(Tid <i>tid</i>, T <i>vals</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="prioritySend">&nbsp;</span><a class="symbol-link" href="#prioritySend">prioritySend</a>(T...)(Tid <i>tid</i>, T <i>vals</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Send a message to <span class="inlinecode">tid</span> but place it at the front of <span class="inlinecode">tid</span>'s message
  queue instead of at the back.  This function is typically used for
@@ -420,7 +420,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="receive"></span><a class="symbol-anchor" href="#receive">receive</a>(T...)(T <i>ops</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="receive">&nbsp;</span><a class="symbol-link" href="#receive">receive</a>(T...)(T <i>ops</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Receive a message from another thread, or block if no messages of the
  specified types are available.  This function works by pattern matching
@@ -428,7 +428,7 @@
 </p>
 
 <p>If a delegate that accepts a <a href="std_variant.html#Variant"><span class="inlinecode">std.variant.Variant</span></a> is included as
- the last argument to <span class="inlinecode"><span class="symbol" id="receive"></span><a class="symbol-anchor" href="#receive">receive</a></span>, it will match any message that was not
+ the last argument to <span class="inlinecode"><span class="symbol-target" id="receive">&nbsp;</span><a class="symbol-link" href="#receive">receive</a></span>, it will match any message that was not
  matched by an earlier delegate.  If more than one argument is sent,
  the <span class="inlinecode">Variant</span> will contain a <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> of all values
  sent.
@@ -438,7 +438,7 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>receiveOnlyRet!(T) <span class="symbol" id="receiveOnly"></span><a class="symbol-anchor" href="#receiveOnly">receiveOnly</a>(T...)();
+<hr><div class="row-fluid declaration"><h3>receiveOnlyRet!(T) <span class="symbol-target" id="receiveOnly">&nbsp;</span><a class="symbol-link" href="#receiveOnly">receiveOnly</a>(T...)();
 </h3></div>
 <div class="declaration-content"><dl><p>Receives only messages with arguments of types <span class="inlinecode">T</span>.
 </p>
@@ -455,14 +455,14 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="receiveTimeout"></span><a class="symbol-anchor" href="#receiveTimeout">receiveTimeout</a>(T...)(long <i>ms</i>, T <i>ops</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="receiveTimeout">&nbsp;</span><a class="symbol-link" href="#receiveTimeout">receiveTimeout</a>(T...)(long <i>ms</i>, T <i>ops</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012. Please use the version
        which takes a <a href="core_time.html#Duration"><span class="inlinecode">core.time.Duration</span></a> instead.</font></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="receiveTimeout"></span><a class="symbol-anchor" href="#receiveTimeout">receiveTimeout</a>(T...)(Duration <i>duration</i>, T <i>ops</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="receiveTimeout">&nbsp;</span><a class="symbol-link" href="#receiveTimeout">receiveTimeout</a>(T...)(Duration <i>duration</i>, T <i>ops</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Same as <span class="inlinecode">receive</span> except that rather than wait forever for a message,
     it waits until either it receives a message or the given
@@ -471,22 +471,22 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="OnCrowding"></span><a class="symbol-anchor" href="#OnCrowding">OnCrowding</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="OnCrowding">&nbsp;</span><a class="symbol-link" href="#OnCrowding">OnCrowding</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>These behaviors may be specified when a mailbox is full.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="block"></span><a class="symbol-anchor" href="#block">block</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="block">&nbsp;</span><a class="symbol-link" href="#block">block</a></h3></div>
 <div class="declaration-content"><dl><p>Wait until room is available.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="throwException"></span><a class="symbol-anchor" href="#throwException">throwException</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="throwException">&nbsp;</span><a class="symbol-link" href="#throwException">throwException</a></h3></div>
 <div class="declaration-content"><dl><p>Throw a MailboxFull exception.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="ignore"></span><a class="symbol-anchor" href="#ignore">ignore</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ignore">&nbsp;</span><a class="symbol-link" href="#ignore">ignore</a></h3></div>
 <div class="declaration-content"><dl><p>Abort the send and return.</p>
 
 </dl>
@@ -494,7 +494,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="setMaxMailboxSize"></span><a class="symbol-anchor" href="#setMaxMailboxSize">setMaxMailboxSize</a>(Tid <i>tid</i>, size_t <i>messages</i>, OnCrowding <i>doThis</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setMaxMailboxSize">&nbsp;</span><a class="symbol-link" href="#setMaxMailboxSize">setMaxMailboxSize</a>(Tid <i>tid</i>, size_t <i>messages</i>, OnCrowding <i>doThis</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sets a limit on the maximum number of user <i>messages</i> allowed in the mailbox.
  If this limit is reached, the caller attempting to add a new message will
@@ -515,7 +515,7 @@
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="setMaxMailboxSize"></span><a class="symbol-anchor" href="#setMaxMailboxSize">setMaxMailboxSize</a>(Tid <i>tid</i>, size_t <i>messages</i>, bool function(Tid) <i>onCrowdingDoThis</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setMaxMailboxSize">&nbsp;</span><a class="symbol-link" href="#setMaxMailboxSize">setMaxMailboxSize</a>(Tid <i>tid</i>, size_t <i>messages</i>, bool function(Tid) <i>onCrowdingDoThis</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sets a limit on the maximum number of user <i>messages</i> allowed in the mailbox.
  If this limit is reached, the caller attempting to add a new message will
@@ -535,7 +535,7 @@
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="register"></span><a class="symbol-anchor" href="#register">register</a>(string <i>name</i>, Tid <i>tid</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="register">&nbsp;</span><a class="symbol-link" href="#register">register</a>(string <i>name</i>, Tid <i>tid</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Associates <i>name</i> with <i>tid</i> in a process-local map.  When the thread
  represented by <i>tid</i> termiantes, any names associated with it will be
@@ -546,38 +546,38 @@
 <td>The <i>name</i> to associate with <i>tid</i>.</td>
 </tr>
 <tr><td>Tid <i>tid</i></td>
-<td>The <i>tid</i> <span class="symbol" id="register"></span><a class="symbol-anchor" href="#register">register</a> by <i>name</i>.</td>
+<td>The <i>tid</i> <span class="symbol-target" id="register">&nbsp;</span><a class="symbol-link" href="#register">register</a> by <i>name</i>.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if the <i>name</i> is available and <i>tid</i> is not known to represent a
   defunct thread.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="unregister"></span><a class="symbol-anchor" href="#unregister">unregister</a>(string <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="unregister">&nbsp;</span><a class="symbol-link" href="#unregister">unregister</a>(string <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Removes the registered <i>name</i> associated with a tid.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
-<td>The <i>name</i> to <span class="symbol" id="unregister"></span><a class="symbol-anchor" href="#unregister">unregister</a>.</td>
+<td>The <i>name</i> to <span class="symbol-target" id="unregister">&nbsp;</span><a class="symbol-link" href="#unregister">unregister</a>.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd><span class="d_keyword">true</span> if the <i>name</i> is registered, <span class="d_keyword">false</span> if not.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol" id="locate"></span><a class="symbol-anchor" href="#locate">locate</a>(string <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="locate">&nbsp;</span><a class="symbol-link" href="#locate">locate</a>(string <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the Tid associated with <i>name</i>.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>name</i></td>
-<td>The <i>name</i> to <span class="symbol" id="locate"></span><a class="symbol-anchor" href="#locate">locate</a> within the registry.</td>
+<td>The <i>name</i> to <span class="symbol-target" id="locate">&nbsp;</span><a class="symbol-link" href="#locate">locate</a> within the registry.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>The associated Tid or Tid.init if <i>name</i> is not registered.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="List"></span><a class="symbol-anchor" href="#List">List</a>(T);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="List">&nbsp;</span><a class="symbol-link" href="#List">List</a>(T);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>

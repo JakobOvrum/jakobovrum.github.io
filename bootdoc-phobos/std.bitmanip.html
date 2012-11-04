@@ -287,7 +287,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bitmanip.d">std/bitmanip.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="bitfields"></span><a class="symbol-anchor" href="#bitfields">bitfields</a>(T...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a>(T...)</h3></div>
 <div class="declaration-content"><dl><p>Allows creating bit fields inside <b>struct</b>s and <b>class</b>es.
 </p>
 
@@ -307,9 +307,9 @@ obj.z = obj.x;
 </pre>
 
 The example above creates a bitfield pack of eight bits, which fit in
-one <b>ubyte</b>. The <span class="symbol" id="bitfields"></span><a class="symbol-anchor" href="#bitfields">bitfields</a> are allocated starting from the
+one <b>ubyte</b>. The <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a> are allocated starting from the
 least significant bit, i.e. x occupies the two least significant bits
-of the <span class="symbol" id="bitfields"></span><a class="symbol-anchor" href="#bitfields">bitfields</a> storage.
+of the <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a> storage.
 <br><br>
 
 The sum of all bit lengths in one <b>bitfield</b> instantiation
@@ -328,10 +328,10 @@ one bitfield with an empty name.
 </pre>
 
 The type of a bit field can be any integral type or enumerated
-type. The most efficient type to store in <span class="symbol" id="bitfields"></span><a class="symbol-anchor" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.</dd>
+type. The most efficient type to store in <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="FloatRep"></span><a class="symbol-anchor" href="#FloatRep">FloatRep</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="FloatRep">&nbsp;</span><a class="symbol-link" href="#FloatRep">FloatRep</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Allows manipulating the fraction, exponent, and sign parts of a
    <b>float</b> separately. The definition is:
@@ -353,7 +353,7 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="DoubleRep"></span><a class="symbol-anchor" href="#DoubleRep">DoubleRep</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="DoubleRep">&nbsp;</span><a class="symbol-link" href="#DoubleRep">DoubleRep</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Allows manipulating the fraction, exponent, and sign parts of a
    <b>double</b> separately. The definition is:
@@ -375,93 +375,93 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="BitArray"></span><a class="symbol-anchor" href="#BitArray">BitArray</a>;
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="BitArray">&nbsp;</span><a class="symbol-link" href="#BitArray">BitArray</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>An array of bits.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol" id="dim"></span><a class="symbol-anchor" href="#dim">dim</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol-target" id="dim">&nbsp;</span><a class="symbol-link" href="#dim">dim</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the amount of native words backing this <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol" id="length"></span><a class="symbol-anchor" href="#length">length</a>();
+<hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol-target" id="length">&nbsp;</span><a class="symbol-link" href="#length">length</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the amount of bits in the <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property size_t <span class="symbol" id="length"></span><a class="symbol-anchor" href="#length">length</a>(size_t <i>newlen</i>);
+<hr><div class="row-fluid declaration"><h3>@property size_t <span class="symbol-target" id="length">&nbsp;</span><a class="symbol-link" href="#length">length</a>(size_t <i>newlen</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sets the amount of bits in the <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol" id="opIndex"></span><a class="symbol-anchor" href="#opIndex">opIndex</a>(size_t <i>i</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="opIndex">&nbsp;</span><a class="symbol-link" href="#opIndex">opIndex</a>(size_t <i>i</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the <span class="inlinecode"><i>i</i></span>'th bit in the <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="opIndexAssign"></span><a class="symbol-anchor" href="#opIndexAssign">opIndexAssign</a>(bool <i>b</i>, size_t <i>i</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="opIndexAssign">&nbsp;</span><a class="symbol-link" href="#opIndexAssign">opIndexAssign</a>(bool <i>b</i>, size_t <i>i</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sets the <span class="inlinecode"><i>i</i></span>'th bit in the <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const @property BitArray <span class="symbol" id="dup"></span><a class="symbol-anchor" href="#dup">dup</a>();
+<hr><div class="row-fluid declaration"><h3>const @property BitArray <span class="symbol-target" id="dup">&nbsp;</span><a class="symbol-link" href="#dup">dup</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Duplicates the <span class="inlinecode">BitArray</span> and its contents.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="opApply"></span><a class="symbol-anchor" href="#opApply">opApply</a>(scope int delegate(ref bool) <i>dg</i>);
-<br>const int <span class="symbol" id="opApply"></span><a class="symbol-anchor" href="#opApply">opApply</a>(scope int delegate(bool) <i>dg</i>);
-<br>int <span class="symbol" id="opApply"></span><a class="symbol-anchor" href="#opApply">opApply</a>(scope int delegate(ref uint, ref bool) <i>dg</i>);
-<br>const int <span class="symbol" id="opApply"></span><a class="symbol-anchor" href="#opApply">opApply</a>(scope int delegate(uint, bool) <i>dg</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(ref bool) <i>dg</i>);
+<br>const int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(bool) <i>dg</i>);
+<br>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(ref uint, ref bool) <i>dg</i>);
+<br>const int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(uint, bool) <i>dg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for <span class="inlinecode">foreach</span> loops for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property BitArray <span class="symbol" id="reverse"></span><a class="symbol-anchor" href="#reverse">reverse</a>();
+<hr><div class="row-fluid declaration"><h3>@property BitArray <span class="symbol-target" id="reverse">&nbsp;</span><a class="symbol-link" href="#reverse">reverse</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Reverses the bits of the <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property BitArray <span class="symbol" id="sort"></span><a class="symbol-anchor" href="#sort">sort</a>();
+<hr><div class="row-fluid declaration"><h3>@property BitArray <span class="symbol-target" id="sort">&nbsp;</span><a class="symbol-link" href="#sort">sort</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Sorts the <span class="inlinecode">BitArray</span>'s elements.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const bool <span class="symbol" id="opEquals"></span><a class="symbol-anchor" href="#opEquals">opEquals</a>(ref const BitArray <i>a2</i>);
+<hr><div class="row-fluid declaration"><h3>const const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(ref const BitArray <i>a2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operators == and != for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const int <span class="symbol" id="opCmp"></span><a class="symbol-anchor" href="#opCmp">opCmp</a>(BitArray <i>a2</i>);
+<hr><div class="row-fluid declaration"><h3>const int <span class="symbol-target" id="opCmp">&nbsp;</span><a class="symbol-link" href="#opCmp">opCmp</a>(BitArray <i>a2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Supports comparison operators for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow hash_t <span class="symbol" id="toHash"></span><a class="symbol-anchor" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Support for hashing for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="init"></span><a class="symbol-anchor" href="#init">init</a>(bool[] <i>ba</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="init">&nbsp;</span><a class="symbol-link" href="#init">init</a>(bool[] <i>ba</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set this <span class="inlinecode">BitArray</span> to the contents of <span class="inlinecode"><i>ba</i></span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="init"></span><a class="symbol-anchor" href="#init">init</a>(void[] <i>v</i>, size_t <i>numbits</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="init">&nbsp;</span><a class="symbol-link" href="#init">init</a>(void[] <i>v</i>, size_t <i>numbits</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Map the <span class="inlinecode">BitArray</span> onto <span class="inlinecode"><i>v</i></span>, with <span class="inlinecode"><i>numbits</i></span> being the number of bits
  in the array. Does not copy the data.
@@ -470,43 +470,43 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 <p>This is the inverse of <span class="inlinecode">opCast</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void[] <span class="symbol" id="opCast"></span><a class="symbol-anchor" href="#opCast">opCast</a>(T : void[])();
+<hr><div class="row-fluid declaration"><h3>void[] <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T : void[])();
 </h3></div>
 <div class="declaration-content"><dl><p>Convert to <span class="inlinecode">void[]</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t[] <span class="symbol" id="opCast"></span><a class="symbol-anchor" href="#opCast">opCast</a>(T : size_t[])();
+<hr><div class="row-fluid declaration"><h3>size_t[] <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T : size_t[])();
 </h3></div>
 <div class="declaration-content"><dl><p>Convert to <span class="inlinecode">size_t[]</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opCom"></span><a class="symbol-anchor" href="#opCom">opCom</a>();
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opCom">&nbsp;</span><a class="symbol-link" href="#opCom">opCom</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Support for unary operator ~ for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opAnd"></span><a class="symbol-anchor" href="#opAnd">opAnd</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opAnd">&nbsp;</span><a class="symbol-link" href="#opAnd">opAnd</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for binary operator &amp; for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol" id="opOr"></span><a class="symbol-anchor" href="#opOr">opOr</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol-target" id="opOr">&nbsp;</span><a class="symbol-link" href="#opOr">opOr</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for binary operator | for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol" id="opXor"></span><a class="symbol-anchor" href="#opXor">opXor</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol-target" id="opXor">&nbsp;</span><a class="symbol-link" href="#opXor">opXor</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for binary operator ^ for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol" id="opSub"></span><a class="symbol-anchor" href="#opSub">opSub</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol-target" id="opSub">&nbsp;</span><a class="symbol-link" href="#opSub">opSub</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for binary operator - for <span class="inlinecode">BitArray</span>.
 </p>
@@ -514,25 +514,25 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 <p><span class="inlinecode">a - b</span> for <span class="inlinecode">BitArray</span> means the same thing as <span class="inlinecode">a &amp; ~b</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opAndAssign"></span><a class="symbol-anchor" href="#opAndAssign">opAndAssign</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opAndAssign">&nbsp;</span><a class="symbol-link" href="#opAndAssign">opAndAssign</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operator &amp;= for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opOrAssign"></span><a class="symbol-anchor" href="#opOrAssign">opOrAssign</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opOrAssign">&nbsp;</span><a class="symbol-link" href="#opOrAssign">opOrAssign</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operator |= for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opXorAssign"></span><a class="symbol-anchor" href="#opXorAssign">opXorAssign</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opXorAssign">&nbsp;</span><a class="symbol-link" href="#opXorAssign">opXorAssign</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operator ^= for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opSubAssign"></span><a class="symbol-anchor" href="#opSubAssign">opSubAssign</a>(BitArray <i>e2</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opSubAssign">&nbsp;</span><a class="symbol-link" href="#opSubAssign">opSubAssign</a>(BitArray <i>e2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operator -= for <span class="inlinecode">BitArray</span>.
 </p>
@@ -540,16 +540,16 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 <p><span class="inlinecode">a -= b</span> for <span class="inlinecode">BitArray</span> means the same thing as <span class="inlinecode">a &amp;= ~b</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol" id="opCatAssign"></span><a class="symbol-anchor" href="#opCatAssign">opCatAssign</a>(bool <i>b</i>);
-<br>BitArray <span class="symbol" id="opCatAssign"></span><a class="symbol-anchor" href="#opCatAssign">opCatAssign</a>(BitArray <i>b</i>);
+<hr><div class="row-fluid declaration"><h3>BitArray <span class="symbol-target" id="opCatAssign">&nbsp;</span><a class="symbol-link" href="#opCatAssign">opCatAssign</a>(bool <i>b</i>);
+<br>BitArray <span class="symbol-target" id="opCatAssign">&nbsp;</span><a class="symbol-link" href="#opCatAssign">opCatAssign</a>(BitArray <i>b</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operator ~= for <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol" id="opCat"></span><a class="symbol-anchor" href="#opCat">opCat</a>(bool <i>b</i>);
-<br>const BitArray <span class="symbol" id="opCat_r"></span><a class="symbol-anchor" href="#opCat_r">opCat_r</a>(bool <i>b</i>);
-<br>const BitArray <span class="symbol" id="opCat"></span><a class="symbol-anchor" href="#opCat">opCat</a>(BitArray <i>b</i>);
+<hr><div class="row-fluid declaration"><h3>const BitArray <span class="symbol-target" id="opCat">&nbsp;</span><a class="symbol-link" href="#opCat">opCat</a>(bool <i>b</i>);
+<br>const BitArray <span class="symbol-target" id="opCat_r">&nbsp;</span><a class="symbol-link" href="#opCat_r">opCat_r</a>(bool <i>b</i>);
+<br>const BitArray <span class="symbol-target" id="opCat">&nbsp;</span><a class="symbol-link" href="#opCat">opCat</a>(BitArray <i>b</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for binary operator ~ for <span class="inlinecode">BitArray</span>.</p>
 
@@ -557,13 +557,13 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol" id="swapEndian"></span><a class="symbol-anchor" href="#swapEndian">swapEndian</a>(T)(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="swapEndian">&nbsp;</span><a class="symbol-link" href="#swapEndian">swapEndian</a>(T)(T <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Swaps the endianness of the given integral value or character.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol" id="nativeToBigEndian"></span><a class="symbol-anchor" href="#nativeToBigEndian">nativeToBigEndian</a>(T)(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToBigEndian">&nbsp;</span><a class="symbol-link" href="#nativeToBigEndian">nativeToBigEndian</a>(T)(T <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from the native endianness to big endian and
     returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
@@ -591,7 +591,7 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol" id="bigEndianToNative"></span><a class="symbol-anchor" href="#bigEndianToNative">bigEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="bigEndianToNative">&nbsp;</span><a class="symbol-link" href="#bigEndianToNative">bigEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from big endian to the native endianness and
     returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
@@ -617,7 +617,7 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol" id="nativeToLittleEndian"></span><a class="symbol-anchor" href="#nativeToLittleEndian">nativeToLittleEndian</a>(T)(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToLittleEndian">&nbsp;</span><a class="symbol-link" href="#nativeToLittleEndian">nativeToLittleEndian</a>(T)(T <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from the native endianness to little endian and
     returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
@@ -640,7 +640,7 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol" id="littleEndianToNative"></span><a class="symbol-anchor" href="#littleEndianToNative">littleEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="littleEndianToNative">&nbsp;</span><a class="symbol-link" href="#littleEndianToNative">littleEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from little endian to the native endianness and
     returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
@@ -671,9 +671,9 @@ type. The most efficient type to store in <span class="symbol" id="bitfields"></
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="peek"></span><a class="symbol-anchor" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>);
-<br>T <span class="symbol" id="peek"></span><a class="symbol-anchor" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t <i>index</i>);
-<br>T <span class="symbol" id="peek"></span><a class="symbol-anchor" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t* <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>);
+<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t <i>index</i>);
+<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t* <i>index</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Takes a range of <span class="inlinecode">ubyte</span>s and converts the first <span class="inlinecode">T.sizeof</span> bytes to
     <span class="inlinecode">T</span>. The value returned is converted from the given endianness to the
@@ -712,18 +712,18 @@ size_t index = 0;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="read"></span><a class="symbol-anchor" href="#read">read</a>(T, Endian endianness = Endian.bigEndian, R)(ref R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a>(T, Endian endianness = Endian.bigEndian, R)(ref R <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Takes a range of <span class="inlinecode">ubyte</span>s and converts the first <span class="inlinecode">T.sizeof</span> bytes to
     <span class="inlinecode">T</span>. The value returned is converted from the given endianness to the
-    native endianness. The <span class="inlinecode">T.sizeof</span> bytes which are <span class="symbol" id="read"></span><a class="symbol-anchor" href="#read">read</a> are consumed from
+    native endianness. The <span class="inlinecode">T.sizeof</span> bytes which are <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a> are consumed from
     the range.
 </p>
 
 <dt>Parems:</dt><dd>
 T     = The integral type to convert the first <span class="inlinecode">T.sizeof</span> bytes to.
         endianness = The endianness that the bytes are assumed to be in.
-        range = The range to <span class="symbol" id="read"></span><a class="symbol-anchor" href="#read">read</a> from.
+        range = The range to <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a> from.
 
 </dd>
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">ubyte</span>[] buffer = [1, 5, 22, 9, 44, 255, 8];
@@ -741,8 +741,8 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t <i>index</i>);
-<br>void <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t* <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t <i>index</i>);
+<br>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t* <i>index</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Takes an integral value, converts it to the given endianness, and writes it
     to the given range of <span class="inlinecode">ubyte</span>s as a sequence of <span class="inlinecode">T.sizeof</span> <span class="inlinecode">ubyte</span>s
@@ -751,8 +751,8 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
 
 <dt>Parems:</dt><dd>
 T     = The integral type to convert the first <span class="inlinecode">T.sizeof</span> bytes to.
-        endianness = The endianness to <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a> the bytes in.
-        range = The range to <span class="symbol" id="write"></span><a class="symbol-anchor" href="#write">write</a> to.
+        endianness = The endianness to <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a> the bytes in.
+        range = The range to <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a> to.
         index = The index to start writing to. If index is a pointer, then it
                 is updated to the index after the bytes read.
 
@@ -802,7 +802,7 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="append"></span><a class="symbol-anchor" href="#append">append</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="append">&nbsp;</span><a class="symbol-link" href="#append">append</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Takes an integral value, converts it to the given endianness, and appends
     it to the given range of <span class="inlinecode">ubyte</span>s (using <span class="inlinecode">put</span>) as a sequence of
@@ -813,7 +813,7 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
 <dt>Parems:</dt><dd>
 T     = The integral type to convert the first <span class="inlinecode">T.sizeof</span> bytes to.
         endianness = The endianness to write the bytes in.
-        range = The range to <span class="symbol" id="append"></span><a class="symbol-anchor" href="#append">append</a> to.
+        range = The range to <span class="symbol-target" id="append">&nbsp;</span><a class="symbol-link" href="#append">append</a> to.
 
 </dd>
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">//Bug# 8129 forces the casts. They shouldn't be necessary.

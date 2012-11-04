@@ -559,12 +559,12 @@ ranges.</td>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/algorithm.d">std/algorithm.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>(fun...) if (fun.length &gt;= 1)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a>(fun...) if (fun.length &gt;= 1)</h3></div>
 <div class="declaration-content"><dl><p>Implements the homonym function (also known as <span class="inlinecode">transform</span>) present
-in many languages of functional flavor. The call <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a>!(fun)(range)</span>
+in many languages of functional flavor. The call <span class="inlinecode"><span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a>!(fun)(range)</span>
 returns a range of which elements are obtained by applying <span class="inlinecode">fun(x)</span>
 left to right for all <span class="inlinecode">x</span> in <span class="inlinecode">range</span>. The original ranges are
-not changed. Evaluation is done lazily. The range returned by <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span>
+not changed. Evaluation is done lazily. The range returned by <span class="inlinecode"><span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a></span>
 caches the last value such that evaluating <span class="inlinecode">front</span> multiple times
 does not result in multiple calls to <span class="inlinecode">fun</span>.
 </p>
@@ -576,8 +576,8 @@ does not result in multiple calls to <span class="inlinecode">fun</span>.
 <span class="d_keyword">assert</span>(equal(squares, [ 1, 4, 9, 16, 25, 36 ]));
 </pre>
 
-Multiple functions can be passed to <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span>. In that case, the
-element type of <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> is a tuple containing one element for each
+Multiple functions can be passed to <span class="inlinecode"><span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a></span>. In that case, the
+element type of <span class="inlinecode"><span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a></span> is a tuple containing one element for each
 function.
 
 </dd>
@@ -589,7 +589,7 @@ function.
 }
 </pre>
 
-You may alias <span class="inlinecode"><span class="symbol" id="map"></span><a class="symbol-anchor" href="#map">map</a></span> with some function(s) to a symbol and use
+You may alias <span class="inlinecode"><span class="symbol-target" id="map">&nbsp;</span><a class="symbol-link" href="#map">map</a></span> with some function(s) to a symbol and use
 it separately:
 <br><br>
 
@@ -599,17 +599,17 @@ it separately:
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a>(fun...) if (fun.length &gt;= 1)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a>(fun...) if (fun.length &gt;= 1)</h3></div>
 <div class="declaration-content"><dl><p>Implements the homonym function (also known as <span class="inlinecode">accumulate</span>, <span class="inlinecode">compress</span>, <span class="inlinecode">inject</span>, or <span class="inlinecode">foldl</span>) present in various programming
-languages of functional flavor. The call <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a>!(fun)(seed,
+languages of functional flavor. The call <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a>!(fun)(seed,
 range)</span> first assigns <span class="inlinecode">seed</span> to an internal variable <span class="inlinecode">result</span>,
-also called the accumulator. Then, for each element <span class="inlinecode">x</span> in <span class="inlinecode">range</span>, <span class="inlinecode">result = fun(result, x)</span> gets evaluated. Finally, <span class="inlinecode">result</span> is returned. The one-argument version <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a>!(fun)(range)</span>
+also called the accumulator. Then, for each element <span class="inlinecode">x</span> in <span class="inlinecode">range</span>, <span class="inlinecode">result = fun(result, x)</span> gets evaluated. Finally, <span class="inlinecode">result</span> is returned. The one-argument version <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a>!(fun)(range)</span>
 works similarly, but it uses the first element of the range as the
 seed (the range must be non-empty).
 </p>
 
-<p>Many aggregate range operations turn out to be solved with <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a></span>
-quickly and easily. The example below illustrates <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a></span>'s
+<p>Many aggregate range operations turn out to be solved with <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a></span>
+quickly and easily. The example below illustrates <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a></span>'s
 remarkable power and flexibility.
 
 </p>
@@ -652,8 +652,8 @@ remarkable power and flexibility.
 <dt>Multiple functions:</dt><dd> Sometimes it is very useful to
 compute multiple aggregates in one pass. One advantage is that the
 computation is faster because the looping overhead is shared. That's
-why <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a></span> accepts multiple functions. If two or more functions
-are passed, <span class="inlinecode"><span class="symbol" id="reduce"></span><a class="symbol-anchor" href="#reduce">reduce</a></span> returns a <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> object with
+why <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a></span> accepts multiple functions. If two or more functions
+are passed, <span class="inlinecode"><span class="symbol-target" id="reduce">&nbsp;</span><a class="symbol-link" href="#reduce">reduce</a></span> returns a <a href="std_typecons.html#Tuple"><span class="inlinecode">std.typecons.Tuple</span></a> object with
 one member per passed-in function. The number of seeds must be
 correspondingly increased.
 
@@ -685,7 +685,7 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="fill"></span><a class="symbol-anchor" href="#fill">fill</a>(Range, Value)(Range <i>range</i>, Value <i>filler</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="fill">&nbsp;</span><a class="symbol-link" href="#fill">fill</a>(Range, Value)(Range <i>range</i>, Value <i>filler</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Fills a range with a value.
 </p>
@@ -698,7 +698,7 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="fill"></span><a class="symbol-anchor" href="#fill">fill</a>(Range1, Range2)(Range1 <i>range</i>, Range2 <i>filler</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="fill">&nbsp;</span><a class="symbol-link" href="#fill">fill</a>(Range1, Range2)(Range1 <i>range</i>, Range2 <i>filler</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Fills <span class="inlinecode">range</span> with a pattern copied from <span class="inlinecode">filler</span>. The length of
 <span class="inlinecode">range</span> does not have to be a multiple of the length of <span class="inlinecode">filler</span>. If <span class="inlinecode">filler</span> is empty, an exception is thrown.
@@ -713,12 +713,12 @@ r = <u>reduce</u>!(<span class="d_string">"a + b"</span>, <span class="d_string"
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="uninitializedFill"></span><a class="symbol-anchor" href="#uninitializedFill">uninitializedFill</a>(Range, Value)(Range <i>range</i>, Value <i>filler</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="uninitializedFill">&nbsp;</span><a class="symbol-link" href="#uninitializedFill">uninitializedFill</a>(Range, Value)(Range <i>range</i>, Value <i>filler</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Fills a range with a value. Assumes that the range does not currently
 contain meaningful content. This is of interest for structs that
 define copy constructors (for all other types, fill and
-<span class="symbol" id="uninitializedFill"></span><a class="symbol-anchor" href="#uninitializedFill">uninitializedFill</a> are equivalent).
+<span class="symbol-target" id="uninitializedFill">&nbsp;</span><a class="symbol-link" href="#uninitializedFill">uninitializedFill</a> are equivalent).
 </p>
 
 <dt>Example:</dt><dd>
@@ -730,7 +730,7 @@ S[] s = (<span class="d_keyword">cast</span>(S*) malloc(5 * S.sizeof))[0 .. 5];
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="initializeAll"></span><a class="symbol-anchor" href="#initializeAll">initializeAll</a>(Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="initializeAll">&nbsp;</span><a class="symbol-link" href="#initializeAll">initializeAll</a>(Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Initializes all elements of a range with their <span class="inlinecode">.init</span>
 value. Assumes that the range does not currently contain meaningful
@@ -746,9 +746,9 @@ S[] s = (<span class="d_keyword">cast</span>(S*) malloc(5 * S.sizeof))[0 .. 5];
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="filter"></span><a class="symbol-anchor" href="#filter">filter</a>(alias pred) if (is(typeof(unaryFun!(pred))))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="filter">&nbsp;</span><a class="symbol-link" href="#filter">filter</a>(alias pred) if (is(typeof(unaryFun!(pred))))</h3></div>
 <div class="declaration-content"><dl><p>Implements the homonym function present in various programming
-languages of functional flavor. The call <span class="inlinecode"><span class="symbol" id="filter"></span><a class="symbol-anchor" href="#filter">filter</a>!(fun)(range)</span>
+languages of functional flavor. The call <span class="inlinecode"><span class="symbol-target" id="filter">&nbsp;</span><a class="symbol-link" href="#filter">filter</a>!(fun)(range)</span>
 returns a new range only containing elements <span class="inlinecode">x</span> in <span class="inlinecode">r</span> for
 which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>.
 </p>
@@ -774,7 +774,7 @@ which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="filterBidirectional"></span><a class="symbol-anchor" href="#filterBidirectional">filterBidirectional</a>(alias pred)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="filterBidirectional">&nbsp;</span><a class="symbol-link" href="#filterBidirectional">filterBidirectional</a>(alias pred)</h3></div>
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">filter</span>, except it defines a bidirectional
  range. There is a speed disadvantage - the constructor spends time
  finding the last element in the range that satisfies the filtering
@@ -799,8 +799,8 @@ which <span class="inlinecode">predicate(x)</span> is <span class="inlinecode"><
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="move"></span><a class="symbol-anchor" href="#move">move</a>(T)(ref T <i>source</i>, ref T <i>target</i>);
-<br>T <span class="symbol" id="move"></span><a class="symbol-anchor" href="#move">move</a>(T)(ref T <i>source</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="move">&nbsp;</span><a class="symbol-link" href="#move">move</a>(T)(ref T <i>source</i>, ref T <i>target</i>);
+<br>T <span class="symbol-target" id="move">&nbsp;</span><a class="symbol-link" href="#move">move</a>(T)(ref T <i>source</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Moves <span class="inlinecode">source</span> into <span class="inlinecode">target</span> via a destructive
 copy. Specifically: <ul><li>If <span class="inlinecode">hasAliasing!T</span> is <span class="d_keyword">true</span> (see
@@ -814,7 +814,7 @@ also <a href="std_exception.html#pointsTo"><span class="inlinecode">std.exceptio
 <span class="inlinecode">&source == &target || !pointsTo(source, source)</span></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range2 <span class="symbol" id="moveAll"></span><a class="symbol-anchor" href="#moveAll">moveAll</a>(Range1, Range2)(Range1 <i>src</i>, Range2 <i>tgt</i>);
+<hr><div class="row-fluid declaration"><h3>Range2 <span class="symbol-target" id="moveAll">&nbsp;</span><a class="symbol-link" href="#moveAll">moveAll</a>(Range1, Range2)(Range1 <i>src</i>, Range2 <i>tgt</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>For each element <span class="inlinecode">a</span> in <span class="inlinecode">src</span> and each element <span class="inlinecode">b</span> in <span class="inlinecode">tgt</span> in lockstep in increasing order, calls <span class="inlinecode">move(a, b)</span>. Returns
 the leftover portion of <span class="inlinecode">tgt</span>. Throws an exeption if there is not
@@ -825,7 +825,7 @@ enough room in <span class="inlinecode">tgt</span> to acommodate all of <span cl
 <span class="inlinecode">walkLength(src) &lt;= walkLength(tgt)</span></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol" id="moveSome"></span><a class="symbol-anchor" href="#moveSome">moveSome</a>(Range1, Range2)(Range1 <i>src</i>, Range2 <i>tgt</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol-target" id="moveSome">&nbsp;</span><a class="symbol-link" href="#moveSome">moveSome</a>(Range1, Range2)(Range1 <i>src</i>, Range2 <i>tgt</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>For each element <span class="inlinecode">a</span> in <span class="inlinecode">src</span> and each element <span class="inlinecode">b</span> in <span class="inlinecode">tgt</span> in lockstep in increasing order, calls <span class="inlinecode">move(a, b)</span>. Stops
 when either <span class="inlinecode">src</span> or <span class="inlinecode">tgt</span> have been exhausted. Returns the
@@ -833,7 +833,7 @@ leftover portions of the two ranges.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted void <span class="symbol" id="swap"></span><a class="symbol-anchor" href="#swap">swap</a>(T)(ref T <i>lhs</i>, ref T <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted void <span class="symbol-target" id="swap">&nbsp;</span><a class="symbol-link" href="#swap">swap</a>(T)(ref T <i>lhs</i>, ref T <i>rhs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Swaps <span class="inlinecode">lhs</span> and <span class="inlinecode">rhs</span>. See also <a href="std_exception.html#pointsTo"><span class="inlinecode">std.exception.pointsTo</span></a>.
 </p>
@@ -843,7 +843,7 @@ leftover portions of the two ranges.</p>
 &amp;&amp; !pointsTo(rhs, rhs)</span></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="splitter"></span><a class="symbol-anchor" href="#splitter">splitter</a>(Range, Separator)(Range <i>r</i>, Separator <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="splitter">&nbsp;</span><a class="symbol-link" href="#splitter">splitter</a>(Range, Separator)(Range <i>r</i>, Separator <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Splits a range using an element as a separator. This can be used with
 any range type, but is most popular with string types.
@@ -873,15 +873,15 @@ a = [ 0, 1 ];
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="splitter"></span><a class="symbol-anchor" href="#splitter">splitter</a>(Range, Separator)(Range <i>r</i>, Separator <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="splitter">&nbsp;</span><a class="symbol-link" href="#splitter">splitter</a>(Range, Separator)(Range <i>r</i>, Separator <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Splits a range using another range as a separator. This can be used
 with any range type, but is most popular with string types.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="joiner"></span><a class="symbol-anchor" href="#joiner">joiner</a>(RoR, Separator)(RoR <i>r</i>, Separator <i>sep</i>);
-<br>auto <span class="symbol" id="joiner"></span><a class="symbol-anchor" href="#joiner">joiner</a>(RoR)(RoR <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="joiner">&nbsp;</span><a class="symbol-link" href="#joiner">joiner</a>(RoR, Separator)(RoR <i>r</i>, Separator <i>sep</i>);
+<br>auto <span class="symbol-target" id="joiner">&nbsp;</span><a class="symbol-link" href="#joiner">joiner</a>(RoR)(RoR <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily joins a range of ranges with a separator. The separator itself
 is a range. If you do not provide a separator, then the ranges are
@@ -901,13 +901,13 @@ joined directly without anything in between them.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="uniq"></span><a class="symbol-anchor" href="#uniq">uniq</a>(alias pred = "a == b", Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniq">&nbsp;</span><a class="symbol-link" href="#uniq">uniq</a>(alias pred = "a == b", Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Iterates unique consecutive elements of the given range (functionality
 akin to the <a href="http://wikipedia.org/wiki/Uniq">uniq</a> system
 utility). Equivalence of elements is assessed by using the predicate
 <span class="inlinecode">pred</span>, by default <span class="inlinecode">"a == b"</span>. If the given range is
-bidirectional, <span class="inlinecode"><span class="symbol" id="uniq"></span><a class="symbol-anchor" href="#uniq">uniq</a></span> also yields a bidirectional range.
+bidirectional, <span class="inlinecode"><span class="symbol-target" id="uniq">&nbsp;</span><a class="symbol-link" href="#uniq">uniq</a></span> also yields a bidirectional range.
 </p>
 
 <dt>Example:</dt><dd>
@@ -917,8 +917,8 @@ bidirectional, <span class="inlinecode"><span class="symbol" id="uniq"></span><a
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="Group"></span><a class="symbol-anchor" href="#Group">Group</a>(alias pred,R) if (isInputRange!(R));
-<br>Group!(pred,Range) <span class="symbol" id="group"></span><a class="symbol-anchor" href="#group">group</a>(alias pred = "a == b", Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Group">&nbsp;</span><a class="symbol-link" href="#Group">Group</a>(alias pred,R) if (isInputRange!(R));
+<br>Group!(pred,Range) <span class="symbol-target" id="group">&nbsp;</span><a class="symbol-link" href="#group">group</a>(alias pred = "a == b", Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Similarly to <span class="inlinecode">uniq</span>, <span class="inlinecode">group</span> iterates unique consecutive
 elements of the given range. The element type is <span class="inlinecode">Tuple!(ElementType!R, uint)</span> because it includes the count of
@@ -926,7 +926,7 @@ equivalent elements seen. Equivalence of elements is assessed by using
 the predicate <span class="inlinecode">pred</span>, by default <span class="inlinecode">"a == b"</span>.
 </p>
 
-<p><span class="inlinecode"><span class="symbol" id="Group"></span><a class="symbol-anchor" href="#Group">Group</a></span> is an input range if <span class="inlinecode">R</span> is an input range, and a
+<p><span class="inlinecode"><span class="symbol-target" id="Group">&nbsp;</span><a class="symbol-link" href="#Group">Group</a></span> is an input range if <span class="inlinecode">R</span> is an input range, and a
 forward range in all other cases.
 
 </p>
@@ -938,12 +938,12 @@ forward range in all other cases.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>R <span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>(alias pred = "a == b", R, E)(R <i>haystack</i>, E <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>R <span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>(alias pred = "a == b", R, E)(R <i>haystack</i>, E <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Finds an individual element in an input range. Elements of <span class="inlinecode">haystack</span> are compared with <span class="inlinecode">needle</span> by using predicate <span class="inlinecode">pred</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">walkLength(haystack)</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sgi.com/tech/stl/find.html">STL's find</a>.
 </p>
 
-<p>To find the last occurence of <span class="inlinecode">needle</span> in <span class="inlinecode">haystack</span>, call <span class="inlinecode"><span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>(retro(haystack), needle)</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
+<p>To find the last occurence of <span class="inlinecode">needle</span> in <span class="inlinecode">haystack</span>, call <span class="inlinecode"><span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>(retro(haystack), needle)</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 
 </p>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>haystack</td>
@@ -982,7 +982,7 @@ string[] s = [ <span class="d_string">"Hello"</span>, <span class="d_string">"wo
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>R1 <span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>R1 <span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Finds a forward range in another. Elements are compared for
 equality. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">walkLength(haystack) * walkLength(needle)</span><b><i>)</i></b>
@@ -1014,9 +1014,9 @@ such position exists, returns <span class="inlinecode">haystack</span> advanced 
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(Range,size_t) <span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>(alias pred = "a == b", Range, Ranges...)(Range <i>haystack</i>, Ranges <i>needles</i>);
-<br>struct <span class="symbol" id="BoyerMooreFinder"></span><a class="symbol-anchor" href="#BoyerMooreFinder">BoyerMooreFinder</a>(alias pred,Range);
-<br>BoyerMooreFinder!(binaryFun!(pred),Range) <span class="symbol" id="boyerMooreFinder"></span><a class="symbol-anchor" href="#boyerMooreFinder">boyerMooreFinder</a>(alias pred = "a == b", Range)(Range <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(Range,size_t) <span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>(alias pred = "a == b", Range, Ranges...)(Range <i>haystack</i>, Ranges <i>needles</i>);
+<br>struct <span class="symbol-target" id="BoyerMooreFinder">&nbsp;</span><a class="symbol-link" href="#BoyerMooreFinder">BoyerMooreFinder</a>(alias pred,Range);
+<br>BoyerMooreFinder!(binaryFun!(pred),Range) <span class="symbol-target" id="boyerMooreFinder">&nbsp;</span><a class="symbol-link" href="#boyerMooreFinder">boyerMooreFinder</a>(alias pred = "a == b", Range)(Range <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Finds two or more <span class="inlinecode">needles</span> into a <span class="inlinecode">haystack</span>. The predicate <span class="inlinecode">pred</span> is used throughout to compare elements. By default, elements are
 compared for equality.
@@ -1070,14 +1070,14 @@ subranges at once maximizes cache usage by moving in <span class="inlinecode">ha
 few times as possible.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>(alias pred, Range)(Range <i>haystack</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>(alias pred, Range)(Range <i>haystack</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Advances the input range <span class="inlinecode">haystack</span> by calling <span class="inlinecode">haystack.popFront</span>
 until either <span class="inlinecode">pred(haystack.front)</span>, or <span class="inlinecode">haystack.empty</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">haystack.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sgi.com/tech/stl/find_if.html">STL's find_if</a>.
 </p>
 
-<p>To <span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a> the last element of a bidirectional <span class="inlinecode">haystack</span> satisfying
-<span class="inlinecode">pred</span>, call <span class="inlinecode"><span class="symbol" id="find"></span><a class="symbol-anchor" href="#find">find</a>!(pred)(retro(haystack))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
+<p>To <span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a> the last element of a bidirectional <span class="inlinecode">haystack</span> satisfying
+<span class="inlinecode">pred</span>, call <span class="inlinecode"><span class="symbol-target" id="find">&nbsp;</span><a class="symbol-link" href="#find">find</a>!(pred)(retro(haystack))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 
 </p>
 <dt>Example:</dt><dd>
@@ -1092,7 +1092,7 @@ until either <span class="inlinecode">pred(haystack.front)</span>, or <span clas
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="findSkip"></span><a class="symbol-anchor" href="#findSkip">findSkip</a>(alias pred = "a == b", R1, R2)(ref R1 <i>haystack</i>, R2 <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="findSkip">&nbsp;</span><a class="symbol-link" href="#findSkip">findSkip</a>(alias pred = "a == b", R1, R2)(ref R1 <i>haystack</i>, R2 <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">needle</span> occurs in <span class="inlinecode">haystack</span>, positions <span class="inlinecode">haystack</span>
  right after the first occurrence of <span class="inlinecode">needle</span> and returns <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leaves <span class="inlinecode">haystack</span> as is and returns <span class="inlinecode"><span class="d_keyword">false</span></span>.
@@ -1108,14 +1108,14 @@ s = <span class="d_string">"abcdef"</span>;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="findSplit"></span><a class="symbol-anchor" href="#findSplit">findSplit</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
-<br>auto <span class="symbol" id="findSplitBefore"></span><a class="symbol-anchor" href="#findSplitBefore">findSplitBefore</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
-<br>auto <span class="symbol" id="findSplitAfter"></span><a class="symbol-anchor" href="#findSplitAfter">findSplitAfter</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="findSplit">&nbsp;</span><a class="symbol-link" href="#findSplit">findSplit</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<br>auto <span class="symbol-target" id="findSplitBefore">&nbsp;</span><a class="symbol-link" href="#findSplitBefore">findSplitBefore</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<br>auto <span class="symbol-target" id="findSplitAfter">&nbsp;</span><a class="symbol-link" href="#findSplitAfter">findSplitAfter</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>These functions find the first occurrence of <span class="inlinecode">needle</span> in <span class="inlinecode">haystack</span> and then split <span class="inlinecode">haystack</span> as follows.
 </p>
 
-<p><span class="inlinecode"><span class="symbol" id="findSplit"></span><a class="symbol-anchor" href="#findSplit">findSplit</a></span> returns a tuple <span class="inlinecode">result</span> containing <i>three</i>
+<p><span class="inlinecode"><span class="symbol-target" id="findSplit">&nbsp;</span><a class="symbol-link" href="#findSplit">findSplit</a></span> returns a tuple <span class="inlinecode">result</span> containing <i>three</i>
 ranges. <span class="inlinecode">result[0]</span> is the portion of <span class="inlinecode">haystack</span> before <span class="inlinecode">needle</span>, <span class="inlinecode">result[1]</span> is the portion of <span class="inlinecode">haystack</span> that matches
 <span class="inlinecode">needle</span>, and <span class="inlinecode">result[2]</span> is the portion of <span class="inlinecode">haystack</span> after
 the match. If <span class="inlinecode">needle</span> was not found, <span class="inlinecode">result[0]</span>
@@ -1165,7 +1165,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol" id="countUntil"></span><a class="symbol-anchor" href="#countUntil">countUntil</a>(alias pred = "a == b", R, N)(R <i>haystack</i>, N <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="countUntil">&nbsp;</span><a class="symbol-link" href="#countUntil">countUntil</a>(alias pred = "a == b", R, N)(R <i>haystack</i>, N <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of elements which must be popped from the front of
     <span class="inlinecode">haystack</span> before reaching an element for which
@@ -1187,7 +1187,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol" id="countUntil"></span><a class="symbol-anchor" href="#countUntil">countUntil</a>(alias pred, R)(R <i>haystack</i>);
+<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="countUntil">&nbsp;</span><a class="symbol-link" href="#countUntil">countUntil</a>(alias pred, R)(R <i>haystack</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of elements which must be popped from <span class="inlinecode">haystack</span>
     before <span class="inlinecode">pred(haystack.front)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>.
@@ -1200,7 +1200,7 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol" id="indexOf"></span><a class="symbol-anchor" href="#indexOf">indexOf</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
         Please use <a href="#countUntil"><span class="inlinecode">countUntil</span></a> instead.</font>
@@ -1211,17 +1211,17 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
  in <span class="inlinecode">std.string</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="OpenRight"></span><a class="symbol-anchor" href="#OpenRight">OpenRight</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="OpenRight">&nbsp;</span><a class="symbol-link" href="#OpenRight">OpenRight</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Interval option specifier for <span class="inlinecode">until</span> (below) and others.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="no"></span><a class="symbol-anchor" href="#no">no</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="no">&nbsp;</span><a class="symbol-link" href="#no">no</a></h3></div>
 <div class="declaration-content"><dl><p>Interval is closed to the right (last element included)</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="yes"></span><a class="symbol-anchor" href="#yes">yes</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="yes">&nbsp;</span><a class="symbol-link" href="#yes">yes</a></h3></div>
 <div class="declaration-content"><dl><p>Interval is open to the right (last element is not included)</p>
 
 </dl>
@@ -1229,9 +1229,9 @@ r = <u>findSplit</u>(a, [ 3, 4 ]);
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="Until"></span><a class="symbol-anchor" href="#Until">Until</a>(alias pred,Range,Sentinel) if (isInputRange!(Range));
-<br>Until!(pred,Range,Sentinel) <span class="symbol" id="until"></span><a class="symbol-anchor" href="#until">until</a>(alias pred = "a == b", Range, Sentinel)(Range <i>range</i>, Sentinel <i>sentinel</i>, OpenRight <i>openRight</i> = OpenRight.yes);
-<br>Until!(pred,Range,void) <span class="symbol" id="until"></span><a class="symbol-anchor" href="#until">until</a>(alias pred, Range)(Range <i>range</i>, OpenRight <i>openRight</i> = OpenRight.yes);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Until">&nbsp;</span><a class="symbol-link" href="#Until">Until</a>(alias pred,Range,Sentinel) if (isInputRange!(Range));
+<br>Until!(pred,Range,Sentinel) <span class="symbol-target" id="until">&nbsp;</span><a class="symbol-link" href="#until">until</a>(alias pred = "a == b", Range, Sentinel)(Range <i>range</i>, Sentinel <i>sentinel</i>, OpenRight <i>openRight</i> = OpenRight.yes);
+<br>Until!(pred,Range,void) <span class="symbol-target" id="until">&nbsp;</span><a class="symbol-link" href="#until">until</a>(alias pred, Range)(Range <i>range</i>, OpenRight <i>openRight</i> = OpenRight.yes);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily iterates <span class="inlinecode">range</span> until value <span class="inlinecode">sentinel</span> is found, at
 which point it stops.
@@ -1245,9 +1245,9 @@ which point it stops.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>uint <span class="symbol" id="startsWith"></span><a class="symbol-anchor" href="#startsWith">startsWith</a>(alias pred = "a == b", Range, Ranges...)(Range <i>doesThisStart</i>, Ranges <i>withOneOfThese</i>);
-<br>bool <span class="symbol" id="startsWith"></span><a class="symbol-anchor" href="#startsWith">startsWith</a>(alias pred = "a == b", R1, R2)(R1 <i>doesThisStart</i>, R2 <i>withThis</i>);
-<br>bool <span class="symbol" id="startsWith"></span><a class="symbol-anchor" href="#startsWith">startsWith</a>(alias pred = "a == b", R, E)(R <i>doesThisStart</i>, E <i>withThis</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="startsWith">&nbsp;</span><a class="symbol-link" href="#startsWith">startsWith</a>(alias pred = "a == b", Range, Ranges...)(Range <i>doesThisStart</i>, Ranges <i>withOneOfThese</i>);
+<br>bool <span class="symbol-target" id="startsWith">&nbsp;</span><a class="symbol-link" href="#startsWith">startsWith</a>(alias pred = "a == b", R1, R2)(R1 <i>doesThisStart</i>, R2 <i>withThis</i>);
+<br>bool <span class="symbol-target" id="startsWith">&nbsp;</span><a class="symbol-link" href="#startsWith">startsWith</a>(alias pred = "a == b", R, E)(R <i>doesThisStart</i>, E <i>withThis</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If the range <span class="inlinecode">doesThisStart</span> starts with <i>any</i> of the <span class="inlinecode">withOneOfThese</span> ranges or elements, returns 1 if it starts with <span class="inlinecode">withOneOfThese[0]</span>, 2 if it starts with <span class="inlinecode">withOneOfThese[1]</span>, and so
 on. If none match, returns 0. In the case where <span class="inlinecode">doesThisStart</span> starts
@@ -1273,14 +1273,14 @@ list matches).
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="skipOver"></span><a class="symbol-anchor" href="#skipOver">skipOver</a>(alias pred = "a == b", R1, R2)(ref R1 <i>r1</i>, R2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="skipOver">&nbsp;</span><a class="symbol-link" href="#skipOver">skipOver</a>(alias pred = "a == b", R1, R2)(ref R1 <i>r1</i>, R2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">startsWith(r1, r2)</span>, consume the corresponding elements off <span class="inlinecode">r1</span> and return <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leave <span class="inlinecode">r1</span> unchanged and
 return <span class="inlinecode"><span class="d_keyword">false</span></span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="skipOver"></span><a class="symbol-anchor" href="#skipOver">skipOver</a>(alias pred = "a == b", R, E)(ref R <i>r</i>, E <i>e</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="skipOver">&nbsp;</span><a class="symbol-link" href="#skipOver">skipOver</a>(alias pred = "a == b", R, E)(ref R <i>r</i>, E <i>e</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks whether a range starts with an element, and if so, consume that
 element off <span class="inlinecode">r</span> and return <span class="inlinecode"><span class="d_keyword">true</span></span>. Otherwise, leave <span class="inlinecode">r</span>
@@ -1288,9 +1288,9 @@ unchanged and return <span class="inlinecode"><span class="d_keyword">false</spa
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>uint <span class="symbol" id="endsWith"></span><a class="symbol-anchor" href="#endsWith">endsWith</a>(alias pred = "a == b", Range, Ranges...)(Range <i>doesThisEnd</i>, Ranges <i>withOneOfThese</i>);
-<br>bool <span class="symbol" id="endsWith"></span><a class="symbol-anchor" href="#endsWith">endsWith</a>(alias pred = "a == b", R1, R2)(R1 <i>doesThisEnd</i>, R2 <i>withThis</i>);
-<br>bool <span class="symbol" id="endsWith"></span><a class="symbol-anchor" href="#endsWith">endsWith</a>(alias pred = "a == b", R, E)(R <i>doesThisEnd</i>, E <i>withThis</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="endsWith">&nbsp;</span><a class="symbol-link" href="#endsWith">endsWith</a>(alias pred = "a == b", Range, Ranges...)(Range <i>doesThisEnd</i>, Ranges <i>withOneOfThese</i>);
+<br>bool <span class="symbol-target" id="endsWith">&nbsp;</span><a class="symbol-link" href="#endsWith">endsWith</a>(alias pred = "a == b", R1, R2)(R1 <i>doesThisEnd</i>, R2 <i>withThis</i>);
+<br>bool <span class="symbol-target" id="endsWith">&nbsp;</span><a class="symbol-link" href="#endsWith">endsWith</a>(alias pred = "a == b", R, E)(R <i>doesThisEnd</i>, E <i>withThis</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The reciprocal of <span class="inlinecode">startsWith</span>.
 </p>
@@ -1310,7 +1310,7 @@ unchanged and return <span class="inlinecode"><span class="d_keyword">false</spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="commonPrefix"></span><a class="symbol-anchor" href="#commonPrefix">commonPrefix</a>(alias pred = "a == b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="commonPrefix">&nbsp;</span><a class="symbol-link" href="#commonPrefix">commonPrefix</a>(alias pred = "a == b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the common prefix of two ranges. Example:
 </p>
@@ -1322,7 +1322,7 @@ The type of the result is the same as <span class="inlinecode">takeExactly(r1, n
 <span class="inlinecode">n</span> is the number of elements that both ranges start with.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="findAdjacent"></span><a class="symbol-anchor" href="#findAdjacent">findAdjacent</a>(alias pred = "a == b", Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="findAdjacent">&nbsp;</span><a class="symbol-link" href="#findAdjacent">findAdjacent</a>(alias pred = "a == b", Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Advances <span class="inlinecode">r</span> until it finds the first two adjacent elements <span class="inlinecode">a</span>,
 <span class="inlinecode">b</span> that satisfy <span class="inlinecode">pred(a, b)</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b>
@@ -1339,7 +1339,7 @@ p = <u>findAdjacent</u>!(<span class="d_string">"a &lt; b"</span>)(a);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range1 <span class="symbol" id="findAmong"></span><a class="symbol-anchor" href="#findAmong">findAmong</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>seq</i>, Range2 <i>choices</i>);
+<hr><div class="row-fluid declaration"><h3>Range1 <span class="symbol-target" id="findAmong">&nbsp;</span><a class="symbol-link" href="#findAmong">findAmong</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>seq</i>, Range2 <i>choices</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Advances <span class="inlinecode">seq</span> by calling <span class="inlinecode">seq.popFront</span> until either <span class="inlinecode">find!(pred)(choices, seq.front)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, or <span class="inlinecode">seq</span> becomes
 empty. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">seq.length * choices.length</span><b><i>)</i></b> evaluations of
@@ -1355,9 +1355,9 @@ find_first_of</a>.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol" id="count"></span><a class="symbol-anchor" href="#count">count</a>(alias pred = "a == b", Range, E)(Range <i>r</i>, E <i>value</i>);
-<br>size_t <span class="symbol" id="count"></span><a class="symbol-anchor" href="#count">count</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
-<br>size_t <span class="symbol" id="count"></span><a class="symbol-anchor" href="#count">count</a>(alias pred = "true", Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>(alias pred = "a == b", Range, E)(Range <i>r</i>, E <i>value</i>);
+<br>size_t <span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>(alias pred = "a == b", R1, R2)(R1 <i>haystack</i>, R2 <i>needle</i>);
+<br>size_t <span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>(alias pred = "true", Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>The first version counts the number of elements <span class="inlinecode">x</span> in <span class="inlinecode">r</span> for
 which <span class="inlinecode">pred(x, value)</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>. <span class="inlinecode">pred</span> defaults to
@@ -1367,7 +1367,7 @@ equality. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</sp
 <p>The second version returns the number of times <span class="inlinecode">needle</span> occurs in
 <span class="inlinecode">haystack</span>. Throws an exception if <span class="inlinecode">needle.empty</span>, as the count
 of the empty range in any range would be infinite. Overlapped counts
-are not considered, for example <span class="inlinecode"><span class="symbol" id="count"></span><a class="symbol-anchor" href="#count">count</a>("aaa", "aa")</span> is <span class="inlinecode">1</span>, not
+are not considered, for example <span class="inlinecode"><span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>("aaa", "aa")</span> is <span class="inlinecode">1</span>, not
 <span class="inlinecode">2</span>.
 <br><br>
 
@@ -1392,7 +1392,7 @@ The third version counts the elements for which <span class="inlinecode">pred(x)
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="balancedParens"></span><a class="symbol-anchor" href="#balancedParens">balancedParens</a>(Range, E)(Range <i>r</i>, E <i>lPar</i>, E <i>rPar</i>, size_t <i>maxNestingLevel</i> = size_t.max);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="balancedParens">&nbsp;</span><a class="symbol-link" href="#balancedParens">balancedParens</a>(Range, E)(Range <i>r</i>, E <i>lPar</i>, E <i>rPar</i>, size_t <i>maxNestingLevel</i> = size_t.max);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks whether <span class="inlinecode">r</span> has "balanced parentheses", i.e. all instances
 of <span class="inlinecode">lPar</span> are closed by corresponding instances of <span class="inlinecode">rPar</span>. The
@@ -1414,9 +1414,9 @@ s = <span class="d_string">"1 + (2 * 3 + 1) / (2 - 5)"</span>;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="equal"></span><a class="symbol-anchor" href="#equal">equal</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="equal">&nbsp;</span><a class="symbol-link" href="#equal">equal</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the two ranges compare <span class="symbol" id="equal"></span><a class="symbol-anchor" href="#equal">equal</a> element
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if the two ranges compare <span class="symbol-target" id="equal">&nbsp;</span><a class="symbol-link" href="#equal">equal</a> element
 for element, according to binary predicate <span class="inlinecode">pred</span>. The ranges may
 have different element types, as long as <span class="inlinecode">pred(a, b)</span> evaluates to
 <span class="inlinecode">bool</span> for <span class="inlinecode">a</span> in <span class="inlinecode">r1</span> and <span class="inlinecode">b</span> in <span class="inlinecode">r2</span>. Performs
@@ -1443,32 +1443,32 @@ have different element types, as long as <span class="inlinecode">pred(a, b)</sp
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a>(alias pred = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a>(alias pred = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Performs three-way lexicographical comparison on two input ranges
 according to predicate <span class="inlinecode">pred</span>. Iterating <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span> in
-lockstep, <span class="inlinecode"><span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a></span> compares each element <span class="inlinecode">e1</span> of <span class="inlinecode">r1</span> with the
+lockstep, <span class="inlinecode"><span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a></span> compares each element <span class="inlinecode">e1</span> of <span class="inlinecode">r1</span> with the
 corresponding element <span class="inlinecode">e2</span> in <span class="inlinecode">r2</span>. If <span class="inlinecode">binaryFun!pred(e1,
-e2)</span>, <span class="inlinecode"><span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a></span> returns a negative value. If <span class="inlinecode">binaryFun!pred(e2,
-e1)</span>, <span class="inlinecode"><span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a></span> returns a positive value. If one of the ranges has been
-finished, <span class="inlinecode"><span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a></span> returns a negative value if <span class="inlinecode">r1</span> has fewer
+e2)</span>, <span class="inlinecode"><span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a></span> returns a negative value. If <span class="inlinecode">binaryFun!pred(e2,
+e1)</span>, <span class="inlinecode"><span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a></span> returns a positive value. If one of the ranges has been
+finished, <span class="inlinecode"><span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a></span> returns a negative value if <span class="inlinecode">r1</span> has fewer
 elements than <span class="inlinecode">r2</span>, a positive value if <span class="inlinecode">r1</span> has more elements
 than <span class="inlinecode">r2</span>, and <span class="inlinecode">0</span> if the ranges have the same number of
 elements.
 </p>
 
-<p>If the ranges are strings, <span class="inlinecode"><span class="symbol" id="cmp"></span><a class="symbol-anchor" href="#cmp">cmp</a></span> performs UTF decoding
+<p>If the ranges are strings, <span class="inlinecode"><span class="symbol-target" id="cmp">&nbsp;</span><a class="symbol-link" href="#cmp">cmp</a></span> performs UTF decoding
 appropriately and compares the ranges one code point at a time.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>MinType!(T1,T2,T) <span class="symbol" id="min"></span><a class="symbol-anchor" href="#min">min</a>(T1, T2, T...)(T1 <i>a</i>, T2 <i>b</i>, T <i>xs</i>);
+<hr><div class="row-fluid declaration"><h3>MinType!(T1,T2,T) <span class="symbol-target" id="min">&nbsp;</span><a class="symbol-link" href="#min">min</a>(T1, T2, T...)(T1 <i>a</i>, T2 <i>b</i>, T <i>xs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the minimum of the passed-in values. The type of the result is
 computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">std.traits.CommonType</span></a>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>MaxType!(T1,T2,T) <span class="symbol" id="max"></span><a class="symbol-anchor" href="#max">max</a>(T1, T2, T...)(T1 <i>a</i>, T2 <i>b</i>, T <i>xs</i>);
+<hr><div class="row-fluid declaration"><h3>MaxType!(T1,T2,T) <span class="symbol-target" id="max">&nbsp;</span><a class="symbol-link" href="#max">max</a>(T1, T2, T...)(T1 <i>a</i>, T2 <i>b</i>, T <i>xs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the maximum of the passed-in values. The type of the result is
 computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">std.traits.CommonType</span></a>.
@@ -1488,7 +1488,7 @@ computed by using <a href="std_traits.html#CommonType"><span class="inlinecode">
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(ElementType!(Range),size_t) <span class="symbol" id="minCount"></span><a class="symbol-anchor" href="#minCount">minCount</a>(alias pred = "a &lt; b", Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(ElementType!(Range),size_t) <span class="symbol-target" id="minCount">&nbsp;</span><a class="symbol-link" href="#minCount">minCount</a>(alias pred = "a &lt; b", Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the minimum element of a range together with the number of
 occurrences. The function can actually be used for counting the
@@ -1508,7 +1508,7 @@ not provided).
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="minPos"></span><a class="symbol-anchor" href="#minPos">minPos</a>(alias pred = "a &lt; b", Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="minPos">&nbsp;</span><a class="symbol-link" href="#minPos">minPos</a>(alias pred = "a &lt; b", Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the position of the minimum element of forward range <span class="inlinecode">range</span>, i.e. a subrange of <span class="inlinecode">range</span> starting at the position of its
 smallest element and with the same ending as <span class="inlinecode">range</span>. The function
@@ -1528,10 +1528,10 @@ predicate (that's why <span class="inlinecode">maxPos</span> is not provided).
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol" id="mismatch"></span><a class="symbol-anchor" href="#mismatch">mismatch</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol-target" id="mismatch">&nbsp;</span><a class="symbol-link" href="#mismatch">mismatch</a>(alias pred = "a == b", Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sequentially compares elements in <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span> in lockstep, and
-stops at the first <span class="symbol" id="mismatch"></span><a class="symbol-anchor" href="#mismatch">mismatch</a> (according to <span class="inlinecode">pred</span>, by default
+stops at the first <span class="symbol-target" id="mismatch">&nbsp;</span><a class="symbol-link" href="#mismatch">mismatch</a> (according to <span class="inlinecode">pred</span>, by default
 equality). Returns a tuple with the reduced ranges that start with the
 two mismatched values. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">min(r1.length, r2.length)</span><b><i>)</i></b>
 evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sgi.com/tech/stl/mismatch.html">STL's mismatch</a>.
@@ -1547,11 +1547,11 @@ evaluations of <span class="inlinecode">pred</span>. See also <a href="http://sg
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="EditOp"></span><a class="symbol-anchor" href="#EditOp">EditOp</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="EditOp">&nbsp;</span><a class="symbol-link" href="#EditOp">EditOp</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes <a href="http://realityinteractive.com/rgrzywinski/archives/000249.html">edit operations</a> necessary to transform one sequence into
 another. Given sequences <span class="inlinecode">s</span> (source) and <span class="inlinecode">t</span> (target), a
-sequence of <span class="inlinecode"><span class="symbol" id="EditOp"></span><a class="symbol-anchor" href="#EditOp">EditOp</a></span> encodes the steps that need to be taken to
+sequence of <span class="inlinecode"><span class="symbol-target" id="EditOp">&nbsp;</span><a class="symbol-link" href="#EditOp">EditOp</a></span> encodes the steps that need to be taken to
 convert <span class="inlinecode">s</span> into <span class="inlinecode">t</span>. For example, if <span class="inlinecode">s = "cat"</span> and <span class="inlinecode">"cars"</span>, the minimal sequence that transforms <span class="inlinecode">s</span> into <span class="inlinecode">t</span> is:
 skip two characters, replace 't' with 'r', and insert an 's'. Working
 with edit operations is useful in applications such as spell-checkers
@@ -1561,22 +1561,22 @@ files, efficient encoding of patches, DNA sequence analysis, and
 plagiarism detection.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="none"></span><a class="symbol-anchor" href="#none">none</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
 <div class="declaration-content"><dl><p>Current items are equal; no editing is necessary. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="substitute"></span><a class="symbol-anchor" href="#substitute">substitute</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="substitute">&nbsp;</span><a class="symbol-link" href="#substitute">substitute</a></h3></div>
 <div class="declaration-content"><dl><p>Substitute current item in target with current item in source. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="insert"></span><a class="symbol-anchor" href="#insert">insert</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="insert">&nbsp;</span><a class="symbol-link" href="#insert">insert</a></h3></div>
 <div class="declaration-content"><dl><p>Insert current item from the source into the target. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></h3></div>
 <div class="declaration-content"><dl><p>Remove current item from the target. </p>
 
 </dl>
@@ -1584,7 +1584,7 @@ plagiarism detection.</p>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol" id="levenshteinDistance"></span><a class="symbol-anchor" href="#levenshteinDistance">levenshteinDistance</a>(alias equals = "a == b", Range1, Range2)(Range1 <i>s</i>, Range2 <i>t</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="levenshteinDistance">&nbsp;</span><a class="symbol-link" href="#levenshteinDistance">levenshteinDistance</a>(alias equals = "a == b", Range1, Range2)(Range1 <i>s</i>, Range2 <i>t</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <a href="http://wikipedia.org/wiki/Levenshtein_distance">Levenshtein
 distance</a> between <span class="inlinecode">s</span> and <span class="inlinecode">t</span>. The Levenshtein distance computes
@@ -1604,7 +1604,7 @@ into <span class="inlinecode">t</span>.  Performs <b><i>&Omicron;</i>(</b><span 
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(size_t,EditOp[]) <span class="symbol" id="levenshteinDistanceAndPath"></span><a class="symbol-anchor" href="#levenshteinDistanceAndPath">levenshteinDistanceAndPath</a>(alias equals = "a == b", Range1, Range2)(Range1 <i>s</i>, Range2 <i>t</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(size_t,EditOp[]) <span class="symbol-target" id="levenshteinDistanceAndPath">&nbsp;</span><a class="symbol-link" href="#levenshteinDistanceAndPath">levenshteinDistanceAndPath</a>(alias equals = "a == b", Range1, Range2)(Range1 <i>s</i>, Range2 <i>t</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the Levenshtein distance and the edit path between <span class="inlinecode">s</span> and
 <span class="inlinecode">t</span>.
@@ -1619,12 +1619,12 @@ into <span class="inlinecode">t</span>.  Performs <b><i>&Omicron;</i>(</b><span 
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range2 <span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a>(Range1, Range2)(Range1 <i>source</i>, Range2 <i>target</i>);
+<hr><div class="row-fluid declaration"><h3>Range2 <span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a>(Range1, Range2)(Range1 <i>source</i>, Range2 <i>target</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Copies the content of <span class="inlinecode">source</span> into <span class="inlinecode">target</span> and returns the
 remaining (unfilled) part of <span class="inlinecode">target</span>. See also <a href="http://sgi.com/tech/stl/copy.html">STL's copy</a>. If a behavior similar to
 <a href="http://sgi.com/tech/stl/copy_backward.html">STL's copy_backward</a> is
-needed, use <span class="inlinecode"><span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a>(retro(source), retro(target))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
+needed, use <span class="inlinecode"><span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a>(retro(source), retro(target))</span>. See also <a href="std_range.html#retro"><span class="inlinecode">std.range.retro</span></a>.
 </p>
 
 <dt>Example:</dt><dd>
@@ -1646,10 +1646,10 @@ range elements, different types of ranges are accepted.
 <span class="d_keyword">auto</span> d = <u>copy</u>(a, b);
 </pre>
 
-To <span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a> at most <span class="inlinecode">n</span> elements from range <span class="inlinecode">a</span> to range <span class="inlinecode">b</span>, you
-may want to use <span class="inlinecode"><span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a>(take(a, n), b)</span>. To <span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a> those elements from
+To <span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a> at most <span class="inlinecode">n</span> elements from range <span class="inlinecode">a</span> to range <span class="inlinecode">b</span>, you
+may want to use <span class="inlinecode"><span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a>(take(a, n), b)</span>. To <span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a> those elements from
 range <span class="inlinecode">a</span> that satisfy predicate <span class="inlinecode">pred</span> to range <span class="inlinecode">b</span>, you may
-want to use <span class="inlinecode"><span class="symbol" id="copy"></span><a class="symbol-anchor" href="#copy">copy</a>(filter!(pred)(a), b)</span>.
+want to use <span class="inlinecode"><span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a>(filter!(pred)(a), b)</span>.
 
 </dd>
 <dt>Example:</dt><dd>
@@ -1661,7 +1661,7 @@ want to use <span class="inlinecode"><span class="symbol" id="copy"></span><a cl
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol" id="swapRanges"></span><a class="symbol-anchor" href="#swapRanges">swapRanges</a>(Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(Range1,Range2) <span class="symbol-target" id="swapRanges">&nbsp;</span><a class="symbol-link" href="#swapRanges">swapRanges</a>(Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Swaps all elements of <span class="inlinecode">r1</span> with successive elements in <span class="inlinecode">r2</span>.
 Returns a tuple containing the remainder portions of <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span> that were not swapped (one of them will be empty). The ranges may
@@ -1680,7 +1680,7 @@ swapping.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="reverse"></span><a class="symbol-anchor" href="#reverse">reverse</a>(Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="reverse">&nbsp;</span><a class="symbol-link" href="#reverse">reverse</a>(Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reverses <span class="inlinecode">r</span> in-place.  Performs <span class="inlinecode">r.length / 2</span> evaluations of <span class="inlinecode">swap</span>. See also <a href="http://sgi.com/tech/stl/reverse.html">STL's reverse</a>.
 </p>
@@ -1693,7 +1693,7 @@ swapping.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="reverse"></span><a class="symbol-anchor" href="#reverse">reverse</a>(Char)(Char[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="reverse">&nbsp;</span><a class="symbol-link" href="#reverse">reverse</a>(Char)(Char[] <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reverses <span class="inlinecode">r</span> in-place, where <span class="inlinecode">r</span> is a narrow string (having
 elements of type <span class="inlinecode">char</span> or <span class="inlinecode">wchar</span>). UTF sequences consisting of
@@ -1708,23 +1708,23 @@ multiple code units are preserved properly.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol" id="bringToFront"></span><a class="symbol-anchor" href="#bringToFront">bringToFront</a>(Range1, Range2)(Range1 <i>front</i>, Range2 <i>back</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="bringToFront">&nbsp;</span><a class="symbol-link" href="#bringToFront">bringToFront</a>(Range1, Range2)(Range1 <i>front</i>, Range2 <i>back</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>The <span class="inlinecode"><span class="symbol" id="bringToFront"></span><a class="symbol-anchor" href="#bringToFront">bringToFront</a></span> function has considerable flexibility and
+<div class="declaration-content"><dl><p>The <span class="inlinecode"><span class="symbol-target" id="bringToFront">&nbsp;</span><a class="symbol-link" href="#bringToFront">bringToFront</a></span> function has considerable flexibility and
 usefulness. It can rotate elements in one buffer left or right, swap
 buffers of equal length, and even move elements across disjoint
 buffers of different types and different lengths.
 </p>
 
-<p><span class="inlinecode"><span class="symbol" id="bringToFront"></span><a class="symbol-anchor" href="#bringToFront">bringToFront</a></span> takes two ranges <span class="inlinecode">front</span> and <span class="inlinecode">back</span>, which may
+<p><span class="inlinecode"><span class="symbol-target" id="bringToFront">&nbsp;</span><a class="symbol-link" href="#bringToFront">bringToFront</a></span> takes two ranges <span class="inlinecode">front</span> and <span class="inlinecode">back</span>, which may
 be of different types. Considering the concatenation of <span class="inlinecode">front</span> and
-<span class="inlinecode">back</span> one unified range, <span class="inlinecode"><span class="symbol" id="bringToFront"></span><a class="symbol-anchor" href="#bringToFront">bringToFront</a></span> rotates that unified
+<span class="inlinecode">back</span> one unified range, <span class="inlinecode"><span class="symbol-target" id="bringToFront">&nbsp;</span><a class="symbol-link" href="#bringToFront">bringToFront</a></span> rotates that unified
 range such that all elements in <span class="inlinecode">back</span> are brought to the beginning
 of the unified range. The relative ordering of elements in <span class="inlinecode">front</span>
 and <span class="inlinecode">back</span>, respectively, remains unchanged.
 <br><br>
 
-The simplest use of <span class="inlinecode"><span class="symbol" id="bringToFront"></span><a class="symbol-anchor" href="#bringToFront">bringToFront</a></span> is for rotating elements in a
+The simplest use of <span class="inlinecode"><span class="symbol-target" id="bringToFront">&nbsp;</span><a class="symbol-link" href="#bringToFront">bringToFront</a></span> is for rotating elements in a
 buffer. For example:
 <br><br>
 
@@ -1768,7 +1768,7 @@ reachable from <span class="inlinecode">front</span> and <span class="inlinecode
 <dt>Returns</dt><dd>The number of elements brought to the front, i.e., the length of <span class="inlinecode">back</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="SwapStrategy"></span><a class="symbol-anchor" href="#SwapStrategy">SwapStrategy</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SwapStrategy">&nbsp;</span><a class="symbol-link" href="#SwapStrategy">SwapStrategy</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Defines the swapping strategy for algorithms that need to swap
 elements in a range (such as partition and sort). The strategy
@@ -1796,22 +1796,22 @@ established terminology for such behavior; this library calls it <b>semistable</
 Generally, the <span class="inlinecode">stable</span> ordering strategy may be more costly in
 time and/or space than the other two because it imposes additional
 constraints. Similarly, <span class="inlinecode">semistable</span> may be costlier than <span class="inlinecode">unstable</span>. As (semi-)stability is not needed very often, the ordering
-algorithms in this module parameterized by <span class="inlinecode"><span class="symbol" id="SwapStrategy"></span><a class="symbol-anchor" href="#SwapStrategy">SwapStrategy</a></span> all
-choose <span class="inlinecode"><span class="symbol" id="SwapStrategy"></span><a class="symbol-anchor" href="#SwapStrategy">SwapStrategy</a>.unstable</span> as the default.</p>
+algorithms in this module parameterized by <span class="inlinecode"><span class="symbol-target" id="SwapStrategy">&nbsp;</span><a class="symbol-link" href="#SwapStrategy">SwapStrategy</a></span> all
+choose <span class="inlinecode"><span class="symbol-target" id="SwapStrategy">&nbsp;</span><a class="symbol-link" href="#SwapStrategy">SwapStrategy</a>.unstable</span> as the default.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="unstable"></span><a class="symbol-anchor" href="#unstable">unstable</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="unstable">&nbsp;</span><a class="symbol-link" href="#unstable">unstable</a></h3></div>
 <div class="declaration-content"><dl><p>Allows freely swapping of elements as long as the output
        satisfies the algorithm's requirements.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="semistable"></span><a class="symbol-anchor" href="#semistable">semistable</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="semistable">&nbsp;</span><a class="symbol-link" href="#semistable">semistable</a></h3></div>
 <div class="declaration-content"><dl><p>In algorithms partitioning ranges in two, preserve relative
        ordering of elements only to the left of the partition point.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="stable"></span><a class="symbol-anchor" href="#stable">stable</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="stable">&nbsp;</span><a class="symbol-link" href="#stable">stable</a></h3></div>
 <div class="declaration-content"><dl><p>Preserve the relative ordering of elements to the largest
        extent allowed by the algorithm's requirements.</p>
 
@@ -1820,7 +1820,7 @@ choose <span class="inlinecode"><span class="symbol" id="SwapStrategy"></span><a
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a>(SwapStrategy s = SwapStrategy.stable, Range, Offset...)(Range <i>range</i>, Offset <i>offset</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a>(SwapStrategy s = SwapStrategy.stable, Range, Offset...)(Range <i>range</i>, Offset <i>offset</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Eliminates elements at given offsets from <span class="inlinecode">range</span> and returns the
 shortened range. In the simplest call, one element is removed.
@@ -1831,16 +1831,16 @@ shortened range. In the simplest call, one element is removed.
 <span class="d_keyword">assert</span>(a == [ 3, 7, 8, 8 ]);
 </pre>
 
-In the case above the element at offset <span class="inlinecode">1</span> is removed and <span class="inlinecode"><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></span> returns the range smaller by one element. The original array
+In the case above the element at offset <span class="inlinecode">1</span> is removed and <span class="inlinecode"><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></span> returns the range smaller by one element. The original array
 has remained of the same length because all functions in <span class="inlinecode">std.algorithm</span> only change <i>content</i>, not <i>topology</i>. The value
 <span class="inlinecode">8</span> is repeated because <a href="std_algorithm.html#move"><span class="inlinecode">std.algorithm.move</span></a> was invoked to move
 elements around and on integers <span class="inlinecode">move</span> simply copies the source to
 the destination. To replace <span class="inlinecode">a</span> with the effect of the removal,
-simply assign <span class="inlinecode">a = <span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a>(a, 1)</span>. The slice will be rebound to the
+simply assign <span class="inlinecode">a = <span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a>(a, 1)</span>. The slice will be rebound to the
 shorter array and the operation completes with maximal efficiency.
 <br><br>
 
-Multiple indices can be passed into <span class="inlinecode"><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></span>. In that case,
+Multiple indices can be passed into <span class="inlinecode"><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></span>. In that case,
 elements at the respective indices are all removed. The indices must
 be passed in increasing order, otherwise an exception occurs.
 <br><br>
@@ -1866,9 +1866,9 @@ the right (consistent with built-in slices), e.g. <span class="inlinecode">tuple
 means indices <span class="inlinecode">3</span> and <span class="inlinecode">4</span> but not <span class="inlinecode">5</span>.
 <br><br>
 
-If the need is to <span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a> some elements in the range but the order of
+If the need is to <span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a> some elements in the range but the order of
 the remaining elements does not have to be preserved, you may want to
-pass <span class="inlinecode">SwapStrategy.unstable</span> to <span class="inlinecode"><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></span>.
+pass <span class="inlinecode">SwapStrategy.unstable</span> to <span class="inlinecode"><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></span>.
 <br><br>
 
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3 ];
@@ -1877,12 +1877,12 @@ pass <span class="inlinecode">SwapStrategy.unstable</span> to <span class="inlin
 
 In the case above, the element at slot <span class="inlinecode">1</span> is removed, but replaced
 with the last element of the range. Taking advantage of the relaxation
-of the stability requirement, <span class="inlinecode"><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></span> moved elements from the end
+of the stability requirement, <span class="inlinecode"><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></span> moved elements from the end
 of the array over the slots to be removed. This way there is less data
 movement to be done which improves the execution time of the function.
 <br><br>
 
-The function <span class="inlinecode"><span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a></span> works on any forward range. The moving
+The function <span class="inlinecode"><span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a></span> works on any forward range. The moving
 strategy is (listed from fastest to slowest): <ul><li>If <span class="inlinecode">s ==
 SwapStrategy.unstable &amp;&amp; isRandomAccessRange!Range &amp;&amp;
 hasLength!Range</span>, then elements are moved from the end of the range
@@ -1897,7 +1897,7 @@ several times, but more elements are moved than in the previous
 cases.</li></ul></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="remove"></span><a class="symbol-anchor" href="#remove">remove</a>(alias pred, SwapStrategy s = SwapStrategy.stable, Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="remove">&nbsp;</span><a class="symbol-link" href="#remove">remove</a>(alias pred, SwapStrategy s = SwapStrategy.stable, Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reduces the length of the bidirectional range <span class="inlinecode">range</span> by removing
 elements that satisfy <span class="inlinecode">pred</span>. If <span class="inlinecode">s = SwapStrategy.unstable</span>,
@@ -1914,7 +1914,7 @@ order is preserved. Returns the filtered range.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Range <span class="symbol" id="partition"></span><a class="symbol-anchor" href="#partition">partition</a>(alias predicate, SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>Range <span class="symbol-target" id="partition">&nbsp;</span><a class="symbol-link" href="#partition">partition</a>(alias predicate, SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Partitions a range in two using <span class="inlinecode">pred</span> as a
 predicate. Specifically, reorders the range <span class="inlinecode">r = [left,
@@ -1935,9 +1935,9 @@ See also STL's <a href="http://sgi.com/tech/stl/partition.html">partition</a> an
 <dt>Returns</dt><dd>The right part of <span class="inlinecode">r</span> after partitioning.
 <br><br>
 
-If <span class="inlinecode">ss == SwapStrategy.stable</span>, <span class="inlinecode"><span class="symbol" id="partition"></span><a class="symbol-anchor" href="#partition">partition</a></span> preserves the
+If <span class="inlinecode">ss == SwapStrategy.stable</span>, <span class="inlinecode"><span class="symbol-target" id="partition">&nbsp;</span><a class="symbol-link" href="#partition">partition</a></span> preserves the
 relative ordering of all elements <span class="inlinecode">a</span>, <span class="inlinecode">b</span> in <span class="inlinecode">r</span> for which
-<span class="inlinecode">pred(a) == pred(b)</span>. If <span class="inlinecode">ss == SwapStrategy.semistable</span>, <span class="inlinecode"><span class="symbol" id="partition"></span><a class="symbol-anchor" href="#partition">partition</a></span> preserves the relative ordering of all elements <span class="inlinecode">a</span>, <span class="inlinecode">b</span> in the left part of <span class="inlinecode">r</span> for which <span class="inlinecode">pred(a) == pred(b)</span>.
+<span class="inlinecode">pred(a) == pred(b)</span>. If <span class="inlinecode">ss == SwapStrategy.semistable</span>, <span class="inlinecode"><span class="symbol-target" id="partition">&nbsp;</span><a class="symbol-link" href="#partition">partition</a></span> preserves the relative ordering of all elements <span class="inlinecode">a</span>, <span class="inlinecode">b</span> in the left part of <span class="inlinecode">r</span> for which <span class="inlinecode">pred(a) == pred(b)</span>.
 
 </dd>
 <dt>Example:</dt><dd>
@@ -1986,7 +1986,7 @@ r = <u>partition</u>!(fun, SwapStrategy.semistable)(arr);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="isPartitioned"></span><a class="symbol-anchor" href="#isPartitioned">isPartitioned</a>(alias pred, Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="isPartitioned">&nbsp;</span><a class="symbol-link" href="#isPartitioned">isPartitioned</a>(alias pred, Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">r</span> is partitioned according to predicate <span class="inlinecode">pred</span>.
 </p>
@@ -1998,7 +1998,7 @@ r = <u>partition</u>!(fun, SwapStrategy.semistable)(arr);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol" id="partition3"></span><a class="symbol-anchor" href="#partition3">partition3</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, E)(Range <i>r</i>, E <i>pivot</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="partition3">&nbsp;</span><a class="symbol-link" href="#partition3">partition3</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, E)(Range <i>r</i>, E <i>pivot</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Rearranges elements in <span class="inlinecode">r</span> in three adjacent ranges and returns
 them. The first and leftmost range only contains elements in <span class="inlinecode">r</span>
@@ -2019,10 +2019,10 @@ than <span class="inlinecode">pivot</span>. The less-than test is defined by the
 </pre>
 
 </dd>
-<dt>Known Bugs</dt><dd>stable <span class="inlinecode"><span class="symbol" id="partition3"></span><a class="symbol-anchor" href="#partition3">partition3</a></span> has not been implemented yet.</dd>
+<dt>Known Bugs</dt><dd>stable <span class="inlinecode"><span class="symbol-target" id="partition3">&nbsp;</span><a class="symbol-link" href="#partition3">partition3</a></span> has not been implemented yet.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="topN"></span><a class="symbol-anchor" href="#topN">topN</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>, size_t <i>nth</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="topN">&nbsp;</span><a class="symbol-link" href="#topN">topN</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>, size_t <i>nth</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reorders the range <span class="inlinecode">r</span> using <span class="inlinecode">swap</span> such that <span class="inlinecode">r[nth]</span> refers
 to the element that would fall there if the range were fully
@@ -2046,16 +2046,16 @@ stable) evaluations of <span class="inlinecode">less</span> and <span class="inl
 </pre>
 
 </dd>
-<dt>Known Bugs</dt><dd>Stable <span class="symbol" id="topN"></span><a class="symbol-anchor" href="#topN">topN</a> has not been implemented yet.</dd>
+<dt>Known Bugs</dt><dd>Stable <span class="symbol-target" id="topN">&nbsp;</span><a class="symbol-link" href="#topN">topN</a> has not been implemented yet.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="topN"></span><a class="symbol-anchor" href="#topN">topN</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="topN">&nbsp;</span><a class="symbol-link" href="#topN">topN</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range1, Range2)(Range1 <i>r1</i>, Range2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Stores the smallest elements of the two ranges in the left-hand range.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SortedRange!(Range,less) <span class="symbol" id="sort"></span><a class="symbol-anchor" href="#sort">sort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>SortedRange!(Range,less) <span class="symbol-target" id="sort">&nbsp;</span><a class="symbol-link" href="#sort">sort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sorts a random-access range according to predicate <span class="inlinecode">less</span>. Performs
 <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length * log(r.length)</span><b><i>)</i></b> (if unstable) or <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length *
@@ -2088,12 +2088,12 @@ string[] words = [ <span class="d_string">"aBc"</span>, <span class="d_string">"
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="multiSort"></span><a class="symbol-anchor" href="#multiSort">multiSort</a>(less...)</h3></div>
-<div class="declaration-content"><dl><p>Sorts a range by multiple keys. The call <span class="inlinecode"><span class="symbol" id="multiSort"></span><a class="symbol-anchor" href="#multiSort">multiSort</a>!("a.id &lt; b.id",
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="multiSort">&nbsp;</span><a class="symbol-link" href="#multiSort">multiSort</a>(less...)</h3></div>
+<div class="declaration-content"><dl><p>Sorts a range by multiple keys. The call <span class="inlinecode"><span class="symbol-target" id="multiSort">&nbsp;</span><a class="symbol-link" href="#multiSort">multiSort</a>!("a.id &lt; b.id",
 "a.date &gt; b.date")(r)</span> sorts the range <span class="inlinecode">r</span> by <span class="inlinecode">id</span> ascending,
 and sorts elements that have the same <span class="inlinecode">id</span> by <span class="inlinecode">date</span>
 descending. Such a call is equivalent to <span class="inlinecode">sort!"a.id != b.id ? a.id
-&lt; b.id : a.date &gt; b.date"(r)</span>, but <span class="inlinecode"><span class="symbol" id="multiSort"></span><a class="symbol-anchor" href="#multiSort">multiSort</a></span> is faster because it
+&lt; b.id : a.date &gt; b.date"(r)</span>, but <span class="inlinecode"><span class="symbol-target" id="multiSort">&nbsp;</span><a class="symbol-link" href="#multiSort">multiSort</a></span> is faster because it
 does fewer comparisons (in addition to being more convenient).
 </p>
 
@@ -2107,14 +2107,14 @@ does fewer comparisons (in addition to being more convenient).
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="schwartzSort"></span><a class="symbol-anchor" href="#schwartzSort">schwartzSort</a>(alias transform, alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="schwartzSort">&nbsp;</span><a class="symbol-link" href="#schwartzSort">schwartzSort</a>(alias transform, alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sorts a range using an algorithm akin to the <a href="http://wikipedia.org/wiki/Schwartzian_transform">Schwartzian transform</a>, also
 known as the decorate-sort-undecorate pattern in Python and Lisp. (Not
 to be confused with <a href="http://youtube.com/watch?v=S25Zf8svHZQ">the other
 Schwartz</a>.) This function is helpful when the sort comparison includes
 an expensive computation. The complexity is the same as that of the
-corresponding <span class="inlinecode">sort</span>, but <span class="inlinecode"><span class="symbol" id="schwartzSort"></span><a class="symbol-anchor" href="#schwartzSort">schwartzSort</a></span> evaluates <span class="inlinecode">transform</span> only <span class="inlinecode">r.length</span> times (less than half when compared to
+corresponding <span class="inlinecode">sort</span>, but <span class="inlinecode"><span class="symbol-target" id="schwartzSort">&nbsp;</span><a class="symbol-link" href="#schwartzSort">schwartzSort</a></span> evaluates <span class="inlinecode">transform</span> only <span class="inlinecode">r.length</span> times (less than half when compared to
 regular sorting). The usage can be best illustrated with an example.
 </p>
 
@@ -2129,7 +2129,7 @@ sort!(<span class="d_string">"hashFun(a) &lt; hashFun(b)"</span>)(array);
 <u>schwartzSort</u>!(hashFun, <span class="d_string">"a &lt; b"</span>)(array);
 </pre>
 
-The <span class="inlinecode"><span class="symbol" id="schwartzSort"></span><a class="symbol-anchor" href="#schwartzSort">schwartzSort</a></span> function might require less temporary data and
+The <span class="inlinecode"><span class="symbol-target" id="schwartzSort">&nbsp;</span><a class="symbol-link" href="#schwartzSort">schwartzSort</a></span> function might require less temporary data and
 be faster than the Perl idiom or the decorate-sort-undecorate idiom
 present in Python and Lisp. This is because sorting is done in-place
 and only minimal extra data (one array of transformed elements) is
@@ -2141,7 +2141,7 @@ Schwartz sorting, a function <span class="inlinecode">schwartzIsSorted</span> is
 because the effect can be achieved by calling <span class="inlinecode">isSorted!less(map!transform(r))</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="partialSort"></span><a class="symbol-anchor" href="#partialSort">partialSort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>, size_t <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="partialSort">&nbsp;</span><a class="symbol-link" href="#partialSort">partialSort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range)(Range <i>r</i>, size_t <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reorders the random-access range <span class="inlinecode">r</span> such that the range <span class="inlinecode">r[0
 .. mid]</span> is the same as if the entire <span class="inlinecode">r</span> were sorted, and leaves
@@ -2158,7 +2158,7 @@ implementation simply calls <span class="inlinecode">topN!(less, ss)(r, n)</span
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="completeSort"></span><a class="symbol-anchor" href="#completeSort">completeSort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range1, Range2)(SortedRange!(Range1,less) <i>lhs</i>, Range2 <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="completeSort">&nbsp;</span><a class="symbol-link" href="#completeSort">completeSort</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range1, Range2)(SortedRange!(Range1,less) <i>lhs</i>, Range2 <i>rhs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Sorts the random-access range <span class="inlinecode">chain(lhs, rhs)</span> according to
 predicate <span class="inlinecode">less</span>. The left-hand side of the range <span class="inlinecode">lhs</span> is
@@ -2179,7 +2179,7 @@ rhs.length)</span><b><i>)</i></b> (worst-case) evaluations of <span class="inlin
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="isSorted"></span><a class="symbol-anchor" href="#isSorted">isSorted</a>(alias less = "a &lt; b", Range)(Range <i>r</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="isSorted">&nbsp;</span><a class="symbol-link" href="#isSorted">isSorted</a>(alias less = "a &lt; b", Range)(Range <i>r</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks whether a forward range is sorted according to the comparison
 operation <span class="inlinecode">less</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">less</span>.
@@ -2196,8 +2196,8 @@ sort!(<span class="d_string">"a &gt; b"</span>)(arr);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="makeIndex"></span><a class="symbol-anchor" href="#makeIndex">makeIndex</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, RangeIndex)(Range <i>r</i>, RangeIndex <i>index</i>);
-<br>void <span class="symbol" id="makeIndex"></span><a class="symbol-anchor" href="#makeIndex">makeIndex</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, RangeIndex)(Range <i>r</i>, RangeIndex <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="makeIndex">&nbsp;</span><a class="symbol-link" href="#makeIndex">makeIndex</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, RangeIndex)(Range <i>r</i>, RangeIndex <i>index</i>);
+<br>void <span class="symbol-target" id="makeIndex">&nbsp;</span><a class="symbol-link" href="#makeIndex">makeIndex</a>(alias less = "a &lt; b", SwapStrategy ss = SwapStrategy.unstable, Range, RangeIndex)(Range <i>r</i>, RangeIndex <i>index</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes an index for <span class="inlinecode">r</span> based on the comparison <span class="inlinecode">less</span>. The
 index is a sorted array of pointers or indices into the original
@@ -2212,12 +2212,12 @@ because it needs space for the index in addition to the original
 collection. The complexity is the same as <span class="inlinecode">sort</span>'s.
 </p>
 
-<p><span class="inlinecode"><span class="symbol" id="makeIndex"></span><a class="symbol-anchor" href="#makeIndex">makeIndex</a></span> overwrites its second argument with the result, but
+<p><span class="inlinecode"><span class="symbol-target" id="makeIndex">&nbsp;</span><a class="symbol-link" href="#makeIndex">makeIndex</a></span> overwrites its second argument with the result, but
 never reallocates it. If the second argument's length is less than
 that of the range indexed, an exception is thrown.
 <br><br>
 
-The first overload of <span class="inlinecode"><span class="symbol" id="makeIndex"></span><a class="symbol-anchor" href="#makeIndex">makeIndex</a></span> writes to a range containing
+The first overload of <span class="inlinecode"><span class="symbol-target" id="makeIndex">&nbsp;</span><a class="symbol-link" href="#makeIndex">makeIndex</a></span> writes to a range containing
 pointers, and the second writes to a range containing offsets. The
 first overload requires <span class="inlinecode">Range</span> to be a forward range, and the
 latter requires it to be a random-access range.
@@ -2241,18 +2241,18 @@ latter requires it to be a random-access range.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol" id="SortOutput"></span><a class="symbol-anchor" href="#SortOutput">SortOutput</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SortOutput">&nbsp;</span><a class="symbol-link" href="#SortOutput">SortOutput</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Specifies whether the output of certain algorithm is desired in sorted
 format.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol" id="no"></span><a class="symbol-anchor" href="#no">no</a></h3></div>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="no">&nbsp;</span><a class="symbol-link" href="#no">no</a></h3></div>
 <div class="declaration-content"><dl><p>Don't sort output</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3><span class="symbol" id="yes"></span><a class="symbol-anchor" href="#yes">yes</a></h3></div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="yes">&nbsp;</span><a class="symbol-link" href="#yes">yes</a></h3></div>
 <div class="declaration-content"><dl><p>Sort output</p>
 
 </dl>
@@ -2260,13 +2260,13 @@ format.</p>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="canFind"></span><a class="symbol-anchor" href="#canFind">canFind</a>(alias pred = "a == b", Range, V)(Range <i>range</i>, V <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="canFind">&nbsp;</span><a class="symbol-link" href="#canFind">canFind</a>(alias pred = "a == b", Range, V)(Range <i>range</i>, V <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">value</span> can be found in <span class="inlinecode">range</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="canFind"></span><a class="symbol-anchor" href="#canFind">canFind</a>(alias pred, Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="canFind">&nbsp;</span><a class="symbol-link" href="#canFind">canFind</a>(alias pred, Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Forwards to <span class="inlinecode">any</span> for backwards compatibility.
 </p>
@@ -2274,16 +2274,16 @@ format.</p>
 <p><font color=red>Scheduled for deprecation in September 2012. Please use <span class="inlinecode">any</span> instead.</font></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="any"></span><a class="symbol-anchor" href="#any">any</a>(alias pred, Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="any">&nbsp;</span><a class="symbol-link" href="#any">any</a>(alias pred, Range)(Range <i>range</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if a value <span class="inlinecode">v</span> satisfying the
 predicate <span class="inlinecode">pred</span> can be found in the forward range <span class="inlinecode">range</span>. Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol" id="all"></span><a class="symbol-anchor" href="#all">all</a>(alias pred, R)(R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="all">&nbsp;</span><a class="symbol-link" href="#all">all</a>(alias pred, R)(R <i>range</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="symbol" id="all"></span><a class="symbol-anchor" href="#all">all</a> values in <span class="inlinecode">range</span> satisfy the
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="symbol-target" id="all">&nbsp;</span><a class="symbol-link" href="#all">all</a> values in <span class="inlinecode">range</span> satisfy the
 predicate <span class="inlinecode">pred</span>.  Performs <b><i>&Omicron;</i>(</b><span class="inlinecode">r.length</span><b><i>)</i></b> evaluations of <span class="inlinecode">pred</span>.
 </p>
 
@@ -2293,7 +2293,7 @@ predicate <span class="inlinecode">pred</span>.  Performs <b><i>&Omicron;</i>(</
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>TRange <span class="symbol" id="topNCopy"></span><a class="symbol-anchor" href="#topNCopy">topNCopy</a>(alias less = "a &lt; b", SRange, TRange)(SRange <i>source</i>, TRange <i>target</i>, SortOutput <i>sorted</i> = SortOutput.no);
+<hr><div class="row-fluid declaration"><h3>TRange <span class="symbol-target" id="topNCopy">&nbsp;</span><a class="symbol-link" href="#topNCopy">topNCopy</a>(alias less = "a &lt; b", SRange, TRange)(SRange <i>source</i>, TRange <i>target</i>, SortOutput <i>sorted</i> = SortOutput.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Copies the top <span class="inlinecode">n</span> elements of the input range <span class="inlinecode">source</span> into the
 random-access range <span class="inlinecode">target</span>, where <span class="inlinecode">n =
@@ -2310,8 +2310,8 @@ respects the <a href="http://en.wikipedia.org/wiki/Binary_heap">heap property</a
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="SetUnion"></span><a class="symbol-anchor" href="#SetUnion">SetUnion</a>(alias less = "a &lt; b",Rs...) if (allSatisfy!(isInputRange,Rs));
-<br>SetUnion!(less,Rs) <span class="symbol" id="setUnion"></span><a class="symbol-anchor" href="#setUnion">setUnion</a>(alias less = "a &lt; b", Rs...)(Rs <i>rs</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="SetUnion">&nbsp;</span><a class="symbol-link" href="#SetUnion">SetUnion</a>(alias less = "a &lt; b",Rs...) if (allSatisfy!(isInputRange,Rs));
+<br>SetUnion!(less,Rs) <span class="symbol-target" id="setUnion">&nbsp;</span><a class="symbol-link" href="#setUnion">setUnion</a>(alias less = "a &lt; b", Rs...)(Rs <i>rs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily computes the union of two or more ranges <span class="inlinecode">rs</span>. The ranges
 are assumed to be sorted by <span class="inlinecode">less</span>. Elements in the output are not
@@ -2332,8 +2332,8 @@ length.) The element types of all ranges must have a common type.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="SetIntersection"></span><a class="symbol-anchor" href="#SetIntersection">SetIntersection</a>(alias less = "a &lt; b",Rs...) if (allSatisfy!(isInputRange,Rs));
-<br>SetIntersection!(less,Rs) <span class="symbol" id="setIntersection"></span><a class="symbol-anchor" href="#setIntersection">setIntersection</a>(alias less = "a &lt; b", Rs...)(Rs <i>ranges</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="SetIntersection">&nbsp;</span><a class="symbol-link" href="#SetIntersection">SetIntersection</a>(alias less = "a &lt; b",Rs...) if (allSatisfy!(isInputRange,Rs));
+<br>SetIntersection!(less,Rs) <span class="symbol-target" id="setIntersection">&nbsp;</span><a class="symbol-link" href="#setIntersection">setIntersection</a>(alias less = "a &lt; b", Rs...)(Rs <i>ranges</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily computes the intersection of two or more input ranges <span class="inlinecode">rs</span>. The ranges are assumed to be sorted by <span class="inlinecode">less</span>. The element
 types of all ranges must have a common type.
@@ -2350,8 +2350,8 @@ types of all ranges must have a common type.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="SetDifference"></span><a class="symbol-anchor" href="#SetDifference">SetDifference</a>(alias less = "a &lt; b",R1,R2) if (isInputRange!(R1) &amp;&amp; isInputRange!(R2));
-<br>SetDifference!(less,R1,R2) <span class="symbol" id="setDifference"></span><a class="symbol-anchor" href="#setDifference">setDifference</a>(alias less = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="SetDifference">&nbsp;</span><a class="symbol-link" href="#SetDifference">SetDifference</a>(alias less = "a &lt; b",R1,R2) if (isInputRange!(R1) &amp;&amp; isInputRange!(R2));
+<br>SetDifference!(less,R1,R2) <span class="symbol-target" id="setDifference">&nbsp;</span><a class="symbol-link" href="#setDifference">setDifference</a>(alias less = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily computes the difference of <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span>. The two ranges
 are assumed to be sorted by <span class="inlinecode">less</span>. The element types of the two
@@ -2366,8 +2366,8 @@ ranges must have a common type.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="SetSymmetricDifference"></span><a class="symbol-anchor" href="#SetSymmetricDifference">SetSymmetricDifference</a>(alias less = "a &lt; b",R1,R2) if (isInputRange!(R1) &amp;&amp; isInputRange!(R2));
-<br>SetSymmetricDifference!(less,R1,R2) <span class="symbol" id="setSymmetricDifference"></span><a class="symbol-anchor" href="#setSymmetricDifference">setSymmetricDifference</a>(alias less = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="SetSymmetricDifference">&nbsp;</span><a class="symbol-link" href="#SetSymmetricDifference">SetSymmetricDifference</a>(alias less = "a &lt; b",R1,R2) if (isInputRange!(R1) &amp;&amp; isInputRange!(R2));
+<br>SetSymmetricDifference!(less,R1,R2) <span class="symbol-target" id="setSymmetricDifference">&nbsp;</span><a class="symbol-link" href="#setSymmetricDifference">setSymmetricDifference</a>(alias less = "a &lt; b", R1, R2)(R1 <i>r1</i>, R2 <i>r2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Lazily computes the symmetric difference of <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span>,
 i.e. the elements that are present in exactly one of <span class="inlinecode">r1</span> and <span class="inlinecode">r2</span>. The two ranges are assumed to be sorted by <span class="inlinecode">less</span>, and the
@@ -2383,24 +2383,24 @@ ranges must have a common type.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a>(alias less,RangeOfRanges);
-<br>NWayUnion!(less,RangeOfRanges) <span class="symbol" id="nWayUnion"></span><a class="symbol-anchor" href="#nWayUnion">nWayUnion</a>(alias less = "a &lt; b", RangeOfRanges)(RangeOfRanges <i>ror</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a>(alias less,RangeOfRanges);
+<br>NWayUnion!(less,RangeOfRanges) <span class="symbol-target" id="nWayUnion">&nbsp;</span><a class="symbol-link" href="#nWayUnion">nWayUnion</a>(alias less = "a &lt; b", RangeOfRanges)(RangeOfRanges <i>ror</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the union of multiple sets. The input sets are passed as a
 range of ranges and each is assumed to be sorted by <span class="inlinecode">less</span>. Computation is done lazily, one union element at a time. The
 complexity of one <span class="inlinecode">popFront</span> operation is <b><i>&Omicron;</i>(</b><span class="inlinecode">log(ror.length)</span><b><i>)</i></b>. However, the length of <span class="inlinecode">ror</span> decreases as ranges
-in it are exhausted, so the complexity of a full pass through <span class="inlinecode"><span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a></span> is dependent on the distribution of the lengths of ranges
+in it are exhausted, so the complexity of a full pass through <span class="inlinecode"><span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a></span> is dependent on the distribution of the lengths of ranges
 contained within <span class="inlinecode">ror</span>. If all ranges have the same length <span class="inlinecode">n</span>
-(worst case scenario), the complexity of a full pass through <span class="inlinecode"><span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a></span> is <b><i>&Omicron;</i>(</b><span class="inlinecode">n * ror.length * log(ror.length)</span><b><i>)</i></b>, i.e., <span class="inlinecode">log(ror.length)</span> times worse than just spanning all ranges in
+(worst case scenario), the complexity of a full pass through <span class="inlinecode"><span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a></span> is <b><i>&Omicron;</i>(</b><span class="inlinecode">n * ror.length * log(ror.length)</span><b><i>)</i></b>, i.e., <span class="inlinecode">log(ror.length)</span> times worse than just spanning all ranges in
 turn. The output comes sorted (unstably) by <span class="inlinecode">less</span>.
 </p>
 
 <dt>Warning:</dt><dd>
-Because <span class="inlinecode"><span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a></span> does not allocate extra memory, it
-will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a></span> assumes ownership
+Because <span class="inlinecode"><span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a></span> does not allocate extra memory, it
+will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a></span> assumes ownership
 of <span class="inlinecode">ror</span> and discretionarily swaps and advances elements of it. If
 you want <span class="inlinecode">ror</span> to preserve its contents after the call, you may
-want to pass a duplicate to <span class="inlinecode"><span class="symbol" id="NWayUnion"></span><a class="symbol-anchor" href="#NWayUnion">NWayUnion</a></span> (and perhaps cache the
+want to pass a duplicate to <span class="inlinecode"><span class="symbol-target" id="NWayUnion">&nbsp;</span><a class="symbol-link" href="#NWayUnion">NWayUnion</a></span> (and perhaps cache the
 duplicate in between calls).
 
 </dd>
@@ -2421,7 +2421,7 @@ duplicate in between calls).
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a>(alias less = "a &lt; b", RangeOfRanges, Range)(RangeOfRanges <i>ror</i>, Range <i>tgt</i>, SortOutput <i>sorted</i> = SortOutput.no);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a>(alias less = "a &lt; b", RangeOfRanges, Range)(RangeOfRanges <i>ror</i>, Range <i>tgt</i>, SortOutput <i>sorted</i> = SortOutput.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a range of sorted forward ranges <span class="inlinecode">ror</span>, copies to <span class="inlinecode">tgt</span>
 the elements that are common to most ranges, along with their number
@@ -2456,25 +2456,25 @@ create a larger <span class="inlinecode">tgt</span> range. In the axample above,
 with length <span class="inlinecode">2</span> yields <span class="inlinecode">tuple(1.0, 3u)</span> in the second position.
 <br><br>
 
-The function <span class="inlinecode"><span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a></span> is useful for
+The function <span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> is useful for
 e.g. searching an <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=inverted index">inverted index</a> for the documents most
 likely to contain some terms of interest. The complexity of the search
 is <b><i>&Omicron;</i>(</b><span class="inlinecode">n * log(tgt.length)</span><b><i>)</i></b>, where <span class="inlinecode">n</span> is the sum of lengths of
 all input ranges. This approach is faster than keeping an associative
 array of the occurrences and then selecting its top items, and also
-requires less memory (<span class="inlinecode"><span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a></span> builds its
+requires less memory (<span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> builds its
 result directly in <span class="inlinecode">tgt</span> and requires no extra memory).
 
 </dd>
 <dt>Warning:</dt><dd>
-Because <span class="inlinecode"><span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a></span> does not allocate
-extra memory, it will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a></span> assumes ownership of <span class="inlinecode">ror</span> and
+Because <span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> does not allocate
+extra memory, it will leave <span class="inlinecode">ror</span> modified. Namely, <span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> assumes ownership of <span class="inlinecode">ror</span> and
 discretionarily swaps and advances elements of it. If you want <span class="inlinecode">ror</span> to preserve its contents after the call, you may want to pass a
-duplicate to <span class="inlinecode"><span class="symbol" id="largestPartialIntersection"></span><a class="symbol-anchor" href="#largestPartialIntersection">largestPartialIntersection</a></span> (and perhaps cache the
+duplicate to <span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> (and perhaps cache the
 duplicate in between calls).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol" id="largestPartialIntersectionWeighted"></span><a class="symbol-anchor" href="#largestPartialIntersectionWeighted">largestPartialIntersectionWeighted</a>(alias less = "a &lt; b", RangeOfRanges, Range, WeightsAA)(RangeOfRanges <i>ror</i>, Range <i>tgt</i>, WeightsAA <i>weights</i>, SortOutput <i>sorted</i> = SortOutput.no);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="largestPartialIntersectionWeighted">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersectionWeighted">largestPartialIntersectionWeighted</a>(alias less = "a &lt; b", RangeOfRanges, Range, WeightsAA)(RangeOfRanges <i>ror</i>, Range <i>tgt</i>, WeightsAA <i>weights</i>, SortOutput <i>sorted</i> = SortOutput.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">largestPartialIntersection</span>, but associates a weight
 with each distinct element in the intersection.

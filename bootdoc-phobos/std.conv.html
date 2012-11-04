@@ -290,32 +290,32 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="ConvException"></span><a class="symbol-anchor" href="#ConvException">ConvException</a>: object.Exception;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="ConvException">&nbsp;</span><a class="symbol-link" href="#ConvException">ConvException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown on conversion errors.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>class <span class="symbol" id="ConvOverflowException"></span><a class="symbol-anchor" href="#ConvOverflowException">ConvOverflowException</a>: std.conv.ConvException;
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="ConvOverflowException">&nbsp;</span><a class="symbol-link" href="#ConvOverflowException">ConvOverflowException</a>: std.conv.ConvException;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown on conversion overflow errors.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="to"></span><a class="symbol-anchor" href="#to">to</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Entry point that dispatches <span class="symbol" id="to"></span><a class="symbol-anchor" href="#to">to</a> the appropriate conversion
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Entry point that dispatches <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> the appropriate conversion
    primitive. Client code normally calls <span class="inlinecode">to!TargetType(value)</span>
    (and not some variant of <span class="inlinecode">toImpl</span>).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If the source type is implicitly convertible to the target type, <span class="inlinecode">to</span> simply performs the implicit conversion.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012. Please define <span class="inlinecode">opCast</span>
       for user-defined types instead of a <span class="inlinecode">to</span> function.
@@ -347,14 +347,14 @@ object.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>When source type supports member template function opCast, is is used.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>When target type supports 'converting construction', it is used.
 <ul><li>If target type is struct, <span class="inlinecode">T(value)</span> is used.</li>
@@ -362,15 +362,15 @@ object.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Object-to-object conversions by dynamic casting throw exception when the source is
 non-<span class="d_keyword">null</span> and the target is <span class="d_keyword">null</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Stringnize conversion from all types is supported.
 <ul> <li>String to string conversion works for any two string types having
@@ -401,11 +401,11 @@ non-<span class="d_keyword">null</span> and the target is <span class="d_keyword
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(ref S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = " ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>keyval</i> = ":", in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>nullstr</i>);
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>left</i>, in T <i>separator</i> = ", ", in T <i>right</i> = ")");
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(ref S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = " ", in T <i>rightBracket</i> = "]");
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>keyval</i> = ":", in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>nullstr</i>);
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>left</i>, in T <i>separator</i> = ", ", in T <i>right</i> = ")");
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
           Please use <a href="std_format.html#formattedWrite"><span class="inlinecode">std.format.formattedWrite</span></a> instead.</font>
@@ -414,29 +414,29 @@ non-<span class="d_keyword">null</span> and the target is <span class="d_keyword
 <p>Conversions to string with optional configures.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Narrowing numeric-numeric conversions throw when the value does not
 fit in the narrower type.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Array-to-array conversion (except when target is a string type)
 converts each element in turn by using <span class="inlinecode">to</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Associative array to associative array conversion converts each key
 and each value in turn.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol" id="toImpl"></span><a class="symbol-anchor" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>String to non-string conversion runs parsing.
 <ul> <li>When the source is a wide string, it is first converted to a narrow
@@ -445,7 +445,7 @@ and each value in turn.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol" id="roundTo"></span><a class="symbol-anchor" href="#roundTo">roundTo</a>(Target)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="roundTo">&nbsp;</span><a class="symbol-link" href="#roundTo">roundTo</a>(Target)</h3></div>
 <div class="declaration-content"><dl><p>Rounded conversion from floating point to integral.
 </p>
 
@@ -462,10 +462,10 @@ and each value in turn.</p>
 Rounded conversions do not work with non-integral target types.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
-<br>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
+<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, uint <i>radix</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>The <b><span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a></b> family of functions works quite like the
+<div class="declaration-content"><dl><p>The <b><span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a></b> family of functions works quite like the
  <b>to</b> family, except that (1) it only works with character ranges
  as input, (2) takes the input by reference and advances it to
  the position following the conversion, and (3) does not throw if it
@@ -490,30 +490,30 @@ munch(test, <span class="d_string">" \t\n\r"</span>); <span class="d_comment">//
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Parsing one character off a string returns the character and bumps the
 string up one position.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
-<br>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
+<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
 </h3></div>
 <div class="declaration-content"><dl><p>Parses an array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), and element seprator (by
  default <span class="inlinecode">','</span>).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol" id="parse"></span><a class="symbol-anchor" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>keyval</i> = ':', dchar <i>comma</i> = ',');
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>keyval</i> = ':', dchar <i>comma</i> = ',');
 </h3></div>
 <div class="declaration-content"><dl><p>Parses an associative array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), key-value separator (default <span class="inlinecode">':'</span>), and element seprator (by default <span class="inlinecode">','</span>).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol" id="text"></span><a class="symbol-anchor" href="#text">text</a>(T...)(T <i>args</i>);
-<br>wstring <span class="symbol" id="wtext"></span><a class="symbol-anchor" href="#wtext">wtext</a>(T...)(T <i>args</i>);
-<br>dstring <span class="symbol" id="dtext"></span><a class="symbol-anchor" href="#dtext">dtext</a>(T...)(T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="text">&nbsp;</span><a class="symbol-link" href="#text">text</a>(T...)(T <i>args</i>);
+<br>wstring <span class="symbol-target" id="wtext">&nbsp;</span><a class="symbol-link" href="#wtext">wtext</a>(T...)(T <i>args</i>);
+<br>dstring <span class="symbol-target" id="dtext">&nbsp;</span><a class="symbol-link" href="#dtext">dtext</a>(T...)(T <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Convenience functions for converting any number and types of
    arguments into text (the three character widths).
@@ -527,14 +527,14 @@ string up one position.</p>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>(string num)();
-<br>long <span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>(string num)();
-<br>uint <span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>(string num)();
-<br>ulong <span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>(string num)();
-<br>template <span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>(alias s) if (isIntegral!(typeof(s)))</h3></div>
-<div class="declaration-content"><dl><p>The <span class="inlinecode"><span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a></span> facility is intended as an experimental facility to
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
+<br>long <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
+<br>uint <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
+<br>ulong <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
+<br>template <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(alias s) if (isIntegral!(typeof(s)))</h3></div>
+<div class="declaration-content"><dl><p>The <span class="inlinecode"><span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a></span> facility is intended as an experimental facility to
 replace octal literals starting with <span class="inlinecode">'0'</span>, which many find
-confusing. Using <span class="inlinecode"><span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>!177</span> or <span class="inlinecode"><span class="symbol" id="octal"></span><a class="symbol-anchor" href="#octal">octal</a>!"177"</span> instead of <span class="inlinecode">0177</span> as an octal literal makes code clearer and the intent more
+confusing. Using <span class="inlinecode"><span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>!177</span> or <span class="inlinecode"><span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>!"177"</span> instead of <span class="inlinecode">0177</span> as an octal literal makes code clearer and the intent more
 visible. If use of this facility becomes preponderent, a future
 version of the language may deem old-style octal literals deprecated.
 </p>
@@ -560,8 +560,8 @@ of the passed-in integral.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol" id="emplace"></span><a class="symbol-anchor" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
-<br>T* <span class="symbol" id="emplace"></span><a class="symbol-anchor" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
+<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
+<br>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as <span class="inlinecode">T</span>), constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that
@@ -576,7 +576,7 @@ address.
 as <span class="inlinecode">chunk</span>).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol" id="emplace"></span><a class="symbol-anchor" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as a non-class type <span class="inlinecode">T</span>), constructs an object of type <span class="inlinecode">T</span> at
@@ -591,7 +591,7 @@ that address from arguments <span class="inlinecode">args</span>.
 as <span class="inlinecode">chunk</span>).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol" id="emplace"></span><a class="symbol-anchor" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of <span class="inlinecode">class</span>
 type <span class="inlinecode">T</span> at that address. The constructor is passed the arguments
@@ -607,7 +607,7 @@ of a <span class="inlinecode">class</span> instance is obtained by using <span c
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol" id="emplace"></span><a class="symbol-anchor" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that address. The constructor is passed the
 arguments <span class="inlinecode">args</span>, if any. The <span class="inlinecode">chunk</span> must be as least as large
