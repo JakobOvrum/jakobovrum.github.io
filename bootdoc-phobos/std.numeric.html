@@ -300,23 +300,27 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 <div class="declaration-content"><dl><p>Store values in normalized form by default. The actual precision of the
  significand is extended by 1 bit by assuming an implicit leading bit of 1
  instead of 0. i.e. <span class="inlinecode">1.nnnn</span> instead of <span class="inlinecode">0.nnnn</span>.
- True for all <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEE754">IEE754</a> types</p>
+ True for all <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEE754">IEE754</a>
+ types</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="allowDenorm">&nbsp;</span><a class="symbol-link" href="#allowDenorm">allowDenorm</a></h3></div>
-<div class="declaration-content"><dl><p>Stores the significand in <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> form when the
+<div class="declaration-content"><dl><p>Stores the significand in <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a>
+ form when the
  exponent is 0. Required to express the value 0.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="infinity">&nbsp;</span><a class="symbol-link" href="#infinity">infinity</a></h3></div>
-<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 infinity">IEEE754 infinity</a> values.</p>
+<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 infinity">IEEE754 infinity</a>
+ values.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="nan">&nbsp;</span><a class="symbol-link" href="#nan">nan</a></h3></div>
-<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 Not a Number">IEEE754 Not a Number</a> values.</p>
+<div class="declaration-content"><dl><p>Allows the storage of <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 Not a Number">IEEE754 Not a Number</a>
+ values.</p>
 
 </dl>
 </div>
@@ -333,13 +337,15 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="allowDenormZeroOnly">&nbsp;</span><a class="symbol-link" href="#allowDenormZeroOnly">allowDenormZeroOnly</a></h3></div>
-<div class="declaration-content"><dl><p>If set, 0 is the only allowed <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a> number.
+<div class="declaration-content"><dl><p>If set, 0 is the only allowed <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754 denormalized">IEEE754 denormalized</a>
+ number.
  Requires allowDenorm and storeNormalized.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ieee">&nbsp;</span><a class="symbol-link" href="#ieee">ieee</a></h3></div>
-<div class="declaration-content"><dl><p>Include all of the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754">IEEE754</a> options.</p>
+<div class="declaration-content"><dl><p>Include all of the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=IEEE754">IEEE754</a>
+ options.</p>
 
 </dl>
 </div>
@@ -520,7 +526,8 @@ or <span class="inlinecode">real</span>.
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Euclidean distance">Euclidean distance</a> between input ranges <span class="inlinecode">a</span> and
+<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Euclidean distance">Euclidean distance</a>
+ between input ranges <span class="inlinecode">a</span> and
 <span class="inlinecode">b</span>. The two ranges must have the same length. The three-parameter
 version stops computation as soon as the distance is greater than or
 equal to <span class="inlinecode">limit</span> (this is useful to save computation if a small
@@ -531,7 +538,8 @@ distance is sought).</p>
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>Unqual!(CommonType!(F1,F2)) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(F1, F2)(in F1[] <i>avector</i>, in F2[] <i>bvector</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=dot product">dot product</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=dot product">dot product</a>
+ of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
 length, the check is done once; otherwise, it is done at each
 iteration.</p>
 
@@ -539,7 +547,8 @@ iteration.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="cosineSimilarity">&nbsp;</span><a class="symbol-link" href="#cosineSimilarity">cosineSimilarity</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=cosine similarity">cosine similarity</a> of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=cosine similarity">cosine similarity</a>
+ of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
 length, the check is done once; otherwise, it is done at each
 iteration. If either range has all-zero elements, return 0.</p>
 
@@ -560,7 +569,8 @@ all elements in <span class="inlinecode">range</span> were zero or if <span clas
 <hr><div class="row-fluid declaration"><h3>ElementType!(Range) <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range)(Range <i>r</i>);
 <br>ElementType!(Range) <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range, F)(Range <i>r</i>, F <i>max</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=entropy">entropy</a> of input range <span class="inlinecode">r</span> in bits. This
+<div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=entropy">entropy</a>
+ of input range <span class="inlinecode">r</span> in bits. This
 function assumes (without checking) that the values in <span class="inlinecode">r</span> are all
 in <span class="inlinecode">[0, 1]</span>. For the <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a> to be meaningful, often <span class="inlinecode">r</span> should
 be normalized too (i.e., its values should sum to 1). The
@@ -571,7 +581,8 @@ result is greater than or equal to <span class="inlinecode">max</span>.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="kullbackLeiblerDivergence">&nbsp;</span><a class="symbol-link" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Kullback-Leibler divergence">Kullback-Leibler divergence</a> between input ranges
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Kullback-Leibler divergence">Kullback-Leibler divergence</a>
+ between input ranges
 <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">ai * log(ai / bi)</span>. The base
 of logarithm is 2. The ranges are assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are normalized probability distributions,
 but this is not required or checked by <span class="inlinecode"><span class="symbol-target" id="kullbackLeiblerDivergence">&nbsp;</span><a class="symbol-link" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a></span>. If any element <span class="inlinecode">bi</span> is zero and the
@@ -585,7 +596,8 @@ positive.</p>
 <hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
 <br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Jensen-Shannon divergence">Jensen-Shannon divergence</a> between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">(ai * log(2 * ai / (ai + bi)) + bi * log(2 *
+<div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Jensen-Shannon divergence">Jensen-Shannon divergence</a>
+ between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">(ai * log(2 * ai / (ai + bi)) + bi * log(2 *
 bi / (ai + bi))) / 2</span>. The base of logarithm is 2. The ranges are
 assumed to contain elements in <span class="inlinecode">[0, 1]</span>. Usually the ranges are
 normalized probability distributions, but this is not required or

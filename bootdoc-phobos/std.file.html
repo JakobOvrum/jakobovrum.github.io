@@ -323,6 +323,7 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 <hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>name</i>, uint <i>errno</i> = GetLastError(), string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor which takes the error number (<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=GetLastError">GetLastError</a>
+
         in Windows, <b><i>errno</i></b> in Posix).
 </p>
 
@@ -559,7 +560,8 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </p>
 
 <p>Note that the file attributes on Windows and Posix systems are
- completely different. On Windows, they're what is returned by <a href="http://msdn.microsoft.com/en-us/library/aa364944(v=vs.85).aspx"> GetFileAttributes</a>, whereas on Posix systems, they're the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=st_mode">st_mode</a> value which is part of the <span class="inlinecode">stat struct</span> gotten by
+ completely different. On Windows, they're what is returned by <a href="http://msdn.microsoft.com/en-us/library/aa364944(v=vs.85).aspx"> GetFileAttributes</a>, whereas on Posix systems, they're the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=st_mode">st_mode</a>
+ value which is part of the <span class="inlinecode">stat struct</span> gotten by
  calling the <a href="http://en.wikipedia.org/wiki/Stat_%28Unix%29"><span class="inlinecode">stat</span></a>
  function.
 <br><br>

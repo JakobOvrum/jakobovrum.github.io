@@ -288,34 +288,26 @@
 <br><br>
 
 <table cellspacing=0 cellpadding=5 class="table"><caption>Container primitives. Below, <span class="inlinecode">C</span> means
-a container type, <span class="inlinecode">c</span> is a value of container type, <span class="inlinecode">n<sub>x</sub>
-</span> represents the effective length of value <span class="inlinecode">x</span>, which could be a
-single element (in which case <span class="inlinecode">n<sub>x</sub>
-</span> is <span class="inlinecode">1</span>), a container,
+a container type, <span class="inlinecode">c</span> is a value of container type, <span class="inlinecode">n<sub>x</sub></span> represents the effective length of value <span class="inlinecode">x</span>, which could be a
+single element (in which case <span class="inlinecode">n<sub>x</sub></span> is <span class="inlinecode">1</span>), a container,
 or a range.</caption><br><br>
 
 <tr><th>Syntax</th> <th><b><i>&Omicron;</i>(</b><span class="inlinecode">&middot;</span><b><i>)</i></b></th> <th>Description</th></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">C(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
-</span></td> <td valign=top>Creates a
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">C(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub></span></td> <td valign=top>Creates a
 container of type <span class="inlinecode">C</span> from either another container or a range.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.dup</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td> <td valign=top>Returns a
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.dup</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td> <td valign=top>Returns a
 duplicate of the container.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~ x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
- + n<sub>x</sub>
-</span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">c</span> and <span class="inlinecode">r</span>. <span class="inlinecode">x</span> may be a single
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~ x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub> + n<sub>x</sub></span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">c</span> and <span class="inlinecode">r</span>. <span class="inlinecode">x</span> may be a single
 element or an input range.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">x ~ c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
- + n<sub>x</sub>
-</span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">x</span> and <span class="inlinecode">c</span>.  <span class="inlinecode">x</span> may be a
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">x ~ c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub> + n<sub>x</sub></span></td> <td valign=top>Returns the concatenation of <span class="inlinecode">x</span> and <span class="inlinecode">c</span>.  <span class="inlinecode">x</span> may be a
 single element or an input range type.</td></tr>
 <br><br>
 
@@ -326,13 +318,11 @@ single element or an input range type.</td></tr>
 type associated with the container.</td></tr>
 <br><br>
 
-<tr><td valign=top><span class="inlinecode">c[]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns a range
+<tr><td valign=top><span class="inlinecode">c[]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns a range
 iterating over the entire container, in a container-defined order.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[a .. b]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Fetches a
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[a .. b]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Fetches a
 portion of the container from key <span class="inlinecode">a</span> to key <span class="inlinecode">b</span>.</td></tr>
 <br><br>
 
@@ -343,82 +333,68 @@ portion of the container from key <span class="inlinecode">a</span> to key <span
 container has no elements, <span class="inlinecode"><span class="d_keyword">false</span></span> otherwise.</td></tr>
 <br><br>
 
-<tr><td valign=top><span class="inlinecode">c.length</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns the
+<tr><td valign=top><span class="inlinecode">c.length</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns the
 number of elements in the container.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.length = n</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
- + n</span></td> <td valign=top>Forces
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.length = n</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub> + n</span></td> <td valign=top>Forces
 the number of elements in the container to <span class="inlinecode">n</span>. If the container
 ends up growing, the added elements are initialized in a
 container-dependent manner (usually with <span class="inlinecode">T.init</span>).</td></tr>
 <br><br>
 
-<tr><td valign=top><span class="inlinecode">c.capacity</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns the
+<tr><td valign=top><span class="inlinecode">c.capacity</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns the
 maximum number of elements that can be stored in the container
 without triggering a reallocation.</td></tr>
 <br><br>
 
-<tr><td valign=top><span class="inlinecode">c.reserve(x)</span></td> <td valign=top><span class="inlinecode">n<sub>c</sub>
-</span></td> <td valign=top>Forces <span class="inlinecode">capacity</span> to at least <span class="inlinecode">x</span> without reducing it.</td></tr>
+<tr><td valign=top><span class="inlinecode">c.reserve(x)</span></td> <td valign=top><span class="inlinecode">n<sub>c</sub></span></td> <td valign=top>Forces <span class="inlinecode">capacity</span> to at least <span class="inlinecode">x</span> without reducing it.</td></tr>
 <br><br>
 
 <tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Access</em></b></td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns the
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns the
 first element of the container, in a container-defined order.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveFront</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Destructively reads and returns the first element of the
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveFront</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Destructively reads and returns the first element of the
 container. The slot is not removed from the container; it is left
 initalized with <span class="inlinecode">T.init</span>. This routine need not be defined if <span class="inlinecode">front</span> returns a <span class="inlinecode">ref</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Assigns
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.front = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Assigns
 <span class="inlinecode">v</span> to the first element of the container.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns the
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns the
 last element of the container, in a container-defined order.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveBack</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Destructively reads and returns the last element of the
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveBack</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Destructively reads and returns the last element of the
 <span class="symbol-target" id="container">&nbsp;</span><a class="symbol-link" href="#container">container</a>. The slot is not removed from the container; it is left
 initalized with <span class="inlinecode">T.init</span>. This routine need not be defined if <span class="inlinecode">front</span> returns a <span class="inlinecode">ref</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Assigns
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.back = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Assigns
 <span class="inlinecode">v</span> to the last element of the container.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Provides
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x]</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Provides
 indexed access into the container. The index type is
 container-defined. A <span class="symbol-target" id="container">&nbsp;</span><a class="symbol-link" href="#container">container</a> may define several index types (and
 consequently overloaded indexing).</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveAt(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Destructively reads and returns the value at position <span class="inlinecode">x</span>. The slot
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.moveAt(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Destructively reads and returns the value at position <span class="inlinecode">x</span>. The slot
 is not removed from the container; it is left initialized with <span class="inlinecode">T.init</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Sets
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] = v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Sets
 element at specified index into the container.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] <i>op</i>= v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c[x] <i>op</i>= v</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Performs read-modify-write operation at specified index into the
 container.</td></tr>
 <br><br>
@@ -426,142 +402,112 @@ container.</td></tr>
 <tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Operations</em></b></td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">e in c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns nonzero if e is found in <span class="inlinecode">c</span>.</td></tr>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">e in c</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns nonzero if e is found in <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.lowerBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns a range of all elements strictly less than <span class="inlinecode">v</span>.</td></tr>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.lowerBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns a range of all elements strictly less than <span class="inlinecode">v</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.upperBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns a range of all elements strictly greater than <span class="inlinecode">v</span>.</td></tr>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.upperBound(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns a range of all elements strictly greater than <span class="inlinecode">v</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.equalRange(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td> <td valign=top>Returns a range of all elements in <span class="inlinecode">c</span> that are equal to <span class="inlinecode">v</span>.</td></tr>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.equalRange(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td> <td valign=top>Returns a range of all elements in <span class="inlinecode">c</span> that are equal to <span class="inlinecode">v</span>.</td></tr>
 <br><br>
 
 <tr class=leadingrow><td colspan=2><b><em>&nbsp;&nbsp;&nbsp;&nbsp;Modifiers</em></b></td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~= x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
- + n<sub>x</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c ~= x</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub> + n<sub>x</sub></span></td>
 <td valign=top>Appends <span class="inlinecode">x</span> to <span class="inlinecode">c</span>. <span class="inlinecode">x</span> may be a single element or an
 input range type.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.clear()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td> <td valign=top>Removes all
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.clear()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td> <td valign=top>Removes all
 elements in <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insert(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
- * log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insert(x)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub> * log n<sub>c</sub></span></td>
 <td valign=top>Inserts <span class="inlinecode">x</span> in <span class="inlinecode">c</span> at a position (or positions) chosen by <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
 <tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsert(x)</span></td>
-<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub>
- * log n<sub>c</sub>
-</span></td> <td valign=top>Same as <span class="inlinecode">c.insert(x)</span>,
+<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>x</sub> * log n<sub>c</sub></span></td> <td valign=top>Same as <span class="inlinecode">c.insert(x)</span>,
 but is guaranteed to not invalidate any ranges.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td> <td valign=top>Same
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td> <td valign=top>Same
 as <span class="inlinecode">c.insert(v)</span> but relaxes complexity to linear.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearInsert(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.stableInsert(v)</span> but relaxes complexity to linear.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Removes some element from <span class="inlinecode">c</span> and returns it.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveAny()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.removeAny()</span>, but is guaranteed to not invalidate any
 iterators.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Inserts <span class="inlinecode">v</span> at the front of <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertFront(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.insertFront(v)</span>, but guarantees no ranges will be
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.insertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Inserts <span class="inlinecode">v</span> at the back of <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableInsertBack(v)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.insertBack(v)</span>, but guarantees no ranges will be
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Removes the element at the front of <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveFront()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.removeFront()</span>, but guarantees no ranges will be
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Removes the value at the back of <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemoveBack()</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.removeBack()</span>, but guarantees no ranges will be
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.remove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub>
- * log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.remove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub> * log n<sub>c</sub></span></td>
 <td valign=top>Removes range <span class="inlinecode">r</span> from <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
 <tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableRemove(r)</span></td>
-<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub>
- * log n<sub>c</sub>
-</span></td>
+<td valign=top class="donthyphenate"><span class="inlinecode">n<sub>r</sub> * log n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.remove(r)</span>, but guarantees iterators are not
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.linearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td>
 <td valign=top>Removes range <span class="inlinecode">r</span> from <span class="inlinecode">c</span>.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.stableLinearRemove(r)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">n<sub>c</sub></span></td>
 <td valign=top>Same as <span class="inlinecode">c.linearRemove(r)</span>, but guarantees iterators are not
 invalidated.</td></tr>
 <br><br>
 
-<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeKey(k)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub>
-</span></td>
+<tr><td valign=top class="donthyphenate"><span class="inlinecode">c.removeKey(k)</span></td> <td valign=top class="donthyphenate"><span class="inlinecode">log n<sub>c</sub></span></td>
 <td valign=top>Removes an element from <span class="inlinecode">c</span> by using its key <span class="inlinecode">k</span>.
 The key's type is defined by the container.</td></tr>
 <br><br>
@@ -1449,7 +1395,8 @@ heap.</p>
 <hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="release">&nbsp;</span><a class="symbol-link" href="#release">release</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Clears the heap. Returns the portion of the store from <span class="inlinecode">0</span> up to
-<span class="inlinecode">length</span>, which satisfies the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=heap property">heap property</a>.</p>
+<span class="inlinecode">length</span>, which satisfies the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=heap property">heap property</a>
+.</p>
 
 </dl>
 </div>
@@ -1862,7 +1809,8 @@ allocating one bit per element.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="RedBlackTree">&nbsp;</span><a class="symbol-link" href="#RedBlackTree">RedBlackTree</a>(T,alias less = "a &lt; b",bool allowDuplicates = false) if (is(typeof(binaryFun!(less)(T.init,T.init))));
 </h3></div>
-<div class="declaration-content"><dl><p>Implementation of a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=red-black tree">red-black tree</a> container.
+<div class="declaration-content"><dl><p>Implementation of a <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=red-black tree">red-black tree</a>
+ container.
 </p>
 
 <p>All inserts, removes, searches, and any function in general has complexity

@@ -282,8 +282,10 @@ immune of threading issues. The generators feature a number of
 well-known and well-documented methods of generating <span class="symbol-target" id="random">&nbsp;</span><a class="symbol-link" href="#random">random</a>
 numbers. An overall fast and reliable means to generate <span class="symbol-target" id="random">&nbsp;</span><a class="symbol-link" href="#random">random</a> numbers
 is the <b>Mt19937</b> generator, which derives its name from
-"<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a> with a period of 2 to the power of
+"<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a>
+ with a period of 2 to the power of
 19937". In memory-constrained situations, <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=linear congruential">linear congruential</a>
+
 generators such as <span class="inlinecode">MinstdRand0</span> and <span class="inlinecode">MinstdRand</span> might be
 useful. The standard library provides an alias <b>Random</b> for
 whichever generator it considers the most fit for the target
@@ -454,7 +456,8 @@ n = rnd0.front; <span class="d_comment">// different across runs
 </div>
 <hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="MersenneTwisterEngine">&nbsp;</span><a class="symbol-link" href="#MersenneTwisterEngine">MersenneTwisterEngine</a>(UIntType,size_t w,size_t n,size_t m,size_t r,UIntType a,size_t u,size_t s,UIntType b,size_t t,UIntType c,size_t l) if (isUnsigned!(UIntType));
 </h3></div>
-<div class="declaration-content"><dl><p>The <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a> generator.</p>
+<div class="declaration-content"><dl><p>The <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a>
+ generator.</p>
 
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="isUniformRandom">&nbsp;</span><a class="symbol-link" href="#isUniformRandom">isUniformRandom</a>;

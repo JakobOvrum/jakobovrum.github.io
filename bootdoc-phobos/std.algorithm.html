@@ -344,7 +344,8 @@ sort(a);            <span class="d_comment">// no predicate, "a &lt; b" is impli
 has balanced parentheses.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#boyerMooreFinder"><span class="inlinecode">boyerMooreFinder</span></a></td> <td valign=top><span class="inlinecode">find("hello
-world", boyerMooreFinder("or"))</span> returns <span class="inlinecode">"orld"</span> using the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Boyer-Moore algorithm">Boyer-Moore algorithm</a>.</td>
+world", boyerMooreFinder("or"))</span> returns <span class="inlinecode">"orld"</span> using the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Boyer-Moore algorithm">Boyer-Moore algorithm</a>
+.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#canFind"><span class="inlinecode">canFind</span></a></td> <td valign=top><span class="inlinecode">canFind("hello world",
 "or")</span> returns <span class="inlinecode"><span class="d_keyword">true</span></span>.</td>
@@ -413,10 +414,12 @@ element-by-element equality, e.g. <span class="inlinecode">equal([1, 2, 3], [1.0
 3.0])</span> returns <span class="inlinecode"><span class="d_keyword">true</span></span>.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#levenshteinDistance"><span class="inlinecode">levenshteinDistance</span></a></td> <td valign=top><span class="inlinecode">levenshteinDistance("kitten", "sitting")</span> returns <span class="inlinecode">3</span> by using the
-<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Levenshtein distance algorithm">Levenshtein distance algorithm</a>.</td>
+<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Levenshtein distance algorithm">Levenshtein distance algorithm</a>
+.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#levenshteinDistanceAndPath"><span class="inlinecode">levenshteinDistanceAndPath</span></a></td> <td valign=top><span class="inlinecode">levenshteinDistanceAndPath("kitten", "sitting")</span> returns <span class="inlinecode">tuple(3,
-"snnnsni")</span> by using the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Levenshtein distance algorithm">Levenshtein distance algorithm</a>.</td>
+"snnnsni")</span> by using the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Levenshtein distance algorithm">Levenshtein distance algorithm</a>
+.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#max"><span class="inlinecode">max</span></a></td> <td valign=top><span class="inlinecode">max(3, 4, 2)</span> returns <span class="inlinecode">4</span>.</td>
 </tr>
@@ -477,7 +480,8 @@ for a range.</td>
 according to a predicate.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#schwartzSort"><span class="inlinecode">schwartzSort</span></a></td> <td valign=top>Sorts with the help of
-the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Schwartzian transform">Schwartzian transform</a>.</td>
+the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Schwartzian transform">Schwartzian transform</a>
+.</td>
 </tr>
 <tr><td valign=top class="donthyphenate"><a href="#sort"><span class="inlinecode">sort</span></a></td> <td valign=top>Sorts.</td>
 </tr>
@@ -2457,7 +2461,8 @@ with length <span class="inlinecode">2</span> yields <span class="inlinecode">tu
 <br><br>
 
 The function <span class="inlinecode"><span class="symbol-target" id="largestPartialIntersection">&nbsp;</span><a class="symbol-link" href="#largestPartialIntersection">largestPartialIntersection</a></span> is useful for
-e.g. searching an <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=inverted index">inverted index</a> for the documents most
+e.g. searching an <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=inverted index">inverted index</a>
+ for the documents most
 likely to contain some terms of interest. The complexity of the search
 is <b><i>&Omicron;</i>(</b><span class="inlinecode">n * log(tgt.length)</span><b><i>)</i></b>, where <span class="inlinecode">n</span> is the sum of lengths of
 all input ranges. This approach is faster than keeping an associative

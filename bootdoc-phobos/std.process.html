@@ -297,7 +297,8 @@
 <dt>Note:</dt><dd>
 On Unix systems, the homonym C function (which is accessible
    to D programs as <a href="std_c_process.html">std.c.system</a>)
-   returns a code in the same format as <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=waitpid, waitpid">waitpid, waitpid</a>,
+   returns a code in the same format as <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=waitpid, waitpid">waitpid, waitpid</a>
+,
    meaning that C programs must use the <span class="inlinecode">WEXITSTATUS</span> macro to
    extract the actual exit code from the <span class="inlinecode"><span class="symbol-target" id="system">&nbsp;</span><a class="symbol-link" href="#system">system</a></span> call. D's <span class="inlinecode">  <span class="symbol-target" id="system">&nbsp;</span><a class="symbol-link" href="#system">system</a></span> automatically extracts the exit status.</dd>
 </dl>
