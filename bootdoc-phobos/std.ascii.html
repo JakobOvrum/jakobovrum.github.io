@@ -277,12 +277,13 @@
 <dl><p>Functions which operate on ASCII characters.
 </p>
 
-<p>All of the functions in std.<span class="symbol-target" id="ascii">&nbsp;</span><a class="symbol-link" href="#ascii">ascii</a> accept unicode characters but effectively
-    ignore them. All <span class="inlinecode">isX</span> functions return <span class="inlinecode"><span class="d_keyword">false</span></span> for unicode
-    characters, and all <span class="inlinecode">toX</span> functions do nothing to unicode characters.
+<p>All of the functions in std.<span class="symbol-target" id="ascii">&nbsp;</span><a class="symbol-link" href="#ascii">ascii</a> accept Unicode characters but effectively
+    ignore them if they're not ASCII. All <span class="inlinecode">isX</span> functions return <span class="inlinecode"><span class="d_keyword">false</span></span>
+    for non-ASCII characters, and all <span class="inlinecode">toX</span> functions do nothing to non-ASCII
+    characters.
 <br><br>
 
-    For functions which operate on unicode characters, see
+    For functions which operate on Unicode characters, see
     <a href="std_uni.html">std.uni</a>.
 
 </p>
@@ -301,6 +302,12 @@
 <hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="hexDigits">&nbsp;</span><a class="symbol-link" href="#hexDigits">hexDigits</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>0..9A..F</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="lowerHexDigits">&nbsp;</span><a class="symbol-link" href="#lowerHexDigits">lowerHexDigits</a>;
+</h3></div>
+<div class="declaration-content"><dl><p>0..9a..f</p>
 
 </dl>
 </div>
@@ -328,15 +335,15 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="letters">&nbsp;</span><a class="symbol-link" href="#letters">letters</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>A..Za..z</p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="uppercase">&nbsp;</span><a class="symbol-link" href="#uppercase">uppercase</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>A..Z</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="letters">&nbsp;</span><a class="symbol-link" href="#letters">letters</a>;
+</h3></div>
+<div class="declaration-content"><dl><p>A..Za..z</p>
 
 </dl>
 </div>
@@ -345,6 +352,24 @@
 <div class="declaration-content"><dl><p>ASCII <span class="symbol-target" id="whitespace">&nbsp;</span><a class="symbol-link" href="#whitespace">whitespace</a></p>
 
 </dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="LetterCase">&nbsp;</span><a class="symbol-link" href="#LetterCase">LetterCase</a>: bool;
+</h3></div>
+<div class="declaration-content"><dl><p>Letter case specifier.</p>
+
+</dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="upper">&nbsp;</span><a class="symbol-link" href="#upper">upper</a></h3></div>
+<div class="declaration-content"><dl><p>Upper case letters</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="lower">&nbsp;</span><a class="symbol-link" href="#lower">lower</a></h3></div>
+<div class="declaration-content"><dl><p>Lower case letters</p>
+
+</dl>
+</div>
+</div>
+
 </div>
 <hr><div class="row-fluid declaration"><h3>immutable string <span class="symbol-target" id="newline">&nbsp;</span><a class="symbol-link" href="#newline">newline</a>;
 </h3></div>
@@ -435,18 +460,28 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <span class="symbol-target" id="toLower">&nbsp;</span><a class="symbol-link" href="#toLower">toLower</a>(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="toLower">&nbsp;</span><a class="symbol-link" href="#toLower">toLower</a>(C)(C <i>c</i>) if (is(C : dchar));
 </h3></div>
-<div class="declaration-content"><dl><p>If <span class="inlinecode"><i>c</i></span> is an uppercase ASCII character, then its corresponding lowercase
-    letter is returned. Otherwise, <span class="inlinecode"><i>c</i></span> is returned.</p>
+<div class="declaration-content"><dl><p>If <span class="inlinecode">c</span> is an uppercase ASCII character, then its corresponding lowercase
+    letter is returned. Otherwise, <span class="inlinecode">c</span> is returned.
+</p>
 
+<p><span class="inlinecode">C</span> can be any type which implicitly converts to <span class="inlinecode">dchar</span>. In the case
+    where it's a built-in type, or an enum of a built-in type,
+    <span class="inlinecode">Unqual!(OriginalType!C)</span> is returned, whereas if it's a user-defined
+    type, <span class="inlinecode">dchar</span> is returned.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe dchar <span class="symbol-target" id="toUpper">&nbsp;</span><a class="symbol-link" href="#toUpper">toUpper</a>(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="toUpper">&nbsp;</span><a class="symbol-link" href="#toUpper">toUpper</a>(C)(C <i>c</i>) if (is(C : dchar));
 </h3></div>
-<div class="declaration-content"><dl><p>If <span class="inlinecode"><i>c</i></span> is a lowercase ASCII character, then its corresponding uppercase
-    letter is returned. Otherwise, <span class="inlinecode"><i>c</i></span> is returned.</p>
+<div class="declaration-content"><dl><p>If <span class="inlinecode">c</span> is a lowercase ASCII character, then its corresponding uppercase
+    letter is returned. Otherwise, <span class="inlinecode">c</span> is returned.
+</p>
 
+<p><span class="inlinecode">C</span> can be any type which implicitly converts to <span class="inlinecode">dchar</span>. In the case
+    where it's a built-in type, or an enum of a built-in type,
+    <span class="inlinecode">Unqual!(OriginalType!C)</span> is returned, whereas if it's a user-defined
+    type, <span class="inlinecode">dchar</span> is returned.</p>
 </dl>
 </div>
 
@@ -460,7 +495,7 @@
 				</footer>
 				
 				<footer class="pull-right">
-					<p>&copy; Copyright 2000 -
+					<p>&copy; Copyright 2000 - 2013
 </p>
 				</footer>
 			</div>

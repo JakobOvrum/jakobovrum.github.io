@@ -302,6 +302,14 @@ given <span class="inlinecode">FILE*</span> goes out of scope, the underlying <s
 automatically closed.
 
 </p>
+<dt>Known Bugs</dt><dd><span class="inlinecode"><span class="symbol-target" id="File">&nbsp;</span><a class="symbol-link" href="#File">File</a></span> expects file names to be encoded in <b>CP_ACP</b> on <i>Windows</i>
+instead of UTF-8 (<a href="http://d.puremagic.com/issues/show_bug.cgi?id=7648">Bugzilla 7648</a>) thus must not be used in <i>Windows</i>
+or cross-platform applications other than with an immediate ASCII string as
+a file name to prevent accidental changes to result in incorrect behavior.
+One can use <a href="std_file.html#read"><span class="inlinecode">std.file.read</span></a>/<a href="std_file.html#write"><span class="inlinecode">std.file.write</span></a>/<a href="std_stream.html#<span class="symbol-target" id="File">&nbsp;</span><a class="symbol-link" href="#File">File</a>"><span class="inlinecode">std.stream.<span class="symbol-target" id="File">&nbsp;</span><a class="symbol-link" href="#File">File</a></span></a>
+instead.
+
+</dd>
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_comment">// test.d
 </span>
@@ -323,7 +331,7 @@ automatically closed.
     f.writeln(<span class="d_string">"!"</span>);
     <span class="d_comment">// f exits scope, reference count falls to zero,
 </span>
-    <span class="d_comment">// underlying <span class="inlinecode">FILE*</span> is closed.
+    <span class="d_comment">// underlying $(D FILE*) is closed.
 </span>
 }
 </pre>
@@ -334,11 +342,11 @@ Hello, Jimmy!
 % _
 </pre></dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>name</i>, const(char[]) <i>stdioOpenmode</i> = "rb");
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>name</i>, in char[] <i>stdioOpenmode</i> = "rb");
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor taking the <i>name</i> of the file to open and the open mode
 (with the same semantics as in the C standard library <a href="http://cplusplus.com/reference/clibrary/cstdio/fopen.html">fopen</a>
-function). Throws an exception if the file could not be opened.
+function).
 </p>
 
 <p>Copying one <span class="inlinecode">File</span> object to another results in the two <span class="inlinecode">File</span>
@@ -346,7 +354,10 @@ objects referring to the same underlying file.
 <br><br>
 
 The destructor automatically closes the file as soon as no <span class="inlinecode">File</span>
-object refers to it anymore.</p>
+object refers to it anymore.
+
+</p>
+<dt>Throws</dt><dd><span class="inlinecode">ErrnoException</span> if the file could not be opened.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="opAssign">&nbsp;</span><a class="symbol-link" href="#opAssign">opAssign</a>(File <i>rhs</i>);
@@ -362,8 +373,9 @@ file.</p>
 <div class="declaration-content"><dl><p>First calls <span class="inlinecode">detach</span> (throwing on failure), and then attempts to
 open file <span class="inlinecode"><i>name</i></span> with mode <span class="inlinecode"><i>stdioOpenmode</i></span>. The mode has the
 same semantics as in the C standard library <a href="http://cplusplus.com/reference/clibrary/cstdio/fopen.html">fopen</a> function.
-Throws exception in case of error.</p>
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">ErrnoException</span> in case of error.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>const pure nothrow @property bool <span class="symbol-target" id="isOpen">&nbsp;</span><a class="symbol-link" href="#isOpen">isOpen</a>();
@@ -374,14 +386,19 @@ Throws exception in case of error.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>const pure @property bool <span class="symbol-target" id="eof">&nbsp;</span><a class="symbol-link" href="#eof">eof</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the file is at end (see <a href="http://cplusplus.com/reference/clibrary/cstdio/feof.html">feof</a>). The file
-must be opened, otherwise an exception is thrown.</p>
+<div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if the file is at end (see <a href="http://cplusplus.com/reference/clibrary/cstdio/feof.html">feof</a>).
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>const pure nothrow @property string <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a> of the file, if any. </p>
+<div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a> of the last opened file, if any.
+If a <span class="inlinecode">File</span> was created with <a class="symbol-link" href="#tmpfile"><span class="inlinecode">tmpfile</span></a>
+ and <a class="symbol-link" href="#wrapFile"><span class="inlinecode">wrapFile</span></a>
+
+it has no <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>.</p>
 
 </dl>
 </div>
@@ -395,9 +412,10 @@ the file handle.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="detach">&nbsp;</span><a class="symbol-link" href="#detach">detach</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>Detaches from the underlying file. If the sole owner, calls <span class="inlinecode">close</span>
-and throws if that fails.</p>
+<div class="declaration-content"><dl><p>Detaches from the underlying file. If the sole owner, calls <span class="inlinecode">close</span>.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">ErrnoException</span> on failure if closing the file.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="close">&nbsp;</span><a class="symbol-link" href="#close">close</a>();
@@ -406,8 +424,10 @@ and throws if that fails.</p>
 file (by calling <a href="http://cplusplus.com/reference/clibrary/cstdio/fclose.html">fclose</a>),
 throwing on error. Even if an exception is thrown, afterwards the <span class="inlinecode">File</span> object is empty. This is different from <span class="inlinecode">detach</span> in that it
 always closes the file; consequently, all other <span class="inlinecode">File</span> objects
-referring to the same handle will see a closed file henceforth.</p>
+referring to the same handle will see a closed file henceforth.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">ErrnoException</span> on error.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="clearerr">&nbsp;</span><a class="symbol-link" href="#clearerr">clearerr</a>();
@@ -419,21 +439,27 @@ referring to the same handle will see a closed file henceforth.</p>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="flush">&nbsp;</span><a class="symbol-link" href="#flush">flush</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fflush.html">fflush</a> for the
-file handle and throws on error.</p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fflush.html">fflush</a>
+for the file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened or if the call to $D(fflush) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>T[] <span class="symbol-target" id="rawRead">&nbsp;</span><a class="symbol-link" href="#rawRead">rawRead</a>(T)(T[] <i>buffer</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fread.html">fread</a> for the
-file handle and throws on error. The number of items to read and the size of
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fread.html">fread</a> for the
+file handle. The number of items to read and the size of
 each item is inferred from the size and type of the input array, respectively.
 </p>
 
 <dt>Returns</dt><dd>The slice of <span class="inlinecode">buffer</span> containing the data that was actually read.
 This will be shorter than <span class="inlinecode">buffer</span> if EOF was reached before the buffer
 could be filled.
+
+</dd>
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if <span class="inlinecode">buffer</span> is empty.
+        <span class="inlinecode">ErrnoException</span> if the file is not opened or the call to $D(fread) fails.
 <br><br>
 
 <span class="inlinecode"><span class="symbol-target" id="rawRead">&nbsp;</span><a class="symbol-link" href="#rawRead">rawRead</a></span> always reads in binary mode on Windows.</dd>
@@ -441,97 +467,160 @@ could be filled.
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="rawWrite">&nbsp;</span><a class="symbol-link" href="#rawWrite">rawWrite</a>(T)(in T[] <i>buffer</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fwrite.html">fwrite</a> for the file
-handle and throws on error. The number of items to write and the size of each
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fwrite.html">fwrite</a> for the file
+handle. The number of items to write and the size of each
 item is inferred from the size and type of the input array, respectively. An
 error is thrown if the buffer could not be written in its entirety.
 </p>
 
-<p><span class="inlinecode"><span class="symbol-target" id="rawWrite">&nbsp;</span><a class="symbol-link" href="#rawWrite">rawWrite</a></span> always writes in binary mode on Windows.</p>
+<p><span class="inlinecode"><span class="symbol-target" id="rawWrite">&nbsp;</span><a class="symbol-link" href="#rawWrite">rawWrite</a></span> always writes in binary mode on Windows.
+
+</p>
+<dt>Throws</dt><dd><span class="inlinecode">ErrnoException</span> if the file is not opened or if the call to $D(fread) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="seek">&nbsp;</span><a class="symbol-link" href="#seek">seek</a>(long <i>offset</i>, int <i>origin</i> = SEEK_SET);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fseek.html">fseek</a> for the
-file handle. Throws on error.</p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/fseek.html">fseek</a>
+for the file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> if the call to $D(fseek) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>const @property ulong <span class="symbol-target" id="tell">&nbsp;</span><a class="symbol-link" href="#tell">tell</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/ftell.html">ftell</a> for the
-managed file handle. Throws on error.</p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/ftell.html">ftell</a> for the
+managed file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> if the call to $D(ftell) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="rewind">&nbsp;</span><a class="symbol-link" href="#rewind">rewind</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/rewind.html">rewind</a> for the
-file handle. Throws on error.</p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/rewind.html">rewind</a>
+for the file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setvbuf">&nbsp;</span><a class="symbol-link" href="#setvbuf">setvbuf</a>(size_t <i>size</i>, int <i>mode</i> = _IOFBF);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls <a href="http://cplusplus.com/reference/clibrary/cstdio/setvbuf.html">setvbuf</a> for
-the file handle.</p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/setvbuf.html">setvbuf</a> for
+the file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> if the call to $D(<span class="symbol-target" id="setvbuf">&nbsp;</span><a class="symbol-link" href="#setvbuf">setvbuf</a>) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setvbuf">&nbsp;</span><a class="symbol-link" href="#setvbuf">setvbuf</a>(void[] <i>buf</i>, int <i>mode</i> = _IOFBF);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, calls
-<a href="http://cplusplus.com/reference/clibrary/cstdio/setvbuf.html">setvbuf</a> for the file handle. </p>
+<div class="declaration-content"><dl><p>Calls <a href="http://cplusplus.com/reference/clibrary/cstdio/setvbuf.html">setvbuf</a> for the file handle.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> if the call to $D(<span class="symbol-target" id="setvbuf">&nbsp;</span><a class="symbol-link" href="#setvbuf">setvbuf</a>) fails.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(S...)(S <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, writes its
-arguments in text format to the file. </p>
+<div class="declaration-content"><dl><p>Writes its arguments in text format to the file.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> on an error writing to the file.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="writeln">&nbsp;</span><a class="symbol-link" href="#writeln">writeln</a>(S...)(S <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, writes its
-arguments in text format to the file, followed by a newline. </p>
+<div class="declaration-content"><dl><p>Writes its arguments in text format to the file, followed by a newline.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> on an error writing to the file.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="writef">&nbsp;</span><a class="symbol-link" href="#writef">writef</a>(S...)(S <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="writef">&nbsp;</span><a class="symbol-link" href="#writef">writef</a>(Char, A...)(in Char[] <i>fmt</i>, A <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>If the file is not opened, throws an exception. Otherwise, writes its
-arguments in text format to the file, according to the format in the
-first argument. </p>
+<div class="declaration-content"><dl><p>Writes its arguments in text format to the file, according to the
+format in the first argument.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> on an error writing to the file.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="writefln">&nbsp;</span><a class="symbol-link" href="#writefln">writefln</a>(S...)(S <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="writefln">&nbsp;</span><a class="symbol-link" href="#writefln">writefln</a>(Char, A...)(in Char[] <i>fmt</i>, A <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Same as writef, plus adds a newline. </p>
+<div class="declaration-content"><dl><p>Writes its arguments in text format to the file, according to the
+format in the first argument, followed by a newline.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">Exception</span> if the file is not opened.
+        <span class="inlinecode">ErrnoException</span> on an error writing to the file.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(S = string)(dchar <i>terminator</i> = '\x0a');
-<br>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C)(ref C[] <i>buf</i>, dchar <i>terminator</i> = '\x0a');
-<br>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C, R)(ref C[] <i>buf</i>, R <i>terminator</i>);
+<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(S = string)(dchar <i>terminator</i> = '\x0a') if (isSomeString!S);
 </h3></div>
-<div class="declaration-content"><dl><p>Read line from stream <span class="inlinecode">fp</span> and write it to <span class="inlinecode">buf[]</span>, including
+<div class="declaration-content"><dl><p>Read line from the file handle and return it as a specified type.
+</p>
+
+<p>This version manages its own read buffer, which means one memory allocation per call. If you are not
+retaining a reference to the read data, consider the <span class="inlinecode">File.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(buf)</span> version, which may offer
+better performance as it can reuse its read buffer.
+
+</p>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S</td>
+<td>Template parameter; the type of the allocated buffer, and the type returned. Defaults to <span class="inlinecode">string</span>.</td>
+</tr>
+<tr><td>dchar terminator</td>
+<td>line terminator (by default, '\n')</td>
+</tr>
+</table></dd>
+<dt>Returns</dt><dd>The line that was read, including the line terminator character.
+
+</dd>
+<dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on I/O error, or <span class="inlinecode">UnicodeException</span> on Unicode conversion error.
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// Reads $(D stdin) and writes it to $(D stdout).
+</span>
+<span class="d_keyword">import</span> std.stdio;
+
+<span class="d_keyword">void</span> main()
+{
+    string line;
+    <span class="d_keyword">while</span> ((line = stdin.<u>readln</u>()) !<span class="d_keyword">is</span> <span class="d_keyword">null</span>)
+        write(line);
+}
+</pre>
+</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C)(ref C[] <i>buf</i>, dchar <i>terminator</i> = '\x0a') if (isSomeChar!C &amp;&amp; is(Unqual!C == C) &amp;&amp; !is(C == enum));
+<br>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C, R)(ref C[] <i>buf</i>, R <i>terminator</i>) if (isSomeChar!C &amp;&amp; is(Unqual!C == C) &amp;&amp; !is(C == enum) &amp;&amp; isBidirectionalRange!R &amp;&amp; is(typeof(<i>terminator</i>.front == (dchar).init)));
+</h3></div>
+<div class="declaration-content"><dl><p>Read line from the file handle and write it to <span class="inlinecode">buf[]</span>, including
 terminating character.
 </p>
 
-<p>This is often faster than <span class="inlinecode">File.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(dchar)</span> because the buffer
-is reused each call. Note that reusing the buffer means that the
-previous contents of it has to be copied if needed.
+<p>This can be faster than <span class="inlinecode">line = File.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>()</span> because you can reuse
+the buffer for each call. Note that reusing the buffer means that you
+must copy the previous contents if you wish to retain them.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fp</td>
-<td>input stream</td>
-</tr>
-<tr><td>buf</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>C[] buf</td>
 <td>buffer used to store the resulting line data. buf is
 resized as necessary.</td>
+</tr>
+<tr><td>dchar terminator</td>
+<td>line terminator (by default, '\n')</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>0 for end of file, otherwise number of characters read
@@ -542,23 +631,35 @@ conversion error.
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_comment">// Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
+<pre class="d_code"><span class="d_comment">// Read lines from $(D stdin) into a string
 </span>
-<span class="d_keyword">import</span> std.stdio;
+<span class="d_comment">// Ignore lines starting with '#'
+</span>
+<span class="d_comment">// Write the string to $(D stdout)
+</span>
 
-<span class="d_keyword">int</span> main()
+<span class="d_keyword">void</span> main()
 {
+    string output;
     <span class="d_keyword">char</span>[] buf;
+
     <span class="d_keyword">while</span> (stdin.<u>readln</u>(buf))
-        write(buf);
-    <span class="d_keyword">return</span> 0;
+    {
+        <span class="d_keyword">if</span> (buf[0] == '#')
+            <span class="d_keyword">continue</span>;
+
+        output ~= buf;
+    }
+
+    write(output);
 }
 </pre>
+<br><br>
 
-This method is more efficient than the one in the previous example
+This method can be more efficient than the one in the previous example
 because <span class="inlinecode">stdin.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(buf)</span> reuses (if possible) memory allocated
-by <span class="inlinecode">buf</span>, whereas <span class="inlinecode">buf = stdin.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>()</span> makes a new memory allocation
-with every line.  </dd>
+for <span class="inlinecode">buf</span>, whereas <span class="inlinecode">line = stdin.<span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>()</span> makes a new memory allocation
+for every line.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="readf">&nbsp;</span><a class="symbol-link" href="#readf">readf</a>(Data...)(in char[] <i>format</i>, Data <i>data</i>);
@@ -571,17 +672,21 @@ with every line.  </dd>
 </div>
 <hr><div class="row-fluid declaration"><h3>static File <span class="symbol-target" id="tmpfile">&nbsp;</span><a class="symbol-link" href="#tmpfile">tmpfile</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>Returns a temporary file by calling <a href="http://cplusplus.com/reference/clibrary/cstdio/tmpfile.html">tmpfile</a>. </p>
+<div class="declaration-content"><dl><p>Returns a temporary file by calling <a href="http://cplusplus.com/reference/clibrary/cstdio/tmpfile.html">tmpfile</a>.
+ Note that the created file has no <a class="symbol-link" href="#name"><span class="inlinecode">name</span></a>
+.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>static File <span class="symbol-target" id="wrapFile">&nbsp;</span><a class="symbol-link" href="#wrapFile">wrapFile</a>(shared(_iobuf)* <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>static File <span class="symbol-target" id="wrapFile">&nbsp;</span><a class="symbol-link" href="#wrapFile">wrapFile</a>(FILE* <i>f</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Unsafe function that wraps an existing <span class="inlinecode">FILE*</span>. The resulting <span class="inlinecode">File</span> never takes the initiative in closing the file. </p>
+<div class="declaration-content"><dl><p>Unsafe function that wraps an existing <span class="inlinecode">FILE*</span>. The resulting <span class="inlinecode">File</span> never takes the initiative in closing the file.
+Note that the created file has no <a class="symbol-link" href="#name"><span class="inlinecode">name</span></a>
+</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure shared(_iobuf)* <span class="symbol-target" id="getFP">&nbsp;</span><a class="symbol-link" href="#getFP">getFP</a>();
+<hr><div class="row-fluid declaration"><h3>pure FILE* <span class="symbol-target" id="getFP">&nbsp;</span><a class="symbol-link" href="#getFP">getFP</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="inlinecode">FILE*</span> corresponding to this object.</p>
 
@@ -593,49 +698,96 @@ with every line.  </dd>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="ByLine">&nbsp;</span><a class="symbol-link" href="#ByLine">ByLine</a>(Char,Terminator);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="byLine">&nbsp;</span><a class="symbol-link" href="#byLine">byLine</a>(Terminator = char, Char = char)(KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a') if (isScalarType!Terminator);
+<br>auto <span class="symbol-target" id="byLine">&nbsp;</span><a class="symbol-link" href="#byLine">byLine</a>(Terminator, Char = char)(KeepTerminator <i>keepTerminator</i>, Terminator <i>terminator</i>) if (is(Unqual!(ElementEncodingType!Terminator) == Char));
 </h3></div>
-<div class="declaration-content"><dl><p>Range that reads one line at a time. 
- ditto</p>
-
-</dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
-<br>Char[] <span class="symbol-target" id="front">&nbsp;</span><a class="symbol-link" href="#front">front</a>();
-<br>void <span class="symbol-target" id="popFront">&nbsp;</span><a class="symbol-link" href="#popFront">popFront</a>();
-</h3></div>
-<div class="declaration-content"><dl><p>Range primitive implementations.</p>
-
-</dl>
-</div>
-</div>
-</div>
-<hr><div class="row-fluid declaration"><h3>ByLine!(Char,Terminator) <span class="symbol-target" id="byLine">&nbsp;</span><a class="symbol-link" href="#byLine">byLine</a>(Terminator = char, Char = char)(KeepTerminator <i>keepTerminator</i> = KeepTerminator.no, Terminator <i>terminator</i> = '\x0a');
-</h3></div>
-<div class="declaration-content"><dl><p>Convenience function that returns the <span class="inlinecode">LinesReader</span> corresponding
-to this file. </p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="ByChunk">&nbsp;</span><a class="symbol-link" href="#ByChunk">ByChunk</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>Range that reads a chunk at a time.</p>
-
-</dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
-<br>nothrow @property ubyte[] <span class="symbol-target" id="front">&nbsp;</span><a class="symbol-link" href="#front">front</a>();
-<br>void <span class="symbol-target" id="popFront">&nbsp;</span><a class="symbol-link" href="#popFront">popFront</a>();
-</h3></div>
-<div class="declaration-content"><dl><p>Range primitive operations.</p>
-
-</dl>
-</div>
-</div>
-</div>
-<hr><div class="row-fluid declaration"><h3>ByChunk <span class="symbol-target" id="byChunk">&nbsp;</span><a class="symbol-link" href="#byChunk">byChunk</a>(size_t <i>chunkSize</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Iterates through a file a chunk at a time by using <span class="inlinecode">foreach</span>.
+<div class="declaration-content"><dl><p>Returns an input range set up to read from the file handle one line
+at a time.
 </p>
 
+<p>The element type for the range will be <span class="inlinecode">Char[]</span>. Range primitives
+may throw <span class="inlinecode">StdioException</span> on I/O error.
+
+</p>
+<dt>Note:</dt><dd>
+Each <span class="inlinecode">front</span> will not persist after <span class="inlinecode">popFront</span> is called, so the caller must copy its contents (e.g. by
+calling <span class="inlinecode">to!string</span>) if retention is needed.
+
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Char</td>
+<td>Character type for each line, defaulting to <span class="inlinecode">char</span>.</td>
+</tr>
+<tr><td>KeepTerminator keepTerminator</td>
+<td>Use <span class="inlinecode">KeepTerminator.yes</span> to include the
+terminator at the end of each line.</td>
+</tr>
+<tr><td>Terminator terminator</td>
+<td>Line separator (<span class="inlinecode">'\n'</span> by default).</td>
+</tr>
+</table></dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.algorithm, std.stdio, std.string;
+<span class="d_comment">// Count words in a file using ranges.
+</span>
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> file = File(<span class="d_string">"file.txt"</span>); <span class="d_comment">// Open for reading
+</span>
+    <span class="d_keyword">const</span> wordCount = file.<u>byLine</u>()                  <span class="d_comment">// Read lines
+</span>
+                          .map!split                 <span class="d_comment">// Split into words
+</span>
+                          .map!(a =&gt; a.length)       <span class="d_comment">// Count words per line
+</span>
+                          .reduce!((a, b) =&gt; a + b); <span class="d_comment">// Total word count
+</span>
+    writeln(wordCount);
+}
+</pre>
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.range, std.stdio;
+<span class="d_comment">// Read lines using foreach.
+</span>
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> file = File(<span class="d_string">"file.txt"</span>); <span class="d_comment">// Open for reading
+</span>
+    <span class="d_keyword">auto</span> range = file.<u>byLine</u>();
+    <span class="d_comment">// Print first three lines
+</span>
+    <span class="d_keyword">foreach</span> (line; range.take(3))
+        writeln(line);
+    <span class="d_comment">// Print remaining lines beginning with '#'
+</span>
+    <span class="d_keyword">foreach</span> (line; range)
+    {
+        <span class="d_keyword">if</span> (!line.empty &amp;&amp; line[0] == '#')
+            writeln(line);
+    }
+}
+</pre>
+Notice that neither example accesses the line data returned by
+<span class="inlinecode">front</span> after the corresponding <span class="inlinecode">popFront</span> call is made (because
+the contents may well have changed).</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="byChunk">&nbsp;</span><a class="symbol-link" href="#byChunk">byChunk</a>(size_t <i>chunkSize</i>);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns an input range set up to read from the file handle a chunk at a
+time.
+</p>
+
+<p>The element type for the range will be <span class="inlinecode">ubyte[]</span>. Range primitives
+may throw <span class="inlinecode">StdioException</span> on I/O error.
+
+</p>
+<dt>Note:</dt><dd>
+Each <span class="inlinecode">front</span> will not persist after <span class="inlinecode">popFront</span> is called, so the caller must copy its contents (e.g. by
+calling <span class="inlinecode">buffer.dup</span>) if retention is needed.
+
+</dd>
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> main()
 {
@@ -645,34 +797,30 @@ to this file. </p>
   }
 }
 </pre>
-
 The content of <span class="inlinecode">buffer</span> is reused across calls. In the example
 above, <span class="inlinecode">buffer.length</span> is 4096 for all iterations, except for the
 last one, in which case <span class="inlinecode">buffer.length</span> may be less than 4096 (but
 always greater than zero).
-<br><br>
 
-In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.</dd>
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.algorithm, std.stdio;
+
+<span class="d_keyword">void</span> main()
+{
+    stdin.<u>byChunk</u>(1024).copy(stdout.lockingTextWriter());
+}
+</pre>
+</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="LockingTextWriter">&nbsp;</span><a class="symbol-link" href="#LockingTextWriter">LockingTextWriter</a>;
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="lockingTextWriter">&nbsp;</span><a class="symbol-link" href="#lockingTextWriter">lockingTextWriter</a>();
 </h3></div>
-<div class="declaration-content"><dl><p><span class="inlinecode">Range</span> that locks the file and allows fast writing to it.</p>
+<div class="declaration-content"><dl><p>Returns an output range that locks the file and allows fast writing to it.
+</p>
 
-</dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="put">&nbsp;</span><a class="symbol-link" href="#put">put</a>(A)(A <i>writeme</i>);
-<br>void <span class="symbol-target" id="put">&nbsp;</span><a class="symbol-link" href="#put">put</a>(C)(C <i>c</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Range primitive implementations.</p>
-
-</dl>
-</div>
-</div>
-</div>
-<hr><div class="row-fluid declaration"><h3>@property LockingTextWriter <span class="symbol-target" id="lockingTextWriter">&nbsp;</span><a class="symbol-link" href="#lockingTextWriter">lockingTextWriter</a>();
-</h3></div>
-<div class="declaration-content"><dl><p>Convenience function.</p>
-
+<p>See <a class="symbol-link" href="#byChunk"><span class="inlinecode">byChunk</span></a>
+ for an example.</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>@property ulong <span class="symbol-target" id="size">&nbsp;</span><a class="symbol-link" href="#size">size</a>();
@@ -688,14 +836,14 @@ In case of an I/O error, an <span class="inlinecode">StdioException</span> is th
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="isStreamingDevice">&nbsp;</span><a class="symbol-link" href="#isStreamingDevice">isStreamingDevice</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="isStreamingDevice">&nbsp;</span><a class="symbol-link" href="#isStreamingDevice">isStreamingDevice</a> = isFileHandle(T);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in January 2013.
        Please use <span class="inlinecode">isFileHandle</span> instead.</font></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T...)(T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T...)(T <i>args</i>) if (!is(T[0] : File));
 </h3></div>
 <div class="declaration-content"><dl><p>For each argument <span class="inlinecode">arg</span> in <span class="inlinecode">args</span>, format the argument (as per
 <a href="std_conv.html">to!(string)(arg)</a>) and <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a> the resulting
@@ -741,6 +889,7 @@ parameters with
 <pre class="d_code"><u>writef</u>(<span class="d_string">"Date: %2$s %1$s"</span>, <span class="d_string">"October"</span>, 5); <span class="d_comment">// "Date: 5 October"
 </span>
 </pre>
+<br><br>
 
 The positional and non-positional styles can be mixed in the same
 format string. (POSIX leaves this behavior undefined.) The internal
@@ -769,28 +918,72 @@ to write numbers in platform-native format.</dd>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(dchar <i>terminator</i> = '\x0a');
-<br>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(ref char[] <i>buf</i>, dchar <i>terminator</i> = '\x0a');
+<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(S = string)(dchar <i>terminator</i> = '\x0a') if (isSomeString!S);
 </h3></div>
-<div class="declaration-content"><dl><p>Read line from stream <span class="inlinecode">fp</span>.
+<div class="declaration-content"><dl><p>Read line from <span class="inlinecode">stdin</span>.
 </p>
 
-<dt>Returns</dt><dd><span class="inlinecode"><span class="d_keyword">null</span></span> for end of file,
-        <span class="inlinecode">char[]</span> for line read from <span class="inlinecode">fp</span>, including terminating character
+<p>This version manages its own read buffer, which means one memory allocation per call. If you are not
+ retaining a reference to the read data, consider the <span class="inlinecode"><span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(buf)</span> version, which may offer
+ better performance as it can reuse its read buffer.
+
+</p>
+<dt>Returns</dt><dd>The line that was read, including the line terminator character.
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"></table></dd>
-<dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on error
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S</td>
+<td>Template parameter; the type of the allocated buffer, and the type returned. Defaults to <span class="inlinecode">string</span>.</td>
+</tr>
+<tr><td>dchar terminator</td>
+<td>line terminator (by default, '\n')</td>
+</tr>
+</table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on I/O error, or <span class="inlinecode">UnicodeException</span> on Unicode conversion error.
 </dd>
 <dt>Example:</dt><dd>
-Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
+        Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 
-<span class="d_keyword">int</span> main()
+<span class="d_keyword">void</span> main()
+{
+    string line;
+    <span class="d_keyword">while</span> ((line = <u>readln</u>()) !<span class="d_keyword">is</span> <span class="d_keyword">null</span>)
+        write(line);
+}
+</pre>
+</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C)(ref C[] <i>buf</i>, dchar <i>terminator</i> = '\x0a') if (isSomeChar!C &amp;&amp; is(Unqual!C == C) &amp;&amp; !is(C == enum));
+<br>size_t <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>(C, R)(ref C[] <i>buf</i>, R <i>terminator</i>) if (isSomeChar!C &amp;&amp; is(Unqual!C == C) &amp;&amp; !is(C == enum) &amp;&amp; isBidirectionalRange!R &amp;&amp; is(typeof(<i>terminator</i>.front == (dchar).init)));
+</h3></div>
+<div class="declaration-content"><dl><p>Read line from <span class="inlinecode">stdin</span> and write it to buf[], including terminating character.
+</p>
+
+<p>This can be faster than <span class="inlinecode">line = <span class="symbol-target" id="readln">&nbsp;</span><a class="symbol-link" href="#readln">readln</a>()</span> because you can reuse
+ the buffer for each call. Note that reusing the buffer means that you
+ must copy the previous contents if you wish to retain them.
+
+</p>
+<dt>Returns</dt><dd><span class="inlinecode">size_t</span> 0 for end of file, otherwise number of characters read
+</dd>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>C[] buf</td>
+<td>Buffer used to store the resulting line data. buf is resized as necessary.</td>
+</tr>
+<tr><td>dchar terminator</td>
+<td>line terminator (by default, '\n')</td>
+</tr>
+</table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">StdioException</span> on I/O error, or <span class="inlinecode">UnicodeException</span> on Unicode conversion error.
+</dd>
+<dt>Example:</dt><dd>
+        Reads <span class="inlinecode">stdin</span> and writes it to <span class="inlinecode">stdout</span>.
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+
+<span class="d_keyword">void</span> main()
 {
     <span class="d_keyword">char</span>[] buf;
-    <span class="d_keyword">while</span> ((buf = <u>readln</u>()) != <span class="d_keyword">null</span>)
+    <span class="d_keyword">while</span> (<u>readln</u>(buf))
         write(buf);
-    <span class="d_keyword">return</span> 0;
 }
 </pre>
 </dd>
@@ -835,11 +1028,12 @@ the first symbol (of integral type, e.g. <span class="inlinecode">ulong</span> o
     ... use line ...
   }
 </pre>
+<br><br>
 
  In case of an I/O error, an <span class="inlinecode">StdioException</span> is thrown.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="chunks">&nbsp;</span><a class="symbol-link" href="#chunks">chunks</a>;
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="chunks">&nbsp;</span><a class="symbol-link" href="#chunks">chunks</a>(File <i>f</i>, size_t <i>size</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Iterates through a file a chunk at a time by using <span class="inlinecode">foreach</span>.
 </p>
@@ -847,12 +1041,13 @@ the first symbol (of integral type, e.g. <span class="inlinecode">ulong</span> o
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> main()
 {
-  <span class="d_keyword">foreach</span> (<span class="d_keyword">ubyte</span>[] buffer; <u>chunks</u>(stdin, 4096))
-  {
-    ... use buffer ...
-  }
+    <span class="d_keyword">foreach</span> (<span class="d_keyword">ubyte</span>[] buffer; <u>chunks</u>(stdin, 4096))
+    {
+        ... use buffer ...
+    }
 }
 </pre>
+<br><br>
 
 The content of <span class="inlinecode">buffer</span> is reused across calls. In the
  example above, <span class="inlinecode">buffer.length</span> is 4096 for all iterations,
@@ -874,7 +1069,7 @@ The content of <span class="inlinecode">buffer</span> is reused across calls. In
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>message</i>, uint <i>e</i> = cast(uint)errno());
+<hr><div class="row-fluid declaration"><h3> this(string <i>message</i>, uint <i>e</i> = .errno);
 </h3></div>
 <div class="declaration-content"><dl><p>Initialize with a <i>message</i> and an error code. </p>
 

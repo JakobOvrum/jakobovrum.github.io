@@ -284,16 +284,11 @@
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>immutable(char)* <span class="symbol-target" id="sqlite3_version">&nbsp;</span><a class="symbol-link" href="#sqlite3_version">sqlite3_version</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>* CAPI3REF: Run-Time Library Version Numbers</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>immutable(char)* <span class="symbol-target" id="sqlite3_libversion">&nbsp;</span><a class="symbol-link" href="#sqlite3_libversion">sqlite3_libversion</a>();
+<br>immutable(char)* <span class="symbol-target" id="sqlite3_libversion">&nbsp;</span><a class="symbol-link" href="#sqlite3_libversion">sqlite3_libversion</a>();
 <br>immutable(char)* <span class="symbol-target" id="sqlite3_sourceid">&nbsp;</span><a class="symbol-link" href="#sqlite3_sourceid">sqlite3_sourceid</a>();
 <br>int <span class="symbol-target" id="sqlite3_libversion_number">&nbsp;</span><a class="symbol-link" href="#sqlite3_libversion_number">sqlite3_libversion_number</a>();
 </h3></div>
-<div class="declaration-content"><dl><p>Ditt</p>
+<div class="declaration-content"><dl><p>* CAPI3REF: Run-Time Library Version Numbers</p>
 
 </dl>
 </div>
@@ -316,11 +311,11 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_int64">&nbsp;</span><a class="symbol-link" href="#sqlite3_int64">sqlite3_int64</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_int64">&nbsp;</span><a class="symbol-link" href="#sqlite3_int64">sqlite3_int64</a> = long;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_uint64">&nbsp;</span><a class="symbol-link" href="#sqlite3_uint64">sqlite3_uint64</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_uint64">&nbsp;</span><a class="symbol-link" href="#sqlite3_uint64">sqlite3_uint64</a> = ulong;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -331,7 +326,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_callback">&nbsp;</span><a class="symbol-link" href="#sqlite3_callback">sqlite3_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_callback">&nbsp;</span><a class="symbol-link" href="#sqlite3_callback">sqlite3_callback</a> = extern (C) int function(void*, int, char**, char**);
 </h3></div>
 <div class="declaration-content"><dl><p>* The type for a callback function.
 * This is legacy and deprecated.  It is included for historical
@@ -998,8 +993,8 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="xDlSymReturn">&nbsp;</span><a class="symbol-link" href="#xDlSymReturn">xDlSymReturn</a>;
-<br>alias <span class="symbol-target" id="sqlite3_syscall_ptr">&nbsp;</span><a class="symbol-link" href="#sqlite3_syscall_ptr">sqlite3_syscall_ptr</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="xDlSymReturn">&nbsp;</span><a class="symbol-link" href="#xDlSymReturn">xDlSymReturn</a> = extern (C) void* function();
+<br>alias <span class="symbol-target" id="sqlite3_syscall_ptr">&nbsp;</span><a class="symbol-link" href="#sqlite3_syscall_ptr">sqlite3_syscall_ptr</a> = extern (C) void function();
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: OS Interface Object</p>
 
@@ -1064,13 +1059,13 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_config">&nbsp;</span><a class="symbol-link" href="#sqlite3_config">sqlite3_config</a>(int,...);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_config">&nbsp;</span><a class="symbol-link" href="#sqlite3_config">sqlite3_config</a>(int, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Configuring The SQLite Library</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_db_config">&nbsp;</span><a class="symbol-link" href="#sqlite3_db_config">sqlite3_db_config</a>(sqlite3*, int <i>op</i>,...);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_db_config">&nbsp;</span><a class="symbol-link" href="#sqlite3_db_config">sqlite3_db_config</a>(sqlite3*, int <i>op</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Configure database connections</p>
 
@@ -1316,11 +1311,11 @@
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="va_list">&nbsp;</span><a class="symbol-link" href="#va_list">va_list</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="va_list">&nbsp;</span><a class="symbol-link" href="#va_list">va_list</a> = char*;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="sqlite3_mprintf">&nbsp;</span><a class="symbol-link" href="#sqlite3_mprintf">sqlite3_mprintf</a>(const char*,...);
+<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="sqlite3_mprintf">&nbsp;</span><a class="symbol-link" href="#sqlite3_mprintf">sqlite3_mprintf</a>(const char*, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Formatted String Printing Functions</p>
 
@@ -1346,7 +1341,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_set_authorizer">&nbsp;</span><a class="symbol-link" href="#sqlite3_set_authorizer">sqlite3_set_authorizer</a>(sqlite3*, int function(void*, int, const(char*), const(char*), const(char*), const(char*)) <i>xAuth</i>, void* <i>pUserData</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_set_authorizer">&nbsp;</span><a class="symbol-link" href="#sqlite3_set_authorizer">sqlite3_set_authorizer</a>(sqlite3*, int function(void*, int, const char*, const char*, const char*, const char*) <i>xAuth</i>, void* <i>pUserData</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Compile-Time Authorization Callbacks</p>
 
@@ -1630,8 +1625,8 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_trace">&nbsp;</span><a class="symbol-link" href="#sqlite3_trace">sqlite3_trace</a>(sqlite3*, void function(void*, const(char*)) <i>xTrace</i>, void*);
-<br>void* <span class="symbol-target" id="sqlite3_profile">&nbsp;</span><a class="symbol-link" href="#sqlite3_profile">sqlite3_profile</a>(sqlite3*, void function(void*, const(char*), ulong) <i>xProfile</i>, void*);
+<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_trace">&nbsp;</span><a class="symbol-link" href="#sqlite3_trace">sqlite3_trace</a>(sqlite3*, void function(void*, const char*) <i>xTrace</i>, void*);
+<br>void* <span class="symbol-target" id="sqlite3_profile">&nbsp;</span><a class="symbol-link" href="#sqlite3_profile">sqlite3_profile</a>(sqlite3*, void function(void*, const char*, sqlite3_uint64) <i>xProfile</i>, void*);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Tracing And Profiling Functions</p>
 
@@ -2007,7 +2002,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_destructor_type">&nbsp;</span><a class="symbol-link" href="#sqlite3_destructor_type">sqlite3_destructor_type</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="sqlite3_destructor_type">&nbsp;</span><a class="symbol-link" href="#sqlite3_destructor_type">sqlite3_destructor_type</a> = extern (C) void function(void*);
 <br>void function(void*) <span class="symbol-target" id="SQLITE_STATIC">&nbsp;</span><a class="symbol-link" href="#SQLITE_STATIC">SQLITE_STATIC</a>;
 <br>void function(void*) <span class="symbol-target" id="SQLITE_TRANSIENT">&nbsp;</span><a class="symbol-link" href="#SQLITE_TRANSIENT">SQLITE_TRANSIENT</a>;
 </h3></div>
@@ -2036,16 +2031,16 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_create_collation">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation">sqlite3_create_collation</a>(sqlite3*, const(char)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const(void*), int, const(void*)) <i>xCompare</i>);
-<br>int <span class="symbol-target" id="sqlite3_create_collation_v2">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation_v2">sqlite3_create_collation_v2</a>(sqlite3*, const(char)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const(void*), int, const(void*)) <i>xCompare</i>, void function(void*) <i>xDestroy</i>);
-<br>int <span class="symbol-target" id="sqlite3_create_collation16">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation16">sqlite3_create_collation16</a>(sqlite3*, const(void)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const(void*), int, const(void*)) <i>xCompare</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_create_collation">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation">sqlite3_create_collation</a>(sqlite3*, const(char)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const void*, int, const void*) <i>xCompare</i>);
+<br>int <span class="symbol-target" id="sqlite3_create_collation_v2">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation_v2">sqlite3_create_collation_v2</a>(sqlite3*, const(char)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const void*, int, const void*) <i>xCompare</i>, void function(void*) <i>xDestroy</i>);
+<br>int <span class="symbol-target" id="sqlite3_create_collation16">&nbsp;</span><a class="symbol-link" href="#sqlite3_create_collation16">sqlite3_create_collation16</a>(sqlite3*, const(void)* <i>zName</i>, int <i>eTextRep</i>, void* <i>pArg</i>, int function(void*, int, const void*, int, const void*) <i>xCompare</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Define New Collating Sequences</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_collation_needed">&nbsp;</span><a class="symbol-link" href="#sqlite3_collation_needed">sqlite3_collation_needed</a>(sqlite3*, void*, void function(void*, sqlite3*, int eTextRep, const(char*)));
-<br>int <span class="symbol-target" id="sqlite3_collation_needed16">&nbsp;</span><a class="symbol-link" href="#sqlite3_collation_needed16">sqlite3_collation_needed16</a>(sqlite3*, void*, void function(void*, sqlite3*, int eTextRep, const(void*)));
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_collation_needed">&nbsp;</span><a class="symbol-link" href="#sqlite3_collation_needed">sqlite3_collation_needed</a>(sqlite3*, void*, void function(void*, sqlite3*, int eTextRep, const char*));
+<br>int <span class="symbol-target" id="sqlite3_collation_needed16">&nbsp;</span><a class="symbol-link" href="#sqlite3_collation_needed16">sqlite3_collation_needed16</a>(sqlite3*, void*, void function(void*, sqlite3*, int eTextRep, const void*));
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Collation Needed Callbacks</p>
 
@@ -2117,7 +2112,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_update_hook">&nbsp;</span><a class="symbol-link" href="#sqlite3_update_hook">sqlite3_update_hook</a>(sqlite3*, void function(void*, int, char*, char*, long), void*);
+<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_update_hook">&nbsp;</span><a class="symbol-link" href="#sqlite3_update_hook">sqlite3_update_hook</a>(sqlite3*, void function(void*, int, char*, char*, sqlite3_int64), void*);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Data Change Notification Callbacks</p>
 
@@ -2171,8 +2166,8 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="mapFunction">&nbsp;</span><a class="symbol-link" href="#mapFunction">mapFunction</a>;
-<br>struct <span class="symbol-target" id="<span class="symbol-target" id="sqlite3_module">&nbsp;</span><a class="symbol-link" href="#sqlite3_module">sqlite3_module</a>">&nbsp;</span><a class="symbol-link" href="#<span class="symbol-target" id="sqlite3_module">&nbsp;</span><a class="symbol-link" href="#sqlite3_module">sqlite3_module</a>"><span class="symbol-target" id="sqlite3_module">&nbsp;</span><a class="symbol-link" href="#sqlite3_module">sqlite3_module</a></a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="mapFunction">&nbsp;</span><a class="symbol-link" href="#mapFunction">mapFunction</a> = extern (C) void function(sqlite3_context*, int, sqlite3_value**);
+<br>struct <span class="symbol-target" id="sqlite3_module">&nbsp;</span><a class="symbol-link" href="#sqlite3_module">sqlite3_module</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>* The interface to the virtual-table mechanism is currently considered
 * to be experimental.  The interface might change in incompatible ways.
@@ -2491,7 +2486,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_test_control">&nbsp;</span><a class="symbol-link" href="#sqlite3_test_control">sqlite3_test_control</a>(int <i>op</i>,...);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="sqlite3_test_control">&nbsp;</span><a class="symbol-link" href="#sqlite3_test_control">sqlite3_test_control</a>(int <i>op</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Testing Interface</p>
 
@@ -2777,13 +2772,13 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="sqlite3_log">&nbsp;</span><a class="symbol-link" href="#sqlite3_log">sqlite3_log</a>(int <i>iErrCode</i>, const char* <i>zFormat</i>,...);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="sqlite3_log">&nbsp;</span><a class="symbol-link" href="#sqlite3_log">sqlite3_log</a>(int <i>iErrCode</i>, const char* <i>zFormat</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Error Logging Interface</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_wal_hook">&nbsp;</span><a class="symbol-link" href="#sqlite3_wal_hook">sqlite3_wal_hook</a>(sqlite3*, int function(void*, sqlite3*, const(char*), int), void*);
+<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="sqlite3_wal_hook">&nbsp;</span><a class="symbol-link" href="#sqlite3_wal_hook">sqlite3_wal_hook</a>(sqlite3*, int function(void*, sqlite3*, const char*, int), void*);
 </h3></div>
 <div class="declaration-content"><dl><p>* CAPI3REF: Write-Ahead Log Commit Hook</p>
 

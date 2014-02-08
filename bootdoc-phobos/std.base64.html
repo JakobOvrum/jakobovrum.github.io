@@ -281,12 +281,35 @@
 
 </p>
 <dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">ubyte</span>[] data = [0x14, 0xfb, 0x9c, 0x03, 0xd9, 0x7e];
+
+<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[] encoded = Base64.encode(data);
+<span class="d_keyword">assert</span>(encoded == <span class="d_string">"FPucA9l+"</span>);
+
+<span class="d_keyword">ubyte</span>[] decoded = Base64.decode(<span class="d_string">"FPucA9l+"</span>);
+<span class="d_keyword">assert</span>(decoded == [0x14, 0xfb, 0x9c, 0x03, 0xd9, 0x7e]);
+</pre>
+<br><br>
 
  Support Range interface using Encoder / Decoder.
 
 </dd>
 <dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">// Create MIME Base64 with CRLF, per line 76.
+</span>
+File f = File(<span class="d_string">"./text.txt"</span>, <span class="d_string">"r"</span>);
+<span class="d_keyword">scope</span>(exit) f.close();
 
+Appender!string mime64 = appender!string;
+
+<span class="d_keyword">foreach</span> (encoded; Base64.encoder(f.byChunk(57)))
+{
+    mime64.put(encoded);
+    mime64.put(<span class="d_string">"\r\n"</span>);
+}
+
+writeln(mime64.data);
+</pre>
 
 </dd>
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
@@ -296,26 +319,26 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/base64.d">std/base64.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Base64">&nbsp;</span><a class="symbol-link" href="#Base64">Base64</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Base64">&nbsp;</span><a class="symbol-link" href="#Base64">Base64</a> = Base64Impl!('+', '/');
 </h3></div>
 <div class="declaration-content"><dl><p>The <span class="symbol-target" id="Base64">&nbsp;</span><a class="symbol-link" href="#Base64">Base64</a></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Base64URL">&nbsp;</span><a class="symbol-link" href="#Base64URL">Base64URL</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Base64URL">&nbsp;</span><a class="symbol-link" href="#Base64URL">Base64URL</a> = Base64Impl!('-', '_');
 </h3></div>
 <div class="declaration-content"><dl><p>The "URL and Filename safe" Base64</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Base64Impl">&nbsp;</span><a class="symbol-link" href="#Base64Impl">Base64Impl</a>(char Map62th,char Map63th,char Padding = '=')</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Base64Impl">&nbsp;</span><a class="symbol-link" href="#Base64Impl">Base64Impl</a>(char Map62th, char Map63th, char Padding = '=')</h3></div>
 <div class="declaration-content"><dl><p>Core implementation for Base64 format.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> <u>Base64Impl</u>!('+', '/')                   Base64;    <span class="d_comment">// The Base64 format(Already defined).
+<pre class="d_code"><span class="d_keyword">alias</span> <u>Base64Impl</u>!('+', '/')                   Base64;    <span class="d_comment">// The Base64 format(Already defined).
 </span>
- <span class="d_keyword">alias</span> <u>Base64Impl</u>!('!', '=', Base64.NoPadding) Base64Re;  <span class="d_comment">// non-standard Base64 format for Regular expression
+<span class="d_keyword">alias</span> <u>Base64Impl</u>!('!', '=', Base64.NoPadding) Base64Re;  <span class="d_comment">// non-standard Base64 format for Regular expression
 </span>
 </pre>
 
@@ -335,40 +358,40 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <dt>Returns</dt><dd>the calculated length using <b><i>sourceLength</i></b>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>buffer</i>);
-<br>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(R1 <i>source</i>, R2 <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>buffer</i>) if (isArray!R1 &amp;&amp; is(ElementType!R1 : ubyte) &amp;&amp; is(R2 == char[]));
+<br>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(R1 <i>source</i>, R2 <i>buffer</i>) if (!isArray!R1 &amp;&amp; isInputRange!R1 &amp;&amp; is(ElementType!R1 : ubyte) &amp;&amp; hasLength!R1 &amp;&amp; is(R2 == char[]));
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes <b>source</b> into <b>buffer</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>R1 source</td>
 <td>an <span class="inlinecode">InputRange</span> to <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>.</td>
 </tr>
-<tr><td>range</td>
+<tr><td>R2 buffer</td>
 <td>a buffer to store encoded result.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>the encoded string that slices buffer.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>range</i>);
-<br>size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(R1 <i>source</i>, R2 <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>range</i>) if (isArray!R1 &amp;&amp; is(ElementType!R1 : ubyte) &amp;&amp; !is(R2 == char[]));
+<br>size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(R1, R2)(R1 <i>source</i>, R2 <i>range</i>) if (!isArray!R1 &amp;&amp; isInputRange!R1 &amp;&amp; is(ElementType!R1 : ubyte) &amp;&amp; hasLength!R1 &amp;&amp; !is(R2 == char[]) &amp;&amp; isOutputRange!(R2, char));
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes <b>source</b> into <b>range</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>R1 source</td>
 <td>an <span class="inlinecode">InputRange</span> to <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>.</td>
 </tr>
-<tr><td>range</td>
+<tr><td>R2 range</td>
 <td>an <span class="inlinecode">OutputRange</span> to put encoded result.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>the number of calling put.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(Range)(Range <i>source</i>);
-<br>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(Range)(Range <i>source</i>);
+<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(Range)(Range <i>source</i>) if (isArray!Range &amp;&amp; is(ElementType!Range : ubyte));
+<br>char[] <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(Range)(Range <i>source</i>) if (!isArray!Range &amp;&amp; isInputRange!Range &amp;&amp; is(ElementType!Range : ubyte) &amp;&amp; hasLength!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes <b>source</b> to new buffer.
 </p>
@@ -376,12 +399,12 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <p>Shortcut to <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(source, buffer) function.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Encoder">&nbsp;</span><a class="symbol-link" href="#Encoder">Encoder</a>(Range) if (isInputRange!(Range) &amp;&amp; (is(ElementType!(Range) : const(ubyte)[]) || is(ElementType!(Range) : const(char)[])));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Encoder">&nbsp;</span><a class="symbol-link" href="#Encoder">Encoder</a>(Range) if (isInputRange!Range &amp;&amp; (is(ElementType!Range : const(ubyte)[]) || is(ElementType!Range : const(char)[])));
 </h3></div>
 <div class="declaration-content"><dl><p>Range that encodes chunk data at a time.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Range primitive operation that checks iteration state.
 </p>
@@ -415,7 +438,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Encoder">&nbsp;</span><a class="symbol-link" href="#Encoder">Encoder</a>(Range) if (isInputRange!(Range) &amp;&amp; is(ElementType!(Range) : ubyte));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Encoder">&nbsp;</span><a class="symbol-link" href="#Encoder">Encoder</a>(Range) if (isInputRange!Range &amp;&amp; is(ElementType!Range : ubyte));
 </h3></div>
 <div class="declaration-content"><dl><p>Range that encodes single character at a time.</p>
 
@@ -454,7 +477,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>Encoder!(Range) <span class="symbol-target" id="encoder">&nbsp;</span><a class="symbol-link" href="#encoder">encoder</a>(Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Encoder!Range <span class="symbol-target" id="encoder">&nbsp;</span><a class="symbol-link" href="#encoder">encoder</a>(Range)(Range <i>range</i>) if (isInputRange!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Iterates through an <span class="inlinecode">InputRange</span> at a time by using <span class="inlinecode">Encoder</span>.
 </p>
@@ -463,7 +486,15 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 
 </p>
 <dt>Example:</dt><dd>
+<pre class="d_code">File f = File(<span class="d_string">"text.txt"</span>, <span class="d_string">"r"</span>);
+<span class="d_keyword">scope</span>(exit) f.close();
 
+<span class="d_keyword">uint</span> line = 0;
+<span class="d_keyword">foreach</span> (encoded; Base64.<u>encoder</u>(f.byLine()))
+{
+    writeln(++line, <span class="d_string">". "</span>, encoded);
+}
+</pre>
 <br><br>
 
  In addition, You can use <span class="inlinecode">Encoder</span> that returns encoded single character.
@@ -471,10 +502,18 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 
 </dd>
 <dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">ubyte</span>[] data = <span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>[]) <span class="d_string">"0123456789"</span>;
 
+<span class="d_comment">// The ElementType of data is not aggregation type
+</span>
+<span class="d_keyword">foreach</span> (encoded; Base64.<u>encoder</u>(data))
+{
+    writeln(encoded);
+}
+</pre>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>range</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Range range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>
@@ -493,16 +532,16 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <dt>Returns</dt><dd>calculated length using <b><i>sourceLength</i></b>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>buffer</i>);
-<br>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(R1 <i>source</i>, R2 <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>buffer</i>) if (isArray!R1 &amp;&amp; is(ElementType!R1 : dchar) &amp;&amp; is(R2 == ubyte[]) &amp;&amp; isOutputRange!(R2, ubyte));
+<br>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(R1 <i>source</i>, R2 <i>buffer</i>) if (!isArray!R1 &amp;&amp; isInputRange!R1 &amp;&amp; is(ElementType!R1 : dchar) &amp;&amp; hasLength!R1 &amp;&amp; is(R2 == ubyte[]) &amp;&amp; isOutputRange!(R2, ubyte));
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes <b>source</b> into <b>buffer</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>R1 source</td>
 <td>an <span class="inlinecode">InputRange</span> to <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>.</td>
 </tr>
-<tr><td>buffer</td>
+<tr><td>R2 buffer</td>
 <td>a buffer to store decoded result.</td>
 </tr>
 </table></dd>
@@ -512,16 +551,16 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <dt>Throws</dt><dd>an Exception if <b>source</b> has character outside base-alphabet.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>range</i>);
-<br>size_t <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(R1 <i>source</i>, R2 <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(in R1 <i>source</i>, R2 <i>range</i>) if (isArray!R1 &amp;&amp; is(ElementType!R1 : dchar) &amp;&amp; !is(R2 == ubyte[]) &amp;&amp; isOutputRange!(R2, ubyte));
+<br>size_t <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(R1, R2)(R1 <i>source</i>, R2 <i>range</i>) if (!isArray!R1 &amp;&amp; isInputRange!R1 &amp;&amp; is(ElementType!R1 : dchar) &amp;&amp; hasLength!R1 &amp;&amp; !is(R2 == ubyte[]) &amp;&amp; isOutputRange!(R2, ubyte));
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes <b>source</b> into <b>range</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>source</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>R1 source</td>
 <td>an <span class="inlinecode">InputRange</span> to <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>.</td>
 </tr>
-<tr><td>range</td>
+<tr><td>R2 range</td>
 <td>an <span class="inlinecode">OutputRange</span> to put decoded result</td>
 </tr>
 </table></dd>
@@ -531,8 +570,8 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <dt>Throws</dt><dd>an Exception if <b>source</b> has character outside base-alphabet.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(Range)(Range <i>source</i>);
-<br>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(Range)(Range <i>source</i>);
+<hr><div class="row-fluid declaration"><h3>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(Range)(Range <i>source</i>) if (isArray!Range &amp;&amp; is(ElementType!Range : dchar));
+<br>ubyte[] <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(Range)(Range <i>source</i>) if (!isArray!Range &amp;&amp; isInputRange!Range &amp;&amp; is(ElementType!Range : dchar) &amp;&amp; hasLength!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes <b>source</b> into new buffer.
 </p>
@@ -540,12 +579,12 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 <p>Shortcut to <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(source, buffer) function.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Decoder">&nbsp;</span><a class="symbol-link" href="#Decoder">Decoder</a>(Range) if (isInputRange!(Range) &amp;&amp; (is(ElementType!(Range) : const(char)[]) || is(ElementType!(Range) : const(ubyte)[])));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Decoder">&nbsp;</span><a class="symbol-link" href="#Decoder">Decoder</a>(Range) if (isInputRange!Range &amp;&amp; (is(ElementType!Range : const(char)[]) || is(ElementType!Range : const(ubyte)[])));
 </h3></div>
 <div class="declaration-content"><dl><p>Range that decodes chunk data at a time.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Range primitive operation that checks iteration state.
 </p>
@@ -579,7 +618,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Decoder">&nbsp;</span><a class="symbol-link" href="#Decoder">Decoder</a>(Range) if (isInputRange!(Range) &amp;&amp; is(ElementType!(Range) : char));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Decoder">&nbsp;</span><a class="symbol-link" href="#Decoder">Decoder</a>(Range) if (isInputRange!Range &amp;&amp; is(ElementType!Range : char));
 </h3></div>
 <div class="declaration-content"><dl><p>Range that decodes single character at a time.</p>
 
@@ -618,7 +657,7 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>Decoder!(Range) <span class="symbol-target" id="decoder">&nbsp;</span><a class="symbol-link" href="#decoder">decoder</a>(Range)(Range <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Decoder!Range <span class="symbol-target" id="decoder">&nbsp;</span><a class="symbol-link" href="#decoder">decoder</a>(Range)(Range <i>range</i>) if (isInputRange!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Iterates through an <span class="inlinecode">InputRange</span> at a time by using <span class="inlinecode">Decoder</span>.
 </p>
@@ -627,7 +666,11 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 
 </p>
 <dt>Example:</dt><dd>
-
+<pre class="d_code"><span class="d_keyword">foreach</span> (decoded; Base64.<u>decoder</u>(stdin.byLine()))
+{
+    writeln(decoded);
+}
+</pre>
 <br><br>
 
  In addition, You can use <span class="inlinecode">Decoder</span> that returns decoded single character.
@@ -635,7 +678,12 @@ encoded-string doesn't have padding character if set Padding parameter to NoPadd
 
 </dd>
 <dt>Example:</dt><dd>
-
+<pre class="d_code"><span class="d_keyword">auto</span> encoded = Base64.encoder(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>[])<span class="d_string">"0123456789"</span>);
+<span class="d_keyword">foreach</span> (n; map!<span class="d_string">q{a - '0'}</span>(Base64.<u>decoder</u>(encoded)))
+{
+    writeln(n);
+}
+</pre>
 
 </dd>
 <dt>NOTE:</dt><dd>
@@ -643,7 +691,7 @@ If you use <span class="inlinecode">ByChunk</span>, chunk-size should be the mul
   <span class="inlinecode">Decoder</span> can't judge a encode-boundary.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>range</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Range range</td>
 <td>an <span class="inlinecode">InputRange</span> to iterate.</td>
 </tr>
 </table></dd>
@@ -651,6 +699,12 @@ If you use <span class="inlinecode">ByChunk</span>, chunk-size should be the mul
 </dl>
 </div>
 </div>
+</div>
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="Base64Exception">&nbsp;</span><a class="symbol-link" href="#Base64Exception">Base64Exception</a>: object.Exception;
+</h3></div>
+<div class="declaration-content"><dl><p>Exception thrown on Base64 errors.</p>
+
+</dl>
 </div>
 
 

@@ -296,13 +296,14 @@ environment.
 <pre class="d_code"><span class="d_comment">// Generate a uniformly-distributed integer in the range [0, 14]
 </span>
 <span class="d_keyword">auto</span> i = uniform(0, 15);
-<span class="d_comment">// Generate a uniformly-distributed real in the range [0, 100)
+<span class="d_comment">// Generate a uniformly-distributed real in the range [0, 100$(RPAREN)
 </span>
 <span class="d_comment">// using a specific random generator
 </span>
 Random gen;
 <span class="d_keyword">auto</span> r = uniform(0.0L, 100.0L, gen);
 </pre>
+<br><br>
 
 In addition to <span class="symbol-target" id="random">&nbsp;</span><a class="symbol-link" href="#random">random</a> number generators, this module features
 distributions, which skew a generator's output statistical
@@ -326,7 +327,7 @@ The entire <span class="symbol-target" id="random">&nbsp;</span><a class="symbol
            <span class="symbol-target" id="random">&nbsp;</span><a class="symbol-link" href="#random">random</a> number facility proposed by Jens Maurer and contributed to by
            researchers at the Fermi laboratory(excluding Xorshift).</dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isUniformRNG">&nbsp;</span><a class="symbol-link" href="#isUniformRNG">isUniformRNG</a>(Rng,ElementType)<br>template <span class="symbol-target" id="isUniformRNG">&nbsp;</span><a class="symbol-link" href="#isUniformRNG">isUniformRNG</a>(Rng)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isUniformRNG">&nbsp;</span><a class="symbol-link" href="#isUniformRNG">isUniformRNG</a>(Rng, ElementType)<br>template <span class="symbol-target" id="isUniformRNG">&nbsp;</span><a class="symbol-link" href="#isUniformRNG">isUniformRNG</a>(Rng)</h3></div>
 <div class="declaration-content"><dl><p>Test if Rng is a random-number generator. The overload
  taking a ElementType also makes sure that the Rng generates
  values of that type.
@@ -338,7 +339,7 @@ The entire <span class="symbol-target" id="random">&nbsp;</span><a class="symbol
  </ul></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSeedable">&nbsp;</span><a class="symbol-link" href="#isSeedable">isSeedable</a>(Rng,SeedType)<br>template <span class="symbol-target" id="isSeedable">&nbsp;</span><a class="symbol-link" href="#isSeedable">isSeedable</a>(Rng)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSeedable">&nbsp;</span><a class="symbol-link" href="#isSeedable">isSeedable</a>(Rng, SeedType)<br>template <span class="symbol-target" id="isSeedable">&nbsp;</span><a class="symbol-link" href="#isSeedable">isSeedable</a>(Rng)</h3></div>
 <div class="declaration-content"><dl><p>Test if Rng is seedable. The overload
  taking a SeedType also makes sure that the Rng can be seeded with SeedType.
 </p>
@@ -348,7 +349,7 @@ The entire <span class="symbol-target" id="random">&nbsp;</span><a class="symbol
  </ul></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="LinearCongruentialEngine">&nbsp;</span><a class="symbol-link" href="#LinearCongruentialEngine">LinearCongruentialEngine</a>(UIntType,UIntType a,UIntType c,UIntType m) if (isUnsigned!(UIntType));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="LinearCongruentialEngine">&nbsp;</span><a class="symbol-link" href="#LinearCongruentialEngine">LinearCongruentialEngine</a>(UIntType, UIntType a, UIntType c, UIntType m) if (isUnsigned!UIntType);
 </h3></div>
 <div class="declaration-content"><dl><p>Linear Congruential generator.</p>
 
@@ -386,7 +387,7 @@ The entire <span class="symbol-target" id="random">&nbsp;</span><a class="symbol
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
+<hr><div class="row-fluid declaration"><h3> this(UIntType <i>x0</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a <b>LinearCongruentialEngine</b> generator seeded with
 <span class="inlinecode"><i>x0</i></span>.</p>
@@ -429,8 +430,8 @@ The entire <span class="symbol-target" id="random">&nbsp;</span><a class="symbol
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="MinstdRand0">&nbsp;</span><a class="symbol-link" href="#MinstdRand0">MinstdRand0</a>;
-<br>alias <span class="symbol-target" id="MinstdRand">&nbsp;</span><a class="symbol-link" href="#MinstdRand">MinstdRand</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="MinstdRand0">&nbsp;</span><a class="symbol-link" href="#MinstdRand0">MinstdRand0</a> = LinearCongruentialEngine!(uint, 16807, 0, 2147483647).LinearCongruentialEngine;
+<br>alias <span class="symbol-target" id="MinstdRand">&nbsp;</span><a class="symbol-link" href="#MinstdRand">MinstdRand</a> = LinearCongruentialEngine!(uint, 48271, 0, 2147483647).LinearCongruentialEngine;
 </h3></div>
 <div class="declaration-content"><dl><p>Define <b>LinearCongruentialEngine</b> generators with well-chosen
 parameters. <span class="inlinecode"><span class="symbol-target" id="MinstdRand0">&nbsp;</span><a class="symbol-link" href="#MinstdRand0">MinstdRand0</a></span> implements Park and Miller's "minimal
@@ -454,7 +455,7 @@ n = rnd0.front; <span class="d_comment">// different across runs
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="MersenneTwisterEngine">&nbsp;</span><a class="symbol-link" href="#MersenneTwisterEngine">MersenneTwisterEngine</a>(UIntType,size_t w,size_t n,size_t m,size_t r,UIntType a,size_t u,size_t s,UIntType b,size_t t,UIntType c,size_t l) if (isUnsigned!(UIntType));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="MersenneTwisterEngine">&nbsp;</span><a class="symbol-link" href="#MersenneTwisterEngine">MersenneTwisterEngine</a>(UIntType, size_t w, size_t n, size_t m, size_t r, UIntType a, size_t u, size_t s, UIntType b, size_t t, UIntType c, size_t l) if (isUnsigned!UIntType);
 </h3></div>
 <div class="declaration-content"><dl><p>The <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Mersenne Twister">Mersenne Twister</a>
  generator.</p>
@@ -490,7 +491,7 @@ n = rnd0.front; <span class="d_comment">// different across runs
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(UIntType <i>value</i>);
+<hr><div class="row-fluid declaration"><h3> this(UIntType <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a MersenneTwisterEngine object.</p>
 
@@ -506,7 +507,7 @@ This <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" h
    internal states use the <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" href="#seed">seed</a> overload taking an InputRange.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" href="#seed">seed</a>(T)(T <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" href="#seed">seed</a>(T)(T <i>range</i>) if (isInputRange!T &amp;&amp; is(Unqual!(ElementType!T) == UIntType));
 </h3></div>
 <div class="declaration-content"><dl><p>Seeds a MersenneTwisterEngine object using an InputRange.
 </p>
@@ -515,8 +516,8 @@ This <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" h
    The number of elements required is the 'n' template parameter of the MersenneTwisterEngine struct.
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code">   Mt19937 gen;
-   gen.<u>seed</u>(map!((a) =&gt; unpredictableSeed)(repeat(0)));
+<dt>Examples</dt><dd><pre class="d_code">Mt19937 gen;
+gen.<u>seed</u>(map!((a) =&gt; unpredictableSeed)(repeat(0)));
 </pre>
 </dd>
 </dl>
@@ -545,7 +546,7 @@ This <span class="symbol-target" id="seed">&nbsp;</span><a class="symbol-link" h
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Mt19937">&nbsp;</span><a class="symbol-link" href="#Mt19937">Mt19937</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Mt19937">&nbsp;</span><a class="symbol-link" href="#Mt19937">Mt19937</a> = MersenneTwisterEngine!(uint, 32, 624, 397, 31, 2567483615u, 11, 7, 2636928640u, 15, 4022730752u, 18).MersenneTwisterEngine;
 </h3></div>
 <div class="declaration-content"><dl><p>A <span class="inlinecode">MersenneTwisterEngine</span> instantiated with the parameters of the
 original engine <a href="http://math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">MT19937</a>, generating uniformly-distributed 32-bit numbers with a
@@ -568,7 +569,7 @@ n = gen.front; <span class="d_comment">// different across runs
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="XorshiftEngine">&nbsp;</span><a class="symbol-link" href="#XorshiftEngine">XorshiftEngine</a>(UIntType,UIntType bits,UIntType a,UIntType b,UIntType c) if (isUnsigned!(UIntType));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="XorshiftEngine">&nbsp;</span><a class="symbol-link" href="#XorshiftEngine">XorshiftEngine</a>(UIntType, UIntType bits, UIntType a, UIntType b, UIntType c) if (isUnsigned!UIntType);
 </h3></div>
 <div class="declaration-content"><dl><p>Xorshift generator using 32bit algorithm.
 </p>
@@ -603,7 +604,7 @@ n = gen.front; <span class="d_comment">// different across runs
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(UIntType <i>x0</i>);
+<hr><div class="row-fluid declaration"><h3> this(UIntType <i>x0</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a <span class="inlinecode">XorshiftEngine</span> generator seeded with <b><i>x0</i></b>.</p>
 
@@ -641,29 +642,29 @@ n = gen.front; <span class="d_comment">// different across runs
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Xorshift32">&nbsp;</span><a class="symbol-link" href="#Xorshift32">Xorshift32</a>;
-<br>alias <span class="symbol-target" id="Xorshift64">&nbsp;</span><a class="symbol-link" href="#Xorshift64">Xorshift64</a>;
-<br>alias <span class="symbol-target" id="Xorshift96">&nbsp;</span><a class="symbol-link" href="#Xorshift96">Xorshift96</a>;
-<br>alias <span class="symbol-target" id="Xorshift128">&nbsp;</span><a class="symbol-link" href="#Xorshift128">Xorshift128</a>;
-<br>alias <span class="symbol-target" id="Xorshift160">&nbsp;</span><a class="symbol-link" href="#Xorshift160">Xorshift160</a>;
-<br>alias <span class="symbol-target" id="Xorshift192">&nbsp;</span><a class="symbol-link" href="#Xorshift192">Xorshift192</a>;
-<br>alias <span class="symbol-target" id="Xorshift">&nbsp;</span><a class="symbol-link" href="#Xorshift">Xorshift</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Xorshift32">&nbsp;</span><a class="symbol-link" href="#Xorshift32">Xorshift32</a> = XorshiftEngine!(uint, 32, 13, 17, 15).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift64">&nbsp;</span><a class="symbol-link" href="#Xorshift64">Xorshift64</a> = XorshiftEngine!(uint, 64, 10, 13, 10).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift96">&nbsp;</span><a class="symbol-link" href="#Xorshift96">Xorshift96</a> = XorshiftEngine!(uint, 96, 10, 5, 26).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift128">&nbsp;</span><a class="symbol-link" href="#Xorshift128">Xorshift128</a> = XorshiftEngine!(uint, 128, 11, 8, 19).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift160">&nbsp;</span><a class="symbol-link" href="#Xorshift160">Xorshift160</a> = XorshiftEngine!(uint, 160, 2, 1, 4).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift192">&nbsp;</span><a class="symbol-link" href="#Xorshift192">Xorshift192</a> = XorshiftEngine!(uint, 192, 2, 1, 4).XorshiftEngine;
+<br>alias <span class="symbol-target" id="Xorshift">&nbsp;</span><a class="symbol-link" href="#Xorshift">Xorshift</a> = XorshiftEngine!(uint, 128, 11, 8, 19).XorshiftEngine;
 </h3></div>
 <div class="declaration-content"><dl><p>Define <span class="inlinecode">XorshiftEngine</span> generators with well-chosen parameters. See each bits examples of "Xorshift RNGs".
  <span class="inlinecode">Xorshift</span> is a Xorshift128's alias because 128bits implementation is mostly used.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_comment">// Seed with a constant
+<pre class="d_code"><span class="d_comment">// Seed with a constant
 </span>
- <span class="d_keyword">auto</span> rnd = Xorshift(1);
- <span class="d_keyword">auto</span> num = rnd.front;  <span class="d_comment">// same for each run
+<span class="d_keyword">auto</span> rnd = Xorshift(1);
+<span class="d_keyword">auto</span> num = rnd.front;  <span class="d_comment">// same for each run
 </span>
 
- <span class="d_comment">// Seed with an unpredictable value
+<span class="d_comment">// Seed with an unpredictable value
 </span>
- rnd.seed(unpredictableSeed());
- num = rnd.front; <span class="d_comment">// different across runs
+rnd.seed(unpredictableSeed());
+num = rnd.front; <span class="d_comment">// different across runs
 </span>
 </pre>
 </dd>
@@ -684,7 +685,7 @@ random number sequences every run.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Random">&nbsp;</span><a class="symbol-link" href="#Random">Random</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Random">&nbsp;</span><a class="symbol-link" href="#Random">Random</a> = MersenneTwisterEngine!(uint, 32, 624, 397, 31, 2567483615u, 11, 7, 2636928640u, 15, 4022730752u, 18).MersenneTwisterEngine;
 </h3></div>
 <div class="declaration-content"><dl><p>The "default", "favorite", "suggested" random number generator type on
 the current platform. It is an alias for one of the previously-defined
@@ -702,8 +703,8 @@ and initialized to an unpredictable value for each thread.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2)(T1 <i>a</i>, T2 <i>b</i>);
-<br>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2, UniformRandomNumberGenerator)(T1 <i>a</i>, T2 <i>b</i>, ref UniformRandomNumberGenerator <i>urng</i>);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2)(T1 <i>a</i>, T2 <i>b</i>) if (!is(CommonType!(T1, T2) == void));
+<br>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(string boundaries = "[)", T1, T2, UniformRandomNumberGenerator)(T1 <i>a</i>, T2 <i>b</i>, ref UniformRandomNumberGenerator <i>urng</i>) if (isFloatingPoint!(CommonType!(T1, T2)));
 </h3></div>
 <div class="declaration-content"><dl><p>Generates a number between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The <span class="inlinecode">boundaries</span>
 parameter controls the shape of the interval (open vs. closed on
@@ -713,19 +714,19 @@ take <span class="inlinecode">urng</span> uses the default generator <span class
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code">Random gen(unpredictableSeed);
+<pre class="d_code"><span class="d_keyword">auto</span> gen = Random(unpredictableSeed);
 <span class="d_comment">// Generate an integer in [0, 1023]
 </span>
 <span class="d_keyword">auto</span> a = <u>uniform</u>(0, 1024, gen);
-<span class="d_comment">// Generate a float in [0, 1)
+<span class="d_comment">// Generate a float in [0, 1$(RPAREN)
 </span>
 <span class="d_keyword">auto</span> a = <u>uniform</u>(0.0f, 1.0f, gen);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(T, UniformRandomNumberGenerator)(ref UniformRandomNumberGenerator <i>urng</i>);
-<br>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(T)();
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(T, UniformRandomNumberGenerator)(ref UniformRandomNumberGenerator <i>urng</i>) if (!is(T == enum) &amp;&amp; (isIntegral!T || isSomeChar!T));
+<br>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(T)() if (!is(T == enum) &amp;&amp; (isIntegral!T || isSomeChar!T));
 </h3></div>
 <div class="declaration-content"><dl><p>Generates a uniformly-distributed number in the range <span class="inlinecode">[T.min,
 T.max]</span> for any integral type <span class="inlinecode">T</span>. If no random number generator is
@@ -733,7 +734,15 @@ passed, uses the default <span class="inlinecode">rndGen</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>F[] <span class="symbol-target" id="uniformDistribution">&nbsp;</span><a class="symbol-link" href="#uniformDistribution">uniformDistribution</a>(F = double)(size_t <i>n</i>, F[] <i>useThis</i> = null);
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(E, UniformRandomNumberGenerator)(ref UniformRandomNumberGenerator <i>urng</i>) if (is(E == enum));
+<br>auto <span class="symbol-target" id="uniform">&nbsp;</span><a class="symbol-link" href="#uniform">uniform</a>(E)() if (is(E == enum));
+</h3></div>
+<div class="declaration-content"><dl><p>Returns a uniformly selected member of enum <span class="inlinecode">E</span>. If no random number
+generator is passed, uses the default <span class="inlinecode">rndGen</span>.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>F[] <span class="symbol-target" id="uniformDistribution">&nbsp;</span><a class="symbol-link" href="#uniformDistribution">uniformDistribution</a>(F = double)(size_t <i>n</i>, F[] <i>useThis</i> = null) if (isFloatingPoint!F);
 </h3></div>
 <div class="declaration-content"><dl><p>Generates a uniform probability distribution of size <span class="inlinecode">n</span>, i.e., an
 array of size <span class="inlinecode">n</span> of positive numbers of type <span class="inlinecode">F</span> that sum to
@@ -741,17 +750,33 @@ array of size <span class="inlinecode">n</span> of positive numbers of type <spa
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="randomShuffle">&nbsp;</span><a class="symbol-link" href="#randomShuffle">randomShuffle</a>(Range, RandomGen = Random)(Range <i>r</i>, ref RandomGen <i>gen</i> = rndGen);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="randomShuffle">&nbsp;</span><a class="symbol-link" href="#randomShuffle">randomShuffle</a>(Range, RandomGen)(Range <i>r</i>, ref RandomGen <i>gen</i>) if (isRandomAccessRange!Range &amp;&amp; isUniformRNG!RandomGen);
+<br>void <span class="symbol-target" id="randomShuffle">&nbsp;</span><a class="symbol-link" href="#randomShuffle">randomShuffle</a>(Range)(Range <i>r</i>) if (isRandomAccessRange!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Shuffles elements of <span class="inlinecode">r</span> using <span class="inlinecode">gen</span> as a shuffler. <span class="inlinecode">r</span> must be
 a random-access range with length.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Rng, Num)(ref Rng <i>rnd</i>, Num[] <i>proportions</i>...);
-<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(R, Range)(ref R <i>rnd</i>, Range <i>proportions</i>);
-<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Range)(Range <i>proportions</i>);
-<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Num)(Num[] <i>proportions</i>...);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="partialShuffle">&nbsp;</span><a class="symbol-link" href="#partialShuffle">partialShuffle</a>(Range, RandomGen)(Range <i>r</i>, size_t <i>n</i>, ref RandomGen <i>gen</i>) if (isRandomAccessRange!Range &amp;&amp; isUniformRNG!RandomGen);
+<br>void <span class="symbol-target" id="partialShuffle">&nbsp;</span><a class="symbol-link" href="#partialShuffle">partialShuffle</a>(Range)(Range <i>r</i>, size_t <i>n</i>) if (isRandomAccessRange!Range);
+</h3></div>
+<div class="declaration-content"><dl><p>Partially shuffles the elements of <span class="inlinecode">r</span> such that upon returning <span class="inlinecode">r[0..n]</span>
+is a random subset of <span class="inlinecode">r</span> and is randomly ordered.  <span class="inlinecode">r[n..r.length]</span>
+will contain the elements not in <span class="inlinecode">r[0..n]</span>.  These will be in an undefined
+order, but will not be random in the sense that their order after
+<span class="inlinecode"><span class="symbol-target" id="partialShuffle">&nbsp;</span><a class="symbol-link" href="#partialShuffle">partialShuffle</a></span> returns will not be independent of their order before
+<span class="inlinecode"><span class="symbol-target" id="partialShuffle">&nbsp;</span><a class="symbol-link" href="#partialShuffle">partialShuffle</a></span> was called.
+</p>
+
+<p><span class="inlinecode">r</span> must be a random-access range with length.  <span class="inlinecode">n</span> must be less than
+or equal to <span class="inlinecode">r.length</span>.</p>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Rng, Num)(ref Rng <i>rnd</i>, Num[] <i>proportions</i>...) if (isNumeric!Num &amp;&amp; isForwardRange!Rng);
+<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(R, Range)(ref R <i>rnd</i>, Range <i>proportions</i>) if (isForwardRange!Range &amp;&amp; isNumeric!(ElementType!Range) &amp;&amp; !isArray!Range);
+<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Range)(Range <i>proportions</i>) if (isForwardRange!Range &amp;&amp; isNumeric!(ElementType!Range) &amp;&amp; !isArray!Range);
+<br>size_t <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a>(Num)(Num[] <i>proportions</i>...) if (isNumeric!Num);
 </h3></div>
 <div class="declaration-content"><dl><p>Rolls a <span class="symbol-target" id="dice">&nbsp;</span><a class="symbol-link" href="#dice">dice</a> with relative probabilities stored in <span class="inlinecode">proportions</span>. Returns the index in <span class="inlinecode">proportions</span> that was chosen.
 </p>
@@ -769,30 +794,67 @@ a random-access range with length.</p>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="RandomCover">&nbsp;</span><a class="symbol-link" href="#RandomCover">RandomCover</a>(Range,Random) if (isRandomAccessRange!(Range) &amp;&amp; isUniformRNG!(Random));
-<br>RandomCover!(Range,Random) <span class="symbol-target" id="randomCover">&nbsp;</span><a class="symbol-link" href="#randomCover">randomCover</a>(Range, Random)(Range <i>r</i>, Random <i>rnd</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="RandomCover">&nbsp;</span><a class="symbol-link" href="#RandomCover">RandomCover</a>(Range, UniformRNG = void) if (isRandomAccessRange!Range &amp;&amp; (isUniformRNG!UniformRNG || is(UniformRNG == void)));
+<br>auto <span class="symbol-target" id="randomCover">&nbsp;</span><a class="symbol-link" href="#randomCover">randomCover</a>(Range, UniformRNG)(Range <i>r</i>, auto ref UniformRNG <i>rng</i>) if (isRandomAccessRange!Range &amp;&amp; isUniformRNG!UniformRNG);
+<br>auto <span class="symbol-target" id="randomCover">&nbsp;</span><a class="symbol-link" href="#randomCover">randomCover</a>(Range)(Range <i>r</i>) if (isRandomAccessRange!Range);
 </h3></div>
 <div class="declaration-content"><dl><p>Covers a given range <span class="inlinecode">r</span> in a random manner, i.e. goes through each
 element of <span class="inlinecode">r</span> once and only once, just in a random order. <span class="inlinecode">r</span>
 must be a random-access range with length.
 </p>
 
+<p>If no random number generator is passed to <span class="inlinecode">randomCover</span>, the
+thread-global RNG rndGen will be used internally.
+
+</p>
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
-<span class="d_keyword">auto</span> rnd = Random(unpredictableSeed);
-<span class="d_keyword">foreach</span> (e; randomCover(a, rnd))
+<span class="d_keyword">foreach</span> (e; randomCover(a))
 {
     writeln(e);
 }
 </pre>
+<br><br>
+
+<b>WARNING:</b> If an alternative RNG is desired, it is essential for this
+to be a <i>new</i> RNG seeded in an unpredictable manner. Passing it a RNG
+used elsewhere in the program will result in unintended correlations,
+due to the current implementation of RNGs as value types.
+
 </dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ];
+<span class="d_keyword">foreach</span> (e; randomCover(a, Random(unpredictableSeed)))  <span class="d_comment">// correct!
+</span>
+{
+    writeln(e);
+}
+
+<span class="d_keyword">foreach</span> (e; randomCover(a, rndGen))  <span class="d_comment">// DANGEROUS!! rndGen gets copied by value
+</span>
+{
+    writeln(e);
+}
+
+<span class="d_keyword">foreach</span> (e; randomCover(a, rndGen))  <span class="d_comment">// ... so this second random cover
+</span>
+{                                    <span class="d_comment">// will output the same sequence as
+</span>
+    writeln(e);                      <span class="d_comment">// the previous one.
+</span>
+}
+</pre>
+<br><br>
+
+These issues will be resolved in a second-generation std.random that
+re-implements random number generators as reference types.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a>(R,Random = void) if (isInputRange!(R) &amp;&amp; (isUniformRNG!(Random) || is(Random == void)));
-<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>);
-<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(R)(R <i>r</i>, size_t <i>n</i>);
-<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, size_t <i>total</i>, Random <i>gen</i>);
-<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(R, Random)(R <i>r</i>, size_t <i>n</i>, Random <i>gen</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a>(Range, UniformRNG = void) if (isInputRange!Range &amp;&amp; (isUniformRNG!UniformRNG || is(UniformRNG == void)));
+<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(Range)(Range <i>r</i>, size_t <i>n</i>, size_t <i>total</i>) if (isInputRange!Range);
+<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(Range)(Range <i>r</i>, size_t <i>n</i>) if (isInputRange!Range &amp;&amp; hasLength!Range);
+<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(Range, UniformRNG)(Range <i>r</i>, size_t <i>n</i>, size_t <i>total</i>, auto ref UniformRNG <i>rng</i>) if (isInputRange!Range &amp;&amp; isUniformRNG!UniformRNG);
+<br>auto <span class="symbol-target" id="randomSample">&nbsp;</span><a class="symbol-link" href="#randomSample">randomSample</a>(Range, UniformRNG)(Range <i>r</i>, size_t <i>n</i>, auto ref UniformRNG <i>rng</i>) if (isInputRange!Range &amp;&amp; hasLength!Range &amp;&amp; isUniformRNG!UniformRNG);
 </h3></div>
 <div class="declaration-content"><dl><p>Selects a random subsample out of <span class="inlinecode">r</span>, containing exactly <span class="inlinecode">n</span>
 elements. The order of elements is the same as in the original
@@ -800,9 +862,23 @@ range. The total length of <span class="inlinecode">r</span> must be known. If <
 passed in, the total number of sample is considered to be <span class="inlinecode">total</span>. Otherwise, <span class="inlinecode"><span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a></span> uses <span class="inlinecode">r.length</span>.
 </p>
 
-<p>If the number of elements is not exactly <span class="inlinecode">total</span>, <span class="inlinecode"><span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a></span> throws an exception. This is because <span class="inlinecode">total</span> is
-essential to computing the probability of selecting elements in the
-range.
+<p><span class="inlinecode"><span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a></span> implements Jeffrey Scott Vitter's Algorithm D
+(see Vitter <a href="http://dx.doi.org/10.1145/358105.893">1984</a>, <a href="http://dx.doi.org/10.1145/23002.23003">1987</a>), which selects a sample
+of size <span class="inlinecode">n</span> in O(n) steps and requiring O(n) random variates,
+regardless of the size of the data being sampled.  The exception
+to this is if traversing k elements on the input range is itself
+an O(k) operation (e.g. when sampling lines from an input file),
+in which case the sampling calculation will inevitably be of
+O(total).
+<br><br>
+
+<span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a> will throw an exception if <span class="inlinecode">total</span> is verifiably
+less than the total number of elements available in the input,
+or if <span class="inlinecode">n &gt; total</span>.
+<br><br>
+
+If no random number generator is passed to <span class="inlinecode">randomSample</span>, the
+thread-global RNG rndGen will be used internally.
 
 </p>
 <dt>Example:</dt><dd>
@@ -814,11 +890,41 @@ range.
     writeln(e);
 }
 </pre>
+<br><br>
 
-<span class="inlinecode"><span class="symbol-target" id="RandomSample">&nbsp;</span><a class="symbol-link" href="#RandomSample">RandomSample</a></span> implements Jeffrey Scott Vitter's Algorithm D
-(see Vitter <a href="http://dx.doi.org/10.1145/358105.893">1984</a>, <a href="http://dx.doi.org/10.1145/23002.23003">1987</a>), which selects a sample
-of size <span class="inlinecode">n</span> in O(n) steps and requiring O(n) random variates,
-regardless of the size of the data being sampled.</dd>
+<b>WARNING:</b> If an alternative RNG is desired, it is essential for this
+to be a <i>new</i> RNG seeded in an unpredictable manner. Passing it a RNG
+used elsewhere in the program will result in unintended correlations,
+due to the current implementation of RNGs as value types.
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+<span class="d_keyword">foreach</span> (e; randomSample(a, 5, Random(unpredictableSeed)))  <span class="d_comment">// correct!
+</span>
+{
+    writeln(e);
+}
+
+<span class="d_keyword">foreach</span> (e; randomSample(a, 5, rndGen))  <span class="d_comment">// DANGEROUS!! rndGen gets
+</span>
+{                                        <span class="d_comment">// copied by value
+</span>
+    writeln(e);
+}
+
+<span class="d_keyword">foreach</span> (e; randomSample(a, 5, rndGen))  <span class="d_comment">// ... so this second random
+</span>
+{                                        <span class="d_comment">// sample will select the same
+</span>
+    writeln(e);                          <span class="d_comment">// values as the previous one.
+</span>
+}
+</pre>
+<br><br>
+
+These issues will be resolved in a second-generation std.random that
+re-implements random number generators as reference types.</dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="empty">&nbsp;</span><a class="symbol-link" href="#empty">empty</a>();
 <br>void <span class="symbol-target" id="popFront">&nbsp;</span><a class="symbol-link" href="#popFront">popFront</a>();

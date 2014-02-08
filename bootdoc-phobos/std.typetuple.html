@@ -281,6 +281,11 @@
  such as TL[<i>n</i>] which gets the <i>n</i>th type from the
  type tuple. TL[<i>lwr</i> .. <i>upr</i>] returns a new type
  list that is a slice of the old one.
+<br><br>
+
+ Several templates in this module use or operate on eponymous templates that
+ take a single argument and evaluate to a boolean constant. Such templates
+ are referred to as <i>template predicates</i>.
 
 </p>
 <dt>References:</dt><dd>
@@ -290,224 +295,262 @@ Based on ideas in Table 3.1 from
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-<dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>
+<dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
+     <a href="http://klickverbot.at">David Nadlinger</a>
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/typetuple.d">std/typetuple.d</a></dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="TypeTuple">&nbsp;</span><a class="symbol-link" href="#TypeTuple">TypeTuple</a>(TList...)</h3></div>
-<div class="declaration-content"><dl><p>Creates a typetuple out of a sequence of zero or more types.
-</p>
+<div class="declaration-content"><dl><p>Creates a typetuple out of a sequence of zero or more types.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.typetuple;
- <span class="d_keyword">alias</span> <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>) TL;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">import</span> std.typetuple;
+    <span class="d_keyword">alias</span> TL = <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>);
 
- <span class="d_keyword">int</span> foo(TL td)  <span class="d_comment">// same as int foo(int, double);
+    <span class="d_keyword">int</span> foo(TL td)  <span class="d_comment">// same as int foo(int, double);
 </span>
- {
-    <span class="d_keyword">return</span> td[0] + <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)td[1];
- }
+    {
+        <span class="d_keyword">return</span> td[0] + <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)td[1];
+    }
 </pre>
+</dd><dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> TL = <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>);
 
-</dd>
-<dt>Example:</dt><dd>
-<pre class="d_code"> <u>TypeTuple</u>!(TL, <span class="d_keyword">char</span>)
- <span class="d_comment">// is equivalent to:
-</span>
- <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
+    <span class="d_keyword">alias</span> Types = <u>TypeTuple</u>!(TL, <span class="d_keyword">char</span>);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(Types == <u>TypeTuple</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="staticIndexOf">&nbsp;</span><a class="symbol-link" href="#staticIndexOf">staticIndexOf</a>(T,TList...)<br>template <span class="symbol-target" id="staticIndexOf">&nbsp;</span><a class="symbol-link" href="#staticIndexOf">staticIndexOf</a>(alias T,TList...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="staticIndexOf">&nbsp;</span><a class="symbol-link" href="#staticIndexOf">staticIndexOf</a>(T, TList...)<br>template <span class="symbol-target" id="staticIndexOf">&nbsp;</span><a class="symbol-link" href="#staticIndexOf">staticIndexOf</a>(alias T, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns the index of the first occurrence of type T in the
  sequence of zero or more types TList.
- If not found, -1 is returned.
-</p>
+ If not found, -1 is returned.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.typetuple;
- <span class="d_keyword">import</span> std.stdio;
-
- <span class="d_keyword">void</span> foo()
- {
-    writefln(<span class="d_string">"The index of long is %s"</span>,
-          <u>staticIndexOf</u>!(<span class="d_keyword">long</span>, TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">double</span>)));
-    <span class="d_comment">// prints: The index of long is 1
-</span>
- }
-</pre>
-</dd>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="IndexOf">&nbsp;</span><a class="symbol-link" href="#IndexOf">IndexOf</a>;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">import</span> std.typetuple;
+    <span class="d_keyword">import</span> std.stdio;
+
+    <span class="d_keyword">void</span> foo()
+    {
+        writefln(<span class="d_string">"The index of long is %s"</span>,
+                 <u>staticIndexOf</u>!(<span class="d_keyword">long</span>, TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">double</span>)));
+        <span class="d_comment">// prints: The index of long is 1
+</span>
+    }
+</pre>
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="IndexOf">&nbsp;</span><a class="symbol-link" href="#IndexOf">IndexOf</a> = staticIndexOf(T, TList...);
 </h3></div>
 <div class="declaration-content"><dl><p>Kept for backwards compatibility</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Erase">&nbsp;</span><a class="symbol-link" href="#Erase">Erase</a>(T,TList...)<br>template <span class="symbol-target" id="Erase">&nbsp;</span><a class="symbol-link" href="#Erase">Erase</a>(alias T,TList...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Erase">&nbsp;</span><a class="symbol-link" href="#Erase">Erase</a>(T, TList...)<br>template <span class="symbol-target" id="Erase">&nbsp;</span><a class="symbol-link" href="#Erase">Erase</a>(alias T, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the first occurrence,
- if any, of T removed.
-</p>
+ if any, of T removed.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <u>Erase</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)
-</pre>
-</dd>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="EraseAll">&nbsp;</span><a class="symbol-link" href="#EraseAll">EraseAll</a>(T,TList...)<br>template <span class="symbol-target" id="EraseAll">&nbsp;</span><a class="symbol-link" href="#EraseAll">EraseAll</a>(alias T,TList...)</h3></div>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>);
+    <span class="d_keyword">alias</span> TL = <u>Erase</u>!(<span class="d_keyword">long</span>, Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, <span class="d_keyword">char</span>)));
+</pre>
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="EraseAll">&nbsp;</span><a class="symbol-link" href="#EraseAll">EraseAll</a>(T, TList...)<br>template <span class="symbol-target" id="EraseAll">&nbsp;</span><a class="symbol-link" href="#EraseAll">EraseAll</a>(alias T, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the all occurrences,
- if any, of T removed.
-</p>
+ if any, of T removed.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>) TL;
-
- <u>EraseAll</u>!(<span class="d_keyword">long</span>, TL)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>)
-</pre>
-</dd>
 </dl>
-</div>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>);
+
+    <span class="d_keyword">alias</span> TL = <u>EraseAll</u>!(<span class="d_keyword">long</span>, Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>)));
+</pre>
+</dd></div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="NoDuplicates">&nbsp;</span><a class="symbol-link" href="#NoDuplicates">NoDuplicates</a>(TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the all duplicate
- types removed.
-</p>
+ types removed.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>);
 
- <u>NoDuplicates</u>!(TL)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">float</span>)
+    <span class="d_keyword">alias</span> TL = <u>NoDuplicates</u>!(Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">float</span>)));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(T,U,TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(alias T,U,TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(T,alias U,TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(alias T,alias U,TList...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(T, U, TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(alias T, U, TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(T, alias U, TList...)<br>template <span class="symbol-target" id="Replace">&nbsp;</span><a class="symbol-link" href="#Replace">Replace</a>(alias T, alias U, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with the first occurrence
- of type T, if found, replaced with type U.
-</p>
+ of type T, if found, replaced with type U.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
-
- <u>Replace</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, TL)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)
-</pre>
-</dd>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(T,U,TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(alias T,U,TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(T,alias U,TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(alias T,alias U,TList...)</h3></div>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>);
+
+    <span class="d_keyword">alias</span> TL = <u>Replace</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)));
+</pre>
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(T, U, TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(alias T, U, TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(T, alias U, TList...)<br>template <span class="symbol-target" id="ReplaceAll">&nbsp;</span><a class="symbol-link" href="#ReplaceAll">ReplaceAll</a>(alias T, alias U, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns a typetuple created from TList with all occurrences
- of type T, if found, replaced with type U.
-</p>
+ of type T, if found, replaced with type U.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
-
- <u>ReplaceAll</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, TL)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">char</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)
-</pre>
-</dd>
 </dl>
-</div>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>);
+
+    <span class="d_keyword">alias</span> TL = <u>ReplaceAll</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">char</span>, Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">char</span>, <span class="d_keyword">char</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>)));
+</pre>
+</dd></div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Reverse">&nbsp;</span><a class="symbol-link" href="#Reverse">Reverse</a>(TList...)</h3></div>
-<div class="declaration-content"><dl><p>Returns a typetuple created from TList with the order reversed.
-</p>
+<div class="declaration-content"><dl><p>Returns a typetuple created from TList with the order reversed.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">alias</span> TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>) TL;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>, <span class="d_keyword">float</span>);
 
- <u>Reverse</u>!(TL)
- <span class="d_comment">// is the same as:
-</span>
- TypeTuple!(<span class="d_keyword">float</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>)
+    <span class="d_keyword">alias</span> TL = <u>Reverse</u>!(Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">float</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>, <span class="d_keyword">long</span>, <span class="d_keyword">int</span>)));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="MostDerived">&nbsp;</span><a class="symbol-link" href="#MostDerived">MostDerived</a>(T,TList...)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="MostDerived">&nbsp;</span><a class="symbol-link" href="#MostDerived">MostDerived</a>(T, TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns the type from TList that is the most derived from type T.
- If none are found, T is returned.
-</p>
+ If none are found, T is returned.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">class</span> A { }
- <span class="d_keyword">class</span> B : A { }
- <span class="d_keyword">class</span> C : B { }
- <span class="d_keyword">alias</span> TypeTuple!(A, C, B) TL;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">class</span> A { }
+    <span class="d_keyword">class</span> B : A { }
+    <span class="d_keyword">class</span> C : B { }
+    <span class="d_keyword">alias</span> Types = TypeTuple!(A, C, B);
 
- <u>MostDerived</u>!(Object, TL) x;  <span class="d_comment">// x is declared as type C
+    <u>MostDerived</u>!(Object, Types) x;  <span class="d_comment">// x is declared as type C
 </span>
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(x) == C));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="DerivedToFront">&nbsp;</span><a class="symbol-link" href="#DerivedToFront">DerivedToFront</a>(TList...)</h3></div>
 <div class="declaration-content"><dl><p>Returns the typetuple TList with the types sorted so that the most
- derived types come first.
+ derived types come first.</p>
+
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">class</span> A { }
+    <span class="d_keyword">class</span> B : A { }
+    <span class="d_keyword">class</span> C : B { }
+    <span class="d_keyword">alias</span> Types = TypeTuple!(A, C, B);
+
+    <span class="d_keyword">alias</span> TL = <u>DerivedToFront</u>!(Types);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(C, B, A)));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="staticMap">&nbsp;</span><a class="symbol-link" href="#staticMap">staticMap</a>(alias F, T...)</h3></div>
+<div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">TypeTuple!(F!(T[0]), F!(T[1]), ..., F!(T[$ - 1]))</span>.</p>
+
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> TL = <u>staticMap</u>!(Unqual, <span class="d_keyword">int</span>, <span class="d_keyword">const</span> <span class="d_keyword">int</span>, <span class="d_keyword">immutable</span> <span class="d_keyword">int</span>);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>, <span class="d_keyword">int</span>)));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="allSatisfy">&nbsp;</span><a class="symbol-link" href="#allSatisfy">allSatisfy</a>(alias F, T...)</h3></div>
+<div class="declaration-content"><dl><p>Tests whether all given items satisfy a template predicate, i.e. evaluates to
+<span class="inlinecode">F!(T[0]) &amp;&amp; F!(T[1]) &amp;&amp; ... &amp;&amp; F!(T[$ - 1])</span>.
 </p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">class</span> A { }
- <span class="d_keyword">class</span> B : A { }
- <span class="d_keyword">class</span> C : B { }
- <span class="d_keyword">alias</span> TypeTuple!(A, C, B) TL;
+<p>Evaluation is <i>not</i> short-circuited if a <span class="d_keyword">false</span> result is encountered; the
+template predicate must be instantiable with all the given items.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="anySatisfy">&nbsp;</span><a class="symbol-link" href="#anySatisfy">anySatisfy</a>(alias F, T...)</h3></div>
+<div class="declaration-content"><dl><p>Tests whether all given items satisfy a template predicate, i.e. evaluates to
+<span class="inlinecode">F!(T[0]) || F!(T[1]) || ... || F!(T[$ - 1])</span>.
+</p>
 
- <u>DerivedToFront</u>!(TL)
- <span class="d_comment">// is the same as:
+<p>Evaluation is <i>not</i> short-circuited if a <span class="d_keyword">true</span> result is encountered; the
+template predicate must be instantiable with all the given items.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>anySatisfy</u>!(isIntegral, string, <span class="d_keyword">double</span>));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>anySatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Filter">&nbsp;</span><a class="symbol-link" href="#Filter">Filter</a>(alias pred, TList...)</h3></div>
+<div class="declaration-content"><dl><p>Filters a <span class="inlinecode">TypeTuple</span> using a template predicate. Returns a
+ <span class="inlinecode">TypeTuple</span> of the elements which satisfy the predicate.</p>
+
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> Types1 = TypeTuple!(string, wstring, <span class="d_keyword">dchar</span>[], <span class="d_keyword">char</span>[], dstring, <span class="d_keyword">int</span>);
+    <span class="d_keyword">alias</span> TL1 = <u>Filter</u>!(isNarrowString, Types1);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL1 == TypeTuple!(string, wstring, <span class="d_keyword">char</span>[])));
+
+    <span class="d_keyword">alias</span> Types2 = TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">byte</span>, <span class="d_keyword">ubyte</span>, dstring, <span class="d_keyword">dchar</span>, <span class="d_keyword">uint</span>, <span class="d_keyword">ulong</span>);
+    <span class="d_keyword">alias</span> TL2 = <u>Filter</u>!(isUnsigned, Types2);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(TL2 == TypeTuple!(<span class="d_keyword">ubyte</span>, <span class="d_keyword">uint</span>, <span class="d_keyword">ulong</span>)));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="templateNot">&nbsp;</span><a class="symbol-link" href="#templateNot">templateNot</a>(alias pred)</h3></div>
+<div class="declaration-content"><dl><p>Negates the passed template predicate.</p>
+
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">import</span> std.traits;
+
+    <span class="d_keyword">alias</span> isNoPointer = <u>templateNot</u>!isPointer;
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!isNoPointer!(<span class="d_keyword">int</span>*));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(allSatisfy!(isNoPointer, string, <span class="d_keyword">char</span>, <span class="d_keyword">float</span>));
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="templateAnd">&nbsp;</span><a class="symbol-link" href="#templateAnd">templateAnd</a>(Preds...)</h3></div>
+<div class="declaration-content"><dl><p>Combines several template predicates using logical AND, i.e. constructs a new
+ predicate which evaluates to <span class="d_keyword">true</span> for a given input T if and only if all of
+ the passed predicates are <span class="d_keyword">true</span> for T.
+</p>
+
+<p>The predicates are evaluated from left to right, aborting evaluation in a
+ short-cut manner if a <span class="d_keyword">false</span> result is encountered, in which case the latter
+ instantiations do not need to compile.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> storesNegativeNumbers = <u>templateAnd</u>!(isNumeric, templateNot!isUnsigned);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(storesNegativeNumbers!<span class="d_keyword">int</span>);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!storesNegativeNumbers!string &amp;&amp; !storesNegativeNumbers!<span class="d_keyword">uint</span>);
+
+    <span class="d_comment">// An empty list of predicates always yields true.
 </span>
- TypeTuple!(C, B, A)
+    <span class="d_keyword">alias</span> alwaysTrue = <u>templateAnd</u>!();
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(alwaysTrue!<span class="d_keyword">int</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="staticMap">&nbsp;</span><a class="symbol-link" href="#staticMap">staticMap</a>(alias F,T...)</h3></div>
-<div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">TypeTuple!(F!(T[0]), F!(T[1]), ..., F!(T[$ - 1]))</span>.
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="templateOr">&nbsp;</span><a class="symbol-link" href="#templateOr">templateOr</a>(Preds...)</h3></div>
+<div class="declaration-content"><dl><p>Combines several template predicates using logical OR, i.e. constructs a new
+ predicate which evaluates to <span class="d_keyword">true</span> for a given input T if and only at least
+ one of the passed predicates is <span class="d_keyword">true</span> for T.
 </p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">alias</span> <u>staticMap</u>!(Unqual, <span class="d_keyword">int</span>, <span class="d_keyword">const</span> <span class="d_keyword">int</span>, <span class="d_keyword">immutable</span> <span class="d_keyword">int</span>) T;
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(T == TypeTuple!(<span class="d_keyword">int</span>, <span class="d_keyword">int</span>, <span class="d_keyword">int</span>)));
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="allSatisfy">&nbsp;</span><a class="symbol-link" href="#allSatisfy">allSatisfy</a>(alias F,T...)</h3></div>
-<div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) &amp;&amp; F!(T[1]) &amp;&amp; ... &amp;&amp; F!(T[$ - 1])</span>.
-</p>
+<p>The predicates are evaluated from left to right, aborting evaluation in a
+ short-cut manner if a <span class="d_keyword">true</span> result is encountered, in which case the latter
+ instantiations do not need to compile.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">alias</span> isPtrOrUnsigned = <u>templateOr</u>!(isPointer, isUnsigned);
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( isPtrOrUnsigned!<span class="d_keyword">uint</span> &amp;&amp;  isPtrOrUnsigned!(<span class="d_keyword">short</span>*));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!isPtrOrUnsigned!<span class="d_keyword">int</span>  &amp;&amp; !isPtrOrUnsigned!(string));
 
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>allSatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>));
+    <span class="d_comment">// An empty list of predicates never yields true.
+</span>
+    <span class="d_keyword">alias</span> alwaysFalse = <u>templateOr</u>!();
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!alwaysFalse!<span class="d_keyword">int</span>);
 </pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="anySatisfy">&nbsp;</span><a class="symbol-link" href="#anySatisfy">anySatisfy</a>(alias F,T...)</h3></div>
-<div class="declaration-content"><dl><p>Evaluates to <span class="inlinecode">F!(T[0]) || F!(T[1]) || ... || F!(T[$ - 1])</span>.
-</p>
-
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>anySatisfy</u>!(isIntegral, string, <span class="d_keyword">double</span>));
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>anySatisfy</u>!(isIntegral, <span class="d_keyword">int</span>, <span class="d_keyword">double</span>));
-</pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 
 

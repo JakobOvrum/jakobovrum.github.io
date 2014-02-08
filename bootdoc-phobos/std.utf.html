@@ -298,13 +298,6 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="UtfException">&nbsp;</span><a class="symbol-link" href="#UtfException">UtfException</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-          Please use <a href="#UTFException"><span class="inlinecode">UTFException</span></a> instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isValidDchar">&nbsp;</span><a class="symbol-link" href="#isValidDchar">isValidDchar</a>(dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether <span class="inlinecode"><i>c</i></span> is a valid UTF-32 character.
@@ -315,141 +308,248 @@
     not allowed for interchange by the Unicode standard.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref const S <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref S <i>str</i>, size_t <i>index</i>) if (is(S : const(char[])) || isRandomAccessRange!S &amp;&amp; is(Unqual!(ElementType!S) == char));
+<br>uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref S <i>str</i>) if (is(S : const(char[])) || isInputRange!S &amp;&amp; is(Unqual!(ElementType!S) == char));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> returns the length of the UTF-8 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
 
+<p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> works with both UTF-8 strings and ranges of <span class="inlinecode">char</span>. If no
+    index is passed, then an input range will work, but if an index is passed,
+    then a random-access range is required.
+<br><br>
+
+    <span class="inlinecode">index</span> defaults to <span class="inlinecode">0</span> if none is passed.
+
+</p>
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
-<dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF-8
-        sequence.</dd>
+<dt>Throws</dt><dd>May throw a <span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a
+        valid UTF-8 sequence.
+
+</dd>
+<dt>Notes:</dt><dd>
+<span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> will only analize the first <span class="inlinecode">str[index]</span> element. It
+        will not fully verify the validity of UTF-8 sequence, nor even verify
+        the presence of the sequence: it will not actually guarantee that
+        <span class="inlinecode">index + <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(str, index) &lt;= str.length</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(in char[] <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>, size_t <i>index</i>) if (is(S : const(char[])) || isRandomAccessRange!S &amp;&amp; is(Unqual!(ElementType!S) == char));
+<br>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>) if (is(S : const(char[])) || isRandomAccessRange!S &amp;&amp; hasLength!S &amp;&amp; is(Unqual!(ElementType!S) == char));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> returns the length of the UTF-8 sequence ending one code
-    unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
+    unit before <span class="inlinecode">index</span> in <span class="inlinecode">str</span>.
 </p>
 
+<p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> works with both UTF-8 strings and bidirectional ranges of
+    <span class="inlinecode">char</span>. If no index is passed, then a bidirectional range will work, but
+    if an index is passed, then a random-access range is required.
+<br><br>
+
+    <span class="inlinecode">index</span> defaults to <span class="inlinecode">str.length</span> if none is passed.
+
+</p>
 <dt>Returns</dt><dd>The number of bytes in the UTF-8 sequence.
 
 </dd>
-<dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
-        UTF-8 sequence.</dd>
+<dt>Throws</dt><dd>May throw a <span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not one past the
+        end of a valid UTF-8 sequence.
+
+</dd>
+<dt>Notes:</dt><dd>
+<span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> will not fully verify the validity of the UTF-8
+        sequence. It will, however, guarantee that
+        <span class="inlinecode">index - stride(str, index)</span> is a valid index.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(in S <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref S <i>str</i>, size_t <i>index</i>) if (is(S : const(wchar[])) || isRandomAccessRange!S &amp;&amp; is(Unqual!(ElementType!S) == wchar));
+<br>pure @safe uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref S <i>str</i>) if (is(S : const(wchar[])));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> returns the length of the UTF-16 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
 
-<dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure @safe uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(in wchar[] <i>str</i>, size_t <i>index</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> returns the length of the UTF-16 sequence ending one code
-    unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
-</p>
+<p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> works with both UTF-16 strings and ranges of <span class="inlinecode">wchar</span>. If no
+    index is passed, then an input range will work, but if an index is passed,
+    then a random-access range is required.
+<br><br>
 
+    <span class="inlinecode">index</span> defaults to <span class="inlinecode">0</span> if none is passed.
+
+</p>
 <dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.
 
 </dd>
-<dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>str</i>[<i>index</i>]</span> is not one past the end of a valid
-        UTF-16 sequence.</dd>
+<dt>Throws</dt><dd>May throw a <span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a
+        valid UTF-16 sequence.
+
+</dd>
+<dt>Notes:</dt><dd>
+<span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> will only analize the first <span class="inlinecode">str[index]</span> element. It
+        will not fully verify the validity of UTF-16 sequence, nor even verify
+        the presence of the sequence: it will not actually guarantee that
+        <span class="inlinecode">index + <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(str, index) &lt;= str.length</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(in S <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>, size_t <i>index</i>) if (is(S : const(wchar[])) || isRandomAccessRange!S &amp;&amp; is(Unqual!(ElementType!S) == wchar));
+<br>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>) if (is(S : const(wchar[])) || isBidirectionalRange!S &amp;&amp; is(Unqual!(ElementType!S) == wchar));
+</h3></div>
+<div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> returns the length of the UTF-16 sequence ending one code
+    unit before <span class="inlinecode">index</span> in <span class="inlinecode">str</span>.
+</p>
+
+<p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> works with both UTF-16 strings and ranges of <span class="inlinecode">wchar</span>. If
+    no index is passed, then a bidirectional range will work, but if an index is
+    passed, then a random-access range is required.
+<br><br>
+
+    <span class="inlinecode">index</span> defaults to <span class="inlinecode">str.length</span> if none is passed.
+
+</p>
+<dt>Returns</dt><dd>The number of bytes in the UTF-16 sequence.
+
+</dd>
+<dt>Throws</dt><dd>May throw a <span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not one past the
+        end of a valid UTF-16 sequence.
+
+</dd>
+<dt>Notes:</dt><dd>
+<span class="inlinecode">stride</span> will only analize the element at <span class="inlinecode">str[index - 1]</span>
+        element. It will not fully verify the validity of UTF-16 sequence, nor
+        even verify the presence of the sequence: it will not actually
+        guarantee that <span class="inlinecode">stride(str, index) &lt;= index</span>.</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a>(S)(auto ref S <i>str</i>, size_t <i>index</i> = 0) if (is(S : const(dchar[])) || isInputRange!S &amp;&amp; is(Unqual!(ElementEncodingType!S) == dchar));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> returns the length of the UTF-32 sequence starting at <span class="inlinecode">index</span>
     in <span class="inlinecode">str</span>.
 </p>
 
-<dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
+<p><span class="inlinecode"><span class="symbol-target" id="stride">&nbsp;</span><a class="symbol-link" href="#stride">stride</a></span> works with both UTF-32 strings and ranges of <span class="inlinecode">dchar</span>.
+
+</p>
+<dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).
+
+</dd>
+<dt>Throws</dt><dd>Never.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(in dchar[] <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>, size_t <i>index</i>) if (isRandomAccessRange!S &amp;&amp; is(Unqual!(ElementEncodingType!S) == dchar));
+<br>uint <span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a>(S)(auto ref S <i>str</i>) if (isBidirectionalRange!S &amp;&amp; is(Unqual!(ElementEncodingType!S) == dchar));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> returns the length of the UTF-32 sequence ending one code
-    unit before <span class="inlinecode"><i>index</i></span> in <span class="inlinecode"><i>str</i></span>.
+    unit before <span class="inlinecode">index</span> in <span class="inlinecode">str</span>.
 </p>
 
-<dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).</dd>
+<p><span class="inlinecode"><span class="symbol-target" id="strideBack">&nbsp;</span><a class="symbol-link" href="#strideBack">strideBack</a></span> works with both UTF-32 strings and ranges of <span class="inlinecode">dchar</span>. If
+    no index is passed, then a bidirectional range will work, but if an index is
+    passed, then a random-access range is required.
+<br><br>
+
+    <span class="inlinecode">index</span> defaults to <span class="inlinecode">str.length</span> if none is passed.
+
+</p>
+<dt>Returns</dt><dd>The number of bytes in the UTF-32 sequence (always <span class="inlinecode">1</span>).
+
+</dd>
+<dt>Throws</dt><dd>Never.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="toUCSindex">&nbsp;</span><a class="symbol-link" href="#toUCSindex">toUCSindex</a>(C)(const(C)[] <i>str</i>, size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="toUCSindex">&nbsp;</span><a class="symbol-link" href="#toUCSindex">toUCSindex</a>(C)(const(C)[] <i>str</i>, size_t <i>index</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Given <span class="inlinecode">index</span> into <span class="inlinecode">str</span> and assuming that <span class="inlinecode">index</span> is at the start
     of a UTF sequence, <span class="inlinecode"><span class="symbol-target" id="toUCSindex">&nbsp;</span><a class="symbol-link" href="#toUCSindex">toUCSindex</a></span> determines the number of UCS characters
     up to <span class="inlinecode">index</span>. So, <span class="inlinecode">index</span> is the index of a code unit at the
     beginning of a code point, and the return value is how many code points into
-    the string that that code point is.
-</p>
+    the string that that code point is.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`w</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`d</span>, 7) == 7);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`w</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`hello world`d</span>, 7) == 7);
 
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`</span>, 7) == 6);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`w</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`d</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`</span>, 7) == 6);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`w</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`Ma Chérie`d</span>, 7) == 7);
 
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`</span>, 9) == 3);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`w</span>, 9) == 9);
-<span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`</span>, 9) == 3);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`w</span>, 9) == 9);
+    <span class="d_keyword">assert</span>(<u>toUCSindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="toUTFindex">&nbsp;</span><a class="symbol-link" href="#toUTFindex">toUTFindex</a>(in char[] <i>str</i>, size_t <i>n</i>);
-<br>pure nothrow @safe size_t <span class="symbol-target" id="toUTFindex">&nbsp;</span><a class="symbol-link" href="#toUTFindex">toUTFindex</a>(in wchar[] <i>str</i>, size_t <i>n</i>);
-<br>pure nothrow @safe size_t <span class="symbol-target" id="toUTFindex">&nbsp;</span><a class="symbol-link" href="#toUTFindex">toUTFindex</a>(in dchar[] <i>str</i>, size_t <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="toUTFindex">&nbsp;</span><a class="symbol-link" href="#toUTFindex">toUTFindex</a>(C)(const(C)[] <i>str</i>, size_t <i>n</i>) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p>Given a UCS index <span class="inlinecode"><i>n</i></span> into <span class="inlinecode"><i>str</i></span>, returns the UTF index.
-    So, <span class="inlinecode"><i>n</i></span> is how many code points into the string the code point is, and
-    the array index of the code unit is returned.
-</p>
+<div class="declaration-content"><dl><p>Given a UCS index <span class="inlinecode">n</span> into <span class="inlinecode">str</span>, returns the UTF index.
+    So, <span class="inlinecode">n</span> is how many code points into the string the code point is, and
+    the array index of the code unit is returned.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`w</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`d</span>, 7) == 7);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`w</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`hello world`d</span>, 7) == 7);
 
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`</span>, 6) == 7);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`w</span>, 7) == 7);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`d</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`</span>, 6) == 7);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`w</span>, 7) == 7);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`Ma Chérie`d</span>, 7) == 7);
 
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`</span>, 3) == 9);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`w</span>, 9) == 9);
-<span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`</span>, 3) == 9);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`w</span>, 9) == 9);
+    <span class="d_keyword">assert</span>(<u>toUTFindex</u>(<span class="d_string">`さいごの果実 / ミツバチと科学者`d</span>, 9) == 9);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(S)(in S <i>str</i>, ref size_t <i>index</i>);
-<br>pure @trusted dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(S)(in S <i>str</i>, ref size_t <i>index</i>);
-<br>pure @safe dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(S)(in S <i>str</i>, ref size_t <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(S)(auto ref S <i>str</i>, ref size_t <i>index</i>) if (!isSomeString!S &amp;&amp; isRandomAccessRange!S &amp;&amp; hasSlicing!S &amp;&amp; hasLength!S &amp;&amp; isSomeChar!(ElementType!S));
 </h3></div>
-<div class="declaration-content"><dl><p>Decodes and returns the character starting at <span class="inlinecode">str[index]</span>. <span class="inlinecode">index</span>
-    is advanced to one past the decoded character. If the character is not
+<div class="declaration-content"><dl><p>Decodes and returns the code point starting at <span class="inlinecode">str[index]</span>. <span class="inlinecode">index</span>
+    is advanced to one past the decoded code point. If the code point is not
     well-formed, then a <span class="inlinecode">UTFException</span> is thrown and <span class="inlinecode">index</span> remains
     unchanged.
 </p>
 
-<dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode">str[index]</span> is not the start of a valid UTF
+<p><span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a> will only work with strings and random access ranges of code units
+    with length and slicing, whereas <a class="symbol-link" href="#decodeFront"><span class="inlinecode">decodeFront</span></a>
+ will work with any
+    input range of code units.
+
+</p>
+<dt>Throws</dt><dd><a class="symbol-link" href="#UTFException"><span class="inlinecode">UTFException</span></a>
+ if <span class="inlinecode">str[index]</span> is not the start of a valid UTF
         sequence.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(ref char[4u] <i>buf</i>, dchar <i>c</i>);
-<br>pure @safe size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(ref wchar[2u] <i>buf</i>, dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>dchar <span class="symbol-target" id="decodeFront">&nbsp;</span><a class="symbol-link" href="#decodeFront">decodeFront</a>(S)(ref S <i>str</i>, out size_t <i>numCodeUnits</i>) if (!isSomeString!S &amp;&amp; isInputRange!S &amp;&amp; isSomeChar!(ElementType!S));
+<br>dchar <span class="symbol-target" id="decodeFront">&nbsp;</span><a class="symbol-link" href="#decodeFront">decodeFront</a>(S)(ref S <i>str</i>) if (isInputRange!S &amp;&amp; isSomeChar!(ElementType!S));
+</h3></div>
+<div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="decodeFront">&nbsp;</span><a class="symbol-link" href="#decodeFront">decodeFront</a></span> is a variant of <a class="symbol-link" href="#decode"><span class="inlinecode">decode</span></a>
+ which specifically decodes
+    the first code point. Unlike <a class="symbol-link" href="#decode"><span class="inlinecode">decode</span></a>
+, <span class="inlinecode"><span class="symbol-target" id="decodeFront">&nbsp;</span><a class="symbol-link" href="#decodeFront">decodeFront</a></span> accepts any
+    input range of code units (rather than just a string or random access
+    range). It also takes the range by <span class="inlinecode">ref</span> and pops off the elements as it
+    decodes them. If <span class="inlinecode">numCodeUnits</span> is passed in, it gets set to the number
+    of code units which were in the code point which was decoded.
+</p>
+
+<dt>Throws</dt><dd><a class="symbol-link" href="#UTFException"><span class="inlinecode">UTFException</span></a>
+ if <span class="inlinecode">str.front</span> is not the start of a valid UTF
+        sequence. If an exception is thrown, then there is no guarantee as to
+        the number of code units which were popped off, as it depends on the
+        type of range being used and how many code units had to be popped off
+        before the code point was determined to be invalid.</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(ref char[4] <i>buf</i>, dchar <i>c</i>);
+<br>pure @safe size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(ref wchar[2] <i>buf</i>, dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes <span class="inlinecode"><i>c</i></span> into the static array, <span class="inlinecode"><i>buf</i></span>, and returns the actual
     length of the encoded character (a number between <span class="inlinecode">1</span> and <span class="inlinecode">4</span> for
     <span class="inlinecode">char[4]</span> buffers and a number between <span class="inlinecode">1</span> and <span class="inlinecode">2</span> for
-    <span class="inlinecode">wchar[2]</span> buffers.
+    <span class="inlinecode">wchar[2]</span> buffers).
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
@@ -465,54 +565,52 @@
 <dt>Throws</dt><dd><span class="inlinecode">UTFException</span> if <span class="inlinecode"><i>c</i></span> is not a valid UTF code point.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe ubyte <span class="symbol-target" id="codeLength">&nbsp;</span><a class="symbol-link" href="#codeLength">codeLength</a>(C)(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe ubyte <span class="symbol-target" id="codeLength">&nbsp;</span><a class="symbol-link" href="#codeLength">codeLength</a>(C)(dchar <i>c</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of code units that are required to encode the code point
-    <span class="inlinecode">c</span> when <span class="inlinecode">C</span> is the character type used to encode it.
-</p>
+    <span class="inlinecode">c</span> when <span class="inlinecode">C</span> is the character type used to encode it.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>('a') == 1);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>('a') == 1);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('a') == 1);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>('a') == 1);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>('a') == 1);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('a') == 1);
 
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>('\U0010FFFF') == 4);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>('\U0010FFFF') == 2);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('\U0010FFFF') == 1);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>('\U0010FFFF') == 4);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>('\U0010FFFF') == 2);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>('\U0010FFFF') == 1);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="codeLength">&nbsp;</span><a class="symbol-link" href="#codeLength">codeLength</a>(C1, C2)(C2[] <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="codeLength">&nbsp;</span><a class="symbol-link" href="#codeLength">codeLength</a>(C, InputRange)(InputRange <i>input</i>) if (isInputRange!InputRange &amp;&amp; is(ElementType!InputRange : dchar));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of code units that are required to encode <span class="inlinecode">str</span>
     in a string whose character type is <span class="inlinecode">C</span>. This is particularly useful
     when slicing one string with the length of another and the two string
-    types use different character types.
-</p>
+    types use different character types.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>(<span class="d_string">"hello world"</span>) ==
-       to!string(<span class="d_string">"hello world"</span>).length);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>(<span class="d_string">"hello world"</span>) ==
-       to!wstring(<span class="d_string">"hello world"</span>).length);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>(<span class="d_string">"hello world"</span>) ==
-       to!dstring(<span class="d_string">"hello world"</span>).length);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>(<span class="d_string">"hello world"</span>) ==
+           to!string(<span class="d_string">"hello world"</span>).length);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>(<span class="d_string">"hello world"</span>) ==
+           to!wstring(<span class="d_string">"hello world"</span>).length);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>(<span class="d_string">"hello world"</span>) ==
+           to!dstring(<span class="d_string">"hello world"</span>).length);
 
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>(<span class="d_string">`プログラミング`</span>) ==
-       to!string(<span class="d_string">`プログラミング`</span>).length);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>(<span class="d_string">`プログラミング`</span>) ==
-       to!wstring(<span class="d_string">`プログラミング`</span>).length);
-<span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>(<span class="d_string">`プログラミング`</span>) ==
-       to!dstring(<span class="d_string">`プログラミング`</span>).length);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">char</span>(<span class="d_string">`プログラミング`</span>) ==
+           to!string(<span class="d_string">`プログラミング`</span>).length);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">wchar</span>(<span class="d_string">`プログラミング`</span>) ==
+           to!wstring(<span class="d_string">`プログラミング`</span>).length);
+    <span class="d_keyword">assert</span>(<u>codeLength</u>!<span class="d_keyword">dchar</span>(<span class="d_string">`プログラミング`</span>) ==
+           to!dstring(<span class="d_string">`プログラミング`</span>).length);
 
-string haystack = <span class="d_string">`Être sans la verité, ça, ce ne serait pas bien.`</span>;
-wstring needle = <span class="d_string">`Être sans la verité`</span>;
-<span class="d_keyword">assert</span>(haystack[<u>codeLength</u>!<span class="d_keyword">char</span>(needle) .. $] ==
-       <span class="d_string">`, ça, ce ne serait pas bien.`</span>);
+    string haystack = <span class="d_string">`Être sans la verité, ça, ce ne serait pas bien.`</span>;
+    wstring needle = <span class="d_string">`Être sans la verité`</span>;
+    <span class="d_keyword">assert</span>(haystack[<u>codeLength</u>!<span class="d_keyword">char</span>(needle) .. $] ==
+           <span class="d_string">`, ça, ce ne serait pas bien.`</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe void <span class="symbol-target" id="validate">&nbsp;</span><a class="symbol-link" href="#validate">validate</a>(S)(in S <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe void <span class="symbol-target" id="validate">&nbsp;</span><a class="symbol-link" href="#validate">validate</a>(S)(in S <i>str</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks to see if <span class="inlinecode">str</span> is well-formed unicode or not.
 </p>
@@ -544,8 +642,7 @@ wstring needle = <span class="d_string">`Être sans la verité`</span>;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="toUTFz">&nbsp;</span><a class="symbol-link" href="#toUTFz">toUTFz</a>(P)<br>@system P <span class="symbol-target" id="toUTFz">&nbsp;</span><a class="symbol-link" href="#toUTFz">toUTFz</a>(P, S)(S <i>str</i>);
-</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="toUTFz">&nbsp;</span><a class="symbol-link" href="#toUTFz">toUTFz</a>(P)</h3></div>
 <div class="declaration-content"><dl><p>Returns a C-style zero-terminated string equivalent to <span class="inlinecode">str</span>. <span class="inlinecode">str</span>
     must not contain embedded <span class="inlinecode">'\0'</span>'s as any C function will treat the first
     <span class="inlinecode">'\0'</span> that it sees as the end of the string. If <span class="inlinecode">str.empty</span> is
@@ -583,20 +680,18 @@ wstring needle = <span class="d_string">`Être sans la verité`</span>;
     <font color=red>Warning 2:</font> When passing a character pointer to a C function, and the
     C function keeps it around for any reason, make sure that you keep a
     reference to it in your D code. Otherwise, it may go away during a garbage
-    collection cycle and cause a nasty bug when the C code tries to use it.
-
-</p>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> p1 = <u>toUTFz</u>!(<span class="d_keyword">char</span>*)(<span class="d_string">"hello world"</span>);
-<span class="d_keyword">auto</span> p2 = <u>toUTFz</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)*)(<span class="d_string">"hello world"</span>);
-<span class="d_keyword">auto</span> p3 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">char</span>)*)(<span class="d_string">"hello world"</span>);
-<span class="d_keyword">auto</span> p4 = <u>toUTFz</u>!(<span class="d_keyword">char</span>*)(<span class="d_string">"hello world"d</span>);
-<span class="d_keyword">auto</span> p5 = <u>toUTFz</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">wchar</span>)*)(<span class="d_string">"hello world"</span>);
-<span class="d_keyword">auto</span> p6 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">dchar</span>)*)(<span class="d_string">"hello world"w</span>);
+    collection cycle and cause a nasty bug when the C code tries to use it.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">auto</span> p1 = <u>toUTFz</u>!(<span class="d_keyword">char</span>*)(<span class="d_string">"hello world"</span>);
+    <span class="d_keyword">auto</span> p2 = <u>toUTFz</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)*)(<span class="d_string">"hello world"</span>);
+    <span class="d_keyword">auto</span> p3 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">char</span>)*)(<span class="d_string">"hello world"</span>);
+    <span class="d_keyword">auto</span> p4 = <u>toUTFz</u>!(<span class="d_keyword">char</span>*)(<span class="d_string">"hello world"d</span>);
+    <span class="d_keyword">auto</span> p5 = <u>toUTFz</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">wchar</span>)*)(<span class="d_string">"hello world"</span>);
+    <span class="d_keyword">auto</span> p6 = <u>toUTFz</u>!(<span class="d_keyword">immutable</span>(<span class="d_keyword">dchar</span>)*)(<span class="d_string">"hello world"w</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const(wchar)* <span class="symbol-target" id="toUTF16z">&nbsp;</span><a class="symbol-link" href="#toUTF16z">toUTF16z</a>(C)(const(C)[] <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>const(wchar)* <span class="symbol-target" id="toUTF16z">&nbsp;</span><a class="symbol-link" href="#toUTF16z">toUTF16z</a>(C)(const(C)[] <i>str</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="toUTF16z">&nbsp;</span><a class="symbol-link" href="#toUTF16z">toUTF16z</a></span> is a convenience function for <span class="inlinecode">toUTFz!(const(wchar)*)</span>.
 </p>
@@ -606,13 +701,14 @@ wstring needle = <span class="d_string">`Être sans la verité`</span>;
     that take an <span class="inlinecode">LPWSTR</span> or <span class="inlinecode">LPCWSTR</span> argument.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted size_t <span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>(C)(const(C)[] <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted size_t <span class="symbol-target" id="count">&nbsp;</span><a class="symbol-link" href="#count">count</a>(C)(const(C)[] <i>str</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the total number of code points encoded in <span class="inlinecode">str</span>.
 </p>
 
 <dt>Supercedes:</dt><dd>
-This function supercedes <a href="#toUCSindex"><span class="inlinecode">toUCSindex</span></a>.
+This function supercedes <a class="symbol-link" href="#toUCSindex"><span class="inlinecode">toUCSindex</span></a>
+.
 
 </dd>
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
@@ -632,7 +728,7 @@ This function supercedes <a href="#toUCSindex"><span class="inlinecode">toUCSind
 				</footer>
 				
 				<footer class="pull-right">
-					<p>&copy; Copyright Digital Mars 2000 - 2010.
+					<p>&copy; Copyright Digital Mars 2000 - 2012.
 </p>
 				</footer>
 			</div>

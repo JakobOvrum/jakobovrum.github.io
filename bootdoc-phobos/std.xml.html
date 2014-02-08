@@ -292,7 +292,7 @@ make them do pretty much whatever you want.
 
 </p>
 <dt>Example:</dt><dd>
-This example creates a DOM (Document Object Model) tree
+ This example creates a DOM (Document Object Model) tree
     from an XML file.
 <pre class="d_code"><span class="d_keyword">import</span> std.<u>xml</u>;
 <span class="d_keyword">import</span> std.stdio;
@@ -328,7 +328,7 @@ This example creates a DOM (Document Object Model) tree
 
 </dd>
 <dt>Example:</dt><dd>
-This example does much the same thing, except that the file is
+ This example does much the same thing, except that the file is
     deconstructed and reconstructed by hand. This is more work, but the
     techniques involved offer vastly more power.
 <pre class="d_code"><span class="d_keyword">import</span> std.<u>xml</u>;
@@ -546,20 +546,20 @@ This example does much the same thing, except that the file is
 <dt>Standards</dt><dd><a href="http://www.w3.org/TR/1998/REC-xml-19980210">XML 1.0</a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S s</td>
 <td>The string to be encoded</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>The encoded string
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> writefln(<u>encode</u>(<span class="d_string">"a &gt; b"</span>)); <span class="d_comment">// writes "a &amp;gt; b"
+<dt>Examples</dt><dd><pre class="d_code">writefln(<u>encode</u>(<span class="d_string">"a &gt; b"</span>)); <span class="d_comment">// writes "a &amp;gt; b"
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="DecodeMode">&nbsp;</span><a class="symbol-link" href="#DecodeMode">DecodeMode</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="DecodeMode">&nbsp;</span><a class="symbol-link" href="#DecodeMode">DecodeMode</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Mode to use for decoding.
 </p>
@@ -572,7 +572,7 @@ This example does much the same thing, except that the file is
  Decode, and throw exception on error</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(string <i>s</i>, DecodeMode <i>mode</i> = (DecodeMode).LOOSE);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(string <i>s</i>, DecodeMode <i>mode</i> = DecodeMode.LOOSE);
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes a string by unescaping all predefined XML entities.
 </p>
@@ -613,7 +613,7 @@ This example does much the same thing, except that the file is
 <dt>Returns</dt><dd>The decoded string
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> writefln(<u>decode</u>(<span class="d_string">"a &amp;gt; b"</span>)); <span class="d_comment">// writes "a &gt; b"
+<dt>Examples</dt><dd><pre class="d_code">writefln(<u>decode</u>(<span class="d_string">"a &amp;gt; b"</span>)); <span class="d_comment">// writes "a &gt; b"
 </span>
 </pre>
 </dd>
@@ -640,7 +640,7 @@ This example does much the same thing, except that the file is
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>s</i>);
+<hr><div class="row-fluid declaration"><h3> this(string <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a Document by parsing XML text.
 </p>
@@ -658,7 +658,7 @@ This example does much the same thing, except that the file is
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(Tag) <i>tag</i>);
+<hr><div class="row-fluid declaration"><h3> this(const(Tag) <i>tag</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a Document from a Tag.
 </p>
@@ -669,18 +669,18 @@ This example does much the same thing, except that the file is
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(Object <i>o</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(Object <i>o</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares two Documents for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> Document d1,d2;
- <span class="d_keyword">if</span> (d1 == d2) { }
+<dt>Examples</dt><dd><pre class="d_code">Document d1,d2;
+<span class="d_keyword">if</span> (d1 == d2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const int <span class="symbol-target" id="opCmp">&nbsp;</span><a class="symbol-link" href="#opCmp">opCmp</a>(Object <i>o</i>);
+<hr><div class="row-fluid declaration"><h3>const int <span class="symbol-target" id="opCmp">&nbsp;</span><a class="symbol-link" href="#opCmp">opCmp</a>(Object <i>o</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares two Documents
 </p>
@@ -689,13 +689,13 @@ This example does much the same thing, except that the file is
  Documents can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> Document d1,d2;
- <span class="d_keyword">if</span> (d1 &lt; d2) { }
+<dt>Examples</dt><dd><pre class="d_code">Document d1,d2;
+<span class="d_keyword">if</span> (d1 &lt; d2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @trusted hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @trusted size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a Document
 </p>
@@ -704,7 +704,7 @@ This example does much the same thing, except that the file is
  Documents can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the string representation of a Document. (That is, the
  complete XML of a document).</p>
@@ -762,7 +762,7 @@ This example does much the same thing, except that the file is
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>name</i>, string <i>interior</i> = null);
+<hr><div class="row-fluid declaration"><h3> this(string <i>name</i>, string <i>interior</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an Element given a <i>name</i> and a string to be used as a Text
  <i>interior</i>.
@@ -775,19 +775,19 @@ This example does much the same thing, except that the file is
 <td>(optional) the string <i>interior</i>.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> element = <span class="d_keyword">new</span> Element(<span class="d_string">"title"</span>,<span class="d_string">"Serenity"</span>)
-     <span class="d_comment">// constructs the element &lt;title&gt;Serenity&lt;/title&gt;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> element = <span class="d_keyword">new</span> Element(<span class="d_string">"title"</span>,<span class="d_string">"Serenity"</span>)
+    <span class="d_comment">// constructs the element &lt;title&gt;Serenity&lt;/title&gt;
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(Tag) <i>tag_</i>);
+<hr><div class="row-fluid declaration"><h3> this(const(Tag) <i>tag_</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an Element from a Tag.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>tag</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Tag) <i>tag_</i></td>
 <td>the start or empty tag of the element.</td>
 </tr>
 </table></dd>
@@ -802,8 +802,8 @@ This example does much the same thing, except that the file is
 <td>the <i>item</i> you wish to append.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> Element element;
- element ~= <span class="d_keyword">new</span> Text(<span class="d_string">"hello"</span>);
+<dt>Examples</dt><dd><pre class="d_code">Element element;
+element ~= <span class="d_keyword">new</span> Text(<span class="d_string">"hello"</span>);
 </pre>
 </dd>
 </dl>
@@ -817,8 +817,8 @@ This example does much the same thing, except that the file is
 <td>the <i>item</i> you wish to append.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> Element element;
- element ~= <span class="d_keyword">new</span> CData(<span class="d_string">"hello"</span>);
+<dt>Examples</dt><dd><pre class="d_code">Element element;
+element ~= <span class="d_keyword">new</span> CData(<span class="d_string">"hello"</span>);
 </pre>
 </dd>
 </dl>
@@ -832,8 +832,8 @@ This example does much the same thing, except that the file is
 <td>the <i>item</i> you wish to append.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> Element element;
- element ~= <span class="d_keyword">new</span> Comment(<span class="d_string">"hello"</span>);
+<dt>Examples</dt><dd><pre class="d_code">Element element;
+element ~= <span class="d_keyword">new</span> Comment(<span class="d_string">"hello"</span>);
 </pre>
 </dd>
 </dl>
@@ -847,8 +847,8 @@ This example does much the same thing, except that the file is
 <td>the <i>item</i> you wish to append.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> Element element;
- element ~= <span class="d_keyword">new</span> ProcessingInstruction(<span class="d_string">"hello"</span>);
+<dt>Examples</dt><dd><pre class="d_code">Element element;
+element ~= <span class="d_keyword">new</span> ProcessingInstruction(<span class="d_string">"hello"</span>);
 </pre>
 </dd>
 </dl>
@@ -862,10 +862,10 @@ This example does much the same thing, except that the file is
 <td>the <i>item</i> you wish to append.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> Element element;
- Element other = <span class="d_keyword">new</span> Element(<span class="d_string">"br"</span>);
- element ~= other;
-    <span class="d_comment">// appends element representing &lt;br /&gt;
+<dt>Examples</dt><dd><pre class="d_code">Element element;
+Element other = <span class="d_keyword">new</span> Element(<span class="d_string">"br"</span>);
+element ~= other;
+   <span class="d_comment">// appends element representing &lt;br /&gt;
 </span>
 </pre>
 </dd>
@@ -876,8 +876,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two Elements for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> Element e1,e2;
- <span class="d_keyword">if</span> (e1 == e2) { }
+<dt>Examples</dt><dd><pre class="d_code">Element e1,e2;
+<span class="d_keyword">if</span> (e1 == e2) { }
 </pre>
 </dd>
 </dl>
@@ -891,13 +891,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> Element e1,e2;
- <span class="d_keyword">if</span> (e1 &lt; e2) { }
+<dt>Examples</dt><dd><pre class="d_code">Element e1,e2;
+<span class="d_keyword">if</span> (e1 &lt; e2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of an Element
 </p>
@@ -906,7 +906,7 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="text">&nbsp;</span><a class="symbol-link" href="#text">text</a>(DecodeMode <i>mode</i> = (DecodeMode).LOOSE);
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="text">&nbsp;</span><a class="symbol-link" href="#text">text</a>(DecodeMode <i>mode</i> = DecodeMode.LOOSE);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the decoded interior of an element.
 </p>
@@ -923,7 +923,7 @@ This example does much the same thing, except that the file is
 <dt>Throws</dt><dd>DecodeException if decode fails</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string[] <span class="symbol-target" id="pretty">&nbsp;</span><a class="symbol-link" href="#pretty">pretty</a>(uint <i>indent</i> = 2);
+<hr><div class="row-fluid declaration"><h3>const string[] <span class="symbol-target" id="pretty">&nbsp;</span><a class="symbol-link" href="#pretty">pretty</a>(uint <i>indent</i> = 2);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an indented string representation of this item
 </p>
@@ -935,13 +935,13 @@ This example does much the same thing, except that the file is
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the string representation of an Element
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> element = <span class="d_keyword">new</span> Element(<span class="d_string">"br"</span>);
- writefln(element.<u>toString</u>()); <span class="d_comment">// writes "&lt;br /&gt;"
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> element = <span class="d_keyword">new</span> Element(<span class="d_string">"br"</span>);
+writefln(element.<u>toString</u>()); <span class="d_comment">// writes "&lt;br /&gt;"
 </span>
 </pre>
 </dd>
@@ -949,7 +949,7 @@ This example does much the same thing, except that the file is
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="TagType">&nbsp;</span><a class="symbol-link" href="#TagType">TagType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="TagType">&nbsp;</span><a class="symbol-link" href="#TagType">TagType</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Tag types.
 </p>
@@ -995,7 +995,7 @@ This example does much the same thing, except that the file is
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>name</i>, TagType <i>type</i> = cast(TagType)0);
+<hr><div class="row-fluid declaration"><h3> this(string <i>name</i>, TagType <i>type</i> = TagType.START);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an instance of Tag with a specified <i>name</i> and <i>type</i>
 </p>
@@ -1012,13 +1012,13 @@ This example does much the same thing, except that the file is
           TagType.START.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> tag = <span class="d_keyword">new</span> Tag(<span class="d_string">"img"</span>,Tag.EMPTY);
- tag.attr[<span class="d_string">"src"</span>] = <span class="d_string">"http://example.com/example.jpg"</span>;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> tag = <span class="d_keyword">new</span> Tag(<span class="d_string">"img"</span>,Tag.EMPTY);
+tag.attr[<span class="d_string">"src"</span>] = <span class="d_string">"http://example.com/example.jpg"</span>;
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(Object <i>o</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(Object <i>o</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares two Tags for equality
 </p>
@@ -1027,24 +1027,24 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> Tag tag1,tag2
- <span class="d_keyword">if</span> (tag1 == tag2) { }
+<dt>Examples</dt><dd><pre class="d_code">Tag tag1,tag2
+<span class="d_keyword">if</span> (tag1 == tag2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const int <span class="symbol-target" id="opCmp">&nbsp;</span><a class="symbol-link" href="#opCmp">opCmp</a>(Object <i>o</i>);
+<hr><div class="row-fluid declaration"><h3>const int <span class="symbol-target" id="opCmp">&nbsp;</span><a class="symbol-link" href="#opCmp">opCmp</a>(Object <i>o</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares two Tags
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> Tag tag1,tag2
- <span class="d_keyword">if</span> (tag1 &lt; tag2) { }
+<dt>Examples</dt><dd><pre class="d_code">Tag tag1,tag2
+<span class="d_keyword">if</span> (tag1 &lt; tag2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a Tag
 </p>
@@ -1053,44 +1053,44 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the string representation of a Tag
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> tag = <span class="d_keyword">new</span> Tag(<span class="d_string">"book"</span>,TagType.START);
- writefln(tag.<u>toString</u>()); <span class="d_comment">// writes "&lt;book&gt;"
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> tag = <span class="d_keyword">new</span> Tag(<span class="d_string">"book"</span>,TagType.START);
+writefln(tag.<u>toString</u>()); <span class="d_comment">// writes "&lt;book&gt;"
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isStart">&nbsp;</span><a class="symbol-link" href="#isStart">isStart</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isStart">&nbsp;</span><a class="symbol-link" href="#isStart">isStart</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the Tag is a start tag
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">if</span> (tag.<u>isStart</u>) { }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">if</span> (tag.<u>isStart</u>) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEnd">&nbsp;</span><a class="symbol-link" href="#isEnd">isEnd</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEnd">&nbsp;</span><a class="symbol-link" href="#isEnd">isEnd</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the Tag is an end tag
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">if</span> (tag.<u>isEnd</u>) { }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">if</span> (tag.<u>isEnd</u>) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmpty">&nbsp;</span><a class="symbol-link" href="#isEmpty">isEmpty</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmpty">&nbsp;</span><a class="symbol-link" href="#isEmpty">isEmpty</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the Tag is an empty tag
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">if</span> (tag.<u>isEmpty</u>) { }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">if</span> (tag.<u>isEmpty</u>) { }
 </pre>
 </dd>
 </dl>
@@ -1102,7 +1102,7 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Class representing a comment</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>content</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>content</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a comment
 </p>
@@ -1115,8 +1115,8 @@ This example does much the same thing, except that the file is
  or exactly equals "-")
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> Comment(<span class="d_string">"This is a comment"</span>);
-    <span class="d_comment">// constructs &lt;!--This is a comment--&gt;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> Comment(<span class="d_string">"This is a comment"</span>);
+   <span class="d_comment">// constructs &lt;!--This is a comment--&gt;
 </span>
 </pre>
 </dd>
@@ -1127,8 +1127,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two comments for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> Comment item1,item2;
- <span class="d_keyword">if</span> (item1 == item2) { }
+<dt>Examples</dt><dd><pre class="d_code">Comment item1,item2;
+<span class="d_keyword">if</span> (item1 == item2) { }
 </pre>
 </dd>
 </dl>
@@ -1142,13 +1142,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> Comment item1,item2;
- <span class="d_keyword">if</span> (item1 &lt; item2) { }
+<dt>Examples</dt><dd><pre class="d_code">Comment item1,item2;
+<span class="d_keyword">if</span> (item1 &lt; item2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a Comment
 </p>
@@ -1157,13 +1157,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this comment</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">false</span> always</p>
 
@@ -1176,7 +1176,7 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Class representing a Character Data section</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>content</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>content</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a chraracter data section
 </p>
@@ -1188,8 +1188,8 @@ This example does much the same thing, except that the file is
 <dt>Throws</dt><dd>CDataException if the segment body is illegal (contains "]]&gt;")
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> CData(<span class="d_string">"&lt;b&gt;hello&lt;/b&gt;"</span>);
-    <span class="d_comment">// constructs &lt;![CDATA[&lt;b&gt;hello&lt;/b&gt;]]&gt;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> CData(<span class="d_string">"&lt;b&gt;hello&lt;/b&gt;"</span>);
+   <span class="d_comment">// constructs &lt;![CDATA[&lt;b&gt;hello&lt;/b&gt;]]&gt;
 </span>
 </pre>
 </dd>
@@ -1200,8 +1200,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two CDatas for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> CData item1,item2;
- <span class="d_keyword">if</span> (item1 == item2) { }
+<dt>Examples</dt><dd><pre class="d_code">CData item1,item2;
+<span class="d_keyword">if</span> (item1 == item2) { }
 </pre>
 </dd>
 </dl>
@@ -1215,13 +1215,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> CData item1,item2;
- <span class="d_keyword">if</span> (item1 &lt; item2) { }
+<dt>Examples</dt><dd><pre class="d_code">CData item1,item2;
+<span class="d_keyword">if</span> (item1 &lt; item2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a CData
 </p>
@@ -1230,13 +1230,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this CData section</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">false</span> always</p>
 
@@ -1249,7 +1249,7 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Class representing a text (aka Parsed Character Data) section</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>content</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>content</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a text (aka PCData) section
 </p>
@@ -1259,8 +1259,8 @@ This example does much the same thing, except that the file is
       insertion, so it is safe to insert any text</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> Text = <span class="d_keyword">new</span> CData(<span class="d_string">"a &lt; b"</span>);
-    <span class="d_comment">// constructs a &amp;lt; b
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> Text = <span class="d_keyword">new</span> CData(<span class="d_string">"a &lt; b"</span>);
+   <span class="d_comment">// constructs a &amp;lt; b
 </span>
 </pre>
 </dd>
@@ -1271,8 +1271,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two text sections for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> Text item1,item2;
- <span class="d_keyword">if</span> (item1 == item2) { }
+<dt>Examples</dt><dd><pre class="d_code">Text item1,item2;
+<span class="d_keyword">if</span> (item1 == item2) { }
 </pre>
 </dd>
 </dl>
@@ -1286,13 +1286,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> Text item1,item2;
- <span class="d_keyword">if</span> (item1 &lt; item2) { }
+<dt>Examples</dt><dd><pre class="d_code">Text item1,item2;
+<span class="d_keyword">if</span> (item1 &lt; item2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a text section
 </p>
@@ -1301,13 +1301,13 @@ This example does much the same thing, except that the file is
  can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this Text section</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the content is the empty string</p>
 
@@ -1320,7 +1320,7 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Class representing an XML Instruction section</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>content</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>content</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct an XML Instruction section
 </p>
@@ -1332,8 +1332,8 @@ This example does much the same thing, except that the file is
 <dt>Throws</dt><dd>XIException if the segment body is illegal (contains "&gt;")
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> XMLInstruction(<span class="d_string">"ATTLIST"</span>);
-    <span class="d_comment">// constructs &lt;!ATTLIST&gt;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> XMLInstruction(<span class="d_string">"ATTLIST"</span>);
+   <span class="d_comment">// constructs &lt;!ATTLIST&gt;
 </span>
 </pre>
 </dd>
@@ -1344,8 +1344,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two XML instructions for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> XMLInstruction item1,item2;
- <span class="d_keyword">if</span> (item1 == item2) { }
+<dt>Examples</dt><dd><pre class="d_code">XMLInstruction item1,item2;
+<span class="d_keyword">if</span> (item1 == item2) { }
 </pre>
 </dd>
 </dl>
@@ -1359,13 +1359,13 @@ This example does much the same thing, except that the file is
  XmlInstructions can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> XMLInstruction item1,item2;
- <span class="d_keyword">if</span> (item1 &lt; item2) { }
+<dt>Examples</dt><dd><pre class="d_code">XMLInstruction item1,item2;
+<span class="d_keyword">if</span> (item1 &lt; item2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of an XMLInstruction
 </p>
@@ -1374,13 +1374,13 @@ This example does much the same thing, except that the file is
  XmlInstructions can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this XmlInstruction</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">false</span> always</p>
 
@@ -1393,7 +1393,7 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Class representing a Processing Instruction section</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>content</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>content</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a Processing Instruction section
 </p>
@@ -1405,8 +1405,8 @@ This example does much the same thing, except that the file is
 <dt>Throws</dt><dd>PIException if the segment body is illegal (contains "?&gt;")
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> ProcessingInstruction(<span class="d_string">"php"</span>);
-    <span class="d_comment">// constructs &lt;?php?&gt;
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> item = <span class="d_keyword">new</span> ProcessingInstruction(<span class="d_string">"php"</span>);
+   <span class="d_comment">// constructs &lt;?php?&gt;
 </span>
 </pre>
 </dd>
@@ -1417,8 +1417,8 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Compares two processing instructions for equality
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> ProcessingInstruction item1,item2;
- <span class="d_keyword">if</span> (item1 == item2) { }
+<dt>Examples</dt><dd><pre class="d_code">ProcessingInstruction item1,item2;
+<span class="d_keyword">if</span> (item1 == item2) { }
 </pre>
 </dd>
 </dl>
@@ -1432,13 +1432,13 @@ This example does much the same thing, except that the file is
  ProcessingInstructions can be used as associative array keys.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> ProcessingInstruction item1,item2;
- <span class="d_keyword">if</span> (item1 &lt; item2) { }
+<dt>Examples</dt><dd><pre class="d_code">ProcessingInstruction item1,item2;
+<span class="d_keyword">if</span> (item1 &lt; item2) { }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of a ProcessingInstruction
 </p>
@@ -1447,13 +1447,13 @@ This example does much the same thing, except that the file is
  ProcessingInstructions can be used as associative array keys.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this ProcessingInstruction</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">false</span> always</p>
 
@@ -1478,19 +1478,19 @@ This example does much the same thing, except that the file is
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const nothrow @safe hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const nothrow @safe size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the hash of this item</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string representation of this item</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string[] <span class="symbol-target" id="pretty">&nbsp;</span><a class="symbol-link" href="#pretty">pretty</a>(uint <i>indent</i>);
+<hr><div class="row-fluid declaration"><h3>const string[] <span class="symbol-target" id="pretty">&nbsp;</span><a class="symbol-link" href="#pretty">pretty</a>(uint <i>indent</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an indented string representation of this item
 </p>
@@ -1501,7 +1501,7 @@ This example does much the same thing, except that the file is
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const @property bool <span class="symbol-target" id="isEmptyXML">&nbsp;</span><a class="symbol-link" href="#isEmptyXML">isEmptyXML</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the item represents empty XML text</p>
 
@@ -1526,7 +1526,7 @@ This example does much the same thing, except that the file is
 
       If there is an encoding attribute in the prolog, it is ignored.</dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>xmlText_</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>xmlText_</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a DocumentParser.
 </p>
@@ -1535,7 +1535,7 @@ This example does much the same thing, except that the file is
  This is enforced by the function's in contract.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>xmltext</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>xmlText_</i></td>
 <td>the entire XML document as text</td>
 </tr>
 </table></dd>
@@ -1556,14 +1556,14 @@ This example does much the same thing, except that the file is
  otherwise, Instances of <span class="symbol-target" id="ElementParser">&nbsp;</span><a class="symbol-link" href="#ElementParser">ElementParser</a> will be created for you by the
  library, and passed your way via onStartTag handlers.</dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const const @property const(Tag) <span class="symbol-target" id="tag">&nbsp;</span><a class="symbol-link" href="#tag">tag</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property const(Tag) <span class="symbol-target" id="tag">&nbsp;</span><a class="symbol-link" href="#tag">tag</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The Tag at the start of the element being parsed. You can read this to
  determine the <span class="symbol-target" id="tag">&nbsp;</span><a class="symbol-link" href="#tag">tag</a>'s name and attributes.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void delegate(ElementParser parser)[string] <span class="symbol-target" id="onStartTag">&nbsp;</span><a class="symbol-link" href="#onStartTag">onStartTag</a>;
+<hr><div class="row-fluid declaration"><h3>ParserHandler[string] <span class="symbol-target" id="onStartTag">&nbsp;</span><a class="symbol-link" href="#onStartTag">onStartTag</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Register a handler which will be called whenever a start tag is
  encountered which matches the specified name. You can also pass <span class="d_keyword">null</span> as
@@ -1571,30 +1571,31 @@ This example does much the same thing, except that the file is
  start tag.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever a &lt;podcast&gt; start tag is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever a &lt;podcast&gt; start tag is encountered
 </span>
- <u>onStartTag</u>[<span class="d_string">"podcast"</span>] = (ElementParser xml)
- {
-     <span class="d_comment">// Your code here
+<u>onStartTag</u>[<span class="d_string">"podcast"</span>] = (ElementParser xml)
+{
+    <span class="d_comment">// Your code here
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 
- <span class="d_comment">// call myEpisodeStartHandler (defined elsewhere) whenever an &lt;episode&gt;
+<span class="d_comment">// call myEpisodeStartHandler (defined elsewhere) whenever an &lt;episode&gt;
 </span>
- <span class="d_comment">// start tag is encountered
+<span class="d_comment">// start tag is encountered
 </span>
- <u>onStartTag</u>[<span class="d_string">"episode"</span>] = &amp;myEpisodeStartHandler;
+<u>onStartTag</u>[<span class="d_string">"episode"</span>] = &amp;myEpisodeStartHandler;
 
- <span class="d_comment">// call delegate dg for all other start tags
+<span class="d_comment">// call delegate dg for all other start tags
 </span>
- <u>onStartTag</u>[<span class="d_keyword">null</span>] = dg;
+<u>onStartTag</u>[<span class="d_keyword">null</span>] = dg;
 </pre>
+<br><br>
 
  This library will supply your function with a new instance of
  ElementHandler, which may be used to parse inside the element whose
@@ -1607,7 +1608,7 @@ This example does much the same thing, except that the file is
  and &lt;br/&gt;.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void delegate(const(Element) element)[string] <span class="symbol-target" id="onEndTag">&nbsp;</span><a class="symbol-link" href="#onEndTag">onEndTag</a>;
+<hr><div class="row-fluid declaration"><h3>ElementHandler[string] <span class="symbol-target" id="onEndTag">&nbsp;</span><a class="symbol-link" href="#onEndTag">onEndTag</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Register a handler which will be called whenever an end tag is
  encountered which matches the specified name. You can also pass <span class="d_keyword">null</span> as
@@ -1615,30 +1616,31 @@ This example does much the same thing, except that the file is
  end tag.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever a &lt;/podcast&gt; end tag is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever a &lt;/podcast&gt; end tag is encountered
 </span>
- <u>onEndTag</u>[<span class="d_string">"podcast"</span>] = (<span class="d_keyword">in</span> Element e)
- {
-     <span class="d_comment">// Your code here
+<u>onEndTag</u>[<span class="d_string">"podcast"</span>] = (<span class="d_keyword">in</span> Element e)
+{
+    <span class="d_comment">// Your code here
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 
- <span class="d_comment">// call myEpisodeEndHandler (defined elsewhere) whenever an &lt;/episode&gt;
+<span class="d_comment">// call myEpisodeEndHandler (defined elsewhere) whenever an &lt;/episode&gt;
 </span>
- <span class="d_comment">// end tag is encountered
+<span class="d_comment">// end tag is encountered
 </span>
- <u>onEndTag</u>[<span class="d_string">"episode"</span>] = &amp;myEpisodeEndHandler;
+<u>onEndTag</u>[<span class="d_string">"episode"</span>] = &amp;myEpisodeEndHandler;
 
- <span class="d_comment">// call delegate dg for all other end tags
+<span class="d_comment">// call delegate dg for all other end tags
 </span>
- <u>onEndTag</u>[<span class="d_keyword">null</span>] = dg;
+<u>onEndTag</u>[<span class="d_keyword">null</span>] = dg;
 </pre>
+<br><br>
 
  Note that your function will be called for both start tags and empty
  tags. That is, we make no distinction between &lt;br&gt;&lt;/br&gt;
@@ -1650,24 +1652,24 @@ This example does much the same thing, except that the file is
 <div class="declaration-content"><dl><p>Register a <i>handler</i> which will be called whenever text is encountered.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever text is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever text is encountered
 </span>
- <u>onText</u> = (string s)
- {
-     <span class="d_comment">// Your code here
+<u>onText</u> = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s will have been decoded by the time you see
+    <span class="d_comment">// The passed parameter s will have been decoded by the time you see
 </span>
-     <span class="d_comment">// it, and so may contain any character.
+    <span class="d_comment">// it, and so may contain any character.
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1684,22 +1686,22 @@ This example does much the same thing, except that the file is
  know that decoding is unnecessary.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever text is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever text is encountered
 </span>
- onText = (string s)
- {
-     <span class="d_comment">// Your code here
+onText = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s will NOT have been decoded.
+    <span class="d_comment">// The passed parameter s will NOT have been decoded.
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1710,24 +1712,24 @@ This example does much the same thing, except that the file is
  segement is encountered.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever a CData section is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever a CData section is encountered
 </span>
- <u>onCData</u> = (string s)
- {
-     <span class="d_comment">// Your code here
+<u>onCData</u> = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s does not include the opening &lt;![CDATA[
+    <span class="d_comment">// The passed parameter s does not include the opening &lt;![CDATA[
 </span>
-     <span class="d_comment">// nor closing ]]&gt;
+    <span class="d_comment">// nor closing ]]&gt;
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1738,24 +1740,24 @@ This example does much the same thing, except that the file is
  encountered.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever a comment is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever a comment is encountered
 </span>
- <u>onComment</u> = (string s)
- {
-     <span class="d_comment">// Your code here
+<u>onComment</u> = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s does not include the opening &lt;!-- nor
+    <span class="d_comment">// The passed parameter s does not include the opening &lt;!-- nor
 </span>
-     <span class="d_comment">// closing --&gt;
+    <span class="d_comment">// closing --&gt;
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1766,24 +1768,24 @@ This example does much the same thing, except that the file is
  instruction is encountered.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever a processing instruction is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever a processing instruction is encountered
 </span>
- <u>onPI</u> = (string s)
- {
-     <span class="d_comment">// Your code here
+<u>onPI</u> = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s does not include the opening &lt;? nor
+    <span class="d_comment">// The passed parameter s does not include the opening &lt;? nor
 </span>
-     <span class="d_comment">// closing ?&gt;
+    <span class="d_comment">// closing ?&gt;
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1794,28 +1796,28 @@ This example does much the same thing, except that the file is
  encountered.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_comment">// Call this function whenever an XML instruction is encountered
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Call this function whenever an XML instruction is encountered
 </span>
- <span class="d_comment">// (Note: XML instructions may only occur preceeding the root tag of a
-) <span class="d_comment">// document</span>
-.
+<span class="d_comment">// (Note: XML instructions may only occur preceeding the root tag of a
 </span>
- onPI = (string s)
- {
-     <span class="d_comment">// Your code here
+<span class="d_comment">// document).
+</span>
+onPI = (string s)
+{
+    <span class="d_comment">// Your code here
 </span>
 
-     <span class="d_comment">// The passed parameter s does not include the opening &lt;! nor
+    <span class="d_comment">// The passed parameter s does not include the opening &lt;! nor
 </span>
-     <span class="d_comment">// closing &gt;
+    <span class="d_comment">// closing &gt;
 </span>
-     <span class="d_comment">//
+    <span class="d_comment">//
 </span>
-     <span class="d_comment">// This is a a closure, so code here may reference
+    <span class="d_comment">// This is a a closure, so code here may reference
 </span>
-     <span class="d_comment">// variables which are outside of this scope
+    <span class="d_comment">// variables which are outside of this scope
 </span>
- };
+};
 </pre>
 </dd>
 </dl>
@@ -1833,7 +1835,7 @@ This example does much the same thing, except that the file is
 <dt>Throws</dt><dd>various kinds of XMLException</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns that part of the element which has already been parsed</p>
 

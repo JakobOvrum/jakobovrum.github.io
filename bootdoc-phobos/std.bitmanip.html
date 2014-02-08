@@ -282,7 +282,8 @@
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
            <a href="http://erdani.org">Andrei Alexandrescu</a>,
            Jonathan M Davis,
-           Alex Rønne Petersen
+           Alex Rønne Petersen,
+           Damian Ziemba
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/bitmanip.d">std/bitmanip.d</a></dd>
@@ -305,6 +306,7 @@ A obj;
 obj.x = 2;
 obj.z = obj.x;
 </pre>
+<br><br>
 
 The example above creates a bitfield pack of eight bits, which fit in
 one <b>ubyte</b>. The <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a> are allocated starting from the
@@ -326,6 +328,7 @@ one bitfield with an empty name.
         <span class="d_keyword">uint</span>, <span class="d_string">""</span>,         6));
 }
 </pre>
+<br><br>
 
 The type of a bit field can be any integral type or enumerated
 type. The most efficient type to store in <span class="symbol-target" id="bitfields">&nbsp;</span><a class="symbol-link" href="#bitfields">bitfields</a> is <b>bool</b>, followed by unsigned types, followed by signed types.</dd>
@@ -380,13 +383,13 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 <div class="declaration-content"><dl><p>An array of bits.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol-target" id="dim">&nbsp;</span><a class="symbol-link" href="#dim">dim</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>const @property size_t <span class="symbol-target" id="dim">&nbsp;</span><a class="symbol-link" href="#dim">dim</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the amount of native words backing this <span class="inlinecode">BitArray</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const @property size_t <span class="symbol-target" id="length">&nbsp;</span><a class="symbol-link" href="#length">length</a>();
+<hr><div class="row-fluid declaration"><h3>const @property size_t <span class="symbol-target" id="length">&nbsp;</span><a class="symbol-link" href="#length">length</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Gets the amount of bits in the <span class="inlinecode">BitArray</span>.</p>
 
@@ -418,8 +421,8 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 </div>
 <hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(ref bool) <i>dg</i>);
 <br>const int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(bool) <i>dg</i>);
-<br>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(ref uint, ref bool) <i>dg</i>);
-<br>const int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(uint, bool) <i>dg</i>);
+<br>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(ref size_t, ref bool) <i>dg</i>);
+<br>const int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(scope int delegate(size_t, bool) <i>dg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for <span class="inlinecode">foreach</span> loops for <span class="inlinecode">BitArray</span>.</p>
 
@@ -437,7 +440,7 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(ref const BitArray <i>a2</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(ref const BitArray <i>a2</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Support for operators == and != for <span class="inlinecode">BitArray</span>.</p>
 
@@ -449,7 +452,7 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow hash_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow size_t <span class="symbol-target" id="toHash">&nbsp;</span><a class="symbol-link" href="#toHash">toHash</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Support for hashing for <span class="inlinecode">BitArray</span>.</p>
 
@@ -555,15 +558,36 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 
 </dl>
 </div>
+<hr><div class="row-fluid declaration"><h3>const void <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>(scope void delegate(const(char)[]) <i>sink</i>, FormatSpec!char <i>fmt</i>);
+</h3></div>
+<div class="declaration-content"><dl><p>Return a string representation of this BitArray.
+</p>
+
+<p>Two format specifiers are supported:
+ <li><b>%s</b> which prints the bits as an array, and</li>
+ <li><b>%b</b> which prints the bits as 8-bit byte packets</li>
+ separated with an underscore.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+        BitArray b;
+        b.init([0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1]);
+
+        <span class="d_keyword">auto</span> s1 = format(<span class="d_string">"%s"</span>, b);
+        <span class="d_keyword">assert</span>(s1 == <span class="d_string">"[0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1]"</span>);
+
+        <span class="d_keyword">auto</span> s2 = format(<span class="d_string">"%b"</span>, b);
+        <span class="d_keyword">assert</span>(s2 == <span class="d_string">"00001111_00001111"</span>);
+</pre>
+</dd></dl>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="swapEndian">&nbsp;</span><a class="symbol-link" href="#swapEndian">swapEndian</a>(T)(T <i>val</i>);
+</div>
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="swapEndian">&nbsp;</span><a class="symbol-link" href="#swapEndian">swapEndian</a>(T)(T <i>val</i>) if (isIntegral!T || isSomeChar!T || isBoolean!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Swaps the endianness of the given integral value or character.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToBigEndian">&nbsp;</span><a class="symbol-link" href="#nativeToBigEndian">nativeToBigEndian</a>(T)(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToBigEndian">&nbsp;</span><a class="symbol-link" href="#nativeToBigEndian">nativeToBigEndian</a>(T)(T <i>val</i>) if (canSwapEndianness!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from the native endianness to big endian and
     returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
@@ -591,7 +615,7 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="bigEndianToNative">&nbsp;</span><a class="symbol-link" href="#bigEndianToNative">bigEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="bigEndianToNative">&nbsp;</span><a class="symbol-link" href="#bigEndianToNative">bigEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>) if (canSwapEndianness!T &amp;&amp; n == T.sizeof);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from big endian to the native endianness and
     returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
@@ -617,7 +641,7 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToLittleEndian">&nbsp;</span><a class="symbol-link" href="#nativeToLittleEndian">nativeToLittleEndian</a>(T)(T <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="nativeToLittleEndian">&nbsp;</span><a class="symbol-link" href="#nativeToLittleEndian">nativeToLittleEndian</a>(T)(T <i>val</i>) if (canSwapEndianness!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from the native endianness to little endian and
     returns it as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size of the given type.
@@ -640,7 +664,7 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="littleEndianToNative">&nbsp;</span><a class="symbol-link" href="#littleEndianToNative">littleEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T <span class="symbol-target" id="littleEndianToNative">&nbsp;</span><a class="symbol-link" href="#littleEndianToNative">littleEndianToNative</a>(T, size_t n)(ubyte[n] <i>val</i>) if (canSwapEndianness!T &amp;&amp; n == T.sizeof);
 </h3></div>
 <div class="declaration-content"><dl><p>Converts the given value from little endian to the native endianness and
     returns it. The value is given as a <span class="inlinecode">ubyte[n]</span> where <span class="inlinecode">n</span> is the size
@@ -671,9 +695,9 @@ type. The most efficient type to store in <span class="symbol-target" id="bitfie
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>);
-<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t <i>index</i>);
-<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t* <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>) if (canSwapEndianness!T &amp;&amp; isForwardRange!R &amp;&amp; is(ElementType!R : const(ubyte)));
+<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t <i>index</i>) if (canSwapEndianness!T &amp;&amp; isForwardRange!R &amp;&amp; hasSlicing!R &amp;&amp; is(ElementType!R : const(ubyte)));
+<br>T <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, size_t* <i>index</i>) if (canSwapEndianness!T &amp;&amp; isForwardRange!R &amp;&amp; hasSlicing!R &amp;&amp; is(ElementType!R : const(ubyte)));
 </h3></div>
 <div class="declaration-content"><dl><p>Takes a range of <span class="inlinecode">ubyte</span>s and converts the first <span class="inlinecode">T.sizeof</span> bytes to
     <span class="inlinecode">T</span>. The value returned is converted from the given endianness to the
@@ -712,7 +736,7 @@ size_t index = 0;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a>(T, Endian endianness = Endian.bigEndian, R)(ref R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a>(T, Endian endianness = Endian.bigEndian, R)(ref R <i>range</i>) if (canSwapEndianness!T &amp;&amp; isInputRange!R &amp;&amp; is(ElementType!R : const(ubyte)));
 </h3></div>
 <div class="declaration-content"><dl><p>Takes a range of <span class="inlinecode">ubyte</span>s and converts the first <span class="inlinecode">T.sizeof</span> bytes to
     <span class="inlinecode">T</span>. The value returned is converted from the given endianness to the
@@ -741,8 +765,8 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t <i>index</i>);
-<br>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t* <i>index</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t <i>index</i>) if (canSwapEndianness!T &amp;&amp; isForwardRange!R &amp;&amp; hasSlicing!R &amp;&amp; is(ElementType!R : ubyte));
+<br>void <span class="symbol-target" id="write">&nbsp;</span><a class="symbol-link" href="#write">write</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>, size_t* <i>index</i>) if (canSwapEndianness!T &amp;&amp; isForwardRange!R &amp;&amp; hasSlicing!R &amp;&amp; is(ElementType!R : ubyte));
 </h3></div>
 <div class="declaration-content"><dl><p>Takes an integral value, converts it to the given endianness, and writes it
     to the given range of <span class="inlinecode">ubyte</span>s as a sequence of <span class="inlinecode">T.sizeof</span> <span class="inlinecode">ubyte</span>s
@@ -757,52 +781,50 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
                 is updated to the index after the bytes read.
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">//Bug# 8129 forces the casts. They shouldn't be necessary.
-</span>
-{
-    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0];
+<dt>Examples</dt><dd><pre class="d_code">{
+    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0, 0];
     buffer.<u>write</u>!<span class="d_keyword">uint</span>(29110231u, 0);
-    <span class="d_keyword">assert</span>(buffer == [1, 188, 47, 215, 0, 0, 0]);
+    <span class="d_keyword">assert</span>(buffer == [1, 188, 47, 215, 0, 0, 0, 0]);
 
-    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ushort</span>)927, 0);
-    <span class="d_keyword">assert</span>(buffer == [3, 159, 47, 215, 0, 0, 0]);
+    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(927, 0);
+    <span class="d_keyword">assert</span>(buffer == [3, 159, 47, 215, 0, 0, 0, 0]);
 
-    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>)42, 0);
-    <span class="d_keyword">assert</span>(buffer == [42, 159, 47, 215, 0, 0, 0]);
+    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(42, 0);
+    <span class="d_keyword">assert</span>(buffer == [42, 159, 47, 215, 0, 0, 0, 0]);
 }
 
 {
-    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0];
+    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     buffer.<u>write</u>!<span class="d_keyword">uint</span>(142700095u, 2);
-    <span class="d_keyword">assert</span>(buffer == [0, 0, 8, 129, 110, 63, 0]);
+    <span class="d_keyword">assert</span>(buffer == [0, 0, 8, 129, 110, 63, 0, 0, 0]);
 
-    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ushort</span>)19839, 2);
-    <span class="d_keyword">assert</span>(buffer == [0, 0, 77, 127, 110, 63, 0]);
+    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(19839, 2);
+    <span class="d_keyword">assert</span>(buffer == [0, 0, 77, 127, 110, 63, 0, 0, 0]);
 
-    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>)132, 2);
-    <span class="d_keyword">assert</span>(buffer == [0, 0, 132, 127, 110, 63, 0]);
+    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(132, 2);
+    <span class="d_keyword">assert</span>(buffer == [0, 0, 132, 127, 110, 63, 0, 0, 0]);
 }
 
 {
-    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0];
+    <span class="d_keyword">ubyte</span>[] buffer = [0, 0, 0, 0, 0, 0, 0, 0];
     size_t index = 0;
-    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ushort</span>)261, &amp;index);
-    <span class="d_keyword">assert</span>(buffer == [1, 5, 0, 0, 0, 0, 0]);
+    buffer.<u>write</u>!<span class="d_keyword">ushort</span>(261, &amp;index);
+    <span class="d_keyword">assert</span>(buffer == [1, 5, 0, 0, 0, 0, 0, 0]);
     <span class="d_keyword">assert</span>(index == 2);
 
     buffer.<u>write</u>!<span class="d_keyword">uint</span>(369700095u, &amp;index);
-    <span class="d_keyword">assert</span>(buffer == [1, 5, 22, 9, 44, 255, 0]);
+    <span class="d_keyword">assert</span>(buffer == [1, 5, 22, 9, 44, 255, 0, 0]);
     <span class="d_keyword">assert</span>(index == 6);
 
-    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>)8, &amp;index);
-    <span class="d_keyword">assert</span>(buffer == [1, 5, 22, 9, 44, 255, 8]);
+    buffer.<u>write</u>!<span class="d_keyword">ubyte</span>(8, &amp;index);
+    <span class="d_keyword">assert</span>(buffer == [1, 5, 22, 9, 44, 255, 8, 0]);
     <span class="d_keyword">assert</span>(index == 7);
 }
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="append">&nbsp;</span><a class="symbol-link" href="#append">append</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="append">&nbsp;</span><a class="symbol-link" href="#append">append</a>(T, Endian endianness = Endian.bigEndian, R)(R <i>range</i>, T <i>value</i>) if (canSwapEndianness!T &amp;&amp; isOutputRange!(R, ubyte));
 </h3></div>
 <div class="declaration-content"><dl><p>Takes an integral value, converts it to the given endianness, and appends
     it to the given range of <span class="inlinecode">ubyte</span>s (using <span class="inlinecode">put</span>) as a sequence of
@@ -816,16 +838,14 @@ T     = The integral type to convert the first <span class="inlinecode">T.sizeof
         range = The range to <span class="symbol-target" id="append">&nbsp;</span><a class="symbol-link" href="#append">append</a> to.
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">//Bug# 8129 forces the casts. They shouldn't be necessary.
-</span>
-<span class="d_keyword">auto</span> buffer = appender!(<span class="d_keyword">const</span> <span class="d_keyword">ubyte</span>[])();
-buffer.<u>append</u>!<span class="d_keyword">ushort</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ushort</span>)261);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> buffer = appender!(<span class="d_keyword">const</span> <span class="d_keyword">ubyte</span>[])();
+buffer.<u>append</u>!<span class="d_keyword">ushort</span>(261);
 <span class="d_keyword">assert</span>(buffer.data == [1, 5]);
 
 buffer.<u>append</u>!<span class="d_keyword">uint</span>(369700095u);
 <span class="d_keyword">assert</span>(buffer.data == [1, 5, 22, 9, 44, 255]);
 
-buffer.<u>append</u>!<span class="d_keyword">ubyte</span>(<span class="d_keyword">cast</span>(<span class="d_keyword">ubyte</span>)8);
+buffer.<u>append</u>!<span class="d_keyword">ubyte</span>(8);
 <span class="d_keyword">assert</span>(buffer.data == [1, 5, 22, 9, 44, 255, 8]);
 </pre>
 </dd>

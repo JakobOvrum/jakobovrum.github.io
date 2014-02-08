@@ -290,12 +290,46 @@
 
 </p>
 <dt>Synposis:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.<u>concurrency</u>;
 
+<span class="d_keyword">void</span> spawnedFunc(Tid tid)
+{
+    <span class="d_comment">// Receive a message from the owner thread.
+</span>
+    receive(
+        (<span class="d_keyword">int</span> i) { writeln(<span class="d_string">"Received the number "</span>, i);}
+    );
+
+    <span class="d_comment">// Send a message back to the owner thread
+</span>
+    <span class="d_comment">// indicating success.
+</span>
+    send(tid, <span class="d_keyword">true</span>);
+}
+
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_comment">// Start spawnedFunc in a new thread.
+</span>
+    <span class="d_keyword">auto</span> tid = spawn(&amp;spawnedFunc, thisTid);
+
+    <span class="d_comment">// Send the number 42 to this new thread.
+</span>
+    send(tid, 42);
+
+    <span class="d_comment">// Receive the result code.
+</span>
+    <span class="d_keyword">auto</span> wasSuccessful = receiveOnly!(<span class="d_keyword">bool</span>);
+    <span class="d_keyword">assert</span>(wasSuccessful);
+    writeln(<span class="d_string">"Successfully printed number."</span>);
+}
+</pre>
 
 </dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
-<dt>Authors</dt><dd>Sean Kelly
+<dt>Authors</dt><dd>Sean Kelly, Alex Rønne Petersen
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/concurrency.d">std/concurrency.d</a></dd>
@@ -342,6 +376,13 @@
 
 </dl>
 </div>
+<hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="TidMissingException">&nbsp;</span><a class="symbol-link" href="#TidMissingException">TidMissingException</a>: object.Exception;
+</h3></div>
+<div class="declaration-content"><dl><p>Thrown when a Tid is missing, e.g. when <span class="inlinecode">ownerTid</span> doesn't
+ find an owner thread.</p>
+
+</dl>
+</div>
 <hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Tid">&nbsp;</span><a class="symbol-link" href="#Tid">Tid</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>An opaque type used to represent a logical local process.</p>
@@ -354,7 +395,17 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawn">&nbsp;</span><a class="symbol-link" href="#spawn">spawn</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>@property Tid <span class="symbol-target" id="ownerTid">&nbsp;</span><a class="symbol-link" href="#ownerTid">ownerTid</a>();
+</h3></div>
+<div class="declaration-content"><dl><p>Return the Tid of the thread which
+ spawned the caller's thread.
+</p>
+
+<dt>Throws</dt><dd>A <span class="inlinecode">TidMissingException</span> exception if
+ there is no owner thread.</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawn">&nbsp;</span><a class="symbol-link" href="#spawn">spawn</a>(F, T...)(F <i>fn</i>, T <i>args</i>) if (isSpawnable!(F, T));
 </h3></div>
 <div class="declaration-content"><dl><p>Executes the supplied function in a new context represented by <span class="inlinecode">Tid</span>.  The
  calling context is designated as the owner of the new context.  When the
@@ -363,10 +414,10 @@
  <span class="inlinecode">receive()</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fn</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>F fn</td>
 <td>The function to execute.</td>
 </tr>
-<tr><td>args</td>
+<tr><td>T args</td>
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
@@ -381,10 +432,35 @@
 
 </dd>
 <dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio, std.concurrency;
+
+<span class="d_keyword">void</span> f1(string str)
+{
+    writeln(str);
+}
+
+<span class="d_keyword">void</span> f2(<span class="d_keyword">char</span>[] str)
+{
+    writeln(str);
+}
+
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> str = <span class="d_string">"Hello, world"</span>;
+
+    <span class="d_comment">// Works:  string is immutable.
+</span>
+    <span class="d_keyword">auto</span> tid1 = <u>spawn</u>(&amp;f1, str);
+
+    <span class="d_comment">// Fails:  char[] has mutable aliasing.
+</span>
+    <span class="d_keyword">auto</span> tid2 = <u>spawn</u>(&amp;f2, str.dup);
+}
+</pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawnLinked">&nbsp;</span><a class="symbol-link" href="#spawnLinked">spawnLinked</a>(T...)(void function(T) <i>fn</i>, T <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>Tid <span class="symbol-target" id="spawnLinked">&nbsp;</span><a class="symbol-link" href="#spawnLinked">spawnLinked</a>(F, T...)(F <i>fn</i>, T <i>args</i>) if (isSpawnable!(F, T));
 </h3></div>
 <div class="declaration-content"><dl><p>Executes the supplied function in a new context represented by Tid.  This
  new context is linked to the calling context so that if either it or the
@@ -395,10 +471,10 @@
  OwnerTerminated exception to be thrown on receive().
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>fn</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>F fn</td>
 <td>The function to execute.</td>
 </tr>
-<tr><td>args</td>
+<tr><td>T args</td>
 <td>Arguments to the function.</td>
 </tr>
 </table></dd>
@@ -435,10 +511,29 @@
 
 </p>
 <dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.variant;
+<span class="d_keyword">import</span> std.concurrency;
+
+<span class="d_keyword">void</span> spawnedFunction()
+{
+    <u>receive</u>(
+        (<span class="d_keyword">int</span> i) { writeln(<span class="d_string">"Received an int."</span>); },
+        (<span class="d_keyword">float</span> f) { writeln(<span class="d_string">"Received a float."</span>); },
+        (Variant v) { writeln(<span class="d_string">"Received some other type."</span>); }
+    );
+}
+
+<span class="d_keyword">void</span> main()
+{
+     <span class="d_keyword">auto</span> tid = spawn(&amp;spawnedFunction);
+     send(tid, 42);
+}
+</pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>receiveOnlyRet!(T) <span class="symbol-target" id="receiveOnly">&nbsp;</span><a class="symbol-link" href="#receiveOnly">receiveOnly</a>(T...)();
+<hr><div class="row-fluid declaration"><h3>receiveOnlyRet!T <span class="symbol-target" id="receiveOnly">&nbsp;</span><a class="symbol-link" href="#receiveOnly">receiveOnly</a>(T...)();
 </h3></div>
 <div class="declaration-content"><dl><p>Receives only messages with arguments of types <span class="inlinecode">T</span>.
 </p>
@@ -452,14 +547,22 @@
 
 </dd>
 <dt>Example:</dt><dd>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="receiveTimeout">&nbsp;</span><a class="symbol-link" href="#receiveTimeout">receiveTimeout</a>(T...)(long <i>ms</i>, T <i>ops</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012. Please use the version
-       which takes a <a href="core_time.html#Duration"><span class="inlinecode">core.time.Duration</span></a> instead.</font></p>
+<pre class="d_code"><span class="d_keyword">import</span> std.concurrency;
 
+<span class="d_keyword">void</span> spawnedFunc()
+{
+    <span class="d_keyword">auto</span> msg = <u>receiveOnly</u>!(<span class="d_keyword">int</span>, string)();
+    <span class="d_keyword">assert</span>(msg[0] == 42);
+    <span class="d_keyword">assert</span>(msg[1] == <span class="d_string">"42"</span>);
+}
+
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> tid = spawn(&amp;spawnedFunc);
+    send(tid, 42, <span class="d_string">"42"</span>);
+}
+</pre>
+</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="receiveTimeout">&nbsp;</span><a class="symbol-link" href="#receiveTimeout">receiveTimeout</a>(T...)(Duration <i>duration</i>, T <i>ops</i>);
@@ -471,7 +574,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="OnCrowding">&nbsp;</span><a class="symbol-link" href="#OnCrowding">OnCrowding</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="OnCrowding">&nbsp;</span><a class="symbol-link" href="#OnCrowding">OnCrowding</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>These behaviors may be specified when a mailbox is full.</p>
 
@@ -576,10 +679,6 @@
 </table></dd>
 <dt>Returns</dt><dd>The associated Tid or Tid.init if <i>name</i> is not registered.</dd>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="List">&nbsp;</span><a class="symbol-link" href="#List">List</a>(T);
-</h3></div>
-<div class="declaration-content"><br><br>
 </div>
 
 

@@ -293,17 +293,22 @@
 <p>If it is not a D mangled <i>name</i>, it returns its argument <i>name</i>.
 </p>
 <dt>Example:</dt><dd>
-This program reads standard in and writes it to standard out,
+        This program reads standard in and writes it to standard out,
         pretty-printing any found D mangled names.
-<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<pre class="d_code"><span class="d_keyword">import</span> core.stdc.stdio : stdin;
+<span class="d_keyword">import</span> std.stdio;
 <span class="d_keyword">import</span> std.ascii;
 <span class="d_keyword">import</span> std.<u>demangle</u>;
 
+<span class="d_keyword">void</span> test(<span class="d_keyword">int</span> x, <span class="d_keyword">float</span> y) { }
+
 <span class="d_keyword">int</span> main()
-{   <span class="d_keyword">char</span>[] buffer;
+{
+    string buffer;
     <span class="d_keyword">bool</span> inword;
     <span class="d_keyword">int</span> c;
 
+    writefln(<span class="d_string">"Try typing in: %s"</span>, test.mangleof);
     <span class="d_keyword">while</span> ((c = fgetc(stdin)) != EOF)
     {
         <span class="d_keyword">if</span> (inword)
@@ -313,21 +318,22 @@ This program reads standard in and writes it to standard out,
             <span class="d_keyword">else</span>
             {
                 inword = <span class="d_keyword">false</span>;
-                writef(<u>demangle</u>(buffer), <span class="d_keyword">cast</span>(<span class="d_keyword">char</span>) c);
+                write(<u>demangle</u>(buffer), <span class="d_keyword">cast</span>(<span class="d_keyword">char</span>) c);
             }
         }
         <span class="d_keyword">else</span>
         {   <span class="d_keyword">if</span> (c == '_' || isAlpha(c))
-            {        inword = <span class="d_keyword">true</span>;
+            {
+                inword = <span class="d_keyword">true</span>;
                 buffer.length = 0;
                 buffer ~= <span class="d_keyword">cast</span>(<span class="d_keyword">char</span>) c;
             }
             <span class="d_keyword">else</span>
-                writef(<span class="d_keyword">cast</span>(<span class="d_keyword">char</span>) c);
+                write(<span class="d_keyword">cast</span>(<span class="d_keyword">char</span>) c);
         }
     }
     <span class="d_keyword">if</span> (inword)
-        writef(<u>demangle</u>(buffer));
+        write(<u>demangle</u>(buffer));
     <span class="d_keyword">return</span> 0;
 }
 </pre>

@@ -292,14 +292,14 @@ Created      15th March 2003,
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="Win32Exception">&nbsp;</span><a class="symbol-link" href="#Win32Exception">Win32Exception</a>: object.Exception;
 </h3></div>
-<div class="declaration-content"><br><br>
+<div class="declaration-content"><dl></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="RegistryException">&nbsp;</span><a class="symbol-link" href="#RegistryException">RegistryException</a>: std.windows.registry.Win32Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception class thrown by the std.windows.registry classes.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>message</i>, string <i>fn</i> = __FILE__, uint <i>ln</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>message</i>, string <i>fn</i> = __FILE__, size_t <i>ln</i> = __LINE__, Throwable <i>next</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates an instance of the exception.
 </p>
@@ -310,7 +310,7 @@ Created      15th March 2003,
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>message</i>, int <i>error</i>, string <i>fn</i> = __FILE__, uint <i>ln</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+<hr><div class="row-fluid declaration"><h3> this(string <i>message</i>, int <i>error</i>, string <i>fn</i> = __FILE__, size_t <i>ln</i> = __LINE__, Throwable <i>next</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates an instance of the exception, with the given.
 </p>
@@ -326,7 +326,7 @@ Created      15th March 2003,
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="REGSAM">&nbsp;</span><a class="symbol-link" href="#REGSAM">REGSAM</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="REGSAM">&nbsp;</span><a class="symbol-link" href="#REGSAM">REGSAM</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Enumeration of the recognised registry access modes.</p>
 
@@ -394,7 +394,7 @@ Created      15th March 2003,
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="REG_VALUE_TYPE">&nbsp;</span><a class="symbol-link" href="#REG_VALUE_TYPE">REG_VALUE_TYPE</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="REG_VALUE_TYPE">&nbsp;</span><a class="symbol-link" href="#REG_VALUE_TYPE">REG_VALUE_TYPE</a>: uint;
 </h3></div>
 <div class="declaration-content"><dl><p>Enumeration of the recognised registry value types.</p>
 
@@ -522,7 +522,7 @@ Created      15th March 2003,
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Key <span class="symbol-target" id="createKey">&nbsp;</span><a class="symbol-link" href="#createKey">createKey</a>(string <i>name</i>, REGSAM <i>access</i> = (REGSAM).KEY_ALL_ACCESS);
+<hr><div class="row-fluid declaration"><h3>Key <span class="symbol-target" id="createKey">&nbsp;</span><a class="symbol-link" href="#createKey">createKey</a>(string <i>name</i>, REGSAM <i>access</i> = REGSAM.KEY_ALL_ACCESS);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the named sub-key of this key.
 </p>
@@ -536,7 +536,7 @@ Created      15th March 2003,
 <dt>Throws</dt><dd><span class="inlinecode">RegistryException</span> is thrown if the key cannot be created.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Key <span class="symbol-target" id="getKey">&nbsp;</span><a class="symbol-link" href="#getKey">getKey</a>(string <i>name</i>, REGSAM <i>access</i> = (REGSAM).KEY_READ);
+<hr><div class="row-fluid declaration"><h3>Key <span class="symbol-target" id="getKey">&nbsp;</span><a class="symbol-link" href="#getKey">getKey</a>(string <i>name</i>, REGSAM <i>access</i> = REGSAM.KEY_READ);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the named sub-key of this key.
 </p>

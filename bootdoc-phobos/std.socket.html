@@ -291,14 +291,13 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Base exception thrown by <span class="inlinecode">std.socket</span>.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>deprecated const @property int <span class="symbol-target" id="errorCode">&nbsp;</span><a class="symbol-link" href="#errorCode">errorCode</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-       Please use <a href="#SocketOSException"><span class="inlinecode">SocketOSException</span></a> instead.</font>
-</p>
-
-<p>Provided for compatibility with older code using <span class="inlinecode">SocketException</span>.</p>
-</dl>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+</h3></div>
+<div class="declaration-content"><br><br>
 </div>
 </div>
 </div>
@@ -320,6 +319,18 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null, int <i>err</i> = _lasterr(), string function(int) <i>errorFormatter</i> = &amp;formatSocketError);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, int <i>err</i> = _lasterr(), string function(int) <i>errorFormatter</i> = &amp;formatSocketError);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, int <i>err</i>, string function(int) <i>errorFormatter</i> = &amp;formatSocketError, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
 </div>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="SocketParameterException">&nbsp;</span><a class="symbol-link" href="#SocketParameterException">SocketParameterException</a>: std.socket.SocketException;
@@ -327,6 +338,15 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Socket exceptions representing invalid parameters specified by user code.</p>
 
 </dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+</div>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="SocketFeatureException">&nbsp;</span><a class="symbol-link" href="#SocketFeatureException">SocketFeatureException</a>: std.socket.SocketException;
 </h3></div>
@@ -334,6 +354,15 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  available on the current system.</p>
 
 </dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+</div>
 </div>
 <hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="wouldHaveBlocked">&nbsp;</span><a class="symbol-link" href="#wouldHaveBlocked">wouldHaveBlocked</a>();
 </h3></div>
@@ -342,7 +371,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AddressFamily">&nbsp;</span><a class="symbol-link" href="#AddressFamily">AddressFamily</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AddressFamily">&nbsp;</span><a class="symbol-link" href="#AddressFamily">AddressFamily</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>The communication domain used to resolve an address.</p>
 
@@ -380,7 +409,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketType">&nbsp;</span><a class="symbol-link" href="#SocketType">SocketType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketType">&nbsp;</span><a class="symbol-link" href="#SocketType">SocketType</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Communication semantics</p>
 
@@ -413,7 +442,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="ProtocolType">&nbsp;</span><a class="symbol-link" href="#ProtocolType">ProtocolType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="ProtocolType">&nbsp;</span><a class="symbol-link" href="#ProtocolType">ProtocolType</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Protocol</p>
 
@@ -477,16 +506,16 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> proto = <span class="d_keyword">new</span> <u>Protocol</u>;
- writeln(<span class="d_string">"About protocol TCP:"</span>);
- <span class="d_keyword">if</span> (proto.getProtocolByType(ProtocolType.TCP))
- {
-     writefln(<span class="d_string">"  Name: %s"</span>, proto.name);
-     <span class="d_keyword">foreach</span>(string s; proto.aliases)
-          writefln(<span class="d_string">"  Alias: %s"</span>, s);
- }
- <span class="d_keyword">else</span>
-     writeln(<span class="d_string">"  No information found"</span>);
+<pre class="d_code"><span class="d_keyword">auto</span> proto = <span class="d_keyword">new</span> <u>Protocol</u>;
+writeln(<span class="d_string">"About protocol TCP:"</span>);
+<span class="d_keyword">if</span> (proto.getProtocolByType(ProtocolType.TCP))
+{
+    writefln(<span class="d_string">"  Name: %s"</span>, proto.name);
+    <span class="d_keyword">foreach</span>(string s; proto.aliases)
+         writefln(<span class="d_string">"  Alias: %s"</span>, s);
+}
+<span class="d_keyword">else</span>
+    writeln(<span class="d_string">"  No information found"</span>);
 </pre>
 </dd>
 </dl>
@@ -516,18 +545,18 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> serv = <span class="d_keyword">new</span> <u>Service</u>;
- writeln(<span class="d_string">"About service epmap:"</span>);
- <span class="d_keyword">if</span> (serv.getServiceByName(<span class="d_string">"epmap"</span>, <span class="d_string">"tcp"</span>))
- {
-     writefln(<span class="d_string">"  Service: %s"</span>, serv.name);
-     writefln(<span class="d_string">"  Port: %d"</span>, serv.port);
-     writefln(<span class="d_string">"  Protocol: %s"</span>, serv.protocolName);
-     <span class="d_keyword">foreach</span> (string s; serv.aliases)
-          writefln(<span class="d_string">"  Alias: %s"</span>, s);
- }
- <span class="d_keyword">else</span>
-     writefln(<span class="d_string">"  No service for epmap."</span>);
+<pre class="d_code"><span class="d_keyword">auto</span> serv = <span class="d_keyword">new</span> <u>Service</u>;
+writeln(<span class="d_string">"About service epmap:"</span>);
+<span class="d_keyword">if</span> (serv.getServiceByName(<span class="d_string">"epmap"</span>, <span class="d_string">"tcp"</span>))
+{
+    writefln(<span class="d_string">"  Service: %s"</span>, serv.name);
+    writefln(<span class="d_string">"  Port: %d"</span>, serv.port);
+    writefln(<span class="d_string">"  Protocol: %s"</span>, serv.protocolName);
+    <span class="d_keyword">foreach</span> (string s; serv.aliases)
+         writefln(<span class="d_string">"  Alias: %s"</span>, s);
+}
+<span class="d_keyword">else</span>
+    writefln(<span class="d_string">"  No service for epmap."</span>);
 </pre>
 </dd>
 </dl>
@@ -556,6 +585,19 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Class for exceptions thrown from an <span class="inlinecode">InternetHost</span>.</p>
 
 </dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, int <i>err</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+</div>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="InternetHost">&nbsp;</span><a class="symbol-link" href="#InternetHost">InternetHost</a>;
 </h3></div>
@@ -567,34 +609,34 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> ih = <span class="d_keyword">new</span> <u>InternetHost</u>;
+<pre class="d_code"><span class="d_keyword">auto</span> ih = <span class="d_keyword">new</span> <u>InternetHost</u>;
 
- <span class="d_comment">// Forward lookup
+<span class="d_comment">// Forward lookup
 </span>
- writeln(<span class="d_string">"About www.digitalmars.com:"</span>);
- <span class="d_keyword">if</span> (ih.getHostByName(<span class="d_string">"www.digitalmars.com"</span>))
- {
-     writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
-     <span class="d_keyword">auto</span> ip = InternetAddress.addrToString(ih.addrList[0]);
-     writefln(<span class="d_string">"  IP address: %s"</span>, ip);
-     <span class="d_keyword">foreach</span> (string s; ih.aliases)
-          writefln(<span class="d_string">"  Alias: %s"</span>, s);
-     writeln(<span class="d_string">"---"</span>);
+writeln(<span class="d_string">"About www.digitalmars.com:"</span>);
+<span class="d_keyword">if</span> (ih.getHostByName(<span class="d_string">"www.digitalmars.com"</span>))
+{
+    writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
+    <span class="d_keyword">auto</span> ip = InternetAddress.addrToString(ih.addrList[0]);
+    writefln(<span class="d_string">"  IP address: %s"</span>, ip);
+    <span class="d_keyword">foreach</span> (string s; ih.aliases)
+         writefln(<span class="d_string">"  Alias: %s"</span>, s);
+    writeln(<span class="d_string">"---"</span>);
 
-     <span class="d_comment">// Reverse lookup
+    <span class="d_comment">// Reverse lookup
 </span>
-     writefln(<span class="d_string">"About IP %s:"</span>, ip);
-     <span class="d_keyword">if</span> (ih.getHostByAddr(ih.addrList[0]))
-     {
-         writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
-         <span class="d_keyword">foreach</span> (string s; ih.aliases)
-              writefln(<span class="d_string">"  Alias: %s"</span>, s);
-     }
-     <span class="d_keyword">else</span>
-         writeln(<span class="d_string">"  Reverse lookup failed"</span>);
- }
- <span class="d_keyword">else</span>
-     writeln(<span class="d_string">"  Can't resolve www.digitalmars.com"</span>);
+    writefln(<span class="d_string">"About IP %s:"</span>, ip);
+    <span class="d_keyword">if</span> (ih.getHostByAddr(ih.addrList[0]))
+    {
+        writefln(<span class="d_string">"  Name: %s"</span>, ih.name);
+        <span class="d_keyword">foreach</span> (string s; ih.aliases)
+             writefln(<span class="d_string">"  Alias: %s"</span>, s);
+    }
+    <span class="d_keyword">else</span>
+        writeln(<span class="d_string">"  Reverse lookup failed"</span>);
+}
+<span class="d_keyword">else</span>
+    writeln(<span class="d_string">"  Can't resolve www.digitalmars.com"</span>);
 </pre>
 </dd>
 </dl>
@@ -674,7 +716,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AddressInfoFlags">&nbsp;</span><a class="symbol-link" href="#AddressInfoFlags">AddressInfoFlags</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AddressInfoFlags">&nbsp;</span><a class="symbol-link" href="#AddressInfoFlags">AddressInfoFlags</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Specifies option flags for <span class="inlinecode">getAddressInfo</span>.</p>
 
@@ -712,10 +754,10 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  if this functionality is not available on the current system.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>node</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] node</td>
 <td>string containing host name or numeric address</td>
 </tr>
-<tr><td>options</td>
+<tr><td>T options</td>
 <td>optional additional parameters, identified by type:
              <ul><li><span class="inlinecode">string</span> - service name or port number</li>
                   <li><span class="inlinecode">AddressInfoFlags</span> - option flags</li>
@@ -725,41 +767,41 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </tr>
 </table></dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_comment">// Roundtrip DNS resolution
+<pre class="d_code"><span class="d_comment">// Roundtrip DNS resolution
 </span>
- <span class="d_keyword">auto</span> results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>);
- <span class="d_keyword">assert</span>(results[0].address.toHostNameString() ==
-     <span class="d_string">"digitalmars.com"</span>);
+<span class="d_keyword">auto</span> results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>);
+<span class="d_keyword">assert</span>(results[0].address.toHostNameString() ==
+    <span class="d_string">"digitalmars.com"</span>);
 
- <span class="d_comment">// Canonical name
+<span class="d_comment">// Canonical name
 </span>
- results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>,
-     AddressInfoFlags.CANONNAME);
- <span class="d_keyword">assert</span>(results[0].canonicalName == <span class="d_string">"digitalmars.com"</span>);
+results = <u>getAddressInfo</u>(<span class="d_string">"www.digitalmars.com"</span>,
+    AddressInfoFlags.CANONNAME);
+<span class="d_keyword">assert</span>(results[0].canonicalName == <span class="d_string">"digitalmars.com"</span>);
 
- <span class="d_comment">// IPv6 resolution
+<span class="d_comment">// IPv6 resolution
 </span>
- results = <u>getAddressInfo</u>(<span class="d_string">"ipv6.google.com"</span>);
- <span class="d_keyword">assert</span>(results[0].family == AddressFamily.INET6);
+results = <u>getAddressInfo</u>(<span class="d_string">"ipv6.google.com"</span>);
+<span class="d_keyword">assert</span>(results[0].family == AddressFamily.INET6);
 
- <span class="d_comment">// Multihomed resolution
+<span class="d_comment">// Multihomed resolution
 </span>
- results = <u>getAddressInfo</u>(<span class="d_string">"google.com"</span>);
- <span class="d_keyword">assert</span>(results.length &gt; 1);
+results = <u>getAddressInfo</u>(<span class="d_string">"google.com"</span>);
+<span class="d_keyword">assert</span>(results.length &gt; 1);
 
- <span class="d_comment">// Parsing IPv4
+<span class="d_comment">// Parsing IPv4
 </span>
- results = <u>getAddressInfo</u>(<span class="d_string">"127.0.0.1"</span>,
-     AddressInfoFlags.NUMERICHOST);
- <span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
-     AddressFamily.INET);
+results = <u>getAddressInfo</u>(<span class="d_string">"127.0.0.1"</span>,
+    AddressInfoFlags.NUMERICHOST);
+<span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
+    AddressFamily.INET);
 
- <span class="d_comment">// Parsing IPv6
+<span class="d_comment">// Parsing IPv6
 </span>
- results = <u>getAddressInfo</u>(<span class="d_string">"::1"</span>,
-     AddressInfoFlags.NUMERICHOST);
- <span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
-     AddressFamily.INET6);
+results = <u>getAddressInfo</u>(<span class="d_string">"::1"</span>,
+    AddressInfoFlags.NUMERICHOST);
+<span class="d_keyword">assert</span>(results.length &amp;&amp; results[0].family ==
+    AddressFamily.INET6);
 </pre>
 </dd>
 </dl>
@@ -779,15 +821,15 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> writeln(<span class="d_string">"Resolving www.digitalmars.com:"</span>);
- <span class="d_keyword">try</span>
- {
-     <span class="d_keyword">auto</span> addresses = <u>getAddress</u>(<span class="d_string">"www.digitalmars.com"</span>);
-     <span class="d_keyword">foreach</span> (address; addresses)
-         writefln(<span class="d_string">"  IP: %s"</span>, address.toAddrString());
- }
- <span class="d_keyword">catch</span> (SocketException e)
-     writefln(<span class="d_string">"  Lookup failed: %s"</span>, e.msg);
+<pre class="d_code">writeln(<span class="d_string">"Resolving www.digitalmars.com:"</span>);
+<span class="d_keyword">try</span>
+{
+    <span class="d_keyword">auto</span> addresses = <u>getAddress</u>(<span class="d_string">"www.digitalmars.com"</span>);
+    <span class="d_keyword">foreach</span> (address; addresses)
+        writefln(<span class="d_string">"  IP: %s"</span>, address.toAddrString());
+}
+<span class="d_keyword">catch</span> (SocketException e)
+    writefln(<span class="d_string">"  Lookup failed: %s"</span>, e.msg);
 </pre>
 </dd>
 </dl>
@@ -808,29 +850,29 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> writeln(<span class="d_string">"Enter IP address:"</span>);
- string ip = readln().chomp();
- <span class="d_keyword">try</span>
- {
-     Address address = <u>parseAddress</u>(ip);
-     writefln(<span class="d_string">"Looking up reverse of %s:"</span>,
-         address.toAddrString());
-     <span class="d_keyword">try</span>
-     {
-         string reverse = address.toHostNameString());
-         <span class="d_keyword">if</span> (reverse)
-             writefln(<span class="d_string">"  Reverse name: %s"</span>, reverse);
-         <span class="d_keyword">else</span>
-             writeln(<span class="d_string">"  Reverse hostname not found."</span>);
-     }
-     <span class="d_keyword">catch</span> (SocketException e)
-         writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
- }
- <span class="d_keyword">catch</span> (SocketException e)
- {
-     writefln(<span class="d_string">"  %s is not a valid IP address: %s"</span>,
-         ip, e.msg);
- }
+<pre class="d_code">writeln(<span class="d_string">"Enter IP address:"</span>);
+string ip = readln().chomp();
+<span class="d_keyword">try</span>
+{
+    Address address = <u>parseAddress</u>(ip);
+    writefln(<span class="d_string">"Looking up reverse of %s:"</span>,
+        address.toAddrString());
+    <span class="d_keyword">try</span>
+    {
+        string reverse = address.toHostNameString();
+        <span class="d_keyword">if</span> (reverse)
+            writefln(<span class="d_string">"  Reverse name: %s"</span>, reverse);
+        <span class="d_keyword">else</span>
+            writeln(<span class="d_string">"  Reverse hostname not found."</span>);
+    }
+    <span class="d_keyword">catch</span> (SocketException e)
+        writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
+}
+<span class="d_keyword">catch</span> (SocketException e)
+{
+    writefln(<span class="d_string">"  %s is not a valid IP address: %s"</span>,
+        ip, e.msg);
+}
 </pre>
 </dd>
 </dl>
@@ -840,6 +882,19 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Class for exceptions thrown from an <span class="inlinecode">Address</span>.</p>
 
 </dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, int <i>err</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+</div>
 </div>
 <hr><div class="row-fluid declaration"><h3>abstract class <span class="symbol-target" id="Address">&nbsp;</span><a class="symbol-link" href="#Address">Address</a>;
 </h3></div>
@@ -847,34 +902,34 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> writeln(<span class="d_string">"About www.google.com port 80:"</span>);
- <span class="d_keyword">try</span>
- {
-     <u>Address</u>[] addresses = getAddress(<span class="d_string">"www.google.com"</span>, 80);
-     writefln(<span class="d_string">"  %d addresses found."</span>, addresses.length);
-     <span class="d_keyword">foreach</span> (<span class="d_keyword">int</span> i, <u>Address</u> a; addresses)
-     {
-         writefln(<span class="d_string">"  Address %d:"</span>, i+1);
-         writefln(<span class="d_string">"    IP address: %s"</span>, a.toAddrString());
-         writefln(<span class="d_string">"    Hostname: %s"</span>, a.toHostNameString());
-         writefln(<span class="d_string">"    Port: %s"</span>, a.toPortString());
-         writefln(<span class="d_string">"    Service name: %s"</span>,
-             a.toServiceNameString());
-     }
- }
- <span class="d_keyword">catch</span> (SocketException e)
-     writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
+<pre class="d_code">writeln(<span class="d_string">"About www.google.com port 80:"</span>);
+<span class="d_keyword">try</span>
+{
+    <u>Address</u>[] addresses = getAddress(<span class="d_string">"www.google.com"</span>, 80);
+    writefln(<span class="d_string">"  %d addresses found."</span>, addresses.length);
+    <span class="d_keyword">foreach</span> (<span class="d_keyword">int</span> i, <u>Address</u> a; addresses)
+    {
+        writefln(<span class="d_string">"  Address %d:"</span>, i+1);
+        writefln(<span class="d_string">"    IP address: %s"</span>, a.toAddrString());
+        writefln(<span class="d_string">"    Hostname: %s"</span>, a.toHostNameString());
+        writefln(<span class="d_string">"    Port: %s"</span>, a.toPortString());
+        writefln(<span class="d_string">"    Service name: %s"</span>,
+            a.toServiceNameString());
+    }
+}
+<span class="d_keyword">catch</span> (SocketException e)
+    writefln(<span class="d_string">"  Lookup error: %s"</span>, e.msg);
 </pre>
 </dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>sockaddr* <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>();
-<br>abstract const const(sockaddr)* <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>abstract @property sockaddr* <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>();
+<br>abstract const @property const(sockaddr)* <span class="symbol-target" id="name">&nbsp;</span><a class="symbol-link" href="#name">name</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns pointer to underlying <span class="inlinecode">sockaddr</span> structure.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const socklen_t <span class="symbol-target" id="nameLen">&nbsp;</span><a class="symbol-link" href="#nameLen">nameLen</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const @property socklen_t <span class="symbol-target" id="nameLen">&nbsp;</span><a class="symbol-link" href="#nameLen">nameLen</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns actual size of underlying <span class="inlinecode">sockaddr</span> structure.</p>
 
@@ -950,13 +1005,13 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  socket address.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(sockaddr* <i>sa</i>, uint <i>len</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(sockaddr* <i>sa</i>, socklen_t <i>len</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an <span class="inlinecode">Address</span> with a reference to the specified <span class="inlinecode">sockaddr</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(sockaddr)* <i>sa</i>, uint <i>len</i>);
+<hr><div class="row-fluid declaration"><h3> this(const(sockaddr)* <i>sa</i>, socklen_t <i>len</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an <span class="inlinecode">Address</span> with a copy of the specified <span class="inlinecode">sockaddr</span>.</p>
 
@@ -991,24 +1046,24 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const ushort <span class="symbol-target" id="port">&nbsp;</span><a class="symbol-link" href="#port">port</a>();
+<hr><div class="row-fluid declaration"><h3>const @property ushort <span class="symbol-target" id="port">&nbsp;</span><a class="symbol-link" href="#port">port</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the IPv4 port number (in host byte order).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const uint <span class="symbol-target" id="addr">&nbsp;</span><a class="symbol-link" href="#addr">addr</a>();
+<hr><div class="row-fluid declaration"><h3>const @property uint <span class="symbol-target" id="addr">&nbsp;</span><a class="symbol-link" href="#addr">addr</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the IPv4 address number (in host byte order).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>addr</i>, ushort <i>port</i>);
+<hr><div class="row-fluid declaration"><h3> this(in char[] <i>addr</i>, ushort <i>port</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">InternetAddress</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>addr</i></td>
 <td>an IPv4 address string in the dotted-decimal form a.b.c.d,
           or a host name which will be resolved using an <span class="inlinecode">InternetHost</span>
           object.</td>
@@ -1019,8 +1074,8 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(uint <i>addr</i>, ushort <i>port</i>);
-<br>this(ushort <i>port</i>);
+<hr><div class="row-fluid declaration"><h3> this(uint <i>addr</i>, ushort <i>port</i>);
+<br> this(ushort <i>port</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">InternetAddress</span>.
 </p>
@@ -1086,7 +1141,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <p>Consider using <span class="inlinecode">getAddress</span>, <span class="inlinecode">parseAddress</span> and <span class="inlinecode">Address</span> methods
  instead of using this class directly.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>static @property ref const(ubyte)[16u] <span class="symbol-target" id="ADDR_ANY">&nbsp;</span><a class="symbol-link" href="#ADDR_ANY">ADDR_ANY</a>();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>static @property ref const(ubyte)[16] <span class="symbol-target" id="ADDR_ANY">&nbsp;</span><a class="symbol-link" href="#ADDR_ANY">ADDR_ANY</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Any IPv6 host address.</p>
 
@@ -1098,39 +1153,39 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const ushort <span class="symbol-target" id="port">&nbsp;</span><a class="symbol-link" href="#port">port</a>();
+<hr><div class="row-fluid declaration"><h3>const @property ushort <span class="symbol-target" id="port">&nbsp;</span><a class="symbol-link" href="#port">port</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the IPv6 <span class="symbol-target" id="port">&nbsp;</span><a class="symbol-link" href="#port">port</a> number.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const ubyte[16u] <span class="symbol-target" id="addr">&nbsp;</span><a class="symbol-link" href="#addr">addr</a>();
+<hr><div class="row-fluid declaration"><h3>const @property ubyte[16] <span class="symbol-target" id="addr">&nbsp;</span><a class="symbol-link" href="#addr">addr</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the IPv6 address.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>node</i>, const(char[]) <i>service</i> = null);
+<hr><div class="row-fluid declaration"><h3> this(in char[] <i>addr</i>, in char[] <i>service</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>node</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>addr</i></td>
 <td>an IPv6 host address string in the form described in RFC 2373,
-          or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
+             or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
 </tr>
-<tr><td>port</td>
-<td>(optional) <i>service</i> name or port number.</td>
+<tr><td>char[] <i>service</i></td>
+<td>(optional) <i>service</i> name.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>node</i>, ushort <i>port</i>);
+<hr><div class="row-fluid declaration"><h3> this(in char[] <i>addr</i>, ushort <i>port</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>addr</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>addr</i></td>
 <td>an IPv6 host address string in the form described in RFC 2373,
           or a host name which will be resolved using <span class="inlinecode">getAddressInfo</span>.</td>
 </tr>
@@ -1140,15 +1195,15 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(ubyte[16u] <i>addr</i>, ushort <i>port</i>);
-<br>this(ushort <i>port</i>);
+<hr><div class="row-fluid declaration"><h3> this(ubyte[16] <i>addr</i>, ushort <i>port</i>);
+<br> this(ushort <i>port</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">Internet6Address</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>ubyte[16u] <i>addr</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>ubyte[16] <i>addr</i></td>
 <td>(optional) an IPv6 host address in host byte order, or
-                <span class="inlinecode">ADDR_ANY</span>.</td>
+          <span class="inlinecode">ADDR_ANY</span>.</td>
 </tr>
 <tr><td>ushort <i>port</i></td>
 <td><i>port</i> number, may be <span class="inlinecode">PORT_ANY</span>.</td>
@@ -1156,7 +1211,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>static ubyte[16u] <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(in char[] <i>addr</i>);
+<hr><div class="row-fluid declaration"><h3>static ubyte[16] <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(in char[] <i>addr</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Parse an IPv6 host address string as described in RFC 2373, and return the
  address.
@@ -1172,8 +1227,21 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 <div class="declaration-content"><dl><p>Class for exceptions thrown by <span class="inlinecode">Socket.accept</span>.</p>
 
 </dl>
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketShutdown">&nbsp;</span><a class="symbol-link" href="#SocketShutdown">SocketShutdown</a>;
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, Throwable <i>next</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, int <i>err</i> = _lasterr());
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+<hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>, int <i>err</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
+</h3></div>
+<div class="declaration-content"><br><br>
+</div>
+</div>
+</div>
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketShutdown">&nbsp;</span><a class="symbol-link" href="#SocketShutdown">SocketShutdown</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>How a socket is shutdown:</p>
 
@@ -1196,7 +1264,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketFlags">&nbsp;</span><a class="symbol-link" href="#SocketFlags">SocketFlags</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketFlags">&nbsp;</span><a class="symbol-link" href="#SocketFlags">SocketFlags</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Flags may be OR'ed together:</p>
 
@@ -1230,13 +1298,6 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="timeval">&nbsp;</span><a class="symbol-link" href="#timeval">timeval</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-          Please use <a href="#TimeVal"><span class="inlinecode">TimeVal</span></a> instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="SocketSet">&nbsp;</span><a class="symbol-link" href="#SocketSet">SocketSet</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>A collection of sockets for use with <span class="inlinecode">Socket.select</span>.
@@ -1251,7 +1312,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  <li>on Windows, <span class="inlinecode">fd_set</span> is an array of socket handles. Capacity
  indicates the actual number of sockets that can be stored in the set.</li></ul></p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>max</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(uint <i>max</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Set the capacity of this <span class="inlinecode">SocketSet</span>. The exact meaning of the
  <span class="inlinecode"><i>max</i></span> parameter varies from platform to platform.
@@ -1261,7 +1322,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  platform's maximum socket set size.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this();
+<hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>Uses the default capacity for the system.</p>
 
@@ -1303,7 +1364,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketOptionLevel">&nbsp;</span><a class="symbol-link" href="#SocketOptionLevel">SocketOptionLevel</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketOptionLevel">&nbsp;</span><a class="symbol-link" href="#SocketOptionLevel">SocketOptionLevel</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>The level at which a socket option is defined:</p>
 
@@ -1372,14 +1433,7 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="linger">&nbsp;</span><a class="symbol-link" href="#linger">linger</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-          Please use <a href="#Linger"><span class="inlinecode">Linger</span></a> instead.</font></p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketOption">&nbsp;</span><a class="symbol-link" href="#SocketOption">SocketOption</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SocketOption">&nbsp;</span><a class="symbol-link" href="#SocketOption">SocketOption</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Specifies a socket option:</p>
 
@@ -1513,9 +1567,9 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
  the Berkeley sockets interface.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>af</i>, SocketType <i>type</i>, ProtocolType <i>protocol</i>);
-<br>this(AddressFamily <i>af</i>, SocketType <i>type</i>);
-<br>this(AddressFamily <i>af</i>, SocketType <i>type</i>, const(char[]) <i>protocolName</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(AddressFamily <i>af</i>, SocketType <i>type</i>, ProtocolType <i>protocol</i>);
+<br> this(AddressFamily <i>af</i>, SocketType <i>type</i>);
+<br> this(AddressFamily <i>af</i>, SocketType <i>type</i>, in char[] <i>protocolName</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create a blocking socket. If a single <i>protocol</i> <i>type</i> exists to support
  this socket <i>type</i> within the address family, the <span class="inlinecode">ProtocolType</span> may be
@@ -1523,14 +1577,14 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(AddressInfo) <i>info</i>);
+<hr><div class="row-fluid declaration"><h3> this(in AddressInfo <i>info</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create a blocking socket using the parameters from the specified
  <span class="inlinecode">AddressInfo</span> structure.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(socket_t <i>sock</i>, AddressFamily <i>af</i>);
+<hr><div class="row-fluid declaration"><h3> this(socket_t <i>sock</i>, AddressFamily <i>af</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Use an existing socket handle.</p>
 
@@ -1620,19 +1674,19 @@ See <a href="https://github.com/D-Programming-Language/dmd/blob/master/samples/l
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>static string <span class="symbol-target" id="hostName">&nbsp;</span><a class="symbol-link" href="#hostName">hostName</a>();
+<hr><div class="row-fluid declaration"><h3>static @property string <span class="symbol-target" id="hostName">&nbsp;</span><a class="symbol-link" href="#hostName">hostName</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the local machine's host name.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Address <span class="symbol-target" id="remoteAddress">&nbsp;</span><a class="symbol-link" href="#remoteAddress">remoteAddress</a>();
+<hr><div class="row-fluid declaration"><h3>@property Address <span class="symbol-target" id="remoteAddress">&nbsp;</span><a class="symbol-link" href="#remoteAddress">remoteAddress</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Remote endpoint <span class="inlinecode">Address</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Address <span class="symbol-target" id="localAddress">&nbsp;</span><a class="symbol-link" href="#localAddress">localAddress</a>();
+<hr><div class="row-fluid declaration"><h3>@property Address <span class="symbol-target" id="localAddress">&nbsp;</span><a class="symbol-link" href="#localAddress">localAddress</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Local endpoint <span class="inlinecode">Address</span>.</p>
 
@@ -1755,7 +1809,13 @@ While the receive timeout setting is generally quite accurate
  randomly varies on the order of 10ms.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Duration <i>value</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SocketOptionLevel <i>level</i></td>
+<td>The <i>level</i> at which a socket <i>option</i> is defined.</td>
+</tr>
+<tr><td>SocketOption <i>option</i></td>
+<td>Either <span class="inlinecode">SocketOption.SNDTIMEO</span> or <span class="inlinecode">SocketOption.RCVTIMEO</span>.</td>
+</tr>
+<tr><td>Duration <i>value</i></td>
 <td>The timeout duration to set. Must not be negative.</td>
 </tr>
 </table></dd>
@@ -1763,22 +1823,22 @@ While the receive timeout setting is generally quite accurate
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.datetime;
- <span class="d_keyword">auto</span> pair = socketPair();
- <span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
+<pre class="d_code"><span class="d_keyword">import</span> std.datetime;
+<span class="d_keyword">auto</span> pair = socketPair();
+<span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
 
- <span class="d_comment">// Set a receive timeout, and then wait at one end of
+<span class="d_comment">// Set a receive timeout, and then wait at one end of
 </span>
- <span class="d_comment">// the socket pair, knowing that no data will arrive.
+<span class="d_comment">// the socket pair, knowing that no data will arrive.
 </span>
- pair[0].<u>setOption</u>(SocketOptionLevel.SOCKET,
-     SocketOption.RCVTIMEO, dur!<span class="d_string">"seconds"</span>(1));
+pair[0].<u>setOption</u>(SocketOptionLevel.SOCKET,
+    SocketOption.RCVTIMEO, dur!<span class="d_string">"seconds"</span>(1));
 
- <span class="d_keyword">auto</span> sw = StopWatch(AutoStart.yes);
- <span class="d_keyword">ubyte</span>[1] buffer;
- pair[0].receive(buffer);
- writefln(<span class="d_string">"Waited %s ms until the socket timed out."</span>,
-     sw.peek.msecs);
+<span class="d_keyword">auto</span> sw = StopWatch(AutoStart.yes);
+<span class="d_keyword">ubyte</span>[1] buffer;
+pair[0].receive(buffer);
+writefln(<span class="d_string">"Waited %s ms until the socket timed out."</span>,
+    sw.peek.msecs);
 </pre>
 </dd>
 </dl>
@@ -1809,19 +1869,17 @@ While the receive timeout setting is generally quite accurate
  unsupported on the current platform.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, TimeVal* <i>tv</i>);
-<br>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, long <i>microseconds</i>);
-<br>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, Duration <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, Duration <i>timeout</i>);
 <br>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>);
+<br>static int <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(SocketSet <i>checkRead</i>, SocketSet <i>checkWrite</i>, SocketSet <i>checkError</i>, TimeVal* <i>timeout</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Wait for a socket to change status. A wait timeout <span class="inlinecode">TimeVal</span>,
- <span class="inlinecode">Duration</span> or <span class="inlinecode">long</span> microseconds may be specified; if a timeout
- is not specified or the <span class="inlinecode">TimeVal</span> is <span class="inlinecode"><span class="d_keyword">null</span></span>, the maximum timeout
- is used. The <span class="inlinecode">TimeVal</span> timeout has an unspecified value when
- <span class="inlinecode"><span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a></span> returns.
+<div class="declaration-content"><dl><p>Wait for a socket to change status. A wait <i>timeout</i> of  or
+ <span class="inlinecode">TimeVal</span>, may be specified; if a <i>timeout</i> is not specified or the
+ <span class="inlinecode">TimeVal</span> is <span class="inlinecode"><span class="d_keyword">null</span></span>, the maximum <i>timeout</i> is used. The <span class="inlinecode">TimeVal</span>
+ <i>timeout</i> has an unspecified value when <span class="inlinecode"><span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a></span> returns.
 </p>
 
-<dt>Returns</dt><dd>The number of sockets with status changes, <span class="inlinecode">0</span> on timeout,
+<dt>Returns</dt><dd>The number of sockets with status changes, <span class="inlinecode">0</span> on <i>timeout</i>,
  or <span class="inlinecode">-1</span> on interruption. If the return value is greater than <span class="inlinecode">0</span>,
  the <span class="inlinecode">SocketSets</span> are updated to only contain the sockets having status
  changes. For a connecting socket, a write status change means the
@@ -1844,19 +1902,19 @@ While the receive timeout setting is generally quite accurate
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="TcpSocket">&nbsp;</span><a class="symbol-link" href="#TcpSocket">TcpSocket</a></span> is a shortcut class for a TCP Socket.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>family</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(AddressFamily <i>family</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a blocking TCP Socket.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this();
+<hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a blocking IPv4 TCP Socket.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(Address <i>connectTo</i>);
+<hr><div class="row-fluid declaration"><h3> this(Address <i>connectTo</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a blocking TCP Socket and connects to an <span class="inlinecode">Address</span>.</p>
 
@@ -1869,13 +1927,13 @@ While the receive timeout setting is generally quite accurate
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="symbol-target" id="UdpSocket">&nbsp;</span><a class="symbol-link" href="#UdpSocket">UdpSocket</a></span> is a shortcut class for a UDP Socket.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(AddressFamily <i>family</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(AddressFamily <i>family</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a blocking UDP Socket.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this();
+<hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a blocking IPv4 UDP Socket.</p>
 
@@ -1883,7 +1941,7 @@ While the receive timeout setting is generally quite accurate
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>Socket[2u] <span class="symbol-target" id="socketPair">&nbsp;</span><a class="symbol-link" href="#socketPair">socketPair</a>();
+<hr><div class="row-fluid declaration"><h3>Socket[2] <span class="symbol-target" id="socketPair">&nbsp;</span><a class="symbol-link" href="#socketPair">socketPair</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a pair of connected sockets.
 </p>
@@ -1895,15 +1953,15 @@ While the receive timeout setting is generally quite accurate
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">immutable</span> <span class="d_keyword">ubyte</span>[] data = [1, 2, 3, 4];
- <span class="d_keyword">auto</span> pair = <u>socketPair</u>();
- <span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
+<pre class="d_code"><span class="d_keyword">immutable</span> <span class="d_keyword">ubyte</span>[] data = [1, 2, 3, 4];
+<span class="d_keyword">auto</span> pair = <u>socketPair</u>();
+<span class="d_keyword">scope</span>(exit) <span class="d_keyword">foreach</span> (s; pair) s.close();
 
- pair[0].send(data);
+pair[0].send(data);
 
- <span class="d_keyword">auto</span> buf = <span class="d_keyword">new</span> <span class="d_keyword">ubyte</span>[data.length];
- pair[1].receive(buf);
- <span class="d_keyword">assert</span>(buf == data);
+<span class="d_keyword">auto</span> buf = <span class="d_keyword">new</span> <span class="d_keyword">ubyte</span>[data.length];
+pair[1].receive(buf);
+<span class="d_keyword">assert</span>(buf == data);
 </pre>
 </dd>
 </dl>

@@ -286,7 +286,7 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/numeric.d">std/numeric.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CustomFloatFlags">&nbsp;</span><a class="symbol-link" href="#CustomFloatFlags">CustomFloatFlags</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CustomFloatFlags">&nbsp;</span><a class="symbol-link" href="#CustomFloatFlags">CustomFloatFlags</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Format flags for CustomFloat.</p>
 
@@ -357,7 +357,7 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint bits) if (bits == 8 || bits == 16 || bits == 32 || bits == 64 || bits == 80)<br>template <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags = CustomFloatFlags.ieee) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0)<br>struct <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint precision,uint exponentWidth,CustomFloatFlags flags,uint bias) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0);
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint bits) if (bits == 8 || bits == 16 || bits == 32 || bits == 64 || bits == 80)<br>template <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint precision, uint exponentWidth, CustomFloatFlags flags = CustomFloatFlags.ieee) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0)<br>struct <span class="symbol-target" id="CustomFloat">&nbsp;</span><a class="symbol-link" href="#CustomFloat">CustomFloat</a>(uint precision, uint exponentWidth, CustomFloatFlags flags, uint bias) if (((flags &amp; flags.signed) + precision + exponentWidth) % 8 == 0 &amp;&amp; precision + exponentWidth &gt; 0);
 </h3></div>
 <div class="declaration-content"><dl><p>Allows user code to define custom floating-point formats. These formats are
  for storage only; all operations on them are performed by first implicitly
@@ -366,42 +366,42 @@ header in Alexander Stepanov's <a href="http://sgi.com/tech/stl">Standard Templa
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_comment">// Define a 16-bit floating point values
+<pre class="d_code"><span class="d_comment">// Define a 16-bit floating point values
 </span>
- <u>CustomFloat</u>!16                                x;     <span class="d_comment">// Using the number of bits
+<u>CustomFloat</u>!16                                x;     <span class="d_comment">// Using the number of bits
 </span>
- <u>CustomFloat</u>!(10, 5)                           y;     <span class="d_comment">// Using the precision and exponent width
+<u>CustomFloat</u>!(10, 5)                           y;     <span class="d_comment">// Using the precision and exponent width
 </span>
- <u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee)     z;     <span class="d_comment">// Using the precision, exponent width and format flags
+<u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee)     z;     <span class="d_comment">// Using the precision, exponent width and format flags
 </span>
- <u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee, 15) w;     <span class="d_comment">// Using the precision, exponent width, format flags and exponent offset bias
-</span>
-
- <span class="d_comment">// Use the 16-bit floats mostly like normal numbers
-</span>
- w = x*y - 1;
- writeln(w);
-
- <span class="d_comment">// Functions calls require conversion
-</span>
- z = sin(+x)           + cos(+y);                     <span class="d_comment">// Use uniary plus to concisely convert to a real
-</span>
- z = sin(x.re)         + cos(y.re);                   <span class="d_comment">// Or use the .re property to convert to a real
-</span>
- z = sin(x.get!<span class="d_keyword">float</span>)  + cos(y.get!<span class="d_keyword">float</span>);            <span class="d_comment">// Or use get!T
-</span>
- z = sin(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)x) + cos(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)y);           <span class="d_comment">// Or use cast(T) to explicitly convert
+<u>CustomFloat</u>!(10, 5,CustomFloatFlags.ieee, 15) w;     <span class="d_comment">// Using the precision, exponent width, format flags and exponent offset bias
 </span>
 
- <span class="d_comment">// Define a 8-bit custom float for storing probabilities
+<span class="d_comment">// Use the 16-bit floats mostly like normal numbers
 </span>
- <span class="d_keyword">alias</span> <u>CustomFloat</u>!(4, 4, CustomFloatFlags.ieee^CustomFloatFlags.probability^CustomFloatFlags.signed ) Probability;
- <span class="d_keyword">auto</span> p = Probability(0.5);
+w = x*y - 1;
+writeln(w);
+
+<span class="d_comment">// Functions calls require conversion
+</span>
+z = sin(+x)           + cos(+y);                     <span class="d_comment">// Use uniary plus to concisely convert to a real
+</span>
+z = sin(x.re)         + cos(y.re);                   <span class="d_comment">// Or use the .re property to convert to a real
+</span>
+z = sin(x.get!<span class="d_keyword">float</span>)  + cos(y.get!<span class="d_keyword">float</span>);            <span class="d_comment">// Or use get!T
+</span>
+z = sin(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)x) + cos(<span class="d_keyword">cast</span>(<span class="d_keyword">float</span>)y);           <span class="d_comment">// Or use cast(T) to explicitly convert
+</span>
+
+<span class="d_comment">// Define a 8-bit custom float for storing probabilities
+</span>
+<span class="d_keyword">alias</span> <u>CustomFloat</u>!(4, 4, CustomFloatFlags.ieee^CustomFloatFlags.probability^CustomFloatFlags.signed ) Probability;
+<span class="d_keyword">auto</span> p = Probability(0.5);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FPTemporary">&nbsp;</span><a class="symbol-link" href="#FPTemporary">FPTemporary</a>(F) if (isFloatingPoint!(F))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FPTemporary">&nbsp;</span><a class="symbol-link" href="#FPTemporary">FPTemporary</a>(F) if (isFloatingPoint!F)</h3></div>
 <div class="declaration-content"><dl><p>Defines the fastest type to use when storing temporaries of a
 calculation intended to ultimately yield a result of type <span class="inlinecode">F</span>
 (where <span class="inlinecode">F</span> must be one of <span class="inlinecode">float</span>, <span class="inlinecode">double</span>, or <span class="inlinecode">real</span>). When doing a multi-step computation, you may want to store
@@ -419,6 +419,7 @@ intermediate results as <span class="inlinecode"><span class="symbol-target" id=
     <span class="d_keyword">return</span> result / a.length;
 }
 </pre>
+<br><br>
 
 The necessity of <span class="inlinecode"><span class="symbol-target" id="FPTemporary">&nbsp;</span><a class="symbol-link" href="#FPTemporary">FPTemporary</a></span> stems from the optimized
 floating-point operations and registers present in virtually all
@@ -484,31 +485,31 @@ or <span class="inlinecode">real</span>.
  pp733-744 (1993).  Fortran code available from <a href="http://www.netlib.org">www.netlib.org</a> as algorithm TOMS478.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Tuple!(T,T,R,R) <span class="symbol-target" id="findRoot">&nbsp;</span><a class="symbol-link" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>ax</i>, T <i>bx</i>, R <i>fax</i>, R <i>fbx</i>, scope bool delegate(T lo, T hi) <i>tolerance</i>);
+<hr><div class="row-fluid declaration"><h3>Tuple!(T, T, R, R) <span class="symbol-target" id="findRoot">&nbsp;</span><a class="symbol-link" href="#findRoot">findRoot</a>(T, R)(scope R delegate(T) <i>f</i>, T <i>ax</i>, T <i>bx</i>, R <i>fax</i>, R <i>fbx</i>, scope bool delegate(T lo, T hi) <i>tolerance</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Find root of a real function f(x) by bracketing, allowing the
  termination condition to be specified.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>f</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>R delegate(T) f</td>
 <td>Function to be analyzed</td>
 </tr>
-<tr><td>ax</td>
+<tr><td>T ax</td>
 <td>Left bound of initial range of <span class="inlinecode">f</span> known to contain the
  root.</td>
 </tr>
-<tr><td>bx</td>
+<tr><td>T bx</td>
 <td>Right bound of initial range of <span class="inlinecode">f</span> known to contain the
  root.</td>
 </tr>
-<tr><td>fax</td>
+<tr><td>R fax</td>
 <td>Value of <span class="inlinecode">f(ax)</span>.</td>
 </tr>
-<tr><td>fbx</td>
+<tr><td>R fbx</td>
 <td>Value of <span class="inlinecode">f(bx)</span>. (<span class="inlinecode">f(ax)</span> and <span class="inlinecode">f(bx)</span> are commonly
  known in advance.)</td>
 </tr>
-<tr><td>tolerance</td>
+<tr><td>bool delegate(T lo, T hi) tolerance</td>
 <td>Defines an early termination condition. Receives the
              current upper and lower bounds on the root. The
              delegate must return <span class="inlinecode"><span class="d_keyword">true</span></span> when these bounds are
@@ -523,8 +524,8 @@ or <span class="inlinecode">real</span>.
  root, and the second pair of elements will be 0.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
-<br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2);
+<br>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="euclideanDistance">&nbsp;</span><a class="symbol-link" href="#euclideanDistance">euclideanDistance</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Euclidean distance">Euclidean distance</a>
  between input ranges <span class="inlinecode">a</span> and
@@ -535,8 +536,8 @@ distance is sought).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
-<br>Unqual!(CommonType!(F1,F2)) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(F1, F2)(in F1[] <i>avector</i>, in F2[] <i>bvector</i>);
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2 &amp;&amp; !(isArray!Range1 &amp;&amp; isArray!Range2));
+<br>Unqual!(CommonType!(F1, F2)) <span class="symbol-target" id="dotProduct">&nbsp;</span><a class="symbol-link" href="#dotProduct">dotProduct</a>(F1, F2)(in F1[] <i>avector</i>, in F2[] <i>bvector</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=dot product">dot product</a>
  of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
@@ -545,7 +546,7 @@ iteration.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="cosineSimilarity">&nbsp;</span><a class="symbol-link" href="#cosineSimilarity">cosineSimilarity</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="cosineSimilarity">&nbsp;</span><a class="symbol-link" href="#cosineSimilarity">cosineSimilarity</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=cosine similarity">cosine similarity</a>
  of input ranges <span class="inlinecode">a</span> and <span class="inlinecode">b</span>. The two ranges must have the same length. If both ranges define
@@ -554,7 +555,7 @@ iteration. If either range has all-zero elements, return 0.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="normalize">&nbsp;</span><a class="symbol-link" href="#normalize">normalize</a>(R)(R <i>range</i>, ElementType!(R) <i>sum</i> = 1);
+<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="normalize">&nbsp;</span><a class="symbol-link" href="#normalize">normalize</a>(R)(R <i>range</i>, ElementType!R <i>sum</i> = 1) if (isForwardRange!R);
 </h3></div>
 <div class="declaration-content"><dl><p>Normalizes values in <span class="inlinecode">range</span> by multiplying each element with a
 number chosen such that values sum up to <span class="inlinecode">sum</span>. If elements in <span class="inlinecode">range</span> sum to zero, assigns <span class="inlinecode">sum / range.length</span> to
@@ -566,8 +567,8 @@ positive. <span class="inlinecode"><span class="symbol-target" id="normalize">&n
 all elements in <span class="inlinecode">range</span> were zero or if <span class="inlinecode">range</span> is empty.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>ElementType!(Range) <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range)(Range <i>r</i>);
-<br>ElementType!(Range) <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range, F)(Range <i>r</i>, F <i>max</i>);
+<hr><div class="row-fluid declaration"><h3>ElementType!Range <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range)(Range <i>r</i>) if (isInputRange!Range);
+<br>ElementType!Range <span class="symbol-target" id="entropy">&nbsp;</span><a class="symbol-link" href="#entropy">entropy</a>(Range, F)(Range <i>r</i>, F <i>max</i>) if (isInputRange!Range &amp;&amp; !is(CommonType!(ElementType!Range, F) == void));
 </h3></div>
 <div class="declaration-content"><dl><p>Computes <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=entropy">entropy</a>
  of input range <span class="inlinecode">r</span> in bits. This
@@ -579,7 +580,7 @@ result is greater than or equal to <span class="inlinecode">max</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="kullbackLeiblerDivergence">&nbsp;</span><a class="symbol-link" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="kullbackLeiblerDivergence">&nbsp;</span><a class="symbol-link" href="#kullbackLeiblerDivergence">kullbackLeiblerDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Kullback-Leibler divergence">Kullback-Leibler divergence</a>
  between input ranges
@@ -593,8 +594,8 @@ positive.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>);
-<br>CommonType!(ElementType!(Range1),ElementType!(Range2)) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>);
+<hr><div class="row-fluid declaration"><h3>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2)(Range1 <i>a</i>, Range2 <i>b</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2 &amp;&amp; is(CommonType!(ElementType!Range1, ElementType!Range2)));
+<br>CommonType!(ElementType!Range1, ElementType!Range2) <span class="symbol-target" id="jensenShannonDivergence">&nbsp;</span><a class="symbol-link" href="#jensenShannonDivergence">jensenShannonDivergence</a>(Range1, Range2, F)(Range1 <i>a</i>, Range2 <i>b</i>, F <i>limit</i>) if (isInputRange!Range1 &amp;&amp; isInputRange!Range2 &amp;&amp; is(typeof(CommonType!(ElementType!Range1, ElementType!Range2).init &gt;= F.init) : bool));
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the <a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=Jensen-Shannon divergence">Jensen-Shannon divergence</a>
  between <span class="inlinecode">a</span> and <span class="inlinecode">b</span>, which is the sum <span class="inlinecode">(ai * log(2 * ai / (ai + bi)) + bi * log(2 *
@@ -608,7 +609,7 @@ or equal to <span class="inlinecode">limit</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>F <span class="symbol-target" id="gapWeightedSimilarity">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>);
+<hr><div class="row-fluid declaration"><h3>F <span class="symbol-target" id="gapWeightedSimilarity">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarity">gapWeightedSimilarity</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>) if (isRandomAccessRange!R1 &amp;&amp; hasLength!R1 &amp;&amp; isRandomAccessRange!R2 &amp;&amp; hasLength!R2);
 </h3></div>
 <div class="declaration-content"><dl><p>The so-called "all-lengths gap-weighted string kernel" computes a
 similarity measure between <span class="inlinecode">s</span> and <span class="inlinecode">t</span> based on all of their
@@ -636,6 +637,7 @@ these matches and adds them up, returning 7.
 string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
 <span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 1) == 7);
 </pre>
+<br><br>
 
 Note how the gaps in matching are simply ignored, for example (<span class="inlinecode">"Hello", "new"</span>) is deemed as good a match as (<span class="inlinecode">"new",
 "world"</span>). This may be too permissive for some applications. To
@@ -646,6 +648,7 @@ eliminate gapped matches entirely, use <span class="inlinecode">lambda = 0</span
 string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
 <span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 0) == 4);
 </pre>
+<br><br>
 
 The call above eliminated the gapped matches (<span class="inlinecode">"Hello", "new"</span>),
 (<span class="inlinecode">"Hello", "world"</span>), and (<span class="inlinecode">"Hello", "new", "world"</span>) from the
@@ -671,6 +674,7 @@ in the second string, totaling to three gaps. Summing these up we get
 string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new"</span>, <span class="d_string">"world"</span>];
 <span class="d_keyword">assert</span>(<u>gapWeightedSimilarity</u>(s, t, 0.5) == 4 + 0.5 * 2 + 0.125);
 </pre>
+<br><br>
 
 <span class="inlinecode"><span class="symbol-target" id="gapWeightedSimilarity">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarity">gapWeightedSimilarity</a></span> is useful wherever a smooth similarity
 measure between sequences allowing for approximate matches is
@@ -682,7 +686,7 @@ t.length)</span> extra bytes of memory and <b><i>&Omicron;</i>(</b><span class="
 to complete.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Select!(isFloatingPoint!(F),F,double) <span class="symbol-target" id="gapWeightedSimilarityNormalized">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>, F <i>sSelfSim</i> = F.init, F <i>tSelfSim</i> = F.init);
+<hr><div class="row-fluid declaration"><h3>Select!(isFloatingPoint!F, F, double) <span class="symbol-target" id="gapWeightedSimilarityNormalized">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarityNormalized">gapWeightedSimilarityNormalized</a>(alias comp = "a == b", R1, R2, F)(R1 <i>s</i>, R2 <i>t</i>, F <i>lambda</i>, F <i>sSelfSim</i> = F.init, F <i>tSelfSim</i> = F.init) if (isRandomAccessRange!R1 &amp;&amp; hasLength!R1 &amp;&amp; isRandomAccessRange!R2 &amp;&amp; hasLength!R2);
 </h3></div>
 <div class="declaration-content"><dl><p>The similarity per <span class="inlinecode">gapWeightedSimilarity</span> has an issue in that it
 grows with the lengths of the two strings, even though the strings are
@@ -707,6 +711,7 @@ string[] t = [<span class="d_string">"Hello"</span>, <span class="d_string">"new
 <span class="d_keyword">assert</span>(gapWeightedSimilarity(s, t, 1) == 7);
 <span class="d_keyword">assert</span>(<u>gapWeightedSimilarityNormalized</u>(s, t, 1) == 7. / sqrt(15. * 7));
 </pre>
+<br><br>
 
 The optional parameters <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span> are meant for
 avoiding duplicate computation. Many applications may have already
@@ -714,8 +719,8 @@ computed <span class="inlinecode">gapWeightedSimilarity(s, s, lambda)</span> and
 as <span class="inlinecode">sSelfSim</span> and <span class="inlinecode">tSelfSim</span>, respectively.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="GapWeightedSimilarityIncremental">&nbsp;</span><a class="symbol-link" href="#GapWeightedSimilarityIncremental">GapWeightedSimilarityIncremental</a>(Range,F = double) if (isRandomAccessRange!(Range) &amp;&amp; hasLength!(Range));
-<br>GapWeightedSimilarityIncremental!(R,F) <span class="symbol-target" id="gapWeightedSimilarityIncremental">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarityIncremental">gapWeightedSimilarityIncremental</a>(R, F)(R <i>r1</i>, R <i>r2</i>, F <i>penalty</i>);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="GapWeightedSimilarityIncremental">&nbsp;</span><a class="symbol-link" href="#GapWeightedSimilarityIncremental">GapWeightedSimilarityIncremental</a>(Range, F = double) if (isRandomAccessRange!Range &amp;&amp; hasLength!Range);
+<br>GapWeightedSimilarityIncremental!(R, F) <span class="symbol-target" id="gapWeightedSimilarityIncremental">&nbsp;</span><a class="symbol-link" href="#gapWeightedSimilarityIncremental">gapWeightedSimilarityIncremental</a>(R, F)(R <i>r1</i>, R <i>r2</i>, F <i>penalty</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Similar to <span class="inlinecode">gapWeightedSimilarity</span>, just works in an incremental
 manner by first revealing the matches of length 1, then gapped matches
@@ -739,13 +744,14 @@ simIter.popFront();
 <span class="d_keyword">assert</span>(simIter.empty);     <span class="d_comment">// no more match
 </span>
 </pre>
+<br><br>
 
 The implementation is based on the pseudocode in Fig. 4 of the paper
 <a href="http://jmlr.csail.mit.edu/papers/volume6/rousu05a/rousu05a.pdf">"Efﬁcient Computation of Gapped Substring Kernels on Large Alphabets"</a>
 by Rousu et al., with additional algorithmic and systems-level
 optimizations.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Range <i>s</i>, Range <i>t</i>, F <i>lambda</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(Range <i>s</i>, Range <i>t</i>, F <i>lambda</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs an object given two ranges <span class="inlinecode"><i>s</i></span> and <span class="inlinecode"><i>t</i></span> and a penalty
 <span class="inlinecode"><i>lambda</i></span>. Constructor completes in <b><i>&Omicron;</i>(</b><span class="inlinecode"><i>s</i>.length * <i>t</i>.length</span><b><i>)</i></b>
@@ -802,7 +808,7 @@ Euler's algorithm.</p>
 <dt>References:</dt><dd>
 <a href="http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm">en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm</a></dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>size</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(size_t <i>size</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create an <span class="inlinecode">Fft</span> object for computing fast Fourier transforms of
  power of two sizes of <span class="inlinecode"><i>size</i></span> or smaller.  <span class="inlinecode"><i>size</i></span> must be a
@@ -810,7 +816,7 @@ Euler's algorithm.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>const Complex!F[] <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(F = double, R)(R <i>range</i>) if (isFloatingPoint!F &amp;&amp; isRandomAccessRange!R);
 </h3></div>
 <div class="declaration-content"><dl><p>Compute the Fourier transform of range using the <b><i>&Omicron;</i>(</b><span class="inlinecode">N log N</span><b><i>)</i></b>
  Cooley-Tukey Algorithm.  <span class="inlinecode">range</span> must be a random-access range with
@@ -829,7 +835,7 @@ Pure real FFTs are automatically detected and the relevant
            the frequency domain.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const void <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+<hr><div class="row-fluid declaration"><h3>const void <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>) if (isRandomAccessRange!Ret &amp;&amp; isComplexLike!(ElementType!Ret) &amp;&amp; hasSlicing!Ret);
 </h3></div>
 <div class="declaration-content"><dl><p>Same as the overload, but allows for the results to be stored in a user-
  provided buffer.  The buffer must be of the same length as range, must be
@@ -839,7 +845,7 @@ Pure real FFTs are automatically detected and the relevant
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Complex!(F)[] <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>const Complex!F[] <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>) if (isRandomAccessRange!R &amp;&amp; isComplexLike!(ElementType!R) &amp;&amp; isFloatingPoint!F);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes the inverse Fourier transform of a range.  The range must be a
  random access range with slicing, have a length equal to the size
@@ -851,7 +857,7 @@ Pure real FFTs are automatically detected and the relevant
 <dt>Returns</dt><dd>The time-domain signal.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const void <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
+<hr><div class="row-fluid declaration"><h3>const void <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>) if (isRandomAccessRange!Ret &amp;&amp; isComplexLike!(ElementType!Ret) &amp;&amp; hasSlicing!Ret);
 </h3></div>
 <div class="declaration-content"><dl><p>Inverse FFT that allows a user-supplied buffer to be provided.  The buffer
  must be a random access range with slicing, and its elements
@@ -861,9 +867,9 @@ Pure real FFTs are automatically detected and the relevant
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>Complex!(F)[] <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
+<hr><div class="row-fluid declaration"><h3>Complex!F[] <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(F = double, R)(R <i>range</i>);
 <br>void <span class="symbol-target" id="fft">&nbsp;</span><a class="symbol-link" href="#fft">fft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
-<br>Complex!(F)[] <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
+<br>Complex!F[] <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(F = double, R)(R <i>range</i>);
 <br>void <span class="symbol-target" id="inverseFft">&nbsp;</span><a class="symbol-link" href="#inverseFft">inverseFft</a>(Ret, R)(R <i>range</i>, Ret <i>buf</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Convenience functions that create an <span class="inlinecode">Fft</span> object, run the FFT or inverse

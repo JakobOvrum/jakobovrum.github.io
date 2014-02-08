@@ -287,7 +287,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/json.d">std/json.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="JSON_TYPE">&nbsp;</span><a class="symbol-link" href="#JSON_TYPE">JSON_TYPE</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="JSON_TYPE">&nbsp;</span><a class="symbol-link" href="#JSON_TYPE">JSON_TYPE</a>: byte;
 </h3></div>
 <div class="declaration-content"><dl><p>JSON type enumeration</p>
 
@@ -366,16 +366,20 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>JSONValue <span class="symbol-target" id="parseJSON">&nbsp;</span><a class="symbol-link" href="#parseJSON">parseJSON</a>(T)(T <i>json</i>, int <i>maxDepth</i> = -1);
+<hr><div class="row-fluid declaration"><h3>JSONValue <span class="symbol-target" id="parseJSON">&nbsp;</span><a class="symbol-link" href="#parseJSON">parseJSON</a>(T)(T <i>json</i>, int <i>maxDepth</i> = -1) if (isInputRange!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Parses a serialized string and returns a tree of JSON values.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="toJSON">&nbsp;</span><a class="symbol-link" href="#toJSON">toJSON</a>(in JSONValue* <i>root</i>);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="toJSON">&nbsp;</span><a class="symbol-link" href="#toJSON">toJSON</a>(in JSONValue* <i>root</i>, in bool <i>pretty</i> = false);
 </h3></div>
-<div class="declaration-content"><dl><p>Takes a tree of JSON values and returns the serialized string.</p>
+<div class="declaration-content"><dl><p>Takes a tree of JSON values and returns the serialized string.
+</p>
 
+<p>If <span class="inlinecode"><i>pretty</i></span> is <span class="d_keyword">false</span> no whitespaces are generated.
+If <span class="inlinecode"><i>pretty</i></span> is <span class="d_keyword">true</span> serialized string is formatted to be human-readable.
+No exact formatting layout is guaranteed in the latter case.</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="JSONException">&nbsp;</span><a class="symbol-link" href="#JSONException">JSONException</a>: object.Exception;

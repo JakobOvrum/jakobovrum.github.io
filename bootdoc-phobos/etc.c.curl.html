@@ -353,7 +353,7 @@
  "Mon Feb 12 11:35:33 UTC 2007"</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_off_t">&nbsp;</span><a class="symbol-link" href="#curl_off_t">curl_off_t</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_off_t">&nbsp;</span><a class="symbol-link" href="#curl_off_t">curl_off_t</a> = long;
 </h3></div>
 <div class="declaration-content"><dl><p>Data type definition of <span class="symbol-target" id="curl_off_t">&nbsp;</span><a class="symbol-link" href="#curl_off_t">curl_off_t</a>. 
  jdrewsen - Always 64bit signed and that is what long is in D.
@@ -373,11 +373,11 @@
  32-bit wide signed integral data type if there is no 64-bit type.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURL">&nbsp;</span><a class="symbol-link" href="#CURL">CURL</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURL">&nbsp;</span><a class="symbol-link" href="#CURL">CURL</a> = void;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_socket_t">&nbsp;</span><a class="symbol-link" href="#curl_socket_t">curl_socket_t</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_socket_t">&nbsp;</span><a class="symbol-link" href="#curl_socket_t">curl_socket_t</a> = std.socket.socket_t;
 </h3></div>
 <div class="declaration-content"><dl><p>jdrewsen - Get socket alias from std.socket</p>
 
@@ -524,7 +524,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_progress_callback">&nbsp;</span><a class="symbol-link" href="#curl_progress_callback">curl_progress_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_progress_callback">&nbsp;</span><a class="symbol-link" href="#curl_progress_callback">curl_progress_callback</a> = int function(void* clientp, double dltotal, double dlnow, double ultotal, double ulnow);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -554,11 +554,11 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_write_callback">&nbsp;</span><a class="symbol-link" href="#curl_write_callback">curl_write_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_write_callback">&nbsp;</span><a class="symbol-link" href="#curl_write_callback">curl_write_callback</a> = uint function(char* buffer, uint size, uint nitems, void* outstream);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFileType">&nbsp;</span><a class="symbol-link" href="#CurlFileType">CurlFileType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFileType">&nbsp;</span><a class="symbol-link" href="#CurlFileType">CurlFileType</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>enumeration of file types </p>
 
@@ -595,11 +595,11 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlfiletype">&nbsp;</span><a class="symbol-link" href="#curlfiletype">curlfiletype</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlfiletype">&nbsp;</span><a class="symbol-link" href="#curlfiletype">curlfiletype</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFInfoFlagKnown">&nbsp;</span><a class="symbol-link" href="#CurlFInfoFlagKnown">CurlFInfoFlagKnown</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFInfoFlagKnown">&nbsp;</span><a class="symbol-link" href="#CurlFInfoFlagKnown">CurlFInfoFlagKnown</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="filename">&nbsp;</span><a class="symbol-link" href="#filename">filename</a></h3></div>
@@ -724,7 +724,7 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlChunkBgnFunc">&nbsp;</span><a class="symbol-link" href="#CurlChunkBgnFunc">CurlChunkBgnFunc</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlChunkBgnFunc">&nbsp;</span><a class="symbol-link" href="#CurlChunkBgnFunc">CurlChunkBgnFunc</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>return codes for CURLOPT_CHUNK_BGN_FUNCTION </p>
 
@@ -745,7 +745,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_chunk_bgn_callback">&nbsp;</span><a class="symbol-link" href="#curl_chunk_bgn_callback">curl_chunk_bgn_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_chunk_bgn_callback">&nbsp;</span><a class="symbol-link" href="#curl_chunk_bgn_callback">curl_chunk_bgn_callback</a> = int function(void* transfer_info, void* ptr, int remains);
 </h3></div>
 <div class="declaration-content"><dl><p>if splitting of data transfer is enabled, this callback is called before
    download of an individual chunk started. Note that parameter "remains" works
@@ -753,7 +753,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlChunkEndFunc">&nbsp;</span><a class="symbol-link" href="#CurlChunkEndFunc">CurlChunkEndFunc</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlChunkEndFunc">&nbsp;</span><a class="symbol-link" href="#CurlChunkEndFunc">CurlChunkEndFunc</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>return codes for CURLOPT_CHUNK_END_FUNCTION </p>
 
@@ -767,7 +767,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_chunk_end_callback">&nbsp;</span><a class="symbol-link" href="#curl_chunk_end_callback">curl_chunk_end_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_chunk_end_callback">&nbsp;</span><a class="symbol-link" href="#curl_chunk_end_callback">curl_chunk_end_callback</a> = int function(void* ptr);
 </h3></div>
 <div class="declaration-content"><dl><p>If splitting of data transfer is enabled this callback is called after
    download of an individual chunk finished.
@@ -778,7 +778,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFnMAtchFunc">&nbsp;</span><a class="symbol-link" href="#CurlFnMAtchFunc">CurlFnMAtchFunc</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFnMAtchFunc">&nbsp;</span><a class="symbol-link" href="#CurlFnMAtchFunc">CurlFnMAtchFunc</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>return codes for FNMATCHFUNCTION </p>
 
@@ -795,14 +795,14 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_fnmatch_callback">&nbsp;</span><a class="symbol-link" href="#curl_fnmatch_callback">curl_fnmatch_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_fnmatch_callback">&nbsp;</span><a class="symbol-link" href="#curl_fnmatch_callback">curl_fnmatch_callback</a> = int function(void* ptr, char* pattern, char* string);
 </h3></div>
 <div class="declaration-content"><dl><p>callback type for wildcard downloading pattern matching. If the
    string matches the pattern, return CURL_FNMATCHFUNC_MATCH value, etc. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSeekPos">&nbsp;</span><a class="symbol-link" href="#CurlSeekPos">CurlSeekPos</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSeekPos">&nbsp;</span><a class="symbol-link" href="#CurlSeekPos">CurlSeekPos</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>seek whence...</p>
 
@@ -819,7 +819,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSeek">&nbsp;</span><a class="symbol-link" href="#CurlSeek">CurlSeek</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSeek">&nbsp;</span><a class="symbol-link" href="#CurlSeek">CurlSeek</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>These are the return codes for the seek callbacks </p>
 
@@ -841,11 +841,11 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_seek_callback">&nbsp;</span><a class="symbol-link" href="#curl_seek_callback">curl_seek_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_seek_callback">&nbsp;</span><a class="symbol-link" href="#curl_seek_callback">curl_seek_callback</a> = int function(void* instream, long offset, int origin);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlReadFunc">&nbsp;</span><a class="symbol-link" href="#CurlReadFunc">CurlReadFunc</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlReadFunc">&nbsp;</span><a class="symbol-link" href="#CurlReadFunc">CurlReadFunc</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="abort">&nbsp;</span><a class="symbol-link" href="#abort">abort</a></h3></div>
@@ -864,11 +864,11 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_read_callback">&nbsp;</span><a class="symbol-link" href="#curl_read_callback">curl_read_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_read_callback">&nbsp;</span><a class="symbol-link" href="#curl_read_callback">curl_read_callback</a> = uint function(char* buffer, uint size, uint nitems, void* instream);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSockType">&nbsp;</span><a class="symbol-link" href="#CurlSockType">CurlSockType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSockType">&nbsp;</span><a class="symbol-link" href="#CurlSockType">CurlSockType</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ipcxn">&nbsp;</span><a class="symbol-link" href="#ipcxn">ipcxn</a></h3></div>
@@ -884,11 +884,11 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlsocktype">&nbsp;</span><a class="symbol-link" href="#curlsocktype">curlsocktype</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlsocktype">&nbsp;</span><a class="symbol-link" href="#curlsocktype">curlsocktype</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_sockopt_callback">&nbsp;</span><a class="symbol-link" href="#curl_sockopt_callback">curl_sockopt_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_sockopt_callback">&nbsp;</span><a class="symbol-link" href="#curl_sockopt_callback">curl_sockopt_callback</a> = int function(void* clientp, socket_t curlfd, int purpose);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -924,11 +924,11 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_opensocket_callback">&nbsp;</span><a class="symbol-link" href="#curl_opensocket_callback">curl_opensocket_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_opensocket_callback">&nbsp;</span><a class="symbol-link" href="#curl_opensocket_callback">curl_opensocket_callback</a> = socket_t function(void* clientp, int purpose, curl_sockaddr* address);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIoError">&nbsp;</span><a class="symbol-link" href="#CurlIoError">CurlIoError</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIoError">&nbsp;</span><a class="symbol-link" href="#CurlIoError">CurlIoError</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ok">&nbsp;</span><a class="symbol-link" href="#ok">ok</a></h3></div>
@@ -954,11 +954,11 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlioerr">&nbsp;</span><a class="symbol-link" href="#curlioerr">curlioerr</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curlioerr">&nbsp;</span><a class="symbol-link" href="#curlioerr">curlioerr</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIoCmd">&nbsp;</span><a class="symbol-link" href="#CurlIoCmd">CurlIoCmd</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIoCmd">&nbsp;</span><a class="symbol-link" href="#CurlIoCmd">CurlIoCmd</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="nop">&nbsp;</span><a class="symbol-link" href="#nop">nop</a></h3></div>
@@ -979,19 +979,19 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curliocmd">&nbsp;</span><a class="symbol-link" href="#curliocmd">curliocmd</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curliocmd">&nbsp;</span><a class="symbol-link" href="#curliocmd">curliocmd</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ioctl_callback">&nbsp;</span><a class="symbol-link" href="#curl_ioctl_callback">curl_ioctl_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ioctl_callback">&nbsp;</span><a class="symbol-link" href="#curl_ioctl_callback">curl_ioctl_callback</a> = int function(void* handle, int cmd, void* clientp);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_malloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_malloc_callback">curl_malloc_callback</a>;
-<br>alias <span class="symbol-target" id="curl_free_callback">&nbsp;</span><a class="symbol-link" href="#curl_free_callback">curl_free_callback</a>;
-<br>alias <span class="symbol-target" id="curl_realloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_realloc_callback">curl_realloc_callback</a>;
-<br>alias <span class="symbol-target" id="curl_strdup_callback">&nbsp;</span><a class="symbol-link" href="#curl_strdup_callback">curl_strdup_callback</a>;
-<br>alias <span class="symbol-target" id="curl_calloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_calloc_callback">curl_calloc_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_malloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_malloc_callback">curl_malloc_callback</a> = void* function(uint size);
+<br>alias <span class="symbol-target" id="curl_free_callback">&nbsp;</span><a class="symbol-link" href="#curl_free_callback">curl_free_callback</a> = void function(void* ptr);
+<br>alias <span class="symbol-target" id="curl_realloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_realloc_callback">curl_realloc_callback</a> = void* function(void* ptr, uint size);
+<br>alias <span class="symbol-target" id="curl_strdup_callback">&nbsp;</span><a class="symbol-link" href="#curl_strdup_callback">curl_strdup_callback</a> = char* function(char* str);
+<br>alias <span class="symbol-target" id="curl_calloc_callback">&nbsp;</span><a class="symbol-link" href="#curl_calloc_callback">curl_calloc_callback</a> = void* function(uint nmemb, uint size);
 </h3></div>
 <div class="declaration-content"><dl><p>The following typedef's are signatures of malloc, free, realloc, strdup and
  calloc respectively.  Function pointers of these types can be passed to the
@@ -1000,7 +1000,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlCallbackInfo">&nbsp;</span><a class="symbol-link" href="#CurlCallbackInfo">CurlCallbackInfo</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlCallbackInfo">&nbsp;</span><a class="symbol-link" href="#CurlCallbackInfo">CurlCallbackInfo</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>the kind of data that is passed to information_callback</p>
 
@@ -1032,15 +1032,15 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_infotype">&nbsp;</span><a class="symbol-link" href="#curl_infotype">curl_infotype</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_infotype">&nbsp;</span><a class="symbol-link" href="#curl_infotype">curl_infotype</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_debug_callback">&nbsp;</span><a class="symbol-link" href="#curl_debug_callback">curl_debug_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_debug_callback">&nbsp;</span><a class="symbol-link" href="#curl_debug_callback">curl_debug_callback</a> = int function(void* handle, int type, char* data, uint size, void* userptr);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlError">&nbsp;</span><a class="symbol-link" href="#CurlError">CurlError</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlError">&nbsp;</span><a class="symbol-link" href="#CurlError">CurlError</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>All possible error codes from all sorts of curl functions. Future versions
    may return other values, stay prepared.
@@ -1515,23 +1515,23 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLcode">&nbsp;</span><a class="symbol-link" href="#CURLcode">CURLcode</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLcode">&nbsp;</span><a class="symbol-link" href="#CURLcode">CURLcode</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_conv_callback">&nbsp;</span><a class="symbol-link" href="#curl_conv_callback">curl_conv_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_conv_callback">&nbsp;</span><a class="symbol-link" href="#curl_conv_callback">curl_conv_callback</a> = int function(char* buffer, uint length);
 </h3></div>
 <div class="declaration-content"><dl><p>This prototype applies to all conversion callbacks </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ssl_ctx_callback">&nbsp;</span><a class="symbol-link" href="#curl_ssl_ctx_callback">curl_ssl_ctx_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ssl_ctx_callback">&nbsp;</span><a class="symbol-link" href="#curl_ssl_ctx_callback">curl_ssl_ctx_callback</a> = int function(void* curl, void* ssl_ctx, void* userptr);
 </h3></div>
 <div class="declaration-content"><dl><p>actually an OpenSSL SSL_CTX </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlProxy">&nbsp;</span><a class="symbol-link" href="#CurlProxy">CurlProxy</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlProxy">&nbsp;</span><a class="symbol-link" href="#CurlProxy">CurlProxy</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="http">&nbsp;</span><a class="symbol-link" href="#http">http</a></h3></div>
@@ -1569,11 +1569,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_proxytype">&nbsp;</span><a class="symbol-link" href="#curl_proxytype">curl_proxytype</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_proxytype">&nbsp;</span><a class="symbol-link" href="#curl_proxytype">curl_proxytype</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlAuth">&nbsp;</span><a class="symbol-link" href="#CurlAuth">CurlAuth</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlAuth">&nbsp;</span><a class="symbol-link" href="#CurlAuth">CurlAuth</a>: long;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="basic">&nbsp;</span><a class="symbol-link" href="#basic">basic</a></h3></div>
@@ -1619,7 +1619,7 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSshAuth">&nbsp;</span><a class="symbol-link" href="#CurlSshAuth">CurlSshAuth</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSshAuth">&nbsp;</span><a class="symbol-link" href="#CurlSshAuth">CurlSshAuth</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="any">&nbsp;</span><a class="symbol-link" href="#any">any</a></h3></div>
@@ -1659,7 +1659,7 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHType">&nbsp;</span><a class="symbol-link" href="#CurlKHType">CurlKHType</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHType">&nbsp;</span><a class="symbol-link" href="#CurlKHType">CurlKHType</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>points to a zero-terminated string encoded with base64
    if len is zero, otherwise to the "raw" data </p>
@@ -1700,7 +1700,7 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHStat">&nbsp;</span><a class="symbol-link" href="#CurlKHStat">CurlKHStat</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHStat">&nbsp;</span><a class="symbol-link" href="#CurlKHStat">CurlKHStat</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>this is the set of return values expected from the curl_sshkeycallback
    callback </p>
@@ -1732,7 +1732,7 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHMatch">&nbsp;</span><a class="symbol-link" href="#CurlKHMatch">CurlKHMatch</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlKHMatch">&nbsp;</span><a class="symbol-link" href="#CurlKHMatch">CurlKHMatch</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>this is the set of status codes pass in to the callback </p>
 
@@ -1760,11 +1760,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_sshkeycallback">&nbsp;</span><a class="symbol-link" href="#curl_sshkeycallback">curl_sshkeycallback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_sshkeycallback">&nbsp;</span><a class="symbol-link" href="#curl_sshkeycallback">curl_sshkeycallback</a> = int function(void* easy, curl_khkey* knownkey, curl_khkey* foundkey, CurlKHMatch m, void* clientp);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlUseSSL">&nbsp;</span><a class="symbol-link" href="#CurlUseSSL">CurlUseSSL</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlUseSSL">&nbsp;</span><a class="symbol-link" href="#CurlUseSSL">CurlUseSSL</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>parameter for the CURLOPT_USE_SSL option </p>
 
@@ -1797,11 +1797,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_usessl">&nbsp;</span><a class="symbol-link" href="#curl_usessl">curl_usessl</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_usessl">&nbsp;</span><a class="symbol-link" href="#curl_usessl">curl_usessl</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpSSL">&nbsp;</span><a class="symbol-link" href="#CurlFtpSSL">CurlFtpSSL</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpSSL">&nbsp;</span><a class="symbol-link" href="#CurlFtpSSL">CurlFtpSSL</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>parameter for the CURLOPT_FTP_SSL_CCC option </p>
 
@@ -1829,11 +1829,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpccc">&nbsp;</span><a class="symbol-link" href="#curl_ftpccc">curl_ftpccc</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpccc">&nbsp;</span><a class="symbol-link" href="#curl_ftpccc">curl_ftpccc</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpAuth">&nbsp;</span><a class="symbol-link" href="#CurlFtpAuth">CurlFtpAuth</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpAuth">&nbsp;</span><a class="symbol-link" href="#CurlFtpAuth">CurlFtpAuth</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>parameter for the CURLOPT_FTPSSLAUTH option </p>
 
@@ -1861,11 +1861,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpauth">&nbsp;</span><a class="symbol-link" href="#curl_ftpauth">curl_ftpauth</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpauth">&nbsp;</span><a class="symbol-link" href="#curl_ftpauth">curl_ftpauth</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtp">&nbsp;</span><a class="symbol-link" href="#CurlFtp">CurlFtp</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtp">&nbsp;</span><a class="symbol-link" href="#CurlFtp">CurlFtp</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>parameter for the CURLOPT_FTP_CREATE_MISSING_DIRS option </p>
 
@@ -1895,11 +1895,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpcreatedir">&nbsp;</span><a class="symbol-link" href="#curl_ftpcreatedir">curl_ftpcreatedir</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpcreatedir">&nbsp;</span><a class="symbol-link" href="#curl_ftpcreatedir">curl_ftpcreatedir</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpMethod">&nbsp;</span><a class="symbol-link" href="#CurlFtpMethod">CurlFtpMethod</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFtpMethod">&nbsp;</span><a class="symbol-link" href="#CurlFtpMethod">CurlFtpMethod</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>parameter for the CURLOPT_FTP_FILEMETHOD option </p>
 
@@ -1932,11 +1932,11 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpmethod">&nbsp;</span><a class="symbol-link" href="#curl_ftpmethod">curl_ftpmethod</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_ftpmethod">&nbsp;</span><a class="symbol-link" href="#curl_ftpmethod">curl_ftpmethod</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlProto">&nbsp;</span><a class="symbol-link" href="#CurlProto">CurlProto</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlProto">&nbsp;</span><a class="symbol-link" href="#CurlProto">CurlProto</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>CURLPROTO_ defines are for the CURLOPT_*PROTOCOLS options </p>
 
@@ -2037,10 +2037,10 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="LONG">&nbsp;</span><a class="symbol-link" href="#LONG">LONG</a>;
-<br>alias <span class="symbol-target" id="OBJECTPOINT">&nbsp;</span><a class="symbol-link" href="#OBJECTPOINT">OBJECTPOINT</a>;
-<br>alias <span class="symbol-target" id="FUNCTIONPOINT">&nbsp;</span><a class="symbol-link" href="#FUNCTIONPOINT">FUNCTIONPOINT</a>;
-<br>alias <span class="symbol-target" id="OFF_T">&nbsp;</span><a class="symbol-link" href="#OFF_T">OFF_T</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="LONG">&nbsp;</span><a class="symbol-link" href="#LONG">LONG</a> = CURLOPTTYPE_LONG;
+<br>alias <span class="symbol-target" id="OBJECTPOINT">&nbsp;</span><a class="symbol-link" href="#OBJECTPOINT">OBJECTPOINT</a> = CURLOPTTYPE_OBJECTPOINT;
+<br>alias <span class="symbol-target" id="FUNCTIONPOINT">&nbsp;</span><a class="symbol-link" href="#FUNCTIONPOINT">FUNCTIONPOINT</a> = CURLOPTTYPE_FUNCTIONPOINT;
+<br>alias <span class="symbol-target" id="OFF_T">&nbsp;</span><a class="symbol-link" href="#OFF_T">OFF_T</a> = CURLOPTTYPE_OFF_T;
 </h3></div>
 <div class="declaration-content"><dl><p>name is uppercase CURLOPT_<name>,
    type is one of the defined CURLOPTTYPE_<type>
@@ -2049,7 +2049,7 @@ CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlOption">&nbsp;</span><a class="symbol-link" href="#CurlOption">CurlOption</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlOption">&nbsp;</span><a class="symbol-link" href="#CurlOption">CurlOption</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a></h3></div>
@@ -3098,7 +3098,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLoption">&nbsp;</span><a class="symbol-link" href="#CURLoption">CURLoption</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLoption">&nbsp;</span><a class="symbol-link" href="#CURLoption">CURLoption</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -3106,7 +3106,7 @@ send PRET before PASV </dd>
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIpResolve">&nbsp;</span><a class="symbol-link" href="#CurlIpResolve">CurlIpResolve</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlIpResolve">&nbsp;</span><a class="symbol-link" href="#CurlIpResolve">CurlIpResolve</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Below here follows defines for the CURLOPT_IPRESOLVE option. If a host
    name resolves addresses using more than one IP protocol version, this
@@ -3140,7 +3140,7 @@ send PRET before PASV </dd>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlHttpVersion">&nbsp;</span><a class="symbol-link" href="#CurlHttpVersion">CurlHttpVersion</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlHttpVersion">&nbsp;</span><a class="symbol-link" href="#CurlHttpVersion">CurlHttpVersion</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>These enums are for use with the CURLOPT_HTTP_VERSION option. </p>
 
@@ -3170,7 +3170,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlRtspReq">&nbsp;</span><a class="symbol-link" href="#CurlRtspReq">CurlRtspReq</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlRtspReq">&nbsp;</span><a class="symbol-link" href="#CurlRtspReq">CurlRtspReq</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Public API enums for RTSP requests</p>
 
@@ -3217,7 +3217,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlNetRcOption">&nbsp;</span><a class="symbol-link" href="#CurlNetRcOption">CurlNetRcOption</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlNetRcOption">&nbsp;</span><a class="symbol-link" href="#CurlNetRcOption">CurlNetRcOption</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>These enums are for use with the CURLOPT_NETRC option. </p>
 
@@ -3245,7 +3245,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSslVersion">&nbsp;</span><a class="symbol-link" href="#CurlSslVersion">CurlSslVersion</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlSslVersion">&nbsp;</span><a class="symbol-link" href="#CurlSslVersion">CurlSslVersion</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="default_version">&nbsp;</span><a class="symbol-link" href="#default_version">default_version</a></h3></div>
@@ -3268,7 +3268,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlTlsAuth">&nbsp;</span><a class="symbol-link" href="#CurlTlsAuth">CurlTlsAuth</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlTlsAuth">&nbsp;</span><a class="symbol-link" href="#CurlTlsAuth">CurlTlsAuth</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
@@ -3285,7 +3285,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlRedir">&nbsp;</span><a class="symbol-link" href="#CurlRedir">CurlRedir</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlRedir">&nbsp;</span><a class="symbol-link" href="#CurlRedir">CurlRedir</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>symbols to use with CURLOPT_POSTREDIR.
    CURL_REDIR_POST_301 and CURL_REDIR_POST_302 can be bitwise ORed so that
@@ -3307,7 +3307,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlTimeCond">&nbsp;</span><a class="symbol-link" href="#CurlTimeCond">CurlTimeCond</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlTimeCond">&nbsp;</span><a class="symbol-link" href="#CurlTimeCond">CurlTimeCond</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
@@ -3328,7 +3328,7 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_TimeCond">&nbsp;</span><a class="symbol-link" href="#curl_TimeCond">curl_TimeCond</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_TimeCond">&nbsp;</span><a class="symbol-link" href="#curl_TimeCond">curl_TimeCond</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -3362,7 +3362,7 @@ send PRET before PASV </dd>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFormAdd">&nbsp;</span><a class="symbol-link" href="#CurlFormAdd">CurlFormAdd</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlFormAdd">&nbsp;</span><a class="symbol-link" href="#CurlFormAdd">CurlFormAdd</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>use this for multipart formpost building 
  Returns code for curl_formadd()
@@ -3413,11 +3413,11 @@ send PRET before PASV </dd>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLFORMcode">&nbsp;</span><a class="symbol-link" href="#CURLFORMcode">CURLFORMcode</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLFORMcode">&nbsp;</span><a class="symbol-link" href="#CURLFORMcode">CURLFORMcode</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLFORMcode <span class="symbol-target" id="curl_formadd">&nbsp;</span><a class="symbol-link" href="#curl_formadd">curl_formadd</a>(curl_httppost** <i>httppost</i>, curl_httppost** <i>last_post</i>,...);
+<hr><div class="row-fluid declaration"><h3>CURLFORMcode <span class="symbol-target" id="curl_formadd">&nbsp;</span><a class="symbol-link" href="#curl_formadd">curl_formadd</a>(curl_httppost** <i>httppost</i>, curl_httppost** <i>last_post</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_formadd">&nbsp;</span><a class="symbol-link" href="#curl_formadd">curl_formadd</a>()
@@ -3429,7 +3429,7 @@ Pretty advanced function for building multi-part formposts. Each invoke
  CURLOPT_HTTPPOST to send it off to libcurl.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_formget_callback">&nbsp;</span><a class="symbol-link" href="#curl_formget_callback">curl_formget_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_formget_callback">&nbsp;</span><a class="symbol-link" href="#curl_formget_callback">curl_formget_callback</a> = extern (C) uint function(void* arg, char* buf, uint len);
 </h3></div>
 <div class="declaration-content"><dl><p>callback function for curl_formget()
  The void *arg pointer will be the one passed as second argument to
@@ -3484,7 +3484,7 @@ Returns a malloc()'ed string that MUST be curl_free()ed after usage is
 Returns a static ascii string of the libcurl version.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="curl_easy_escape">&nbsp;</span><a class="symbol-link" href="#curl_easy_escape">curl_easy_escape</a>(void* <i>handle</i>, char* <i>string</i>, int <i>length</i>);
+<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="curl_easy_escape">&nbsp;</span><a class="symbol-link" href="#curl_easy_escape">curl_easy_escape</a>(CURL* <i>handle</i>, char* <i>string</i>, int <i>length</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_escape">&nbsp;</span><a class="symbol-link" href="#curl_easy_escape">curl_easy_escape</a>()
@@ -3502,7 +3502,7 @@ Escapes URL strings (converts all letters consider illegal in URLs to their
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="curl_easy_unescape">&nbsp;</span><a class="symbol-link" href="#curl_easy_unescape">curl_easy_unescape</a>(void* <i>handle</i>, char* <i>string</i>, int <i>length</i>, int* <i>outlength</i>);
+<hr><div class="row-fluid declaration"><h3>char* <span class="symbol-target" id="curl_easy_unescape">&nbsp;</span><a class="symbol-link" href="#curl_easy_unescape">curl_easy_unescape</a>(CURL* <i>handle</i>, char* <i>string</i>, int <i>length</i>, int* <i>outlength</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_unescape">&nbsp;</span><a class="symbol-link" href="#curl_easy_unescape">curl_easy_unescape</a>()
@@ -3605,7 +3605,7 @@ free a previously built curl_slist.
  linked-list structure for the CURLOPT_QUOTE option (and other) </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>time_t <span class="symbol-target" id="curl_getdate">&nbsp;</span><a class="symbol-link" href="#curl_getdate">curl_getdate</a>(char* <i>p</i>, int* <i>unused</i>);
+<hr><div class="row-fluid declaration"><h3>time_t <span class="symbol-target" id="curl_getdate">&nbsp;</span><a class="symbol-link" href="#curl_getdate">curl_getdate</a>(char* <i>p</i>, time_t* <i>unused</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_getdate">&nbsp;</span><a class="symbol-link" href="#curl_getdate">curl_getdate</a>()
@@ -3666,7 +3666,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlInfo">&nbsp;</span><a class="symbol-link" href="#CurlInfo">CurlInfo</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlInfo">&nbsp;</span><a class="symbol-link" href="#CurlInfo">CurlInfo</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
@@ -3806,7 +3806,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLINFO">&nbsp;</span><a class="symbol-link" href="#CURLINFO">CURLINFO</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLINFO">&nbsp;</span><a class="symbol-link" href="#CURLINFO">CURLINFO</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -3817,7 +3817,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlClosePolicy">&nbsp;</span><a class="symbol-link" href="#CurlClosePolicy">CurlClosePolicy</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlClosePolicy">&nbsp;</span><a class="symbol-link" href="#CurlClosePolicy">CurlClosePolicy</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
@@ -3844,11 +3844,11 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_closepolicy">&nbsp;</span><a class="symbol-link" href="#curl_closepolicy">curl_closepolicy</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_closepolicy">&nbsp;</span><a class="symbol-link" href="#curl_closepolicy">curl_closepolicy</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlGlobal">&nbsp;</span><a class="symbol-link" href="#CurlGlobal">CurlGlobal</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlGlobal">&nbsp;</span><a class="symbol-link" href="#CurlGlobal">CurlGlobal</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ssl">&nbsp;</span><a class="symbol-link" href="#ssl">ssl</a></h3></div>
@@ -3871,7 +3871,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlLockData">&nbsp;</span><a class="symbol-link" href="#CurlLockData">CurlLockData</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlLockData">&nbsp;</span><a class="symbol-link" href="#CurlLockData">CurlLockData</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Setup defines, protos etc for the sharing stuff.
  
@@ -3906,11 +3906,11 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_data">&nbsp;</span><a class="symbol-link" href="#curl_lock_data">curl_lock_data</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_data">&nbsp;</span><a class="symbol-link" href="#curl_lock_data">curl_lock_data</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlLockAccess">&nbsp;</span><a class="symbol-link" href="#CurlLockAccess">CurlLockAccess</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlLockAccess">&nbsp;</span><a class="symbol-link" href="#CurlLockAccess">CurlLockAccess</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Different lock access types </p>
 
@@ -3938,23 +3938,23 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_access">&nbsp;</span><a class="symbol-link" href="#curl_lock_access">curl_lock_access</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_access">&nbsp;</span><a class="symbol-link" href="#curl_lock_access">curl_lock_access</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_function">&nbsp;</span><a class="symbol-link" href="#curl_lock_function">curl_lock_function</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_lock_function">&nbsp;</span><a class="symbol-link" href="#curl_lock_function">curl_lock_function</a> = void function(void* handle, int data, int locktype, void* userptr);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_unlock_function">&nbsp;</span><a class="symbol-link" href="#curl_unlock_function">curl_unlock_function</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_unlock_function">&nbsp;</span><a class="symbol-link" href="#curl_unlock_function">curl_unlock_function</a> = void function(void* handle, int data, void* userptr);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSH">&nbsp;</span><a class="symbol-link" href="#CURLSH">CURLSH</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSH">&nbsp;</span><a class="symbol-link" href="#CURLSH">CURLSH</a> = void;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlShError">&nbsp;</span><a class="symbol-link" href="#CurlShError">CurlShError</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlShError">&nbsp;</span><a class="symbol-link" href="#CurlShError">CurlShError</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ok">&nbsp;</span><a class="symbol-link" href="#ok">ok</a></h3></div>
@@ -3990,11 +3990,11 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSHcode">&nbsp;</span><a class="symbol-link" href="#CURLSHcode">CURLSHcode</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSHcode">&nbsp;</span><a class="symbol-link" href="#CURLSHcode">CURLSHcode</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlShOption">&nbsp;</span><a class="symbol-link" href="#CurlShOption">CurlShOption</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlShOption">&nbsp;</span><a class="symbol-link" href="#CurlShOption">CurlShOption</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>pass in a user data pointer used in the lock/unlock callback
    functions </p>
@@ -4039,23 +4039,23 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSHoption">&nbsp;</span><a class="symbol-link" href="#CURLSHoption">CURLSHoption</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLSHoption">&nbsp;</span><a class="symbol-link" href="#CURLSHoption">CURLSHoption</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="curl_share_init">&nbsp;</span><a class="symbol-link" href="#curl_share_init">curl_share_init</a>();
+<hr><div class="row-fluid declaration"><h3>CURLSH* <span class="symbol-target" id="curl_share_init">&nbsp;</span><a class="symbol-link" href="#curl_share_init">curl_share_init</a>();
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLSHcode <span class="symbol-target" id="curl_share_setopt">&nbsp;</span><a class="symbol-link" href="#curl_share_setopt">curl_share_setopt</a>(void*, CURLSHoption <i>option</i>,...);
+<hr><div class="row-fluid declaration"><h3>CURLSHcode <span class="symbol-target" id="curl_share_setopt">&nbsp;</span><a class="symbol-link" href="#curl_share_setopt">curl_share_setopt</a>(CURLSH*, CURLSHoption <i>option</i>, ...);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLSHcode <span class="symbol-target" id="curl_share_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_share_cleanup">curl_share_cleanup</a>(void*);
+<hr><div class="row-fluid declaration"><h3>CURLSHcode <span class="symbol-target" id="curl_share_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_share_cleanup">curl_share_cleanup</a>(CURLSH*);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlVer">&nbsp;</span><a class="symbol-link" href="#CurlVer">CurlVer</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlVer">&nbsp;</span><a class="symbol-link" href="#CurlVer">CurlVer</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Structures for querying information about the curl library at runtime.</p>
 
@@ -4078,7 +4078,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLversion">&nbsp;</span><a class="symbol-link" href="#CURLversion">CURLversion</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLversion">&nbsp;</span><a class="symbol-link" href="#CURLversion">CURLversion</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -4176,11 +4176,11 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_version_info_data">&nbsp;</span><a class="symbol-link" href="#curl_version_info_data">curl_version_info_data</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_version_info_data">&nbsp;</span><a class="symbol-link" href="#curl_version_info_data">curl_version_info_data</a> = _N28;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlVersion">&nbsp;</span><a class="symbol-link" href="#CurlVersion">CurlVersion</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlVersion">&nbsp;</span><a class="symbol-link" href="#CurlVersion">CurlVersion</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="ipv6">&nbsp;</span><a class="symbol-link" href="#ipv6">ipv6</a></h3></div>
@@ -4261,7 +4261,7 @@ Returns the time, in seconds since 1 Jan 1970 of the time string given in
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>_N28* <span class="symbol-target" id="curl_version_info">&nbsp;</span><a class="symbol-link" href="#curl_version_info">curl_version_info</a>(CURLversion);
+<hr><div class="row-fluid declaration"><h3>curl_version_info_data* <span class="symbol-target" id="curl_version_info">&nbsp;</span><a class="symbol-link" href="#curl_version_info">curl_version_info</a>(CURLversion);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_version_info">&nbsp;</span><a class="symbol-link" href="#curl_version_info">curl_version_info</a>()
@@ -4296,7 +4296,7 @@ The <span class="symbol-target" id="curl_share_strerror">&nbsp;</span><a class="
  for printing meaningful error messages.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_pause">&nbsp;</span><a class="symbol-link" href="#curl_easy_pause">curl_easy_pause</a>(void* <i>handle</i>, int <i>bitmask</i>);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_pause">&nbsp;</span><a class="symbol-link" href="#curl_easy_pause">curl_easy_pause</a>(CURL* <i>handle</i>, int <i>bitmask</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_pause">&nbsp;</span><a class="symbol-link" href="#curl_easy_pause">curl_easy_pause</a>()
@@ -4307,7 +4307,7 @@ The <span class="symbol-target" id="curl_easy_pause">&nbsp;</span><a class="symb
  state by setting the <i>bitmask</i>, use the convenience defines below.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlPause">&nbsp;</span><a class="symbol-link" href="#CurlPause">CurlPause</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlPause">&nbsp;</span><a class="symbol-link" href="#CurlPause">CurlPause</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="recv">&nbsp;</span><a class="symbol-link" href="#recv">recv</a></h3></div>
@@ -4331,23 +4331,23 @@ The <span class="symbol-target" id="curl_easy_pause">&nbsp;</span><a class="symb
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="curl_easy_init">&nbsp;</span><a class="symbol-link" href="#curl_easy_init">curl_easy_init</a>();
+<hr><div class="row-fluid declaration"><h3>CURL* <span class="symbol-target" id="curl_easy_init">&nbsp;</span><a class="symbol-link" href="#curl_easy_init">curl_easy_init</a>();
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_setopt">&nbsp;</span><a class="symbol-link" href="#curl_easy_setopt">curl_easy_setopt</a>(void* <i>curl</i>, CURLoption <i>option</i>,...);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_setopt">&nbsp;</span><a class="symbol-link" href="#curl_easy_setopt">curl_easy_setopt</a>(CURL* <i>curl</i>, CURLoption <i>option</i>, ...);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_perform">&nbsp;</span><a class="symbol-link" href="#curl_easy_perform">curl_easy_perform</a>(void* <i>curl</i>);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_perform">&nbsp;</span><a class="symbol-link" href="#curl_easy_perform">curl_easy_perform</a>(CURL* <i>curl</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="curl_easy_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_easy_cleanup">curl_easy_cleanup</a>(void* <i>curl</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="curl_easy_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_easy_cleanup">curl_easy_cleanup</a>(CURL* <i>curl</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_getinfo">&nbsp;</span><a class="symbol-link" href="#curl_easy_getinfo">curl_easy_getinfo</a>(void* <i>curl</i>, CURLINFO <i>info</i>,...);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_getinfo">&nbsp;</span><a class="symbol-link" href="#curl_easy_getinfo">curl_easy_getinfo</a>(CURL* <i>curl</i>, CURLINFO <i>info</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_getinfo">&nbsp;</span><a class="symbol-link" href="#curl_easy_getinfo">curl_easy_getinfo</a>()
@@ -4363,7 +4363,7 @@ Request internal information from the <i>curl</i> session with this function.  T
  transfer is completed.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="curl_easy_duphandle">&nbsp;</span><a class="symbol-link" href="#curl_easy_duphandle">curl_easy_duphandle</a>(void* <i>curl</i>);
+<hr><div class="row-fluid declaration"><h3>CURL* <span class="symbol-target" id="curl_easy_duphandle">&nbsp;</span><a class="symbol-link" href="#curl_easy_duphandle">curl_easy_duphandle</a>(CURL* <i>curl</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_duphandle">&nbsp;</span><a class="symbol-link" href="#curl_easy_duphandle">curl_easy_duphandle</a>()
@@ -4378,7 +4378,7 @@ Creates a new <i>curl</i> session handle with the same options set for the handl
  curl_easy_setopt() invokes in every thread.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="curl_easy_reset">&nbsp;</span><a class="symbol-link" href="#curl_easy_reset">curl_easy_reset</a>(void* <i>curl</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="curl_easy_reset">&nbsp;</span><a class="symbol-link" href="#curl_easy_reset">curl_easy_reset</a>(CURL* <i>curl</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_reset">&nbsp;</span><a class="symbol-link" href="#curl_easy_reset">curl_easy_reset</a>()
@@ -4393,7 +4393,7 @@ Re-initializes a CURL handle to the default values. This puts back the
  cookies.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_recv">&nbsp;</span><a class="symbol-link" href="#curl_easy_recv">curl_easy_recv</a>(void* <i>curl</i>, void* <i>buffer</i>, size_t <i>buflen</i>, uint* <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_recv">&nbsp;</span><a class="symbol-link" href="#curl_easy_recv">curl_easy_recv</a>(CURL* <i>curl</i>, void* <i>buffer</i>, size_t <i>buflen</i>, size_t* <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_recv">&nbsp;</span><a class="symbol-link" href="#curl_easy_recv">curl_easy_recv</a>()
@@ -4404,7 +4404,7 @@ Receives data from the connected socket. Use after successful
  curl_easy_perform() with CURLOPT_CONNECT_ONLY option.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_send">&nbsp;</span><a class="symbol-link" href="#curl_easy_send">curl_easy_send</a>(void* <i>curl</i>, void* <i>buffer</i>, size_t <i>buflen</i>, uint* <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>CURLcode <span class="symbol-target" id="curl_easy_send">&nbsp;</span><a class="symbol-link" href="#curl_easy_send">curl_easy_send</a>(CURL* <i>curl</i>, void* <i>buffer</i>, size_t <i>buflen</i>, size_t* <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_easy_send">&nbsp;</span><a class="symbol-link" href="#curl_easy_send">curl_easy_send</a>()
@@ -4415,11 +4415,11 @@ Sends data over the connected socket. Use after successful
  curl_easy_perform() with CURLOPT_CONNECT_ONLY option.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLM">&nbsp;</span><a class="symbol-link" href="#CURLM">CURLM</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLM">&nbsp;</span><a class="symbol-link" href="#CURLM">CURLM</a> = void;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlM">&nbsp;</span><a class="symbol-link" href="#CurlM">CurlM</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlM">&nbsp;</span><a class="symbol-link" href="#CurlM">CurlM</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="call_multi_perform">&nbsp;</span><a class="symbol-link" href="#call_multi_perform">call_multi_perform</a></h3></div>
@@ -4466,7 +4466,7 @@ Sends data over the connected socket. Use after successful
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMcode">&nbsp;</span><a class="symbol-link" href="#CURLMcode">CURLMcode</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMcode">&nbsp;</span><a class="symbol-link" href="#CURLMcode">CURLMcode</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -4478,7 +4478,7 @@ Sends data over the connected socket. Use after successful
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlMsg">&nbsp;</span><a class="symbol-link" href="#CurlMsg">CurlMsg</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlMsg">&nbsp;</span><a class="symbol-link" href="#CurlMsg">CurlMsg</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a></h3></div>
@@ -4498,7 +4498,7 @@ Sends data over the connected socket. Use after successful
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMSG">&nbsp;</span><a class="symbol-link" href="#CURLMSG">CURLMSG</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMSG">&nbsp;</span><a class="symbol-link" href="#CURLMSG">CURLMSG</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
@@ -4528,7 +4528,7 @@ Sends data over the connected socket. Use after successful
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="easy_handle">&nbsp;</span><a class="symbol-link" href="#easy_handle">easy_handle</a>;
+<hr><div class="row-fluid declaration"><h3>CURL* <span class="symbol-target" id="easy_handle">&nbsp;</span><a class="symbol-link" href="#easy_handle">easy_handle</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>the handle it concerns </p>
 
@@ -4540,7 +4540,7 @@ Sends data over the connected socket. Use after successful
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>void* <span class="symbol-target" id="curl_multi_init">&nbsp;</span><a class="symbol-link" href="#curl_multi_init">curl_multi_init</a>();
+<hr><div class="row-fluid declaration"><h3>CURLM* <span class="symbol-target" id="curl_multi_init">&nbsp;</span><a class="symbol-link" href="#curl_multi_init">curl_multi_init</a>();
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_init">&nbsp;</span><a class="symbol-link" href="#curl_multi_init">curl_multi_init</a>()
@@ -4553,7 +4553,7 @@ inititalize multi-style curl usage
 <dt>Returns</dt><dd>a new CURLM handle to use in all 'curl_multi' functions.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_add_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_add_handle">curl_multi_add_handle</a>(void* <i>multi_handle</i>, void* <i>curl_handle</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_add_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_add_handle">curl_multi_add_handle</a>(CURLM* <i>multi_handle</i>, CURL* <i>curl_handle</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_add_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_add_handle">curl_multi_add_handle</a>()
@@ -4566,7 +4566,7 @@ add a standard curl handle to the multi stack
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_remove_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_remove_handle">curl_multi_remove_handle</a>(void* <i>multi_handle</i>, void* <i>curl_handle</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_remove_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_remove_handle">curl_multi_remove_handle</a>(CURLM* <i>multi_handle</i>, CURL* <i>curl_handle</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_remove_handle">&nbsp;</span><a class="symbol-link" href="#curl_multi_remove_handle">curl_multi_remove_handle</a>()
@@ -4579,7 +4579,7 @@ removes a curl handle from the multi stack again
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="fd_set">&nbsp;</span><a class="symbol-link" href="#fd_set">fd_set</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="fd_set">&nbsp;</span><a class="symbol-link" href="#fd_set">fd_set</a> = int;
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 curl_multi_fdset()
@@ -4596,11 +4596,11 @@ Ask curl for its <span class="symbol-target" id="fd_set">&nbsp;</span><a class="
  tmp decl </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_fdset">&nbsp;</span><a class="symbol-link" href="#curl_multi_fdset">curl_multi_fdset</a>(void* <i>multi_handle</i>, int* <i>read_fd_set</i>, int* <i>write_fd_set</i>, int* <i>exc_fd_set</i>, int* <i>max_fd</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_fdset">&nbsp;</span><a class="symbol-link" href="#curl_multi_fdset">curl_multi_fdset</a>(CURLM* <i>multi_handle</i>, fd_set* <i>read_fd_set</i>, fd_set* <i>write_fd_set</i>, fd_set* <i>exc_fd_set</i>, int* <i>max_fd</i>);
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_perform">&nbsp;</span><a class="symbol-link" href="#curl_multi_perform">curl_multi_perform</a>(void* <i>multi_handle</i>, int* <i>running_handles</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_perform">&nbsp;</span><a class="symbol-link" href="#curl_multi_perform">curl_multi_perform</a>(CURLM* <i>multi_handle</i>, int* <i>running_handles</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_perform">&nbsp;</span><a class="symbol-link" href="#curl_multi_perform">curl_multi_perform</a>()
@@ -4622,7 +4622,7 @@ When the app thinks there's data available for curl it calls this
           returns OK.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_multi_cleanup">curl_multi_cleanup</a>(void* <i>multi_handle</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_multi_cleanup">curl_multi_cleanup</a>(CURLM* <i>multi_handle</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_cleanup">&nbsp;</span><a class="symbol-link" href="#curl_multi_cleanup">curl_multi_cleanup</a>()
@@ -4638,7 +4638,7 @@ Cleans up and removes a whole multi stack. It does not free or
 <dt>Returns</dt><dd>CURLMcode type, general multi error code.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMsg* <span class="symbol-target" id="curl_multi_info_read">&nbsp;</span><a class="symbol-link" href="#curl_multi_info_read">curl_multi_info_read</a>(void* <i>multi_handle</i>, int* <i>msgs_in_queue</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMsg* <span class="symbol-target" id="curl_multi_info_read">&nbsp;</span><a class="symbol-link" href="#curl_multi_info_read">curl_multi_info_read</a>(CURLM* <i>multi_handle</i>, int* <i>msgs_in_queue</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_info_read">&nbsp;</span><a class="symbol-link" href="#curl_multi_info_read">curl_multi_info_read</a>()
@@ -4690,7 +4690,7 @@ The <span class="symbol-target" id="curl_multi_strerror">&nbsp;</span><a class="
 <dt>Returns</dt><dd>A pointer to a zero-terminated error message.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlPoll">&nbsp;</span><a class="symbol-link" href="#CurlPoll">CurlPoll</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlPoll">&nbsp;</span><a class="symbol-link" href="#CurlPoll">CurlPoll</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 curl_multi_socket() and
@@ -4723,11 +4723,11 @@ An alternative version of curl_multi_perform() that allows the
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURL_SOCKET_TIMEOUT">&nbsp;</span><a class="symbol-link" href="#CURL_SOCKET_TIMEOUT">CURL_SOCKET_TIMEOUT</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURL_SOCKET_TIMEOUT">&nbsp;</span><a class="symbol-link" href="#CURL_SOCKET_TIMEOUT">CURL_SOCKET_TIMEOUT</a> = CURL_SOCKET_BAD;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlCSelect">&nbsp;</span><a class="symbol-link" href="#CurlCSelect">CurlCSelect</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlCSelect">&nbsp;</span><a class="symbol-link" href="#CurlCSelect">CurlCSelect</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="in_">&nbsp;</span><a class="symbol-link" href="#in_">in_</a></h3></div>
@@ -4744,13 +4744,13 @@ An alternative version of curl_multi_perform() that allows the
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_socket_callback">&nbsp;</span><a class="symbol-link" href="#curl_socket_callback">curl_socket_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_socket_callback">&nbsp;</span><a class="symbol-link" href="#curl_socket_callback">curl_socket_callback</a> = extern (C) int function(void* easy, socket_t s, int what, void* userp, void* socketp);
 </h3></div>
 <div class="declaration-content"><dl><p>private socket pointer </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_multi_timer_callback">&nbsp;</span><a class="symbol-link" href="#curl_multi_timer_callback">curl_multi_timer_callback</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="curl_multi_timer_callback">&nbsp;</span><a class="symbol-link" href="#curl_multi_timer_callback">curl_multi_timer_callback</a> = extern (C) int function(void* multi, int timeout_ms, void* userp);
 </h3></div>
 <div class="declaration-content"><dl><p>private callback pointer 
 </p>
@@ -4771,7 +4771,7 @@ Called by libcurl whenever the library detects a change in the
  private callback pointer </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket">curl_multi_socket</a>(void* <i>multi_handle</i>, curl_socket_t <i>s</i>, int* <i>running_handles</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket">curl_multi_socket</a>(CURLM* <i>multi_handle</i>, curl_socket_t <i>s</i>, int* <i>running_handles</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>ditto
 </p>
@@ -4792,7 +4792,7 @@ Called by libcurl whenever the library detects a change in the
  private callback pointer </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket_action">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket_action">curl_multi_socket_action</a>(void* <i>multi_handle</i>, curl_socket_t <i>s</i>, int <i>ev_bitmask</i>, int* <i>running_handles</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket_action">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket_action">curl_multi_socket_action</a>(CURLM* <i>multi_handle</i>, curl_socket_t <i>s</i>, int <i>ev_bitmask</i>, int* <i>running_handles</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>ditto
 </p>
@@ -4813,7 +4813,7 @@ Called by libcurl whenever the library detects a change in the
  private callback pointer </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket_all">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket_all">curl_multi_socket_all</a>(void* <i>multi_handle</i>, int* <i>running_handles</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_socket_all">&nbsp;</span><a class="symbol-link" href="#curl_multi_socket_all">curl_multi_socket_all</a>(CURLM* <i>multi_handle</i>, int* <i>running_handles</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>ditto
 </p>
@@ -4834,7 +4834,7 @@ Called by libcurl whenever the library detects a change in the
  private callback pointer </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_timeout">&nbsp;</span><a class="symbol-link" href="#curl_multi_timeout">curl_multi_timeout</a>(void* <i>multi_handle</i>, int* <i>milliseconds</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_timeout">&nbsp;</span><a class="symbol-link" href="#curl_multi_timeout">curl_multi_timeout</a>(CURLM* <i>multi_handle</i>, c_long* <i>milliseconds</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>This macro below was added in 7.16.3 to push users who recompile to use
    the new curl_multi_socket_action() instead of the old curl_multi_socket()
@@ -4853,7 +4853,7 @@ Returns the maximum number of <i>milliseconds</i> the app is allowed to
 <dt>Returns</dt><dd>CURLM error code.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlMOption">&nbsp;</span><a class="symbol-link" href="#CurlMOption">CurlMOption</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CurlMOption">&nbsp;</span><a class="symbol-link" href="#CurlMOption">CurlMOption</a>: int;
 </h3></div>
 <div class="declaration-content"><br><br>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="socketfunction">&nbsp;</span><a class="symbol-link" href="#socketfunction">socketfunction</a></h3></div>
@@ -4892,11 +4892,11 @@ Returns the maximum number of <i>milliseconds</i> the app is allowed to
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMoption">&nbsp;</span><a class="symbol-link" href="#CURLMoption">CURLMoption</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="CURLMoption">&nbsp;</span><a class="symbol-link" href="#CURLMoption">CURLMoption</a> = int;
 </h3></div>
 <div class="declaration-content"><br><br>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_setopt">&nbsp;</span><a class="symbol-link" href="#curl_multi_setopt">curl_multi_setopt</a>(void* <i>multi_handle</i>, CURLMoption <i>option</i>,...);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_setopt">&nbsp;</span><a class="symbol-link" href="#curl_multi_setopt">curl_multi_setopt</a>(CURLM* <i>multi_handle</i>, CURLMoption <i>option</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_setopt">&nbsp;</span><a class="symbol-link" href="#curl_multi_setopt">curl_multi_setopt</a>()
@@ -4909,7 +4909,7 @@ Sets options for the multi handle.
 <dt>Returns</dt><dd>CURLM error code.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_assign">&nbsp;</span><a class="symbol-link" href="#curl_multi_assign">curl_multi_assign</a>(void* <i>multi_handle</i>, curl_socket_t <i>sockfd</i>, void* <i>sockp</i>);
+<hr><div class="row-fluid declaration"><h3>CURLMcode <span class="symbol-target" id="curl_multi_assign">&nbsp;</span><a class="symbol-link" href="#curl_multi_assign">curl_multi_assign</a>(CURLM* <i>multi_handle</i>, curl_socket_t <i>sockfd</i>, void* <i>sockp</i>);
 </h3></div>
 <div class="declaration-content"><dl><dt>Name:</dt><dd>
 <span class="symbol-target" id="curl_multi_assign">&nbsp;</span><a class="symbol-link" href="#curl_multi_assign">curl_multi_assign</a>()

@@ -296,13 +296,10 @@
 The semantics and names of feqrel and approxEqual will be revised.
 
 </dd>
-<dt>Source:</dt><dd>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/math.d">std/math.d</a>
-</dd>
 <dt>License</dt><dd><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
 </dd>
 <dt>Authors</dt><dd><a href="http://digitalmars.com">Walter Bright</a>,
-                        Don Clugston
+                        Don Clugston, Conversion of CEPHES <span class="symbol-target" id="math">&nbsp;</span><a class="symbol-link" href="#math">math</a> library to D by Iain Buclaw
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/math.d">std/math.d</a></dd>
@@ -397,8 +394,8 @@ The semantics and names of feqrel and approxEqual will be revised.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe Num <span class="symbol-target" id="abs">&nbsp;</span><a class="symbol-link" href="#abs">abs</a>(Num)(Num <i>x</i>);
-<br>pure nothrow @safe real <span class="symbol-target" id="abs">&nbsp;</span><a class="symbol-link" href="#abs">abs</a>(Num)(Num <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe Num <span class="symbol-target" id="abs">&nbsp;</span><a class="symbol-link" href="#abs">abs</a>(Num)(Num <i>x</i>) if (is(typeof(Num.init &gt;= 0)) &amp;&amp; is(typeof(-Num.init)) &amp;&amp; !(is(Num* : const(ifloat*)) || is(Num* : const(idouble*)) || is(Num* : const(ireal*))));
+<br>pure nothrow @safe real <span class="symbol-target" id="abs">&nbsp;</span><a class="symbol-link" href="#abs">abs</a>(Num)(Num <i>y</i>) if (is(Num* : const(ifloat*)) || is(Num* : const(idouble*)) || is(Num* : const(ireal*)));
 </h3></div>
 <div class="declaration-content"><dl><p>Calculates the absolute value
 </p>
@@ -636,12 +633,13 @@ The semantics and names of feqrel and approxEqual will be revised.
 <div class="declaration-content"><dl><p>Calculates the inverse hyperbolic sine of <i>x</i>.
 </p>
 
-<p>Mathematically,
-<pre class="d_code">  <u>asinh</u>(<b>x</b>) =  log( <b>x</b> + sqrt( <b>x</b>*<b>x</b> + 1 )) <span class="d_comment">// if x &gt;= +0
+<p> Mathematically,
+<pre class="d_code"><u>asinh</u>(<b>x</b>) =  log( <b>x</b> + sqrt( <b>x</b>*<b>x</b> + 1 )) <span class="d_comment">// if x &gt;= +0
 </span>
-  <u>asinh</u>(<b>x</b>) = -log(-<b>x</b> + sqrt( <b>x</b>*<b>x</b> + 1 )) <span class="d_comment">// if x &lt;= -0
+<u>asinh</u>(<b>x</b>) = -log(-<b>x</b> + sqrt( <b>x</b>*<b>x</b> + 1 )) <span class="d_comment">// if x &lt;= -0
 </span>
 </pre>
+<br><br>
 
     <table border=1 cellpadding=4 cellspacing=0>
               <caption>Special Values</caption>
@@ -1004,14 +1002,14 @@ frexp</dd>
   </table></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow @trusted real <span class="symbol-target" id="ceil">&nbsp;</span><a class="symbol-link" href="#ceil">ceil</a>(real <i>x</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted real <span class="symbol-target" id="ceil">&nbsp;</span><a class="symbol-link" href="#ceil">ceil</a>(real <i>x</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the value of <i>x</i> rounded upward to the next integer
  (toward positive infinity).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow @trusted real <span class="symbol-target" id="floor">&nbsp;</span><a class="symbol-link" href="#floor">floor</a>(real <i>x</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted real <span class="symbol-target" id="floor">&nbsp;</span><a class="symbol-link" href="#floor">floor</a>(real <i>x</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the value of <i>x</i> rounded downward to the next integer
  (toward negative infinity).</p>
@@ -1121,29 +1119,29 @@ remquo not supported on windows</dd>
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code">    <span class="d_keyword">real</span> a=3.5;
-    <span class="d_comment">// Set all the flags to zero
+<pre class="d_code">   <span class="d_keyword">real</span> a=3.5;
+   <span class="d_comment">// Set all the flags to zero
 </span>
-    resetIeeeFlags();
-    <span class="d_keyword">assert</span>(!ieeeFlags.divByZero);
-    <span class="d_comment">// Perform a division by zero.
+   resetIeeeFlags();
+   <span class="d_keyword">assert</span>(!ieeeFlags.divByZero);
+   <span class="d_comment">// Perform a division by zero.
 </span>
-    a/=0.0L;
-    <span class="d_keyword">assert</span>(a==<span class="d_keyword">real</span>.infinity);
-    <span class="d_keyword">assert</span>(ieeeFlags.divByZero);
-    <span class="d_comment">// Create a NaN
+   a/=0.0L;
+   <span class="d_keyword">assert</span>(a==<span class="d_keyword">real</span>.infinity);
+   <span class="d_keyword">assert</span>(ieeeFlags.divByZero);
+   <span class="d_comment">// Create a NaN
 </span>
-    a*=0.0L;
-    <span class="d_keyword">assert</span>(ieeeFlags.invalid);
-    <span class="d_keyword">assert</span>(isNaN(a));
+   a*=0.0L;
+   <span class="d_keyword">assert</span>(ieeeFlags.invalid);
+   <span class="d_keyword">assert</span>(isNaN(a));
 
-    <span class="d_comment">// Check that calling func() has no effect on the
+   <span class="d_comment">// Check that calling func() has no effect on the
 </span>
-    <span class="d_comment">// status flags.
+   <span class="d_comment">// status flags.
 </span>
-    <u>IeeeFlags</u> f = ieeeFlags;
-    func();
-    <span class="d_keyword">assert</span>(ieeeFlags == f);
+   <u>IeeeFlags</u> f = ieeeFlags;
+   func();
+   <span class="d_keyword">assert</span>(ieeeFlags == f);
 
 </pre>
 </dd>
@@ -1217,27 +1215,46 @@ remquo not supported on windows</dd>
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code">  {
+<pre class="d_code">{
+    <u>FloatingPointControl</u> fpctrl;
+
     <span class="d_comment">// Enable hardware exceptions for division by zero, overflow to infinity,
 </span>
     <span class="d_comment">// invalid operations, and uninitialized floating-point variables.
 </span>
-
-    <u>FloatingPointControl</u> fpctrl;
     fpctrl.enableExceptions(<u>FloatingPointControl</u>.severeExceptions);
 
-    <span class="d_keyword">double</span> y = x*3.0; <span class="d_comment">// will generate a hardware exception, if x is uninitialized.
+    <span class="d_comment">// This will generate a hardware exception, if x is a
 </span>
-    <span class="d_comment">//
+    <span class="d_comment">// default-initialized floating point variable:
+</span>
+    <span class="d_keyword">real</span> x; <span class="d_comment">// Add `= 0` or even `= real.nan` to not throw the exception.
+</span>
+    <span class="d_keyword">real</span> y = x * 3.0;
+
+    <span class="d_comment">// The exception is only thrown for default-uninitialized NaN-s.
+</span>
+    <span class="d_comment">// NaN-s with other payload are valid:
+</span>
+    <span class="d_keyword">real</span> z = y * <span class="d_keyword">real</span>.nan; <span class="d_comment">// ok
+</span>
+
+    <span class="d_comment">// Changing the rounding mode:
 </span>
     fpctrl.rounding = <u>FloatingPointControl</u>.roundUp;
+    <span class="d_keyword">assert</span>(rint(1.1) == 2);
 
-    <span class="d_comment">// The hardware exceptions will be disabled when leaving this scope.
+    <span class="d_comment">// The set hardware exceptions will be disabled when leaving this scope.
 </span>
     <span class="d_comment">// The original rounding mode will also be restored.
 </span>
-  }
+}
 
+<span class="d_comment">// Ensure previous values are returned:
+</span>
+<span class="d_keyword">assert</span>(!<u>FloatingPointControl</u>.enabledExceptions);
+<span class="d_keyword">assert</span>(<u>FloatingPointControl</u>.rounding == <u>FloatingPointControl</u>.roundToNearest);
+<span class="d_keyword">assert</span>(rint(1.1) == 1);
 </pre>
 </dd>
 </dl>
@@ -1461,13 +1478,13 @@ This function is not generally very useful; it's almost always better to use
 <dt>Known Bugs</dt><dd>Not currently implemented - rounds twice.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted Unqual!(F) <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted Unqual!F <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>n</i>) if (isFloatingPoint!F &amp;&amp; isIntegral!G);
 </h3></div>
 <div class="declaration-content"><dl><p>Compute the value of x <span style="vertical-align:super;font-size:smaller">n</span>, where n is an integer</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted typeof(Unqual!(F).init * Unqual!(G).init) <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted typeof(Unqual!F.init * Unqual!G.init) <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>n</i>) if (isIntegral!F &amp;&amp; isIntegral!G);
 </h3></div>
 <div class="declaration-content"><dl><p>Compute the value of an integer x, raised to the power of a positive
  integer n.
@@ -1478,13 +1495,13 @@ This function is not generally very useful; it's almost always better to use
  regardless of the value of x.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted real <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(I, F)(I <i>x</i>, F <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted real <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(I, F)(I <i>x</i>, F <i>y</i>) if (isIntegral!I &amp;&amp; isFloatingPoint!F);
 </h3></div>
 <div class="declaration-content"><dl><p>Computes integer to floating point powers.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted Unqual!(Largest!(F,G)) <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted Unqual!(Largest!(F, G)) <span class="symbol-target" id="pow">&nbsp;</span><a class="symbol-link" href="#pow">pow</a>(F, G)(F <i>x</i>, G <i>y</i>) if (isFloatingPoint!F &amp;&amp; isFloatingPoint!G);
 </h3></div>
 <div class="declaration-content"><dl><p>Calculates x<span style="vertical-align:super;font-size:smaller">y</span>.
 </p>
@@ -1530,7 +1547,7 @@ This function is not generally very useful; it's almost always better to use
  </table></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted int <span class="symbol-target" id="feqrel">&nbsp;</span><a class="symbol-link" href="#feqrel">feqrel</a>(X)(X <i>x</i>, X <i>y</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted int <span class="symbol-target" id="feqrel">&nbsp;</span><a class="symbol-link" href="#feqrel">feqrel</a>(X)(X <i>x</i>, X <i>y</i>) if (isFloatingPoint!X);
 </h3></div>
 <div class="declaration-content"><dl><p>To what precision is x equal to y?
 </p>
@@ -1559,7 +1576,10 @@ This function is not generally very useful; it's almost always better to use
 <p>Uses Horner's rule <i>A</i>(<i>x</i>) = a<sub>0</sub> + <i>x</i>(a<sub>1</sub> + <i>x</i>(a<sub>2</sub>
                          + <i>x</i>(a<sub>3</sub> + ...)))
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>real[] <i>A</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>real <i>x</i></td>
+<td>the value to evaluate.</td>
+</tr>
+<tr><td>real[] <i>A</i></td>
 <td>array of coefficients a<sub>0</sub>, a<sub>1</sub>, etc.</td>
 </tr>
 </table></dd>
@@ -1594,6 +1614,13 @@ This function is not generally very useful; it's almost always better to use
 				
 				<footer class="pull-right">
 					<p>&copy; Copyright Digital Mars 2000 - 2011.
+            D implementations of tan, atan, atan2, exp, expm1, exp2, log, log10, log1p,
+            log2, floor, ceil and lrint functions are based on the CEPHES math library,
+            which is Copyright (C) 2001 Stephen L. Moshier <steve@moshier.net>
+            and are incorporated herein by permission of the author.  The author
+            reserves the right to distribute this material elsewhere under different
+            copying permissions.  These modifications are distributed here under
+            the following terms:
 </p>
 				</footer>
 			</div>

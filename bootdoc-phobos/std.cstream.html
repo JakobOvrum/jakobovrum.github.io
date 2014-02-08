@@ -295,12 +295,15 @@
 <div class="declaration-content"><dl><p>A Stream wrapper for a C file of type FILE*.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(shared(_iobuf)* <i>cfile</i>, FileMode <i>mode</i>, bool <i>seekable</i> = false);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(FILE* <i>cfile</i>, FileMode <i>mode</i>, bool <i>seekable</i> = false);
 </h3></div>
 <div class="declaration-content"><dl><p>Create the stream wrapper for the given C file.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>FileMode <i>mode</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>FILE* <i>cfile</i></td>
+<td>a valid C <b>FILE</b> pointer to wrap.</td>
+</tr>
+<tr><td>FileMode <i>mode</i></td>
 <td>a bitwise combination of <b>FileMode.In</b> for a readable file
           and <b>FileMode.Out</b> for a writeable file.</td>
 </tr>
@@ -310,8 +313,8 @@
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property shared(_iobuf)* <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a>();
-<br>@property void <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a>(shared(_iobuf)* <i>cfile</i>);
+<hr><div class="row-fluid declaration"><h3>@property FILE* <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a>();
+<br>@property void <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a>(FILE* <i>cfile</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Property to get or set the underlying <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a> for this stream.
  Setting the <span class="symbol-target" id="file">&nbsp;</span><a class="symbol-link" href="#file">file</a> marks the stream as open.</p>

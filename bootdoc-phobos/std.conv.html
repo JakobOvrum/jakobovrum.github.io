@@ -288,7 +288,9 @@
 
 </dd>
 <dt>Source:</dt><dd>
-<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a></dd>
+<a href="https://github.com/D-Programming-Language/phobos/blob/master/std/conv.d">std/conv.d</a>
+
+</dd>
 </dl>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="ConvException">&nbsp;</span><a class="symbol-link" href="#ConvException">ConvException</a>: object.Exception;
 </h3></div>
@@ -303,58 +305,165 @@
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Entry point that dispatches <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> the appropriate conversion
-   primitive. Client code normally calls <span class="inlinecode">to!TargetType(value)</span>
-   (and not some variant of <span class="inlinecode">toImpl</span>).</p>
+<div class="declaration-content"><dl><p>The <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a></b> family of functions converts a value from type
+<b>Source</b> <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> type <b>Target</b>. The source type is
+deduced and the target type must be specified, for example the
+expression <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!int(42.0)</b> converts the number 42 from
+<b>double</b> <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> <b>int</b>. The conversion is "safe", i.e.,
+it checks for overflow; <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!int(4.2e10)</b> would throw the
+<b>ConvOverflowException</b> exception. Overflow checks are only
+inserted when necessary, e.g., <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!double(42)</b> does not do
+any checking because any int fits in a double.
+</p>
 
+<p>Converting a value <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> its own type (useful mostly for generic code)
+simply returns its argument.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span> a = 42;
+<span class="d_keyword">auto</span> b = <u>to</u>!<span class="d_keyword">int</span>(a); <span class="d_comment">// b is int with value 42
+</span>
+<span class="d_keyword">auto</span> c = <u>to</u>!<span class="d_keyword">double</span>(3.14); <span class="d_comment">// c is double with value 3.14
+</span>
+</pre>
+<br><br>
+
+Converting among numeric types is a safe way <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> cast them around.
+<br><br>
+
+Conversions from floating-point types <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> integral types allow loss of
+precision (the fractional part of a floating-point number). The
+conversion is truncating towards zero, the same way a cast would
+truncate. (To round a floating point value when casting <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> an
+integral, use <b>roundTo</b>.)
+
+</dd>
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">int</span> a = 420;
+<span class="d_keyword">auto</span> b = <u>to</u>!<span class="d_keyword">long</span>(a); <span class="d_comment">// same as long b = a;
+</span>
+<span class="d_keyword">auto</span> c = <u>to</u>!<span class="d_keyword">byte</span>(a / 10); <span class="d_comment">// fine, c = 42
+</span>
+<span class="d_keyword">auto</span> d = <u>to</u>!<span class="d_keyword">byte</span>(a); <span class="d_comment">// throw ConvOverflowException
+</span>
+<span class="d_keyword">double</span> e = 4.2e6;
+<span class="d_keyword">auto</span> f = <u>to</u>!<span class="d_keyword">int</span>(e); <span class="d_comment">// f == 4200000
+</span>
+e = -3.14;
+<span class="d_keyword">auto</span> g = <u>to</u>!<span class="d_keyword">uint</span>(e); <span class="d_comment">// fails: floating-to-integral negative overflow
+</span>
+e = 3.14;
+<span class="d_keyword">auto</span> h = <u>to</u>!<span class="d_keyword">uint</span>(e); <span class="d_comment">// h = 3
+</span>
+e = 3.99;
+h = <u>to</u>!<span class="d_keyword">uint</span>(a); <span class="d_comment">// h = 3
+</span>
+e = -3.99;
+f = <u>to</u>!<span class="d_keyword">int</span>(a); <span class="d_comment">// f = -3
+</span>
+</pre>
+<br><br>
+
+Conversions from integral types <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> floating-point types always
+succeed, but might lose accuracy. The largest integers with a
+predecessor representable in floating-point format are 2^24-1 for
+float, 2^53-1 for double, and 2^64-1 for <b>real</b> (when
+<b>real</b> is 80-bit, e.g. on Intel machines).
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span> a = 16_777_215; <span class="d_comment">// 2^24 - 1, largest proper integer representable as float
+</span>
+<span class="d_keyword">assert</span>(<u>to</u>!<span class="d_keyword">int</span>(<u>to</u>!<span class="d_keyword">float</span>(a)) == a);
+<span class="d_keyword">assert</span>(<u>to</u>!<span class="d_keyword">int</span>(<u>to</u>!<span class="d_keyword">float</span>(-a)) == -a);
+a += 2;
+<span class="d_keyword">assert</span>(<u>to</u>!<span class="d_keyword">int</span>(<u>to</u>!<span class="d_keyword">float</span>(a)) == a); <span class="d_comment">// fails!
+</span>
+</pre>
+<br><br>
+
+Conversions from string <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> numeric types differ from the C equivalents
+<b>atoi()</b> and <b>atol()</b> by checking for overflow and
+not allowing whitespace.
+<br><br>
+
+For conversion of strings <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> signed types, the grammar recognized is:
+<pre>
+<i>Integer</i>: <i>Sign UnsignedInteger</i>
+<i>UnsignedInteger</i>
+<i>Sign</i>:
+    <b>+</b>
+    <b>-</b>
+</pre>
+<br><br>
+
+For conversion <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> unsigned types, the grammar recognized is:
+<pre>
+<i>UnsignedInteger</i>:
+    <i>DecimalDigit</i>
+    <i>DecimalDigit</i> <i>UnsignedInteger</i>
+</pre>
+<br><br>
+
+Converting an array <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> another array type works by converting each
+element in turn. Associative arrays can be converted <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> associative
+arrays as long as keys and values can in turn be converted.
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">int</span>[] a = ([1, 2, 3]).dup;
+<span class="d_keyword">auto</span> b = <u>to</u>!(<span class="d_keyword">float</span>[])(a);
+<span class="d_keyword">assert</span>(b == [1.0f, 2, 3]);
+string str = <span class="d_string">"1 2 3 4 5 6"</span>;
+<span class="d_keyword">auto</span> numbers = <u>to</u>!(<span class="d_keyword">double</span>[])(split(str));
+<span class="d_keyword">assert</span>(numbers == [1.0, 2, 3, 4, 5, 6]);
+<span class="d_keyword">int</span>[string] c;
+c[<span class="d_string">"a"</span>] = 1;
+c[<span class="d_string">"b"</span>] = 2;
+<span class="d_keyword">auto</span> d = <u>to</u>!(<span class="d_keyword">double</span>[wstring])(c);
+<span class="d_keyword">assert</span>(d[<span class="d_string">"a"w</span>] == 1 &amp;&amp; d[<span class="d_string">"b"w</span>] == 2);
+</pre>
+<br><br>
+
+Conversions operate transitively, meaning that they work on arrays and
+associative arrays of any complexity:
+<br><br>
+
+<pre class="d_code"><span class="d_keyword">int</span>[string][<span class="d_keyword">double</span>[<span class="d_keyword">int</span>[]]] a;
+...
+<span class="d_keyword">auto</span> b = <u>to</u>!(<span class="d_keyword">short</span>[wstring][string[<span class="d_keyword">double</span>[]]])(a);
+</pre>
+<br><br>
+
+This conversion works because <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!short</b> applies <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> an
+<b>int</b>, <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!wstring</b> applies <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> a <b>string</b>, <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!string</b> applies <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> a <b>double</b>, and
+<b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!(double[])</b> applies <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> an <b>int[]</b>. The
+conversion might throw an exception because <b><span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a>!short</b>
+might fail the range check.
+<br><br>
+
+ 
+<br><br>
+
+   Entry point that dispatches <span class="symbol-target" id="to">&nbsp;</span><a class="symbol-link" href="#to">to</a> the appropriate conversion
+   primitive. Client code normally calls <span class="inlinecode">to!TargetType(value)</span>
+   (and not some variant of <span class="inlinecode">toImpl</span>).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (isImplicitlyConvertible!(S, T) &amp;&amp; !isEnumStrToStr!(S, T) &amp;&amp; !isNullToStr!(S, T));
 </h3></div>
 <div class="declaration-content"><dl><p>If the source type is implicitly convertible to the target type, <span class="inlinecode">to</span> simply performs the implicit conversion.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012. Please define <span class="inlinecode">opCast</span>
-      for user-defined types instead of a <span class="inlinecode">to</span> function.
-      <a href="#to"><span class="inlinecode">to</span></a> will now use <span class="inlinecode">opCast</span>.</font>
-</p>
-
-<p>Object-to-non-object conversions look for a method "to" of the source
-object.
-
-</p>
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">class</span> Date
-{
-    T to(T)() <span class="d_keyword">if</span>(<span class="d_keyword">is</span>(T == <span class="d_keyword">long</span>))
-    {
-        <span class="d_keyword">return</span> timestamp;
-    }
-    ...
-}
-
-<span class="d_keyword">unittest</span>
-{
-    <span class="d_keyword">debug</span>(conv) <span class="d_keyword">scope</span>(success) writeln(<span class="d_string">"unittest @"</span>, <span class="d_keyword">__FILE__</span>, <span class="d_string">":"</span>, <span class="d_keyword">__LINE__</span>, <span class="d_string">" succeeded."</span>);
-    <span class="d_keyword">auto</span> d = <span class="d_keyword">new</span> Date;
-    <span class="d_keyword">auto</span> ts = to!<span class="d_keyword">long</span>(d); <span class="d_comment">// same as d.to!long()
-</span>
-}
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (is(typeof(S.init.opCast!T()) : T) &amp;&amp; !isExactSomeString!T);
 </h3></div>
 <div class="declaration-content"><dl><p>When source type supports member template function opCast, is is used.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!isImplicitlyConvertible!(S, T) &amp;&amp; is(T == struct) &amp;&amp; is(typeof(T(<i>value</i>))));
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!isImplicitlyConvertible!(S, T) &amp;&amp; is(T == class) &amp;&amp; is(typeof(new T(<i>value</i>))));
 </h3></div>
 <div class="declaration-content"><dl><p>When target type supports 'converting construction', it is used.
 <ul><li>If target type is struct, <span class="inlinecode">T(value)</span> is used.</li>
@@ -362,17 +471,17 @@ object.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!isImplicitlyConvertible!(S, T) &amp;&amp; (is(S == class) || is(S == interface)) &amp;&amp; !is(typeof(<i>value</i>.opCast!T()) : T) &amp;&amp; (is(T == class) || is(T == interface)) &amp;&amp; !is(typeof(new T(<i>value</i>))));
 </h3></div>
 <div class="declaration-content"><dl><p>Object-to-object conversions by dynamic casting throw exception when the source is
 non-<span class="d_keyword">null</span> and the target is <span class="d_keyword">null</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!(isImplicitlyConvertible!(S, T) &amp;&amp; !isEnumStrToStr!(S, T) &amp;&amp; !isNullToStr!(S, T)) &amp;&amp; isExactSomeString!T);
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>, LetterCase <i>letterCase</i> = LetterCase.upper) if (isIntegral!S &amp;&amp; isExactSomeString!T);
 </h3></div>
-<div class="declaration-content"><dl><p>Stringnize conversion from all types is supported.
+<div class="declaration-content"><dl><p>Stringize conversion from all types is supported.
 <ul> <li>String to string conversion works for any two string types having
        (<span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, <span class="inlinecode">dchar</span>) character widths and any
        combination of qualifiers (mutable, <span class="inlinecode">const</span>, or <span class="inlinecode">immutable</span>).</li>
@@ -394,54 +503,52 @@ non-<span class="d_keyword">null</span> and the target is <span class="d_keyword
             <dd>Convert integral value to string in <b>radix</b> radix.
             radix must be a value from 2 to 36.
             value is treated as a signed value only if radix is 10.
-            The characters A through Z are used to represent values 10 through 36.</dd></dl></li>
+            The characters A through Z are used to represent values 10 through 36
+            and their case is determined by the <b>letterCase</b> parameter.</dd></dl></li>
   <li>All floating point types to all string types.</li>
   <li>Pointer to string conversions prints the pointer as a <span class="inlinecode">size_t</span> value.
-       If pointer is <span class="inlinecode">char*</span>, treat it as C-style strings.</li></ul></p>
+       If pointer is <span class="inlinecode">char*</span>, treat it as C-style strings.
+       In that case, this function is <span class="inlinecode">@system</span>.</li></ul></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(ref S <i>s</i>, in T <i>leftBracket</i>, in T <i>separator</i> = " ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>leftBracket</i>, in T <i>keyval</i> = ":", in T <i>separator</i> = ", ", in T <i>rightBracket</i> = "]");
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>nullstr</i>);
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>s</i>, in T <i>left</i>, in T <i>separator</i> = ", ", in T <i>right</i> = ")");
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-          Please use <a href="std_format.html#formattedWrite"><span class="inlinecode">std.format.formattedWrite</span></a> instead.</font>
-</p>
-
-<p>Conversions to string with optional configures.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!isImplicitlyConvertible!(S, T) &amp;&amp; (isNumeric!S || isSomeChar!S || isBoolean!S) &amp;&amp; (isNumeric!T || isSomeChar!T || isBoolean!T) &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Narrowing numeric-numeric conversions throw when the value does not
 fit in the narrower type.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (!isImplicitlyConvertible!(S, T) &amp;&amp; !isSomeString!S &amp;&amp; isDynamicArray!S &amp;&amp; !isExactSomeString!T &amp;&amp; isArray!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Array-to-array conversion (except when target is a string type)
 converts each element in turn by using <span class="inlinecode">to</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (isAssociativeArray!S &amp;&amp; isAssociativeArray!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Associative array to associative array conversion converts each key
 and each value in turn.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>);
-<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (isExactSomeString!S &amp;&amp; isDynamicArray!S &amp;&amp; !isExactSomeString!T &amp;&amp; is(typeof(parse!T(<i>value</i>))));
+<br>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>, uint <i>radix</i>) if (isExactSomeString!S &amp;&amp; isDynamicArray!S &amp;&amp; !isExactSomeString!T &amp;&amp; is(typeof(parse!T(<i>value</i>, <i>radix</i>))));
 </h3></div>
 <div class="declaration-content"><dl><p>String to non-string conversion runs parsing.
 <ul> <li>When the source is a wide string, it is first converted to a narrow
        string and then parsed.</li>
   <li>When the source is a narrow string, normal text parsing occurs.</li></ul></p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="toImpl">&nbsp;</span><a class="symbol-link" href="#toImpl">toImpl</a>(T, S)(S <i>value</i>) if (is(T == enum) &amp;&amp; !is(S == enum) &amp;&amp; is(typeof(<i>value</i> == OriginalType!T.init)) &amp;&amp; !isFloatingPoint!(OriginalType!T) &amp;&amp; !isSomeString!(OriginalType!T));
+</h3></div>
+<div class="declaration-content"><dl><p>Convert a value that is implicitly convertible to the enum base type
+into an Enum value. If the value does not match any enum member values
+a ConvException is thrown.
+Enums with floating-point or string base types are not supported.</p>
 
 </dl>
 </div>
@@ -462,8 +569,8 @@ and each value in turn.</p>
 Rounded conversions do not work with non-integral target types.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
-<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, uint <i>radix</i>);
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>) if (isSomeChar!(ElementType!Source) &amp;&amp; isIntegral!Target &amp;&amp; !is(Target == enum));
+<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, uint <i>radix</i>) if (isSomeChar!(ElementType!Source) &amp;&amp; isIntegral!Target &amp;&amp; !is(Target == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>The <b><span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a></b> family of functions works quite like the
  <b>to</b> family, except that (1) it only works with character ranges
@@ -490,22 +597,22 @@ munch(test, <span class="d_string">" \t\n\r"</span>); <span class="d_comment">//
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>) if (isExactSomeString!Source &amp;&amp; staticIndexOf!(Unqual!Target, dchar, Unqual!(ElementEncodingType!Source)) &gt;= 0);
 </h3></div>
 <div class="declaration-content"><dl><p>Parsing one character off a string returns the character and bumps the
 string up one position.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
-<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',');
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',') if (isExactSomeString!Source &amp;&amp; isDynamicArray!Target &amp;&amp; !is(Target == enum));
+<br>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>comma</i> = ',') if (isExactSomeString!Source &amp;&amp; isStaticArray!Target &amp;&amp; !is(Target == enum));
 </h3></div>
-<div class="declaration-content"><dl><p>Parses an array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), and element seprator (by
+<div class="declaration-content"><dl><p>Parses an array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), and element separator (by
  default <span class="inlinecode">','</span>).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>keyval</i> = ':', dchar <i>comma</i> = ',');
+<hr><div class="row-fluid declaration"><h3>Target <span class="symbol-target" id="parse">&nbsp;</span><a class="symbol-link" href="#parse">parse</a>(Target, Source)(ref Source <i>s</i>, dchar <i>lbracket</i> = '[', dchar <i>rbracket</i> = ']', dchar <i>keyval</i> = ':', dchar <i>comma</i> = ',') if (isExactSomeString!Source &amp;&amp; isAssociativeArray!Target &amp;&amp; !is(Target == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Parses an associative array from a string given the left bracket (default <span class="inlinecode">'['</span>), right bracket (default <span class="inlinecode">']'</span>), key-value separator (default <span class="inlinecode">':'</span>), and element seprator (by default <span class="inlinecode">','</span>).</p>
 
@@ -516,21 +623,14 @@ string up one position.</p>
 <br>dstring <span class="symbol-target" id="dtext">&nbsp;</span><a class="symbol-link" href="#dtext">dtext</a>(T...)(T <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Convenience functions for converting any number and types of
-   arguments into text (the three character widths).
-</p>
+ arguments into text (the three character widths).</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">assert</span>(<u>text</u>(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"</span>);
-<span class="d_keyword">assert</span>(wtext(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"w</span>);
-<span class="d_keyword">assert</span>(dtext(42, ' ', 1.5, <span class="d_string">": xyz"</span>) == <span class="d_string">"42 1.5: xyz"d</span>);
-</pre>
-</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
-<br>long <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
-<br>uint <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
-<br>ulong <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)();
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)() if (octalFitsInInt!num &amp;&amp; !literalIsLong!num &amp;&amp; !literalIsUnsigned!num);
+<br>long <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)() if ((!octalFitsInInt!num || literalIsLong!num) &amp;&amp; !literalIsUnsigned!num);
+<br>uint <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)() if (octalFitsInInt!num &amp;&amp; !literalIsLong!num &amp;&amp; literalIsUnsigned!num);
+<br>ulong <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(string num)() if ((!octalFitsInInt!num || literalIsLong!num) &amp;&amp; literalIsUnsigned!num);
 <br>template <span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a>(alias s) if (isIntegral!(typeof(s)))</h3></div>
 <div class="declaration-content"><dl><p>The <span class="inlinecode"><span class="symbol-target" id="octal">&nbsp;</span><a class="symbol-link" href="#octal">octal</a></span> facility is intended as an experimental facility to
 replace octal literals starting with <span class="inlinecode">'0'</span>, which many find
@@ -560,23 +660,19 @@ of the passed-in integral.
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
-<br>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T)(T* <i>chunk</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as <span class="inlinecode">T</span>), constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that
 address.
 </p>
 
-<p>This function can be <span class="inlinecode">@trusted</span> if the corresponding constructor of
-<span class="inlinecode">T</span> is <span class="inlinecode">@safe</span>.
-
-</p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object (which is the same
 as <span class="inlinecode">chunk</span>).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, auto ref Args <i>args</i>) if (!is(T == struct) &amp;&amp; Args.length == 1);
+<br>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(T* <i>chunk</i>, auto ref Args <i>args</i>) if (is(T == struct));
 </h3></div>
 <div class="declaration-content"><dl><p>Given a pointer <span class="inlinecode">chunk</span> to uninitialized memory (but already typed
 as a non-class type <span class="inlinecode">T</span>), constructs an object of type <span class="inlinecode">T</span> at
@@ -591,7 +687,7 @@ that address from arguments <span class="inlinecode">args</span>.
 as <span class="inlinecode">chunk</span>).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, auto ref Args <i>args</i>) if (is(T == class));
 </h3></div>
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of <span class="inlinecode">class</span>
 type <span class="inlinecode">T</span> at that address. The constructor is passed the arguments
@@ -607,7 +703,7 @@ of a <span class="inlinecode">class</span> instance is obtained by using <span c
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="emplace">&nbsp;</span><a class="symbol-link" href="#emplace">emplace</a>(T, Args...)(void[] <i>chunk</i>, auto ref Args <i>args</i>) if (!is(T == class));
 </h3></div>
 <div class="declaration-content"><dl><p>Given a raw memory area <span class="inlinecode">chunk</span>, constructs an object of non-<span class="inlinecode">class</span> type <span class="inlinecode">T</span> at that address. The constructor is passed the
 arguments <span class="inlinecode">args</span>, if any. The <span class="inlinecode">chunk</span> must be as least as large
@@ -621,6 +717,48 @@ alignment.
 </p>
 <dt>Returns</dt><dd>A pointer to the newly constructed object.</dd>
 </dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="unsigned">&nbsp;</span><a class="symbol-link" href="#unsigned">unsigned</a>(T)(T <i>x</i>) if (isIntegral!T);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the corresponding <span class="symbol-target" id="unsigned">&nbsp;</span><a class="symbol-link" href="#unsigned">unsigned</a> value for <span class="inlinecode">x</span> (e.g. if <span class="inlinecode">x</span> has type
+    <span class="inlinecode">int</span>, it returns <span class="inlinecode">cast(uint) x</span>). The advantage compared to the cast
+    is that you do not need to rewrite the cast if <span class="inlinecode">x</span> later changes type
+    (e.g from <span class="inlinecode">int</span> to <span class="inlinecode">long</span>).
+</p>
+
+<p>Note that the result is always mutable even if the original type was const
+    or immutable. In order to retain the constness, use <a href="std_traits.html#Unsigned"><span class="inlinecode">std.traits.Unsigned</span></a>.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">uint</span> s = 42;
+    <span class="d_keyword">auto</span> u1 = <u>unsigned</u>(s); <span class="d_comment">//not qualified
+</span>
+    Unsigned!(<span class="d_keyword">typeof</span>(s)) u2 = <u>unsigned</u>(s); <span class="d_comment">//same qualification
+</span>
+    <span class="d_keyword">immutable</span> u3 = <u>unsigned</u>(s); <span class="d_comment">//totally qualified
+</span>
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="signed">&nbsp;</span><a class="symbol-link" href="#signed">signed</a>(T)(T <i>x</i>) if (isIntegral!T);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the corresponding <span class="symbol-target" id="signed">&nbsp;</span><a class="symbol-link" href="#signed">signed</a> value for <span class="inlinecode">x</span> (e.g. if <span class="inlinecode">x</span> has type
+    <span class="inlinecode">uint</span>, it returns <span class="inlinecode">cast(int) x</span>). The advantage compared to the cast
+    is that you do not need to rewrite the cast if <span class="inlinecode">x</span> later changes type
+    (e.g from <span class="inlinecode">uint</span> to <span class="inlinecode">ulong</span>).
+</p>
+
+<p>Note that the result is always mutable even if the original type was const
+    or immutable. In order to retain the constness, use <a href="std_traits.html#Signed"><span class="inlinecode">std.traits.Signed</span></a>.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">uint</span> u = 42;
+    <span class="d_keyword">auto</span> s1 = unsigned(u); <span class="d_comment">//not qualified
+</span>
+    Unsigned!(<span class="d_keyword">typeof</span>(u)) s2 = unsigned(u); <span class="d_comment">//same qualification
+</span>
+    <span class="d_keyword">immutable</span> s3 = unsigned(u); <span class="d_comment">//totally qualified
+</span>
+</pre>
+</dd></dl>
 </div>
 
 

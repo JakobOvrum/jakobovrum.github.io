@@ -278,33 +278,33 @@
     handling. It also defines functions intended to aid in unit testing.
 </p>
 
-<p>Synopsis of some of std.<span class="symbol-target" id="exception">&nbsp;</span><a class="symbol-link" href="#exception">exception</a>'s functions:
+<p>   Synopsis of some of std.<span class="symbol-target" id="exception">&nbsp;</span><a class="symbol-link" href="#exception">exception</a>'s functions:
 <pre class="d_code">string synopsis()
 {
-   FILE* f = enforce(fopen(<span class="d_string">"some/file"</span>));
-   <span class="d_comment">// f is not null from here on
+    FILE* f = enforce(fopen(<span class="d_string">"some/file"</span>));
+    <span class="d_comment">// f is not null from here on
 </span>
-   FILE* g = enforceEx!WriteException(fopen(<span class="d_string">"some/other/file"</span>, <span class="d_string">"w"</span>));
-   <span class="d_comment">// g is not null from here on
+    FILE* g = enforceEx!WriteException(fopen(<span class="d_string">"some/other/file"</span>, <span class="d_string">"w"</span>));
+    <span class="d_comment">// g is not null from here on
 </span>
 
-   Exception e = collectException(write(g, readln(f)));
-   <span class="d_keyword">if</span> (e)
-   {
-       ... an <u>exception</u> occurred...
-       ... We have the <u>exception</u> to play around <span class="d_keyword">with</span>...
-   }
+    Exception e = collectException(write(g, readln(f)));
+    <span class="d_keyword">if</span> (e)
+    {
+        ... an <u>exception</u> occurred...
+        ... We have the <u>exception</u> to play around <span class="d_keyword">with</span>...
+    }
 
-   string msg = collectExceptionMsg(write(g, readln(f)));
-   <span class="d_keyword">if</span> (msg)
-   {
-       ... an <u>exception</u> occurred...
-       ... We have the message from the <u>exception</u> but not the <u>exception</u>...
-   }
+    string msg = collectExceptionMsg(write(g, readln(f)));
+    <span class="d_keyword">if</span> (msg)
+    {
+        ... an <u>exception</u> occurred...
+        ... We have the message from the <u>exception</u> but not the <u>exception</u>...
+    }
 
-   <span class="d_keyword">char</span>[] line;
-   enforce(readln(f, line));
-   <span class="d_keyword">return</span> assumeUnique(line);
+    <span class="d_keyword">char</span>[] line;
+    enforce(readln(f, line));
+    <span class="d_keyword">return</span> assumeUnique(line);
 }
 </pre>
 
@@ -327,28 +327,37 @@
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T</td>
 <td>The <span class="inlinecode">Throwable</span> to test for.</td>
 </tr>
-<tr><td>expression</td>
+<tr><td>E expression</td>
 <td>The expression to test.</td>
 </tr>
-<tr><td>msg</td>
-<td>Optional message to output on test failure.</td>
+<tr><td>string msg</td>
+<td>Optional message to output on test failure.
+                     If msg is empty, and the thrown exception has a
+                     non-empty msg field, the exception's msg field
+                     will be output on test failure.</td>
+</tr>
+<tr><td>string file</td>
+<td>The file where the error occurred.
+                     Defaults to <span class="inlinecode">_FILE__</span>.</td>
+</tr>
+<tr><td>size_t line</td>
+<td>The line where the error occurred.
+                     Defaults to <span class="inlinecode">_LINE__</span>.</td>
 </tr>
 </table></dd>
-<dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is thrown.
+<dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is thrown.</dd>
+<dt>Examples</dt><dd><pre class="d_code">
+    <u>assertNotThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
 
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"><u>assertNotThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
-
-<span class="d_comment">//Exception is the default.
+    <span class="d_comment">//Exception is the default.
 </span>
-<u>assertNotThrown</u>(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
+    <u>assertNotThrown</u>(enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>));
 
-<span class="d_keyword">assert</span>(collectExceptionMsg!AssertError(<u>assertNotThrown</u>!StringException(
-           enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>))) ==
-       <span class="d_string">`assertNotThrown failed: StringException was thrown.`</span>);
+    <span class="d_keyword">assert</span>(collectExceptionMsg!AssertError(<u>assertNotThrown</u>!StringException(
+               enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>))) ==
+           <span class="d_string">`assertNotThrown failed: StringException was thrown: Error!`</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="assertThrown">&nbsp;</span><a class="symbol-link" href="#assertThrown">assertThrown</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>, string <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
@@ -361,30 +370,36 @@
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T</td>
 <td>The <span class="inlinecode">Throwable</span> to test for.</td>
 </tr>
-<tr><td>expression</td>
+<tr><td>E expression</td>
 <td>The expression to test.</td>
 </tr>
-<tr><td>msg</td>
+<tr><td>string msg</td>
 <td>Optional message to output on test failure.</td>
 </tr>
+<tr><td>string file</td>
+<td>The file where the error occurred.
+                     Defaults to <span class="inlinecode">_FILE__</span>.</td>
+</tr>
+<tr><td>size_t line</td>
+<td>The line where the error occurred.
+                     Defaults to <span class="inlinecode">_LINE__</span>.</td>
+</tr>
 </table></dd>
-<dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is not thrown.
+<dt>Throws</dt><dd><span class="inlinecode">AssertError</span> if the given <span class="inlinecode">Throwable</span> is not thrown.</dd>
+<dt>Examples</dt><dd><pre class="d_code">
+    <u>assertThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
 
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"><u>assertThrown</u>!StringException(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
-
-<span class="d_comment">//Exception is the default.
+    <span class="d_comment">//Exception is the default.
 </span>
-<u>assertThrown</u>(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
+    <u>assertThrown</u>(enforceEx!StringException(<span class="d_keyword">false</span>, <span class="d_string">"Error!"</span>));
 
-<span class="d_keyword">assert</span>(collectExceptionMsg!AssertError(<u>assertThrown</u>!StringException(
-           enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>))) ==
-       <span class="d_string">`assertThrown failed: No StringException was thrown.`</span>);
+    <span class="d_keyword">assert</span>(collectExceptionMsg!AssertError(<u>assertThrown</u>!StringException(
+               enforceEx!StringException(<span class="d_keyword">true</span>, <span class="d_string">"Error!"</span>))) ==
+           <span class="d_string">`assertThrown failed: No StringException was thrown.`</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new Exception(msg)</span> is thrown.
@@ -407,7 +422,7 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T, string file, size_t line = __LINE__)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T, string file, size_t line = __LINE__)(T <i>value</i>, lazy const(char)[] <i>msg</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation in January 2013. If passing the file or line
          number explicitly, please use the version of <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a> which takes them as
@@ -416,7 +431,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T, Dg, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, scope Dg <i>dg</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T, Dg, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, scope Dg <i>dg</i>) if (isSomeFunction!Dg &amp;&amp; is(typeof(<i>dg</i>())));
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, the given
     delegate is called.
@@ -425,7 +440,7 @@
 <p>The whole safety and purity are inferred from <span class="inlinecode">Dg</span>'s safety and purity.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy Throwable <i>ex</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="enforce">&nbsp;</span><a class="symbol-link" href="#enforce">enforce</a>(T)(T <i>value</i>, lazy Throwable <i>ex</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise, <span class="inlinecode">ex</span> is thrown.
 </p>
@@ -439,7 +454,7 @@
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe T <span class="symbol-target" id="errnoEnforce">&nbsp;</span><a class="symbol-link" href="#errnoEnforce">errnoEnforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy string <i>msg</i> = null);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="errnoEnforce">&nbsp;</span><a class="symbol-link" href="#errnoEnforce">errnoEnforce</a>(T, string file = __FILE__, size_t line = __LINE__)(T <i>value</i>, lazy string <i>msg</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="d_keyword">true</span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new ErrnoException(msg)</span> is thrown. <span class="inlinecode">ErrnoException</span> assumes that the
@@ -455,7 +470,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="enforceEx">&nbsp;</span><a class="symbol-link" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E("","phobos\\std\\exception.d",503))))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="enforceEx">&nbsp;</span><a class="symbol-link" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E("", "phobos\\std\\exception.d", 522))))</h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">!!value</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, <span class="inlinecode">value</span> is returned. Otherwise,
     <span class="inlinecode">new E(msg, file, line)</span> is thrown. Or if <span class="inlinecode">E</span> doesn't take a message
     and can be constructed with <span class="inlinecode">new E(file, line)</span>, then
@@ -463,21 +478,11 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> f = <u>enforceEx</u>!FileMissingException(fopen(<span class="d_string">"data.txt"</span>));
- <span class="d_keyword">auto</span> line = readln(f);
- <u>enforceEx</u>!DataCorruptionException(line.length);
+<pre class="d_code"><span class="d_keyword">auto</span> f = <u>enforceEx</u>!FileMissingException(fopen(<span class="d_string">"data.txt"</span>));
+<span class="d_keyword">auto</span> line = readln(f);
+<u>enforceEx</u>!DataCorruptionException(line.length);
 </pre>
 </dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="enforceEx">&nbsp;</span><a class="symbol-link" href="#enforceEx">enforceEx</a>(E) if (is(typeof(new E(""))) &amp;&amp; !is(typeof(new E("","phobos\\std\\exception.d",531))) &amp;&amp; !is(typeof(new E("phobos\\std\\exception.d",531))))</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use the version
-          of <span class="inlinecode"><span class="symbol-target" id="enforceEx">&nbsp;</span><a class="symbol-link" href="#enforceEx">enforceEx</a></span> which takes an exception that constructs with
-          <span class="inlinecode">new E(msg, file, line)</span>.</font>
-</p>
-
-<p>If <span class="inlinecode">!!value</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>, <span class="inlinecode">value</span> is returned. Otherwise,
-    <span class="inlinecode">new E(msg)</span> is thrown.</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="collectException">&nbsp;</span><a class="symbol-link" href="#collectException">collectException</a>(T = Exception, E)(lazy E <i>expression</i>, ref E <i>result</i>);
@@ -498,20 +503,23 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T</td>
 <td>The type of exception to catch.</td>
 </tr>
-<tr><td>expression</td>
+<tr><td>E expression</td>
 <td>The expression which may throw an exception.</td>
 </tr>
-<tr><td>result</td>
+<tr><td>E result</td>
 <td>The result of the expression if no exception is thrown.</td>
 </tr>
 </table></dd>
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">int</span>[] a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[3];
-<span class="d_keyword">int</span> b;
-<span class="d_keyword">assert</span>(<u>collectException</u>(a[4], b));
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">int</span> b;
+    <span class="d_keyword">int</span> foo() { <span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">"blah"</span>); }
+    <span class="d_keyword">assert</span>(<u>collectException</u>(foo(), b));
+
+    <span class="d_keyword">int</span>[] a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[3];
+    <span class="d_keyword">import</span> core.exception : RangeError;
+    <span class="d_keyword">assert</span>(<u>collectException</u>!RangeError(a[4], b));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="collectException">&nbsp;</span><a class="symbol-link" href="#collectException">collectException</a>(T : Throwable = Exception, E)(lazy E <i>expression</i>);
 </h3></div>
@@ -531,7 +539,7 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T</td>
 <td>The type of exception to catch.</td>
 </tr>
-<tr><td>expression</td>
+<tr><td>E expression</td>
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
@@ -559,21 +567,21 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T</td>
 <td>The type of exception to catch.</td>
 </tr>
-<tr><td>expression</td>
+<tr><td>E expression</td>
 <td>The expression which may throw an exception.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">void</span> throwFunc() {<span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">"My Message."</span>);}
-<span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwFunc()) == <span class="d_string">"My Message."</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">void</span> throwFunc() { <span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">"My Message."</span>); }
+    <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwFunc()) == <span class="d_string">"My Message."</span>);
 
-<span class="d_keyword">void</span> nothrowFunc() {}
-<span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(nothrowFunc()) <span class="d_keyword">is</span> <span class="d_keyword">null</span>);
+    <span class="d_keyword">void</span> nothrowFunc() {}
+    <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(nothrowFunc()) <span class="d_keyword">is</span> <span class="d_keyword">null</span>);
 
-<span class="d_keyword">void</span> throwEmptyFunc() {<span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">""</span>);}
-<span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwEmptyFunc()) == emptyExceptionMsg);
+    <span class="d_keyword">void</span> throwEmptyFunc() { <span class="d_keyword">throw</span> <span class="d_keyword">new</span> Exception(<span class="d_string">""</span>); }
+    <span class="d_keyword">assert</span>(<u>collectExceptionMsg</u>(throwEmptyFunc()) == emptyExceptionMsg);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="emptyExceptionMsg">&nbsp;</span><a class="symbol-link" href="#emptyExceptionMsg">emptyExceptionMsg</a>;
 </h3></div>
@@ -582,7 +590,8 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow immutable(T)[] <span class="symbol-target" id="assumeUnique">&nbsp;</span><a class="symbol-link" href="#assumeUnique">assumeUnique</a>(T)(ref T[] <i>array</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow immutable(T)[] <span class="symbol-target" id="assumeUnique">&nbsp;</span><a class="symbol-link" href="#assumeUnique">assumeUnique</a>(T)(T[] <i>array</i>);
+<br>pure nothrow immutable(T)[] <span class="symbol-target" id="assumeUnique">&nbsp;</span><a class="symbol-link" href="#assumeUnique">assumeUnique</a>(T)(ref T[] <i>array</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Casts a mutable array to an immutable array in an idiomatic
  manner. Technically, <span class="inlinecode"><span class="symbol-target" id="assumeUnique">&nbsp;</span><a class="symbol-link" href="#assumeUnique">assumeUnique</a></span> just inserts a cast,
@@ -600,16 +609,17 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code"> string letters()
- {
-   <span class="d_keyword">char</span>[] result = <span class="d_keyword">new</span> <span class="d_keyword">char</span>['z' - 'a' + 1];
-   <span class="d_keyword">foreach</span> (i, <span class="d_keyword">ref</span> e; result)
-   {
-     e = 'a' + i;
-   }
-   <span class="d_keyword">return</span> <u>assumeUnique</u>(result);
- }
+<pre class="d_code">string letters()
+{
+  <span class="d_keyword">char</span>[] result = <span class="d_keyword">new</span> <span class="d_keyword">char</span>['z' - 'a' + 1];
+  <span class="d_keyword">foreach</span> (i, <span class="d_keyword">ref</span> e; result)
+  {
+    e = 'a' + i;
+  }
+  <span class="d_keyword">return</span> <u>assumeUnique</u>(result);
+}
 </pre>
+<br><br>
 
  The use in the example above is correct because <span class="inlinecode">result</span>
  was private to <span class="inlinecode">letters</span> and is unaccessible in writing
@@ -618,29 +628,31 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
 
 </dd>
 <dt>Bad:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">private</span> <span class="d_keyword">char</span>[] buffer;
- string letters(<span class="d_keyword">char</span> first, <span class="d_keyword">char</span> last)
- {
-   <span class="d_keyword">if</span> (first &gt;= last) <span class="d_keyword">return</span> <span class="d_keyword">null</span>; <span class="d_comment">// fine
+<pre class="d_code"><span class="d_keyword">private</span> <span class="d_keyword">char</span>[] buffer;
+string letters(<span class="d_keyword">char</span> first, <span class="d_keyword">char</span> last)
+{
+  <span class="d_keyword">if</span> (first &gt;= last) <span class="d_keyword">return</span> <span class="d_keyword">null</span>; <span class="d_comment">// fine
 </span>
-   <span class="d_keyword">auto</span> sneaky = buffer;
-   sneaky.length = last - first + 1;
-   <span class="d_keyword">foreach</span> (i, <span class="d_keyword">ref</span> e; sneaky)
-   {
-     e = 'a' + i;
-   }
-   <span class="d_keyword">return</span> <u>assumeUnique</u>(sneaky); <span class="d_comment">// BAD
+  <span class="d_keyword">auto</span> sneaky = buffer;
+  sneaky.length = last - first + 1;
+  <span class="d_keyword">foreach</span> (i, <span class="d_keyword">ref</span> e; sneaky)
+  {
+    e = 'a' + i;
+  }
+  <span class="d_keyword">return</span> <u>assumeUnique</u>(sneaky); <span class="d_comment">// BAD
 </span>
- }
+}
 </pre>
+<br><br>
 
  The example above wreaks havoc on client code because it is
  modifying arrays that callers considered immutable. To obtain an
  immutable array from the writable array <span class="inlinecode">buffer</span>, replace
  the last line with:
-<pre class="d_code"> <span class="d_keyword">return</span> to!(string)(sneaky); <span class="d_comment">// not that sneaky anymore
+<pre class="d_code"><span class="d_keyword">return</span> to!(string)(sneaky); <span class="d_comment">// not that sneaky anymore
 </span>
 </pre>
+<br><br>
 
  The call will duplicate the array appropriately.
 <br><br>
@@ -654,19 +666,121 @@ enforce(line.length); <span class="d_comment">// expect a non-empty line
  assumption; on the upside, the idiomatic use of <span class="inlinecode"><span class="symbol-target" id="assumeUnique">&nbsp;</span><a class="symbol-link" href="#assumeUnique">assumeUnique</a></span> is simple and rare enough to be tolerable.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted bool <span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a>(S, T, Tdummy = void)(ref const S <i>source</i>, ref const T <i>target</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted bool <span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a>(S, T, Tdummy = void)(auto ref const S <i>source</i>, ref const T <i>target</i>) if (__traits(isRef, <i>source</i>) || isDynamicArray!S || isPointer!S || is(S == class));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">source</span>'s representation embeds a pointer
 that points to <span class="inlinecode">target</span>'s representation or somewhere inside
-it. Note that evaluating <span class="inlinecode"><span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a>(x, x)</span> checks whether <span class="inlinecode">x</span> has
-internal pointers.</p>
+it.
+</p>
 
+<p>If <span class="inlinecode">source</span> is or contains a dynamic array, then, then <span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a> will check
+if there is overlap between the dynamic array and <span class="inlinecode">target</span>'s representation.
+<br><br>
+
+If <span class="inlinecode">source</span> is or contains a union, then every member of the union is
+checked for embedded pointers. This may lead to <span class="d_keyword">false</span> positives, depending on
+which should be considered the "active" member of the union.
+<br><br>
+
+If <span class="inlinecode">source</span> is a class, then <span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a> will handle it as a pointer.
+<br><br>
+
+If <span class="inlinecode">target</span> is a pointer, a dynamic array or a class, then <span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a> will only
+check if <span class="inlinecode">source</span> points to <span class="inlinecode">target</span>, <i>not</i> what <span class="inlinecode">target</span> references.
+
+</p>
+<dt>Note:</dt><dd>
+Evaluating <span class="inlinecode"><span class="symbol-target" id="pointsTo">&nbsp;</span><a class="symbol-link" href="#pointsTo">pointsTo</a>(x, x)</span> checks whether <span class="inlinecode">x</span> has
+internal pointers. This should only be done as an assertive test,
+as the language is free to assume objects don't have internal pointers
+(TDPL 7.1.3.5).</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>class <span class="symbol-target" id="ErrnoException">&nbsp;</span><a class="symbol-link" href="#ErrnoException">ErrnoException</a>: object.Exception;
 </h3></div>
 <div class="declaration-content"><dl><p>Thrown if errors that set <span class="inlinecode">errno</span> occur.</p>
 
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>CommonType!(T1, T2) <span class="symbol-target" id="ifThrown">&nbsp;</span><a class="symbol-link" href="#ifThrown">ifThrown</a>(E : Throwable = Exception, T1, T2)(lazy scope T1 <i>expression</i>, lazy scope T2 <i>errorHandler</i>);
+<br>CommonType!(T1, T2) <span class="symbol-target" id="ifThrown">&nbsp;</span><a class="symbol-link" href="#ifThrown">ifThrown</a>(E : Throwable, T1, T2)(lazy scope T1 <i>expression</i>, scope T2 delegate(E) <i>errorHandler</i>);
+<br>CommonType!(T1, T2) <span class="symbol-target" id="ifThrown">&nbsp;</span><a class="symbol-link" href="#ifThrown">ifThrown</a>(T1, T2)(lazy scope T1 <i>expression</i>, scope T2 delegate(Exception) <i>errorHandler</i>);
+</h3></div>
+<div class="declaration-content"><dl><p>ML-style functional exception handling. Runs the supplied expression and
+    returns its result. If the expression throws a <span class="inlinecode">Throwable</span>, runs the
+    supplied error handler instead and return its result. The error handler's
+    type must be the same as the expression's type.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>E</td>
+<td>The type of <span class="inlinecode">Throwable</span>s to catch. Defaults to ${D Exception}</td>
+</tr>
+<tr><td>T1</td>
+<td>The type of the expression.</td>
+</tr>
+<tr><td>T2</td>
+<td>The return type of the error handler.</td>
+</tr>
+<tr><td>T1 expression</td>
+<td>The expression to run and return its result.</td>
+</tr>
+<tr><td>T2 errorHandler</td>
+<td>The handler to run if the expression throwed.</td>
+</tr>
+</table></dd>
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">//Revert to a default value upon an error:
+</span>
+<span class="d_keyword">assert</span>(<span class="d_string">"x"</span>.to!<span class="d_keyword">int</span>().<u>ifThrown</u>(0) == 0);
+</pre>
+<br><br>
+
+    You can also chain multiple calls to <span class="symbol-target" id="ifThrown">&nbsp;</span><a class="symbol-link" href="#ifThrown">ifThrown</a>, each capturing errors from the
+    entire preceding expression.
+
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">//Chaining multiple calls to ifThrown to attempt multiple things in a row:
+</span>
+string s=<span class="d_string">"true"</span>;
+<span class="d_keyword">assert</span>(s.to!<span class="d_keyword">int</span>().
+        <u>ifThrown</u>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)s.to!<span class="d_keyword">double</span>()).
+        <u>ifThrown</u>(<span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)s.to!<span class="d_keyword">bool</span>())
+        == 1);
+
+<span class="d_comment">//Respond differently to different types of errors
+</span>
+<span class="d_keyword">assert</span>(enforce(<span class="d_string">"x"</span>.to!<span class="d_keyword">int</span>() &lt; 1).to!string()
+        .<u>ifThrown</u>!ConvException(<span class="d_string">"not a number"</span>)
+        .<u>ifThrown</u>!Exception(<span class="d_string">"number too small"</span>)
+        == <span class="d_string">"not a number"</span>);
+</pre>
+<br><br>
+
+    The expression and the errorHandler must have a common type they can both
+    be implicitly casted to, and that type will be the type of the compound
+    expression.
+
+</dd>
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">//null and new Object have a common type(Object).
+</span>
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<span class="d_keyword">null</span>.<u>ifThrown</u>(<span class="d_keyword">new</span> Object())) == Object));
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>((<span class="d_keyword">new</span> Object()).<u>ifThrown</u>(<span class="d_keyword">null</span>)) == Object));
+
+<span class="d_comment">//1 and new Object do not have a common type.
+</span>
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<span class="d_keyword">__traits</span>(compiles, 1.<u>ifThrown</u>(<span class="d_keyword">new</span> Object())));
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<span class="d_keyword">__traits</span>(compiles, (<span class="d_keyword">new</span> Object()).<u>ifThrown</u>(1)));
+</pre>
+<br><br>
+
+    If you need to use the actual thrown expection, you can use a delegate.
+</dd>
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_comment">//Use a lambda to get the thrown object.
+</span>
+<span class="d_keyword">assert</span>(<span class="d_string">"%s"</span>.format().<u>ifThrown</u>!Exception(e =&gt; e.classinfo.name) == <span class="d_string">"std.format.FormatException"</span>);
+</pre>
+</dd>
 </dl>
 </div>
 

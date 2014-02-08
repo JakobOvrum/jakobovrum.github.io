@@ -277,7 +277,7 @@
 <dl><p>Utilities for manipulating files and scanning directories. Functions
 in this module handle files as a unit, e.g., read or write one file
 at a time. For opening files and manipulating them via handles refer
-to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>.
+to module <a href="std_stdio.html"><span class="inlinecode">std.stdio</span></a>.
 </p>
 
 <dt>License</dt><dd><a href="http://boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
@@ -300,51 +300,53 @@ to module <span class="inlinecode"><a href="std_stdio.html">std.stdio</a></span>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>name</i>, const(char[]) <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
+<hr><div class="row-fluid declaration"><h3>pure @safe  this(in char[] <i>name</i>, in char[] <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor which takes an error message.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>Name of <i>file</i> for which the error occurred.</td>
 </tr>
-<tr><td>const(char[]) <i>msg</i></td>
+<tr><td>char[] <i>msg</i></td>
 <td>Message describing the error.</td>
 </tr>
 <tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the error occurred.</td>
 </tr>
-<tr><td>uint <i>line</i></td>
+<tr><td>size_t <i>line</i></td>
 <td>The <i>line</i> where the error occurred.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(char[]) <i>name</i>, uint <i>errno</i> = GetLastError(), string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__);
+<hr><div class="row-fluid declaration"><h3>@safe  this(in char[] <i>name</i>, uint <i>errno</i> = .GetLastError(), string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor which takes the error number (<a href="http://google.com/search?btnI=I%27m+Feeling+Lucky&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=GetLastError">GetLastError</a>
 
         in Windows, <b><i>errno</i></b> in Posix).
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(char[]) <i>name</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>Name of <i>file</i> for which the error occurred.</td>
 </tr>
-<tr><td>msg</td>
-<td>Message describing the error.</td>
+<tr><td>uint <i>errno</i></td>
+<td>The error number.</td>
 </tr>
 <tr><td>string <i>file</i></td>
-<td>The <i>file</i> where the error occurred.</td>
+<td>The <i>file</i> where the error occurred.
+                    Defaults to <span class="inlinecode">_FILE__</span>.</td>
 </tr>
-<tr><td>uint <i>line</i></td>
-<td>The <i>line</i> where the error occurred.</td>
+<tr><td>size_t <i>line</i></td>
+<td>The <i>line</i> where the error occurred.
+                    Defaults to <span class="inlinecode">_LINE__</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>void[] <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a>(in char[] <i>name</i>, size_t <i>upTo</i> = (uint).max);
+<hr><div class="row-fluid declaration"><h3>void[] <span class="symbol-target" id="read">&nbsp;</span><a class="symbol-link" href="#read">read</a>(in char[] <i>name</i>, size_t <i>upTo</i> = size_t.max);
 </h3></div>
 <div class="declaration-content"><dl><p>Read entire contents of file <span class="inlinecode"><i>name</i></span> and returns it as an untyped
 array. If the file size is larger than <span class="inlinecode"><i>upTo</i></span>, only <span class="inlinecode"><i>upTo</i></span>
@@ -437,6 +439,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="rename">&nbsp;</span><a class="symbol-link" href="#rename">rename</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Rename file <span class="inlinecode"><i>from</i></span> <i>to</i> <span class="inlinecode"><i>to</i></span>.
+ If the target file exists, it is overwritten.
 </p>
 
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
@@ -458,19 +461,19 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error (e.g., file not found).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="getTimes">&nbsp;</span><a class="symbol-link" href="#getTimes">getTimes</a>(in char[] <i>name</i>, out SysTime <i>fileAccessTime</i>, out SysTime <i>fileModificationTime</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="getTimes">&nbsp;</span><a class="symbol-link" href="#getTimes">getTimes</a>(in char[] <i>name</i>, out SysTime <i>accessTime</i>, out SysTime <i>modificationTime</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Get the access and modified times of file <span class="inlinecode"><i>name</i></span>.
+<div class="declaration-content"><dl><p>Get the access and modified times of file or folder <span class="inlinecode"><i>name</i></span>.
 </p>
 
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
-<td>File <i>name</i> to get times for.</td>
+<td>File/Folder <i>name</i> to get times for.</td>
 </tr>
-<tr><td>SysTime <i>fileAccessTime</i></td>
-<td>Time the file was last accessed.</td>
+<tr><td>SysTime <i>accessTime</i></td>
+<td>Time the file/folder was last accessed.</td>
 </tr>
-<tr><td>SysTime <i>fileModificationTime</i></td>
-<td>Time the file was last modified.</td>
+<tr><td>SysTime <i>modificationTime</i></td>
+<td>Time the file/folder was last modified.</td>
 </tr>
 </table></dd>
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
@@ -499,6 +502,24 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </tr>
 <tr><td>SysTime <i>fileModificationTime</i></td>
 <td>Time the file was last modified.</td>
+</tr>
+</table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setTimes">&nbsp;</span><a class="symbol-link" href="#setTimes">setTimes</a>(in char[] <i>name</i>, SysTime <i>accessTime</i>, SysTime <i>modificationTime</i>);
+</h3></div>
+<div class="declaration-content"><dl><p>Set access/modified times of file or folder <span class="inlinecode"><i>name</i></span>.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
+<td>File/Folder <i>name</i> to get times for.</td>
+</tr>
+<tr><td>SysTime <i>accessTime</i></td>
+<td>Time the file/folder was last accessed.</td>
+</tr>
+<tr><td>SysTime <i>modificationTime</i></td>
+<td>Time the file/folder was last modified.</td>
 </tr>
 </table></dd>
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
@@ -548,7 +569,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@property bool <span class="symbol-target" id="exists">&nbsp;</span><a class="symbol-link" href="#exists">exists</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>@trusted bool <span class="symbol-target" id="exists">&nbsp;</span><a class="symbol-link" href="#exists">exists</a>(in char[] <i>name</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given file (or directory) <span class="symbol-target" id="exists">&nbsp;</span><a class="symbol-link" href="#exists">exists</a>.</p>
 
@@ -575,6 +596,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <td>The file to get the attributes of.</td>
 </tr>
 </table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="getLinkAttributes">&nbsp;</span><a class="symbol-link" href="#getLinkAttributes">getLinkAttributes</a>(in char[] <i>name</i>);
@@ -644,7 +666,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     possible for both <span class="inlinecode"><span class="symbol-target" id="isFile">&nbsp;</span><a class="symbol-link" href="#isFile">isFile</a></span> and <span class="inlinecode">isDir</span> to be <span class="inlinecode"><span class="d_keyword">false</span></span> for a
     particular file (in which case, it's a special file). You can use
     <span class="inlinecode">getAttributes</span> to get the attributes to figure out what type of special
-    it is, or you can use <span class="inlinecode">dirEntry</span> to get at its <span class="inlinecode">statBuf</span>, which is the
+    it is, or you can use <span class="inlinecode">DirEntry</span> to get at its <span class="inlinecode">statBuf</span>, which is the
     result from <span class="inlinecode">stat</span>. In either case, see the man page for <span class="inlinecode">stat</span> for
     more information.
 
@@ -699,7 +721,7 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
     junction point.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>name</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(C)[] name</td>
 <td>The path to the file.</td>
 </tr>
 </table></dd>
@@ -745,8 +767,10 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="mkdirRecurse">&nbsp;</span><a class="symbol-link" href="#mkdirRecurse">mkdirRecurse</a>(in char[] <i>pathname</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Make directory and all parent directories as needed.</p>
+<div class="declaration-content"><dl><p>Make directory and all parent directories as needed.
+</p>
 
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="rmdir">&nbsp;</span><a class="symbol-link" href="#rmdir">rmdir</a>(in char[] <i>pathname</i>);
@@ -765,64 +789,20 @@ enforce(chomp(<u>readText</u>(<span class="d_string">"deleteme"</span>)) == <spa
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="listdir">&nbsp;</span><a class="symbol-link" href="#listdir">listdir</a>;
+<hr><div class="row-fluid declaration"><h3>@trusted string <span class="symbol-target" id="thisExePath">&nbsp;</span><a class="symbol-link" href="#thisExePath">thisExePath</a>();
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
-       Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
+<div class="declaration-content"><dl><p>Returns the full path of the current executable.
 </p>
 
-<p>For each file and directory <span class="inlinecode">DirEntry</span> in <span class="inlinecode">pathname[]</span>
- pass it to the callback delegate.
-
-</p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>callback</td>
-<td>Delegate that processes each
-                        DirEntry in turn. Returns <span class="d_keyword">true</span> to
-                        continue, <span class="d_keyword">false</span> to stop.</td>
-</tr>
-</table></dd>
-<dt>Example:</dt><dd>
-This program lists all the files in its
-        path argument and all subdirectories thereof.
-<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
- <span class="d_keyword">import</span> std.file;
-
- <span class="d_keyword">void</span> main(string[] args)
- {
-    <span class="d_keyword">bool</span> callback(DirEntry* de)
-    {
-      <span class="d_keyword">if</span>(de.isDir)
-        <u>listdir</u>(de.name, &amp;callback);
-      <span class="d_keyword">else</span>
-        writefln(de.name);
-
-      <span class="d_keyword">return</span> <span class="d_keyword">true</span>;
-    }
-
-    <u>listdir</u>(args[1], &amp;callback);
- }
-</pre>
-</dd>
+<dt>Throws</dt><dd><a href="std_object.html#Exception"><span class="inlinecode">std.object.Exception</span></a></dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="copy">&nbsp;</span><a class="symbol-link" href="#copy">copy</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Copy file <span class="inlinecode"><i>from</i></span> <i>to</i> file <span class="inlinecode"><i>to</i></span>. File timestamps are preserved.</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="setTimes">&nbsp;</span><a class="symbol-link" href="#setTimes">setTimes</a>(in char[] <i>name</i>, SysTime <i>fileAccessTime</i>, SysTime <i>fileModificationTime</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Set access/modified times of file <span class="inlinecode"><i>name</i></span>.
+<div class="declaration-content"><dl><p>Copy file <span class="inlinecode"><i>from</i></span> <i>to</i> file <span class="inlinecode"><i>to</i></span>. File timestamps are preserved.
+If the target file exists, it is overwritten.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>SysTime <i>fileAccessTime</i></td>
-<td>Time the file was last accessed.</td>
-</tr>
-<tr><td>SysTime <i>fileModificationTime</i></td>
-<td>Time the file was last modified.</td>
-</tr>
-</table></dd>
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.</dd>
 </dl>
 </div>
@@ -837,6 +817,7 @@ This program lists all the files in its
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="rmdirRecurse">&nbsp;</span><a class="symbol-link" href="#rmdirRecurse">rmdirRecurse</a>(ref DirEntry <i>de</i>);
+<br>void <span class="symbol-target" id="rmdirRecurse">&nbsp;</span><a class="symbol-link" href="#rmdirRecurse">rmdirRecurse</a>(DirEntry <i>de</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Remove directory and all of its content and subdirectories,
     recursively.
@@ -846,7 +827,7 @@ This program lists all the files in its
         file is not a directory).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SpanMode">&nbsp;</span><a class="symbol-link" href="#SpanMode">SpanMode</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="SpanMode">&nbsp;</span><a class="symbol-link" href="#SpanMode">SpanMode</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Dictates directory spanning policy for <b>dirEntries</b> (see below).</p>
 
@@ -896,6 +877,9 @@ This program lists all the files in its
                          iterated over.</td>
 </tr>
 </table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the directory does not exist.
+
+</dd>
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate a directory in depth
 </span>
 <span class="d_keyword">foreach</span> (string name; <u>dirEntries</u>(<span class="d_string">"destroy/me"</span>, SpanMode.depth))
@@ -929,7 +913,7 @@ This program lists all the files in its
     std.process.system(cmd);
 }
 </pre>
-//</dd>
+</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="dirEntries">&nbsp;</span><a class="symbol-link" href="#dirEntries">dirEntries</a>(string <i>path</i>, string <i>pattern</i>, SpanMode <i>mode</i>, bool <i>followSymlink</i> = true);
@@ -956,6 +940,9 @@ This program lists all the files in its
                          iterated over.</td>
 </tr>
 </table></dd>
+<dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the directory does not exist.
+
+</dd>
 <dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Iterate over all D source files in current directory and all its
 </span>
 <span class="d_comment">// subdirectories
@@ -964,14 +951,19 @@ This program lists all the files in its
 <span class="d_keyword">foreach</span>(d; dFiles)
     writeln(d.name);
 </pre>
-//</dd>
+</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>DirEntry <span class="symbol-target" id="dirEntry">&nbsp;</span><a class="symbol-link" href="#dirEntry">dirEntry</a>(in char[] <i>name</i>);
+<hr><div class="row-fluid declaration"><h3>deprecated DirEntry <span class="symbol-target" id="dirEntry">&nbsp;</span><a class="symbol-link" href="#dirEntry">dirEntry</a>(in char[] <i>name</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Returns a DirEntry for the given file (or directory).
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in July 2014.
+         Please use <a class="symbol-link" href="#DirEntry"><span class="inlinecode">DirEntry</span></a>
+ constructor directly instead.</font>
 </p>
 
+<p>Returns a DirEntry for the given file (or directory).
+
+</p>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] <i>name</i></td>
 <td>The file (or directory) to get a DirEntry for.</td>
 </tr>
@@ -979,7 +971,7 @@ This program lists all the files in its
 <dt>Throws</dt><dd><span class="inlinecode">FileException</span> if the file does not exist.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Select!(Types.length == 1,Types[0][],Tuple!(Types)[]) <span class="symbol-target" id="slurp">&nbsp;</span><a class="symbol-link" href="#slurp">slurp</a>(Types...)(string <i>filename</i>, in char[] <i>format</i>);
+<hr><div class="row-fluid declaration"><h3>Select!(Types.length == 1, Types[0][], Tuple!Types[]) <span class="symbol-target" id="slurp">&nbsp;</span><a class="symbol-link" href="#slurp">slurp</a>(Types...)(string <i>filename</i>, in char[] <i>format</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Reads an entire file into an array.
 </p>
@@ -994,13 +986,13 @@ This program lists all the files in its
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="tempDir">&nbsp;</span><a class="symbol-link" href="#tempDir">tempDir</a>();
+<hr><div class="row-fluid declaration"><h3>@trusted string <span class="symbol-target" id="tempDir">&nbsp;</span><a class="symbol-link" href="#tempDir">tempDir</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path to a directory for temporary files.
 </p>
 
 <p>On Windows, this function returns the result of calling the Windows API function
-<span class="inlinecode"><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa364992.aspx">GetTempPath</a></span>.
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa364992.aspx"><span class="inlinecode">GetTempPath</span></a>.
 <br><br>
 
 On POSIX platforms, it searches through the following list of directories
@@ -1026,140 +1018,7 @@ meantime.
 <br><br>
 
 The POSIX <span class="inlinecode"><span class="symbol-target" id="tempDir">&nbsp;</span><a class="symbol-link" href="#tempDir">tempDir</a></span> algorithm is inspired by Python's
-<span class="inlinecode"><a href="http://docs.python.org/library/tempfile.html#tempfile.tempdir">tempfile.tempdir</a></span>.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string[] <span class="symbol-target" id="listDir">&nbsp;</span><a class="symbol-link" href="#listDir">listDir</a>(C)(in C[] <i>pathname</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
-          Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
-</p>
-
-<p>Returns the contents of the given directory.
-<br><br>
-
-    The names in the contents do not include the pathname.
-
-</p>
-<dt>Throws</dt><dd><span class="inlinecode">FileException</span> on error.
-
-</dd>
-<dt>Examples</dt><dd>This program lists all the files and subdirectories in its
-    path argument.
-<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
-<span class="d_keyword">import</span> std.file;
-
-<span class="d_keyword">void</span> main(string[] args)
-{
-    <span class="d_keyword">auto</span> dirs = std.file.<u>listDir</u>(args[1]);
-
-    <span class="d_keyword">foreach</span>(d; dirs)
-        writefln(d);
-}
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string[] <span class="symbol-target" id="listDir">&nbsp;</span><a class="symbol-link" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>filter</i>, bool <i>followSymlink</i> = true);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
-          Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
-</p>
-
-<p>Returns all the files in the directory and its sub-directories
-    which match pattern or regular expression r.
-
-</p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>pathname</td>
-<td>The path of the directory to search.</td>
-</tr>
-<tr><td>pattern</td>
-<td>String with wildcards, such as <font color=red>"*.d"</font>. The supported
-                   wildcard strings are described under fnmatch() in
-                   <a href="std_path.html">std.path</a>.</td>
-</tr>
-<tr><td>r</td>
-<td>Regular expression, for more powerful pattern matching.</td>
-</tr>
-<tr><td>followSymlink</td>
-<td>Whether symbolic links which point to directories
-                         should be treated as directories and their contents
-                         iterated over. Ignored on Windows.</td>
-</tr>
-</table></dd>
-<dt>Examples</dt><dd>This program lists all the files with a "d" extension in
-    the path passed as the first argument.
-<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
-<span class="d_keyword">import</span> std.file;
-
-<span class="d_keyword">void</span> main(string[] args)
-{
-  <span class="d_keyword">auto</span> d_source_files = std.file.<u>listDir</u>(args[1], <span class="d_string">"*.d"</span>);
-
-  <span class="d_keyword">foreach</span>(d; d_source_files)
-      writefln(d);
-}
-</pre>
-
-    A regular expression version that searches for all files with "d" or
-    "obj" extensions:
-<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
-<span class="d_keyword">import</span> std.file;
-<span class="d_keyword">import</span> std.regexp;
-
-<span class="d_keyword">void</span> main(string[] args)
-{
-  <span class="d_keyword">auto</span> d_source_files = std.file.<u>listDir</u>(args[1], RegExp(<span class="d_string">r"\.(d|obj)$"</span>));
-
-  <span class="d_keyword">foreach</span>(d; d_source_files)
-      writefln(d);
-}
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="listDir">&nbsp;</span><a class="symbol-link" href="#listDir">listDir</a>(C, U)(in C[] <i>pathname</i>, U <i>callback</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2012.
-       Please use <a href="#dirEntries"><span class="inlinecode">dirEntries</span></a> instead.</font>
-</p>
-
-<p>For each file and directory name in pathname[],
- pass it to the callback delegate.
-
-</p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>callback</td>
-<td>Delegate that processes each
-                        filename in turn. Returns <span class="d_keyword">true</span> to
-                        continue, <span class="d_keyword">false</span> to stop.</td>
-</tr>
-</table></dd>
-<dt>Example:</dt><dd>
-This program lists all the files in its
-        path argument, including the path.
-<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
- <span class="d_keyword">import</span> std.path;
- <span class="d_keyword">import</span> std.file;
-
- <span class="d_keyword">void</span> main(string[] args)
- {
-    <span class="d_keyword">auto</span> pathname = args[1];
-    string[] result;
-
-    <span class="d_keyword">bool</span> listing(string filename)
-    {
-      result ~= buildPath(pathname, filename);
-      <span class="d_keyword">return</span> <span class="d_keyword">true</span>; <span class="d_comment">// continue
-</span>
-    }
-
-    listdir(pathname, &amp;listing);
-
-    <span class="d_keyword">foreach</span> (name; result)
-      writefln(<span class="d_string">"%s"</span>, name);
- }
-</pre>
-</dd>
+<a href="http://docs.python.org/library/tempfile.html#tempfile.tempdir"><span class="inlinecode">tempfile.tempdir</span></a>.</p>
 </dl>
 </div>
 

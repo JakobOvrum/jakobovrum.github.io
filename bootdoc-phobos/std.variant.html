@@ -285,45 +285,45 @@
 </p>
 
 <dt>Synopsis:</dt><dd>
-<pre class="d_code"> Variant a; <span class="d_comment">// Must assign before use, otherwise exception ensues
+<pre class="d_code">Variant a; <span class="d_comment">// Must assign before use, otherwise exception ensues
 </span>
- <span class="d_comment">// Initialize with an integer; make the type int
+<span class="d_comment">// Initialize with an integer; make the type int
 </span>
- Variant b = 42;
- <span class="d_keyword">assert</span>(b.type == <span class="d_keyword">typeid</span>(<span class="d_keyword">int</span>));
- <span class="d_comment">// Peek at the value
+Variant b = 42;
+<span class="d_keyword">assert</span>(b.type == <span class="d_keyword">typeid</span>(<span class="d_keyword">int</span>));
+<span class="d_comment">// Peek at the value
 </span>
- <span class="d_keyword">assert</span>(b.peek!(<span class="d_keyword">int</span>) !<span class="d_keyword">is</span> <span class="d_keyword">null</span> &amp;&amp; *b.peek!(<span class="d_keyword">int</span>) == 42);
- <span class="d_comment">// Automatically convert per language rules
+<span class="d_keyword">assert</span>(b.peek!(<span class="d_keyword">int</span>) !<span class="d_keyword">is</span> <span class="d_keyword">null</span> &amp;&amp; *b.peek!(<span class="d_keyword">int</span>) == 42);
+<span class="d_comment">// Automatically convert per language rules
 </span>
- <span class="d_keyword">auto</span> x = b.get!(<span class="d_keyword">real</span>);
- <span class="d_comment">// Assign any other type, including other variants
+<span class="d_keyword">auto</span> x = b.get!(<span class="d_keyword">real</span>);
+<span class="d_comment">// Assign any other type, including other variants
 </span>
- a = b;
- a = 3.14;
- <span class="d_keyword">assert</span>(a.type == <span class="d_keyword">typeid</span>(<span class="d_keyword">double</span>));
- <span class="d_comment">// Implicit conversions work just as with built-in types
+a = b;
+a = 3.14;
+<span class="d_keyword">assert</span>(a.type == <span class="d_keyword">typeid</span>(<span class="d_keyword">double</span>));
+<span class="d_comment">// Implicit conversions work just as with built-in types
 </span>
- <span class="d_keyword">assert</span>(a &gt; b);
- <span class="d_comment">// Check for convertibility
+<span class="d_keyword">assert</span>(a &lt; b);
+<span class="d_comment">// Check for convertibility
 </span>
- <span class="d_keyword">assert</span>(!a.convertsTo!(<span class="d_keyword">int</span>)); <span class="d_comment">// double not convertible to int
+<span class="d_keyword">assert</span>(!a.convertsTo!(<span class="d_keyword">int</span>)); <span class="d_comment">// double not convertible to int
 </span>
- <span class="d_comment">// Strings and all other arrays are supported
+<span class="d_comment">// Strings and all other arrays are supported
 </span>
- a = <span class="d_string">"now I'm a string"</span>;
- <span class="d_keyword">assert</span>(a == <span class="d_string">"now I'm a string"</span>);
- a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[42]; <span class="d_comment">// can also assign arrays
+a = <span class="d_string">"now I'm a string"</span>;
+<span class="d_keyword">assert</span>(a == <span class="d_string">"now I'm a string"</span>);
+a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[42]; <span class="d_comment">// can also assign arrays
 </span>
- <span class="d_keyword">assert</span>(a.length == 42);
- a[5] = 7;
- <span class="d_keyword">assert</span>(a[5] == 7);
- <span class="d_comment">// Can also assign class values
+<span class="d_keyword">assert</span>(a.length == 42);
+a[5] = 7;
+<span class="d_keyword">assert</span>(a[5] == 7);
+<span class="d_comment">// Can also assign class values
 </span>
- <span class="d_keyword">class</span> Foo {}
- <span class="d_keyword">auto</span> foo = <span class="d_keyword">new</span> Foo;
- a = foo;
- <span class="d_keyword">assert</span>(*a.peek!(Foo) == foo); <span class="d_comment">// and full type information is preserved
+<span class="d_keyword">class</span> Foo {}
+<span class="d_keyword">auto</span> foo = <span class="d_keyword">new</span> Foo;
+a = foo;
+<span class="d_keyword">assert</span>(*a.peek!(Foo) == foo); <span class="d_comment">// and full type information is preserved
 </span>
 </pre>
 
@@ -342,7 +342,12 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/variant.d">std/variant.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="VariantN">&nbsp;</span><a class="symbol-link" href="#VariantN">VariantN</a>(size_t maxDataSize,AllowedTypesX...);
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="maxSize">&nbsp;</span><a class="symbol-link" href="#maxSize">maxSize</a>(T...)</h3></div>
+<div class="declaration-content"><dl><p>Gives the <span class="inlinecode">sizeof</span> the largest type given.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="VariantN">&nbsp;</span><a class="symbol-link" href="#VariantN">VariantN</a>(size_t maxDataSize, AllowedTypesX...);
 </h3></div>
 <div class="declaration-content"><dl><p><b><span class="symbol-target" id="VariantN">&nbsp;</span><a class="symbol-link" href="#VariantN">VariantN</a></b> is a back-end type seldom used directly by user
  code. Two commonly-used types using <b><span class="symbol-target" id="VariantN">&nbsp;</span><a class="symbol-link" href="#VariantN">VariantN</a></b> as
@@ -375,7 +380,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(T)(T <i>value</i>);
+<hr><div class="row-fluid declaration"><h3> this(T)(T <i>value</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructs a <b>VariantN</b> value given an argument of a
  generic type. Statically rejects disallowed types.</p>
@@ -397,19 +402,19 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> Variant a;
- <span class="d_keyword">assert</span>(!a.<u>hasValue</u>);
- Variant b;
- a = b;
- <span class="d_keyword">assert</span>(!a.<u>hasValue</u>); <span class="d_comment">// still no value
+<pre class="d_code">Variant a;
+<span class="d_keyword">assert</span>(!a.<u>hasValue</u>);
+Variant b;
+a = b;
+<span class="d_keyword">assert</span>(!a.<u>hasValue</u>); <span class="d_comment">// still no value
 </span>
- a = 5;
- <span class="d_keyword">assert</span>(a.<u>hasValue</u>);
+a = 5;
+<span class="d_keyword">assert</span>(a.<u>hasValue</u>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T* <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T)();
+<hr><div class="row-fluid declaration"><h3>inout T* <span class="symbol-target" id="peek">&nbsp;</span><a class="symbol-link" href="#peek">peek</a>(T)();
 </h3></div>
 <div class="declaration-content"><dl><p>If the <b>VariantN</b> object holds a value of the
  <i>exact</i> type <b>T</b>, returns a pointer to that
@@ -418,11 +423,11 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> Variant a = 5;
- <span class="d_keyword">auto</span> b = a.<u>peek</u>!(<span class="d_keyword">int</span>);
- <span class="d_keyword">assert</span>(b !<span class="d_keyword">is</span> <span class="d_keyword">null</span>);
- *b = 6;
- <span class="d_keyword">assert</span>(a == 6);
+<pre class="d_code">Variant a = 5;
+<span class="d_keyword">auto</span> b = a.<u>peek</u>!(<span class="d_keyword">int</span>);
+<span class="d_keyword">assert</span>(b !<span class="d_keyword">is</span> <span class="d_keyword">null</span>);
+*b = 6;
+<span class="d_keyword">assert</span>(a == 6);
 </pre>
 </dd>
 </dl>
@@ -441,7 +446,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="get">&nbsp;</span><a class="symbol-link" href="#get">get</a>(T)();
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="get">&nbsp;</span><a class="symbol-link" href="#get">get</a>(T)() if (!is(T == const));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the value stored in the <b>VariantN</b> object,
  implicitly converted to the requested type <b>T</b>, in
@@ -466,7 +471,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(T)(T <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>const bool <span class="symbol-target" id="opEquals">&nbsp;</span><a class="symbol-link" href="#opEquals">opEquals</a>(T)(auto ref T <i>rhs</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Comparison for equality used by the "==" and "!="  operators.</p>
 
@@ -488,16 +493,7 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 </div>
 <hr><div class="row-fluid declaration"><h3>VariantN <span class="symbol-target" id="opAdd">&nbsp;</span><a class="symbol-link" href="#opAdd">opAdd</a>(T)(T <i>rhs</i>);
 <br>VariantN <span class="symbol-target" id="opSub">&nbsp;</span><a class="symbol-link" href="#opSub">opSub</a>(T)(T <i>rhs</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Arithmetic between <b>VariantN</b> objects and numeric
- values. All arithmetic operations return a <b>VariantN</b>
- object typed depending on the types of both values
- involved. The conversion rules mimic D's built-in rules for
- arithmetic conversions.</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>VariantN <span class="symbol-target" id="opMul">&nbsp;</span><a class="symbol-link" href="#opMul">opMul</a>(T)(T <i>rhs</i>);
+<br>VariantN <span class="symbol-target" id="opMul">&nbsp;</span><a class="symbol-link" href="#opMul">opMul</a>(T)(T <i>rhs</i>);
 <br>VariantN <span class="symbol-target" id="opDiv">&nbsp;</span><a class="symbol-link" href="#opDiv">opDiv</a>(T)(T <i>rhs</i>);
 <br>VariantN <span class="symbol-target" id="opMod">&nbsp;</span><a class="symbol-link" href="#opMod">opMod</a>(T)(T <i>rhs</i>);
 <br>VariantN <span class="symbol-target" id="opAnd">&nbsp;</span><a class="symbol-link" href="#opAnd">opAnd</a>(T)(T <i>rhs</i>);
@@ -520,8 +516,11 @@ Reviewed by Brad Roberts. Daniel Keep provided a detailed code
 <br>VariantN <span class="symbol-target" id="opUShrAssign">&nbsp;</span><a class="symbol-link" href="#opUShrAssign">opUShrAssign</a>(T)(T <i>rhs</i>);
 <br>VariantN <span class="symbol-target" id="opCatAssign">&nbsp;</span><a class="symbol-link" href="#opCatAssign">opCatAssign</a>(T)(T <i>rhs</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>ditto
-ditto</p>
+<div class="declaration-content"><dl><p>Arithmetic between <b>VariantN</b> objects and numeric
+ values. All arithmetic operations return a <b>VariantN</b>
+ object typed depending on the types of both values
+ involved. The conversion rules mimic D's built-in rules for
+ arithmetic conversions.</p>
 
 </dl>
 </div>
@@ -533,24 +532,24 @@ ditto</p>
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> a = Variant(<span class="d_keyword">new</span> <span class="d_keyword">int</span>[10]);
- a[5] = 42;
- <span class="d_keyword">assert</span>(a[5] == 42);
- <span class="d_keyword">int</span>[<span class="d_keyword">int</span>] hash = [ 42:24 ];
- a = hash;
- <span class="d_keyword">assert</span>(a[42] == 24);
+<pre class="d_code"><span class="d_keyword">auto</span> a = Variant(<span class="d_keyword">new</span> <span class="d_keyword">int</span>[10]);
+a[5] = 42;
+<span class="d_keyword">assert</span>(a[5] == 42);
+<span class="d_keyword">int</span>[<span class="d_keyword">int</span>] hash = [ 42:24 ];
+a = hash;
+<span class="d_keyword">assert</span>(a[42] == 24);
 </pre>
 
 </dd>
 <dt>Caveat:</dt><dd>
-Due to limitations in current language, read-modify-write
+ Due to limitations in current language, read-modify-write
  operations <b>op=</b> will not work properly:
 <br><br>
 
-<pre class="d_code"> Variant a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[10];
- a[5] = 42;
- a[5] += 8;
- <span class="d_keyword">assert</span>(a[5] == 50); <span class="d_comment">// fails, a[5] is still 42
+<pre class="d_code">Variant a = <span class="d_keyword">new</span> <span class="d_keyword">int</span>[10];
+a[5] = 42;
+a[5] += 8;
+<span class="d_keyword">assert</span>(a[5] == 50); <span class="d_comment">// fails, a[5] is still 42
 </span>
 </pre>
 </dd>
@@ -564,7 +563,7 @@ Due to limitations in current language, read-modify-write
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(Delegate)(scope Delegate <i>dg</i>);
+<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="opApply">&nbsp;</span><a class="symbol-link" href="#opApply">opApply</a>(Delegate)(scope Delegate <i>dg</i>) if (is(Delegate == delegate));
 </h3></div>
 <div class="declaration-content"><dl><p>If the <span class="inlinecode">VariantN</span> contains an array, applies <span class="inlinecode">dg</span> to each
        element of the array in turn. Otherwise, throws an exception.</p>
@@ -593,19 +592,19 @@ Due to limitations in current language, read-modify-write
 
 </dd>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> v = <u>Algebraic</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, string)(5);
- <span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">int</span>));
- v = 3.14;
- <span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">double</span>));
- <span class="d_comment">// auto x = v.peek!(long); // won't compile, type long not allowed
+<pre class="d_code"><span class="d_keyword">auto</span> v = <u>Algebraic</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">double</span>, string)(5);
+<span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">int</span>));
+v = 3.14;
+<span class="d_keyword">assert</span>(v.peek!(<span class="d_keyword">double</span>));
+<span class="d_comment">// auto x = v.peek!(long); // won't compile, type long not allowed
 </span>
- <span class="d_comment">// v = '1'; // won't compile, type char not allowed
+<span class="d_comment">// v = '1'; // won't compile, type char not allowed
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Variant">&nbsp;</span><a class="symbol-link" href="#Variant">Variant</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Variant">&nbsp;</span><a class="symbol-link" href="#Variant">Variant</a> = VariantN!(20u).VariantN;
 </h3></div>
 <div class="declaration-content"><dl><p><b><span class="symbol-target" id="Variant">&nbsp;</span><a class="symbol-link" href="#Variant">Variant</a></b> is an alias for <b>VariantN</b> instantiated
 with the largest of <b>creal</b>, <b>char[]</b>, and <b>void delegate()</b>. This ensures that <b><span class="symbol-target" id="Variant">&nbsp;</span><a class="symbol-link" href="#Variant">Variant</a></b> is large enough
@@ -622,32 +621,34 @@ storing larger types, or for saving memory.</p>
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">auto</span> a = <u>variantArray</u>(1, 3.14, <span class="d_string">"Hi!"</span>);
- <span class="d_keyword">assert</span>(a[1] == 3.14);
- <span class="d_keyword">auto</span> b = Variant(a); <span class="d_comment">// variant array as variant
+<pre class="d_code"><span class="d_keyword">auto</span> a = <u>variantArray</u>(1, 3.14, <span class="d_string">"Hi!"</span>);
+<span class="d_keyword">assert</span>(a[1] == 3.14);
+<span class="d_keyword">auto</span> b = Variant(a); <span class="d_comment">// variant array as variant
 </span>
- <span class="d_keyword">assert</span>(b[1] == 3.14);
+<span class="d_keyword">assert</span>(b[1] == 3.14);
 </pre>
+<br><br>
 
  Code that needs functionality similar to the <b>boxArray</b>
  function in the <b>std.boxer</b> module can achieve it like this:
 <br><br>
 
-<pre class="d_code"> <span class="d_comment">// old
+<pre class="d_code"><span class="d_comment">// old
 </span>
- Box[] fun(...)
- {
-     ...
-     <span class="d_keyword">return</span> boxArray(_arguments, _argptr);
- }
- <span class="d_comment">// new
+Box[] fun(...)
+{
+    ...
+    <span class="d_keyword">return</span> boxArray(_arguments, _argptr);
+}
+<span class="d_comment">// new
 </span>
- Variant[] fun(T...)(T args)
- {
-     ...
-     <span class="d_keyword">return</span> <u>variantArray</u>(args);
- }
+Variant[] fun(T...)(T args)
+{
+    ...
+    <span class="d_keyword">return</span> <u>variantArray</u>(args);
+}
 </pre>
+<br><br>
 
  This is by design. During construction the <b>Variant</b> needs
  static type information about the type being held, so as to store a
@@ -678,6 +679,92 @@ storing larger types, or for saving memory.</p>
 </dl>
 </div>
 </div>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="visit">&nbsp;</span><a class="symbol-link" href="#visit">visit</a>(Handler...) if (Handler.length &gt; 0)</h3></div>
+<div class="declaration-content"><dl><p>Applies a delegate or function to the given Algebraic depending on the held type,
+ ensuring that all types are handled by the visiting functions.
+</p>
+
+<p>The delegate or function having the currently held value as parameter is called
+ with 's current value. Visiting handlers are passed
+ in the template parameter list.
+ It is statically ensured that all types of
+ <b>variant</b> are handled accross all handlers.
+ <b><span class="symbol-target" id="visit">&nbsp;</span><a class="symbol-link" href="#visit">visit</a></b> allows delegates and static functions to be passed
+ as parameters.
+<br><br>
+
+ If a function without parameters is specified, this function is called
+ when variant doesn't hold a value. Exactly one parameter-less function
+ is allowed.
+<br><br>
+
+ Duplicate overloads matching the same type in one of the visitors are disallowed.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code">  Algebraic!(<span class="d_keyword">int</span>, string) variant;
+
+  variant = 10;
+  <span class="d_keyword">assert</span>(variant.<u>visit</u>!((string s) =&gt; <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)s.length,
+                        (<span class="d_keyword">int</span> i)    =&gt; i)()
+                        == 10);
+  variant = <span class="d_string">"string"</span>;
+  <span class="d_keyword">assert</span>(variant.<u>visit</u>!((<span class="d_keyword">int</span> i) =&gt; <span class="d_keyword">return</span> i,
+                        (string s) =&gt; <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)s.length)()
+                        == 6);
+
+  <span class="d_comment">// Error function usage
+</span>
+  Algebraic!(<span class="d_keyword">int</span>, string) emptyVar;
+  <span class="d_keyword">assert</span>(variant.<u>visit</u>!((string s) =&gt; <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>)s.length,
+                        (<span class="d_keyword">int</span> i)    =&gt; i,
+                        () =&gt; -1)()
+                        == -1);
+</pre>
+</dd>
+<dt>Returns</dt><dd>The return type of <span class="symbol-target" id="visit">&nbsp;</span><a class="symbol-link" href="#visit">visit</a> is deduced from the visiting functions and must be
+ the same accross all overloads.
+</dd>
+<dt>Throws</dt><dd>If no parameter-less, error function is specified:
+ <b>VariantException</b> if <b>variant</b> doesn't hold a value.</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="tryVisit">&nbsp;</span><a class="symbol-link" href="#tryVisit">tryVisit</a>(Handler...) if (Handler.length &gt; 0)</h3></div>
+<div class="declaration-content"><dl><p>Behaves as <b>visit</b> but doesn't enforce that all types are handled
+ by the visiting functions.
+</p>
+
+<p>If a parameter-less function is specified it is called when
+ either <b>variant</b> doesn't hold a value or holds a type
+ which isn't handled by the visiting functions.
+
+</p>
+<dt>Example:</dt><dd>
+<pre class="d_code">  Algebraic!(<span class="d_keyword">int</span>, string) variant;
+
+  variant = 10;
+  <span class="d_keyword">auto</span> which = -1;
+  variant.<u>tryVisit</u>!((<span class="d_keyword">int</span> i) { which = 0; })();
+  <span class="d_keyword">assert</span>(which = 0);
+
+  <span class="d_comment">// Error function usage
+</span>
+  variant = <span class="d_string">"test"</span>;
+  variant.<u>tryVisit</u>!((<span class="d_keyword">int</span> i) { which = 0; },
+                    ()      { which = -100; })();
+  <span class="d_keyword">assert</span>(which == -100);
+</pre>
+
+</dd>
+<dt>Returns</dt><dd>The return type of <span class="symbol-target" id="tryVisit">&nbsp;</span><a class="symbol-link" href="#tryVisit">tryVisit</a> is deduced from the visiting functions and must be
+ the same accross all overloads.
+</dd>
+<dt>Throws</dt><dd>If no parameter-less, error function is specified: <b>VariantException</b> if
+         <b>variant</b> doesn't hold a value or
+         if <b>variant</b> holds a value which isn't handled by the visiting
+         functions.</dd>
+</dl>
 </div>
 
 

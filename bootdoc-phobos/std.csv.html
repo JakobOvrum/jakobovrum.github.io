@@ -297,39 +297,41 @@
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.algorithm;
- <span class="d_keyword">import</span> std.array;
- <span class="d_keyword">import</span> std.<u>csv</u>;
- <span class="d_keyword">import</span> std.stdio;
- <span class="d_keyword">import</span> std.typecons;
+<pre class="d_code"><span class="d_keyword">import</span> std.algorithm;
+<span class="d_keyword">import</span> std.array;
+<span class="d_keyword">import</span> std.<u>csv</u>;
+<span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.typecons;
 
- <span class="d_keyword">void</span> main()
- {
-     <span class="d_keyword">auto</span> text = <span class="d_string">"Joe,Carpenter,300000\nFred,Blacksmith,400000\r\n"</span>;
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">auto</span> text = <span class="d_string">"Joe,Carpenter,300000\nFred,Blacksmith,400000\r\n"</span>;
 
-     <span class="d_keyword">foreach</span>(record; csvReader!(Tuple!(string,string,<span class="d_keyword">int</span>))(text))
-     {
-         writefln(<span class="d_string">"%s works as a %s and earns $%d per year"</span>,
-                  record[0], record[1], record[2]);
-     }
- }
+    <span class="d_keyword">foreach</span>(record; csvReader!(Tuple!(string,string,<span class="d_keyword">int</span>))(text))
+    {
+        writefln(<span class="d_string">"%s works as a %s and earns $%d per year"</span>,
+                 record[0], record[1], record[2]);
+    }
+}
 </pre>
+<br><br>
 
  When an input contains a header the <span class="inlinecode">Contents</span> can be specified as an
  associative array. Passing <span class="d_keyword">null</span> to signify that a header is present.
 <br><br>
 
-<pre class="d_code"> <span class="d_keyword">auto</span> text = <span class="d_string">"Name,Occupation,Salary\r"</span>
-     <span class="d_string">"Joe,Carpenter,300000\nFred,Blacksmith,400000\r\n"</span>;
+<pre class="d_code"><span class="d_keyword">auto</span> text = <span class="d_string">"Name,Occupation,Salary\r"</span>
+    <span class="d_string">"Joe,Carpenter,300000\nFred,Blacksmith,400000\r\n"</span>;
 
- <span class="d_keyword">foreach</span>(record; csvReader!(string[string])
-         (text, <span class="d_keyword">null</span>))
- {
-     writefln(<span class="d_string">"%s works as a %s and earns $%s per year."</span>,
-              record[<span class="d_string">"Name"</span>], record[<span class="d_string">"Occupation"</span>],
-              record[<span class="d_string">"Salary"</span>]);
- }
+<span class="d_keyword">foreach</span>(record; csvReader!(string[string])
+        (text, <span class="d_keyword">null</span>))
+{
+    writefln(<span class="d_string">"%s works as a %s and earns $%s per year."</span>,
+             record[<span class="d_string">"Name"</span>], record[<span class="d_string">"Occupation"</span>],
+             record[<span class="d_string">"Salary"</span>]);
+}
 </pre>
+<br><br>
 
  This module allows content to be iterated by record stored in a struct,
  class, associative array, or as a range of fields. Upon detection of an
@@ -362,7 +364,8 @@
 
 <p>Numbering of both row and col start at one and corresponds to the location
  in the file rather than any specified header. Special consideration should
- be made when there is failure to match the header see <a href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a> for details.
+ be made when there is failure to match the header see <a class="symbol-link" href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a>
+ for details.
 <br><br>
 
  When performing type conversions, <a href="std_ConvException.html#ConvException"><span class="inlinecode">std.ConvException.ConvException</span></a> is stored in the <span class="inlinecode">next</span> field.</p>
@@ -389,8 +392,10 @@
 <div class="declaration-content"><dl><p>Data pulled from input before finding a problem
 </p>
 
-<p>This field is populated when using <a href="#csvReader"><span class="inlinecode">csvReader</span></a>
- but not by <a href="#csvNextToken"><span class="inlinecode">csvNextToken</span></a> as this data will have
+<p>This field is populated when using <a class="symbol-link" href="#csvReader"><span class="inlinecode">csvReader</span></a>
+
+ but not by <a class="symbol-link" href="#csvNextToken"><span class="inlinecode">csvNextToken</span></a>
+ as this data will have
  already been fed to the output range.</p>
 </dl>
 </div>
@@ -418,7 +423,7 @@
  occurred before the previous starting at one.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Malformed">&nbsp;</span><a class="symbol-link" href="#Malformed">Malformed</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Malformed">&nbsp;</span><a class="symbol-link" href="#Malformed">Malformed</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Determines the behavior for when an error is detected.
 </p>
@@ -448,7 +453,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="csvReader">&nbsp;</span><a class="symbol-link" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Separator = char)(Range <i>input</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"');
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="csvReader">&nbsp;</span><a class="symbol-link" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Separator = char)(Range <i>input</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"') if (isInputRange!Range &amp;&amp; is(ElementType!Range == dchar) &amp;&amp; isSomeChar!Separator &amp;&amp; !is(Contents T : T[U], U : string));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an input range for iterating over records found in <span class="inlinecode">input</span>.
 </p>
@@ -457,47 +462,49 @@
  same type such as all integer data:
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">`76,26,22`</span>;
- <span class="d_keyword">int</span>[] ans = [76,26,22];
- <span class="d_keyword">auto</span> records = <u>csvReader</u>!<span class="d_keyword">int</span>(str);
+<pre class="d_code">string str = <span class="d_string">`76,26,22`</span>;
+<span class="d_keyword">int</span>[] ans = [76,26,22];
+<span class="d_keyword">auto</span> records = <u>csvReader</u>!<span class="d_keyword">int</span>(str);
 
- <span class="d_keyword">foreach</span>(record; records)
- {
-     <span class="d_keyword">assert</span>(equal(record, ans));
- }
+<span class="d_keyword">foreach</span>(record; records)
+{
+    <span class="d_keyword">assert</span>(equal(record, ans));
+}
 </pre>
+<br><br>
 
  Example using a struct with modified delimiter:
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"Hello;65;63.63\nWorld;123;3673.562"</span>;
- <span class="d_keyword">struct</span> Layout
- {
-     string name;
-     <span class="d_keyword">int</span> value;
-     <span class="d_keyword">double</span> other;
- }
+<pre class="d_code">string str = <span class="d_string">"Hello;65;63.63\nWorld;123;3673.562"</span>;
+<span class="d_keyword">struct</span> Layout
+{
+    string name;
+    <span class="d_keyword">int</span> value;
+    <span class="d_keyword">double</span> other;
+}
 
- <span class="d_keyword">auto</span> records = <u>csvReader</u>!Layout(str,';');
+<span class="d_keyword">auto</span> records = <u>csvReader</u>!Layout(str,';');
 
- <span class="d_keyword">foreach</span>(record; records)
- {
-     writeln(record.name);
-     writeln(record.value);
-     writeln(record.other);
- }
+<span class="d_keyword">foreach</span>(record; records)
+{
+    writeln(record.name);
+    writeln(record.value);
+    writeln(record.other);
+}
 </pre>
+<br><br>
 
  Specifying <span class="inlinecode">ErrorLevel</span> as Malformed.ignore will lift restrictions
  on the format. This example shows that an exception is not thrown when
  finding a quote in a field not quoted.
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"A \" is now part of the data"</span>;
- <span class="d_keyword">auto</span> records = <u>csvReader</u>!(string,Malformed.ignore)(str);
- <span class="d_keyword">auto</span> record = records.front;
+<pre class="d_code">string str = <span class="d_string">"A \" is now part of the data"</span>;
+<span class="d_keyword">auto</span> records = <u>csvReader</u>!(string,Malformed.ignore)(str);
+<span class="d_keyword">auto</span> record = records.front;
 
- <span class="d_keyword">assert</span>(record.front == str);
+<span class="d_keyword">assert</span>(record.front == str);
 </pre>
 
 </p>
@@ -506,19 +513,21 @@
         a range with element type <span class="inlinecode">Contents</span>.
 
 </dd>
-<dt>Throws</dt><dd><a href="#CSVException"><span class="inlinecode">CSVException</span></a> When a quote is found in an unquoted field,
+<dt>Throws</dt><dd><a class="symbol-link" href="#CSVException"><span class="inlinecode">CSVException</span></a>
+ When a quote is found in an unquoted field,
        data continues after a closing quote, the quoted field was not
        closed before data was empty, a conversion failed, or when the row's
        length does not match the previous length.
 <br><br>
 
-       <a href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a>  when a header is provided but a
+       <a class="symbol-link" href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a>
+  when a header is provided but a
        matching column is not found or the order did not match that found in
        the input. Read the exception documentation for specific details of
        when the exception is thrown for different types of <span class="inlinecode">Contents</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="csvReader">&nbsp;</span><a class="symbol-link" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Header, Separator = char)(Range <i>input</i>, Header <i>header</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"');
+<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="csvReader">&nbsp;</span><a class="symbol-link" href="#csvReader">csvReader</a>(Contents = string, Malformed ErrorLevel = Malformed.throwException, Range, Header, Separator = char)(Range <i>input</i>, Header <i>header</i>, Separator <i>delimiter</i> = ',', Separator <i>quote</i> = '"') if (isInputRange!Range &amp;&amp; is(ElementType!Range == dchar) &amp;&amp; isSomeChar!Separator &amp;&amp; isForwardRange!Header &amp;&amp; isSomeString!(ElementType!Header));
 </h3></div>
 <div class="declaration-content"><dl><p>An optional <span class="inlinecode">header</span> can be provided. The first record will be read in
  as the header. If <span class="inlinecode">Contents</span> is a struct then the header provided is
@@ -530,44 +539,46 @@
 <p>Read only column "b":
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
- <span class="d_keyword">auto</span> records = <u>csvReader</u>!<span class="d_keyword">int</span>(str, [<span class="d_string">"b"</span>]);
+<pre class="d_code">string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
+<span class="d_keyword">auto</span> records = <u>csvReader</u>!<span class="d_keyword">int</span>(str, [<span class="d_string">"b"</span>]);
 
- <span class="d_keyword">auto</span> ans = [[65],[123]];
- <span class="d_keyword">foreach</span>(record; records)
- {
-     <span class="d_keyword">assert</span>(equal(record, ans.front));
-     ans.popFront();
- }
+<span class="d_keyword">auto</span> ans = [[65],[123]];
+<span class="d_keyword">foreach</span>(record; records)
+{
+    <span class="d_keyword">assert</span>(equal(record, ans.front));
+    ans.popFront();
+}
 </pre>
+<br><br>
 
  Read from header of different order:
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
- <span class="d_keyword">struct</span> Layout
- {
-     <span class="d_keyword">int</span> value;
-     <span class="d_keyword">double</span> other;
-     string name;
- }
+<pre class="d_code">string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
+<span class="d_keyword">struct</span> Layout
+{
+    <span class="d_keyword">int</span> value;
+    <span class="d_keyword">double</span> other;
+    string name;
+}
 
- <span class="d_keyword">auto</span> records = <u>csvReader</u>!Layout(str, [<span class="d_string">"b"</span>,<span class="d_string">"c"</span>,<span class="d_string">"a"</span>]);
+<span class="d_keyword">auto</span> records = <u>csvReader</u>!Layout(str, [<span class="d_string">"b"</span>,<span class="d_string">"c"</span>,<span class="d_string">"a"</span>]);
 </pre>
+<br><br>
 
  The header can also be left empty if the input contains a header but
  all columns should be iterated. The header from the input can always
  be accessed from the header field.
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
- <span class="d_keyword">auto</span> records = <u>csvReader</u>(str, <span class="d_keyword">null</span>);
+<pre class="d_code">string str = <span class="d_string">"a,b,c\nHello,65,63.63\nWorld,123,3673.562"</span>;
+<span class="d_keyword">auto</span> records = <u>csvReader</u>(str, <span class="d_keyword">null</span>);
 
- <span class="d_keyword">assert</span>(records.header == [<span class="d_string">"a"</span>,<span class="d_string">"b"</span>,<span class="d_string">"c"</span>]);
+<span class="d_keyword">assert</span>(records.header == [<span class="d_string">"a"</span>,<span class="d_string">"b"</span>,<span class="d_string">"c"</span>]);
 </pre>
 
 </p>
-<dt>Returns</dt><dd>An input range R as defined by <a href="std_range.html#isInputRange"><span class="inlinecode">std.range.isInputRange</span></a>. When <span class="inlinecode">       Contents</span> is a struct, class, or an associative array, the element
+<dt>Returns</dt><dd>       An input range R as defined by <a href="std_range.html#isInputRange"><span class="inlinecode">std.range.isInputRange</span></a>. When <span class="inlinecode">       Contents</span> is a struct, class, or an associative array, the element
         type of R is <span class="inlinecode">Contents</span>, otherwise the element type of R is itself
         a range with element type <span class="inlinecode">Contents</span>.
 <br><br>
@@ -576,26 +587,28 @@
         from the input in array form.
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"a,b,c\nHello,65,63.63"</span>;
- <span class="d_keyword">auto</span> records = <u>csvReader</u>(str, [<span class="d_string">"a"</span>]);
+<pre class="d_code">string str = <span class="d_string">"a,b,c\nHello,65,63.63"</span>;
+<span class="d_keyword">auto</span> records = <u>csvReader</u>(str, [<span class="d_string">"a"</span>]);
 
- <span class="d_keyword">assert</span>(records.header == [<span class="d_string">"a"</span>,<span class="d_string">"b"</span>,<span class="d_string">"c"</span>]);
+<span class="d_keyword">assert</span>(records.header == [<span class="d_string">"a"</span>,<span class="d_string">"b"</span>,<span class="d_string">"c"</span>]);
 </pre>
 
 </dd>
-<dt>Throws</dt><dd><a href="#CSVException"><span class="inlinecode">CSVException</span></a> When a quote is found in an unquoted field,
+<dt>Throws</dt><dd><a class="symbol-link" href="#CSVException"><span class="inlinecode">CSVException</span></a>
+ When a quote is found in an unquoted field,
        data continues after a closing quote, the quoted field was not
        closed before data was empty, a conversion failed, or when the row's
        length does not match the previous length.
 <br><br>
 
-       <a href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a>  when a header is provided but a
+       <a class="symbol-link" href="#HeaderMismatchException"><span class="inlinecode">HeaderMismatchException</span></a>
+  when a header is provided but a
        matching column is not found or the order did not match that found in
        the input. Read the exception documentation for specific details of
        when the exception is thrown for different types of <span class="inlinecode">Contents</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="csvNextToken">&nbsp;</span><a class="symbol-link" href="#csvNextToken">csvNextToken</a>(Range, Malformed ErrorLevel = Malformed.throwException, Separator, Output)(ref Range <i>input</i>, ref Output <i>ans</i>, Separator <i>sep</i>, Separator <i>quote</i>, bool <i>startQuoted</i> = false);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="csvNextToken">&nbsp;</span><a class="symbol-link" href="#csvNextToken">csvNextToken</a>(Range, Malformed ErrorLevel = Malformed.throwException, Separator, Output)(ref Range <i>input</i>, ref Output <i>ans</i>, Separator <i>sep</i>, Separator <i>quote</i>, bool <i>startQuoted</i> = false) if (isSomeChar!Separator &amp;&amp; isInputRange!Range &amp;&amp; is(ElementType!Range == dchar) &amp;&amp; isOutputRange!(Output, dchar));
 </h3></div>
 <div class="declaration-content"><dl><p>Lower level control over parsing CSV
 </p>
@@ -605,46 +618,47 @@
  must be removed for subsequent calls.
 <br><br>
 
-<pre class="d_code"> string str = <span class="d_string">"65,63\n123,3673"</span>;
+<pre class="d_code">string str = <span class="d_string">"65,63\n123,3673"</span>;
 
- <span class="d_keyword">auto</span> a = appender!(<span class="d_keyword">char</span>[])();
+<span class="d_keyword">auto</span> a = appender!(<span class="d_keyword">char</span>[])();
 
- <u>csvNextToken</u>(str,a,',','"');
- <span class="d_keyword">assert</span>(a.data == <span class="d_string">"65"</span>);
- <span class="d_keyword">assert</span>(str == <span class="d_string">",63\n123,3673"</span>);
+<u>csvNextToken</u>(str,a,',','"');
+<span class="d_keyword">assert</span>(a.data == <span class="d_string">"65"</span>);
+<span class="d_keyword">assert</span>(str == <span class="d_string">",63\n123,3673"</span>);
 
- str.popFront();
- a.shrinkTo(0);
- <u>csvNextToken</u>(str,a,',','"');
- <span class="d_keyword">assert</span>(a.data == <span class="d_string">"63"</span>);
- <span class="d_keyword">assert</span>(str == <span class="d_string">"\n123,3673"</span>);
+str.popFront();
+a.shrinkTo(0);
+<u>csvNextToken</u>(str,a,',','"');
+<span class="d_keyword">assert</span>(a.data == <span class="d_string">"63"</span>);
+<span class="d_keyword">assert</span>(str == <span class="d_string">"\n123,3673"</span>);
 
- str.popFront();
- a.shrinkTo(0);
- <u>csvNextToken</u>(str,a,',','"');
- <span class="d_keyword">assert</span>(a.data == <span class="d_string">"123"</span>);
- <span class="d_keyword">assert</span>(str == <span class="d_string">",3673"</span>);
+str.popFront();
+a.shrinkTo(0);
+<u>csvNextToken</u>(str,a,',','"');
+<span class="d_keyword">assert</span>(a.data == <span class="d_string">"123"</span>);
+<span class="d_keyword">assert</span>(str == <span class="d_string">",3673"</span>);
 </pre>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>input</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Range input</td>
 <td>Any CSV input</td>
 </tr>
-<tr><td>ans</td>
+<tr><td>Output ans</td>
 <td>The first field in the input</td>
 </tr>
-<tr><td>sep</td>
+<tr><td>Separator sep</td>
 <td>The character to represent a comma in the specification</td>
 </tr>
-<tr><td>quote</td>
+<tr><td>Separator quote</td>
 <td>The character to represent a quote in the specification</td>
 </tr>
-<tr><td>startQuoted</td>
+<tr><td>bool startQuoted</td>
 <td>Whether the input should be considered to already be in
  quotes</td>
 </tr>
 </table></dd>
-<dt>Throws</dt><dd><a href="#IncompleteCellException"><span class="inlinecode">IncompleteCellException</span></a> When a quote is found in an unquoted
+<dt>Throws</dt><dd><a class="symbol-link" href="#IncompleteCellException"><span class="inlinecode">IncompleteCellException</span></a>
+ When a quote is found in an unquoted
        field, data continues after a closing quote, or the quoted field was
        not closed before data was empty.</dd>
 </dl>

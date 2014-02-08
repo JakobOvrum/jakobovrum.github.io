@@ -277,7 +277,7 @@
 <dl><p>Module containing Date/Time functionality.
 </p>
 
-<p>This module provides:
+<p>   This module provides:
     <ul>       <li>Types to represent points in time: <span class="inlinecode">SysTime</span>, <span class="inlinecode">Date</span>,
              <span class="inlinecode">TimeOfDay</span>, and <span class="inlinecode">DateTime</span>.</li>
         <li>Types to represent intervals of time.</li>
@@ -346,6 +346,7 @@
 <span class="d_keyword">auto</span> timeString = currentTime.toISOExtString();
 <span class="d_keyword">auto</span> restoredTime = SysTime.fromISOExtString(timeString);
 </pre>
+<br><br>
 
     Various functions take a string (or strings) to represent a unit of time
     (e.g. <span class="inlinecode">convert!("days", "hours")(numDays)</span>). The valid strings to use
@@ -383,7 +384,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/datetime.d">std/datetime.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Month">&nbsp;</span><a class="symbol-link" href="#Month">Month</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Month">&nbsp;</span><a class="symbol-link" href="#Month">Month</a>: ubyte;
 </h3></div>
 <div class="declaration-content"><dl><p>Represents the 12 months of the Gregorian year (January is 1).</p>
 
@@ -427,7 +428,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="DayOfWeek">&nbsp;</span><a class="symbol-link" href="#DayOfWeek">DayOfWeek</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="DayOfWeek">&nbsp;</span><a class="symbol-link" href="#DayOfWeek">DayOfWeek</a>: ubyte;
 </h3></div>
 <div class="declaration-content"><dl><p>Represents the 7 days of the Gregorian week (Sunday is 0).</p>
 
@@ -456,7 +457,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AllowDayOverflow">&nbsp;</span><a class="symbol-link" href="#AllowDayOverflow">AllowDayOverflow</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AllowDayOverflow">&nbsp;</span><a class="symbol-link" href="#AllowDayOverflow">AllowDayOverflow</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>In some date calculations, adding months or years can cause the date to fall
     on a day of the month which is not valid (e.g. February 29th 2001 or
@@ -483,7 +484,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Direction">&nbsp;</span><a class="symbol-link" href="#Direction">Direction</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Direction">&nbsp;</span><a class="symbol-link" href="#Direction">Direction</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Indicates a direction in time. One example of its use is <span class="inlinecode">Interval</span>'s
     <span class="inlinecode">expand</span> function which uses it to indicate whether the interval should
@@ -508,7 +509,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="PopFirst">&nbsp;</span><a class="symbol-link" href="#PopFirst">PopFirst</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="PopFirst">&nbsp;</span><a class="symbol-link" href="#PopFirst">PopFirst</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Used to indicate whether <span class="inlinecode">popFront</span> should be called immediately upon
     creating a range. The idea is that for some functions used to generate a
@@ -548,7 +549,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AutoStart">&nbsp;</span><a class="symbol-link" href="#AutoStart">AutoStart</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AutoStart">&nbsp;</span><a class="symbol-link" href="#AutoStart">AutoStart</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Used by StopWatch to indicate whether it should start immediately upon
    construction.</p>
@@ -579,7 +580,7 @@
    <span class="inlinecode">"years"</span></p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="DateTimeException">&nbsp;</span><a class="symbol-link" href="#DateTimeException">DateTimeException</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="DateTimeException">&nbsp;</span><a class="symbol-link" href="#DateTimeException">DateTimeException</a> = core.time.TimeException;
 </h3></div>
 <div class="declaration-content"><dl><p>Exception type used by std.datetime. It's an alias to TimeException, which
     is what core.time uses. Either can be caught without concern about which
@@ -697,14 +698,14 @@ On some systems, the monotonic clock may stop counting when
     <span class="inlinecode"><span class="symbol-target" id="SysTime">&nbsp;</span><a class="symbol-link" href="#SysTime">SysTime</a></span>'s range is from approximately 29,000 B.C. to approximately
     29,000 A.D.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>nothrow  this(const(DateTime) <i>dateTime</i>, immutable(TimeZone) <i>tz</i> = null);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>nothrow  this(in DateTime <i>dateTime</i>, immutable TimeZone <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(DateTime) <i>dateTime</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>DateTime <i>dateTime</i></td>
 <td>The <span class="inlinecode">DateTime</span> to use to set this <span class="inlinecode">SysTime</span>'s
                        internal std time. As <span class="inlinecode">DateTime</span> has no concept of
                        time zone, <i>tz</i> is used as its time zone.</td>
 </tr>
-<tr><td>immutable(TimeZone) <i>tz</i></td>
+<tr><td>TimeZone <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                        <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">DateTime</span> is
                        assumed to be in the given time zone.</td>
@@ -712,17 +713,17 @@ On some systems, the monotonic clock may stop counting when
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(const(DateTime) <i>dateTime</i>, const(FracSec) <i>fracSec</i>, immutable(TimeZone) <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3> this(in DateTime <i>dateTime</i>, in FracSec <i>fracSec</i>, immutable TimeZone <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(DateTime) <i>dateTime</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>DateTime <i>dateTime</i></td>
 <td>The <span class="inlinecode">DateTime</span> to use to set this <span class="inlinecode">SysTime</span>'s
                        internal std time. As <span class="inlinecode">DateTime</span> has no concept of
                        time zone, <i>tz</i> is used as its time zone.</td>
 </tr>
-<tr><td>const(FracSec) <i>fracSec</i></td>
+<tr><td>FracSec <i>fracSec</i></td>
 <td>The fractional seconds portion of the time.</td>
 </tr>
-<tr><td>immutable(TimeZone) <i>tz</i></td>
+<tr><td>TimeZone <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                        <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">DateTime</span> is
                        assumed to be in the given time zone.</td>
@@ -731,14 +732,14 @@ On some systems, the monotonic clock may stop counting when
 <dt>Throws</dt><dd><span class="inlinecode">DateTimeException</span> if <span class="inlinecode"><i>fracSec</i></span> is negative.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow  this(const(Date) <i>date</i>, immutable(TimeZone) <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3>nothrow  this(in Date <i>date</i>, immutable TimeZone <i>tz</i> = null);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Date) <i>date</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Date <i>date</i></td>
 <td>The <span class="inlinecode">Date</span> to use to set this <span class="inlinecode">SysTime</span>'s internal std
                    time. As <span class="inlinecode">Date</span> has no concept of time zone, <i>tz</i> is used as
                    its time zone.</td>
 </tr>
-<tr><td>immutable(TimeZone) <i>tz</i></td>
+<tr><td>TimeZone <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                    <span class="inlinecode">LocalTime</span> will be used. The given <span class="inlinecode">Date</span> is assumed
                    to be in the given time zone.</td>
@@ -746,7 +747,7 @@ On some systems, the monotonic clock may stop counting when
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow  this(long <i>stdTime</i>, immutable(TimeZone) <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3>pure nothrow  this(long <i>stdTime</i>, immutable TimeZone <i>tz</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><dt>Note:</dt><dd>
 Whereas the other constructors take in the given date/time, assume
@@ -762,7 +763,7 @@ Whereas the other constructors take in the given date/time, assume
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>long <i>stdTime</i></td>
 <td>The number of hnsecs since midnight, January 1st, 1 A.D. UTC.</td>
 </tr>
-<tr><td>immutable(TimeZone) <i>tz</i></td>
+<tr><td>TimeZone <i>tz</i></td>
 <td>The <span class="inlinecode">TimeZone</span> to use for this <span class="inlinecode">SysTime</span>. If <span class="d_keyword">null</span>,
                       <span class="inlinecode">LocalTime</span> will be used.</td>
 </tr>
@@ -1113,7 +1114,7 @@ st.<u>yearBC</u> = 10;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow SysTime <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>nothrow SysTime <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years" || units == "months");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">SysTime</span>. A
         negative number will subtract.
@@ -1131,11 +1132,11 @@ st.<u>yearBC</u> = 10;
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> to this
                             <span class="inlinecode">SysTime</span>.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -1159,7 +1160,7 @@ st4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">SysTime</span>. A
         negative number will subtract.
@@ -1178,11 +1179,11 @@ st4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">SysTime</span>.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -1214,7 +1215,7 @@ st6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>) if (units == "days");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of units to this <span class="inlinecode">SysTime</span>. A negative number
         will subtract.
@@ -1238,7 +1239,7 @@ st6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add.</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of <b>units</b> to add to this <span class="inlinecode">SysTime</span>.</td>
 </tr>
 </table></dd>
@@ -1267,7 +1268,7 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow SysTime <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow SysTime <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">SysTime</span>.
@@ -1281,14 +1282,14 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">SysTime</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow SysTime <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow SysTime <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">SysTime</span>, as well as assigning the result to this <span class="inlinecode">SysTime</span>.
@@ -1302,14 +1303,14 @@ st4.<u>roll</u>!<span class="d_string">"usecs"</span>(-1_200_000);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">SysTime</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in SysTime <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in SysTime <i>rhs</i>) if (op == "-");
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the difference between two <span class="inlinecode">SysTime</span>s.
 </p>
@@ -1498,13 +1499,6 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated const nothrow @property ubyte <span class="symbol-target" id="endOfMonthDay">&nbsp;</span><a class="symbol-link" href="#endOfMonthDay">endOfMonthDay</a>();
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-              Please use daysInMonth instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>const nothrow @property bool <span class="symbol-target" id="isAD">&nbsp;</span><a class="symbol-link" href="#isAD">isAD</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the current year is a date in A.D.
@@ -1534,19 +1528,19 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const nothrow Date <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)();
+<hr><div class="row-fluid declaration"><h3>const nothrow Date <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)() if (is(Unqual!T == Date));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a <span class="inlinecode">Date</span> equivalent to this <span class="inlinecode">SysTime</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const nothrow DateTime <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)();
+<hr><div class="row-fluid declaration"><h3>const nothrow DateTime <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)() if (is(Unqual!T == DateTime));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a <span class="inlinecode">DateTime</span> equivalent to this <span class="inlinecode">SysTime</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const nothrow TimeOfDay <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)();
+<hr><div class="row-fluid declaration"><h3>const nothrow TimeOfDay <span class="symbol-target" id="opCast">&nbsp;</span><a class="symbol-link" href="#opCast">opCast</a>(T)() if (is(Unqual!T == TimeOfDay));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a <span class="inlinecode">TimeOfDay</span> equivalent to this <span class="inlinecode">SysTime</span>.</p>
 
@@ -1678,7 +1672,7 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>, immutable TimeZone <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>, immutable TimeZone <i>tz</i> = null) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">SysTime</span> from a string with the format
         YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds is the time
@@ -1693,7 +1687,8 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
         If there is no time zone in the string, then <span class="inlinecode">LocalTime</span> is used. If
         the time zone is "Z", then <span class="inlinecode">UTC</span> is used. Otherwise, a
-        <span class="inlinecode">SimpleTimeZone</span> which corresponds to the given offset from UTC is
+        <a class="symbol-link" href="#SimpleTimeZone"><span class="inlinecode">SimpleTimeZone</span></a>
+ which corresponds to the given offset from UTC is
         used. To get the returned <span class="inlinecode">SysTime</span> to be a particular time
         zone, pass in that time zone and the <span class="inlinecode">SysTime</span> to be returned
         will be converted to that time zone (though it will still be read in as
@@ -1704,10 +1699,10 @@ st.<u>dayOfGregorianCal</u> = 734_137;
         are +H, -H, +HH, -HH, +H:MM, -H:MM, +HH:MM, and -HH:MM.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S isoString</td>
 <td>A string formatted in the ISO format for dates and times.</td>
 </tr>
-<tr><td>tz</td>
+<tr><td>TimeZone tz</td>
 <td>The time zone to convert the given time to (no
                         conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1730,14 +1725,16 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOString</u>(<span class="d_string">"20100704T070612Z"</span>) ==
        SysTime(DateTime(2010, 7, 4, 7, 6, 12), UTC()));
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOString</u>(<span class="d_string">"20100704T070612-8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 4, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(-480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(-8))));
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOString</u>(<span class="d_string">"20100704T070612+8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 3, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(8))));
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>, immutable TimeZone <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>, immutable TimeZone <i>tz</i> = null) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">SysTime</span> from a string with the format
         YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds is the
@@ -1752,7 +1749,8 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
         If there is no time zone in the string, then <span class="inlinecode">LocalTime</span> is used. If
         the time zone is "Z", then <span class="inlinecode">UTC</span> is used. Otherwise, a
-        <span class="inlinecode">SimpleTimeZone</span> which corresponds to the given offset from UTC is
+        <a class="symbol-link" href="#SimpleTimeZone"><span class="inlinecode">SimpleTimeZone</span></a>
+ which corresponds to the given offset from UTC is
         used. To get the returned <span class="inlinecode">SysTime</span> to be a particular time
         zone, pass in that time zone and the <span class="inlinecode">SysTime</span> to be returned
         will be converted to that time zone (though it will still be read in as
@@ -1767,7 +1765,7 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <td>A string formatted in the ISO Extended format for dates
                         and times.</td>
 </tr>
-<tr><td>tz</td>
+<tr><td>TimeZone tz</td>
 <td>The time zone to convert the given time to (no
                         conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1790,14 +1788,16 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOExtString</u>(<span class="d_string">"2010-07-04T07:06:12Z"</span>) ==
        SysTime(DateTime(2010, 7, 4, 7, 6, 12), UTC()));
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOExtString</u>(<span class="d_string">"2010-07-04T07:06:12-8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 4, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(-480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(-8))));
 <span class="d_keyword">assert</span>(SysTime.<u>fromISOExtString</u>(<span class="d_string">"2010-07-04T07:06:12+8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 4, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(8))));
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>, immutable TimeZone <i>tz</i> = null);
+<hr><div class="row-fluid declaration"><h3>SysTime <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>, immutable TimeZone <i>tz</i> = null) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">SysTime</span> from a string with the format
         YYYY-MM-DD HH:MM:SS.FFFFFFFTZ (where F is fractional seconds is the
@@ -1812,7 +1812,8 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
         If there is no time zone in the string, then <span class="inlinecode">LocalTime</span> is used. If
         the time zone is "Z", then <span class="inlinecode">UTC</span> is used. Otherwise, a
-        <span class="inlinecode">SimpleTimeZone</span> which corresponds to the given offset from UTC is
+        <a class="symbol-link" href="#SimpleTimeZone"><span class="inlinecode">SimpleTimeZone</span></a>
+ which corresponds to the given offset from UTC is
         used. To get the returned <span class="inlinecode">SysTime</span> to be a particular time
         zone, pass in that time zone and the <span class="inlinecode">SysTime</span> to be returned
         will be converted to that time zone (though it will still be read in as
@@ -1825,11 +1826,11 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S simpleString</td>
 <td>A string formatted in the way that
                            <span class="inlinecode">toSimpleString</span> formats dates and times.</td>
 </tr>
-<tr><td>tz</td>
+<tr><td>TimeZone tz</td>
 <td>The time zone to convert the given time to (no
                            conversion occurs if <span class="d_keyword">null</span>).</td>
 </tr>
@@ -1852,9 +1853,11 @@ st.<u>dayOfGregorianCal</u> = 734_137;
 <span class="d_keyword">assert</span>(SysTime.<u>fromSimpleString</u>(<span class="d_string">"2010-Jul-04 07:06:12Z"</span>) ==
        SysTime(DateTime(2010, 7, 4, 7, 6, 12), UTC()));
 <span class="d_keyword">assert</span>(SysTime.<u>fromSimpleString</u>(<span class="d_string">"2010-Jul-04 07:06:12-8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 4, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(-480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(-8))));
 <span class="d_keyword">assert</span>(SysTime.<u>fromSimpleString</u>(<span class="d_string">"2010-Jul-04 07:06:12+8:00"</span>) ==
-       SysTime(DateTime(2010, 7, 4, 7, 6, 12), <span class="d_keyword">new</span> SimpleTimeZone(480)));
+       SysTime(DateTime(2010, 7, 4, 7, 6, 12),
+               <span class="d_keyword">new</span> SimpleTimeZone(dur!<span class="d_string">"hours"</span>(8))));
 </pre>
 </dd>
 </dl>
@@ -2052,7 +2055,7 @@ date.<u>yearBC</u> = 10;
             current month.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">Date</span>. A negative
         number will subtract.
@@ -2070,11 +2073,11 @@ date.<u>yearBC</u> = 10;
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> to this
                             <span class="inlinecode">Date</span>.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the day should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -2098,7 +2101,7 @@ d4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">Date</span>. A negative
         number will subtract.
@@ -2117,7 +2120,7 @@ d4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">Date</span>.</td>
 </tr>
@@ -2149,7 +2152,7 @@ d6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>days</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>days</i>) if (units == "<i>days</i>");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of units to this <span class="inlinecode">Date</span>. A negative number will
         subtract.
@@ -2181,7 +2184,7 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Date <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Date <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">Date</span>.
@@ -2195,13 +2198,13 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this <span class="inlinecode">Date</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow Date <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow Date <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">Date</span>, as well as assigning the result to this <span class="inlinecode">Date</span>.
@@ -2215,13 +2218,13 @@ d.<u>roll</u>!<span class="d_string">"days"</span>(-32);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this <span class="inlinecode">Date</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in Date <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in Date <i>rhs</i>) if (op == "-");
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the difference between two <span class="inlinecode">Date</span>s.
 </p>
@@ -2395,13 +2398,6 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated const pure nothrow @property ubyte <span class="symbol-target" id="endOfMonthDay">&nbsp;</span><a class="symbol-link" href="#endOfMonthDay">endOfMonthDay</a>();
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-              Please use daysInMonth instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>const pure nothrow @property bool <span class="symbol-target" id="isAD">&nbsp;</span><a class="symbol-link" href="#isAD">isAD</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the current year is a date in A.D.
@@ -2474,13 +2470,13 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>);
+<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Date</span> from a string with the format YYYYMMDD. Whitespace
         is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S isoString</td>
 <td>A string formatted in the ISO format for dates.</td>
 </tr>
 </table></dd>
@@ -2497,13 +2493,13 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>);
+<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Date</span> from a string with the format YYYY-MM-DD. Whitespace
         is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoExtString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S isoExtString</td>
 <td>A string formatted in the ISO Extended format for
                            dates.</td>
 </tr>
@@ -2521,13 +2517,13 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>);
+<hr><div class="row-fluid declaration"><h3>Date <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">Date</span> from a string with the format YYYY-Mon-DD.
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S simpleString</td>
 <td>A string formatted in the way that toSimpleString
                            formats dates.</td>
 </tr>
@@ -2651,7 +2647,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
             invalid <span class="inlinecode">TimeOfDay</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>) if (units == "hours");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of units to this <span class="inlinecode">TimeOfDay</span>. A negative number
         will subtract.
@@ -2669,7 +2665,7 @@ date.<u>dayOfGregorianCal</u> = 734_137;
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units to add.</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of <b>units</b> to add to this
                     <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
@@ -2701,7 +2697,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow TimeOfDay <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow TimeOfDay <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">TimeOfDay</span>.
@@ -2715,14 +2711,14 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow TimeOfDay <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow TimeOfDay <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">TimeOfDay</span>, as well as assigning the result to this
@@ -2737,14 +2733,14 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">TimeOfDay</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in TimeOfDay <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in TimeOfDay <i>rhs</i>) if (op == "-");
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the difference between two <span class="inlinecode">TimeOfDay</span>s.
 </p>
@@ -2756,7 +2752,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>rhs</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TimeOfDay rhs</td>
 <td>The <span class="inlinecode">TimeOfDay</span> to subtract from this one.</td>
 </tr>
 </table></dd>
@@ -2790,13 +2786,13 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>TimeOfDay <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>);
+<hr><div class="row-fluid declaration"><h3>TimeOfDay <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">TimeOfDay</span> from a string with the format HHMMSS.
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S isoString</td>
 <td>A string formatted in the ISO format for times.</td>
 </tr>
 </table></dd>
@@ -2811,7 +2807,7 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>TimeOfDay <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>);
+<hr><div class="row-fluid declaration"><h3>TimeOfDay <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">TimeOfDay</span> from a string with the format HH:MM:SS.
         Whitespace is stripped from the given string.
@@ -2858,12 +2854,12 @@ tod6.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
    uses rather than precise time operations.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow  this(const(Date) <i>date</i>, const(TimeOfDay) <i>tod</i> = TimeOfDay(cast(ubyte)0u,cast(ubyte)0u,cast(ubyte)0u));
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow  this(in Date <i>date</i>, in TimeOfDay <i>tod</i> = TimeOfDay.init);
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Date) <i>date</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Date <i>date</i></td>
 <td>The <i>date</i> portion of <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td>const(TimeOfDay) <i>tod</i></td>
+<tr><td>TimeOfDay <i>tod</i></td>
 <td>The time portion of <span class="inlinecode">DateTime</span>.</td>
 </tr>
 </table></dd>
@@ -3109,7 +3105,7 @@ dt.<u>yearBC</u> = 10;
             invalid <span class="inlinecode">DateTime</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years" || units == "months");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">DateTime</span>. A
         negative number will subtract.
@@ -3127,11 +3123,11 @@ dt.<u>yearBC</u> = 10;
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to <span class="symbol-target" id="add">&nbsp;</span><a class="symbol-link" href="#add">add</a> to this
                             <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -3155,7 +3151,7 @@ dt4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>value</i>, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (units == "years" || units == "months");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of years or months to this <span class="inlinecode">DateTime</span>. A
         negative number will subtract.
@@ -3174,11 +3170,11 @@ dt4.<u>add</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The type of units to add ("years" or "months").</td>
 </tr>
-<tr><td>value</td>
+<tr><td>long value</td>
 <td>The number of months or years to add to this
                             <span class="inlinecode">DateTime</span>.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow,
                             causing the month to increment.</td>
 </tr>
@@ -3210,7 +3206,7 @@ dt6.<u>roll</u>!<span class="d_string">"years"</span>(1, AllowDayOverflow.no);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>days</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="roll">&nbsp;</span><a class="symbol-link" href="#roll">roll</a>(string units)(long <i>days</i>) if (units == "<i>days</i>");
 </h3></div>
 <div class="declaration-content"><dl><p>Adds the given number of units to this <span class="inlinecode">DateTime</span>. A negative number
         will subtract.
@@ -3251,7 +3247,7 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow DateTime <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow DateTime <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">DateTime</span>.
@@ -3265,14 +3261,14 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">DateTime</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow DateTime <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow DateTime <span class="symbol-target" id="opOpAssign">&nbsp;</span><a class="symbol-link" href="#opOpAssign">opOpAssign</a>(string op, D)(in D <i>duration</i>) if ((op == "+" || op == "-") &amp;&amp; (is(Unqual!D == Duration) || is(Unqual!D == TickDuration)));
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the result of adding or subtracting a duration from this
         <span class="inlinecode">DateTime</span>, as well as assigning the result to this <span class="inlinecode">DateTime</span>.
@@ -3286,14 +3282,14 @@ dt3.<u>roll</u>!<span class="d_string">"seconds"</span>(-1);
         </table>
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to add to or subtract from this
                        <span class="inlinecode">DateTime</span>.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in DateTime <i>rhs</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Duration <span class="symbol-target" id="opBinary">&nbsp;</span><a class="symbol-link" href="#opBinary">opBinary</a>(string op)(in DateTime <i>rhs</i>) if (op == "-");
 </h3></div>
 <div class="declaration-content"><dl><p>Gives the difference between two <span class="inlinecode">DateTime</span>s.
 </p>
@@ -3491,13 +3487,6 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated const pure nothrow @property ubyte <span class="symbol-target" id="endOfMonthDay">&nbsp;</span><a class="symbol-link" href="#endOfMonthDay">endOfMonthDay</a>();
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-              Please use daysInMonth instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>const pure nothrow @property bool <span class="symbol-target" id="isAD">&nbsp;</span><a class="symbol-link" href="#isAD">isAD</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the current year is a date in A.D.
@@ -3595,13 +3584,13 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>);
+<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromISOString">&nbsp;</span><a class="symbol-link" href="#fromISOString">fromISOString</a>(S)(in S <i>isoString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">DateTime</span> from a string with the format YYYYMMDDTHHMMSS.
         Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>isoString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S isoString</td>
 <td>A string formatted in the ISO format for dates and times.</td>
 </tr>
 </table></dd>
@@ -3627,7 +3616,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>);
+<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromISOExtString">&nbsp;</span><a class="symbol-link" href="#fromISOExtString">fromISOExtString</a>(S)(in S <i>isoExtString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">DateTime</span> from a string with the format
         YYYY-MM-DDTHH:MM:SS. Whitespace is stripped from the given string.
@@ -3661,13 +3650,13 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>);
+<hr><div class="row-fluid declaration"><h3>DateTime <span class="symbol-target" id="fromSimpleString">&nbsp;</span><a class="symbol-link" href="#fromSimpleString">fromSimpleString</a>(S)(in S <i>simpleString</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Creates a <span class="inlinecode">DateTime</span> from a string with the format
         YYYY-Mon-DD HH:MM:SS. Whitespace is stripped from the given string.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>simpleString</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S simpleString</td>
 <td>A string formatted in the way that toSimpleString
                            formats dates and times.</td>
 </tr>
@@ -3726,12 +3715,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
     that interval, with the exact time points which are iterated over depending
     on the function which generates the range.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure  this(U)(in TP <i>begin</i>, in U <i>end</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure  this(U)(in TP <i>begin</i>, in U <i>end</i>) if (is(Unqual!TP == Unqual!U));
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>begin</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP begin</td>
 <td>The time point which begins the interval.</td>
 </tr>
-<tr><td>end</td>
+<tr><td>U end</td>
 <td>The time point which ends (but is not included in) the
                     interval.</td>
 </tr>
@@ -3744,12 +3733,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure  this(D)(in TP <i>begin</i>, in D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure  this(D)(in TP <i>begin</i>, in D <i>duration</i>) if (__traits(compiles, <i>begin</i> + <i>duration</i>));
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>begin</td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>TP begin</td>
 <td>The time point which begins the interval.</td>
 </tr>
-<tr><td>duration</td>
+<tr><td>D duration</td>
 <td>The duration from the starting point to the end point.</td>
 </tr>
 </table></dd>
@@ -3894,7 +3883,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
@@ -3904,7 +3893,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -3917,7 +3906,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
@@ -3927,7 +3916,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         finite <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -3990,13 +3979,13 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect with it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4012,7 +4001,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect with it.
@@ -4022,7 +4011,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i> can never be before an <i>interval</i> beginning at negative infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4085,7 +4074,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not intersect
         it.
@@ -4095,7 +4084,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <i>interval</i> can never be after an <i>interval</i> going to positive infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4108,13 +4097,13 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not intersect
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4151,12 +4140,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4172,12 +4161,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4217,12 +4206,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4241,12 +4230,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4290,12 +4279,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -4312,12 +4301,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -4358,12 +4347,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const PosInfInterval!(TP) <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const PosInfInterval!TP <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4382,12 +4371,12 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const NegInfInterval!(TP) <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const NegInfInterval!TP <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4431,14 +4420,14 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure PosInfInterval!(TP) <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure PosInfInterval!TP <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an <i>interval</i> that covers from the earliest time point of two
         intervals up to (but not including) the latest time point of two
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to create a <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a> together with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4456,14 +4445,14 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure NegInfInterval!(TP) <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure NegInfInterval!TP <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an <i>interval</i> that covers from the earliest time point of two
         intervals up to (but not including) the latest time point of two
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to create a <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a> together with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4481,7 +4470,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>) if (__traits(compiles, begin + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the interval forward or backwards in time by the given duration
         (a positive duration shifts the interval forward; a negative duration
@@ -4489,7 +4478,7 @@ dt.<u>dayOfGregorianCal</u> = 734_137;
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -4509,7 +4498,7 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the interval forward or backwards in time by the given number
             of years and/or months (a positive number of years and months shifts
@@ -4519,13 +4508,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             on begin and end with the given number of years and months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month
                                 to increment.</td>
@@ -4547,7 +4536,7 @@ interval2.<u>shift</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>, Direction <i>dir</i> = Direction.both);
+<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>, Direction <i>dir</i> = Direction.both) if (__traits(compiles, begin + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval forwards and/or backwards in time. Effectively,
         it does <span class="inlinecode">begin -= duration</span> and/or <span class="inlinecode">end += duration</span>. Whether
@@ -4555,10 +4544,10 @@ interval2.<u>shift</u>(-2);
         <b>dir</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>dir</td>
+<tr><td>Direction dir</td>
 <td>The direction in time to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval.</td>
 </tr>
 </table></dd>
@@ -4578,7 +4567,7 @@ interval2.<u>expand</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes, Direction <i>dir</i> = Direction.both);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes, Direction <i>dir</i> = Direction.both) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval forwards and/or backwards in time. Effectively,
             it subtracts the given number of months/years from <span class="inlinecode">begin</span> and
@@ -4586,13 +4575,13 @@ interval2.<u>expand</u>(-2);
             in time is determined by <b>dir</b>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month
                                 to increment.</td>
@@ -4614,7 +4603,7 @@ interval2.<u>expand</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const IntervalRange!(TP,Direction.fwd) <span class="symbol-target" id="fwdRange">&nbsp;</span><a class="symbol-link" href="#fwdRange">fwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
+<hr><div class="row-fluid declaration"><h3>const IntervalRange!(TP, Direction.fwd) <span class="symbol-target" id="fwdRange">&nbsp;</span><a class="symbol-link" href="#fwdRange">fwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a range which iterates forward over the interval, starting
         at <span class="inlinecode">begin</span>, using <b><i>func</i></b> to generate each successive time
@@ -4707,7 +4696,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const IntervalRange!(TP,Direction.bwd) <span class="symbol-target" id="bwdRange">&nbsp;</span><a class="symbol-link" href="#bwdRange">bwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
+<hr><div class="row-fluid declaration"><h3>const IntervalRange!(TP, Direction.bwd) <span class="symbol-target" id="bwdRange">&nbsp;</span><a class="symbol-link" href="#bwdRange">bwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a range which iterates backwards over the interval, starting
         at <span class="inlinecode">end</span>, using <b><i>func</i></b> to generate each successive time
@@ -4890,12 +4879,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4932,7 +4921,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
@@ -4941,7 +4930,7 @@ range.popFront();
         can never contain an <i>interval</i> beginning at negative infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -4971,7 +4960,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect it.
@@ -4982,7 +4971,7 @@ range.popFront();
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5021,7 +5010,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect it.
@@ -5031,7 +5020,7 @@ range.popFront();
         never be before any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5057,13 +5046,13 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not intersect
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5105,13 +5094,13 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not intersect
         it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5124,12 +5113,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5171,12 +5160,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this
                        <i>interval</i>.</td>
 </tr>
@@ -5190,12 +5179,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval!(TP) <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval!TP <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5234,12 +5223,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval!(TP) <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval!TP <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5257,12 +5246,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -5302,12 +5291,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -5321,12 +5310,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const PosInfInterval <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const PosInfInterval <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5379,14 +5368,14 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure PosInfInterval <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure PosInfInterval <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an <i>interval</i> that covers from the earliest time point of two
         intervals up to (but not including) the latest time point of two
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to create a <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -5446,7 +5435,7 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>) if (__traits(compiles, begin + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the <span class="inlinecode">begin</span> of this interval forward or backwards in time by
         the given duration (a positive duration shifts the interval forward; a
@@ -5454,7 +5443,7 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
         <span class="inlinecode">begin += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -5470,7 +5459,7 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the <span class="inlinecode">begin</span> of this interval forward or backwards in time
             by the given number of years and/or months (a positive number of years
@@ -5481,13 +5470,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span>, causing its month to increment.</td>
 </tr>
@@ -5508,13 +5497,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>) if (__traits(compiles, begin + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval backwards in time. Effectively, it does
         <span class="inlinecode">begin -= duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
 <tr><td>dir</td>
@@ -5533,19 +5522,19 @@ interval2.<u>expand</u>(dur!<span class="d_string">"days"</span>(-2));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval forwards and/or backwards in time. Effectively,
             it subtracts the given number of months/years from <span class="inlinecode">begin</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">begin</span>, causing its month to increment.</td>
 </tr>
@@ -5566,7 +5555,7 @@ interval2.<u>expand</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const PosInfIntervalRange!(TP) <span class="symbol-target" id="fwdRange">&nbsp;</span><a class="symbol-link" href="#fwdRange">fwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
+<hr><div class="row-fluid declaration"><h3>const PosInfIntervalRange!TP <span class="symbol-target" id="fwdRange">&nbsp;</span><a class="symbol-link" href="#fwdRange">fwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a range which iterates forward over the interval, starting
         at <span class="inlinecode">begin</span>, using <b><i>func</i></b> to generate each successive time
@@ -5750,12 +5739,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5774,7 +5763,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="contains">&nbsp;</span><a class="symbol-link" href="#contains">contains</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is completely within this <i>interval</i>.
 </p>
@@ -5783,7 +5772,7 @@ range.popFront();
         infinity can never contain an <i>interval</i> going to positive infinity.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for inclusion in this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5828,13 +5817,13 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5853,13 +5842,13 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isBefore">&nbsp;</span><a class="symbol-link" href="#isBefore">isBefore</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is before the given <i>interval</i> and does not
         intersect it.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5917,7 +5906,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not
         intersect it.
@@ -5928,7 +5917,7 @@ range.popFront();
         <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5947,7 +5936,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAfter">&nbsp;</span><a class="symbol-link" href="#isAfter">isAfter</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether this <i>interval</i> is after the given <i>interval</i> and does not intersect
         it.
@@ -5957,7 +5946,7 @@ range.popFront();
         can never be after any other <i>interval</i>.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check against this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -5993,12 +5982,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6017,12 +6006,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this
                        <i>interval</i>.</td>
 </tr>
@@ -6036,7 +6025,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="intersects">&nbsp;</span><a class="symbol-link" href="#intersects">intersects</a>(in NegInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> overlaps this <i>interval</i>.
 </p>
@@ -6045,7 +6034,7 @@ range.popFront();
         always overlap.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>NegInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check for intersection with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6058,12 +6047,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval!(TP) <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval!TP <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6082,12 +6071,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const Interval!(TP) <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const Interval!TP <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="intersection">&nbsp;</span><a class="symbol-link" href="#intersection">intersection</a> of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to intersect with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6125,12 +6114,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -6153,12 +6142,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in PosInfInterval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure nothrow bool <span class="symbol-target" id="isAdjacent">&nbsp;</span><a class="symbol-link" href="#isAdjacent">isAdjacent</a>(in PosInfInterval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Whether the given <i>interval</i> is adjacent to this <i>interval</i>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>PosInfInterval!TP <i>interval</i></td>
 <td>The <i>interval</i> to check whether its adjecent to this
                        <i>interval</i>.</td>
 </tr>
@@ -6195,12 +6184,12 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const NegInfInterval <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const NegInfInterval <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the union of two intervals
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to <span class="symbol-target" id="merge">&nbsp;</span><a class="symbol-link" href="#merge">merge</a> with this <i>interval</i>.</td>
 </tr>
 </table></dd>
@@ -6253,14 +6242,14 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure NegInfInterval <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in Interval!(TP) <i>interval</i>);
+<hr><div class="row-fluid declaration"><h3>const pure NegInfInterval <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a>(in Interval!TP <i>interval</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an <i>interval</i> that covers from the earliest time point of two
         intervals up to (but not including) the latest time point of two
         intervals.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!(TP) <i>interval</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Interval!TP <i>interval</i></td>
 <td>The <i>interval</i> to create a <span class="symbol-target" id="span">&nbsp;</span><a class="symbol-link" href="#span">span</a> together with this
                        <i>interval</i>.</td>
 </tr>
@@ -6320,7 +6309,7 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(D)(D <i>duration</i>) if (__traits(compiles, end + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the <span class="inlinecode">end</span> of this interval forward or backwards in time by the
         given duration (a positive duration shifts the interval forward; a
@@ -6328,7 +6317,7 @@ There is no overload for <span class="inlinecode"><span class="symbol-target" id
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
 </table></dd>
@@ -6344,7 +6333,7 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Shifts the <span class="inlinecode">end</span> of this interval forward or backwards in time by
             the given number of years and/or months (a positive number of years
@@ -6354,13 +6343,13 @@ interval2.<u>shift</u>(dur!<span class="d_string">"days"</span>(-50));
             on end with the given number of years and months.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="shift">&nbsp;</span><a class="symbol-link" href="#shift">shift</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">end</span>, causing its month to increment.</td>
 </tr>
@@ -6381,13 +6370,13 @@ interval2.<u>shift</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(D)(D <i>duration</i>) if (__traits(compiles, end + <i>duration</i>));
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval forwards in time. Effectively, it does
         <span class="inlinecode">end += duration</span>.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>duration</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>D duration</td>
 <td>The duration to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
 <tr><td>dir</td>
@@ -6406,19 +6395,19 @@ interval2.<u>expand</u>(dur!<span class="d_string">"days"</span>(-2));
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a>(T)(T <i>years</i>, T <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes) if (isIntegral!T);
 </h3></div>
 <div class="declaration-content"><dl><p>Expands the interval forwards and/or backwards in time. Effectively,
             it adds the given number of months/years to end.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>years</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>T years</td>
 <td>The number of years to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>T months</td>
 <td>The number of months to <span class="symbol-target" id="expand">&nbsp;</span><a class="symbol-link" href="#expand">expand</a> the interval by.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow
                                 on <span class="inlinecode">end</span>, causing their month to increment.</td>
 </tr>
@@ -6439,7 +6428,7 @@ interval2.<u>expand</u>(-2);
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const NegInfIntervalRange!(TP) <span class="symbol-target" id="bwdRange">&nbsp;</span><a class="symbol-link" href="#bwdRange">bwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
+<hr><div class="row-fluid declaration"><h3>const NegInfIntervalRange!TP <span class="symbol-target" id="bwdRange">&nbsp;</span><a class="symbol-link" href="#bwdRange">bwdRange</a>(TP delegate(in TP) <i>func</i>, PopFirst <i>popFirst</i> = PopFirst.no);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a range which iterates backwards over the interval, starting
         at <span class="inlinecode">end</span>, using <b><i>func</i></b> to generate each successive time
@@ -6537,7 +6526,7 @@ range.popFront();
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDayOfWeek">&nbsp;</span><a class="symbol-link" href="#everyDayOfWeek">everyDayOfWeek</a>(TP, Direction dir = Direction.fwd)(DayOfWeek <i>dayOfWeek</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDayOfWeek">&nbsp;</span><a class="symbol-link" href="#everyDayOfWeek">everyDayOfWeek</a>(TP, Direction dir = Direction.fwd)(DayOfWeek <i>dayOfWeek</i>) if (isTimePoint!TP &amp;&amp; (dir == Direction.fwd || dir == Direction.bwd) &amp;&amp; __traits(hasMember, TP, "<i>dayOfWeek</i>") &amp;&amp; !__traits(isStaticFunction, TP.<i>dayOfWeek</i>) &amp;&amp; is(typeof(TP.<i>dayOfWeek</i>) == DayOfWeek));
 </h3></div>
 <div class="declaration-content"><dl><p>Range-generating function.
 </p>
@@ -6557,7 +6546,7 @@ range.popFront();
                     <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                     <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td>dayOfWeek</td>
+<tr><td>DayOfWeek dayOfWeek</td>
 <td>The week that each time point in the range will be.</td>
 </tr>
 </table></dd>
@@ -6584,7 +6573,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>TP delegate(in TP) <span class="symbol-target" id="everyMonth">&nbsp;</span><a class="symbol-link" href="#everyMonth">everyMonth</a>(TP, Direction dir = Direction.fwd)(int <i>month</i>);
+<hr><div class="row-fluid declaration"><h3>TP delegate(in TP) <span class="symbol-target" id="everyMonth">&nbsp;</span><a class="symbol-link" href="#everyMonth">everyMonth</a>(TP, Direction dir = Direction.fwd)(int <i>month</i>) if (isTimePoint!TP &amp;&amp; (dir == Direction.fwd || dir == Direction.bwd) &amp;&amp; __traits(hasMember, TP, "<i>month</i>") &amp;&amp; !__traits(isStaticFunction, TP.<i>month</i>) &amp;&amp; is(typeof(TP.<i>month</i>) == Month));
 </h3></div>
 <div class="declaration-content"><dl><p>Range-generating function.
 </p>
@@ -6611,7 +6600,7 @@ range.popFront();
                 <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                 <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td>month</td>
+<tr><td>int month</td>
 <td>The month that each time point in the range will be in.</td>
 </tr>
 </table></dd>
@@ -6644,7 +6633,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDuration">&nbsp;</span><a class="symbol-link" href="#everyDuration">everyDuration</a>(TP, Direction dir = Direction.fwd, D)(D <i>duration</i>);
+<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDuration">&nbsp;</span><a class="symbol-link" href="#everyDuration">everyDuration</a>(TP, Direction dir = Direction.fwd, D)(D <i>duration</i>) if (isTimePoint!TP &amp;&amp; __traits(compiles, TP.init + <i>duration</i>) &amp;&amp; (dir == Direction.fwd || dir == Direction.bwd));
 </h3></div>
 <div class="declaration-content"><dl><p>Range-generating function.
 </p>
@@ -6664,7 +6653,7 @@ range.popFront();
                    <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If passing it to
                    <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td>duration</td>
+<tr><td>D duration</td>
 <td>The duration which separates each successive time point in
                    the range.</td>
 </tr>
@@ -6692,7 +6681,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDuration">&nbsp;</span><a class="symbol-link" href="#everyDuration">everyDuration</a>(TP, Direction dir = Direction.fwd, D)(int <i>years</i>, int <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes, D <i>duration</i> = dur!("days")(0));
+<hr><div class="row-fluid declaration"><h3>nothrow TP delegate(in TP) <span class="symbol-target" id="everyDuration">&nbsp;</span><a class="symbol-link" href="#everyDuration">everyDuration</a>(TP, Direction dir = Direction.fwd, D)(int <i>years</i>, int <i>months</i> = 0, AllowDayOverflow <i>allowOverflow</i> = AllowDayOverflow.yes, D <i>duration</i> = dur!"days"(0)) if (isTimePoint!TP &amp;&amp; __traits(compiles, TP.init + <i>duration</i>) &amp;&amp; __traits(compiles, TP.init.add!"<i>years</i>"(<i>years</i>)) &amp;&amp; __traits(compiles, TP.init.add!"<i>months</i>"(<i>months</i>)) &amp;&amp; (dir == Direction.fwd || dir == Direction.bwd));
 </h3></div>
 <div class="declaration-content"><dl><p>Range-generating function.
 </p>
@@ -6726,20 +6715,20 @@ range.popFront();
                         value to <span class="inlinecode">fwdRange</span>, use <span class="inlinecode">Direction.fwd</span>. If
                         passing it to <span class="inlinecode">bwdRange</span>, use <span class="inlinecode">Direction.bwd</span>.</td>
 </tr>
-<tr><td>years</td>
+<tr><td>int years</td>
 <td>The number of years to add to the time point passed to
                         the delegate.</td>
 </tr>
-<tr><td>months</td>
+<tr><td>int months</td>
 <td>The number of months to add to the time point passed to
                         the delegate.</td>
 </tr>
-<tr><td>allowOverflow</td>
+<tr><td>AllowDayOverflow allowOverflow</td>
 <td>Whether the days should be allowed to overflow on
                         <span class="inlinecode">begin</span> and <span class="inlinecode">end</span>, causing their month to
                         increment.</td>
 </tr>
-<tr><td>duration</td>
+<tr><td>D duration</td>
 <td>The duration to add to the time point passed to the
                         delegate.</td>
 </tr>
@@ -6767,7 +6756,7 @@ range.popFront();
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="IntervalRange">&nbsp;</span><a class="symbol-link" href="#IntervalRange">IntervalRange</a>(TP,Direction dir) if (isTimePoint!(TP) &amp;&amp; dir != Direction.both);
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="IntervalRange">&nbsp;</span><a class="symbol-link" href="#IntervalRange">IntervalRange</a>(TP, Direction dir) if (isTimePoint!TP &amp;&amp; dir != Direction.both);
 </h3></div>
 <div class="declaration-content"><dl><p>A range over an <span class="inlinecode">Interval</span>.
 </p>
@@ -6860,7 +6849,7 @@ range.popFront();
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow Interval!(TP) <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow Interval!TP <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a> that this <span class="inlinecode">IntervalRange</span> currently covers.</p>
 
@@ -6880,7 +6869,7 @@ range.popFront();
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="PosInfIntervalRange">&nbsp;</span><a class="symbol-link" href="#PosInfIntervalRange">PosInfIntervalRange</a>(TP) if (isTimePoint!(TP));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="PosInfIntervalRange">&nbsp;</span><a class="symbol-link" href="#PosInfIntervalRange">PosInfIntervalRange</a>(TP) if (isTimePoint!TP);
 </h3></div>
 <div class="declaration-content"><dl><p>A range over a <span class="inlinecode">PosInfInterval</span>. It is an infinite range.
 </p>
@@ -6942,7 +6931,7 @@ range.popFront();
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow PosInfInterval!(TP) <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow PosInfInterval!TP <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a> that this range currently covers.</p>
 
@@ -6956,7 +6945,7 @@ range.popFront();
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="NegInfIntervalRange">&nbsp;</span><a class="symbol-link" href="#NegInfIntervalRange">NegInfIntervalRange</a>(TP) if (isTimePoint!(TP));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="NegInfIntervalRange">&nbsp;</span><a class="symbol-link" href="#NegInfIntervalRange">NegInfIntervalRange</a>(TP) if (isTimePoint!TP);
 </h3></div>
 <div class="declaration-content"><dl><p>A range over a <span class="inlinecode">NegInfInterval</span>. It is an infinite range.
 </p>
@@ -7028,7 +7017,7 @@ range.popFront();
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>const pure nothrow NegInfInterval!(TP) <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
+<hr><div class="row-fluid declaration"><h3>const pure nothrow NegInfInterval!TP <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The <span class="symbol-target" id="interval">&nbsp;</span><a class="symbol-link" href="#interval">interval</a> that this range currently covers.</p>
 
@@ -7445,9 +7434,10 @@ range.popFront();
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>immutable  this(int <i>utcOffset</i>, string <i>stdName</i> = "");
+<hr><div class="row-fluid declaration"><h3>immutable  this(Duration <i>utcOffset</i>, string <i>stdName</i> = "");
+<br>immutable  this(int <i>utcOffset</i>, string <i>stdName</i> = "");
 </h3></div>
-<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>int <i>utcOffset</i></td>
+<div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Duration <i>utcOffset</i></td>
 <td>This time zone's offset from UTC in minutes with west of
                         UTC being negative (it is added to UTC to get the
                         adjusted time).</td>
@@ -7458,7 +7448,7 @@ range.popFront();
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>immutable int <span class="symbol-target" id="utcOffset">&nbsp;</span><a class="symbol-link" href="#utcOffset">utcOffset</a>;
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe int <span class="symbol-target" id="utcOffset">&nbsp;</span><a class="symbol-link" href="#utcOffset">utcOffset</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>The number of minutes the offset from UTC is (negative is west of UTC,
         positive is east).</p>
@@ -7472,7 +7462,8 @@ range.popFront();
 <div class="declaration-content"><dl><p>Represents a time zone from a TZ Database time zone file. Files from the TZ
     Database are how Posix systems hold their time zone information.
     Unfortunately, Windows does not use the TZ Database. To use the TZ Database,
-    use <a href="#<span class="symbol-target" id="PosixTimeZone">&nbsp;</span><a class="symbol-link" href="#PosixTimeZone">PosixTimeZone</a>"><span class="inlinecode"><span class="symbol-target" id="PosixTimeZone">&nbsp;</span><a class="symbol-link" href="#PosixTimeZone">PosixTimeZone</a></span></a> (which reads its information from the TZ Database
+    use <a class="symbol-link" href="#<span class="symbol-target" id="PosixTimeZone">&nbsp;</span><a class="symbol-link" href="#PosixTimeZone">PosixTimeZone</a>"><span class="inlinecode"><span class="symbol-target" id="PosixTimeZone">&nbsp;</span><a class="symbol-link" href="#PosixTimeZone">PosixTimeZone</a></span></a>
+ (which reads its information from the TZ Database
     files on disk) on Windows by providing the TZ Database files and telling
     <span class="inlinecode"><span class="symbol-target" id="PosixTimeZone">&nbsp;</span><a class="symbol-link" href="#PosixTimeZone">PosixTimeZone</a>.getTimeZone</span> where the directory holding them is.
 </p>
@@ -7700,7 +7691,7 @@ Unless your system's local time zone deals with leap seconds (which is
 </span>
     <span class="d_comment">// use properties of TickDuration.
 </span>
-    <span class="d_comment">// (seconds, mseconds, useconds, hnsecs)
+    <span class="d_comment">// (seconds, msecs, usecs, hnsecs)
 </span>
     <span class="d_keyword">foreach</span>(t; times)
        sum += t.hnsecs;
@@ -7709,7 +7700,7 @@ Unless your system's local time zone deals with leap seconds (which is
 </pre>
 </dd>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>@safe  this(AutoStart <i>autostart</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(AutoStart <i>autostart</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Auto start with constructor.</p>
 
@@ -7745,9 +7736,22 @@ Unless your system's local time zone deals with leap seconds (which is
 
 </dl>
 </div>
+<hr><div class="row-fluid declaration"><h3>@safe void <span class="symbol-target" id="setMeasured">&nbsp;</span><a class="symbol-link" href="#setMeasured">setMeasured</a>(TickDuration <i>d</i>);
+</h3></div>
+<div class="declaration-content"><dl><p>Set the amount of time which has been measured since the stop watch was
+       started.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>const pure nothrow @property @safe bool <span class="symbol-target" id="running">&nbsp;</span><a class="symbol-link" href="#running">running</a>();
+</h3></div>
+<div class="declaration-content"><dl><p>Confirm whether this stopwatch is measuring time.</p>
+
+</dl>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>TickDuration[lengthof!(fun)()] <span class="symbol-target" id="benchmark">&nbsp;</span><a class="symbol-link" href="#benchmark">benchmark</a>(fun...)(uint <i>n</i>);
+</div>
+<hr><div class="row-fluid declaration"><h3>TickDuration[lengthof!fun()] <span class="symbol-target" id="benchmark">&nbsp;</span><a class="symbol-link" href="#benchmark">benchmark</a>(fun...)(uint <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Benchmarks code for speed assessment and comparison.
 </p>
@@ -7756,7 +7760,7 @@ Unless your system's local time zone deals with leap seconds (which is
 <td>aliases of callable objects (e.g. function names). Each should
               take no arguments.</td>
 </tr>
-<tr><td>n</td>
+<tr><td>uint n</td>
 <td>The number of times each function is to be executed.</td>
 </tr>
 </table></dd>
@@ -7771,7 +7775,7 @@ Unless your system's local time zone deals with leap seconds (which is
 <span class="d_keyword">void</span> f1() {<span class="d_keyword">auto</span> b = a;}
 <span class="d_keyword">void</span> f2() {<span class="d_keyword">auto</span> b = to!(string)(a);}
 <span class="d_keyword">auto</span> r = <u>benchmark</u>!(f0, f1, f2)(10_000);
-writefln(<span class="d_string">"Milliseconds to call fun[0] n times: %s"</span>, r[0].to!(<span class="d_string">"msecs"</span>, <span class="d_keyword">int</span>));
+writefln(<span class="d_string">"Milliseconds to call fun[0] n times: %s"</span>, r[0].msecs);
 </pre>
 </dd>
 </dl>
@@ -7893,7 +7897,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="DosFileTime">&nbsp;</span><a class="symbol-link" href="#DosFileTime">DosFileTime</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="DosFileTime">&nbsp;</span><a class="symbol-link" href="#DosFileTime">DosFileTime</a> = uint;
 </h3></div>
 <div class="declaration-content"><dl><p>Type representing the DOS file date/time format.</p>
 
@@ -7953,7 +7957,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
         time unit string.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="CmpTimeUnits">&nbsp;</span><a class="symbol-link" href="#CmpTimeUnits">CmpTimeUnits</a>(string lhs,string rhs) if (validTimeUnits(lhs,rhs))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="CmpTimeUnits">&nbsp;</span><a class="symbol-link" href="#CmpTimeUnits">CmpTimeUnits</a>(string lhs, string rhs) if (validTimeUnits(lhs, rhs))</h3></div>
 <div class="declaration-content"><dl><p>Compares two time unit strings at compile time. <span class="inlinecode">"years"</span> are the largest
     units and <span class="inlinecode">"hnsecs"</span> are the smallest.
 </p>
@@ -7970,7 +7974,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
         </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow bool <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a>(string units)(int <i>value</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow bool <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a>(string units)(int <i>value</i>) if (units == "months" || units == "hours" || units == "minutes" || units == "seconds");
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given value is <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a> for the given unit type when in a
     time point. Naturally, a duration is not held to a particular range, but
@@ -7981,7 +7985,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td>value</td>
+<tr><td>int value</td>
 <td>The number to validate.</td>
 </tr>
 </table></dd>
@@ -7993,7 +7997,7 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow bool <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a>(string units)(int <i>year</i>, int <i>month</i>, int <i>day</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow bool <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a>(string units)(int <i>year</i>, int <i>month</i>, int <i>day</i>) if (units == "days");
 </h3></div>
 <div class="declaration-content"><dl><p>Returns whether the given day is <span class="symbol-target" id="valid">&nbsp;</span><a class="symbol-link" href="#valid">valid</a> for the given year and month.
 </p>
@@ -8001,30 +8005,30 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td>year</td>
+<tr><td>int year</td>
 <td>The year of the day to validate.</td>
 </tr>
-<tr><td>month</td>
+<tr><td>int month</td>
 <td>The month of the day to validate.</td>
 </tr>
-<tr><td>day</td>
+<tr><td>int day</td>
 <td>The day to validate.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="enforceValid">&nbsp;</span><a class="symbol-link" href="#enforceValid">enforceValid</a>(string units)(int <i>value</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="enforceValid">&nbsp;</span><a class="symbol-link" href="#enforceValid">enforceValid</a>(string units)(int <i>value</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__) if (units == "months" || units == "hours" || units == "minutes" || units == "seconds");
 </h3></div>
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td>value</td>
+<tr><td>int value</td>
 <td>The number to validate.</td>
 </tr>
-<tr><td>file</td>
+<tr><td>string file</td>
 <td>The file that the <span class="inlinecode">DateTimeException</span> will list if thrown.</td>
 </tr>
-<tr><td>line</td>
+<tr><td>size_t line</td>
 <td>The line number that the <span class="inlinecode">DateTimeException</span> will list if
                 thrown.</td>
 </tr>
@@ -8032,24 +8036,24 @@ While Windows systems require that <span class="inlinecode">time_t</span> be non
 <dt>Throws</dt><dd><span class="inlinecode">DateTimeException</span> if <span class="inlinecode">valid!units(value)</span> is <span class="d_keyword">false</span>.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="enforceValid">&nbsp;</span><a class="symbol-link" href="#enforceValid">enforceValid</a>(string units)(int <i>year</i>, Month <i>month</i>, int <i>day</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__);
+<hr><div class="row-fluid declaration"><h3>pure void <span class="symbol-target" id="enforceValid">&nbsp;</span><a class="symbol-link" href="#enforceValid">enforceValid</a>(string units)(int <i>year</i>, Month <i>month</i>, int <i>day</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__) if (units == "days");
 </h3></div>
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>units</td>
 <td>The units of time to validate.</td>
 </tr>
-<tr><td>year</td>
+<tr><td>int year</td>
 <td>The year of the day to validate.</td>
 </tr>
-<tr><td>month</td>
+<tr><td>Month month</td>
 <td>The month of the day to validate.</td>
 </tr>
-<tr><td>day</td>
+<tr><td>int day</td>
 <td>The day to validate.</td>
 </tr>
-<tr><td>file</td>
+<tr><td>string file</td>
 <td>The file that the <span class="inlinecode">DateTimeException</span> will list if thrown.</td>
 </tr>
-<tr><td>line</td>
+<tr><td>size_t line</td>
 <td>The line number that the <span class="inlinecode">DateTimeException</span> will list if
                 thrown.</td>
 </tr>

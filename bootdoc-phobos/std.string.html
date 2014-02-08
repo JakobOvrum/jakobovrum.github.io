@@ -297,7 +297,7 @@ making code more robust.
 <div class="declaration-content"><dl><p>Exception thrown on errors in std.string functions.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>, string <i>file</i> = __FILE__, uint <i>line</i> = cast(uint)__LINE__, Throwable <i>next</i> = null);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>pure nothrow @safe  this(string <i>msg</i>, string <i>file</i> = __FILE__, size_t <i>line</i> = __LINE__, Throwable <i>next</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>string <i>msg</i></td>
 <td>The message for the exception.</td>
@@ -305,7 +305,7 @@ making code more robust.
 <tr><td>string <i>file</i></td>
 <td>The <i>file</i> where the exception occurred.</td>
 </tr>
-<tr><td>uint <i>line</i></td>
+<tr><td>size_t <i>line</i></td>
 <td>The <i>line</i> number where the exception occurred.</td>
 </tr>
 <tr><td>Throwable <i>next</i></td>
@@ -316,113 +316,11 @@ making code more robust.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable char[16u] <span class="symbol-target" id="hexdigits">&nbsp;</span><a class="symbol-link" href="#hexdigits">hexdigits</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#hexDigits"><span class="inlinecode">std.ascii.hexDigits</span></a> instead.</font>
-</p>
-
-<p>0..9A..F</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable string <span class="symbol-target" id="digits">&nbsp;</span><a class="symbol-link" href="#digits">digits</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#digits"><span class="inlinecode">std.ascii.digits</span></a> instead.</font>
-</p>
-
-<p>0..9</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable char[8u] <span class="symbol-target" id="octdigits">&nbsp;</span><a class="symbol-link" href="#octdigits">octdigits</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#octDigits"><span class="inlinecode">std.ascii.octDigits</span></a> instead.</font>
-</p>
-
-<p>0..7</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <span class="symbol-target" id="lowercase">&nbsp;</span><a class="symbol-link" href="#lowercase">lowercase</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#lowercase"><span class="inlinecode">std.ascii.lowercase</span></a> instead.</font>
-</p>
-
-<p>a..z</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable char[52u] <span class="symbol-target" id="letters">&nbsp;</span><a class="symbol-link" href="#letters">letters</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#letters"><span class="inlinecode">std.ascii.letters</span></a> instead.</font>
-</p>
-
-<p>A..Za..z</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated immutable char[26u] <span class="symbol-target" id="uppercase">&nbsp;</span><a class="symbol-link" href="#uppercase">uppercase</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#uppercase"><span class="inlinecode">std.ascii.uppercase</span></a> instead.</font>
-</p>
-
-<p>A..Z</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="whitespace">&nbsp;</span><a class="symbol-link" href="#whitespace">whitespace</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#whitespace"><span class="inlinecode">std.ascii.whitespace</span></a> instead.</font>
-</p>
-
-<p>ASCII <span class="symbol-target" id="whitespace">&nbsp;</span><a class="symbol-link" href="#whitespace">whitespace</a>.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated dchar <span class="symbol-target" id="LS">&nbsp;</span><a class="symbol-link" href="#LS">LS</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a> instead.</font>
-</p>
-
-<p>UTF line separator.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated dchar <span class="symbol-target" id="PS">&nbsp;</span><a class="symbol-link" href="#PS">PS</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> instead.</font>
-</p>
-
-<p>UTF paragraph separator.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="newline">&nbsp;</span><a class="symbol-link" href="#newline">newline</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <a href="std_ascii.html#newline"><span class="inlinecode">std.ascii.newline</span></a> instead.</font>
-</p>
-
-<p>Newline sequence for this system.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="iswhite">&nbsp;</span><a class="symbol-link" href="#iswhite">iswhite</a>(C)(C <i>c</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <a href="std_ascii.html#isWhite"><span class="inlinecode">std.ascii.isWhite</span></a> or <a href="std_uni.html#isWhite"><span class="inlinecode">std.uni.isWhite</span></a> instead.</font>
-</p>
-
-<p>Returns <span class="d_keyword">true</span> if c is ASCII whitespace or unicode LS or PS.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a> = std.uni.<span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a>(S1, S2)(S1 str1, S2 str2) if (isForwardRange!S1 &amp;&amp; is(Unqual!(ElementType!S1) == dchar) &amp;&amp; isForwardRange!S2 &amp;&amp; is(Unqual!(ElementType!S2) == dchar));
 </h3></div>
 <div class="declaration-content"><dl><p>Compares two ranges of characters lexicographically. The comparison is
-    case insensitive. Use <span class="inlinecode">XREF algorithm, cmp</span> for a case sensitive
-    comparison. <span class="inlinecode"><span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a></span> works like <span class="inlinecode">XREF algorithm, cmp</span> except that it
-    converts characters to lowercase prior to applying ($D pred). Technically,
-    <span class="inlinecode"><span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a>(r1, r2)</span> is equivalent to
-    <span class="inlinecode">cmp!"std.uni.toLower(a) &lt; std.uni.toLower(b)"(r1, r2)</span>.
+    case insensitive. Use <a href="std_algorithm.html#cmp"><span class="inlinecode">std.algorithm.cmp</span></a> for a case sensitive
+    comparison. For details see <a href="std_uni.html#<span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a>"><span class="inlinecode">std.uni.<span class="symbol-target" id="icmp">&nbsp;</span><a class="symbol-link" href="#icmp">icmp</a></span></a>.
 </p>
 
 <p><table cellspacing=0 cellpadding=5 class="table"><caption></caption>        <tr><td valign=top><span class="inlinecode">&lt; 0</span></td>  <td valign=top><span class="inlinecode">s1 &lt; s2</span> </td></tr>
@@ -446,13 +344,13 @@ making code more robust.
     cycle and cause a nasty bug when the C code tries to use it.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CaseSensitive">&nbsp;</span><a class="symbol-link" href="#CaseSensitive">CaseSensitive</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CaseSensitive">&nbsp;</span><a class="symbol-link" href="#CaseSensitive">CaseSensitive</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Flag indicating whether a search is case-sensitive.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure sizediff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char)(in Char[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+<hr><div class="row-fluid declaration"><h3>pure @safe ptrdiff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char)(in Char[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
@@ -461,7 +359,20 @@ making code more robust.
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+<hr><div class="row-fluid declaration"><h3>pure @safe ptrdiff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, const size_t <i>startIdx</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span> with respect
+    to the start index <span class="inlinecode">startIdx</span>. If <span class="inlinecode">c</span> is not found, then <span class="inlinecode">-1</span> is
+    returned. If <span class="inlinecode">c</span> is found the value of the returned index is at least
+    <span class="inlinecode">startIdx</span>. <span class="inlinecode">startIdx</span> represents a codeunit index in <span class="inlinecode">s</span>. If the
+    sequence starting at <span class="inlinecode">startIdx</span> does not represent a well formed codepoint,
+    then a <a href="std_utf.html#UTFException"><span class="inlinecode">std.utf.UTFException</span></a> may be thrown.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char1 &amp;&amp; isSomeChar!Char2);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
@@ -470,7 +381,20 @@ making code more robust.
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="indexOf">&nbsp;</span><a class="symbol-link" href="#indexOf">indexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, const size_t <i>startIdx</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char1 &amp;&amp; isSomeChar!Char2);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the index of the first occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span> with
+    respect to the start index <span class="inlinecode">startIdx</span>. If <span class="inlinecode">sub</span> is not found, then
+    <span class="inlinecode">-1</span> is returned. If <span class="inlinecode">sub</span> is found the value of the returned index
+    is at least <span class="inlinecode">startIdx</span>. <span class="inlinecode">startIdx</span> represents a codeunit index in
+    <span class="inlinecode">s</span>. If the sequence starting at <span class="inlinecode">startIdx</span> does not represent a well
+    formed codepoint, then a <a href="std_utf.html#UTFException"><span class="inlinecode">std.utf.UTFException</span></a> may be thrown.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
@@ -479,7 +403,20 @@ making code more robust.
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes);
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char)(const(Char)[] <i>s</i>, dchar <i>c</i>, const size_t <i>startIdx</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">c</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">c</span> is
+    not found, then <span class="inlinecode">-1</span> is returned. The <span class="inlinecode">startIdx</span> slices <span class="inlinecode">s</span> in
+    the following way <span class="inlinecode">s[0 .. startIdx]</span>. <span class="inlinecode">startIdx</span> represents a
+    codeunit index in <span class="inlinecode">s</span>. If the sequence ending at <span class="inlinecode">startIdx</span> does not
+    represent a well formed codepoint, then a <a href="std_utf.html#UTFException"><span class="inlinecode">std.utf.UTFException</span></a> may be
+    thrown.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char1 &amp;&amp; isSomeChar!Char2);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
     is not found, then <span class="inlinecode">-1</span> is returned.
@@ -488,125 +425,76 @@ making code more robust.
 <p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow auto <span class="symbol-target" id="representation">&nbsp;</span><a class="symbol-link" href="#representation">representation</a>(Char)(Char[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="lastIndexOf">&nbsp;</span><a class="symbol-link" href="#lastIndexOf">lastIndexOf</a>(Char1, Char2)(const(Char1)[] <i>s</i>, const(Char2)[] <i>sub</i>, const size_t <i>startIdx</i>, CaseSensitive <i>cs</i> = CaseSensitive.yes) if (isSomeChar!Char1 &amp;&amp; isSomeChar!Char2);
 </h3></div>
-<div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="representation">&nbsp;</span><a class="symbol-link" href="#representation">representation</a> type of a string, which is the same type
+<div class="declaration-content"><dl><p>Returns the index of the last occurence of <span class="inlinecode">sub</span> in <span class="inlinecode">s</span>. If <span class="inlinecode">sub</span>
+    is not found, then <span class="inlinecode">-1</span> is returned. The <span class="inlinecode">startIdx</span> slices <span class="inlinecode">s</span> in
+    the following way <span class="inlinecode">s[0 .. startIdx]</span>. <span class="inlinecode">startIdx</span> represents a
+    codeunit index in <span class="inlinecode">s</span>. If the sequence ending at <span class="inlinecode">startIdx</span> does not
+    represent a well formed codepoint, then a <a href="std_utf.html#UTFException"><span class="inlinecode">std.utf.UTFException</span></a> may be
+    thrown.
+</p>
+
+<p><span class="inlinecode">cs</span> indicates whether the comparisons are case sensitive.</p>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>pure nothrow auto <span class="symbol-target" id="representation">&nbsp;</span><a class="symbol-link" href="#representation">representation</a>(Char)(Char[] <i>s</i>) if (isSomeChar!Char);
+</h3></div>
+<div class="declaration-content"><dl><p>Returns the <span class="symbol-target" id="representation">&nbsp;</span><a class="symbol-link" href="#representation">representation</a> of a string, which has the same type
  as the string except the character type is replaced by <span class="inlinecode">ubyte</span>,
- <span class="inlinecode">ushort</span>, or <span class="inlinecode">uint</span> depending on the character width.
-</p>
+ <span class="inlinecode">ushort</span>, or <span class="inlinecode">uint</span> depending on the character width.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code">string s = <span class="d_string">"hello"</span>;
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<u>representation</u>(s)) == <span class="d_keyword">immutable</span>(<span class="d_keyword">ubyte</span>)[]));
+<dt>Examples</dt><dd><pre class="d_code">
+    string s = <span class="d_string">"hello"</span>;
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(<u>representation</u>(s)) == <span class="d_keyword">immutable</span>(<span class="d_keyword">ubyte</span>)[]));
+    <span class="d_keyword">assert</span>(<u>representation</u>(s) <span class="d_keyword">is</span> <span class="d_keyword">cast</span>(<span class="d_keyword">immutable</span>(<span class="d_keyword">ubyte</span>)[]) s);
+    <span class="d_keyword">assert</span>(<u>representation</u>(s) == [0x68, 0x65, 0x6c, 0x6c, 0x6f]);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="tolower">&nbsp;</span><a class="symbol-link" href="#tolower">tolower</a>(S)(S <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <span class="inlinecode">toLower</span> instead.</font>
-</p>
-
-<p>Convert string s[] to lower case.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="toLower">&nbsp;</span><a class="symbol-link" href="#toLower">toLower</a>(S)(S <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="toLower">&nbsp;</span><a class="symbol-link" href="#toLower">toLower</a> = std.uni.<span class="symbol-target" id="toLower">&nbsp;</span><a class="symbol-link" href="#toLower">toLower</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
-    characters are lowercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
-    have any uppercase characters, then <span class="inlinecode">s</span> is returned.</p>
+    characters are converted to lowercase (by preforming Unicode lowercase mapping).
+    If none of <span class="inlinecode">s</span> characters were affected, then <span class="inlinecode">s</span> itself is returned.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="tolowerInPlace">&nbsp;</span><a class="symbol-link" href="#tolowerInPlace">tolowerInPlace</a>(C)(ref C[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="toLowerInPlace">&nbsp;</span><a class="symbol-link" href="#toLowerInPlace">toLowerInPlace</a> = std.uni.<span class="symbol-target" id="toLowerInPlace">&nbsp;</span><a class="symbol-link" href="#toLowerInPlace">toLowerInPlace</a>(C)(ref C[] s) if (is(C == char) || is(C == wchar) || is(C == dchar));
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-         Please use <span class="inlinecode">toLowerInPlace</span> instead.</font>
-</p>
-
-<p>Converts <span class="inlinecode">s</span> to lowercase in place.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="toLowerInPlace">&nbsp;</span><a class="symbol-link" href="#toLowerInPlace">toLowerInPlace</a>(C)(ref C[] <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to lowercase (in unicode, not just ASCII) in place.
+<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to lowercase (by performing Unicode lowercase mapping) in place.
+    For a few characters string length may increase after the transformation,
+    in such a case the function reallocates exactly once.
     If <span class="inlinecode">s</span> does not have any uppercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="toupper">&nbsp;</span><a class="symbol-link" href="#toupper">toupper</a>(S)(S <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <span class="inlinecode">toUpper</span> instead.</font>
-</p>
-
-<p>Convert string s[] to upper case.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="toUpper">&nbsp;</span><a class="symbol-link" href="#toUpper">toUpper</a>(S)(S <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="toUpper">&nbsp;</span><a class="symbol-link" href="#toUpper">toUpper</a> = std.uni.<span class="symbol-target" id="toUpper">&nbsp;</span><a class="symbol-link" href="#toUpper">toUpper</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string which is identical to <span class="inlinecode">s</span> except that all of its
-    characters are uppercase (in unicode, not just ASCII). If <span class="inlinecode">s</span> does not
-    have any lowercase characters, then <span class="inlinecode">s</span> is returned.</p>
+    characters are converted to uppercase (by preforming Unicode uppercase mapping).
+    If none of <span class="inlinecode">s</span> characters were affected, then <span class="inlinecode">s</span> itself is returned.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="toupperInPlace">&nbsp;</span><a class="symbol-link" href="#toupperInPlace">toupperInPlace</a>(C)(ref C[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="toUpperInPlace">&nbsp;</span><a class="symbol-link" href="#toUpperInPlace">toUpperInPlace</a> = std.uni.<span class="symbol-target" id="toUpperInPlace">&nbsp;</span><a class="symbol-link" href="#toUpperInPlace">toUpperInPlace</a>(C)(ref C[] s) if (is(C == char) || is(C == wchar) || is(C == dchar));
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-          Please use <span class="inlinecode">toUpperInPlace</span> instead.</font>
-</p>
-
-<p>Converts <span class="inlinecode">s</span> to uppercase in place.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="toUpperInPlace">&nbsp;</span><a class="symbol-link" href="#toUpperInPlace">toUpperInPlace</a>(C)(ref C[] <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to uppercase (in unicode, not just ASCII) in place.
+<div class="declaration-content"><dl><p>Converts <span class="inlinecode">s</span> to uppercase  (by performing Unicode uppercase mapping) in place.
+    For a few characters string length may increase after the transformation,
+    in such a case the function reallocates exactly once.
     If <span class="inlinecode">s</span> does not have any lowercase characters, then <span class="inlinecode">s</span> is unaltered.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="capitalize">&nbsp;</span><a class="symbol-link" href="#capitalize">capitalize</a>(S)(S <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="capitalize">&nbsp;</span><a class="symbol-link" href="#capitalize">capitalize</a>(S)(S <i>s</i>) if (isSomeString!S);
 </h3></div>
-<div class="declaration-content"><dl><p>Capitalize the first character of <span class="inlinecode">s</span> and conver the rest of <span class="inlinecode">s</span>
+<div class="declaration-content"><dl><p>Capitalize the first character of <span class="inlinecode">s</span> and convert the rest of <span class="inlinecode">s</span>
     to lowercase.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="capwords">&nbsp;</span><a class="symbol-link" href="#capwords">capwords</a>(S)(S <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.</font>
-</p>
-
-<p>Capitalize all words in string s[].
- Remove leading and trailing whitespace.
- Replace all sequences of whitespace with a single space.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="repeat">&nbsp;</span><a class="symbol-link" href="#repeat">repeat</a>(S)(S <i>s</i>, size_t <i>n</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
-        Please use <a href="std_array.html#replicate"><span class="inlinecode">std.array.replicate</span></a> instead.</font>
-</p>
-
-<p>Repeat <span class="inlinecode">s</span> for <span class="inlinecode">n</span> times.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>S[] <span class="symbol-target" id="splitlines">&nbsp;</span><a class="symbol-link" href="#splitlines">splitlines</a>(S)(S <i>s</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <a href="#splitLines"><span class="inlinecode">splitLines</span></a> instead.</font>
-</p>
-
-<p>Split s[] into an array of lines,
- using CR, LF, or CR-LF as the delimiter.
- The delimiter is not included in the line.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="KeepTerminator">&nbsp;</span><a class="symbol-link" href="#KeepTerminator">KeepTerminator</a>;
-<br>S[] <span class="symbol-target" id="splitLines">&nbsp;</span><a class="symbol-link" href="#splitLines">splitLines</a>(S)(S <i>s</i>, KeepTerminator <i>keepTerm</i> = KeepTerminator.no);
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="KeepTerminator">&nbsp;</span><a class="symbol-link" href="#KeepTerminator">KeepTerminator</a>: bool;
+<br>pure @safe S[] <span class="symbol-target" id="splitLines">&nbsp;</span><a class="symbol-link" href="#splitLines">splitLines</a>(S)(S <i>s</i>, KeepTerminator <i>keepTerm</i> = KeepTerminator.no) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Split <span class="inlinecode">s</span> into an array of lines using <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>,
     <span class="inlinecode">"\r\n"</span>, <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, and <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> as delimiters.
@@ -615,83 +503,62 @@ making code more robust.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>String <span class="symbol-target" id="stripl">&nbsp;</span><a class="symbol-link" href="#stripl">stripl</a>(String)(String <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe C[] <span class="symbol-target" id="stripLeft">&nbsp;</span><a class="symbol-link" href="#stripLeft">stripLeft</a>(C)(C[] <i>str</i>) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-        Please use <span class="inlinecode">stripLeft</span> instead.</font>
-</p>
+<div class="declaration-content"><dl><p>Strips leading whitespace.</p>
 
-<p>Strips leading whitespace.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure @safe C[] <span class="symbol-target" id="stripLeft">&nbsp;</span><a class="symbol-link" href="#stripLeft">stripLeft</a>(C)(C[] <i>str</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Strips leading whitespace.
-</p>
-
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"     hello world     "</span>) ==
-       <span class="d_string">"hello world     "</span>);
-<span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
-       <span class="d_string">"hello world\n\t\v\r"</span>);
-<span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"hello world"</span>) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>stripLeft</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ lineSep) ==
-       <span class="d_string">"hello world"</span> ~ [lineSep]);
-<span class="d_keyword">assert</span>(<u>stripLeft</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ paraSep) ==
-       <span class="d_string">"hello world"</span> ~ [paraSep]);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"     hello world     "</span>) ==
+           <span class="d_string">"hello world     "</span>);
+    <span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
+           <span class="d_string">"hello world\n\t\v\r"</span>);
+    <span class="d_keyword">assert</span>(<u>stripLeft</u>(<span class="d_string">"hello world"</span>) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>stripLeft</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ lineSep) ==
+           <span class="d_string">"hello world"</span> ~ [lineSep]);
+    <span class="d_keyword">assert</span>(<u>stripLeft</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ paraSep) ==
+           <span class="d_string">"hello world"</span> ~ [paraSep]);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>String <span class="symbol-target" id="stripr">&nbsp;</span><a class="symbol-link" href="#stripr">stripr</a>(String)(String <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe C[] <span class="symbol-target" id="stripRight">&nbsp;</span><a class="symbol-link" href="#stripRight">stripRight</a>(C)(C[] <i>str</i>) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-        Please use <span class="inlinecode">stripRight</span> instead.</font>
-</p>
+<div class="declaration-content"><dl><p>Strips trailing whitespace.</p>
 
-<p>Strips trailing whitespace.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol-target" id="stripRight">&nbsp;</span><a class="symbol-link" href="#stripRight">stripRight</a>(C)(C[] <i>str</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Strips trailing whitespace.
-</p>
-
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"     hello world     "</span>) ==
-       <span class="d_string">"     hello world"</span>);
-<span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
-       <span class="d_string">"\n\t\v\rhello world"</span>);
-<span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"hello world"</span>) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>stripRight</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ lineSep) ==
-       [lineSep] ~ <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>stripRight</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ paraSep) ==
-       [paraSep] ~ <span class="d_string">"hello world"</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"     hello world     "</span>) ==
+           <span class="d_string">"     hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
+           <span class="d_string">"\n\t\v\rhello world"</span>);
+    <span class="d_keyword">assert</span>(<u>stripRight</u>(<span class="d_string">"hello world"</span>) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>stripRight</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ lineSep) ==
+           [lineSep] ~ <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>stripRight</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ paraSep) ==
+           [paraSep] ~ <span class="d_string">"hello world"</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol-target" id="strip">&nbsp;</span><a class="symbol-link" href="#strip">strip</a>(C)(C[] <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe C[] <span class="symbol-target" id="strip">&nbsp;</span><a class="symbol-link" href="#strip">strip</a>(C)(C[] <i>str</i>) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p>Strips both leading and trailing whitespace.
-</p>
+<div class="declaration-content"><dl><p>Strips both leading and trailing whitespace.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"     hello world     "</span>) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"hello world"</span>) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>strip</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ [lineSep]) ==
-       <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>strip</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ [paraSep]) ==
-       <span class="d_string">"hello world"</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"     hello world     "</span>) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"\n\t\v\rhello world\n\t\v\r"</span>) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>strip</u>(<span class="d_string">"hello world"</span>) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>strip</u>([lineSep] ~ <span class="d_string">"hello world"</span> ~ [lineSep]) ==
+           <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>strip</u>([paraSep] ~ <span class="d_string">"hello world"</span> ~ [paraSep]) ==
+           <span class="d_string">"hello world"</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol-target" id="chomp">&nbsp;</span><a class="symbol-link" href="#chomp">chomp</a>(C)(C[] <i>str</i>);
-<br>C1[] <span class="symbol-target" id="chomp">&nbsp;</span><a class="symbol-link" href="#chomp">chomp</a>(C1, C2)(C1[] <i>str</i>, const(C2)[] <i>delimiter</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe C[] <span class="symbol-target" id="chomp">&nbsp;</span><a class="symbol-link" href="#chomp">chomp</a>(C)(C[] <i>str</i>) if (isSomeChar!C);
+<br>pure @safe C1[] <span class="symbol-target" id="chomp">&nbsp;</span><a class="symbol-link" href="#chomp">chomp</a>(C1, C2)(C1[] <i>str</i>, const(C2)[] <i>delimiter</i>) if (isSomeChar!C1 &amp;&amp; isSomeChar!C2);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">str</span> ends with <span class="inlinecode">delimiter</span>, then <span class="inlinecode">str</span> is returned without
     <span class="inlinecode">delimiter</span> on its end. If it <span class="inlinecode">str</span> does <i>not</i> end with
@@ -701,68 +568,55 @@ making code more robust.
 <p>If no <span class="inlinecode">delimiter</span> is given, then one trailing  <span class="inlinecode">'\r'</span>, <span class="inlinecode">'\n'</span>,
     <span class="inlinecode">"\r\n"</span>, <a href="std_uni.html#lineSep"><span class="inlinecode">std.uni.lineSep</span></a>, or <a href="std_uni.html#paraSep"><span class="inlinecode">std.uni.paraSep</span></a> is removed from
     the end of <span class="inlinecode">str</span>. If <span class="inlinecode">str</span> does not end with any of those characters,
-    then it is returned unchanged.
-
-</p>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\r"</span>) == <span class="d_string">" hello world  \n"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \r\n"</span>) == <span class="d_string">" hello world  "</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span>) == <span class="d_string">" hello world  \n"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n "</span>) == <span class="d_string">" hello world  \n\n "</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span> ~ [lineSep]) == <span class="d_string">" hello world  \n\n"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span> ~ [paraSep]) == <span class="d_string">" hello world  \n\n"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>) == <span class="d_string">" hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">""</span>) == <span class="d_string">""</span>);
-
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>, <span class="d_string">"orld"</span>) == <span class="d_string">" hello w"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>, <span class="d_string">" he"</span>) == <span class="d_string">" hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">""</span>, <span class="d_string">"hello"</span>) == <span class="d_string">""</span>);
-</pre>
-</dd>
+    then it is returned unchanged.</p>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>C1[] <span class="symbol-target" id="chompPrefix">&nbsp;</span><a class="symbol-link" href="#chompPrefix">chompPrefix</a>(C1, C2)(C1[] <i>str</i>, C2[] <i>delimiter</i>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\r"</span>) == <span class="d_string">" hello world  \n"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \r\n"</span>) == <span class="d_string">" hello world  "</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span>) == <span class="d_string">" hello world  \n"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n "</span>) == <span class="d_string">" hello world  \n\n "</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span> ~ [lineSep]) == <span class="d_string">" hello world  \n\n"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world  \n\n"</span> ~ [paraSep]) == <span class="d_string">" hello world  \n\n"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>) == <span class="d_string">" hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">""</span>) == <span class="d_string">""</span>);
+
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>, <span class="d_string">"orld"</span>) == <span class="d_string">" hello w"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">" hello world"</span>, <span class="d_string">" he"</span>) == <span class="d_string">" hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chomp</u>(<span class="d_string">""</span>, <span class="d_string">"hello"</span>) == <span class="d_string">""</span>);
+</pre>
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>pure @safe C1[] <span class="symbol-target" id="chompPrefix">&nbsp;</span><a class="symbol-link" href="#chompPrefix">chompPrefix</a>(C1, C2)(C1[] <i>str</i>, C2[] <i>delimiter</i>) if (isSomeChar!C1 &amp;&amp; isSomeChar!C2);
 </h3></div>
 <div class="declaration-content"><dl><p>If <span class="inlinecode">str</span> starts with <span class="inlinecode">delimiter</span>, then the part of <span class="inlinecode">str</span> following
     <span class="inlinecode">delimiter</span> is returned. If it <span class="inlinecode">str</span> does <i>not</i> start with
-    <span class="inlinecode">delimiter</span>, then it is returned unchanged.
-</p>
+    <span class="inlinecode">delimiter</span>, then it is returned unchanged.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">"he"</span>) == <span class="d_string">"llo world"</span>);
-<span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">"hello w"</span>) == <span class="d_string">"orld"</span>);
-<span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">" world"</span>) == <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">""</span>, <span class="d_string">"hello"</span>) == <span class="d_string">""</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">"he"</span>) == <span class="d_string">"llo world"</span>);
+    <span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">"hello w"</span>) == <span class="d_string">"orld"</span>);
+    <span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">"hello world"</span>, <span class="d_string">" world"</span>) == <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chompPrefix</u>(<span class="d_string">""</span>, <span class="d_string">"hello"</span>) == <span class="d_string">""</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="chop">&nbsp;</span><a class="symbol-link" href="#chop">chop</a>(S)(S <i>str</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe S <span class="symbol-target" id="chop">&nbsp;</span><a class="symbol-link" href="#chop">chop</a>(S)(S <i>str</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode">str</span> without its last character, if there is one. If <span class="inlinecode">str</span>
     ends with <span class="inlinecode">"\r\n"</span>, then both are removed. If <span class="inlinecode">str</span> is empty, then
-    then it is returned unchanged.
-</p>
+    then it is returned unchanged.</p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world"</span>) == <span class="d_string">"hello worl"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\n"</span>) == <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\r"</span>) == <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\n\r"</span>) == <span class="d_string">"hello world\n"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\r\n"</span>) == <span class="d_string">"hello world"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"Walter Bright"</span>) == <span class="d_string">"Walter Brigh"</span>);
-<span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">""</span>) == <span class="d_string">""</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world"</span>) == <span class="d_string">"hello worl"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\n"</span>) == <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\r"</span>) == <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\n\r"</span>) == <span class="d_string">"hello world\n"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"hello world\r\n"</span>) == <span class="d_string">"hello world"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">"Walter Bright"</span>) == <span class="d_string">"Walter Brigh"</span>);
+    <span class="d_keyword">assert</span>(<u>chop</u>(<span class="d_string">""</span>) == <span class="d_string">""</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="ljustify">&nbsp;</span><a class="symbol-link" href="#ljustify">ljustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-        Please use <span class="inlinecode">leftJustify</span> instead.</font>
-</p>
-
-<p>Left justify string s[] in field width chars wide.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>@trusted S <span class="symbol-target" id="leftJustify">&nbsp;</span><a class="symbol-link" href="#leftJustify">leftJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="leftJustify">&nbsp;</span><a class="symbol-link" href="#leftJustify">leftJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ') if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Left justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
@@ -770,16 +624,7 @@ making code more robust.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="rjustify">&nbsp;</span><a class="symbol-link" href="#rjustify">rjustify</a>(S)(S <i>s</i>, size_t <i>width</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-        Please use <span class="inlinecode">rightJustify</span> instead.</font>
-</p>
-
-<p>Left right string s[] in field width chars wide.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>@trusted S <span class="symbol-target" id="rightJustify">&nbsp;</span><a class="symbol-link" href="#rightJustify">rightJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="rightJustify">&nbsp;</span><a class="symbol-link" href="#rightJustify">rightJustify</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ') if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Right justify <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
@@ -787,7 +632,7 @@ making code more robust.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@trusted S <span class="symbol-target" id="center">&nbsp;</span><a class="symbol-link" href="#center">center</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ');
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="center">&nbsp;</span><a class="symbol-link" href="#center">center</a>(S)(S <i>s</i>, size_t <i>width</i>, dchar <i>fillChar</i> = ' ') if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Center <span class="inlinecode">s</span> in a field <span class="inlinecode">width</span> characters wide. <span class="inlinecode">fillChar</span>
     is the character that will be used to fill up the space in the field that
@@ -795,35 +640,7 @@ making code more robust.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="zfill">&nbsp;</span><a class="symbol-link" href="#zfill">zfill</a>(S)(S <i>s</i>, int <i>width</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <span class="inlinecode">rightJustify</span> with a fill character of '0' instead.</font>
-</p>
-
-<p>Same as rjustify(), but fill with '0's.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="insert">&nbsp;</span><a class="symbol-link" href="#insert">insert</a>(S)(S <i>s</i>, size_t <i>index</i>, S <i>sub</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in March 2012.
-       Please use <a href="std_array.html#insertInPlace"><span class="inlinecode">std.array.insertInPlace</span></a> instead.</font>
-</p>
-
-<p>Insert sub[] into s[] at location index.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="expandtabs">&nbsp;</span><a class="symbol-link" href="#expandtabs">expandtabs</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.
-       Please use <span class="inlinecode">detab</span> instead.</font>
-</p>
-
-<p>Replace tabs with the appropriate number of spaces.
- tabsize is the distance between tab stops.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="detab">&nbsp;</span><a class="symbol-link" href="#detab">detab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="detab">&nbsp;</span><a class="symbol-link" href="#detab">detab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Replace each tab character in <span class="inlinecode">s</span> with the number of spaces necessary
     to align the following character at the next tab stop where <span class="inlinecode">tabSize</span>
@@ -831,23 +648,23 @@ making code more robust.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="entab">&nbsp;</span><a class="symbol-link" href="#entab">entab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8);
+<hr><div class="row-fluid declaration"><h3>pure @trusted S <span class="symbol-target" id="entab">&nbsp;</span><a class="symbol-link" href="#entab">entab</a>(S)(S <i>s</i>, size_t <i>tabSize</i> = 8) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Replaces spaces in <span class="inlinecode">s</span> with the optimal number of tabs.
     All spaces and tabs at the end of a line are removed.
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S s</td>
 <td>String to convert.</td>
 </tr>
-<tr><td>tabSize</td>
+<tr><td>size_t tabSize</td>
 <td>Tab columns are <span class="inlinecode">tabSize</span> spaces apart.</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>@safe C1[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, C2 = immutable(char))(C1[] <i>str</i>, dchar[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
-<br>@safe C1[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, S, C2 = immutable(char))(C1[] <i>str</i>, S[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null);
+<hr><div class="row-fluid declaration"><h3>pure @safe C1[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, C2 = immutable(char))(C1[] <i>str</i>, dchar[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null) if (isSomeChar!C1 &amp;&amp; isSomeChar!C2);
+<br>pure @safe C1[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, S, C2 = immutable(char))(C1[] <i>str</i>, S[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i> = null) if (isSomeChar!C1 &amp;&amp; isSomeString!S &amp;&amp; isSomeChar!C2);
 </h3></div>
 <div class="declaration-content"><dl><p>Replaces the characters in <span class="inlinecode">str</span> which are keys in <span class="inlinecode">transTable</span> with
     their corresponding values in <span class="inlinecode">transTable</span>. <span class="inlinecode">transTable</span> is an AA
@@ -857,42 +674,83 @@ making code more robust.
     A copy with the changes is returned.
 </p>
 
-<dt>See Also</dt><dd><a href="#tr"><span class="inlinecode">tr</span></a>
+<dt>See Also</dt><dd><a class="symbol-link" href="#tr"><span class="inlinecode">tr</span></a>
+
         <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>str</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>C1[] str</td>
 <td>The original string.</td>
 </tr>
-<tr><td>transTable</td>
+<tr><td>dchar[dchar] transTable</td>
 <td>The AA indicating which characters to replace and what to
                      replace them with.</td>
 </tr>
-<tr><td>toRemove</td>
+<tr><td>const(C2)[] toRemove</td>
 <td>The characters to remove from the string.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
-<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
+    <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
 
-<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>) == <span class="d_string">"h5 rd"</span>);
+    <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>) == <span class="d_string">"h5 rd"</span>);
 
-string[<span class="d_keyword">dchar</span>] transTable2 = ['e' : <span class="d_string">"5"</span>, 'o' : <span class="d_string">"orange"</span>];
-<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable2) == <span class="d_string">"h5llorange worangerld"</span>);
+    string[<span class="d_keyword">dchar</span>] transTable2 = ['e' : <span class="d_string">"5"</span>, 'o' : <span class="d_string">"orange"</span>];
+    <span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable2) == <span class="d_string">"h5llorange worangerld"</span>);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>nothrow @trusted C[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C = immutable(char))(in char[] <i>str</i>, in char[] <i>transTable</i>, in char[] <i>toRemove</i> = null);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, C2 = immutable(char), Buffer)(C1[] <i>str</i>, dchar[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i>, Buffer <i>buffer</i>) if (isSomeChar!C1 &amp;&amp; isSomeChar!C2 &amp;&amp; isOutputRange!(Buffer, C1));
+<br>void <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C1, S, C2 = immutable(char), Buffer)(C1[] <i>str</i>, S[dchar] <i>transTable</i>, const(C2)[] <i>toRemove</i>, Buffer <i>buffer</i>) if (isSomeChar!C1 &amp;&amp; isSomeString!S &amp;&amp; isSomeChar!C2 &amp;&amp; isOutputRange!(Buffer, S));
+</h3></div>
+<div class="declaration-content"><dl><p>This is an overload of <span class="inlinecode"><span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a></span> which takes an existing buffer to write the contents to.
+</p>
+
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>C1[] str</td>
+<td>The original string.</td>
+</tr>
+<tr><td>dchar[dchar] transTable</td>
+<td>The AA indicating which characters to replace and what to
+                     replace them with.</td>
+</tr>
+<tr><td>const(C2)[] toRemove</td>
+<td>The characters to remove from the string.</td>
+</tr>
+<tr><td>Buffer buffer</td>
+<td>An output range to write the contents to.</td>
+</tr>
+</table></dd>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">dchar</span>[<span class="d_keyword">dchar</span>] transTable1 = ['e' : '5', 'o' : '7', '5': 'q'];
+    <span class="d_keyword">auto</span> buffer = appender!(<span class="d_keyword">dchar</span>[])();
+    <u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_keyword">null</span>, buffer);
+    <span class="d_keyword">assert</span>(buffer.data == <span class="d_string">"h5ll7 w7rld"</span>);
+
+    buffer.clear();
+    <u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>, buffer);
+    <span class="d_keyword">assert</span>(buffer.data == <span class="d_string">"h5 rd"</span>);
+
+    buffer.clear();
+    string[<span class="d_keyword">dchar</span>] transTable2 = ['e' : <span class="d_string">"5"</span>, 'o' : <span class="d_string">"orange"</span>];
+    <u>translate</u>(<span class="d_string">"hello world"</span>, transTable2, <span class="d_keyword">null</span>, buffer);
+    <span class="d_keyword">assert</span>(buffer.data == <span class="d_string">"h5llorange worangerld"</span>);
+</pre>
+</dd></dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted C[] <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C = immutable(char))(in char[] <i>str</i>, in char[] <i>transTable</i>, in char[] <i>toRemove</i> = null) if (is(Unqual!C == char));
 <br>pure nothrow @trusted string <span class="symbol-target" id="makeTrans">&nbsp;</span><a class="symbol-link" href="#makeTrans">makeTrans</a>(in char[] <i>from</i>, in char[] <i>to</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>This is an <i><font color=red>ASCII-only</font></i> overload of <a href="#translate"><span class="inlinecode">translate</span></a>. It
+<div class="declaration-content"><dl><p>This is an <i><font color=red>ASCII-only</font></i> overload of <a class="symbol-link" href="#translate"><span class="inlinecode">translate</span></a>
+. It
     will <i>not</i> work with Unicode. It exists as an optimization for the
     cases where Unicode processing is not necessary.
 </p>
 
-<p>Unlike the other overloads of <a href="#translate"><span class="inlinecode">translate</span></a>, this one does not take
-    an AA. Rather, it takes a <span class="inlinecode">string</span> generated by <a href="#makeTrans"><span class="inlinecode">makeTrans</span></a>.
+<p>Unlike the other overloads of <a class="symbol-link" href="#translate"><span class="inlinecode">translate</span></a>
+, this one does not take
+    an AA. Rather, it takes a <span class="inlinecode">string</span> generated by <a class="symbol-link" href="#makeTrans"><span class="inlinecode">makeTrans</span></a>
+.
 <br><br>
 
     The array generated by <span class="inlinecode">makeTrans</span> is <span class="inlinecode">256</span> elements long such that
@@ -912,115 +770,150 @@ string[<span class="d_keyword">dchar</span>] transTable2 = ['e' : <span class="d
     unit greater than <span class="inlinecode">127</span> which will cause UTF validation issues.
 
 </p>
-<dt>See Also</dt><dd><a href="#tr"><span class="inlinecode">tr</span></a>
+<dt>See Also</dt><dd><a class="symbol-link" href="#tr"><span class="inlinecode">tr</span></a>
+
         <a href="std_array.html#replace"><span class="inlinecode">std.array.replace</span></a>
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>str</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] str</td>
 <td>The original string.</td>
 </tr>
-<tr><td>transTable</td>
+<tr><td>char[] transTable</td>
 <td>The string indicating which characters to replace and what
-                     to replace them with. It is generated by <a href="#makeTrans"><span class="inlinecode">makeTrans</span></a>.</td>
+                     to replace them with. It is generated by <a class="symbol-link" href="#makeTrans"><span class="inlinecode">makeTrans</span></a>
+.</td>
 </tr>
-<tr><td>toRemove</td>
+<tr><td>char[] toRemove</td>
 <td>The characters to remove from the string.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> transTable1 = makeTrans(<span class="d_string">"eo5"</span>, <span class="d_string">"57q"</span>);
-<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
-
-<span class="d_keyword">assert</span>(<u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>) == <span class="d_string">"h5 rd"</span>);
-</pre>
-</dd>
 </dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="maketrans">&nbsp;</span><a class="symbol-link" href="#maketrans">maketrans</a>;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">auto</span> transTable1 = <u>makeTrans</u>(<span class="d_string">"eo5"</span>, <span class="d_string">"57q"</span>);
+    <span class="d_keyword">assert</span>(translate(<span class="d_string">"hello world"</span>, transTable1) == <span class="d_string">"h5ll7 w7rld"</span>);
+
+    <span class="d_keyword">assert</span>(translate(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>) == <span class="d_string">"h5 rd"</span>);
+</pre>
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a>(C = immutable(char), Buffer)(in char[] <i>str</i>, in char[] <i>transTable</i>, in char[] <i>toRemove</i>, Buffer <i>buffer</i>) if (is(Unqual!C == char) &amp;&amp; isOutputRange!(Buffer, char));
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in January 2013.
-       Please use <a href="#makeTrans"><span class="inlinecode">makeTrans</span></a> instead.</font>
+<div class="declaration-content"><dl><p>This is an <i><font color=red>ASCII-only</font></i> overload of <span class="inlinecode"><span class="symbol-target" id="translate">&nbsp;</span><a class="symbol-link" href="#translate">translate</a></span> which takes an existing buffer to write the contents to.
 </p>
 
-<p>Construct translation table for <a href="#translate"><span class="inlinecode">translate</span></a>.</p>
-</dl>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>char[] str</td>
+<td>The original string.</td>
+</tr>
+<tr><td>char[] transTable</td>
+<td>The string indicating which characters to replace and what
+                     to replace them with. It is generated by <a class="symbol-link" href="#makeTrans"><span class="inlinecode">makeTrans</span></a>
+.</td>
+</tr>
+<tr><td>char[] toRemove</td>
+<td>The characters to remove from the string.</td>
+</tr>
+<tr><td>Buffer buffer</td>
+<td>An output range to write the contents to.</td>
+</tr>
+</table></dd>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">auto</span> buffer = appender!(<span class="d_keyword">char</span>[])();
+    <span class="d_keyword">auto</span> transTable1 = makeTrans(<span class="d_string">"eo5"</span>, <span class="d_string">"57q"</span>);
+    <u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_keyword">null</span>, buffer);
+    <span class="d_keyword">assert</span>(buffer.data == <span class="d_string">"h5ll7 w7rld"</span>);
+
+    buffer.clear();
+    <u>translate</u>(<span class="d_string">"hello world"</span>, transTable1, <span class="d_string">"low"</span>, buffer);
+    <span class="d_keyword">assert</span>(buffer.data == <span class="d_string">"h5 rd"</span>);
+</pre>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>(...);
+<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>(Char, Args...)(in Char[] <i>fmt</i>, Args <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Format arguments into a string.
 </p>
 
-<p><font color=red><span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>'s current implementation is scheduled for replacement in
-        November 2012. It will then be replaced with <a href="#xformat"><span class="inlinecode">xformat</span></a>'s implementation.
-        This will be seamless for most code, but it will make it so that the
-        only argument that can be a <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> string is the first one, so any
-        code which uses multiple <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> strings will break. Please change
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Char[] fmt</td>
+<td>Format string. For detailed specification, see <a href="std_<span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>.html#formattedWrite"><span class="inlinecode">std.<span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>.formattedWrite</span></a>.</td>
+</tr>
+<tr><td>Args args</td>
+<td>Variadic list of arguments to <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> into returned string.
+<br><br>
+
+  <font color=red><span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a>'s current implementation has been replaced with <a class="symbol-link" href="#xformat"><span class="inlinecode">xformat</span></a>
+'s
+        implementation. in November 2012.
+        This is seamless for most code, but it makes it so that the only
+        argument that can be a <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> string is the first one, so any
+        code which used multiple <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> strings has broken. Please change
         your calls to <span class="symbol-target" id="format">&nbsp;</span><a class="symbol-link" href="#format">format</a> accordingly.
 <br><br>
 
         e.g.:
 <pre class="d_code"><u>format</u>(<span class="d_string">"key = %s"</span>, key, <span class="d_string">", value = %s"</span>, value)
 </pre>
-        will need to be rewritten as:
+        needs to be rewritten as:
 <pre class="d_code"><u>format</u>(<span class="d_string">"key = %s, value = %s"</span>, key, value)
 </pre>
-   </font></p>
+   </font></td>
+</tr>
+</table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="sformat">&nbsp;</span><a class="symbol-link" href="#sformat">sformat</a>(char[] <i>s</i>,...);
+<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="sformat">&nbsp;</span><a class="symbol-link" href="#sformat">sformat</a>(Char, Args...)(char[] <i>buf</i>, in Char[] <i>fmt</i>, Args <i>args</i>);
 </h3></div>
-<div class="declaration-content"><dl><p>Format arguments into string <i><i>s</i></i> which must be large
+<div class="declaration-content"><dl><p>Format arguments into buffer <i>buf</i> which must be large
  enough to hold the result. Throws RangeError if it is not.
 </p>
 
-<dt>Returns</dt><dd><i>s</i>
+<dt>Returns</dt><dd>The slice of <span class="inlinecode">buf</span> containing the formatted string.
 <br><br>
 
-  <font color=red><span class="symbol-target" id="sformat">&nbsp;</span><a class="symbol-link" href="#sformat">sformat</a>'<i>s</i> current implementation is scheduled for replacement in
-        November 2012. It will then be replaced with <a href="#xsformat"><span class="inlinecode">xsformat</span></a>'<i>s</i> implementation.
-        This will be seamless for most code, but it will make it so that the
-        only argument that can be a format string is the first one, so any
-        code which uses multiple format strings will break. Please change
+  <font color=red><span class="symbol-target" id="sformat">&nbsp;</span><a class="symbol-link" href="#sformat">sformat</a>'s current implementation has been replaced with <a class="symbol-link" href="#xsformat"><span class="inlinecode">xsformat</span></a>
+'s
+        implementation. in November 2012.
+        This is seamless for most code, but it makes it so that the only
+        argument that can be a format string is the first one, so any
+        code which used multiple format strings has broken. Please change
         your calls to <span class="symbol-target" id="sformat">&nbsp;</span><a class="symbol-link" href="#sformat">sformat</a> accordingly.
 <br><br>
 
         e.g.:
 <pre class="d_code"><u>sformat</u>(buf, <span class="d_string">"key = %s"</span>, key, <span class="d_string">", value = %s"</span>, value)
 </pre>
-        will need to be rewritten as:
+        needs to be rewritten as:
 <pre class="d_code"><u>sformat</u>(buf, <span class="d_string">"key = %s, value = %s"</span>, key, value)
 </pre>
    </font></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="xformat">&nbsp;</span><a class="symbol-link" href="#xformat">xformat</a>(Char, Args...)(in Char[] <i>fmt</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="xformat">&nbsp;</span><a class="symbol-link" href="#xformat">xformat</a> = format(Char, Args...)(in Char[] fmt, Args args);
 </h3></div>
-<div class="declaration-content"><dl><p>Format arguments into a string.
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2013.
+       Please use std.string.format instead.</font>
 </p>
 
-<p><span class="symbol-target" id="xformat">&nbsp;</span><a class="symbol-link" href="#xformat">xformat</a> is a version of <a href="#format"><span class="inlinecode">format</span></a> whose behavior matches that of
- <a href="std_stdio.html#writef"><span class="inlinecode">std.stdio.writef</span></a>. <a href="#format"><span class="inlinecode">format</span></a> will be changed to use this
- implementation in November 2012. In the interim, <span class="symbol-target" id="xformat">&nbsp;</span><a class="symbol-link" href="#xformat">xformat</a> is provided for
- those who need the improved implementation. It will be scheduled for
- deprecation once format has been updated.</p>
+<p>Format arguments into a string.
+<br><br>
+
+ <a class="symbol-link" href="#format"><span class="inlinecode">format</span></a>
+ was changed to use this implementation in November 2012,</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="xsformat">&nbsp;</span><a class="symbol-link" href="#xsformat">xsformat</a>(Char, Args...)(char[] <i>buf</i>, in Char[] <i>fmt</i>, Args <i>args</i>);
+<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="xsformat">&nbsp;</span><a class="symbol-link" href="#xsformat">xsformat</a> = sformat(Char, Args...)(char[] buf, in Char[] fmt, Args args);
 </h3></div>
-<div class="declaration-content"><dl><p>Format arguments into string <b>buf</b> which must be large
+<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in November 2013.
+       Please use std.string.sformat instead.</font>
+</p>
+
+<p>Format arguments into string <span class="inlinecode">buf</span> which must be large
  enough to hold the result. Throws RangeError if it is not.
-</p>
+<br><br>
 
-<p><span class="symbol-target" id="xsformat">&nbsp;</span><a class="symbol-link" href="#xsformat">xsformat</a> is a version of <a href="#sformat"><span class="inlinecode">sformat</span></a> whose behavior matches that of
- <a href="std_stdio.html#writef"><span class="inlinecode">std.stdio.writef</span></a>. <a href="#sformat"><span class="inlinecode">sformat</span></a> will be changed to use this
- implementation in November 2012. In the interim, <span class="symbol-target" id="xsformat">&nbsp;</span><a class="symbol-link" href="#xsformat">xsformat</a> is provided for
- those who need the improved implementation. It will be scheduled for
- deprecation once sformat has been updated.
-
-</p>
-<dt>Returns</dt><dd>filled slice of <b>buf</b></dd>
+ <a class="symbol-link" href="#sformat"><span class="inlinecode">sformat</span></a>
+ was changed to use this implementation in November 2012,</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="inPattern">&nbsp;</span><a class="symbol-link" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, in S <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe bool <span class="symbol-target" id="inPattern">&nbsp;</span><a class="symbol-link" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, in S <i>pattern</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>See if character c is in the pattern.
 </p>
@@ -1043,19 +936,19 @@ In the future, the pattern syntax may be improved
   to be more like regular expression character classes.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="inPattern">&nbsp;</span><a class="symbol-link" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, S[] <i>patterns</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe bool <span class="symbol-target" id="inPattern">&nbsp;</span><a class="symbol-link" href="#inPattern">inPattern</a>(S)(dchar <i>c</i>, S[] <i>patterns</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>See if character c is in the intersection of the patterns.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="countchars">&nbsp;</span><a class="symbol-link" href="#countchars">countchars</a>(S, S1)(S <i>s</i>, in S1 <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="countchars">&nbsp;</span><a class="symbol-link" href="#countchars">countchars</a>(S, S1)(S <i>s</i>, in S1 <i>pattern</i>) if (isSomeString!S &amp;&amp; isSomeString!S1);
 </h3></div>
 <div class="declaration-content"><dl><p>Count characters in s that match pattern.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="removechars">&nbsp;</span><a class="symbol-link" href="#removechars">removechars</a>(S)(S <i>s</i>, in S <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe S <span class="symbol-target" id="removechars">&nbsp;</span><a class="symbol-link" href="#removechars">removechars</a>(S)(S <i>s</i>, in S <i>pattern</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Return string that is s with all characters removed that match pattern.</p>
 
@@ -1084,13 +977,14 @@ string t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
 t = <u>munch</u>(s, <span class="d_string">"0123456789"</span>);
 <span class="d_keyword">assert</span>(t == <span class="d_string">""</span> &amp;&amp; s == <span class="d_string">"abc"</span>);
 </pre>
+<br><br>
 
 The <b><span class="symbol-target" id="munch">&nbsp;</span><a class="symbol-link" href="#munch">munch</a></b> function is mostly convenient for skipping
 certain category of characters (e.g. whitespace) when parsing
 strings. (In such cases, the return value is not used.)</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="succ">&nbsp;</span><a class="symbol-link" href="#succ">succ</a>(S)(S <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe S <span class="symbol-target" id="succ">&nbsp;</span><a class="symbol-link" href="#succ">succ</a>(S)(S <i>s</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Return string that is the 'successor' to s[].
  If the rightmost character is a-zA-Z0-9, it is incremented within
@@ -1110,16 +1004,16 @@ strings. (In such cases, the return value is not used.)</dd>
     though it doesn't do everything that the Posix utility does.
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>str</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>C1[] str</td>
 <td>The original string.</td>
 </tr>
-<tr><td>from</td>
+<tr><td>const(C2)[] from</td>
 <td>The characters to replace.</td>
 </tr>
-<tr><td>to</td>
+<tr><td>const(C3)[] to</td>
 <td>The characters to replace with.</td>
 </tr>
-<tr><td>modifiers</td>
+<tr><td>const(C4)[] modifiers</td>
 <td>String containing modifiers.</td>
 </tr>
 </table></dd>
@@ -1147,12 +1041,12 @@ strings. (In such cases, the return value is not used.)</dd>
 <br><br>
 
     Both <span class="inlinecode">from</span> and <span class="inlinecode">to</span> may contain ranges using the <span class="inlinecode">'-'</span> character
-    (e.g. <span class="inlinecode">"a-d"</span> is synonymous with <span class="inlinecode">"abcd</span>.) Neither accept a leading
+    (e.g. <span class="inlinecode">"a-d"</span> is synonymous with <span class="inlinecode">"abcd"</span>.) Neither accept a leading
     <span class="inlinecode">'^'</span> as meaning the complement of the string (use the <span class="inlinecode">'c'</span> modifier
     for that).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="isNumeric">&nbsp;</span><a class="symbol-link" href="#isNumeric">isNumeric</a>(const(char)[] <i>s</i>, in bool <i>bAllowSep</i> = false);
+<hr><div class="row-fluid declaration"><h3>pure @safe bool <span class="symbol-target" id="isNumeric">&nbsp;</span><a class="symbol-link" href="#isNumeric">isNumeric</a>(const(char)[] <i>s</i>, in bool <i>bAllowSep</i> = false);
 </h3></div>
 <div class="declaration-content"><dl><p>[in] string <i>s</i> can be formatted in the following ways:
 </p>
@@ -1197,23 +1091,7 @@ strings. (In such cases, the return value is not used.)</dd>
  function, or any of the conversion functions.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated bool <span class="symbol-target" id="isNumeric">&nbsp;</span><a class="symbol-link" href="#isNumeric">isNumeric</a>(...);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.</font>
-</p>
-
-<p>Allow any object as a parameter</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>deprecated bool <span class="symbol-target" id="isNumeric">&nbsp;</span><a class="symbol-link" href="#isNumeric">isNumeric</a>(TypeInfo[] <i>_arguments</i>, va_list <i>_argptr</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in September 2012.</font>
-</p>
-
-<p>Check only the first parameter, all others will be ignored.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>char[] <span class="symbol-target" id="soundex">&nbsp;</span><a class="symbol-link" href="#soundex">soundex</a>(const(char)[] <i>string</i>, char[] <i>buffer</i> = null);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe char[] <span class="symbol-target" id="soundex">&nbsp;</span><a class="symbol-link" href="#soundex">soundex</a>(const(char)[] <i>string</i>, char[] <i>buffer</i> = null);
 </h3></div>
 <div class="declaration-content"><dl><p>Soundex algorithm.
 </p>
@@ -1248,7 +1126,7 @@ strings. (In such cases, the return value is not used.)</dd>
   but this one is the standard one.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>string[string] <span class="symbol-target" id="abbrev">&nbsp;</span><a class="symbol-link" href="#abbrev">abbrev</a>(string[] <i>values</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe string[string] <span class="symbol-target" id="abbrev">&nbsp;</span><a class="symbol-link" href="#abbrev">abbrev</a>(string[] <i>values</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct an associative array consisting of all
  abbreviations that uniquely map to the strings in <i>values</i>.
@@ -1260,20 +1138,20 @@ strings. (In such cases, the return value is not used.)</dd>
  entered that uniquely identify it.
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.stdio;
- <span class="d_keyword">import</span> std.string;
+<pre class="d_code"><span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">import</span> std.string;
 
- <span class="d_keyword">void</span> main()
- {
-    <span class="d_keyword">static</span> string[] list = [ <span class="d_string">"food"</span>, <span class="d_string">"foxy"</span> ];
+<span class="d_keyword">void</span> main()
+{
+   <span class="d_keyword">static</span> string[] list = [ <span class="d_string">"food"</span>, <span class="d_string">"foxy"</span> ];
 
-    <span class="d_keyword">auto</span> abbrevs = std.string.<u>abbrev</u>(list);
+   <span class="d_keyword">auto</span> abbrevs = std.string.<u>abbrev</u>(list);
 
-    <span class="d_keyword">foreach</span> (key, value; abbrevs)
-    {
-       writefln(<span class="d_string">"%s =&gt; %s"</span>, key, value);
-    }
- }
+   <span class="d_keyword">foreach</span> (key, value; abbrevs)
+   {
+      writefln(<span class="d_string">"%s =&gt; %s"</span>, key, value);
+   }
+}
 </pre>
  produces the output:
  <pre>
@@ -1284,14 +1162,14 @@ strings. (In such cases, the return value is not used.)</dd>
  </pre></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>size_t <span class="symbol-target" id="column">&nbsp;</span><a class="symbol-link" href="#column">column</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8);
+<hr><div class="row-fluid declaration"><h3>pure @safe size_t <span class="symbol-target" id="column">&nbsp;</span><a class="symbol-link" href="#column">column</a>(S)(S <i>str</i>, size_t <i>tabsize</i> = 8) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Compute <span class="symbol-target" id="column">&nbsp;</span><a class="symbol-link" href="#column">column</a> number after string if string starts in the
  leftmost <span class="symbol-target" id="column">&nbsp;</span><a class="symbol-link" href="#column">column</a>, which is numbered starting from 0.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="wrap">&nbsp;</span><a class="symbol-link" href="#wrap">wrap</a>(S)(S <i>s</i>, size_t <i>columns</i> = 80, S <i>firstindent</i> = null, S <i>indent</i> = null, size_t <i>tabsize</i> = 8);
+<hr><div class="row-fluid declaration"><h3>pure @safe S <span class="symbol-target" id="wrap">&nbsp;</span><a class="symbol-link" href="#wrap">wrap</a>(S)(S <i>s</i>, size_t <i>columns</i> = 80, S <i>firstindent</i> = null, S <i>indent</i> = null, size_t <i>tabsize</i> = 8) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Wrap text into a paragraph.
 </p>
@@ -1302,27 +1180,27 @@ strings. (In such cases, the return value is not used.)</dd>
  on each line.
  The last line is terminated with a \n.
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S s</td>
 <td>text string to be wrapped</td>
 </tr>
-<tr><td>columns</td>
+<tr><td>size_t columns</td>
 <td>maximum number of columns in the paragraph</td>
 </tr>
-<tr><td>firstindent</td>
+<tr><td>S firstindent</td>
 <td>string used to indent first line of the paragraph</td>
 </tr>
-<tr><td>indent</td>
+<tr><td>S indent</td>
 <td>string to use to indent following lines of the paragraph</td>
 </tr>
-<tr><td>tabsize</td>
+<tr><td>size_t tabsize</td>
 <td>column spacing of tabs</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>The resulting paragraph.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>S <span class="symbol-target" id="outdent">&nbsp;</span><a class="symbol-link" href="#outdent">outdent</a>(S)(S <i>str</i>);
-<br>S[] <span class="symbol-target" id="outdent">&nbsp;</span><a class="symbol-link" href="#outdent">outdent</a>(S)(S[] <i>lines</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe S <span class="symbol-target" id="outdent">&nbsp;</span><a class="symbol-link" href="#outdent">outdent</a>(S)(S <i>str</i>) if (isSomeString!S);
+<br>pure @safe S[] <span class="symbol-target" id="outdent">&nbsp;</span><a class="symbol-link" href="#outdent">outdent</a>(S)(S[] <i>lines</i>) if (isSomeString!S);
 </h3></div>
 <div class="declaration-content"><dl><p>Removes indentation from a multi-line string or an array of single-line strings.
 </p>
@@ -1339,21 +1217,21 @@ strings. (In such cases, the return value is not used.)</dd>
 
 </p>
 <dt>Example:</dt><dd>
-<pre class="d_code"> writeln(<span class="d_string">q{
-     import std.stdio;
-     void main() {
-         writeln("Hello");
-     }
- }</span>.<u>outdent</u>());
+<pre class="d_code">writeln(<span class="d_string">q{
+    import std.stdio;
+    void main() {
+        writeln("Hello");
+    }
+}</span>.<u>outdent</u>());
 </pre>
 
 </dd>
 <dt>Output:</dt><dd>
 <pre class="d_code">
- <span class="d_keyword">import</span> std.stdio;
- <span class="d_keyword">void</span> main() {
-     writeln(<span class="d_string">"Hello"</span>);
- }
+<span class="d_keyword">import</span> std.stdio;
+<span class="d_keyword">void</span> main() {
+    writeln(<span class="d_string">"Hello"</span>);
+}
 
 </pre>
 </dd>

@@ -324,16 +324,22 @@
 <div class="declaration-content"><dl><p>Decompresses the data in <i>srcbuf</i>[].
 </p>
 
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>size_t <i>destlen</i></td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>void[] <i>srcbuf</i></td>
+<td>buffer containing the compressed data.</td>
+</tr>
+<tr><td>size_t <i>destlen</i></td>
 <td>size of the uncompressed data.
- It need not be accurate, but the decompression will be faster if the exact
- size is supplied.</td>
+            It need not be accurate, but the decompression will be faster
+            if the exact size is supplied.</td>
+</tr>
+<tr><td>int <i>winbits</i></td>
+<td>the base two logarithm of the maximum window size.</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>the decompressed data.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="HeaderFormat">&nbsp;</span><a class="symbol-link" href="#HeaderFormat">HeaderFormat</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="HeaderFormat">&nbsp;</span><a class="symbol-link" href="#HeaderFormat">HeaderFormat</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>the header format the compressed stream is wrapped in</p>
 
@@ -361,8 +367,8 @@
 <div class="declaration-content"><dl><p>Used when the data to be compressed is not all in one buffer.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(int <i>level</i>, HeaderFormat <i>header</i> = cast(HeaderFormat)0);
-<br>this(HeaderFormat <i>header</i> = cast(HeaderFormat)0);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(int <i>level</i>, HeaderFormat <i>header</i> = HeaderFormat.deflate);
+<br> this(HeaderFormat <i>header</i> = HeaderFormat.deflate);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct. <i>level</i> is the same as for D.zlib.compress(). <i>header</i> can be used to make a gzip compatible stream.</p>
 
@@ -406,8 +412,8 @@
 <div class="declaration-content"><dl><p>Used when the data to be decompressed is not all in one buffer.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(uint <i>destbufsize</i>);
-<br>this(HeaderFormat <i>format</i> = cast(HeaderFormat)2);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(uint <i>destbufsize</i>);
+<br> this(HeaderFormat <i>format</i> = HeaderFormat.determineFromData);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct. <i>destbufsize</i> is the same as for D.zlib.uncompress().</p>
 

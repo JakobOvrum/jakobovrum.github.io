@@ -286,25 +286,19 @@
             Shin Fujishiro,
             <a href="http://octarineparrot.com">Robert Clipsham</a>,
             <a href="http://klickverbot.at">David Nadlinger</a>,
-            Kenji Hara
+            Kenji Hara,
+            Shoichi Kato
 </dd>
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/traits.d">std/traits.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="Demangle">&nbsp;</span><a class="symbol-link" href="#Demangle">Demangle</a>(T);
-</h3></div>
-<div class="declaration-content"><br><br>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="defaultInit">&nbsp;</span><a class="symbol-link" href="#defaultInit">defaultInit</a>(T)</h3></div>
-<div class="declaration-content"><br><br>
-</div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="packageName">&nbsp;</span><a class="symbol-link" href="#packageName">packageName</a>(alias T)</h3></div>
 <div class="declaration-content"><dl><p>Get the full package name for the given symbol.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>packageName</u>!(<u>packageName</u>) == <span class="d_string">"std"</span>);
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>packageName</u>!<u>packageName</u> == <span class="d_string">"std"</span>);
 </pre>
 </dd>
 </dl>
@@ -314,40 +308,46 @@
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>moduleName</u>!(<u>moduleName</u>) == <span class="d_string">"std.traits"</span>);
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>moduleName</u>!<u>moduleName</u> == <span class="d_string">"std.traits"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="fullyQualifiedName">&nbsp;</span><a class="symbol-link" href="#fullyQualifiedName">fullyQualifiedName</a>(alias T)</h3></div>
-<div class="declaration-content"><dl><p>Get the fully qualified name of a symbol.
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="fullyQualifiedName">&nbsp;</span><a class="symbol-link" href="#fullyQualifiedName">fullyQualifiedName</a>(T...) if (T.length == 1)</h3></div>
+<div class="declaration-content"><dl><p>Get the fully qualified name of a type or a symbol. Can act as an intelligent type/symbol to string  converter.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>fullyQualifiedName</u>!(<u>fullyQualifiedName</u>) == <span class="d_string">"std.traits.fullyQualifiedName"</span>);
+<pre class="d_code"><span class="d_keyword">module</span> mymodule;
+<span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">struct</span> MyStruct {}
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>fullyQualifiedName</u>!(<span class="d_keyword">const</span> MyStruct[]) == <span class="d_string">"const(mymodule.MyStruct[])"</span>);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>fullyQualifiedName</u>!<u>fullyQualifiedName</u> == <span class="d_string">"std.traits.fullyQualifiedName"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ReturnType">&nbsp;</span><a class="symbol-link" href="#ReturnType">ReturnType</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ReturnType">&nbsp;</span><a class="symbol-link" href="#ReturnType">ReturnType</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Get the type of the return value from a function,
  a pointer to function, a delegate, a struct
  with an opCall, a pointer to a struct with an opCall,
- or a class with an opCall.
+ or a class with an <span class="inlinecode">opCall</span>. Please note that <span class="d_keyword">ref</span>
+ is not part of a type, but the attribute of the function
+ (see template <a class="symbol-link" href="#functionAttributes"><span class="inlinecode">functionAttributes</span></a>
+).
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">int</span> foo();
- <u>ReturnType</u>!(foo) x;   <span class="d_comment">// x is declared as int
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">int</span> foo();
+<u>ReturnType</u>!foo x;   <span class="d_comment">// x is declared as int
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ParameterTypeTuple">&nbsp;</span><a class="symbol-link" href="#ParameterTypeTuple">ParameterTypeTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ParameterTypeTuple">&nbsp;</span><a class="symbol-link" href="#ParameterTypeTuple">ParameterTypeTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Get, as a tuple, the types of the parameters to a function, a pointer
 to function, a delegate, a struct with an <span class="inlinecode">opCall</span>, a pointer to a
 struct with an <span class="inlinecode">opCall</span>, or a class with an <span class="inlinecode">opCall</span>.
@@ -356,15 +356,15 @@ struct with an <span class="inlinecode">opCall</span>, or a class with an <span 
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">import</span> std.traits;
 <span class="d_keyword">int</span> foo(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>);
-<span class="d_keyword">void</span> bar(<u>ParameterTypeTuple</u>!(foo));      <span class="d_comment">// declares void bar(int, long);
+<span class="d_keyword">void</span> bar(<u>ParameterTypeTuple</u>!foo);      <span class="d_comment">// declares void bar(int, long);
 </span>
-<span class="d_keyword">void</span> abc(<u>ParameterTypeTuple</u>!(foo)[1]);   <span class="d_comment">// declares void abc(long);
+<span class="d_keyword">void</span> abc(<u>ParameterTypeTuple</u>!foo[1]);   <span class="d_comment">// declares void abc(long);
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="arity">&nbsp;</span><a class="symbol-link" href="#arity">arity</a>(alias func) if (isCallable!(func) &amp;&amp; variadicFunctionStyle!(func) == Variadic.no)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="arity">&nbsp;</span><a class="symbol-link" href="#arity">arity</a>(alias func) if (isCallable!func &amp;&amp; variadicFunctionStyle!func == Variadic.no)</h3></div>
 <div class="declaration-content"><dl><p>Returns the number of arguments of function <span class="inlinecode">func</span>.
 <span class="symbol-target" id="arity">&nbsp;</span><a class="symbol-link" href="#arity">arity</a> is undefined for variadic functions.
 </p>
@@ -378,8 +378,8 @@ struct with an <span class="inlinecode">opCall</span>, or a class with an <span 
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="ParameterStorageClass">&nbsp;</span><a class="symbol-link" href="#ParameterStorageClass">ParameterStorageClass</a>;
-<br>template <span class="symbol-target" id="ParameterStorageClassTuple">&nbsp;</span><a class="symbol-link" href="#ParameterStorageClassTuple">ParameterStorageClassTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="ParameterStorageClass">&nbsp;</span><a class="symbol-link" href="#ParameterStorageClass">ParameterStorageClass</a>: uint;
+<br>template <span class="symbol-target" id="ParameterStorageClassTuple">&nbsp;</span><a class="symbol-link" href="#ParameterStorageClassTuple">ParameterStorageClassTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Returns a tuple consisting of the storage classes of the parameters of a
 function <span class="inlinecode">func</span>.
 </p>
@@ -391,7 +391,7 @@ function <span class="inlinecode">func</span>.
 <span class="d_keyword">void</span> func(<span class="d_keyword">ref</span> <span class="d_keyword">int</span> ctx, <span class="d_keyword">out</span> <span class="d_keyword">real</span> result, <span class="d_keyword">real</span> param)
 {
 }
-<span class="d_keyword">alias</span> ParameterStorageClassTuple!(func) pstc;
+<span class="d_keyword">alias</span> ParameterStorageClassTuple!func pstc;
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(pstc.length == 3); <span class="d_comment">// three parameters
 </span>
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(pstc[0] == STC.ref_);
@@ -402,17 +402,42 @@ function <span class="inlinecode">func</span>.
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a><br><span class="symbol-target" id="scope_">&nbsp;</span><a class="symbol-link" href="#scope_">scope_</a><br><span class="symbol-target" id="out_">&nbsp;</span><a class="symbol-link" href="#out_">out_</a><br><span class="symbol-target" id="ref_">&nbsp;</span><a class="symbol-link" href="#ref_">ref_</a><br><span class="symbol-target" id="lazy_">&nbsp;</span><a class="symbol-link" href="#lazy_">lazy_</a></h3></div>
 <div class="declaration-content"><dl><p>These flags can be bitwise OR-ed together to represent complex storage
- class.
-     
- ditto</p>
+ class.</p>
 
 </dl>
 </div>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="FunctionAttribute">&nbsp;</span><a class="symbol-link" href="#FunctionAttribute">FunctionAttribute</a>;
-<br>template <span class="symbol-target" id="functionAttributes">&nbsp;</span><a class="symbol-link" href="#functionAttributes">functionAttributes</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ParameterIdentifierTuple">&nbsp;</span><a class="symbol-link" href="#ParameterIdentifierTuple">ParameterIdentifierTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
+<div class="declaration-content"><dl><p>Get, as a tuple, the identifiers of the parameters to a function symbol.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">int</span> foo(<span class="d_keyword">int</span> num, string name);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>([<u>ParameterIdentifierTuple</u>!foo] == [<span class="d_string">"num"</span>, <span class="d_string">"name"</span>]);
+</pre>
+</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ParameterDefaultValueTuple">&nbsp;</span><a class="symbol-link" href="#ParameterDefaultValueTuple">ParameterDefaultValueTuple</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
+<div class="declaration-content"><dl><p>Get, as a tuple, the default value of the parameters to a function symbol.
+If a parameter doesn't have the default value, <span class="inlinecode">void</span> is returned instead.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">int</span> foo(<span class="d_keyword">int</span> num, string name = <span class="d_string">"hello"</span>, <span class="d_keyword">int</span>[] arr = [1,2,3]);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>ParameterDefaultValueTuple</u>!foo[0] == <span class="d_keyword">void</span>));
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(   <u>ParameterDefaultValueTuple</u>!foo[1] == <span class="d_string">"hello"</span>);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(   <u>ParameterDefaultValueTuple</u>!foo[2] == [1,2,3]);
+</pre>
+</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="FunctionAttribute">&nbsp;</span><a class="symbol-link" href="#FunctionAttribute">FunctionAttribute</a>: uint;
+<br>template <span class="symbol-target" id="functionAttributes">&nbsp;</span><a class="symbol-link" href="#functionAttributes">functionAttributes</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Returns the attributes attached to a function <span class="inlinecode">func</span>.
 </p>
 
@@ -424,24 +449,22 @@ function <span class="inlinecode">func</span>.
 {
     <span class="d_keyword">return</span> x;
 }
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(functionAttributes!(func) &amp; FA.pure_);
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(functionAttributes!(func) &amp; FA.safe);
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!(functionAttributes!(func) &amp; FA.trusted)); <span class="d_comment">// not @trusted
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(functionAttributes!func &amp; FA.pure_);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(functionAttributes!func &amp; FA.safe);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!(functionAttributes!func &amp; FA.trusted)); <span class="d_comment">// not @trusted
 </span>
 </pre>
 </dd>
 </dl>
 <div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3><span class="symbol-target" id="none">&nbsp;</span><a class="symbol-link" href="#none">none</a><br><span class="symbol-target" id="pure_">&nbsp;</span><a class="symbol-link" href="#pure_">pure_</a><br><span class="symbol-target" id="nothrow_">&nbsp;</span><a class="symbol-link" href="#nothrow_">nothrow_</a><br><span class="symbol-target" id="ref_">&nbsp;</span><a class="symbol-link" href="#ref_">ref_</a><br><span class="symbol-target" id="property">&nbsp;</span><a class="symbol-link" href="#property">property</a><br><span class="symbol-target" id="trusted">&nbsp;</span><a class="symbol-link" href="#trusted">trusted</a><br><span class="symbol-target" id="safe">&nbsp;</span><a class="symbol-link" href="#safe">safe</a></h3></div>
-<div class="declaration-content"><dl><p>These flags can be bitwise OR-ed together to represent complex attribute.
-     
- ditto</p>
+<div class="declaration-content"><dl><p>These flags can be bitwise OR-ed together to represent complex attribute.</p>
 
 </dl>
 </div>
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSafe">&nbsp;</span><a class="symbol-link" href="#isSafe">isSafe</a>(alias func) if (isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSafe">&nbsp;</span><a class="symbol-link" href="#isSafe">isSafe</a>(alias func) if (isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="d_keyword">true</span></span> if <span class="inlinecode">func</span> is <span class="inlinecode">@safe</span> or <span class="inlinecode">@trusted</span>.
 </p>
 
@@ -495,7 +518,7 @@ any code which uses it probably needs to be changed anyway. Please use
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="functionLinkage">&nbsp;</span><a class="symbol-link" href="#functionLinkage">functionLinkage</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="functionLinkage">&nbsp;</span><a class="symbol-link" href="#functionLinkage">functionLinkage</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Returns the calling convention of function as a string.
 </p>
 
@@ -505,24 +528,24 @@ any code which uses it probably needs to be changed anyway. Please use
 </span>
 
 <span class="d_keyword">auto</span> fp = &amp;printf;
-string b = <u>functionLinkage</u>!(fp);
+string b = <u>functionLinkage</u>!fp;
 <span class="d_keyword">assert</span>(b == <span class="d_string">"C"</span>); <span class="d_comment">// extern(C)
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Variadic">&nbsp;</span><a class="symbol-link" href="#Variadic">Variadic</a>;
-<br>template <span class="symbol-target" id="variadicFunctionStyle">&nbsp;</span><a class="symbol-link" href="#variadicFunctionStyle">variadicFunctionStyle</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Variadic">&nbsp;</span><a class="symbol-link" href="#Variadic">Variadic</a>: int;
+<br>template <span class="symbol-target" id="variadicFunctionStyle">&nbsp;</span><a class="symbol-link" href="#variadicFunctionStyle">variadicFunctionStyle</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Determines what kind of variadic parameters function has.
 </p>
 
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">void</span> func() {}
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!(func) == <u>Variadic</u>.no);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!func == <u>Variadic</u>.no);
 
 <span class="d_keyword">extern</span>(C) <span class="d_keyword">int</span> printf(<span class="d_keyword">in</span> <span class="d_keyword">char</span>*, ...);
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!(printf) == <u>Variadic</u>.c);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(variadicFunctionStyle!printf == <u>Variadic</u>.c);
 </pre>
 </dd>
 </dl>
@@ -550,7 +573,7 @@ string b = <u>functionLinkage</u>!(fp);
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FunctionTypeOf">&nbsp;</span><a class="symbol-link" href="#FunctionTypeOf">FunctionTypeOf</a>(func...) if (func.length == 1 &amp;&amp; isCallable!(func))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FunctionTypeOf">&nbsp;</span><a class="symbol-link" href="#FunctionTypeOf">FunctionTypeOf</a>(func...) if (func.length == 1 &amp;&amp; isCallable!func)</h3></div>
 <div class="declaration-content"><dl><p>Get the function type from a callable object <span class="inlinecode">func</span>.
 </p>
 
@@ -571,12 +594,12 @@ Do not confuse function types with function pointer types; function types are
 usually used for compile-time reflection purposes.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="SetFunctionAttributes">&nbsp;</span><a class="symbol-link" href="#SetFunctionAttributes">SetFunctionAttributes</a>(T,string linkage,uint attrs) if (isFunctionPointer!(T) || isDelegate!(T))<br>template <span class="symbol-target" id="SetFunctionAttributes">&nbsp;</span><a class="symbol-link" href="#SetFunctionAttributes">SetFunctionAttributes</a>(T,string linkage,uint attrs) if (is(T == function))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="SetFunctionAttributes">&nbsp;</span><a class="symbol-link" href="#SetFunctionAttributes">SetFunctionAttributes</a>(T, string linkage, uint attrs) if (isFunctionPointer!T || isDelegate!T)<br>template <span class="symbol-target" id="SetFunctionAttributes">&nbsp;</span><a class="symbol-link" href="#SetFunctionAttributes">SetFunctionAttributes</a>(T, string linkage, uint attrs) if (is(T == function))</h3></div>
 <div class="declaration-content"><dl><p>Constructs a new function or delegate type with the same basic signature
  as the given one, but different attributes (including linkage).
 </p>
 
-<p>This is especially useful for adding/removing attributes from/to types in
+<p>This is especially useful for adding/removing attributes to/from types in
  generic code, where the actual type name cannot be spelt out.
 
 </p>
@@ -587,31 +610,47 @@ usually used for compile-time reflection purposes.</dd>
 <td>The desired linkage of the result type.</td>
 </tr>
 <tr><td>attrs</td>
-<td>The desired <a href="#FunctionAttribute"><span class="inlinecode">FunctionAttribute</span></a>s of the result type.</td>
+<td>The desired <a class="symbol-link" href="#FunctionAttribute"><span class="inlinecode">FunctionAttribute</span></a>
+s of the result type.</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">template</span> ExternC(T)
-     <span class="d_keyword">if</span> (isFunctionPointer!T || isDelegate!T || <span class="d_keyword">is</span>(T == <span class="d_keyword">function</span>))
- {
-     <span class="d_keyword">alias</span> <u>SetFunctionAttributes</u>!(T, <span class="d_string">"C"</span>, functionAttributes!T) ExternC;
- }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">template</span> ExternC(T)
+    <span class="d_keyword">if</span> (isFunctionPointer!T || isDelegate!T || <span class="d_keyword">is</span>(T == <span class="d_keyword">function</span>))
+{
+    <span class="d_keyword">alias</span> <u>SetFunctionAttributes</u>!(T, <span class="d_string">"C"</span>, functionAttributes!T) ExternC;
+}
 </pre>
+<br><br>
 
-<pre class="d_code"> <span class="d_keyword">auto</span> assumePure(T)(T t)
-     <span class="d_keyword">if</span> (isFunctionPointer!T || isDelegate!T)
- {
-     <span class="d_keyword">enum</span> attrs = functionAttributes!T | FunctionAttribute.pure_;
-     <span class="d_keyword">return</span> <span class="d_keyword">cast</span>(<u>SetFunctionAttributes</u>!(T, functionLinkage!T, attrs)) t;
- }
+<pre class="d_code"><span class="d_keyword">auto</span> assumePure(T)(T t)
+    <span class="d_keyword">if</span> (isFunctionPointer!T || isDelegate!T)
+{
+    <span class="d_keyword">enum</span> attrs = functionAttributes!T | FunctionAttribute.pure_;
+    <span class="d_keyword">return</span> <span class="d_keyword">cast</span>(<u>SetFunctionAttributes</u>!(T, functionLinkage!T, attrs)) t;
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FieldTypeTuple">&nbsp;</span><a class="symbol-link" href="#FieldTypeTuple">FieldTypeTuple</a>(S)</h3></div>
-<div class="declaration-content"><dl><p>Get the types of the fields of a struct or class.
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isNested">&nbsp;</span><a class="symbol-link" href="#isNested">isNested</a>(T) if (is(T == class) || is(T == struct) || is(T == union))</h3></div>
+<div class="declaration-content"><dl><p>Determines whether <span class="inlinecode">T</span> has its own context pointer.
+<span class="inlinecode">T</span> must be either <span class="inlinecode">class</span>, <span class="inlinecode">struct</span>, or <span class="inlinecode">union</span>.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasNested">&nbsp;</span><a class="symbol-link" href="#hasNested">hasNested</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Determines whether <span class="inlinecode">T</span> or any of its representation types
+have a context pointer.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="FieldTypeTuple">&nbsp;</span><a class="symbol-link" href="#FieldTypeTuple">FieldTypeTuple</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Get as a typetuple the types of the fields of a struct, class, or union.
  This consists of the fields that take up memory space,
  excluding the hidden fields like the virtual function
- table pointer.</p>
+ table pointer or a context pointer for nested types.
+ If <span class="inlinecode">T</span> isn't a struct, class, or union returns typetuple
+ with one element <span class="inlinecode">T</span>.</p>
 
 </dl>
 </div>
@@ -623,7 +662,7 @@ topological order.
 <dt>Example:</dt><dd>
 <pre class="d_code"><span class="d_keyword">struct</span> S1 { <span class="d_keyword">int</span> a; <span class="d_keyword">float</span> b; }
 <span class="d_keyword">struct</span> S2 { <span class="d_keyword">char</span>[] a; <span class="d_keyword">union</span> { S1 b; S1 * c; } }
-<span class="d_keyword">alias</span> <u>RepresentationTypeTuple</u>!(S2) R;
+<span class="d_keyword">alias</span> <u>RepresentationTypeTuple</u>!S2 R;
 <span class="d_keyword">assert</span>(R.length == 4
     &amp;&amp; <span class="d_keyword">is</span>(R[0] == <span class="d_keyword">char</span>[]) &amp;&amp; <span class="d_keyword">is</span>(R[1] == <span class="d_keyword">int</span>)
     &amp;&amp; <span class="d_keyword">is</span>(R[2] == <span class="d_keyword">float</span>) &amp;&amp; <span class="d_keyword">is</span>(R[3] == S1*));
@@ -662,28 +701,40 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasElaborateCopyConstructor">&nbsp;</span><a class="symbol-link" href="#hasElaborateCopyConstructor">hasElaborateCopyConstructor</a>(S)</h3></div>
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type embedded directly in the representation of <span class="inlinecode">S</span>
  defines an elaborate copy constructor. Elaborate copy constructors are
- introduced by defining <span class="inlinecode">this(this)</span> for a <span class="inlinecode">struct</span>. (Non-struct types
- never have elaborate copy constructors.)</p>
+ introduced by defining <span class="inlinecode">this(this)</span> for a <span class="inlinecode">struct</span>.
+</p>
 
+<p>Classes and unions never have elaborate copy constructors.</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasElaborateAssign">&nbsp;</span><a class="symbol-link" href="#hasElaborateAssign">hasElaborateAssign</a>(S)</h3></div>
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type directly embedded in the representation of <span class="inlinecode">S</span>
-   defines an elaborate assignmentq. Elaborate assignments are introduced by
+   defines an elaborate assignment. Elaborate assignments are introduced by
    defining <span class="inlinecode">opAssign(typeof(this))</span> or <span class="inlinecode">opAssign(ref typeof(this))</span>
-   for a <span class="inlinecode">struct</span>. (Non-struct types never have elaborate assignments.)</p>
+   for a <span class="inlinecode">struct</span> or when there is a compiler-generated <span class="inlinecode">opAssign</span>
+   (in case <span class="inlinecode">S</span> has an elaborate copy constructor or destructor).
+</p>
 
+<p>Classes and unions never have elaborate assignments.
+
+</p>
+<dt>Note:</dt><dd>
+Structs with (possibly nested) postblit operator(s) will have a
+   hidden yet elaborate compiler generated assignement operator (unless
+   explicitly disabled).</dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasElaborateDestructor">&nbsp;</span><a class="symbol-link" href="#hasElaborateDestructor">hasElaborateDestructor</a>(S)</h3></div>
 <div class="declaration-content"><dl><p>True if <span class="inlinecode">S</span> or any type directly embedded in the representation
    of <span class="inlinecode">S</span> defines an elaborate destructor. Elaborate destructors
-   are introduced by defining <span class="inlinecode">~this()</span> for a <span class="inlinecode">  struct</span>. (Non-struct types never have elaborate destructors, even
-   though classes may define <span class="inlinecode">~this()</span>.)</p>
+   are introduced by defining <span class="inlinecode">~this()</span> for a <span class="inlinecode">  struct</span>.
+</p>
 
+<p>Classes and unions never have elaborate destructors, even
+   though classes may define <span class="inlinecode">~this()</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasMember">&nbsp;</span><a class="symbol-link" href="#hasMember">hasMember</a>(T,string name)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="hasMember">&nbsp;</span><a class="symbol-link" href="#hasMember">hasMember</a>(T, string name)</h3></div>
 <div class="declaration-content"><dl><p>Yields <span class="inlinecode"><span class="d_keyword">true</span></span> if and only if <span class="inlinecode">T</span> is an aggregate that defines
    a symbol called <span class="inlinecode">name</span>.</p>
 
@@ -702,7 +753,14 @@ immutable or shared.</li> <li>a delegate that is not shared.</li></ol></p>
 
 </dd>
 <dt>Note:</dt><dd>
-Returned values are strictly typed with <span class="inlinecode">E</span>. Thus, the following code
+An enum can have multiple members which have the same value. If you want
+ to use <span class="symbol-target" id="EnumMembers">&nbsp;</span><a class="symbol-link" href="#EnumMembers">EnumMembers</a> to e.g. generate switch cases at compile-time,
+ you should use the <a href="std_typetuple.html#NoDuplicates"><span class="inlinecode">std.typetuple.NoDuplicates</span></a> template to avoid
+ generating duplicate switch cases.
+
+</dd>
+<dt>Note:</dt><dd>
+ Returned values are strictly typed with <span class="inlinecode">E</span>. Thus, the following code
  does not work without the explicit cast:
 <pre class="d_code"><span class="d_keyword">enum</span> E : <span class="d_keyword">int</span> { a, b, c }
 <span class="d_keyword">int</span>[] abc = <span class="d_keyword">cast</span>(<span class="d_keyword">int</span>[]) [ <u>EnumMembers</u>!E ];
@@ -721,6 +779,7 @@ Returned values are strictly typed with <span class="inlinecode">E</span>. Thus,
 <span class="d_keyword">auto</span> sqrts = [ <u>EnumMembers</u>!Sqrts ];
 <span class="d_keyword">assert</span>(sqrts == [ Sqrts.one, Sqrts.two, Sqrts.three ]);
 </pre>
+<br><br>
 
  A generic function <span class="inlinecode">rank(v)</span> in the following example uses this
  template for finding a member <span class="inlinecode">e</span> in an enumerated type <span class="inlinecode">E</span>.
@@ -752,44 +811,44 @@ size_t rank(E)(E e)
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="BaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#BaseTypeTuple">BaseTypeTuple</a>(A)</h3></div>
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of the base class and base interfaces of
- this class or interface. <b><span class="symbol-target" id="BaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#BaseTypeTuple">BaseTypeTuple</a>!(Object)</b> returns
+ this class or interface. <b><span class="symbol-target" id="BaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#BaseTypeTuple">BaseTypeTuple</a>!Object</b> returns
  the empty type tuple.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
- <span class="d_keyword">interface</span> I { }
- <span class="d_keyword">class</span> A { }
- <span class="d_keyword">class</span> B : A, I { }
+<pre class="d_code"><span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
+<span class="d_keyword">interface</span> I { }
+<span class="d_keyword">class</span> A { }
+<span class="d_keyword">class</span> B : A, I { }
 
- <span class="d_keyword">void</span> main()
- {
-     <span class="d_keyword">alias</span> <u>BaseTypeTuple</u>!(B) TL;
-     writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (A,I)
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">alias</span> <u>BaseTypeTuple</u>!B TL;
+    writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (A,I)
 </span>
- }
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="BaseClassesTuple">&nbsp;</span><a class="symbol-link" href="#BaseClassesTuple">BaseClassesTuple</a>(T)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="BaseClassesTuple">&nbsp;</span><a class="symbol-link" href="#BaseClassesTuple">BaseClassesTuple</a>(T) if (is(T == class))</h3></div>
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> base classes of this class,
- in decreasing order. Interfaces are not included. <b><span class="symbol-target" id="BaseClassesTuple">&nbsp;</span><a class="symbol-link" href="#BaseClassesTuple">BaseClassesTuple</a>!(Object)</b> yields the empty type tuple.
+ in decreasing order. Interfaces are not included. <b><span class="symbol-target" id="BaseClassesTuple">&nbsp;</span><a class="symbol-link" href="#BaseClassesTuple">BaseClassesTuple</a>!Object</b> yields the empty type tuple.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
- <span class="d_keyword">interface</span> I { }
- <span class="d_keyword">class</span> A { }
- <span class="d_keyword">class</span> B : A, I { }
- <span class="d_keyword">class</span> C : B { }
+<pre class="d_code"><span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
+<span class="d_keyword">interface</span> I { }
+<span class="d_keyword">class</span> A { }
+<span class="d_keyword">class</span> B : A, I { }
+<span class="d_keyword">class</span> C : B { }
 
- <span class="d_keyword">void</span> main()
- {
-     <span class="d_keyword">alias</span> <u>BaseClassesTuple</u>!(C) TL;
-     writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (B,A,Object)
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">alias</span> <u>BaseClassesTuple</u>!C TL;
+    writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (B,A,Object)
 </span>
- }
+}
 </pre>
 </dd>
 </dl>
@@ -797,52 +856,52 @@ size_t rank(E)(E e)
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="InterfacesTuple">&nbsp;</span><a class="symbol-link" href="#InterfacesTuple">InterfacesTuple</a>(T)</h3></div>
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> interfaces directly or
  indirectly inherited by this class or interface. Interfaces do not
- repeat if multiply implemented. <b><span class="symbol-target" id="InterfacesTuple">&nbsp;</span><a class="symbol-link" href="#InterfacesTuple">InterfacesTuple</a>!(Object)</b>
+ repeat if multiply implemented. <b><span class="symbol-target" id="InterfacesTuple">&nbsp;</span><a class="symbol-link" href="#InterfacesTuple">InterfacesTuple</a>!Object</b>
  yields the empty type tuple.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
- <span class="d_keyword">interface</span> I1 { }
- <span class="d_keyword">interface</span> I2 { }
- <span class="d_keyword">class</span> A : I1, I2 { }
- <span class="d_keyword">class</span> B : A, I1 { }
- <span class="d_keyword">class</span> C : B { }
+<pre class="d_code"><span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
+<span class="d_keyword">interface</span> I1 { }
+<span class="d_keyword">interface</span> I2 { }
+<span class="d_keyword">class</span> A : I1, I2 { }
+<span class="d_keyword">class</span> B : A, I1 { }
+<span class="d_keyword">class</span> C : B { }
 
- <span class="d_keyword">void</span> main()
- {
-     <span class="d_keyword">alias</span> <u>InterfacesTuple</u>!(C) TL;
-     writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (I1, I2)
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">alias</span> <u>InterfacesTuple</u>!C TL;
+    writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (I1, I2)
 </span>
- }
+}
 </pre>
 </dd>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="TransitiveBaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#TransitiveBaseTypeTuple">TransitiveBaseTypeTuple</a>(T)</h3></div>
 <div class="declaration-content"><dl><p>Get a <b>TypeTuple</b> of <i>all</i> base classes of <b>T</b>, in decreasing order, followed by <b>T</b>'s
- interfaces. <b><span class="symbol-target" id="TransitiveBaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#TransitiveBaseTypeTuple">TransitiveBaseTypeTuple</a>!(Object)</b> yields the
+ interfaces. <b><span class="symbol-target" id="TransitiveBaseTypeTuple">&nbsp;</span><a class="symbol-link" href="#TransitiveBaseTypeTuple">TransitiveBaseTypeTuple</a>!Object</b> yields the
  empty type tuple.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
- <span class="d_keyword">interface</span> I { }
- <span class="d_keyword">class</span> A { }
- <span class="d_keyword">class</span> B : A, I { }
- <span class="d_keyword">class</span> C : B { }
+<pre class="d_code"><span class="d_keyword">import</span> std.traits, std.typetuple, std.stdio;
+<span class="d_keyword">interface</span> I { }
+<span class="d_keyword">class</span> A { }
+<span class="d_keyword">class</span> B : A, I { }
+<span class="d_keyword">class</span> C : B { }
 
- <span class="d_keyword">void</span> main()
- {
-     <span class="d_keyword">alias</span> <u>TransitiveBaseTypeTuple</u>!(C) TL;
-     writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (B,A,Object,I)
+<span class="d_keyword">void</span> main()
+{
+    <span class="d_keyword">alias</span> <u>TransitiveBaseTypeTuple</u>!C TL;
+    writeln(<span class="d_keyword">typeid</span>(TL));        <span class="d_comment">// prints: (B,A,Object,I)
 </span>
- }
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="MemberFunctionsTuple">&nbsp;</span><a class="symbol-link" href="#MemberFunctionsTuple">MemberFunctionsTuple</a>(C,string name) if (is(C == class) || is(C == interface))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="MemberFunctionsTuple">&nbsp;</span><a class="symbol-link" href="#MemberFunctionsTuple">MemberFunctionsTuple</a>(C, string name) if (is(C == class) || is(C == interface))</h3></div>
 <div class="declaration-content"><dl><p>Returns a tuple of non-static functions with the name <span class="inlinecode">name</span> declared in the
 class or interface <span class="inlinecode">C</span>.  Covariant duplicates are shrunk into the most
 derived one.
@@ -863,6 +922,22 @@ derived one.
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(foos.length == 2);
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">__traits</span>(isSame, foos[0], C.foo));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">__traits</span>(isSame, foos[1], B.foo));
+</pre>
+</dd>
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="classInstanceAlignment">&nbsp;</span><a class="symbol-link" href="#classInstanceAlignment">classInstanceAlignment</a>(T) if (is(T == class))</h3></div>
+<div class="declaration-content"><dl><p>Returns class instance alignment.
+</p>
+
+<dt>Example:</dt><dd>
+<pre class="d_code"><span class="d_keyword">class</span> A { <span class="d_keyword">byte</span> b; }
+<span class="d_keyword">class</span> B { <span class="d_keyword">long</span> l; }
+
+<span class="d_comment">// As class instance always has a hidden pointer
+</span>
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>classInstanceAlignment</u>!A == (<span class="d_keyword">void</span>*).alignof);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>classInstanceAlignment</u>!B == <span class="d_keyword">long</span>.alignof);
 </pre>
 </dd>
 </dl>
@@ -893,29 +968,41 @@ types have no common type.
 
  The possible targets are computed more conservatively than the D
  2.005 compiler does, eliminating all dangerous conversions. For
- example, <b><span class="symbol-target" id="ImplicitConversionTargets">&nbsp;</span><a class="symbol-link" href="#ImplicitConversionTargets">ImplicitConversionTargets</a>!(double)</b> does not
+ example, <b><span class="symbol-target" id="ImplicitConversionTargets">&nbsp;</span><a class="symbol-link" href="#ImplicitConversionTargets">ImplicitConversionTargets</a>!double</b> does not
  include <b>float</b>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isImplicitlyConvertible">&nbsp;</span><a class="symbol-link" href="#isImplicitlyConvertible">isImplicitlyConvertible</a>(From,To)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isImplicitlyConvertible">&nbsp;</span><a class="symbol-link" href="#isImplicitlyConvertible">isImplicitlyConvertible</a>(From, To)</h3></div>
 <div class="declaration-content"><dl><p>Is <span class="inlinecode">From</span> implicitly convertible to <span class="inlinecode">To</span>?</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAssignable">&nbsp;</span><a class="symbol-link" href="#isAssignable">isAssignable</a>(Lhs,Rhs)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAssignable">&nbsp;</span><a class="symbol-link" href="#isAssignable">isAssignable</a>(Lhs, Rhs = Lhs)</h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="inlinecode"><span class="d_keyword">true</span></span> iff a value of type <span class="inlinecode">Rhs</span> can be assigned to a variable of
 type <span class="inlinecode">Lhs</span>.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<u>isAssignable</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">int</span>));
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>));
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isAssignable</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[], string));
-<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(string, <span class="d_keyword">char</span>[]));
+<p><span class="inlinecode"><span class="symbol-target" id="isAssignable">&nbsp;</span><a class="symbol-link" href="#isAssignable">isAssignable</a></span> returns whether both an lvalue and rvalue can be assigned.
+<br><br>
+
+If you omit <span class="inlinecode">Rhs</span>, <span class="inlinecode"><span class="symbol-target" id="isAssignable">&nbsp;</span><a class="symbol-link" href="#isAssignable">isAssignable</a></span> will check identity assignable of <span class="inlinecode">Lhs</span>.</p>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isAssignable</u>!(<span class="d_keyword">long</span>, <span class="d_keyword">int</span>));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(<span class="d_keyword">int</span>, <span class="d_keyword">long</span>));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isAssignable</u>!(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[], string));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(string, <span class="d_keyword">char</span>[]));
+
+    <span class="d_comment">// int is assignable to int
+</span>
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>( <u>isAssignable</u>!<span class="d_keyword">int</span>);
+
+    <span class="d_comment">// immutable int is not assinable to immutable int
+</span>
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(!<u>isAssignable</u>!(<span class="d_keyword">immutable</span> <span class="d_keyword">int</span>));
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isCovariantWith">&nbsp;</span><a class="symbol-link" href="#isCovariantWith">isCovariantWith</a>(F,G) if (is(F == function) &amp;&amp; is(G == function))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isCovariantWith">&nbsp;</span><a class="symbol-link" href="#isCovariantWith">isCovariantWith</a>(F, G) if (is(F == function) &amp;&amp; is(G == function))</h3></div>
 <div class="declaration-content"><dl><p>Determines whether the function type <span class="inlinecode">F</span> is covariant with <span class="inlinecode">G</span>, i.e.,
 functions of the type <span class="inlinecode">F</span> can override ones of the type <span class="inlinecode">G</span>.
 </p>
@@ -945,35 +1032,62 @@ functions of the type <span class="inlinecode">F</span> can override ones of the
 </dd>
 </dl>
 </div>
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="rvalueOf">&nbsp;</span><a class="symbol-link" href="#rvalueOf">rvalueOf</a>(T)(__InoutWorkaroundStruct = __InoutWorkaroundStruct.init);
+<br>T <span class="symbol-target" id="lvalueOf">&nbsp;</span><a class="symbol-link" href="#lvalueOf">lvalueOf</a>(T)(__InoutWorkaroundStruct = __InoutWorkaroundStruct.init);
+</h3></div>
+<div class="declaration-content"><dl><p>Creates an lvalue or rvalue of type <span class="inlinecode">T</span> for <span class="inlinecode">typeof(...)</span> and
+<span class="inlinecode">_traits(compiles, ...)</span> purposes. No actual value is returned.
+</p>
+
+<dt>Note:</dt><dd>
+Trying to use returned value will result in a
+"Symbol Undefined" error at link time.
+
+</dd>
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_comment">// Note that `f` doesn't have to be implemented
+</span>
+<span class="d_comment">// as is isn't called.
+</span>
+<span class="d_keyword">int</span> f(<span class="d_keyword">int</span>);
+<span class="d_keyword">bool</span> f(<span class="d_keyword">ref</span> <span class="d_keyword">int</span>);
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(f(<u>rvalueOf</u>!<span class="d_keyword">int</span>)) == <span class="d_keyword">int</span>));
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<span class="d_keyword">typeof</span>(f(lvalueOf!<span class="d_keyword">int</span>)) == <span class="d_keyword">bool</span>));
+
+<span class="d_keyword">int</span> i = <u>rvalueOf</u>!<span class="d_keyword">int</span>; <span class="d_comment">// error, no actual value is returned
+</span>
+</pre>
+</dd>
+</dl>
+</div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isBoolean">&nbsp;</span><a class="symbol-link" href="#isBoolean">isBoolean</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in boolean type.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in boolean type.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isIntegral">&nbsp;</span><a class="symbol-link" href="#isIntegral">isIntegral</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in integral type. Types <span class="inlinecode">bool</span>,
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in integral type. Types <span class="inlinecode">bool</span>,
  <span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, and <span class="inlinecode">dchar</span> are not considered integral.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isFloatingPoint">&nbsp;</span><a class="symbol-link" href="#isFloatingPoint">isFloatingPoint</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in floating point type.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in floating point type.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isNumeric">&nbsp;</span><a class="symbol-link" href="#isNumeric">isNumeric</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as a built-in numeric type (integral or floating
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a built-in numeric type (integral or floating
 point).</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isScalarType">&nbsp;</span><a class="symbol-link" href="#isScalarType">isScalarType</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether T is a scalar type.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a scalar type.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isBasicType">&nbsp;</span><a class="symbol-link" href="#isBasicType">isBasicType</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether T is a basic type.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a basic type.</p>
 
 </dl>
 </div>
@@ -988,32 +1102,32 @@ point).</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSomeChar">&nbsp;</span><a class="symbol-link" href="#isSomeChar">isSomeChar</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as one of the built-in character types.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is one of the built-in character types.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isSomeString">&nbsp;</span><a class="symbol-link" href="#isSomeString">isSomeString</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether we can treat T as one of the built-in string types.</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is one of the built-in string types.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isStaticArray">&nbsp;</span><a class="symbol-link" href="#isStaticArray">isStaticArray</a>(T : U[N],U,size_t N)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether type T is a static array.</p>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isStaticArray">&nbsp;</span><a class="symbol-link" href="#isStaticArray">isStaticArray</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether type <span class="inlinecode">T</span> is a static array.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isDynamicArray">&nbsp;</span><a class="symbol-link" href="#isDynamicArray">isDynamicArray</a>(T,U = void)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether type T is a dynamic array.</p>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isDynamicArray">&nbsp;</span><a class="symbol-link" href="#isDynamicArray">isDynamicArray</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether type <span class="inlinecode">T</span> is a dynamic array.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isArray">&nbsp;</span><a class="symbol-link" href="#isArray">isArray</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether type T is an array.</p>
+<div class="declaration-content"><dl><p>Detect whether type <span class="inlinecode">T</span> is an array.</p>
 
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAssociativeArray">&nbsp;</span><a class="symbol-link" href="#isAssociativeArray">isAssociativeArray</a>(T)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether T is an associative array type</p>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is an associative array type</p>
 
 </dl>
 </div>
@@ -1027,9 +1141,10 @@ point).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="pointerTarget">&nbsp;</span><a class="symbol-link" href="#pointerTarget">pointerTarget</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="pointerTarget">&nbsp;</span><a class="symbol-link" href="#pointerTarget">pointerTarget</a> = PointerTarget(T : T*);
 </h3></div>
-<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation. Please use <a href="#PointerTarget"><span class="inlinecode">PointerTarget</span></a> instead.</font></p>
+<div class="declaration-content"><dl><p><font color=red>Scheduled for deprecation. Please use <a class="symbol-link" href="#PointerTarget"><span class="inlinecode">PointerTarget</span></a>
+ instead.</font></p>
 
 </dl>
 </div>
@@ -1044,6 +1159,17 @@ point).</p>
  the <span class="inlinecode">foreach</span> loop is implemented.  This includes ranges, structs/classes
  that define <span class="inlinecode">opApply</span> with a single loop variable, and builtin dynamic,
  static and associative arrays.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isMutable">&nbsp;</span><a class="symbol-link" href="#isMutable">isMutable</a>(T)</h3></div>
+<div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if T is not const or immutable.  Note that <span class="symbol-target" id="isMutable">&nbsp;</span><a class="symbol-link" href="#isMutable">isMutable</a> is <span class="d_keyword">true</span> for
+ string, or immutable(char)[], because the 'head' is mutable.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isInstanceOf">&nbsp;</span><a class="symbol-link" href="#isInstanceOf">isInstanceOf</a>(alias S, T)</h3></div>
+<div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if T is an instance of the template S.</p>
 
 </dl>
 </div>
@@ -1063,7 +1189,7 @@ point).</p>
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isDelegate">&nbsp;</span><a class="symbol-link" href="#isDelegate">isDelegate</a>(T...) if (T.length == 1)</h3></div>
-<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a delegate.</p>
+<div class="declaration-content"><dl><p>Detect whether symbol or type <span class="inlinecode">T</span> is a delegate.</p>
 
 </dl>
 </div>
@@ -1078,9 +1204,28 @@ function call operator <span class="inlinecode">(...)</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAbstractFunction">&nbsp;</span><a class="symbol-link" href="#isAbstractFunction">isAbstractFunction</a>(method...) if (method.length == 1)</h3></div>
-<div class="declaration-content"><dl><p>Exactly the same as the builtin traits:
-<span class="inlinecode">__traits(isAbstractFunction, method)</span>.</p>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAbstractFunction">&nbsp;</span><a class="symbol-link" href="#isAbstractFunction">isAbstractFunction</a>(T...) if (T.length == 1)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a an abstract function.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isFinalFunction">&nbsp;</span><a class="symbol-link" href="#isFinalFunction">isFinalFunction</a>(T...) if (T.length == 1)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a a final function.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isNestedFunction">&nbsp;</span><a class="symbol-link" href="#isNestedFunction">isNestedFunction</a>(alias f)</h3></div>
+<div class="declaration-content"><dl><p>Determines whether function <span class="inlinecode">f</span> requires a context pointer.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isAbstractClass">&nbsp;</span><a class="symbol-link" href="#isAbstractClass">isAbstractClass</a>(T...) if (T.length == 1)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a an abstract class.</p>
+
+</dl>
+</div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="isFinalClass">&nbsp;</span><a class="symbol-link" href="#isFinalClass">isFinalClass</a>(T...) if (T.length == 1)</h3></div>
+<div class="declaration-content"><dl><p>Detect whether <span class="inlinecode">T</span> is a a final class.</p>
 
 </dl>
 </div>
@@ -1089,7 +1234,7 @@ function call operator <span class="inlinecode">(...)</span>.</p>
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
+<pre class="d_code"><span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!<span class="d_keyword">int</span> == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">const</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">immutable</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
 <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Unqual</u>!(<span class="d_keyword">shared</span> <span class="d_keyword">int</span>) == <span class="d_keyword">int</span>));
@@ -1102,7 +1247,7 @@ function call operator <span class="inlinecode">(...)</span>.</p>
 <div class="declaration-content"><dl><p>Returns the inferred type of the loop variable when a variable of type T
 is iterated over using a <span class="inlinecode">foreach</span> loop with a single loop variable and
 automatically inferred return type.  Note that this may not be the same as
-<span class="inlinecode">std.range.ElementType!(Range)</span> in the case of narrow strings, or if T
+<span class="inlinecode">std.range.ElementType!Range</span> in the case of narrow strings, or if T
 has both opApply and a range interface.</p>
 
 </dl>
@@ -1120,29 +1265,29 @@ has both opApply and a range interface.</p>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="KeyType">&nbsp;</span><a class="symbol-link" href="#KeyType">KeyType</a>(V : V[K],K)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="KeyType">&nbsp;</span><a class="symbol-link" href="#KeyType">KeyType</a>(V : V[K], K)</h3></div>
 <div class="declaration-content"><dl><p>Get the Key type of an Associative Array.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">alias</span> <span class="d_keyword">int</span>[string] Hash;
- <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>KeyType</u>!Hash == string));
- <u>KeyType</u>!Hash str = <span class="d_string">"string"</span>;   <span class="d_comment">// str is declared as string
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">alias</span> <span class="d_keyword">int</span>[string] Hash;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>KeyType</u>!Hash == string));
+<u>KeyType</u>!Hash str = <span class="d_string">"string"</span>;   <span class="d_comment">// str is declared as string
 </span>
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ValueType">&nbsp;</span><a class="symbol-link" href="#ValueType">ValueType</a>(V : V[K],K)</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="ValueType">&nbsp;</span><a class="symbol-link" href="#ValueType">ValueType</a>(V : V[K], K)</h3></div>
 <div class="declaration-content"><dl><p>Get the Value type of an Associative Array.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code"> <span class="d_keyword">import</span> std.traits;
- <span class="d_keyword">alias</span> <span class="d_keyword">int</span>[string] Hash;
- <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>ValueType</u>!Hash == <span class="d_keyword">int</span>));
- <u>ValueType</u>!Hash num = 1;   <span class="d_comment">// num is declared as int
+<pre class="d_code"><span class="d_keyword">import</span> std.traits;
+<span class="d_keyword">alias</span> <span class="d_keyword">int</span>[string] Hash;
+<span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>ValueType</u>!Hash == <span class="d_keyword">int</span>));
+<u>ValueType</u>!Hash num = 1;   <span class="d_comment">// num is declared as int
 </span>
 </pre>
 </dd>
@@ -1167,16 +1312,7 @@ otherwise a compile-time error occurs.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>auto <span class="symbol-target" id="unsigned">&nbsp;</span><a class="symbol-link" href="#unsigned">unsigned</a>(T)(T <i>x</i>);
-</h3></div>
-<div class="declaration-content"><dl><p>Returns the corresponding <span class="symbol-target" id="unsigned">&nbsp;</span><a class="symbol-link" href="#unsigned">unsigned</a> value for <span class="inlinecode">x</span>, e.g. if <span class="inlinecode">x</span>
- has type <span class="inlinecode">int</span>, returns <span class="inlinecode">cast(uint) x</span>. The advantage
- compared to the cast is that you do not need to rewrite the cast if
- <span class="inlinecode">x</span> later changes type to e.g. <span class="inlinecode">long</span>.</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="mostNegative">&nbsp;</span><a class="symbol-link" href="#mostNegative">mostNegative</a>(T) if (isNumeric!(T) || isSomeChar!(T))</h3></div>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="mostNegative">&nbsp;</span><a class="symbol-link" href="#mostNegative">mostNegative</a>(T) if (isNumeric!T || isSomeChar!T || isBoolean!T)</h3></div>
 <div class="declaration-content"><dl><p>Returns the most negative value of the numeric type T.</p>
 
 </dl>
@@ -1202,16 +1338,26 @@ the correct names of property functions are obtained.
 </p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Select">&nbsp;</span><a class="symbol-link" href="#Select">Select</a>(bool condition,T,F)</h3></div>
-<div class="declaration-content"><dl><p>Aliases itself to <span class="inlinecode">T</span> if the boolean <span class="inlinecode">condition</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>
-and to <span class="inlinecode">F</span> otherwise.
-</p>
+<hr><div class="row-fluid declaration"><h3>template <span class="symbol-target" id="Select">&nbsp;</span><a class="symbol-link" href="#Select">Select</a>(bool condition, T...) if (T.length == 2)</h3></div>
+<div class="declaration-content"><dl><p>Aliases itself to <span class="inlinecode">T[0]</span> if the boolean <span class="inlinecode">condition</span> is <span class="inlinecode"><span class="d_keyword">true</span></span>
+and to <span class="inlinecode">T[1]</span> otherwise.</p>
 
-<dt>Example:</dt><dd>
-<pre class="d_code"><span class="d_keyword">alias</span> <u>Select</u>!(size_t.sizeof == 4, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>) Int;
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_comment">// can select types
+</span>
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Select</u>!(<span class="d_keyword">true</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>) == <span class="d_keyword">int</span>));
+    <span class="d_keyword">static</span> <span class="d_keyword">assert</span>(<span class="d_keyword">is</span>(<u>Select</u>!(<span class="d_keyword">false</span>, <span class="d_keyword">int</span>, <span class="d_keyword">long</span>) == <span class="d_keyword">long</span>));
+
+    <span class="d_comment">// can select symbols
+</span>
+    <span class="d_keyword">int</span> a = 1;
+    <span class="d_keyword">int</span> b = 2;
+    <span class="d_keyword">alias</span> selA = <u>Select</u>!(<span class="d_keyword">true</span>, a, b);
+    <span class="d_keyword">alias</span> selB = <u>Select</u>!(<span class="d_keyword">false</span>, a, b);
+    <span class="d_keyword">assert</span>(selA == 1);
+    <span class="d_keyword">assert</span>(selB == 2);
 </pre>
-</dd>
-</dl>
+</dd></dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>A <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(bool cond : true, A, B)(A <i>a</i>, lazy B <i>b</i>);
 <br>B <span class="symbol-target" id="select">&nbsp;</span><a class="symbol-link" href="#select">select</a>(bool cond : false, A, B)(lazy A <i>a</i>, B <i>b</i>);

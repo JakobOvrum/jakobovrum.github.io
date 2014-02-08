@@ -277,8 +277,11 @@
 <dl><p>This module is used to manipulate path strings.
 </p>
 
-<p>All functions, with the exception of <a href="#expandTilde"><span class="inlinecode">expandTilde</span></a> (and in some
-    cases <a href="#absolutePath"><span class="inlinecode">absolutePath</span></a> and <a href="#relativePath"><span class="inlinecode">relativePath</span></a>), are pure
+<p>All functions, with the exception of <a class="symbol-link" href="#expandTilde"><span class="inlinecode">expandTilde</span></a>
+ (and in some
+    cases <a class="symbol-link" href="#absolutePath"><span class="inlinecode">absolutePath</span></a>
+ and <a class="symbol-link" href="#relativePath"><span class="inlinecode">relativePath</span></a>
+), are pure
     string manipulation functions; they don't depend on any state outside
     the program, nor do they perform any actual file system actions.
     This has the consequence that the module does not make any distinction
@@ -289,10 +292,11 @@
     <a href="std_file.html#exists"><span class="inlinecode">std.file.exists</span></a>.
 <br><br>
 
-    Note that on Windows, both the backslash (<span class="inlinecode">'\'</span>) and the slash (<span class="inlinecode">'/'</span>)
+    Note that on Windows, both the backslash (<span class="inlinecode">`\`</span>) and the slash (<span class="inlinecode">`/`</span>)
     are in principle valid directory separators.  This module treats them
     both on equal footing, but in cases where a <i>new</i> separator is
-    added, a backslash will be used.  Furthermore, the <a href="#buildNormalizedPath"><span class="inlinecode">buildNormalizedPath</span></a>
+    added, a backslash will be used.  Furthermore, the <a class="symbol-link" href="#buildNormalizedPath"><span class="inlinecode">buildNormalizedPath</span></a>
+
     function will replace all slashes with backslashes on that platform.
 <br><br>
 
@@ -302,7 +306,9 @@
     of calling a function on an ill-formed path is undefined.  When there
     is a chance that a path or a file name is invalid (for instance, when it
     has been input by the user), it may sometimes be desirable to use the
-    <a href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a> and <a href="#isValidPath"><span class="inlinecode">isValidPath</span></a> functions to check
+    <a class="symbol-link" href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a>
+ and <a class="symbol-link" href="#isValidPath"><span class="inlinecode">isValidPath</span></a>
+ functions to check
     this.
 <br><br>
 
@@ -342,11 +348,11 @@
 <div class="declaration-content"><dl><p>Determines whether the given character is a directory separator.
 </p>
 
-<p>On Windows, this includes both <span class="inlinecode">'\'</span> and <span class="inlinecode">'/'</span>.
-    On POSIX, it's just <span class="inlinecode">'/'</span>.</p>
+<p>On Windows, this includes both <span class="inlinecode">`\`</span> and <span class="inlinecode">`/`</span>.
+    On POSIX, it's just <span class="inlinecode">`/`</span>.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CaseSensitive">&nbsp;</span><a class="symbol-link" href="#CaseSensitive">CaseSensitive</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CaseSensitive">&nbsp;</span><a class="symbol-link" href="#CaseSensitive">CaseSensitive</a>: bool;
 </h3></div>
 <div class="declaration-content"><dl><p>This <span class="inlinecode">enum</span> is used as a template argument to functions which
     compare file names, and determines whether the comparison is
@@ -373,8 +379,8 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted inout(C)[] <span class="symbol-target" id="baseName">&nbsp;</span><a class="symbol-link" href="#baseName">baseName</a>(C)(inout(C)[] <i>path</i>);
-<br>pure @safe inout(C)[] <span class="symbol-target" id="baseName">&nbsp;</span><a class="symbol-link" href="#baseName">baseName</a>(CaseSensitive cs = CaseSensitive.osDefault, C, C1)(inout(C)[] <i>path</i>, in C1[] <i>suffix</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted inout(C)[] <span class="symbol-target" id="baseName">&nbsp;</span><a class="symbol-link" href="#baseName">baseName</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
+<br>pure @safe inout(C)[] <span class="symbol-target" id="baseName">&nbsp;</span><a class="symbol-link" href="#baseName">baseName</a>(CaseSensitive cs = CaseSensitive.osDefault, C, C1)(inout(C)[] <i>path</i>, in C1[] <i>suffix</i>) if (isSomeChar!C &amp;&amp; isSomeChar!C1);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the name of a file, without any leading directory
     and with an optional suffix chopped off.
@@ -384,31 +390,33 @@
     using <span class="inlinecode">filenameCmp!cs</span>,
     where <span class="inlinecode">cs</span> is an optional template parameter determining whether
     the comparison is case sensitive or not.  See the
-    <a href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a> documentation for details.
+    <a class="symbol-link" href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a>
+ documentation for details.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>)         == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>, <span class="d_string">".ext"</span>) == <span class="d_string">"file"</span>);
-    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>, <span class="d_string">".xyz"</span>) == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/filename"</span>, <span class="d_string">"name"</span>) == <span class="d_string">"file"</span>);
-    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/subdir/"</span>)          == <span class="d_string">"subdir"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>)         == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>, <span class="d_string">".ext"</span>) == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/file.ext"</span>, <span class="d_string">".xyz"</span>) == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/filename"</span>, <span class="d_string">"name"</span>) == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">"dir/subdir/"</span>)          == <span class="d_string">"subdir"</span>);
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">`d:file.ext`</span>)      == <span class="d_string">"file.ext"</span>);
-        <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">`d:\dir\file.ext`</span>) == <span class="d_string">"file.ext"</span>);
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">`d:file.ext`</span>)      == <span class="d_string">"file.ext"</span>);
+    <span class="d_keyword">assert</span> (<u>baseName</u>(<span class="d_string">`d:\dir\file.ext`</span>) == <span class="d_string">"file.ext"</span>);
+}
 </pre>
 
 </dd>
 <dt>Note:</dt><dd>
-This function <i>only</i> strips away the specified suffix, which
+    This function <i>only</i> strips away the specified suffix, which
     doesn't necessarily have to represent an extension.  If you want
     to remove the extension from a path, regardless of what the extension
-    is, use <a href="#stripExtension"><span class="inlinecode">stripExtension</span></a>.
+    is, use <a class="symbol-link" href="#stripExtension"><span class="inlinecode">stripExtension</span></a>
+.
     If you want the filename without leading directories and without
     an extension, combine the functions like this:
-<pre class="d_code">    <span class="d_keyword">assert</span> (<u>baseName</u>(stripExtension(<span class="d_string">"dir/file.ext"</span>)) == <span class="d_string">"file"</span>);
+<pre class="d_code"><span class="d_keyword">assert</span> (<u>baseName</u>(stripExtension(<span class="d_string">"dir/file.ext"</span>)) == <span class="d_string">"file"</span>);
 </pre>
 
 </dd>
@@ -417,7 +425,7 @@ This function <i>only</i> strips away the specified suffix, which
     (with suitable adaptations for Windows paths).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol-target" id="dirName">&nbsp;</span><a class="symbol-link" href="#dirName">dirName</a>(C)(C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>C[] <span class="symbol-target" id="dirName">&nbsp;</span><a class="symbol-link" href="#dirName">dirName</a>(C)(C[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the directory part of a path.  On Windows, this
     includes the drive letter if present.
@@ -429,18 +437,18 @@ This function <i>only</i> strips away the specified suffix, which
     <span class="inlinecode">"."</span>).
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"file"</span>)        == <span class="d_string">"."</span>);
-    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"dir/file"</span>)    == <span class="d_string">"dir"</span>);
-    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"/file"</span>)       == <span class="d_string">"/"</span>);
-    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"dir/subdir/"</span>) == <span class="d_string">"dir"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"file"</span>)        == <span class="d_string">"."</span>);
+<span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"dir/file"</span>)    == <span class="d_string">"dir"</span>);
+<span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"/file"</span>)       == <span class="d_string">"/"</span>);
+<span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"dir/subdir/"</span>) == <span class="d_string">"dir"</span>);
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"d:file"</span>)      == <span class="d_string">"d:"</span>);
-        <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`d:\dir\file`</span>) == <span class="d_string">`d:\dir`</span>);
-        <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`d:\file`</span>)     == <span class="d_string">`d:\`</span>);
-        <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`dir\subdir\`</span>) == <span class="d_string">`dir`</span>);
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">"d:file"</span>)      == <span class="d_string">"d:"</span>);
+    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`d:\dir\file`</span>) == <span class="d_string">`d:\dir`</span>);
+    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`d:\file`</span>)     == <span class="d_string">`d:\`</span>);
+    <span class="d_keyword">assert</span> (<u>dirName</u>(<span class="d_string">`dir\subdir\`</span>) == <span class="d_string">`dir`</span>);
+}
 </pre>
 
 </dd>
@@ -449,26 +457,26 @@ This function <i>only</i> strips away the specified suffix, which
     (with suitable adaptations for Windows paths).</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="rootName">&nbsp;</span><a class="symbol-link" href="#rootName">rootName</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="rootName">&nbsp;</span><a class="symbol-link" href="#rootName">rootName</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the root directory of the specified path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the
     path is not rooted.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">"foo"</span>) <span class="d_keyword">is</span> <span class="d_keyword">null</span>);
-    <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">"/foo"</span>) == <span class="d_string">"/"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">"foo"</span>) <span class="d_keyword">is</span> <span class="d_keyword">null</span>);
+<span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">"/foo"</span>) == <span class="d_string">"/"</span>);
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`\foo`</span>) == <span class="d_string">`\`</span>);
-        <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`c:\foo`</span>) == <span class="d_string">`c:\`</span>);
-        <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`\\server\share\foo`</span>) == <span class="d_string">`\\server\share`</span>);
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`\foo`</span>) == <span class="d_string">`\`</span>);
+    <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`c:\foo`</span>) == <span class="d_string">`c:\`</span>);
+    <span class="d_keyword">assert</span> (<u>rootName</u>(<span class="d_string">`\\server\share\foo`</span>) == <span class="d_string">`\\server\share`</span>);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="driveName">&nbsp;</span><a class="symbol-link" href="#driveName">driveName</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="driveName">&nbsp;</span><a class="symbol-link" href="#driveName">driveName</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the drive of a path, or <span class="inlinecode"><span class="d_keyword">null</span></span> if the drive
     is not specified.  In the case of UNC paths, the network share
@@ -478,33 +486,33 @@ This function <i>only</i> strips away the specified suffix, which
 <p>Always returns <span class="inlinecode"><span class="d_keyword">null</span></span> on POSIX.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`d:\file`</span>) == <span class="d_string">"d:"</span>);
-        <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`\\server\share\file`</span>) == <span class="d_string">`\\server\share`</span>);
-        <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`dir\file`</span>).empty);
-    }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`d:\file`</span>) == <span class="d_string">"d:"</span>);
+    <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`\\server\share\file`</span>) == <span class="d_string">`\\server\share`</span>);
+    <span class="d_keyword">assert</span> (<u>driveName</u>(<span class="d_string">`dir\file`</span>).empty);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="stripDrive">&nbsp;</span><a class="symbol-link" href="#stripDrive">stripDrive</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="stripDrive">&nbsp;</span><a class="symbol-link" href="#stripDrive">stripDrive</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Strips the drive from a Windows path.  On POSIX, the path is returned
     unaltered.
 </p>
 
 <dt>Example:</dt><dd>
-<pre class="d_code">    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`d:\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
-        <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`\\server\share\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
-    }
+<pre class="d_code"><span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`d:\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
+    <span class="d_keyword">assert</span> (<u>stripDrive</u>(<span class="d_string">`\\server\share\dir\file`</span>) == <span class="d_string">`\dir\file`</span>);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="extension">&nbsp;</span><a class="symbol-link" href="#extension">extension</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="extension">&nbsp;</span><a class="symbol-link" href="#extension">extension</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the extension part of a file name, including the dot.
 </p>
@@ -512,34 +520,34 @@ This function <i>only</i> strips away the specified suffix, which
 <p>If there is no extension, <span class="inlinecode"><span class="d_keyword">null</span></span> is returned.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file"</span>).empty);
-    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file.ext"</span>)       == <span class="d_string">".ext"</span>);
-    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file.ext1.ext2"</span>) == <span class="d_string">".ext2"</span>);
-    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file."</span>)          == <span class="d_string">"."</span>);
-    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file"</span>).empty);
-    <span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".ext"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file"</span>).empty);
+<span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file.ext"</span>)       == <span class="d_string">".ext"</span>);
+<span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file.ext1.ext2"</span>) == <span class="d_string">".ext2"</span>);
+<span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">"file."</span>)          == <span class="d_string">"."</span>);
+<span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file"</span>).empty);
+<span class="d_keyword">assert</span> (<u>extension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".ext"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="stripExtension">&nbsp;</span><a class="symbol-link" href="#stripExtension">stripExtension</a>(C)(inout(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe inout(C)[] <span class="symbol-target" id="stripExtension">&nbsp;</span><a class="symbol-link" href="#stripExtension">stripExtension</a>(C)(inout(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path with the extension stripped off.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file"</span>)           == <span class="d_string">"file"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file.ext"</span>)       == <span class="d_string">"file"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file.ext1.ext2"</span>) == <span class="d_string">"file.ext1"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file."</span>)          == <span class="d_string">"file"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">".file"</span>)          == <span class="d_string">".file"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".file"</span>);
-    <span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"dir/file.ext"</span>)   == <span class="d_string">"dir/file"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file"</span>)           == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file.ext"</span>)       == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file.ext1.ext2"</span>) == <span class="d_string">"file.ext1"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"file."</span>)          == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">".file"</span>)          == <span class="d_string">".file"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">".file.ext"</span>)      == <span class="d_string">".file"</span>);
+<span class="d_keyword">assert</span> (<u>stripExtension</u>(<span class="d_string">"dir/file.ext"</span>)   == <span class="d_string">"dir/file"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(Unqual!(C1))[] <span class="symbol-target" id="setExtension">&nbsp;</span><a class="symbol-link" href="#setExtension">setExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
-<br>pure nothrow @trusted immutable(C1)[] <span class="symbol-target" id="setExtension">&nbsp;</span><a class="symbol-link" href="#setExtension">setExtension</a>(C1, C2)(immutable(C1)[] <i>path</i>, const(C2)[] <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(Unqual!C1)[] <span class="symbol-target" id="setExtension">&nbsp;</span><a class="symbol-link" href="#setExtension">setExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>) if (isSomeChar!C1 &amp;&amp; !is(C1 == immutable) &amp;&amp; is(Unqual!C1 == Unqual!C2));
+<br>pure nothrow @trusted immutable(C1)[] <span class="symbol-target" id="setExtension">&nbsp;</span><a class="symbol-link" href="#setExtension">setExtension</a>(C1, C2)(immutable(C1)[] <i>path</i>, const(C2)[] <i>ext</i>) if (isSomeChar!C1 &amp;&amp; is(Unqual!C1 == Unqual!C2));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a string containing the path given by <span class="inlinecode">path</span>, but where
     the extension has been set to <span class="inlinecode">ext</span>.
@@ -550,20 +558,26 @@ This function <i>only</i> strips away the specified suffix, which
     in <span class="inlinecode">ext</span> is optional.
 <br><br>
 
+    If the extension is empty, this function is equivalent to
+    <a class="symbol-link" href="#stripExtension"><span class="inlinecode">stripExtension</span></a>
+.
+<br><br>
+
     This function normally allocates a new string (the possible exception
     being the case when path is immutable and doesn't already have an
     extension).
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">"ext"</span>)      == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">".ext"</span>)     == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">"new"</span>)  == <span class="d_string">"file.new"</span>);
-    <span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.new"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">"ext"</span>)      == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">".ext"</span>)     == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">""</span>)     == <span class="d_string">"file"</span>);
+<span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">"new"</span>)  == <span class="d_string">"file.new"</span>);
+<span class="d_keyword">assert</span> (<u>setExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.new"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @trusted immutable(Unqual!(C1))[] <span class="symbol-target" id="defaultExtension">&nbsp;</span><a class="symbol-link" href="#defaultExtension">defaultExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>);
+<hr><div class="row-fluid declaration"><h3>pure @trusted immutable(Unqual!C1)[] <span class="symbol-target" id="defaultExtension">&nbsp;</span><a class="symbol-link" href="#defaultExtension">defaultExtension</a>(C1, C2)(in C1[] <i>path</i>, in C2[] <i>ext</i>) if (isSomeChar!C1 &amp;&amp; is(Unqual!C1 == Unqual!C2));
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the path given by <span class="inlinecode">path</span>, with the extension given by
     <span class="inlinecode">ext</span> appended if the path doesn't already have one.
@@ -576,50 +590,62 @@ This function <i>only</i> strips away the specified suffix, which
     path is immutable and already has an extension.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">"ext"</span>)      == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">".ext"</span>)     == <span class="d_string">"file.ext"</span>);
-    <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file."</span>, <span class="d_string">"ext"</span>)     == <span class="d_string">"file."</span>);
-    <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">"new"</span>)  == <span class="d_string">"file.old"</span>);
-    <span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.old"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">"ext"</span>)      == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file"</span>, <span class="d_string">".ext"</span>)     == <span class="d_string">"file.ext"</span>);
+<span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file."</span>, <span class="d_string">"ext"</span>)     == <span class="d_string">"file."</span>);
+<span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">"new"</span>)  == <span class="d_string">"file.old"</span>);
+<span class="d_keyword">assert</span> (<u>defaultExtension</u>(<span class="d_string">"file.old"</span>, <span class="d_string">".new"</span>) == <span class="d_string">"file.old"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe immutable(C)[] <span class="symbol-target" id="buildPath">&nbsp;</span><a class="symbol-link" href="#buildPath">buildPath</a>(C)(const(C[])[] <i>paths</i>...);
+<hr><div class="row-fluid declaration"><h3>immutable(ElementEncodingType!(ElementType!Range))[] <span class="symbol-target" id="buildPath">&nbsp;</span><a class="symbol-link" href="#buildPath">buildPath</a>(Range)(Range <i>segments</i>) if (isInputRange!Range &amp;&amp; isSomeString!(ElementType!Range));
+<br>pure nothrow @safe immutable(C)[] <span class="symbol-target" id="buildPath">&nbsp;</span><a class="symbol-link" href="#buildPath">buildPath</a>(C)(const(C[])[] <i>paths</i>...) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p>Combines one or more path components.
+<div class="declaration-content"><dl><p>Combines one or more path segments.
 </p>
 
-<p>The given path components are concatenated with each other,
-    and if necessary, directory separators are inserted between
-    them. If any of the path components are rooted (as defined by
-    <a href="#isRooted"><span class="inlinecode">isRooted</span></a>) the preceding path components will be dropped.
+<p>This function takes a set of path segments, given as an input
+    range of string elements or as a set of string arguments,
+    and concatenates them with each other.  Directory separators
+    are inserted between segments if necessary.  If any of the
+    path segments are absolute (as defined by <a class="symbol-link" href="#isAbsolute"><span class="inlinecode">isAbsolute</span></a>
+), the
+    preceding segments will be dropped.
+<br><br>
+
+    On Windows, if one of the path segments are rooted, but not absolute
+    (e.g. <span class="inlinecode">`\foo`</span>), all preceding path segments down to the previous
+    root will be dropped.  (See below for an example.)
 <br><br>
 
     This function always allocates memory to hold the resulting path.
-
-</p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">version</span> (Posix)
+    The variadic overload is guaranteed to only perform a single
+    allocation, as is the range version if <span class="inlinecode">paths</span> is a forward
+    range.</p>
+</dl>
+<dt>Examples</dt><dd><pre class="d_code">
+    <span class="d_keyword">version</span> (Posix)
     {
         <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>, <span class="d_string">"baz"</span>) == <span class="d_string">"foo/bar/baz"</span>);
-        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"/foo/"</span>, <span class="d_string">"bar"</span>)      == <span class="d_string">"/foo/bar"</span>);
+        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"/foo/"</span>, <span class="d_string">"bar/baz"</span>)  == <span class="d_string">"/foo/bar/baz"</span>);
         <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"/bar"</span>)      == <span class="d_string">"/bar"</span>);
     }
 
     <span class="d_keyword">version</span> (Windows)
     {
         <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>, <span class="d_string">"baz"</span>) == <span class="d_string">`foo\bar\baz`</span>);
-        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">"bar"</span>)    == <span class="d_string">`c:\foo\bar`</span>);
-        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`d:\bar`</span>)    == <span class="d_string">`d:\bar`</span>);
-        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`\bar`</span>)      == <span class="d_string">`\bar`</span>);
+        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`bar\baz`</span>) == <span class="d_string">`c:\foo\bar\baz`</span>);
+        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`d:\bar`</span>)     == <span class="d_string">`d:\bar`</span>);
+        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`\bar`</span>)       == <span class="d_string">`\bar`</span>);
+        <span class="d_keyword">assert</span> (<u>buildPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`\bar`</span>)    == <span class="d_string">`c:\bar`</span>);
     }
 </pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(C)[] <span class="symbol-target" id="buildNormalizedPath">&nbsp;</span><a class="symbol-link" href="#buildNormalizedPath">buildNormalizedPath</a>(C)(const(C[])[] <i>paths</i>...);
+</dd></div>
+<hr><div class="row-fluid declaration"><h3>pure nothrow @trusted immutable(C)[] <span class="symbol-target" id="buildNormalizedPath">&nbsp;</span><a class="symbol-link" href="#buildNormalizedPath">buildNormalizedPath</a>(C)(const(C[])[] <i>paths</i>...) if (isSomeChar!C);
 </h3></div>
-<div class="declaration-content"><dl><p>Performs the same task as <a href="#buildPath"><span class="inlinecode">buildPath</span></a>,
+<div class="declaration-content"><dl><p>Performs the same task as <a class="symbol-link" href="#buildPath"><span class="inlinecode">buildPath</span></a>
+,
     while at the same time resolving current/parent directory
     symbols (<span class="inlinecode">"."</span> and <span class="inlinecode">".."</span>) and removing superfluous
     directory separators.
@@ -632,110 +658,113 @@ This function <i>only</i> strips away the specified suffix, which
     This function always allocates memory to hold the resulting path.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">version</span> (Posix)
-    {
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo/./bar/..//baz/"</span>) == <span class="d_string">"/foo/baz"</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"../foo/."</span>) == <span class="d_string">"../foo"</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"bar/baz/"</span>) == <span class="d_string">"/foo/bar/baz"</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"/bar/.."</span>, <span class="d_string">"baz"</span>) == <span class="d_string">"/baz"</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"foo/./bar"</span>, <span class="d_string">"../../"</span>, <span class="d_string">"../baz"</span>) == <span class="d_string">"../baz"</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo/./bar"</span>, <span class="d_string">"../../baz"</span>) == <span class="d_string">"/baz"</span>);
-    }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">version</span> (Posix)
+{
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo/./bar/..//baz/"</span>) == <span class="d_string">"/foo/baz"</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"../foo/."</span>) == <span class="d_string">"../foo"</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"bar/baz/"</span>) == <span class="d_string">"/foo/bar/baz"</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"/bar/.."</span>, <span class="d_string">"baz"</span>) == <span class="d_string">"/baz"</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"foo/./bar"</span>, <span class="d_string">"../../"</span>, <span class="d_string">"../baz"</span>) == <span class="d_string">"../baz"</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">"/foo/./bar"</span>, <span class="d_string">"../../baz"</span>) == <span class="d_string">"/baz"</span>);
+}
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo\.\bar/..\\baz\`</span>) == <span class="d_string">`c:\foo\baz`</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`..\foo\.`</span>) == <span class="d_string">`..\foo`</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`bar\baz\`</span>) == <span class="d_string">`c:\foo\bar\baz`</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`bar/..`</span>) == <span class="d_string">`c:\foo`</span>);
-        <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`\\server\share\foo`</span>, <span class="d_string">`..\bar`</span>) == <span class="d_string">`\\server\share\bar`</span>);
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo\.\bar/..\\baz\`</span>) == <span class="d_string">`c:\foo\baz`</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`..\foo\.`</span>) == <span class="d_string">`..\foo`</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`bar\baz\`</span>) == <span class="d_string">`c:\foo\bar\baz`</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`c:\foo`</span>, <span class="d_string">`bar/..`</span>) == <span class="d_string">`c:\foo`</span>);
+    <span class="d_keyword">assert</span> (<u>buildNormalizedPath</u>(<span class="d_string">`\\server\share\foo`</span>, <span class="d_string">`..\bar`</span>) == <span class="d_string">`\\server\share\bar`</span>);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="pathSplitter">&nbsp;</span><a class="symbol-link" href="#pathSplitter">pathSplitter</a>(C)(const(C)[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe auto <span class="symbol-target" id="pathSplitter">&nbsp;</span><a class="symbol-link" href="#pathSplitter">pathSplitter</a>(C)(const(C)[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a bidirectional range that iterates over the elements of a path.
 </p>
 
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"/"</span>), [<span class="d_string">"/"</span>]));
-    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"/foo/bar"</span>), [<span class="d_string">"/"</span>, <span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>]));
-    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"//foo/bar"</span>), [<span class="d_string">"//foo"</span>, <span class="d_string">"bar"</span>]));
-    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"foo/../bar//./"</span>), [<span class="d_string">"foo"</span>, <span class="d_string">".."</span>, <span class="d_string">"bar"</span>, <span class="d_string">"."</span>]));
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"/"</span>), [<span class="d_string">"/"</span>]));
+<span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"/foo/bar"</span>), [<span class="d_string">"/"</span>, <span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>]));
+<span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"//foo/bar"</span>), [<span class="d_string">"//foo"</span>, <span class="d_string">"bar"</span>]));
+<span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"foo/../bar//./"</span>), [<span class="d_string">"foo"</span>, <span class="d_string">".."</span>, <span class="d_string">"bar"</span>, <span class="d_string">"."</span>]));
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`foo\..\bar\/.\`</span>), [<span class="d_string">"foo"</span>, <span class="d_string">".."</span>, <span class="d_string">"bar"</span>, <span class="d_string">"."</span>]));
-        <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"c:"</span>), [<span class="d_string">"c:"</span>]));
-        <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`c:\foo\bar`</span>), [<span class="d_string">`c:\`</span>, <span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>]));
-        <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`c:foo\bar`</span>), [<span class="d_string">"c:foo"</span>, <span class="d_string">"bar"</span>]));
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`foo\..\bar\/.\`</span>), [<span class="d_string">"foo"</span>, <span class="d_string">".."</span>, <span class="d_string">"bar"</span>, <span class="d_string">"."</span>]));
+    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">"c:"</span>), [<span class="d_string">"c:"</span>]));
+    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`c:\foo\bar`</span>), [<span class="d_string">`c:\`</span>, <span class="d_string">"foo"</span>, <span class="d_string">"bar"</span>]));
+    <span class="d_keyword">assert</span> (equal(<u>pathSplitter</u>(<span class="d_string">`c:foo\bar`</span>), [<span class="d_string">"c:foo"</span>, <span class="d_string">"bar"</span>]));
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isRooted">&nbsp;</span><a class="symbol-link" href="#isRooted">isRooted</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isRooted">&nbsp;</span><a class="symbol-link" href="#isRooted">isRooted</a>(C)(in C[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Determines whether a path starts at a root directory.
 </p>
 
-<p>On POSIX, this function returns <span class="d_keyword">true</span> if and only if the path starts
+<p>   On POSIX, this function returns <span class="d_keyword">true</span> if and only if the path starts
     with a slash (/).
-<pre class="d_code">    <span class="d_keyword">version</span> (Posix)
-    {
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">"/"</span>));
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">"/foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"../foo"</span>));
-    }
+<pre class="d_code"><span class="d_keyword">version</span> (Posix)
+{
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">"/"</span>));
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">"/foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"../foo"</span>));
+}
 </pre>
+<br><br>
 
     On Windows, this function returns <span class="d_keyword">true</span> if the path starts at
     the root directory of the current drive, of some other drive,
     or of a network drive.
-<pre class="d_code">    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\`</span>));
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\foo`</span>));
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`d:\foo`</span>));
-        <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\\foo\bar`</span>));
-        <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"d:foo"</span>));
-    }
+<pre class="d_code"><span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\`</span>));
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\foo`</span>));
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`d:\foo`</span>));
+    <span class="d_keyword">assert</span> (<u>isRooted</u>(<span class="d_string">`\\foo\bar`</span>));
+    <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>isRooted</u>(<span class="d_string">"d:foo"</span>));
+}
 </pre>
 </p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isAbsolute">&nbsp;</span><a class="symbol-link" href="#isAbsolute">isAbsolute</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isAbsolute">&nbsp;</span><a class="symbol-link" href="#isAbsolute">isAbsolute</a>(C)(in C[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Determines whether a path is absolute or not.
 </p>
 
-<dt>Examples</dt><dd>On POSIX, an absolute path starts at the root directory.
-    (In fact, <span class="inlinecode">isAbsolute</span> is just an alias for <a href="#isRooted"><span class="inlinecode">isRooted</span></a>.)
-<pre class="d_code">    <span class="d_keyword">version</span> (Posix)
-    {
-        <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">"/"</span>));
-        <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">"/foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"../foo"</span>));
-    }
+<dt>Examples</dt><dd>   On POSIX, an absolute path starts at the root directory.
+    (In fact, <span class="inlinecode">isAbsolute</span> is just an alias for <a class="symbol-link" href="#isRooted"><span class="inlinecode">isRooted</span></a>
+.)
+<pre class="d_code"><span class="d_keyword">version</span> (Posix)
+{
+    <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">"/"</span>));
+    <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">"/foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"../foo"</span>));
+}
 </pre>
+<br><br>
 
     On Windows, an absolute path starts at the root directory of
-    a specific drive.  Hence, it must start with <span class="inlinecode">"d:\"</span> or <span class="inlinecode">"d:/"</span>,
+    a specific drive.  Hence, it must start with <span class="inlinecode">`d:\`</span> or <span class="inlinecode">`d:/`</span>,
     where <span class="inlinecode">d</span> is the drive letter.  Alternatively, it may be a
     network path, i.e. a path starting with a double (back)slash.
-<pre class="d_code">    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`d:\`</span>));
-        <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`d:\foo`</span>));
-        <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`\\foo\bar`</span>));
-        <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">`\`</span>));
-        <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">`\foo`</span>));
-        <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"d:foo"</span>));
-    }
+<pre class="d_code"><span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`d:\`</span>));
+    <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`d:\foo`</span>));
+    <span class="d_keyword">assert</span> (<u>isAbsolute</u>(<span class="d_string">`\\foo\bar`</span>));
+    <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">`\`</span>));
+    <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">`\foo`</span>));
+    <span class="d_keyword">assert</span> (!<u>isAbsolute</u>(<span class="d_string">"d:foo"</span>));
+}
 </pre>
 </dd>
 </dl>
@@ -756,19 +785,20 @@ This function <i>only</i> strips away the specified suffix, which
     of this algorithm.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">version</span> (Posix)
-    {
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"some/file"</span>, <span class="d_string">"/foo/bar"</span>)  == <span class="d_string">"/foo/bar/some/file"</span>);
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"../file"</span>, <span class="d_string">"/foo/bar"</span>)    == <span class="d_string">"/foo/bar/../file"</span>);
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"/some/file"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"/some/file"</span>);
-    }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">version</span> (Posix)
+{
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"some/file"</span>, <span class="d_string">"/foo/bar"</span>)  == <span class="d_string">"/foo/bar/some/file"</span>);
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"../file"</span>, <span class="d_string">"/foo/bar"</span>)    == <span class="d_string">"/foo/bar/../file"</span>);
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">"/some/file"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"/some/file"</span>);
+}
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`some\file`</span>, <span class="d_string">`c:\foo\bar`</span>)    == <span class="d_string">`c:\foo\bar\some\file`</span>);
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`..\file`</span>, <span class="d_string">`c:\foo\bar`</span>)      == <span class="d_string">`c:\foo\bar\..\file`</span>);
-        <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`c:\some\file`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">`c:\some\file`</span>);
-    }
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`some\file`</span>, <span class="d_string">`c:\foo\bar`</span>)    == <span class="d_string">`c:\foo\bar\some\file`</span>);
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`..\file`</span>, <span class="d_string">`c:\foo\bar`</span>)      == <span class="d_string">`c:\foo\bar\..\file`</span>);
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`c:\some\file`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">`c:\some\file`</span>);
+    <span class="d_keyword">assert</span> (<u>absolutePath</u>(<span class="d_string">`\file`</span>, <span class="d_string">`c:\foo\bar`</span>)        == <span class="d_string">`c:\file`</span>);
+}
 </pre>
 
 </dd>
@@ -784,14 +814,14 @@ This function <i>only</i> strips away the specified suffix, which
     taken to be the current working directory.  If specified,
     <span class="inlinecode">base</span> must be an absolute path, and it is always assumed
     to refer to a directory.  If <span class="inlinecode">path</span> and <span class="inlinecode">base</span> refer to
-    the same directory, the function returns <span class="inlinecode">"."</span>.
+    the same directory, the function returns <span class="inlinecode">`.`</span>.
 <br><br>
 
     The following algorithm is used:
     <ol>       <li>If <span class="inlinecode">path</span> is a relative directory, return it unaltered.</li>
         <li>Find a common root between <span class="inlinecode">path</span> and <span class="inlinecode">base</span>.
             If there is no common root, return <span class="inlinecode">path</span> unaltered.</li>
-        <li>Prepare a string with as many <span class="inlinecode">"../"</span> or <span class="inlinecode">"..\"</span> as
+        <li>Prepare a string with as many <span class="inlinecode">`../`</span> or <span class="inlinecode">`..\`</span> as
             necessary to reach the common root from base path.</li>
         <li>Append the remaining segments of <span class="inlinecode">path</span> to the string
             and return.</li>
@@ -801,32 +831,33 @@ This function <i>only</i> strips away the specified suffix, which
     In the second step, path components are compared using <span class="inlinecode">filenameCmp!cs</span>,
     where <span class="inlinecode">cs</span> is an optional template parameter determining whether
     the comparison is case sensitive or not.  See the
-    <a href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a> documentation for details.
+    <a class="symbol-link" href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a>
+ documentation for details.
 <br><br>
 
     The function allocates memory if and only if it reaches the third stage
     of the above algorithm.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>) == <span class="d_string">"foo"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>) == <span class="d_string">"foo"</span>);
 
-    <span class="d_keyword">version</span> (Posix)
-    {
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>, <span class="d_string">"/bar"</span>) == <span class="d_string">"foo"</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"."</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar"</span>, <span class="d_string">"/foo/baz"</span>) == <span class="d_string">"../bar"</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar/baz"</span>, <span class="d_string">"/foo/woo/wee"</span>) == <span class="d_string">"../../bar/baz"</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar/baz"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"baz"</span>);
-    }
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`c:\bar`</span>) == <span class="d_string">"foo"</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">"."</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`c:\foo\baz`</span>) == <span class="d_string">`..\bar`</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar\baz`</span>, <span class="d_string">`c:\foo\woo\wee`</span>) == <span class="d_string">`..\..\bar\baz`</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar\baz`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">"baz"</span>);
-        <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`d:\foo`</span>) == <span class="d_string">`c:\foo\bar`</span>);
-    }
+<span class="d_keyword">version</span> (Posix)
+{
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>, <span class="d_string">"/bar"</span>) == <span class="d_string">"foo"</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"."</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar"</span>, <span class="d_string">"/foo/baz"</span>) == <span class="d_string">"../bar"</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar/baz"</span>, <span class="d_string">"/foo/woo/wee"</span>) == <span class="d_string">"../../bar/baz"</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"/foo/bar/baz"</span>, <span class="d_string">"/foo/bar"</span>) == <span class="d_string">"baz"</span>);
+}
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">"foo"</span>, <span class="d_string">`c:\bar`</span>) == <span class="d_string">"foo"</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">"."</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`c:\foo\baz`</span>) == <span class="d_string">`..\bar`</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar\baz`</span>, <span class="d_string">`c:\foo\woo\wee`</span>) == <span class="d_string">`..\..\bar\baz`</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar\baz`</span>, <span class="d_string">`c:\foo\bar`</span>) == <span class="d_string">"baz"</span>);
+    <span class="d_keyword">assert</span> (<u>relativePath</u>(<span class="d_string">`c:\foo\bar`</span>, <span class="d_string">`d:\foo`</span>) == <span class="d_string">`c:\foo\bar`</span>);
+}
 </pre>
 
 </dd>
@@ -842,37 +873,38 @@ This function <i>only</i> strips away the specified suffix, which
 <p>This function can perform a case-sensitive or a case-insensitive
     comparison.  This is controlled through the <span class="inlinecode">cs</span> template parameter
     which, if not specified, is given by
-    <a href="#CaseSensitive"><span class="inlinecode">CaseSensitive</span></a><span class="inlinecode">.osDefault</span>.
+    <a class="symbol-link" href="#CaseSensitive"><span class="inlinecode">CaseSensitive</span></a>
+<span class="inlinecode">.osDefault</span>.
 <br><br>
 
-    On Windows, the backslash and slash characters (<span class="inlinecode">'\'</span> and <span class="inlinecode">'/'</span>)
+    On Windows, the backslash and slash characters (<span class="inlinecode">`\`</span> and <span class="inlinecode">`/`</span>)
     are considered equal.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'a') == 0);
-    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'b') &lt; 0);
-    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('b', 'a') &gt; 0);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'a') == 0);
+<span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'b') &lt; 0);
+<span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('b', 'a') &gt; 0);
 
-    <span class="d_keyword">version</span> (linux)
-    {
-        <span class="d_comment">// Same as calling filenameCharCmp!(CaseSensitive.yes)(a, b)
+<span class="d_keyword">version</span> (linux)
+{
+    <span class="d_comment">// Same as calling filenameCharCmp!(CaseSensitive.yes)(a, b)
 </span>
-        <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('A', 'a') &lt; 0);
-        <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'A') &gt; 0);
-    }
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_comment">// Same as calling filenameCharCmp!(CaseSensitive.no)(a, b)
+    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('A', 'a') &lt; 0);
+    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'A') &gt; 0);
+}
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_comment">// Same as calling filenameCharCmp!(CaseSensitive.no)(a, b)
 </span>
-        <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'A') == 0);
-        <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'B') &lt; 0);
-        <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('A', 'b') &lt; 0);
-    }
+    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'A') == 0);
+    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('a', 'B') &lt; 0);
+    <span class="d_keyword">assert</span> (<u>filenameCharCmp</u>('A', 'b') &lt; 0);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure @safe int <span class="symbol-target" id="filenameCmp">&nbsp;</span><a class="symbol-link" href="#filenameCmp">filenameCmp</a>(CaseSensitive cs = CaseSensitive.osDefault, C1, C2)(const(C1)[] <i>filename1</i>, const(C2)[] <i>filename2</i>);
+<hr><div class="row-fluid declaration"><h3>pure @safe int <span class="symbol-target" id="filenameCmp">&nbsp;</span><a class="symbol-link" href="#filenameCmp">filenameCmp</a>(CaseSensitive cs = CaseSensitive.osDefault, C1, C2)(const(C1)[] <i>filename1</i>, const(C2)[] <i>filename2</i>) if (isSomeChar!C1 &amp;&amp; isSomeChar!C2);
 </h3></div>
 <div class="declaration-content"><dl><p>Compares file names and returns
     <span class="inlinecode">&lt; 0</span> if <span class="inlinecode">filename1 &lt; filename2</span>,
@@ -883,36 +915,37 @@ This function <i>only</i> strips away the specified suffix, which
 <p>Individual characters are compared using <span class="inlinecode">filenameCharCmp!cs</span>,
     where <span class="inlinecode">cs</span> is an optional template parameter determining whether
     the comparison is case sensitive or not.  See the
-    <a href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a> documentation for details.
+    <a class="symbol-link" href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a>
+ documentation for details.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abc"</span>) == 0);
-    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abd"</span>) &lt; 0);
-    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abb"</span>) &gt; 0);
-    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abcd"</span>) &lt; 0);
-    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abcd"</span>, <span class="d_string">"abc"</span>) &gt; 0);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abc"</span>) == 0);
+<span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abd"</span>) &lt; 0);
+<span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abb"</span>) &gt; 0);
+<span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"abcd"</span>) &lt; 0);
+<span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abcd"</span>, <span class="d_string">"abc"</span>) &gt; 0);
 
-    <span class="d_keyword">version</span> (linux)
-    {
-        <span class="d_comment">// Same as calling filenameCmp!(CaseSensitive.yes)(filename1, filename2)
+<span class="d_keyword">version</span> (linux)
+{
+    <span class="d_comment">// Same as calling filenameCmp!(CaseSensitive.yes)(filename1, filename2)
 </span>
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abc"</span>) &lt; 0);
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"Abc"</span>) &gt; 0);
-    }
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_comment">// Same as calling filenameCmp!(CaseSensitive.no)(filename1, filename2)
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abc"</span>) &lt; 0);
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"Abc"</span>) &gt; 0);
+}
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_comment">// Same as calling filenameCmp!(CaseSensitive.no)(filename1, filename2)
 </span>
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abc"</span>) == 0);
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"Abc"</span>) == 0);
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abD"</span>) &lt; 0);
-        <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"AbB"</span>) &gt; 0);
-    }
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abc"</span>) == 0);
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"Abc"</span>) == 0);
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"Abc"</span>, <span class="d_string">"abD"</span>) &lt; 0);
+    <span class="d_keyword">assert</span> (<u>filenameCmp</u>(<span class="d_string">"abc"</span>, <span class="d_string">"AbB"</span>) &gt; 0);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="globMatch">&nbsp;</span><a class="symbol-link" href="#globMatch">globMatch</a>(CaseSensitive cs = CaseSensitive.osDefault, C)(const(C)[] <i>path</i>, const(C)[] <i>pattern</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="globMatch">&nbsp;</span><a class="symbol-link" href="#globMatch">globMatch</a>(CaseSensitive cs = CaseSensitive.osDefault, C)(const(C)[] <i>path</i>, const(C)[] <i>pattern</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Matches a pattern against a path.
 </p>
@@ -939,7 +972,8 @@ This function <i>only</i> strips away the specified suffix, which
     Individual characters are compared using <span class="inlinecode">filenameCharCmp!cs</span>,
     where <span class="inlinecode">cs</span> is an optional template parameter determining whether
     the comparison is case sensitive or not.  See the
-    <a href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a> documentation for details.
+    <a class="symbol-link" href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a>
+ documentation for details.
 <br><br>
 
     Note that directory
@@ -953,34 +987,34 @@ This function <i>only</i> strips away the specified suffix, which
 <dt>See Also</dt><dd><a href="http://en.wikipedia.org/wiki/Glob_%28programming%29">Wikipedia: glob (programming)</a>
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*.*"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">`foo/foo\bar`</span>, <span class="d_string">"f*b*r"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"f???bar"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"[!gh]*bar"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"bar.fooz"</span>, <span class="d_string">"bar.{foo,bif}z"</span>));
-    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"bar.bifz"</span>, <span class="d_string">"bar.{foo,bif}z"</span>));
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*.*"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">`foo/foo\bar`</span>, <span class="d_string">"f*b*r"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"f???bar"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"[!gh]*bar"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"bar.fooz"</span>, <span class="d_string">"bar.{foo,bif}z"</span>));
+<span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"bar.bifz"</span>, <span class="d_string">"bar.{foo,bif}z"</span>));
 
-    <span class="d_keyword">version</span> (Windows)
-    {
-        <span class="d_comment">// Same as calling globMatch!(CaseSensitive.no)(path, pattern)
+<span class="d_keyword">version</span> (Windows)
+{
+    <span class="d_comment">// Same as calling globMatch!(CaseSensitive.no)(path, pattern)
 </span>
-        <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo"</span>, <span class="d_string">"Foo"</span>));
-        <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"Goo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
-    }
-    <span class="d_keyword">version</span> (linux)
-    {
-        <span class="d_comment">// Same as calling globMatch!(CaseSensitive.yes)(path, pattern)
+    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"foo"</span>, <span class="d_string">"Foo"</span>));
+    <span class="d_keyword">assert</span> (<u>globMatch</u>(<span class="d_string">"Goo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
+}
+<span class="d_keyword">version</span> (linux)
+{
+    <span class="d_comment">// Same as calling globMatch!(CaseSensitive.yes)(path, pattern)
 </span>
-        <span class="d_keyword">assert</span> (!<u>globMatch</u>(<span class="d_string">"foo"</span>, <span class="d_string">"Foo"</span>));
-        <span class="d_keyword">assert</span> (!<u>globMatch</u>(<span class="d_string">"Goo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
-    }
+    <span class="d_keyword">assert</span> (!<u>globMatch</u>(<span class="d_string">"foo"</span>, <span class="d_string">"Foo"</span>));
+    <span class="d_keyword">assert</span> (!<u>globMatch</u>(<span class="d_string">"Goo.bar"</span>, <span class="d_string">"[fg]???bar"</span>));
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isValidFilename">&nbsp;</span><a class="symbol-link" href="#isValidFilename">isValidFilename</a>(C)(in C[] <i>filename</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isValidFilename">&nbsp;</span><a class="symbol-link" href="#isValidFilename">isValidFilename</a>(C)(in C[] <i>filename</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks that the given file or directory name is valid.
 </p>
@@ -1011,13 +1045,14 @@ This function <i>only</i> strips away the specified suffix, which
     the <span class="d_keyword">null</span> character (<span class="inlinecode">'\0'</span>).</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isValidPath">&nbsp;</span><a class="symbol-link" href="#isValidPath">isValidPath</a>(C)(in C[] <i>path</i>);
+<hr><div class="row-fluid declaration"><h3>pure nothrow @safe bool <span class="symbol-target" id="isValidPath">&nbsp;</span><a class="symbol-link" href="#isValidPath">isValidPath</a>(C)(in C[] <i>path</i>) if (isSomeChar!C);
 </h3></div>
 <div class="declaration-content"><dl><p>Checks whether <span class="inlinecode">path</span> is a valid path.
 </p>
 
 <p>Generally, this function checks that <span class="inlinecode">path</span> is not empty, and that
-    each component of the path either satisfies <a href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a>
+    each component of the path either satisfies <a class="symbol-link" href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a>
+
     or is equal to <span class="inlinecode">"."</span> or <span class="inlinecode">".."</span>.
     It does <i>not</i> check whether the path points to an existing file
     or directory; use <a href="std_file.html#exists"><span class="inlinecode">std.file.exists</span></a> for this purpose.
@@ -1028,7 +1063,8 @@ This function <i>only</i> strips away the specified suffix, which
             the first character is interpreted as a drive letter, and
             must be in the range A-Z (case insensitive).</li>
         <li>If <span class="inlinecode">path</span> is on the form <span class="inlinecode">`\\<i>server</i>\<i>share</i>\...`</span>
-            (UNC path), <a href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a> is applied to <i>server</i>
+            (UNC path), <a class="symbol-link" href="#isValidFilename"><span class="inlinecode">isValidFilename</span></a>
+ is applied to <i>server</i>
             and <i>share</i> as well.</li>
         <li>If <span class="inlinecode">path</span> starts with <span class="inlinecode">`\\?\`</span> (long UNC path), the
             only requirement for the rest of the string is that it does
@@ -1077,444 +1113,13 @@ This function <i>only</i> strips away the specified suffix, which
     For Windows, <span class="inlinecode"><span class="symbol-target" id="expandTilde">&nbsp;</span><a class="symbol-link" href="#expandTilde">expandTilde</a></span> merely returns its argument <span class="inlinecode"><i>inputPath</i></span>.
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code">    <span class="d_keyword">void</span> processFile(string path)
-    {
-        <span class="d_comment">// Allow calling this function with paths such as ~/foo
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">void</span> processFile(string path)
+{
+    <span class="d_comment">// Allow calling this function with paths such as ~/foo
 </span>
-        <span class="d_keyword">auto</span> fullPath = <u>expandTilde</u>(path);
-        ...
-    }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>int <span class="symbol-target" id="fcmp">&nbsp;</span><a class="symbol-link" href="#fcmp">fcmp</a>(alias pred = "a &lt; b", S1, S2)(S1 <i>s1</i>, S2 <i>s2</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#filenameCmp"><span class="inlinecode">filenameCmp</span></a> instead.</font>
-</p>
-
-<p>Compare file names.
-</p>
-<dt>Returns</dt><dd><table border=1 cellpadding=4 cellspacing=0>
-      <tr> <td> &lt; 0        <td> filename1 &lt; filename2
-      <tr> <td> = 0   <td> filename1 == filename2
-      <tr> <td> &gt; 0        <td> filename1 &gt; filename2
-      </table></dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="getExt">&nbsp;</span><a class="symbol-link" href="#getExt">getExt</a>()(string <i>fullname</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#extension"><span class="inlinecode">extension</span></a> instead.</font>
-</p>
-
-<p>Extracts the extension from a filename or path.
-<br><br>
-
- This function will search fullname from the end until the
- first dot, path separator or first character of fullname is
- reached. Under Windows, the drive letter separator (<i>colon</i>)
- also terminates the search.
-
-</p>
-<dt>Returns</dt><dd>If a dot was found, characters to its right are
- returned. If a path separator was found, or fullname didn't
- contain any dots or path separators, returns <span class="d_keyword">null</span>.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>getExt</u>(<span class="d_string">r"d:\path\foo.bat"</span>) <span class="d_comment">// "bat"
-</span>
-     <u>getExt</u>(<span class="d_string">r"d:\path.two\bar"</span>) <span class="d_comment">// null
-</span>
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>getExt</u>(<span class="d_string">r"/home/user.name/bar."</span>)  <span class="d_comment">// ""
-</span>
-     <u>getExt</u>(<span class="d_string">r"d:\\path.two\\bar"</span>)     <span class="d_comment">// "two\\bar"
-</span>
-     <u>getExt</u>(<span class="d_string">r"/home/user/.resource"</span>)  <span class="d_comment">// "resource"
-</span>
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="getName">&nbsp;</span><a class="symbol-link" href="#getName">getName</a>()(string <i>fullname</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#stripExtension"><span class="inlinecode">stripExtension</span></a> instead.</font>
-</p>
-
-<p>Returns the extensionless version of a filename or path.
-<br><br>
-
- This function will search fullname from the end until the
- first dot, path separator or first character of fullname is
- reached. Under Windows, the drive letter separator (<i>colon</i>)
- also terminates the search.
-
-</p>
-<dt>Returns</dt><dd>If a dot was found, characters to its left are
- returned. If a path separator was found, or fullname didn't
- contain any dots or path separators, returns <span class="d_keyword">null</span>.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>getName</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:\path\foo"</span>
-     <u>getName</u>(<span class="d_string">r"d:\path.two\bar"</span>) =&gt; <span class="d_keyword">null</span>
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>getName</u>(<span class="d_string">"/home/user.name/bar."</span>)  =&gt; <span class="d_string">"/home/user.name/bar"</span>
-     <u>getName</u>(<span class="d_string">r"d:\path.two\bar"</span>) =&gt; <span class="d_string">"d:\path"</span>
-     <u>getName</u>(<span class="d_string">"/home/user/.resource"</span>) =&gt; <span class="d_string">"/home/user/"</span>
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol-target" id="basename">&nbsp;</span><a class="symbol-link" href="#basename">basename</a>(Char, ExtChar = immutable(char))(Char[] <i>fullname</i>, ExtChar[] <i>extension</i> = null);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#baseName"><span class="inlinecode">baseName</span></a> instead.</font>
-</p>
-
-<p>Extracts the base name of a path and optionally chops off a
- specific suffix.
-<br><br>
-
- This function will search <b>fullname</b> from the end until
- the first path separator or first character of <b>fullname</b>
- is reached. Under Windows, the drive letter separator (<i>colon</i>)
- also terminates the search. After the search has ended, keep the
- portion to the right of the separator if found, or the entire
- <b>fullname</b> otherwise. If the kept portion has suffix
- <b>extension</b>, remove that suffix. Return the remaining string.
-
-</p>
-<dt>Returns</dt><dd>The portion of <b>fullname</b> left after the path
- part and the extension part, if any, have been removed.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>basename</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"foo.bat"</span>
-     <u>basename</u>(<span class="d_string">r"d:\path\foo"</span>, <span class="d_string">".bat"</span>) =&gt; <span class="d_string">"foo"</span>
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>basename</u>(<span class="d_string">"/home/user.name/bar."</span>)  =&gt; <span class="d_string">"bar."</span>
-     <u>basename</u>(<span class="d_string">"/home/user.name/bar."</span>, <span class="d_string">"."</span>)  =&gt; <span class="d_string">"bar"</span>
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol-target" id="dirname">&nbsp;</span><a class="symbol-link" href="#dirname">dirname</a>(Char)(Char[] <i>fullname</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#dirName"><span class="inlinecode">dirName</span></a> instead.</font>
-</p>
-
-<p>Extracts the directory part of a path.
-<br><br>
-
- This function will search <span class="inlinecode">fullname</span> from the end until the
- first path separator or first character of <span class="inlinecode">fullname</span> is
- reached. Under Windows, the drive letter separator (<i>colon</i>)
- also terminates the search.
-
-</p>
-<dt>Returns</dt><dd>If a path separator was found, all the characters to its
- left without any trailing path separators are returned. Otherwise,
- <span class="inlinecode">"."</span> is returned.
-<br><br>
-
- The found path separator will be included in the returned string
- if and only if it represents the root.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">r"d:\path\foo.bat"</span>) == <span class="d_string">r"d:\path"</span>);
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">r"d:\path"</span>) == <span class="d_string">r"d:\"</span>);
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">"d:foo.bat"</span>) == <span class="d_string">"d:."</span>);
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">"foo.bat"</span>) == <span class="d_string">"."</span>);
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">"/home/user"</span>) == <span class="d_string">"/home"</span>);
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">"/home"</span>) == <span class="d_string">"/"</span>);
-     <span class="d_keyword">assert</span>(<u>dirname</u>(<span class="d_string">"user"</span>) == <span class="d_string">"."</span>);
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>Char[] <span class="symbol-target" id="getDrive">&nbsp;</span><a class="symbol-link" href="#getDrive">getDrive</a>(Char)(Char[] <i>fullname</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#driveName"><span class="inlinecode">driveName</span></a> instead.</font>
-</p>
-
-<p>Extracts the drive letter of a path.
-<br><br>
-
- This function will search fullname for a colon from the beginning.
-
-</p>
-<dt>Returns</dt><dd>If a colon is found, all the characters to its left
- plus the colon are returned.  Otherwise, <span class="d_keyword">null</span> is returned.
-<br><br>
-
- Under Linux, this function always returns <span class="d_keyword">null</span> immediately.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <u>getDrive</u>(<span class="d_string">r"d:\path\foo.bat"</span>) =&gt; <span class="d_string">"d:"</span>
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="defaultExt">&nbsp;</span><a class="symbol-link" href="#defaultExt">defaultExt</a>()(string <i>filename</i>, string <i>ext</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#defaultExtension"><span class="inlinecode">defaultExtension</span></a> instead.</font>
-</p>
-
-<p>Appends a default extension to a filename.
-<br><br>
-
- This function first searches filename for an extension and
- appends ext if there is none. ext should not have any leading
- dots, one will be inserted between filename and ext if filename
- doesn't already end with one.
-
-</p>
-<dt>Returns</dt><dd>filename if it contains an extension, otherwise filename
- + ext.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <u>defaultExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.txt"</span>
- <u>defaultExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
- <u>defaultExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="addExt">&nbsp;</span><a class="symbol-link" href="#addExt">addExt</a>()(string <i>filename</i>, string <i>ext</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#setExtension"><span class="inlinecode">setExtension</span></a> instead.</font>
-</p>
-
-<p>Adds or replaces an extension to a filename.
-<br><br>
-
- This function first searches filename for an extension and
- replaces it with ext if found.  If there is no extension, ext
- will be appended. ext should not have any leading dots, one will
- be inserted between filename and ext if filename doesn't already
- end with one.
-
-</p>
-<dt>Returns</dt><dd>filename + ext if filename is extensionless. Otherwise
- strips filename's extension off, appends ext and returns the
- result.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <u>addExt</u>(<span class="d_string">"foo.txt"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
- <u>addExt</u>(<span class="d_string">"foo."</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"foo.raw"</span>
- <u>addExt</u>(<span class="d_string">"bar"</span>, <span class="d_string">"raw"</span>) =&gt; <span class="d_string">"bar.raw"</span>
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="isabs">&nbsp;</span><a class="symbol-link" href="#isabs">isabs</a>()(in char[] <i>path</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#isAbsolute"><span class="inlinecode">isAbsolute</span></a> instead.</font>
-</p>
-
-<p>Checks if path is absolute.
-
-</p>
-<dt>Returns</dt><dd>non-zero if the path starts from the root directory (Linux) or
- drive letter and root directory (Windows),
- zero otherwise.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>isabs</u>(<span class="d_string">r"relative\path"</span>) =&gt; 0
-     <u>isabs</u>(<span class="d_string">r"\relative\path"</span>) =&gt; 0
-     <u>isabs</u>(<span class="d_string">r"d:\absolute"</span>) =&gt; 1
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>isabs</u>(<span class="d_string">"/home/user"</span>) =&gt; 1
-     <u>isabs</u>(<span class="d_string">"foo"</span>) =&gt; 0
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="rel2abs">&nbsp;</span><a class="symbol-link" href="#rel2abs">rel2abs</a>()(string <i>path</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#absolutePath"><span class="inlinecode">absolutePath</span></a> instead.</font>
-</p>
-
-<p>Converts a relative path into an absolute path.</p>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>string <span class="symbol-target" id="join">&nbsp;</span><a class="symbol-link" href="#join">join</a>()(const(char)[] <i>p1</i>, const(char)[] <i>p2</i>, const(char[])[] <i>more</i>...);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#buildPath"><span class="inlinecode">buildPath</span></a> instead.</font>
-</p>
-
-<p>Joins two or more path components.
-<br><br>
-
- If p1 doesn't have a trailing path separator, one will be appended
- to it before concatenating p2.
-
-</p>
-<dt>Returns</dt><dd>p1 ~ p2. However, if p2 is an absolute path, only p2
- will be returned.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>join</u>(<span class="d_string">r"c:\foo"</span>, <span class="d_string">"bar"</span>) =&gt; <span class="d_string">r"c:\foo\bar"</span>
-     <u>join</u>(<span class="d_string">"foo"</span>, <span class="d_string">r"d:\bar"</span>) =&gt; <span class="d_string">r"d:\bar"</span>
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>join</u>(<span class="d_string">"/foo/"</span>, <span class="d_string">"bar"</span>) =&gt; <span class="d_string">"/foo/bar"</span>
-     <u>join</u>(<span class="d_string">"/foo"</span>, <span class="d_string">"/bar"</span>) =&gt; <span class="d_string">"/bar"</span>
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="fncharmatch">&nbsp;</span><a class="symbol-link" href="#fncharmatch">fncharmatch</a>()(dchar <i>c1</i>, dchar <i>c2</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#filenameCharCmp"><span class="inlinecode">filenameCharCmp</span></a> instead.</font>
-</p>
-
-<p>Matches filename characters.
-<br><br>
-
- Under Windows, the comparison is done ignoring case. Under Linux
- an exact match is performed.
-
-</p>
-<dt>Returns</dt><dd>non zero if c1 matches c2, zero otherwise.
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>fncharmatch</u>('a', 'b') =&gt; 0
-     <u>fncharmatch</u>('A', 'a') =&gt; 1
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>fncharmatch</u>('a', 'b') =&gt; 0
-     <u>fncharmatch</u>('A', 'a') =&gt; 0
- }
-</pre>
-</dd>
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="fnmatch">&nbsp;</span><a class="symbol-link" href="#fnmatch">fnmatch</a>()(const(char)[] <i>filename</i>, const(char)[] <i>pattern</i>);
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed in October 2012. Please use
-       <a href="#globMatch"><span class="inlinecode">globMatch</span></a> instead.</font>
-</p>
-
-<p>Matches a pattern against a filename.
-<br><br>
-
- Some characters of pattern have special a meaning (they are
- <i>meta-characters</i>) and <b>can't</b> be escaped. These are:
- <p><table>
- <tr><td><b>*</b></td>
-     <td>Matches 0 or more instances of any character.</td></tr>
- <tr><td><b>?</b></td>
-     <td>Matches exactly one instances of any character.</td></tr>
- <tr><td><b>[</b><i>chars</i><b>]</b></td>
-     <td>Matches one instance of any character that appears
-     between the brackets.</td></tr>
- <tr><td><b>[!</b><i>chars</i><b>]</b></td>
-     <td>Matches one instance of any character that does not appear
-     between the brackets after the exclamation mark.</td></tr>
- </table><p>
- Internally individual character comparisons are done calling
- fncharmatch(), so its rules apply here too. Note that path
- separators and dots don't stop a meta-character from matching
- further portions of the filename.
-
-</p>
-<dt>Returns</dt><dd>non zero if pattern matches filename, zero otherwise.
-
-</dd>
-<dt>See Also</dt><dd>fncharmatch().
-
-</dd>
-<dt>Throws</dt><dd>Nothing.
-
-</dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">version</span>(Windows)
- {
-     <u>fnmatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"*"</span>) =&gt; 1
-     <u>fnmatch</u>(<span class="d_string">r"foo/foo\bar"</span>, <span class="d_string">"f*b*r"</span>) =&gt; 1
-     <u>fnmatch</u>(<span class="d_string">"foo.bar"</span>, <span class="d_string">"f?bar"</span>) =&gt; 0
-     <u>fnmatch</u>(<span class="d_string">"Goo.bar"</span>, <span class="d_string">"[fg]???bar"</span>) =&gt; 1
-     <u>fnmatch</u>(<span class="d_string">r"d:\foo\bar"</span>, <span class="d_string">"d*foo?bar"</span>) =&gt; 1
- }
- <span class="d_keyword">version</span>(Posix)
- {
-     <u>fnmatch</u>(<span class="d_string">"Go*.bar"</span>, <span class="d_string">"[fg]???bar"</span>) =&gt; 0
-     <u>fnmatch</u>(<span class="d_string">"/foo*home/bar"</span>, <span class="d_string">"?foo*bar"</span>) =&gt; 1
-     <u>fnmatch</u>(<span class="d_string">"foobar"</span>, <span class="d_string">"foo?bar"</span>) =&gt; 1
- }
+    <span class="d_keyword">auto</span> fullPath = <u>expandTilde</u>(path);
+    ...
+}
 </pre>
 </dd>
 </dl>

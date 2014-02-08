@@ -455,17 +455,17 @@
 </p>
 
 <dt>Example:</dt><dd>
-All the members of the archive can be accessed with a foreach loop:
-<pre class="d_code"> ZipArchive archive = <span class="d_keyword">new</span> ZipArchive(data);
- <span class="d_keyword">foreach</span> (ArchiveMember am; archive.<u>directory</u>)
- {
-     writefln(<span class="d_string">"member name is '%s'"</span>, am.name);
- }
+  All the members of the archive can be accessed with a foreach loop:
+<pre class="d_code">ZipArchive archive = <span class="d_keyword">new</span> ZipArchive(data);
+<span class="d_keyword">foreach</span> (ArchiveMember am; archive.<u>directory</u>)
+{
+    writefln(<span class="d_string">"member name is '%s'"</span>, am.name);
+}
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this();
+<hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor to use when creating a new archive.</p>
 
@@ -497,7 +497,7 @@ All the members of the archive can be accessed with a foreach loop:
 <dt>Returns</dt><dd>array representing the entire archive.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(void[] <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3> this(void[] <i>buffer</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Constructor to use when reading an existing archive.
 </p>

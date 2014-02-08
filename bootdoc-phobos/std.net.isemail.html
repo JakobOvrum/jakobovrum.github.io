@@ -300,7 +300,7 @@
 <dt>Source:</dt><dd>
 <a href="https://github.com/D-Programming-Language/phobos/blob/master/std/net/isemail.d">std/net/isemail.d</a></dd>
 </dl>
-<hr><div class="row-fluid declaration"><h3>EmailStatus <span class="symbol-target" id="isEmail">&nbsp;</span><a class="symbol-link" href="#isEmail">isEmail</a>(Char)(const(Char)[] <i>email</i>, CheckDns <i>checkDNS</i> = CheckDns.no, EmailStatusCode <i>errorLevel</i> = EmailStatusCode.none);
+<hr><div class="row-fluid declaration"><h3>EmailStatus <span class="symbol-target" id="isEmail">&nbsp;</span><a class="symbol-link" href="#isEmail">isEmail</a>(Char)(const(Char)[] <i>email</i>, CheckDns <i>checkDNS</i> = CheckDns.no, EmailStatusCode <i>errorLevel</i> = EmailStatusCode.none) if (isSomeChar!Char);
 </h3></div>
 <div class="declaration-content"><dl><p>Check that an email address conforms to RFCs 5321, 5322 and others.
 </p>
@@ -315,13 +315,13 @@
 The DNS check is currently not implemented.
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>email</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(Char)[] email</td>
 <td>The email address to check</td>
 </tr>
-<tr><td>checkDNS</td>
+<tr><td>CheckDns checkDNS</td>
 <td>If CheckDns.yes then a DNS check for MX records will be made</td>
 </tr>
-<tr><td>errorLevel</td>
+<tr><td>EmailStatusCode errorLevel</td>
 <td>Determines the boundary between valid and invalid addresses.
                   Status codes above this number will be returned as-is,
                   status codes below will be returned as EmailStatusCode.valid.
@@ -340,7 +340,7 @@ The DNS check is currently not implemented.
 <dt>Returns</dt><dd>an EmailStatus, indicating the status of the email address.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CheckDns">&nbsp;</span><a class="symbol-link" href="#CheckDns">CheckDns</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="CheckDns">&nbsp;</span><a class="symbol-link" href="#CheckDns">CheckDns</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Enum for indicating if the isEmail function should perform a DNS check or not.</p>
 
@@ -407,7 +407,7 @@ The DNS check is currently not implemented.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="EmailStatusCode">&nbsp;</span><a class="symbol-link" href="#EmailStatusCode">EmailStatusCode</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="EmailStatusCode">&nbsp;</span><a class="symbol-link" href="#EmailStatusCode">EmailStatusCode</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>An email status code, indicating if an email address is valid or not.
  If it is invalid it also indicates why.</p>

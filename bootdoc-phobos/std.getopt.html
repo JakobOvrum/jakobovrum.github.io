@@ -323,6 +323,7 @@ Color color;
   ...
 }
 </pre>
+<br><br>
 
  The <span class="inlinecode"><span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a></span> function takes a reference to the command line
  (as received by <span class="inlinecode">main</span>) as its first argument, and an
@@ -347,13 +348,21 @@ Color color;
  recognizes the following kinds of options:
 <br><br>
 
- <ol><li><i>Boolean options</i>. These are the simplest options; all
- they do is set a Boolean to <span class="inlinecode"><span class="d_keyword">true</span></span>:
+ <ol><li><i>Boolean options</i>. A lone argument sets the option to <span class="inlinecode"><span class="d_keyword">true</span></span>.
+ Additionally <b><span class="d_keyword">true</span></b> or <b><span class="d_keyword">false</span></b> can be set within the option separated with
+ an "=" sign:
 <br><br>
 
-<pre class="d_code">  <span class="d_keyword">bool</span> verbose, debugging;
+<pre class="d_code">  <span class="d_keyword">bool</span> verbose = <span class="d_keyword">false</span>, debugging = <span class="d_keyword">true</span>;
   <u>getopt</u>(args, <span class="d_string">"verbose"</span>, &amp;verbose, <span class="d_string">"debug"</span>, &amp;debugging);
 </pre>
+<br><br>
+
+ To set <span class="inlinecode">verbose</span> to <span class="inlinecode"><span class="d_keyword">true</span></span>, invoke the program with either <span class="inlinecode">--verbose</span> or <span class="inlinecode">--verbose=<span class="d_keyword">true</span></span>.
+<br><br>
+
+ To set <span class="inlinecode">debugging</span> to <span class="inlinecode"><span class="d_keyword">false</span></span>, invoke the program with <span class="inlinecode">--debugging=<span class="d_keyword">false</span></span>.
+<br><br>
 
  </li><li><i>Numeric options.</i> If an option is bound to a numeric type, a
  number is expected as the next option, or right within the option
@@ -363,6 +372,7 @@ Color color;
 <pre class="d_code">  <span class="d_keyword">uint</span> timeout;
   <u>getopt</u>(args, <span class="d_string">"timeout"</span>, &amp;timeout);
 </pre>
+<br><br>
 
 To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</span>, invoke the program with either <span class="inlinecode">--timeout=5</span> or <span class="inlinecode">--timeout 5</span>.
 <br><br>
@@ -375,6 +385,7 @@ To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</sp
 <pre class="d_code">  <span class="d_keyword">uint</span> paranoid;
   <u>getopt</u>(args, <span class="d_string">"paranoid+"</span>, &amp;paranoid);
 </pre>
+<br><br>
 
  Invoking the program with "--paranoid --paranoid --paranoid" will set
  <span class="inlinecode">paranoid</span> to 3. Note that an incremental option never
@@ -394,6 +405,7 @@ To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</sp
 </span>
   <u>getopt</u>(args, <span class="d_string">"color"</span>, &amp;color);
 </pre>
+<br><br>
 
 To set <span class="inlinecode">color</span> to <span class="inlinecode">Color.yes</span>, invoke the program with either <span class="inlinecode">--color=yes</span> or <span class="inlinecode">--color yes</span>.</li>
 <br><br>
@@ -406,6 +418,7 @@ To set <span class="inlinecode">color</span> to <span class="inlinecode">Color.y
 <pre class="d_code">string outputFile;
 <u>getopt</u>(args, <span class="d_string">"output"</span>, &amp;outputFile);
 </pre>
+<br><br>
 
  Invoking the program with "--output=myfile.txt" or "--output
  myfile.txt" will set <span class="inlinecode">outputFile</span> to "myfile.txt". If you want to
@@ -420,6 +433,7 @@ To set <span class="inlinecode">color</span> to <span class="inlinecode">Color.y
 <pre class="d_code">string[] outputFiles;
 <u>getopt</u>(args, <span class="d_string">"output"</span>, &amp;outputFiles);
 </pre>
+<br><br>
 
  Invoking the program with "--output=myfile.txt --output=yourfile.txt"
  or "--output myfile.txt --output yourfile.txt" will set <span class="inlinecode">outputFiles</span> to [ "myfile.txt", "yourfile.txt" ] .</li>
@@ -433,22 +447,23 @@ To set <span class="inlinecode">color</span> to <span class="inlinecode">Color.y
 <pre class="d_code"><span class="d_keyword">double</span>[string] tuningParms;
 <u>getopt</u>(args, <span class="d_string">"tune"</span>, &amp;tuningParms);
 </pre>
+<br><br>
 
 Invoking the program with e.g. "--tune=alpha=0.5 --tune beta=0.6" will
 set <span class="inlinecode">tuningParms</span> to [ "alpha" : 0.5, "beta" : 0.6 ]. In general,
 keys and values can be of any parsable types.</li>
 <br><br>
 
-<li><i>Delegate options.</i> An option can be bound to a delegate with
-the signature <span class="inlinecode">void delegate()</span>, <span class="inlinecode">void delegate(string option)</span>
-or <span class="inlinecode">void delegate(string option, string value)</span>.
+<li><i>Callback options.</i> An option can be bound to a function or
+delegate with the signature <span class="inlinecode">void function()</span>, <span class="inlinecode">void function(string option)</span>,
+<span class="inlinecode">void function(string option, string value)</span>, or their delegate equivalents.
 <br><br>
 
-<ul><li>In the <span class="inlinecode">void delegate()</span> case, the delegate is invoked
-whenever the option is seen.</li> <li>In the <span class="inlinecode">void delegate(string
-option)</span> case, the option string (without the leading dash(es)) is
-passed to the delegate. After that, the option string is considered
-handled and removed from the options array.
+<ul><li>If the callback doesn't take any arguments, the callback is invoked
+whenever the option is seen.</li> <li>If the callback takes one string argument,
+the option string (without the leading dash(es)) is passed to the callback.
+After that, the option string is considered handled and removed from the
+options array.
 <br><br>
 
 <pre class="d_code"><span class="d_keyword">void</span> main(string[] args)
@@ -469,11 +484,12 @@ handled and removed from the options array.
   <u>getopt</u>(args, <span class="d_string">"verbose"</span>, &amp;myHandler, <span class="d_string">"quiet"</span>, &amp;myHandler);
 }
 </pre>
+<br><br>
 
-</li><li>In the <span class="inlinecode">void delegate(string option, string value)</span> case, the
+</li><li>If the callback takes two string arguments, the
 option string is handled as an option with one argument, and parsed
 accordingly. The option and its value are passed to the
-delegate. After that, whatever was passed to the delegate is
+callback. After that, whatever was passed to the callback is
 considered handled and removed from the list.
 <br><br>
 
@@ -511,6 +527,7 @@ using "|" as a separator:
 <pre class="d_code"><span class="d_keyword">bool</span> verbose;
 <u>getopt</u>(args, <span class="d_string">"verbose|loquacious|garrulous"</span>, &amp;verbose);
 </pre>
+<br><br>
 
 <b>Case</b>
 <br><br>
@@ -525,6 +542,7 @@ by passing <span class="inlinecode"><span class="symbol-target" id="getopt">&nbs
     <span class="d_string">"foo"</span>, &amp;foo,
     <span class="d_string">"bar"</span>, &amp;bar);
 </pre>
+<br><br>
 
 In the example above, "--foo", "--bar", "--FOo", "--bAr" etc. are recognized.
 The directive is active til the end of <span class="inlinecode"><span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a></span>, or until the
@@ -538,6 +556,7 @@ converse directive <span class="inlinecode">caseInsensitive</span> is encountere
     std.<u>getopt</u>.config.caseInsensitive,
     <span class="d_string">"bar"</span>, &amp;bar);
 </pre>
+<br><br>
 
 The option "--Foo" is rejected due to <span class="inlinecode">std.<span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a>.config.caseSensitive</span>, but not "--Bar", "--bAr"
 etc. because the directive <span class="inlinecode">std.<span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a>.config.caseInsensitive</span> turned sensitivity off before
@@ -559,6 +578,7 @@ any intervening space or "=":
 <pre class="d_code"><span class="d_keyword">uint</span> timeout;
 <u>getopt</u>(args, <span class="d_string">"timeout|t"</span>, &amp;timeout);
 </pre>
+<br><br>
 
 To set <span class="inlinecode">timeout</span> to <span class="inlinecode">5</span>, use either of the following: <span class="inlinecode">--timeout=5</span>,
 <span class="inlinecode">--timeout 5</span>, <span class="inlinecode">--t=5</span>, <span class="inlinecode">--t 5</span>, or <span class="inlinecode">-t5</span>. Forms such as <span class="inlinecode">-t 5</span>
@@ -582,6 +602,7 @@ turn it on with the <span class="inlinecode">std.<span class="symbol-target" id=
     <span class="d_string">"foo|f"</span>, &amp;foo,
     <span class="d_string">"bar|b"</span>, &amp;bar);
 </pre>
+<br><br>
 
 In case you want to only enable bundling for some of the parameters,
 bundling can be turned off with <span class="inlinecode">std.<span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a>.config.noBundling</span>.
@@ -601,6 +622,7 @@ If an application needs to do its own processing of whichever arguments
     <span class="d_string">"foo"</span>, &amp;foo,
     <span class="d_string">"bar"</span>, &amp;bar);
 </pre>
+<br><br>
 
 An unrecognized option such as "--baz" will be found untouched in
 <span class="inlinecode">args</span> after <span class="inlinecode"><span class="symbol-target" id="getopt">&nbsp;</span><a class="symbol-link" href="#getopt">getopt</a></span> returns.
@@ -616,7 +638,7 @@ parses foo but leaves "--bar" in <span class="inlinecode">args</span>. The doubl
 removed from the argument array.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="config">&nbsp;</span><a class="symbol-link" href="#config">config</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="config">&nbsp;</span><a class="symbol-link" href="#config">config</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>Configuration options for <span class="inlinecode">getopt</span>. You can pass them to <span class="inlinecode">getopt</span> in any position, except in between an option string and its
  bound pointer.</p>

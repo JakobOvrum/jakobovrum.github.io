@@ -288,7 +288,7 @@
 <div class="declaration-content"><dl><p>A base class for stream exceptions.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a StreamException with given error message.</p>
 
@@ -301,7 +301,7 @@
 <div class="declaration-content"><dl><p>Thrown when unable to read data from Stream.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a ReadException with given error message.</p>
 
@@ -314,7 +314,7 @@
 <div class="declaration-content"><dl><p>Thrown when unable to write data to Stream.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a WriteException with given error message.</p>
 
@@ -327,7 +327,7 @@
 <div class="declaration-content"><dl><p>Thrown when unable to move Stream pointer.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a SeekException with given error message.</p>
 
@@ -335,7 +335,7 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract interface <span class="symbol-target" id="InputStream">&nbsp;</span><a class="symbol-link" href="#InputStream">InputStream</a>;
+<hr><div class="row-fluid declaration"><h3>interface <span class="symbol-target" id="InputStream">&nbsp;</span><a class="symbol-link" href="#InputStream">InputStream</a>;
 </h3></div>
 <div class="declaration-content"><dl><p><span class="symbol-target" id="InputStream">&nbsp;</span><a class="symbol-link" href="#InputStream">InputStream</a> is the interface for readable streams.</p>
 
@@ -416,12 +416,12 @@
  Breaking out of the foreach will leave the stream
  position at the beginning of the next line to be read.
  For example, to echo a file line-by-line with line numbers run:
-<pre class="d_code"> Stream file = <span class="d_keyword">new</span> BufferedFile(<span class="d_string">"sample.txt"</span>);
- <span class="d_keyword">foreach</span>(<span class="d_keyword">ulong</span> n, <span class="d_keyword">char</span>[] line; file)
- {
-     writefln(<span class="d_string">"line %d: %s"</span>, n, line);
- }
- file.close();
+<pre class="d_code">Stream file = <span class="d_keyword">new</span> BufferedFile(<span class="d_string">"sample.txt"</span>);
+<span class="d_keyword">foreach</span>(<span class="d_keyword">ulong</span> n, <span class="d_keyword">char</span>[] line; file)
+{
+    writefln(<span class="d_string">"line %d: %s"</span>, n, line);
+}
+file.close();
 </pre>
 </p>
 </dl>
@@ -478,12 +478,12 @@
  (possibly with appending characters) and a slice of the result is assigned
  back into the argument. For example the following readf statements
  are equivalent:
-<pre class="d_code"> <span class="d_keyword">int</span> x;
- <span class="d_keyword">double</span> y;
- string s;
- file.readf(&amp;x, <span class="d_string">" hello "</span>, &amp;y, &amp;s);
- file.readf(<span class="d_string">"%d hello %f %s"</span>, &amp;x, &amp;y, &amp;s);
- file.readf(<span class="d_string">"%d hello %f"</span>, &amp;x, &amp;y, <span class="d_string">"%s"</span>, &amp;s);
+<pre class="d_code"><span class="d_keyword">int</span> x;
+<span class="d_keyword">double</span> y;
+string s;
+file.readf(&amp;x, <span class="d_string">" hello "</span>, &amp;y, &amp;s);
+file.readf(<span class="d_string">"%d hello %f %s"</span>, &amp;x, &amp;y, &amp;s);
+file.readf(<span class="d_string">"%d hello %f"</span>, &amp;x, &amp;y, <span class="d_string">"%s"</span>, &amp;s);
 </pre>
 </p>
 </dl>
@@ -494,7 +494,7 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract bool <span class="symbol-target" id="eof">&nbsp;</span><a class="symbol-link" href="#eof">eof</a>();
+<hr><div class="row-fluid declaration"><h3>abstract @property bool <span class="symbol-target" id="eof">&nbsp;</span><a class="symbol-link" href="#eof">eof</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Return whether the current file position is the same as the end of the
  file.
@@ -513,7 +513,7 @@
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract interface <span class="symbol-target" id="OutputStream">&nbsp;</span><a class="symbol-link" href="#OutputStream">OutputStream</a>;
+<hr><div class="row-fluid declaration"><h3>interface <span class="symbol-target" id="OutputStream">&nbsp;</span><a class="symbol-link" href="#OutputStream">OutputStream</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>Interface for writable streams.</p>
 
@@ -609,7 +609,7 @@
 </dl>
 </div>
 <hr><div class="row-fluid declaration"><h3>abstract size_t <span class="symbol-target" id="vprintf">&nbsp;</span><a class="symbol-link" href="#vprintf">vprintf</a>(const(char)[] <i>format</i>, va_list <i>args</i>);
-<br>abstract size_t <span class="symbol-target" id="printf">&nbsp;</span><a class="symbol-link" href="#printf">printf</a>(const(char)[] <i>format</i>,...);
+<br>abstract size_t <span class="symbol-target" id="printf">&nbsp;</span><a class="symbol-link" href="#printf">printf</a>(const(char)[] <i>format</i>, ...);
 </h3></div>
 <div class="declaration-content"><dl><p>Print a formatted string into the stream using printf-style syntax,
  returning the number of bytes written.</p>
@@ -825,7 +825,7 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>);
+<hr><div class="row-fluid declaration"><h3> this(Stream <i>source</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a FilterStream for the given <i>source</i>.</p>
 
@@ -867,7 +867,7 @@ These methods require that the seekable flag be set.
  reading or writing to the <span class="symbol-target" id="BufferedStream">&nbsp;</span><a class="symbol-link" href="#BufferedStream">BufferedStream</a> may not change the source stream
  position by the same amount.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>, uint <i>bufferSize</i> = 8192u);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(Stream <i>source</i>, size_t <i>bufferSize</i> = DefaultBufferSize);
 </h3></div>
 <div class="declaration-content"><dl><p>Create a buffered stream for the stream <i>source</i> with the buffer size
  <i>bufferSize</i>.</p>
@@ -881,7 +881,7 @@ These methods require that the seekable flag be set.
 <div class="declaration-content"><dl><p>An exception for File errors.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a StreamFileException with given error message.</p>
 
@@ -894,7 +894,7 @@ These methods require that the seekable flag be set.
 <div class="declaration-content"><dl><p>An exception for errors during File.open.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>msg</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>msg</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct an OpenFileException with given error message.</p>
 
@@ -907,7 +907,7 @@ These methods require that the seekable flag be set.
 <div class="declaration-content"><dl><p>This subclass is for unbuffered file system streams.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, FileMode <i>mode</i> = cast(FileMode)1);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(string <i>filename</i>, FileMode <i>mode</i> = FileMode.In);
 </h3></div>
 <div class="declaration-content"><dl><p>Create the stream with no open file, an open file in read <i>mode</i>, or an open
  file with explicit file <i>mode</i>.
@@ -923,7 +923,7 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="open">&nbsp;</span><a class="symbol-link" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).In);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="open">&nbsp;</span><a class="symbol-link" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = FileMode.In);
 </h3></div>
 <div class="declaration-content"><dl><p>Open a file for the stream, in an identical manner to the constructors.
  If an error occurs an OpenException is thrown.</p>
@@ -961,37 +961,37 @@ These methods require that the seekable flag be set.
  A buffered stream must be closed explicitly to ensure the final buffer
  content is written to the file.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>opens file for reading</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, FileMode <i>mode</i> = cast(FileMode)1, uint <i>bufferSize</i> = 8192u);
+<hr><div class="row-fluid declaration"><h3> this(string <i>filename</i>, FileMode <i>mode</i> = FileMode.In, size_t <i>bufferSize</i> = DefaultBufferSize);
 </h3></div>
 <div class="declaration-content"><dl><p>opens file in requested <i>mode</i> and buffer size</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(File <i>file</i>, uint <i>bufferSize</i> = 8192u);
+<hr><div class="row-fluid declaration"><h3> this(File <i>file</i>, size_t <i>bufferSize</i> = DefaultBufferSize);
 </h3></div>
 <div class="declaration-content"><dl><p>opens <i>file</i> for reading with requested buffer size</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(void* <i>hFile</i>, FileMode <i>mode</i>, uint <i>buffersize</i>);
+<hr><div class="row-fluid declaration"><h3> this(HANDLE <i>hFile</i>, FileMode <i>mode</i>, size_t <i>buffersize</i> = DefaultBufferSize);
 </h3></div>
 <div class="declaration-content"><dl><p>opens existing handle; use with care!</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="open">&nbsp;</span><a class="symbol-link" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).In);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="open">&nbsp;</span><a class="symbol-link" href="#open">open</a>(string <i>filename</i>, FileMode <i>mode</i> = FileMode.In);
 </h3></div>
 <div class="declaration-content"><dl><p>opens file in requested <i>mode</i></p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="create">&nbsp;</span><a class="symbol-link" href="#create">create</a>(string <i>filename</i>, FileMode <i>mode</i> = (FileMode).OutNew);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="create">&nbsp;</span><a class="symbol-link" href="#create">create</a>(string <i>filename</i>, FileMode <i>mode</i> = FileMode.OutNew);
 </h3></div>
 <div class="declaration-content"><dl><p>creates file in requested <i>mode</i></p>
 
@@ -999,7 +999,7 @@ These methods require that the seekable flag be set.
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="BOM">&nbsp;</span><a class="symbol-link" href="#BOM">BOM</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="BOM">&nbsp;</span><a class="symbol-link" href="#BOM">BOM</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>UTF byte-order-mark signatures</p>
 
@@ -1054,7 +1054,7 @@ These methods require that the seekable flag be set.
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(Stream <i>source</i>, Endian <i>end</i> = endian);
+<hr><div class="row-fluid declaration"><h3> this(Stream <i>source</i>, Endian <i>end</i> = std.system.endian);
 </h3></div>
 <div class="declaration-content"><dl><p>Create the endian stream for the <i>source</i> stream <i>source</i> with endianness <i>end</i>.
  The default endianness is the native byte order.
@@ -1107,7 +1107,7 @@ These methods require that the seekable flag be set.
  Compile in release mode when directly instantiating a <span class="symbol-target" id="TArrayStream">&nbsp;</span><a class="symbol-link" href="#TArrayStream">TArrayStream</a> to avoid
  link errors.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Buffer <i>buf</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(Buffer <i>buf</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create the stream for the the buffer <i>buf</i>. Non-copying.</p>
 
@@ -1126,15 +1126,15 @@ These methods require that the seekable flag be set.
 <div class="declaration-content"><dl><p>This subclass reads and constructs an array of bytes in memory.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this();
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this();
 </h3></div>
 <div class="declaration-content"><dl><p>Create the output buffer and setup for reading, writing, and seeking.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(ubyte[] <i>buf</i>);
-<br>this(byte[] <i>buf</i>);
-<br>this(char[] <i>buf</i>);
+<hr><div class="row-fluid declaration"><h3> this(ubyte[] <i>buf</i>);
+<br> this(byte[] <i>buf</i>);
+<br> this(char[] <i>buf</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create the output buffer and setup for reading, writing, and seeking.
  Load it with specific input data.</p>
@@ -1155,7 +1155,7 @@ These methods require that the seekable flag be set.
  See std.mmfile module.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(MmFile <i>file</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(MmFile <i>file</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Create stream wrapper for <i>file</i>.</p>
 
@@ -1174,7 +1174,7 @@ These methods require that the seekable flag be set.
  <span class="symbol-target" id="SliceStream">&nbsp;</span><a class="symbol-link" href="#SliceStream">SliceStream</a> does not modify the position of the source stream if it is
  seekable.</p>
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>this(Stream <i>s</i>, ulong <i>low</i>);
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3> this(Stream <i>s</i>, ulong <i>low</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Indicate both the source stream to use for reading from and the <i>low</i> part of
  the slice.
@@ -1184,7 +1184,7 @@ These methods require that the seekable flag be set.
  stream, so that if you write beyond the end it resizes the stream normally.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(Stream <i>s</i>, ulong <i>low</i>, ulong <i>high</i>);
+<hr><div class="row-fluid declaration"><h3> this(Stream <i>s</i>, ulong <i>low</i>, ulong <i>high</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Indicate the <i>high</i> index as well.
 </p>

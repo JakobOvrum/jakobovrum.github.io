@@ -294,18 +294,11 @@
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>deprecated alias <span class="symbol-target" id="FormatError">&nbsp;</span><a class="symbol-link" href="#FormatError">FormatError</a>;
-</h3></div>
-<div class="declaration-content"><dl><p><font color=red>Deprecated. It will be removed In January 2013.
-          Please use <span class="inlinecode">FormatException</span> instead.</font></p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>uint <span class="symbol-target" id="formattedWrite">&nbsp;</span><a class="symbol-link" href="#formattedWrite">formattedWrite</a>(Writer, Char, A...)(Writer <i>w</i>, in Char[] <i>fmt</i>, A <i>args</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Interprets variadic argument list <span class="inlinecode">args</span>, formats them according
    to <span class="inlinecode">fmt</span>, and sends the resulting characters to <span class="inlinecode">w</span>. The
-   encoding of the output is the same as <span class="inlinecode">Char</span>. type <span class="inlinecode">Writer</span>
+   encoding of the output is the same as <span class="inlinecode">Char</span>. The type <span class="inlinecode">Writer</span>
    must satisfy <a href="std_range.html#isOutputRange!(Writer, Char)"><span class="inlinecode">std.range.isOutputRange!(Writer, Char)</span></a>.
 </p>
 
@@ -332,14 +325,14 @@
    following the last array element.  (See below for explicit examples.)
 
 </p>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>w</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>Writer w</td>
 <td>Output is sent to this writer. Typical output writers include
    <a href="std_array.html#Appender!string"><span class="inlinecode">std.array.Appender!string</span></a> and <a href="std_stdio.html#LockingTextWriter"><span class="inlinecode">std.stdio.LockingTextWriter</span></a>.</td>
 </tr>
-<tr><td>fmt</td>
+<tr><td>Char[] fmt</td>
 <td>Format string.</td>
 </tr>
-<tr><td>args</td>
+<tr><td>A args</td>
 <td>Variadic argument list.</td>
 </tr>
 </table></dd>
@@ -392,7 +385,7 @@
 <i>Digit</i>:
     <b>'0'</b>|<b>'1'</b>|<b>'2'</b>|<b>'3'</b>|<b>'4'</b>|<b>'5'</b>|<b>'6'</b>|<b>'7'</b>|<b>'8'</b>|<b>'9'</b>
 <i>FormatChar</i>:
-    <b>'s'</b>|<b>'b'</b>|<b>'d'</b>|<b>'o'</b>|<b>'x'</b>|<b>'X'</b>|<b>'e'</b>|<b>'E'</b>|<b>'f'</b>|<b>'F'</b>|<b>'g'</b>|<b>'G'</b>|<b>'a'</b>|<b>'A'</b>
+    <b>'s'</b>|<b>'c'</b>|<b>'b'</b>|<b>'d'</b>|<b>'o'</b>|<b>'x'</b>|<b>'X'</b>|<b>'e'</b>|<b>'E'</b>|<b>'f'</b>|<b>'F'</b>|<b>'g'</b>|<b>'G'</b>|<b>'a'</b>|<b>'A'</b>
 </pre>
 <br><br>
 
@@ -422,12 +415,12 @@
        point and print trailing zeros.</td></tr>
 <br><br>
 
-    <tr><td valign=top><b>'#'</b></td> <td valign=top>numeric (<b>'0'</b>)</td> <td valign=top>Use leading
+    <tr><td valign=top><b>'0'</b></td> <td valign=top>numeric</td> <td valign=top>Use leading
     zeros to pad rather than spaces (except for the floating point
     values <span class="inlinecode">nan</span> and <span class="inlinecode">infinity</span>).  Ignore if there's a <i>   Precision</i>.</td></tr>
 <br><br>
 
-    <tr><td valign=top><b>' '</b></td> <td valign=top>integral (<b>'d'</b>)</td> <td valign=top>Prefix positive
+    <tr><td valign=top><b>' '</b></td> <td valign=top>numeric</td> <td valign=top>Prefix positive
     numbers in a signed conversion with a space.</td></tr></table>
 <br><br>
 
@@ -565,14 +558,15 @@
     <span class="d_keyword">assert</span>(writer.data == <span class="d_string">"Date: 5 October"</span>);
 }
 </pre>
-
-The positional and non-positional styles can be mixed in the same
-format string. (POSIX leaves this behavior undefined.) The internal
-counter for non-positional parameters tracks the next parameter after
-the largest positional parameter already used.
 <br><br>
 
-Example using array and nested array formatting:
+    The positional and non-positional styles can be mixed in the same
+    format string. (POSIX leaves this behavior undefined.) The internal
+    counter for non-positional parameters tracks the next parameter after
+    the largest positional parameter already used.
+<br><br>
+
+    Example using array and nested array formatting:
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 
 <span class="d_keyword">void</span> main()
@@ -581,18 +575,18 @@ Example using array and nested array formatting:
     writefln(<span class="d_string">"My items are %(%s, %)."</span>, [1,2,3]);
 }
 </pre>
-   The output is:
+    The output is:
 <pre class=console>
 My items are 1 2 3.
 My items are 1, 2, 3.
 </pre>
 <br><br>
 
-   The trailing end of the sub-format string following the specifier for each
-   item is interpreted as the array delimiter, and is therefore omitted
-   following the last array item. The <b>%|</b> delimiter specifier may be used
-   to indicate where the delimiter begins, so that the portion of the format
-   string prior to it will be retained in the last array element:
+    The trailing end of the sub-format string following the specifier for each
+    item is interpreted as the array delimiter, and is therefore omitted
+    following the last array item. The <b>%|</b> delimiter specifier may be used
+    to indicate where the delimiter begins, so that the portion of the format
+    string prior to it will be retained in the last array element:
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 
 <span class="d_keyword">void</span> main()
@@ -600,14 +594,14 @@ My items are 1, 2, 3.
     writefln(<span class="d_string">"My items are %(-%s-%|, %)."</span>, [1,2,3]);
 }
 </pre>
-   which gives the output:
+    which gives the output:
 <pre class=console>
 My items are -1-, -2-, -3-.
 </pre>
 <br><br>
 
-   These compound format specifiers may be nested in the case of a nested
-   array argument:
+    These compound format specifiers may be nested in the case of a nested
+    array argument:
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 <span class="d_keyword">void</span> main() {
      <span class="d_keyword">auto</span> mat = [[1, 2, 3],
@@ -624,7 +618,7 @@ My items are -1-, -2-, -3-.
      writeln();
 }
 </pre>
-   The output is:
+    The output is:
 <pre class=console>
 1 2 3
 4 5 6
@@ -642,9 +636,9 @@ My items are -1-, -2-, -3-.
 </pre>
 <br><br>
 
-   Inside a compound format specifier, strings and characters are escaped
-   automatically. To avoid this behavior, add <b>'-'</b> flag to
-   <span class="inlinecode">"%("</span>.
+    Inside a compound format specifier, strings and characters are escaped
+    automatically. To avoid this behavior, add <b>'-'</b> flag to
+    <span class="inlinecode">"%("</span>.
 <pre class="d_code"><span class="d_keyword">import</span> std.stdio;
 
 <span class="d_keyword">void</span> main()
@@ -668,6 +662,11 @@ My friends are John, Nancy.
    to <span class="inlinecode">fmt</span>, and writes them to <span class="inlinecode">args</span>.
 </p>
 
+<dt>Returns</dt><dd>On success, the function returns the number of variables filled. This count
+   can match the expected number of readings or fewer, even zero, if a
+   matching failure happens.
+
+</dd>
 <dt>Example:</dt><dd>
 <pre class="d_code">string s = <span class="d_string">"hello!124:34.5"</span>;
 string a;
@@ -679,10 +678,10 @@ string a;
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="FormatSpec">&nbsp;</span><a class="symbol-link" href="#FormatSpec">FormatSpec</a>(Char) if (is(Unqual!(Char) == Char));
+<hr><div class="row-fluid declaration"><h3>struct <span class="symbol-target" id="FormatSpec">&nbsp;</span><a class="symbol-link" href="#FormatSpec">FormatSpec</a>(Char) if (is(Unqual!Char == Char));
 </h3></div>
 <div class="declaration-content"><dl><p>A General handler for <span class="inlinecode">printf</span> style format specifiers. Used for building more
-   specific formatting functions.
+ specific formatting functions.
 </p>
 
 <dt>Example:</dt><dd>
@@ -755,41 +754,6 @@ f.writeUpToNextSpec(a);
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="flDash">&nbsp;</span><a class="symbol-link" href="#flDash">flDash</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'-'</span> (<span class="inlinecode">printf</span>
-         compatibility).</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="flZero">&nbsp;</span><a class="symbol-link" href="#flZero">flZero</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'0'</span> (<span class="inlinecode">printf</span>
-         compatibility).</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="flSpace">&nbsp;</span><a class="symbol-link" href="#flSpace">flSpace</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">' '</span> (<span class="inlinecode">printf</span>
-         compatibility).</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="flPlus">&nbsp;</span><a class="symbol-link" href="#flPlus">flPlus</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'+'</span> (<span class="inlinecode">printf</span>
-         compatibility).</p>
-
-</dl>
-</div>
-<hr><div class="row-fluid declaration"><h3>bool <span class="symbol-target" id="flHash">&nbsp;</span><a class="symbol-link" href="#flHash">flHash</a>;
-</h3></div>
-<div class="declaration-content"><dl><p>The format specifier contained a <span class="inlinecode">'#'</span> (<span class="inlinecode">printf</span>
-         compatibility).</p>
-
-</dl>
-</div>
 <hr><div class="row-fluid declaration"><h3>const(Char)[] <span class="symbol-target" id="nested">&nbsp;</span><a class="symbol-link" href="#nested">nested</a>;
 </h3></div>
 <div class="declaration-content"><dl><p>In case of a compound format specifier starting with <span class="inlinecode">      "%("</span> and ending with <span class="inlinecode">"%)"</span>, <span class="inlinecode">nested</span>
@@ -810,7 +774,7 @@ f.writeUpToNextSpec(a);
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(in Char[] <i>fmt</i>);
+<hr><div class="row-fluid declaration"><h3> this(in Char[] <i>fmt</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Construct a new <span class="inlinecode">FormatSpec</span> using the format string <span class="inlinecode"><i>fmt</i></span>, no
        processing is done until needed.</p>
@@ -819,7 +783,7 @@ f.writeUpToNextSpec(a);
 </div>
 </div>
 </div>
-<hr><div class="row-fluid declaration"><h3>FormatSpec!(Char) <span class="symbol-target" id="singleSpec">&nbsp;</span><a class="symbol-link" href="#singleSpec">singleSpec</a>(Char)(Char[] <i>fmt</i>);
+<hr><div class="row-fluid declaration"><h3>FormatSpec!Char <span class="symbol-target" id="singleSpec">&nbsp;</span><a class="symbol-link" href="#singleSpec">singleSpec</a>(Char)(Char[] <i>fmt</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Helper function that returns a <span class="inlinecode">FormatSpec</span> for a single specifier given
    in <span class="inlinecode">fmt</span>
@@ -831,32 +795,32 @@ f.writeUpToNextSpec(a);
    Enforces giving only one specifier to the function.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(BooleanTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode">bool</span>s are formatted as "<span class="d_keyword">true</span>" or "<span class="d_keyword">false</span>" with %s and as "1" or
    "0" with integral-specific format specs.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(T == typeof(null)) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode"><span class="d_keyword">null</span></span> literal is formatted as <span class="inlinecode">"<span class="d_keyword">null</span>"</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(IntegralTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Integrals are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(FloatingPointTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Floating-point values are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(CharTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Individual characters (<span class="inlinecode">char</span>, <span class="inlinecode">wchar</span>, or <span class="inlinecode">dchar</span>) are
    formatted as Unicode characters with %s and as integers with
@@ -864,19 +828,19 @@ f.writeUpToNextSpec(a);
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(StringTypeOf!T) &amp;&amp; !is(StaticArrayTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Strings are formatted like <span class="inlinecode">printf</span> does.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, auto ref T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, auto ref T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(StaticArrayTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Static-size arrays are formatted as dynamic arrays.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(DynamicArrayTypeOf!T) &amp;&amp; !is(StringTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Dynamic arrays are formatted as input ranges.
 </p>
@@ -886,16 +850,16 @@ f.writeUpToNextSpec(a);
           <li>Const array is converted to input range by removing its qualifier.</li></ul></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>obj</i>, ref FormatSpec!Char <i>f</i>) if (is(AssocArrayTypeOf!T) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
-<div class="declaration-content"><dl><p>Associative arrays are formatted by using <span class="inlinecode">':'</span> and <span class="inlinecode">', '</span> as
+<div class="declaration-content"><dl><p>Associative arrays are formatted by using <span class="inlinecode">':'</span> and <span class="inlinecode">", "</span> as
    separators, and enclosed by <span class="inlinecode">'['</span> and <span class="inlinecode">']'</span>.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
-<br>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
-<br>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, auto ref T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!Char <i>f</i>) if (is(T == class) &amp;&amp; !is(T == enum));
+<br>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!Char <i>f</i>) if (is(T == interface) &amp;&amp; (hasToString!(T, Char) || !is(BuiltinTypeOf!T)) &amp;&amp; !is(T == enum));
+<br>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, auto ref T <i>val</i>, ref FormatSpec!Char <i>f</i>) if ((is(T == struct) || is(T == union)) &amp;&amp; (hasToString!(T, Char) || !is(BuiltinTypeOf!T)) &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Aggregates (<span class="inlinecode">struct</span>, <span class="inlinecode">union</span>, <span class="inlinecode">class</span>, and <span class="inlinecode">interface</span>) are
    basically formatted by calling <span class="inlinecode">toString</span>.
@@ -907,6 +871,7 @@ f.writeUpToNextSpec(a);
 <span class="d_keyword">const</span> <span class="d_keyword">void</span> toString(<span class="d_keyword">scope</span> <span class="d_keyword">void</span> <span class="d_keyword">delegate</span>(<span class="d_keyword">const</span>(<span class="d_keyword">char</span>)[]) sink);
 <span class="d_keyword">const</span> string toString();
 </pre>
+<br><br>
 
    For the class objects which have input range interface,
    <ul><li>If the instance <span class="inlinecode">toString</span> has overridden
@@ -922,67 +887,67 @@ f.writeUpToNextSpec(a);
    Otherwise, are formatted just as their type name.</p>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!Char <i>f</i>) if (is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p><span class="inlinecode">enum</span> is formatted like its base value.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!Char <i>f</i>) if (isPointer!T &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Pointers are formatted as hex integers.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!(Char) <i>f</i>);
+<hr><div class="row-fluid declaration"><h3>void <span class="symbol-target" id="formatValue">&nbsp;</span><a class="symbol-link" href="#formatValue">formatValue</a>(Writer, T, Char)(Writer <i>w</i>, T <i>val</i>, ref FormatSpec!Char <i>f</i>) if (is(T == delegate) &amp;&amp; !is(T == enum) &amp;&amp; !hasToString!(T, Char));
 </h3></div>
 <div class="declaration-content"><dl><p>Delegates are formatted by 'Attributes ReturnType delegate(Parameters)'</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; is(Unqual!T == bool));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads a boolean value and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; is(T == typeof(null)));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads <span class="d_keyword">null</span> literal and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; isIntegral!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads an integral value and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isFloatingPoint!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads a floating-point value and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; isSomeChar!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads one character and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; isSomeString!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads a string and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; isArray!T &amp;&amp; !isSomeString!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads an array (except for string types) and returns it.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!(Char) <i>spec</i>);
+<hr><div class="row-fluid declaration"><h3>T <span class="symbol-target" id="unformatValue">&nbsp;</span><a class="symbol-link" href="#unformatValue">unformatValue</a>(T, Range, Char)(ref Range <i>input</i>, ref FormatSpec!Char <i>spec</i>) if (isInputRange!Range &amp;&amp; isAssociativeArray!T &amp;&amp; !is(T == enum));
 </h3></div>
 <div class="declaration-content"><dl><p>Reads an associative array and returns it.</p>
 

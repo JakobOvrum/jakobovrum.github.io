@@ -302,6 +302,7 @@ e.g.
 
 <pre class="d_code">    <span class="d_keyword">auto</span> e = EncodingScheme.create(<span class="d_string">"utf-8"</span>);
 </pre>
+<br><br>
 
 This library supplies <span class="inlinecode">EncodingScheme</span> subclasses for ASCII,
 ISO-8859-1 (also known as LATIN-1), WINDOWS-1252, UTF-8, and (on
@@ -325,32 +326,32 @@ This library provides a mechanism whereby other modules may add <span class="inl
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AsciiChar">&nbsp;</span><a class="symbol-link" href="#AsciiChar">AsciiChar</a>;
-<br>alias <span class="symbol-target" id="AsciiString">&nbsp;</span><a class="symbol-link" href="#AsciiString">AsciiString</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="AsciiChar">&nbsp;</span><a class="symbol-link" href="#AsciiChar">AsciiChar</a>: ubyte;
+<br>alias <span class="symbol-target" id="AsciiString">&nbsp;</span><a class="symbol-link" href="#AsciiString">AsciiString</a> = immutable(AsciiChar)[];
 </h3></div>
 <div class="declaration-content"><dl><p>Defines various character sets. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Latin1Char">&nbsp;</span><a class="symbol-link" href="#Latin1Char">Latin1Char</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Latin1Char">&nbsp;</span><a class="symbol-link" href="#Latin1Char">Latin1Char</a>: ubyte;
 </h3></div>
 <div class="declaration-content"><dl><p>Defines an Latin1-encoded character. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Latin1String">&nbsp;</span><a class="symbol-link" href="#Latin1String">Latin1String</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Latin1String">&nbsp;</span><a class="symbol-link" href="#Latin1String">Latin1String</a> = immutable(Latin1Char)[];
 </h3></div>
 <div class="declaration-content"><dl><p>Defines an Latin1-encoded string (as an array of <span class="inlinecode">immutable(Latin1Char)</span>).</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Windows1252Char">&nbsp;</span><a class="symbol-link" href="#Windows1252Char">Windows1252Char</a>;
+<hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Windows1252Char">&nbsp;</span><a class="symbol-link" href="#Windows1252Char">Windows1252Char</a>: ubyte;
 </h3></div>
 <div class="declaration-content"><dl><p>Defines a Windows1252-encoded character. </p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Windows1252String">&nbsp;</span><a class="symbol-link" href="#Windows1252String">Windows1252String</a>;
+<hr><div class="row-fluid declaration"><h3>alias <span class="symbol-target" id="Windows1252String">&nbsp;</span><a class="symbol-link" href="#Windows1252String">Windows1252String</a> = immutable(Windows1252Char)[];
 </h3></div>
 <div class="declaration-content"><dl><p>Defines an Windows1252-encoded string (as an array of <span class="inlinecode">immutable(Windows1252Char)</span>).</p>
 
@@ -391,7 +392,7 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>encodingName</u>!(Latin1Char) == <span class="d_string">"ISO-8859-1"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>encodingName</u>!(Latin1Char) == <span class="d_string">"ISO-8859-1"</span>);
 </pre>
 </dd>
 </dl>
@@ -409,7 +410,7 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">assert</span>(<u>canEncode</u>!(Latin1Char)('A'));
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">assert</span>(<u>canEncode</u>!(Latin1Char)('A'));
 </pre>
 </dd>
 </dl>
@@ -424,7 +425,7 @@ This function supercedes <span class="inlinecode">std.utf.startsValidDchar()</sp
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>c</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>E c</td>
 <td>the code unit to be tested</td>
 </tr>
 </table></dd>
@@ -444,7 +445,7 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
@@ -459,7 +460,7 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string to be tested</td>
 </tr>
 </table></dd>
@@ -482,7 +483,7 @@ This function supercedes std.utf.validate(), however note that this
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>immutable(E)[] s</td>
 <td>the string to be sanitized</td>
 </tr>
 </table></dd>
@@ -500,7 +501,7 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
@@ -518,13 +519,13 @@ This is enforced by the function's in-contract.
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string to be sliced</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a>(E)(const(E)[] <i>s</i>, int <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a>(E)(const(E)[] <i>s</i>, int <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the array <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a> at which the (n+1)th code point begins.
 </p>
@@ -540,8 +541,11 @@ This function supercedes std.utf.toUTFindex().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string to be counted</td>
+</tr>
+<tr><td>int n</td>
+<td>the current code point <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a></td>
 </tr>
 </table></dd>
 </dl>
@@ -567,7 +571,7 @@ This function supercedes std.utf.<span class="symbol-target" id="decode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
@@ -589,7 +593,7 @@ This function supercedes std.utf.<span class="symbol-target" id="decode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(E)[] s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
@@ -612,7 +616,7 @@ This function supercedes std.utf.<span class="symbol-target" id="decode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>S s</td>
 <td>the string whose first code point is to be decoded</td>
 </tr>
 </table></dd>
@@ -634,7 +638,7 @@ This function supercedes std.utf.<span class="symbol-target" id="decode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>c</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
@@ -665,7 +669,7 @@ This function supercedes std.utf.<span class="symbol-target" id="encode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>c</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
@@ -697,8 +701,11 @@ This function supercedes std.utf.<span class="symbol-target" id="encode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>c</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar c</td>
 <td>the code point to be encoded</td>
+</tr>
+<tr><td>E[] array</td>
+<td>the destination array</td>
 </tr>
 </table></dd>
 <dt>Returns</dt><dd>the number of code units written to the array</dd>
@@ -729,13 +736,16 @@ This function supercedes std.utf.<span class="symbol-target" id="encode">&nbsp;<
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>c</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar c</td>
 <td>the code point to be encoded</td>
+</tr>
+<tr><td>void delegate(E) dg</td>
+<td>the delegate to invoke for each code unit</td>
 </tr>
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CodePoints!(E) <span class="symbol-target" id="codePoints">&nbsp;</span><a class="symbol-link" href="#codePoints">codePoints</a>(E)(immutable(E)[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>CodePoints!E <span class="symbol-target" id="codePoints">&nbsp;</span><a class="symbol-link" href="#codePoints">codePoints</a>(E)(immutable(E)[] <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a foreachable struct which can bidirectionally iterate over all
  code points in a string.
@@ -758,23 +768,24 @@ This function supercedes std.utf.decode().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>immutable(E)[] s</td>
 <td>the string to be decoded</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> string s = <span class="d_string">"hello world"</span>;
- <span class="d_keyword">foreach</span>(c;<u>codePoints</u>(s))
- {
-     <span class="d_comment">// do something with c (which will always be a dchar)
+<dt>Examples</dt><dd><pre class="d_code">string s = <span class="d_string">"hello world"</span>;
+<span class="d_keyword">foreach</span>(c;<u>codePoints</u>(s))
+{
+    <span class="d_comment">// do something with c (which will always be a dchar)
 </span>
- }
+}
 </pre>
+<br><br>
 
  Note that, currently, foreach(c:<span class="symbol-target" id="codePoints">&nbsp;</span><a class="symbol-link" href="#codePoints">codePoints</a>(s)) is superior to foreach(c;s)
  in that the latter will fall over on encountering U+FFFF.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>CodeUnits!(E) <span class="symbol-target" id="codeUnits">&nbsp;</span><a class="symbol-link" href="#codeUnits">codeUnits</a>(E)(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>CodeUnits!E <span class="symbol-target" id="codeUnits">&nbsp;</span><a class="symbol-link" href="#codeUnits">codeUnits</a>(E)(dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns a foreachable struct which can bidirectionally iterate over all
  code units in a code point.
@@ -795,22 +806,22 @@ This function supercedes std.utf.encode().
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>d</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar c</td>
 <td>the code point to be encoded</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">dchar</span> d = '\u20AC';
- <span class="d_keyword">foreach</span>(c;<u>codeUnits</u>!(<span class="d_keyword">char</span>)(d))
- {
-     writefln(<span class="d_string">"%X"</span>,c)
- }
- <span class="d_comment">// will print
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">dchar</span> d = '\u20AC';
+<span class="d_keyword">foreach</span>(c;<u>codeUnits</u>!(<span class="d_keyword">char</span>)(d))
+{
+    writefln(<span class="d_string">"%X"</span>,c)
+}
+<span class="d_comment">// will print
 </span>
- <span class="d_comment">// E2
+<span class="d_comment">// E2
 </span>
- <span class="d_comment">// 82
+<span class="d_comment">// 82
 </span>
- <span class="d_comment">// AC
+<span class="d_comment">// AC
 </span>
 </pre>
 </dd>
@@ -841,21 +852,21 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Standards</dt><dd>Unicode 5.0, ASCII, ISO-8859-1, WINDOWS-1252
 
 </dd>
-<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>s</td>
+<dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>immutable(Src)[] s</td>
 <td>the source string</td>
 </tr>
-<tr><td>r</td>
+<tr><td>immutable(Dst)[] r</td>
 <td>the destination string</td>
 </tr>
 </table></dd>
-<dt>Examples</dt><dd><pre class="d_code"> wstring ws;
- <u>transcode</u>(<span class="d_string">"hello world"</span>,ws);
-     <span class="d_comment">// transcode from UTF-8 to UTF-16
+<dt>Examples</dt><dd><pre class="d_code">wstring ws;
+<u>transcode</u>(<span class="d_string">"hello world"</span>,ws);
+    <span class="d_comment">// transcode from UTF-8 to UTF-16
 </span>
 
- Latin1String ls;
- <u>transcode</u>(ws, ls);
-     <span class="d_comment">// transcode from UTF-16 to ISO-8859-1
+Latin1String ls;
+<u>transcode</u>(ws, ls);
+    <span class="d_comment">// transcode from UTF-16 to ISO-8859-1
 </span>
 </pre>
 </dd>
@@ -881,13 +892,13 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  be declared in other modules.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">class</span> Amiga1251 : EncodingScheme
- {
-     <span class="d_keyword">shared</span> <span class="d_keyword">static</span> <span class="d_keyword">this</span>()
-     {
-         EncodingScheme.<u>register</u>(<span class="d_string">"path.to.Amiga1251"</span>);
-     }
- }
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">class</span> Amiga1251 : EncodingScheme
+{
+    <span class="d_keyword">shared</span> <span class="d_keyword">static</span> <span class="d_keyword">this</span>()
+    {
+        EncodingScheme.<u>register</u>(<span class="d_string">"path.to.Amiga1251"</span>);
+    }
+}
 </pre>
 </dd>
 </dl>
@@ -902,31 +913,31 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
  registered with the register() function.
 
 </p>
-<dt>Examples</dt><dd><pre class="d_code"> <span class="d_keyword">auto</span> scheme = EncodingScheme.<u>create</u>(<span class="d_string">"Amiga-1251"</span>);
+<dt>Examples</dt><dd><pre class="d_code"><span class="d_keyword">auto</span> scheme = EncodingScheme.<u>create</u>(<span class="d_string">"Amiga-1251"</span>);
 </pre>
 </dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const string <span class="symbol-target" id="toString">&nbsp;</span><a class="symbol-link" href="#toString">toString</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the standard name of the encoding scheme</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const string[] <span class="symbol-target" id="names">&nbsp;</span><a class="symbol-link" href="#names">names</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const string[] <span class="symbol-target" id="names">&nbsp;</span><a class="symbol-link" href="#names">names</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns an array of all known <span class="symbol-target" id="names">&nbsp;</span><a class="symbol-link" href="#names">names</a> for this encoding scheme</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const bool <span class="symbol-target" id="canEncode">&nbsp;</span><a class="symbol-link" href="#canEncode">canEncode</a>(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>abstract const bool <span class="symbol-target" id="canEncode">&nbsp;</span><a class="symbol-link" href="#canEncode">canEncode</a>(dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns <span class="d_keyword">true</span> if the character <i>c</i> can be represented
  in this encoding scheme.</p>
 
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const size_t <span class="symbol-target" id="encodedLength">&nbsp;</span><a class="symbol-link" href="#encodedLength">encodedLength</a>(dchar <i>c</i>);
+<hr><div class="row-fluid declaration"><h3>abstract const size_t <span class="symbol-target" id="encodedLength">&nbsp;</span><a class="symbol-link" href="#encodedLength">encodedLength</a>(dchar <i>c</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the number of ubytes required to encode this code point.
 </p>
@@ -941,7 +952,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Returns</dt><dd>the number of ubytes required.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(dchar <i>c</i>, ubyte[] <i>buffer</i>);
+<hr><div class="row-fluid declaration"><h3>abstract const size_t <span class="symbol-target" id="encode">&nbsp;</span><a class="symbol-link" href="#encode">encode</a>(dchar <i>c</i>, ubyte[] <i>buffer</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Encodes a single code point into a user-supplied, fixed-size <i>buffer</i>.
 </p>
@@ -958,11 +969,14 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>dchar <i>c</i></td>
 <td>the code point to be encoded</td>
 </tr>
+<tr><td>ubyte[] <i>buffer</i></td>
+<td>the destination array</td>
+</tr>
 </table></dd>
 <dt>Returns</dt><dd>the number of ubytes written.</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(ref const(ubyte)[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>abstract const dchar <span class="symbol-target" id="decode">&nbsp;</span><a class="symbol-link" href="#decode">decode</a>(ref const(ubyte)[] <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes a single code point.
 </p>
@@ -980,7 +994,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const dchar <span class="symbol-target" id="safeDecode">&nbsp;</span><a class="symbol-link" href="#safeDecode">safeDecode</a>(ref const(ubyte)[] <i>s</i>);
+<hr><div class="row-fluid declaration"><h3>abstract const dchar <span class="symbol-target" id="safeDecode">&nbsp;</span><a class="symbol-link" href="#safeDecode">safeDecode</a>(ref const(ubyte)[] <i>s</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Decodes a single code point. The input does not have to be valid.
 </p>
@@ -1000,7 +1014,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>abstract const const @property immutable(ubyte)[] <span class="symbol-target" id="replacementSequence">&nbsp;</span><a class="symbol-link" href="#replacementSequence">replacementSequence</a>();
+<hr><div class="row-fluid declaration"><h3>abstract const @property immutable(ubyte)[] <span class="symbol-target" id="replacementSequence">&nbsp;</span><a class="symbol-link" href="#replacementSequence">replacementSequence</a>();
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the sequence of ubytes to be used to represent
  any character which cannot be represented in the encoding scheme.
@@ -1081,7 +1095,7 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </table></dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>sizediff_t <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a>(const(ubyte)[] <i>s</i>, size_t <i>n</i>);
+<hr><div class="row-fluid declaration"><h3>ptrdiff_t <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a>(const(ubyte)[] <i>s</i>, size_t <i>n</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Returns the array <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a> at which the (<i>n</i>+1)th code point begins.
 </p>
@@ -1092,6 +1106,9 @@ This function supercedes std.utf.toUTF8(), std.utf.toUTF16() and
 </p>
 <dt>Parameters</dt><dd><table class="table table-condensed table-bordered"><tr><td>const(ubyte)[] <i>s</i></td>
 <td>the string to be counted</td>
+</tr>
+<tr><td>size_t <i>n</i></td>
+<td>the current code point <span class="symbol-target" id="index">&nbsp;</span><a class="symbol-link" href="#index">index</a></td>
 </tr>
 </table></dd>
 </dl>

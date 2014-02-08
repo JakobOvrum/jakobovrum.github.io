@@ -290,7 +290,7 @@
 <div class="declaration-content"><dl><p><span class="symbol-target" id="MmFile">&nbsp;</span><a class="symbol-link" href="#MmFile">MmFile</a> objects control the memory mapped file resource.</p>
 
 </dl>
-<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Mode">&nbsp;</span><a class="symbol-link" href="#Mode">Mode</a>;
+<div class="offset1 member-list"><hr><div class="row-fluid declaration"><h3>enum <span class="symbol-target" id="Mode">&nbsp;</span><a class="symbol-link" href="#Mode">Mode</a>: int;
 </h3></div>
 <div class="declaration-content"><dl><p>The mode the memory mapped file is opened with.</p>
 
@@ -318,7 +318,7 @@
 </div>
 
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>);
+<hr><div class="row-fluid declaration"><h3> this(string <i>filename</i>);
 </h3></div>
 <div class="declaration-content"><dl><p>Open memory mapped file <i>filename</i> for reading.
  File is closed when the object instance is deleted.
@@ -327,7 +327,7 @@
 <dt>Throws</dt><dd>std.file.FileException</dd>
 </dl>
 </div>
-<hr><div class="row-fluid declaration"><h3>this(string <i>filename</i>, Mode <i>mode</i>, ulong <i>size</i>, void* <i>address</i>, uint <i>window</i> = cast(uint)0);
+<hr><div class="row-fluid declaration"><h3> this(string <i>filename</i>, Mode <i>mode</i>, ulong <i>size</i>, void* <i>address</i>, size_t <i>window</i> = 0);
 </h3></div>
 <div class="declaration-content"><dl><p>Open memory mapped file <i>filename</i> in <i>mode</i>.
  File is closed when the object instance is deleted.
@@ -349,7 +349,7 @@
       although the system is not required to honor it.
       If <span class="d_keyword">null</span>, the system selects the most convenient <i>address</i>.</td>
 </tr>
-<tr><td>uint <i>window</i></td>
+<tr><td>size_t <i>window</i></td>
 <td>preferred block <i>size</i> of the amount of data to map at one time
       with 0 meaning map the entire file. The <i>window</i> <i>size</i> must be a
       multiple of the memory allocation page <i>size</i>.</td>
