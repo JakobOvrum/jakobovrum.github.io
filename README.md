@@ -1,2 +1,2 @@
-jakobovrum.github.com
+jakobovrum.github.io
 =====================

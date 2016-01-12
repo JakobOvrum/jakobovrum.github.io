@@ -1,0 +1,9 @@
+{% include header.html %}
+
+<article>
+    <small class="pull-right text-muted">{{ page.date | date_to_string }}</small>
+    <h3>{{ page.title }}</h3>
+    {{ content }}
+</article>
+
+{% include footer.html %}

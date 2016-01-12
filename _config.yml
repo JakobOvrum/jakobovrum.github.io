@@ -1,0 +1,14 @@
+title: Jakob Øvrum
+tagline: D programming
+
+destination: ./d/_site
+safe: true
+permalink: date
+markdown: redcarpet
+highlighter: 'pygments'
+lsi: false
+gems: [jekyll-paginate]
+baseurl: /d
+
+paginate: 5
+paginate_path: "page:num"
