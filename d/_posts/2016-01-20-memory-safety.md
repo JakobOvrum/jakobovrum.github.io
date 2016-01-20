@@ -64,19 +64,18 @@ void foo(); // Implicitly @system, the default
 
 Nearer attribute applictions override farther ones, which is handy when most
 functions in a module are `@safe` but a minority are `@system`:
+
 ```d
 @safe:
-void foo();
+void foo(); // @safe
 @system void baz();
-void bar();
+void bar(); // @safe
 ```
 
-`foo` and `bar` are `@safe` while `baz` is `@system`. Judicious application of
-all three syntaxes alleviates the inconvenience of the default.
-
-Additionally, anonymous/lambda functions, templated functions and functions with
-inferred return type (`auto` functions) will have `@safe` inferred from the body
-of the function.
+Judicious application of all three syntaxes alleviates the inconvenience of the
+default. Additionally, anonymous/lambda functions, templated functions and
+functions with inferred return type (`auto` functions) will have `@safe`
+inferred from the body of the function.
 
 #### Bridging `@safe` and `@system`
 As `@safe` functions cannot call `@system` functions, annotating the whole
@@ -89,44 +88,45 @@ no possible argument combination
 <sup>[*](# "including implicit arguments such as the state of global variables!")</sup>
 when calling this function from `@safe` code will cause a memory error.
 
-However, unlike `@safe`, `@trusted` functions have unrestricted access to all
-language features, including calling `@system` functions. Yet, **`@trusted`
-functions are freely callable from `@safe` functions**. The implication is that
-`@trusted` better be applied correctly, or the whole system of checked memory
-safety collapses and cannot provide any guarantees. Worse, until a memory error
-is encountered, hapless programmers are falsely led to believe `@safe` code is
-memory safe.
+`@trusted` functions have unrestricted access to all language features,
+including calling `@system` functions. Yet, **`@trusted` functions are freely
+callable from `@safe` functions**. The implication is that `@trusted` better be
+applied correctly, or the whole system of checked memory safety collapses and
+cannot provide any guarantees. Worse, until a memory error is encountered,
+hapless programmers are falsely led to believe `@safe` code is memory safe.
 
 #### Guidelines for `@trusted`
 Using `@trusted` correctly is important. To that end, a number of
 guidelines should be followed.
 
- 0. Don't annotate functions `@trusted` that can result in memory errors for a
-    given set of inputs. This defeats the whole purpose of `@safe`.
- 1. Don't annotate functions `@trusted` which haven't been thoroughly vetted for
+ 1. Don't annotate functions `@trusted` that can result in memory errors for a
+    given set of inputs, as this defeats the whole purpose of `@safe`.
+ 2. Don't annotate functions `@trusted` which haven't been thoroughly vetted for
     the possibility of memory errors.
- 2. Don't annotate functions with `@trusted` using the `@trusted:` or `@trusted
+ 3. Don't annotate functions with `@trusted` using the `@trusted:` or `@trusted
     { … }` syntax even if all affected functions have been vetted for memory
     safety, as future programmers editing the code can easily miss the
-    attribute.
- 3. If a function contains both checkable (`@safe`) and uncheckable code,
-    factor the uncheckable code into a separate function. Be careful to follow
-    guideline 1 when doing this - the separate function must have a memory safe
-    interface like all `@trusted` functions.
- 4. When separating safe from unsafe, check the standard library for components
+    attribute. Having many `@trusted` functions is a sign that the attribute is
+    being abused.
+ 4. If a function contains both checkable (`@safe`) and uncheckable code,
+    factor the uncheckable code into a separate function. Smaller functions are
+    easier to review for memory safety. Be careful to follow guideline 2 when
+    doing this - the separate function must have a memory safe interface like
+    all `@trusted` functions.
+ 5. When separating safe from unsafe, check the standard library for components
     that already fit the bill, e.g. [minimallyInitializedArray](https://dlang.org/phobos/std_array.html#minimallyInitializedArray).
- 5. Exceptions can be thrown (with
+ 6. Exceptions can be thrown (with
  [enforce](http://dlang.org/phobos/std_exception.html#enforce)) to further
  narrow down valid input in order to achieve a memory safe interface for
  `@trusted` functions.
- 6. In general, do *not* apply `@trusted` to templated functions. See the next
+ 7. In general, do *not* apply `@trusted` to templated functions. See the next
  section for how to handle those.
- 7. Whenever a `@trusted` function is changed, vet it for memory safety in its
+ 8. Whenever a `@trusted` function is changed, vet it for memory safety in its
     updated form.
 
 Note that both `@safe` and `@trusted` functions don't have to be memory safe
 when called from `@system` functions. Thus, pointer or reference parameters can
-be assumed to point to valid, initialized memory.
+be assumed to refer to valid, initialized memory.
 
 #### Templates and Attribute Inference
 Templated functions can be conditionally memory safe depending on the template
@@ -144,18 +144,23 @@ void foo(T)(T t) {
 
 struct SafeStruct { void bar() @safe; }
 struct UnsafeStruct { void bar() @system; }
+
+void main() {
+  foo(SafeStruct());
+  foo(UnsafeStruct());
+}
 ```
 
-We can tell that `foo(SafeStruct())` is memory safe, and that
-`foo(UnsafeStruct())` is not. Fortunately, so can the compiler: the former is
-accepted in `@safe` functions, while the latter is rejected. If `foo` was
-explicitly annotated with `@safe`, it would not be callable with `UnsafeStruct`
-in *any* code because of the call to the `@system` `UnsafeStruct.bar`, hence
-templated functions are more general when using attribute inference. Templated
-functions that can be inferred to be `@safe` for some instantiations can be
-called *`@safe`-ready*.
+Each call to `foo` injects a call to `bar`. We can tell that
+`foo(SafeStruct())` is memory safe, and that `foo(UnsafeStruct())` is not.
+Fortunately, so can the compiler: the former is accepted in `@safe` functions,
+while the latter is rejected. If `foo` was explicitly annotated with `@safe`,
+it would not be callable with `UnsafeStruct` from *any* code because of the call
+to the `@system` `bar`, hence templated functions are more general
+when using attribute inference. Templated functions that can be inferred to be
+`@safe` for some instantiations can be called *@safe-ready*.
 
-Attribute inference isn't just for function templates; it's also performed for
+Attribute inference isn't just for function templates, it's also performed for
 functions nested in function templates, as well as for member functions of
 templated types.
 
@@ -176,7 +181,7 @@ void foo(T)(T t) {
 }
 ```
 
-`foo` is not `@safe`-ready: All instantiations of `foo` are `@system` regardless
+`foo` is not @safe-ready: All instantiations of `foo` are `@system` regardless
 of `T`. Yet we can tell that the function is memory safe as long as `p.bar()` is
 memory safe. To solve this, we will allow a limited exception to the rules of
 `@trusted` - *`@trusted` nested functions in templated functions do not have to
@@ -187,20 +192,30 @@ safe*. That's a mouthful, more easily demonstrated with code:
 void foo(T)(T t) {
   auto p = () @trusted { return &t; } ();
   p.bar();
+}
+
+@safe:
+struct SafeStruct { void bar(); }
+
+void main() {
+  foo(SafeStruct()); // Now callable from @safe
+}
+
 ```
 
 Here, we apply `@trusted` to an anonymous nested function that *doesn't* have a
 memory safe interface. However, we can tell that it's not called in a way that
 could cause memory errors, such as by escaping the returned pointer to a global
 variable. Note that the anonymous function is called immediately (the trailing
-`()`) and thus only in one place. Our function is now `@safe`-ready in a way
+`()`) and thus only in one place. Our function is now @safe-ready in a way
 that doesn't compromise `@safe`.
 
 #### Conclusion
 Some of these tricks apply to the other function attributes, `pure`, `nothrow`
 and `@nogc`. They can be applied to functions en masse with the same syntax, and
-templated functions will have these attributes inferred in the same way. Note
-that there is no equivalent of `@trusted` for the other attributes.
+templated functions will have these attributes inferred in the same way as
+`@safe`. Note that there is no equivalent of `@trusted` for the other
+attributes.
 
 If you find your code doesn't work with `@safe`, be very careful about applying
 `@trusted`. Presumably you wanted the benefits of `@safe` to begin with, which
