@@ -121,7 +121,10 @@ guidelines should be followed.
  `@trusted` functions.
  7. In general, do *not* apply `@trusted` to templated functions. See the next
  section for how to handle those.
- 8. Whenever a `@trusted` function is changed, vet it for memory safety in its
+ 8. Comment liberally. More often than not, it is not obvious what the
+    programmer has verified for memory safety. Leave a comment explicitly
+    stating *why* this uncheckable code is still memory safe.
+ 9. Whenever a `@trusted` function is changed, vet it for memory safety in its
     updated form.
 
 Note that both `@safe` and `@trusted` functions don't have to be memory safe
@@ -133,9 +136,7 @@ Templated functions can be conditionally memory safe depending on the template
 arguments used to instantiate the template. That is, some instantiations may be
 memory safe while others may not be. This is quite common; any templated
 function where a template argument can *inject code* is suspectible to this
-situation.
-
-Consider the following code:
+situation. Consider the following code:
 
 ```d
 void foo(T)(T t) {
@@ -156,13 +157,25 @@ Each call to `foo` injects a call to `bar`. We can tell that
 Fortunately, so can the compiler: the former is accepted in `@safe` functions,
 while the latter is rejected. If `foo` was explicitly annotated with `@safe`,
 it would not be callable with `UnsafeStruct` from *any* code because of the call
-to the `@system` `bar`, hence templated functions are more general
-when using attribute inference. Templated functions that can be inferred to be
-`@safe` for some instantiations can be called *@safe-ready*.
+to the `@system` `bar`, hence templated functions are more general when
+attributes are inferred. Templated functions that can be inferred to be `@safe`
+for some instantiations can be called *@safe-ready*. This property can be tested
+with a `@safe` unit test block:
+
+```d
+@safe unittest {
+  foo(SafeStruct()); // Fails to compile if `foo` is not @safe-ready
+}
+```
 
 Attribute inference isn't just for function templates, it's also performed for
 functions nested in function templates, as well as for member functions of
 templated types.
+
+When template arguments do *not* inject code, feel free to explicitly annotate
+templated functions with function attributes. Inference can handle it, but
+explicit attributes show up in generated documentation, and provide
+documentation value for readers of the source code.
 
 Templated functions like the above `foo` *must never be annotated `@trusted`*.
 When such a function cannot be automatically proven memory safe by attribute
@@ -171,8 +184,9 @@ must be taken.
 
 #### `@trusted` and Templated Functions
 Sometimes a templated function has a memory safe interface only for some
-instantiations *and* uses language constructs disallowed in `@safe`, thwarting
-attribute inference:
+instantiations, *and* uses language constructs disallowed in `@safe`, *and* that
+uncheckable code cannot be factored out into a separate function with a memory
+safe interface, thwarting attribute inference:
 
 ```d
 void foo(T)(T t) {
@@ -183,13 +197,16 @@ void foo(T)(T t) {
 
 `foo` is not @safe-ready: All instantiations of `foo` are `@system` regardless
 of `T`. Yet we can tell that the function is memory safe as long as `p.bar()` is
-memory safe. To solve this, we will allow a limited exception to the rules of
-`@trusted` - *`@trusted` nested functions in templated functions do not have to
-have a memory safe interface as long as all calls to the function are memory
-safe*. That's a mouthful, more easily demonstrated with code:
+memory safe. However, the offending expression `&t` cannot be factored out into
+a separate function with a memory safe interface. To solve this, we will allow a
+limited exception to the rules of `@trusted` - *`@trusted` nested functions in
+templated functions do not have to have a memory safe interface as long as all
+calls to the function are memory safe*. That's a mouthful, more easily
+demonstrated with code:
 
 ```d
 void foo(T)(T t) {
+  // We know this is memory safe because `p` is not escaped from this function
   auto p = () @trusted { return &t; } ();
   p.bar();
 }
@@ -209,6 +226,17 @@ could cause memory errors, such as by escaping the returned pointer to a global
 variable. Note that the anonymous function is called immediately (the trailing
 `()`) and thus only in one place. Our function is now @safe-ready in a way
 that doesn't compromise `@safe`.
+
+This approach breaks with the strict guidelines of `@trusted`. This is a
+necessary evil to achieve @safe-ready, but there is little stopping future
+maintainers from using `p` in an unsafe way. When considering this approach,
+please make sure that a `@trusted` component with a memory safe interface is not
+possible, and please leave a comment keeping future maintainers informed of what
+assumptions need to hold for the code to remain memory safe.
+
+Do not use this approach for non-templated functions. Between annotating an
+uncomfortably large swath of code with `@trusted` and breaking the guidelines
+of `@trusted`, the former is the lesser of two evils.
 
 #### Conclusion
 Some of these tricks apply to the other function attributes, `pure`, `nothrow`
