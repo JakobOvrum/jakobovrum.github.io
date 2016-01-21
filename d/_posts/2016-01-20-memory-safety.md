@@ -22,7 +22,7 @@ void main() @safe {
 The `@safe` function attribute signals to the compiler that this function must
 be proven to be memory safe. Applying it to the `main` function is an effective
 way of requiring memory safety of the whole program
-<sup>[*](# "barring the presence of any `@system` module constructors/destructors")</sup>.
+<small>[*](# "barring the presence of any `@system` module constructors/destructors")</small>.
 The memory-unsafe counterpart of `@safe` is `@system`, which is the default.
 
 As D is a systems programming language with many low-level features, `@safe`
@@ -85,7 +85,7 @@ allowing `@safe` code to call `@system` code: `@trusted`.
 Applying `@trusted` to a function signals to the compiler that this function's
 *interface* has been manually verified by a human to be memory safe. That is,
 no possible argument combination
-<sup>[*](# "including implicit arguments such as the state of global variables!")</sup>
+<small>[*](# "including implicit arguments such as the state of global variables!")</small>
 when calling this function from `@safe` code will cause a memory error.
 
 `@trusted` functions have unrestricted access to all language features,
