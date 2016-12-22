@@ -1,4 +1,5 @@
 title: Jakob Øvrum
+site.title: Jakob Øvrum's D blog
 tagline: D programming
 
 destination: ./d/_site
