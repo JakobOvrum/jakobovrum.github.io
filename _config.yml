@@ -15,4 +15,4 @@ feed:
   path: /d/feed.xml
 
 paginate: 5
-paginate_path: "page:num"
+paginate_path: "/d/page:num"
