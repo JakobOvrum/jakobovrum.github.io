@@ -1,5 +1,4 @@
 title: Jakob Øvrum's D blog
-site.title: Jakob Øvrum's D blog
 tagline: D programming
 
 destination: ./d/_site
@@ -13,6 +12,9 @@ gems:
   - jekyll-feed
 baseurl: /d
 url: "https://jakobovrum.github.io/"
+
+feed:
+  path: /d/feed.xml
 
 paginate: 5
 paginate_path: "page:num"
