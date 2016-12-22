@@ -10,8 +10,6 @@ lsi: false
 gems:
   - jekyll-paginate
   - jekyll-feed
-baseurl: /d
-url: "https://jakobovrum.github.io/"
 
 feed:
   path: /d/feed.xml
