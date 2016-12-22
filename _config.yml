@@ -3,15 +3,16 @@ site.title: Jakob Øvrum's D blog
 tagline: D programming
 
 destination: ./d/_site
-safe: true
+safe: false
 permalink: date
-markdown: redcarpet
-highlighter: 'pygments'
+markdown: kramdown
+highlighter: rouge
 lsi: false
 gems:
   - jekyll-paginate
   - jekyll-feed
 baseurl: /d
+url: "https://jakobovrum.github.io/"
 
 paginate: 5
 paginate_path: "page:num"
